@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a862b978d7737d3d1c301d090012576f64a3ddda
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077355"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150737"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -417,3 +417,10 @@ Il circuito esistente continuerà a annunciare i prefissi per Microsoft 365. Se 
 ## <a name="global-reach"></a><a name="globalreach"></a>Copertura globale
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
+
+## <a name="privacy"></a>Privacy
+
+### <a name="does-the-expressroute-service-store-customer-data"></a>Il servizio ExpressRoute archivia i dati dei clienti?
+
+No. 
+

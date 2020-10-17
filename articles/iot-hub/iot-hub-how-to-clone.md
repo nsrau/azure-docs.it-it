@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429161"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151663"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
 
@@ -385,7 +385,7 @@ Il portale esegue ora la convalida del modello e distribuisce l'hub clonato. Se 
 
 Ora che il clone è attivo e in esecuzione, è necessario copiare tutti i dispositivi dall'hub originale al clone. 
 
-A tale scopo, è possibile eseguire diverse procedure. Il [servizio Device provisioning (DPS) è stato](/azure/iot-dps/about-iot-dps)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
+A tale scopo, è possibile eseguire diverse procedure. Il [servizio Device provisioning (DPS) è stato](../iot-dps/about-iot-dps.md)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
 
 Se non è stato usato DPS per eseguire il provisioning dei dispositivi, è possibile ignorare la sezione successiva e iniziare a [usare l'importazione/esportazione per spostare i dispositivi nel nuovo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Per altre informazioni sull'hub e sullo sviluppo per l'hub, vedere gli articoli 
 
 * [Panoramica di gestione dei dispositivi dell'hub Internet](iot-hub-device-management-overview.md)
 
-* Per distribuire l'applicazione di esempio, vedere [distribuzione di applicazioni .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Per distribuire l'applicazione di esempio, vedere [distribuzione di applicazioni .NET Core](/dotnet/core/deploying/index).

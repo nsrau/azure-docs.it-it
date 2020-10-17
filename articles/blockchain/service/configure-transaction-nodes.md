@@ -4,12 +4,12 @@ description: Come configurare i nodi delle transazioni del servizio blockchain d
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530387"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150868"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio blockchain di Azure
 
@@ -37,7 +37,7 @@ Per aggiungere un nodo di transazione:
 
     | Impostazione | Descrizione |
     |---------|-------------|
-    | Nome | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato dopo la creazione. |
+    | Nome | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio, `newnode-myblockchainmember.blockchain.azure.com` Il nome del nodo non può essere modificato dopo la creazione. |
     | Password | Impostare una password complessa. Utilizzare la password per accedere all'endpoint del nodo della transazione con l'autenticazione di base.
 
 1. Selezionare **Crea**.
@@ -75,7 +75,7 @@ Per concedere Azure AD controllo di accesso all'endpoint:
 
 1. Selezionare **Save (Salva** ) per aggiungere l'assegnazione di ruolo.
 
-Per altre informazioni sul controllo di accesso Azure AD, vedere [gestire l'accesso alle risorse di Azure con RBAC e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+Per altre informazioni sul controllo di accesso Azure AD, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Per informazioni dettagliate su come connettersi usando l'autenticazione Azure AD, vedere [connettersi al nodo usando l'autenticazione di AAD](configure-aad.md).
 

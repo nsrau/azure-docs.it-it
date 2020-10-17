@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102728"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150417"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Connessioni di indicizzatore tramite un endpoint privato (Azure ricerca cognitiva)
 
@@ -33,7 +33,7 @@ Tramite l'API REST di gestione, Azure ricerca cognitiva fornisce un'operazione [
 
 È possibile creare connessioni di endpoint privati ad alcune risorse solo con la versione di anteprima dell'API di gestione di ricerca ( `2020-08-01-Preview` o versioni successive), indicata con il tag "Preview" nella tabella seguente. Le risorse senza tag "Preview" possono essere create usando l'anteprima o la versione API disponibile a livello generale ( `2020-08-01` o versioni successive).
 
-Di seguito è riportato l'elenco delle risorse di Azure a cui è possibile creare endpoint privati in uscita da Azure ricerca cognitiva. `groupId` nella tabella seguente è necessario usare esattamente (con distinzione tra maiuscole e minuscole) nell'API per creare una risorsa di collegamento privato condivisa.
+Di seguito è riportato l'elenco delle risorse di Azure a cui è possibile creare endpoint privati in uscita da Azure ricerca cognitiva. I `groupId` valori elencati nella tabella seguente devono essere usati esattamente come scritti (con distinzione tra maiuscole e minuscole) nell'API per creare una risorsa di collegamento privato condivisa.
 
 | Risorsa di Azure | ID gruppo |
 | --- | --- |
@@ -47,7 +47,7 @@ Di seguito è riportato l'elenco delle risorse di Azure a cui è possibile crear
 
 È anche possibile eseguire una query sull'elenco delle risorse di Azure per cui sono supportate le connessioni agli endpoint privati in uscita usando l' [API di elenco supportata](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-In questo articolo viene usata una combinazione di [ARMClient](https://github.com/projectkudu/ARMClient) e [post](https://www.postman.com/) per illustrare le chiamate all'API REST.
+Nella parte restante di questo articolo viene usata una combinazione di [ARMClient](https://github.com/projectkudu/ARMClient) e [postazione](https://www.postman.com/) per illustrare le chiamate all'API REST.
 
 > [!NOTE]
 > In questo articolo si presuppone che il nome del servizio di ricerca sia __Contoso-Search__ esistente nel gruppo di risorse __Contoso__ di una sottoscrizione con ID sottoscrizione __00000000-0000-0000-0000-000000000000__. L'ID risorsa di questo servizio di ricerca sarà `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

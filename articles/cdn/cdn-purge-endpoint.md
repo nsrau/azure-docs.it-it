@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192531"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148988"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Ripulire un endpoint della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -69,7 +69,7 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
     ![Pulsante di eliminazione](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> La ripulitura delle richieste richiede circa 10 minuti per l'elaborazione con la rete **CDN di Azure di Microsoft**, circa 2 minuti con la rete **CDN di Azure di Verizon** (standard e Premium) e circa 10 secondi con la rete **CDN di Azure di Akamai**.  La rete CDN di Azure ha un limite di 50 richieste di eliminazione simultanee in qualsiasi momento a livello del profilo. 
+> La ripulitura delle richieste richiede circa 10 minuti per l'elaborazione con la rete **CDN di Azure di Microsoft**, circa 2 minuti con la rete **CDN di Azure di Verizon** (standard e Premium) e circa 10 secondi con la rete **CDN di Azure di Akamai**.  La rete CDN di Azure ha un limite di 100 richieste di ripulitura simultanee in un determinato momento a livello di profilo. 
 > 
 > 
 

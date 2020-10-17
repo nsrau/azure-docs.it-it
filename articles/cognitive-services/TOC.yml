@@ -13,7 +13,7 @@
       href: cognitive-services-custom-subdomains.md
     - name: Lingue supportate
       href: language-support.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare una nuova risorsa con il portale di Azure
       href: cognitive-services-apis-create-account.md
@@ -89,6 +89,8 @@
       href: ./policy-reference.md
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: cognitive-services-support-options.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Prezzi
@@ -97,8 +99,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Opzioni di supporto tecnico e assistenza
-      href: cognitive-services-support-options.md
     - name: Contratto di servizio (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: Video

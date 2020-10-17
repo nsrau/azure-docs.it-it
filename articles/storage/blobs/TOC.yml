@@ -13,7 +13,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Usare i BLOB
           items:
@@ -652,7 +652,7 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: data-lake-storage-quickstart-create-databricks-account.md
@@ -686,11 +686,10 @@
           items:
             - name: Suggerimenti per la sicurezza
               href: security-recommendations.md
-            - name: Controllo di accesso (directory e file)
+            - name: Modello di controllo di accesso
+              href: data-lake-storage-access-control-model.md
+            - name: Elenchi di controllo di accesso
               href: data-lake-storage-access-control.md
-            - name: Controlli di sicurezza in base a Criteri di Azure
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
         - name: Compatibilità
           items:
             - name: Accesso multi-protocollo

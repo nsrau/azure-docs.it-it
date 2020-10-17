@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613901"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149081"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -228,7 +228,7 @@ A questo punto, il bus di servizio personalizzato è impostato per l'uso dell'id
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Connettività in uscita verso gli account di archiviazione per il caricamento dei file
 
-La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/create-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso all'account di archiviazione.
+La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/tutorial-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso all'account di archiviazione.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -256,7 +256,7 @@ Questa funzionalità richiede la connettività dall'hub IoT all'account di archi
 
 3. Passare alla scheda **Firewall e reti virtuali** dell'account di archiviazione e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 
-Ora è possibile usare le API REST di IoT di Azure per [creare processi di esportazione e importazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) per informazioni su come usare la funzionalità di importazione/esportazione in blocco. È necessario fornire il `storageAuthenticationType="identityBased"` nel corpo della richiesta e usare rispettivamente `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` come URL di input e output per l'account di archiviazione.
+Ora è possibile usare le API REST di IoT di Azure per [creare processi di esportazione e importazione](/rest/api/iothub/service/jobs/getimportexportjobs) per informazioni su come usare la funzionalità di importazione/esportazione in blocco. È necessario fornire il `storageAuthenticationType="identityBased"` nel corpo della richiesta e usare rispettivamente `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` come URL di input e output per l'account di archiviazione.
 
 Gli SDK dell'hub IoT di Azure supportano questa funzionalità anche nel gestore del Registro di sistema del client del servizio. Il frammento di codice seguente mostra come avviare un processo di importazione o esportazione usando l'SDK C#.
 
@@ -299,4 +299,4 @@ Consultare i collegamenti seguenti per altre informazioni sulle funzionalità de
 
 * [Routing dei messaggi](./iot-hub-devguide-messages-d2c.md)
 * [Caricamento file](./iot-hub-devguide-file-upload.md)
-* [Importazione/esportazione in blocco dei dispositivi](./iot-hub-bulk-identity-mgmt.md) 
+* [Importazione/esportazione in blocco dei dispositivi](./iot-hub-bulk-identity-mgmt.md)

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: 2c5ce219e40117a2b656b7acab6dd68a1d20dffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251933"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151432"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Pianificare e trasmettere processi (Node.js)
 
@@ -300,4 +300,4 @@ In questa esercitazione è stato usato un processo per pianificare un metodo dir
 
 Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware aereo, vedere [esercitazione: come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
 
-Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzione a IoT Edge di Azure](../iot-edge/tutorial-simulate-device-linux.md).
+Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzione a IoT Edge di Azure](../iot-edge/quickstart-linux.md).

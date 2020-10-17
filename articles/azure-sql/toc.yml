@@ -648,7 +648,7 @@
         - name: Domande frequenti
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       href: managed-instance/quickstart-content-reference-guide.md
       items:
         - name: Creare un'istanza gestita di SQL
@@ -722,7 +722,7 @@
               href: managed-instance/machine-learning-services-overview.md
             - name: Differenze principali
               href: managed-instance/machine-learning-services-differences.md
-            - name: Avvi rapidi
+            - name: Avvii rapidi
               items:
                 - name: Python
                   items:
@@ -864,6 +864,24 @@
                           href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Suggerimenti per l'uso di pacchetti R
                           href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                - name: Amministrazione
+                  items:
+                    - name: Monitorare
+                      items:
+                        - name: Monitorare con i report SSMS
+                          href: 'https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                        - name: Monitorare l'uso di DMV
+                          href: 'https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                        - name: Eventi estesi
+                          items:
+                            - name: Eseguire il monitoraggio usando gli eventi estesi
+                              href: 'https://docs.microsoft.com/sql/machine-learning/administration/extended-events?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                            - name: Eseguire il monitoraggio di PREDICT T-SQL
+                              href: 'https://docs.microsoft.com/sql/machine-learning/administration/extended-events-predict-tsql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                - name: Sicurezza
+                  items:
+                    - name: Concedere autorizzazioni agli utenti
+                      href: 'https://docs.microsoft.com/sql/machine-learning/security/user-permission?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
         - name: Funzionalità
           items:
             - name: Server collegati
@@ -940,7 +958,7 @@
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
             - name: Novità
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Portale
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
@@ -1121,7 +1139,7 @@
           items:
             - name: Informazioni sulle VM di SQL Server Linux
               href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Creare una macchina virtuale SQL - Portale
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md

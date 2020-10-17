@@ -3,12 +3,12 @@ title: Crittografare un account di archiviazione di Azure usato da un Lab in Azu
 description: Informazioni su come configurare la crittografia di una risorsa di archiviazione di Azure usata da un Lab in Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433563"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149308"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Crittografare l'archiviazione di Azure usata da un Lab in Azure DevTest Labs
 Ogni Lab creato in Azure DevTest Labs viene creato con un account di archiviazione di Azure associato. L'account di archiviazione viene usato per gli scopi seguenti: 
@@ -36,13 +36,13 @@ Ogni Lab creato in Azure DevTest Labs viene creato con un account di archiviazio
 ## <a name="encrypt-the-lab-storage-account"></a>Crittografare l'account di archiviazione Lab
 Archiviazione di Azure crittografa automaticamente i dati quando vengono salvati in modo permanente nel cloud. La crittografia di archiviazione di Azure protegge i tuoi dati e ti aiuta a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per altre informazioni, vedere [Crittografia di Archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
 
-I dati nell'account di archiviazione Lab vengono crittografati con una **chiave gestita da Microsoft**. È possibile utilizzare chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi per l'account di archiviazione del Lab, è possibile specificare una **chiave gestita dal cliente** con Azure Key Vault da usare per crittografare/decrittografare i dati nell'archivio BLOB e in file di Azure. Per altre informazioni sulle chiavi gestite dal cliente, vedere [usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](../storage/common/encryption-customer-managed-keys.md).
+I dati nell'account di archiviazione Lab vengono crittografati con una **chiave gestita da Microsoft**. È possibile utilizzare chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi per l'account di archiviazione del Lab, è possibile specificare una **chiave gestita dal cliente** con Azure Key Vault da usare per crittografare/decrittografare i dati nell'archivio BLOB e in file di Azure. Per altre informazioni sulle chiavi gestite dal cliente, vedere [usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](../storage/common/customer-managed-keys-overview.md).
 
 Per informazioni su come configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure, vedere gli articoli seguenti: 
 
-- [Azure portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Interfaccia della riga di comando di Azure](../storage/common/storage-encryption-keys-cli.md)
+- [Azure portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Interfaccia della riga di comando di Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## <a name="manage-the-azure-blob-storage-life-cycle"></a>Gestire il ciclo di vita dell'archiviazione BLOB di Azure
@@ -101,8 +101,6 @@ La regola seguente, ad esempio, viene usata per impostare una regola di scadenza
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure, vedere gli articoli seguenti: 
 
-- [Azure portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Interfaccia della riga di comando di Azure](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Azure portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Interfaccia della riga di comando di Azure](../storage/common/customer-managed-keys-configure-key-vault.md)

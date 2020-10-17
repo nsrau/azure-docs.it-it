@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761533"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151372"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni in Condivisione dati di Azure 
 
@@ -61,12 +61,20 @@ Se è la prima volta che si condividono o si ricevono dati dall'archivio dati di
 Per la condivisione basata su SQL sono necessarie autorizzazioni aggiuntive. Per un elenco dettagliato dei prerequisiti, vedere [condividere da origini SQL](how-to-share-from-sql.md) .
 
 ## <a name="snapshot-failed"></a>Snapshot non riuscito
-Lo snapshot potrebbe non riuscire a causa di diversi motivi. È possibile trovare un messaggio di errore dettagliato facendo clic sull'ora di inizio dello snapshot e quindi sullo stato di ogni set di dati. Di seguito sono riportati i motivi per cui lo snapshot non riesce:
+Lo snapshot potrebbe non riuscire a causa di diversi motivi. È possibile trovare un messaggio di errore dettagliato facendo clic sull'ora di inizio dello snapshot e quindi sullo stato di ogni set di dati. Di seguito sono riportati i motivi comuni per cui lo snapshot non riesce:
 
 * La condivisione dati non è autorizzata a leggere dall'archivio dati di origine o a scrivere nell'archivio dati di destinazione. Per informazioni dettagliate sui requisiti di autorizzazione, vedere [ruoli e requisiti](concepts-roles-permissions.md) . Se è la prima volta che si acquisisce uno snapshot, potrebbero essere necessari alcuni minuti prima che alla risorsa di condivisione dati venga concesso l'accesso all'archivio dati di Azure. Attendere alcuni minuti e riprovare.
 * La connessione della condivisione dati all'archivio dati di origine o di destinazione è bloccata dal firewall.
 * Il set di dati condiviso o l'archivio dati di origine o di destinazione viene eliminato.
-* Per la condivisione SQL, i tipi di dati non sono supportati dal processo snapshot o dall'archivio dati di destinazione. Per informazioni dettagliate, fare riferimento alla [condivisione da origini SQL](how-to-share-from-sql.md#supported-data-types) .
+
+Per le origini SQL, di seguito sono riportate altre cause degli errori di snapshot. 
+
+* Lo script SQL di origine o di destinazione per concedere l'autorizzazione per la condivisione dati non viene eseguito o viene eseguito utilizzando l'autenticazione SQL anziché l'autenticazione Azure Active Directory.  
+* L'archivio dati SQL di origine o di destinazione è sospeso.
+* I tipi di dati SQL non sono supportati dal processo snapshot o dall'archivio dati di destinazione. Per informazioni dettagliate, fare riferimento alla [condivisione da origini SQL](how-to-share-from-sql.md#supported-data-types) .
+* L'archivio dati SQL di origine o di destinazione è bloccato da altri processi. La condivisione di dati di Azure non applica blocchi all'archivio dati SQL di origine e di destinazione. Tuttavia, i blocchi esistenti nell'archivio dati SQL di origine e di destinazione provocheranno un errore di snapshot.
+* Un vincolo FOREIGN KEY fa riferimento alla tabella SQL di destinazione. Durante lo snapshot, se esiste una tabella di destinazione con lo stesso nome, la condivisione di dati di Azure Elimina la tabella e crea una nuova tabella. Se un vincolo FOREIGN KEY fa riferimento alla tabella SQL di destinazione, la tabella non può essere eliminata.
+* Viene generato un file CSV di destinazione, ma non è possibile leggere i dati in Excel. Questo problema può verificarsi quando la tabella SQL di origine contiene dati con caratteri non inglesi. In Excel selezionare la scheda "Get data" e scegliere il file CSV, selezionare origine file come 65001: Unicode (UTF-8) e caricare i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962163"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150321"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue il livello del piano di servizio app **standard**, **Premium**o **isolated** . Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
+Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](./overview.md), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue il livello del piano di servizio app **standard**, **Premium**o **isolated** . Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
 
 La distribuzione dell'applicazione in uno slot non di produzione presenta i seguenti vantaggi:
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736286"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151444"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
 
@@ -39,7 +39,7 @@ I metadati strutturali sono metadati estratti da un'origine dati che descrive la
 
 ## <a name="descriptive-metadata"></a>Metadati descrittivi
 
-I metadati descrittivi sono metadati che descrivono lo scopo o l'intenzione di un asset di dati. In genere i metadati descrittivi vengono aggiunti dagli utenti del catalogo tramite il portale del Catalogo dati di Azure, ma possono anche essere estratti durante la registrazione dell'origine dati. Il tool di registrazione di Azure Data Catalog, ad esempio, estrae le descrizioni dalla proprietà Description in SQL Server Analysis Services e SQL Server Reporting Services e dalla [proprietà estesa ms_description](https://technet.microsoft.com/library/ms190243.aspx) nei database di SQL Server, se queste proprietà sono popolate con valori.
+I metadati descrittivi sono metadati che descrivono lo scopo o l'intenzione di un asset di dati. In genere i metadati descrittivi vengono aggiunti dagli utenti del catalogo tramite il portale del Catalogo dati di Azure, ma possono anche essere estratti durante la registrazione dell'origine dati. Il tool di registrazione di Azure Data Catalog, ad esempio, estrae le descrizioni dalla proprietà Description in SQL Server Analysis Services e SQL Server Reporting Services e dalla [proprietà estesa ms_description](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) nei database di SQL Server, se queste proprietà sono popolate con valori.
 
 ## <a name="request-access"></a>Richiedere l'accesso
 
@@ -86,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md) 
+[Guida introduttiva: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md)

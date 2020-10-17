@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022021"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139325"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoraggio delle operazioni dell’hub IoT (deprecata)
 
@@ -191,7 +191,7 @@ La categoria del routing dei messaggi tiene traccia degli errori che si verifica
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Connettersi all'endpoint di monitoraggio
 
-L'endpoint di monitoraggio sull'hub IoT è un endpoint compatibile con Hub eventi. Per leggere i messaggi di monitoraggio da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi. L'esempio seguente crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) .
+L'endpoint di monitoraggio sull'hub IoT è un endpoint compatibile con Hub eventi. Per leggere i messaggi di monitoraggio da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi. L'esempio seguente crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) .
 
 Per connettersi all'endpoint di monitoraggio, è necessaria una stringa di connessione e il nome dell'endpoint. La procedura seguente mostra come trovare i valori necessari nel portale:
 
@@ -271,4 +271,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
 
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)

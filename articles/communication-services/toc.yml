@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Notifiche
       href: concepts/notifications.md
+    - name: Registrazione e diagnostica
+      href: concepts/logging-and-diagnostics.md
+    - name: Metriche
+      href: concepts/metrics.md
 - name: Esempi
   items:
     - name: Esempio hero di chiamata di gruppo

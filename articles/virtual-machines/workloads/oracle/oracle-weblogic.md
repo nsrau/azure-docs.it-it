@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: c19d6d2513d1bf266d10e90dfb1d6fe79c9410d1
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 32f5ae0e06c38f610ae9751d81b7bf77a0ebc050
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993454"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149294"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
-Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (WLS) in macchine virtuali di Azure. Queste soluzioni sono sviluppate congiuntamente da Oracle e Microsoft.
+Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (WLS) in macchine virtuali di Azure. Queste soluzioni sono sviluppate e supportate congiuntamente da Oracle e Microsoft.
 
 WLS è un server applicazioni Java leader che esegue alcune delle applicazioni Java aziendali più cruciali in tutto il mondo. WLS costituisce la base middleware per Oracle software suite. Oracle e Microsoft si impegnano per consentire ai clienti di WLS la scelta e la flessibilità di eseguire carichi di lavoro in Azure come piattaforma cloud leader.
 
@@ -24,29 +24,29 @@ Le soluzioni WLS di Azure hanno lo scopo di semplificare il più possibile il tr
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
 
-Sono disponibili quattro offerte per soddisfare diversi scenari, ovvero un singolo nodo senza un server di amministrazione, un singolo nodo con un server di amministrazione, un cluster e un cluster dinamico. Le offerte sono disponibili gratuitamente. Queste offerte sono descritte e collegate di seguito.
+Sono disponibili quattro offerte per soddisfare diversi scenari, ovvero [un singolo nodo senza un server di amministrazione](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls), un [singolo nodo con un server di amministrazione, un](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin) [cluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)e un [cluster dinamico](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster). Le offerte sono disponibili gratuitamente. Queste offerte sono descritte e collegate di seguito.
 
 _Le offerte si basano sul modello Bring Your Own License_. Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
 
 Le offerte supportano una gamma di versioni del sistema operativo, Java e WLS tramite immagini di base, ad esempio WebLogic Server 14 e JDK 11 in Oracle Linux 7,6). Queste immagini di base sono disponibili anche in Azure autonomamente. Le immagini di base sono adatte per i clienti che necessitano di distribuzioni di Azure complesse e personalizzate. Il set corrente di immagini di base è disponibile [qui](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
-_Se si è interessati a lavorare a stretto contatto con gli scenari di migrazione con il team di progettazione che sviluppa queste offerte, selezionare il pulsante [Contatta](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) l'utente_ nella [pagina Panoramica dell'offerta del Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). I responsabili del programma, gli architetti e i tecnici ti contatteranno a breve e inizieranno a collaborare in stretta collaborazione. La possibilità di collaborare in uno scenario di migrazione è gratuita mentre le offerte sono in fase di sviluppo attivo.
+_Se si è interessati a lavorare a stretto contatto con gli scenari di migrazione con il team di progettazione che sviluppa queste offerte, selezionare il pulsante [Contatta](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) l'utente_ nella [pagina Panoramica dell'offerta del Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). I responsabili del programma, gli architetti e i tecnici ti contatteranno a breve e inizieranno a collaborare in stretta collaborazione. La possibilità di collaborare in uno scenario di migrazione è gratuita mentre le offerte sono in fase di sviluppo iniziale attivo.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Oracle WebLogic Server a nodo singolo
 
-Questa offerta esegue il provisioning di una singola macchina virtuale e ne installa WLS. Non crea un dominio o avvia il server di amministrazione. L'offerta a nodo singolo è utile per scenari con configurazione di dominio altamente personalizzata.
+[Questa offerta](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls) esegue il provisioning di una singola macchina virtuale e ne installa WLS. Non crea un dominio o avvia il server di amministrazione. L'offerta a nodo singolo è utile per scenari con configurazione di dominio altamente personalizzata.
 
 ## <a name="oracle-weblogic-server-with-admin-server"></a>Oracle WebLogic Server con server di amministrazione
 
-Questa offerta esegue il provisioning di una singola macchina virtuale e ne installa WLS. Viene creato un dominio e viene avviato il server di amministrazione. È possibile gestire il dominio e iniziare subito le distribuzioni dell'applicazione.
+[Questa offerta](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin) esegue il provisioning di una singola macchina virtuale e ne installa WLS. Viene creato un dominio e viene avviato il server di amministrazione. È possibile gestire il dominio e iniziare subito le distribuzioni dell'applicazione.
 
 ## <a name="oracle-weblogic-server-cluster"></a>Cluster di Oracle WebLogic Server
 
-Questa offerta crea un cluster a disponibilità elevata di macchine virtuali WLS. Il server di amministrazione e tutti i server gestiti vengono avviati per impostazione predefinita. È possibile gestire il cluster e iniziare subito a usare le applicazioni a disponibilità elevata.
+[Questa offerta](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster) crea un cluster a disponibilità elevata di macchine virtuali WLS. Il server di amministrazione e tutti i server gestiti vengono avviati per impostazione predefinita. È possibile gestire il cluster e iniziare subito a usare le applicazioni a disponibilità elevata.
 
 ## <a name="oracle-weblogic-server-dynamic-cluster"></a>Cluster dinamico di Oracle WebLogic Server
 
-Questa offerta crea un cluster dinamico scalabile e a disponibilità elevata di macchine virtuali WLS. Il server di amministrazione e tutti i server gestiti vengono avviati per impostazione predefinita.
+[Questa offerta](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster) crea un cluster dinamico scalabile e a disponibilità elevata di macchine virtuali WLS. Il server di amministrazione e tutti i server gestiti vengono avviati per impostazione predefinita.
 
 Le soluzioni consentiranno un'ampia gamma di architetture di distribuzione pronte per la produzione con la relativa facilità. È possibile soddisfare la maggior parte dei casi di migrazione nel modo più produttivo possibile consentendo di concentrarsi sullo sviluppo di applicazioni aziendali.
 

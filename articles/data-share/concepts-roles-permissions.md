@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 10/02/2020
-ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: ac528d1cfb74221a7398e390cedda08df4ea4508
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151405"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -54,16 +54,18 @@ Questa operazione viene eseguita automaticamente dal servizio Condivisione dati 
 
 In alternativa, l'utente può avere il proprietario dell'archivio dati di Azure aggiungere manualmente l'identità gestita della risorsa di condivisione dati all'archivio dati di Azure. Questa azione deve essere eseguita una sola volta per ogni risorsa di condivisione dati.
 
-Per creare un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura:
+Per creare manualmente un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura.  
 
 1. Passare all'archivio dati di Azure.
 1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
-Per le origini basate su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere i dati](share-your-data.md) . 
+Per altre informazioni sull'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Se si condividono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [Aggiungi o Rimuovi assegnazioni di ruolo di Azure usando l'API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+
+Per le origini basate su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure durante la connessione al database SQL tramite l'autenticazione Azure Active Directory. A questo utente deve essere concessa l'autorizzazione *db_datareader* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere da database SQL di Azure o da analisi di sinapsi](how-to-share-from-sql.md) . 
 
 ### <a name="data-consumer"></a>Consumer di dati
 Per ricevere dati, l'identità gestita della risorsa di condivisione dati del consumer deve essere concessa all'archivio dati di Azure di destinazione. Ad esempio, nel caso dell'account di archiviazione, all'identità gestita della risorsa di condivisione dati viene concesso il ruolo di collaboratore dati BLOB di archiviazione. 
@@ -72,20 +74,18 @@ Questa operazione viene eseguita automaticamente dal servizio Condivisione dati 
 
 In alternativa, l'utente può avere il proprietario dell'archivio dati di Azure aggiungere manualmente l'identità gestita della risorsa di condivisione dati all'archivio dati di Azure. Questa azione deve essere eseguita una sola volta per ogni risorsa di condivisione dati.
 
-Per creare manualmente un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura:
+Per creare manualmente un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura. 
 
 1. Passare all'archivio dati di Azure.
 1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
-Per la destinazione basata su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader, db_datawriter db_ddladmin* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [accettare e ricevere dati](subscribe-to-data-share.md) . 
+Per altre informazioni sull'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Se si ricevono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [Aggiungi o Rimuovi assegnazioni di ruolo di Azure usando l'API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
 
-Se si condividono dati usando le API REST, è necessario creare manualmente queste assegnazioni di ruolo. 
-
-Per ulteriori informazioni su come aggiungere un'assegnazione di ruolo, fare riferimento a [questa documentazione](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
+Per la destinazione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure durante la connessione al database SQL tramite l'autenticazione Azure Active Directory. A questo utente deve essere concessa l'autorizzazione *db_datareader, db_datawriter db_ddladmin* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere da database SQL di Azure o da analisi di sinapsi](how-to-share-from-sql.md) . 
 
 ## <a name="resource-provider-registration"></a>Registrazione del provider di risorse 
 
@@ -102,6 +102,8 @@ Seguire questa procedura per registrare il provider di risorse Microsoft. DataSh
 1. Fare clic su **provider di risorse**.
 1. Cercare Microsoft. DataShare.
 1. Fare clic su **Registra**.
+ 
+Per altre informazioni sul provider di risorse, vedere [provider e tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

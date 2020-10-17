@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d7b94da2f922e7dba8c165dcf9d1e906855f6dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294241"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151226"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -48,7 +48,7 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 * Un account creato in [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [ASP.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configurato](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell configurato](../cloud-shell/quickstart.md)
 * Scaricare o clonare il repository GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Creare un'app OAuth
@@ -388,7 +388,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
 ## <a name="deploy-the-app-to-azure"></a>Distribuire l'app in Azure
 
-In questa sezione si userà l'interfaccia della riga di comando di Azure da Azure Cloud Shell per creare una nuova app Web nel [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) e ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
+In questa sezione si userà l'interfaccia della riga di comando di Azure da Azure Cloud Shell per creare una nuova app Web nel [Servizio app di Azure](../app-service/index.yml) e ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
 
 I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure:
 

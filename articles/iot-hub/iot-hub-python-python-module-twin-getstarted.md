@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
-ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872566"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139407"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
 
@@ -270,4 +270,4 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 * [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md)
 
-* [Introduzione a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introduzione a IoT Edge](../iot-edge/quickstart-linux.md)

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883092"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151639"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Sviluppare per dispositivi mobili tramite Azure IoT SDK
 
-Gli elementi di Internet delle cose possono comprendere un'ampia gamma di dispositivi con funzionalità diverse: sensori, microcontroller, Smart Device, gateway industriali e persino dispositivi mobili.  Un dispositivo mobile può essere un dispositivo IoT, a cui si inviano i dati di telemetria da dispositivo a cloud ed è gestito dal cloud.  Può anche essere il dispositivo che esegue un'applicazione di servizio backend, che gestisce altri dispositivi IoT.  In entrambi i casi gli [SDK per l'hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) possono essere usati per sviluppare le applicazioni che funzionano sui dispositivi mobili.  
+Gli elementi di Internet delle cose possono comprendere un'ampia gamma di dispositivi con funzionalità diverse: sensori, microcontroller, Smart Device, gateway industriali e persino dispositivi mobili.  Un dispositivo mobile può essere un dispositivo IoT, a cui si inviano i dati di telemetria da dispositivo a cloud ed è gestito dal cloud.  Può anche essere il dispositivo che esegue un'applicazione di servizio backend, che gestisce altri dispositivi IoT.  In entrambi i casi gli [SDK per l'hub IoT di Azure](./iot-hub-devguide-sdks.md) possono essere usati per sviluppare le applicazioni che funzionano sui dispositivi mobili.  
 
 ## <a name="develop-for-native-ios-platform"></a>Sviluppare per la piattaforma iOS nativa
 
@@ -52,5 +52,5 @@ Questi documenti illustrano dettagliatamente come sviluppare un'applicazione per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Riferimento all'API REST dell'hub Internet](https://docs.microsoft.com/rest/api/iothub/)
+* [Riferimento all'API REST dell'hub Internet](/rest/api/iothub/)
 * [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c)

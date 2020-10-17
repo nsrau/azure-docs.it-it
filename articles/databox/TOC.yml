@@ -1,5 +1,5 @@
 - name: Documentazione di Azure Data Box - Trasferimento offline
-  href: /azure/databox
+  href: ./index.yml
   items:
     - name: Data Box
       items:
@@ -7,7 +7,7 @@
           items:
             - name: Informazioni su Data Box
               href: data-box-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -103,7 +103,7 @@
             - name: Migrazione
               items:
                 - name: A SharePoint Online
-                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                  href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%252fazure%252fdatabox%252fcontext%252fcontext
                 - name: A Sincronizzazione file di Azure
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Da archivio HDFS
@@ -122,7 +122,7 @@
           items:
             - name: Informazioni su Data Box Disk
               href: data-box-disk-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -173,7 +173,7 @@
           items:
             - name: Informazioni su Data Box Heavy
               href: data-box-heavy-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Configurazione - Portale di Azure
               href: data-box-heavy-quickstart-portal.md

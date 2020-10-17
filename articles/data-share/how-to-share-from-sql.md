@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761924"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150373"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati d
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
-    1. Fare clic su **Save**. 
+    1. Fare clic su **Salva**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -169,7 +169,7 @@ Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytic
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
-    1. Fare clic su **Save**. 
+    1. Fare clic su **Salva**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -264,9 +264,9 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| text |String, Char[] |
+| testo |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
@@ -277,7 +277,23 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 > 1. Per i tipi di dati che vengono mappati al tipo provvisorio decimale, attualmente lo snapshot supporta la precisione fino a 28. Se sono presenti dati che richiedono precisione maggiore di 28, provare a eseguire la conversione in una stringa. 
 > 1.  Se si condividono dati dal database SQL di Azure ad Azure sinapsi Analytics, non tutti i tipi di dati sono supportati. Per informazioni dettagliate, fare riferimento ai [tipi di dati della tabella nel pool SQL sinapsi](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>Always Encrypted SQL o Dynamic Data Masking
+Attualmente, la condivisione di dati di Azure non supporta i database SQL di Azure con Always Encrypted configurata. 
+
+Per le tabelle SQL di origine con maschera dati dinamica, i dati verranno visualizzati in maschera sul lato del destinatario.
+
+## <a name="sql-snapshot-performance"></a>Prestazioni snapshot SQL
+Le prestazioni degli snapshot SQL sono influenzate da diversi fattori. È sempre consigliabile eseguire il test delle prestazioni. Di seguito sono riportati alcuni fattori di esempio che influiscono sulle prestazioni.
+
+* Configurazione hardware (ad esempio, Vcore, Memory, DWU) dell'archivio dati SQL di origine e di destinazione. 
+* Accesso simultaneo agli archivi dati di origine e di destinazione. Se si condividono più tabelle e viste dallo stesso archivio dati SQL o si ricevono più tabelle e viste nello stesso archivio dati SQL, le prestazioni saranno compromesse.   
+* Percorso degli archivi dati di origine e di destinazione. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Risolvere gli errori di snapshot SQL
+La causa più comune dell'errore di snapshot è che la condivisione dati non dispone dell'autorizzazione per l'archivio dati di origine o di destinazione. Per concedere l'autorizzazione di condivisione dati all'archivio dati SQL di origine o di destinazione, è necessario eseguire lo script SQL specificato quando ci si connette al database SQL tramite l'autenticazione Azure Active Directory. Per risolvere un errore aggiuntivo di snapshot SQL, vedere [risolvere i problemi relativi agli errori snapshot](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Si è appreso come condividere e ricevere dati dall'account di archiviazione usando il servizio di condivisione dati di Azure. Per ulteriori informazioni sulla condivisione da altre origini dati, continuare con gli [archivi dati supportati](supported-data-stores.md).
+Si è appreso come condividere e ricevere dati da origini SQL usando il servizio di condivisione dati di Azure. Per ulteriori informazioni sulla condivisione da altre origini dati, continuare con gli [archivi dati supportati](supported-data-stores.md).
+
+
 
