@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514238"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143249"
 ---
 # <a name="upstream-settings"></a>Impostazioni upstream
 
@@ -88,7 +88,7 @@ Quando si seleziona `ManagedIdentity` , è necessario abilitare in anticipo un'i
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Crea impostazioni upstream tramite Gestione risorse modello
 
-Per creare le impostazioni upstream usando un [modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), impostare la `upstream` proprietà nella `properties` Proprietà. Il frammento di codice seguente mostra come impostare la `upstream` proprietà per la creazione e l'aggiornamento delle impostazioni upstream.
+Per creare le impostazioni upstream usando un [modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md), impostare la `upstream` proprietà nella `properties` Proprietà. Il frammento di codice seguente mostra come impostare la `upstream` proprietà per la creazione e l'aggiornamento delle impostazioni upstream.
 
 ```JSON
 {

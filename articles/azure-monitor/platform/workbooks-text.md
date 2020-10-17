@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 7241777c0b94ce7ccadbd273c5c305c679bfe30a
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0ac4c348b776cee2356f77424698b078947f4ad3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932312"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143564"
 ---
 # <a name="workbook-text-parameters"></a>Parametri di testo cartella di lavoro
 
@@ -85,5 +85,5 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* Per [iniziare ad](./workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

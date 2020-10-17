@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003865"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142821"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare in blocco le identità dei dispositivi dell'hub IoT
 
@@ -27,7 +27,7 @@ Le operazioni di importazione ed esportazione vengono eseguite nel contesto di *
 
 La classe **RegistryManager** include i metodi **ExportDevicesAsync** e **ImportDevicesAsync** che usano il framework di **processi**. Questi metodi consentono di esportare, importare e sincronizzare un intero registro delle identità dell'hub IoT.
 
-Questo argomento illustra l'uso della classe **RegistryManager** e del sistema di **processi** per eseguire importazioni ed esportazioni bulk di dispositivi da e verso il registro delle identità di un hub. Inoltre, è possibile utilizzare il servizio Device Provisioning dell'hub IoT di Azure per abilitare il provisioning automatico JIT per uno o più hub IoT senza la necessità dell'intervento umano. Per altre informazioni, vedere la [documentazione di servizio per il provisioning](/azure/iot-dps).
+Questo argomento illustra l'uso della classe **RegistryManager** e del sistema di **processi** per eseguire importazioni ed esportazioni bulk di dispositivi da e verso il registro delle identità di un hub. Inoltre, è possibile utilizzare il servizio Device Provisioning dell'hub IoT di Azure per abilitare il provisioning automatico JIT per uno o più hub IoT senza la necessità dell'intervento umano. Per altre informazioni, vedere la [documentazione di servizio per il provisioning](../iot-dps/index.yml).
 
 ## <a name="what-are-jobs"></a>Informazioni sui processi
 
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Recuperare l'URI di firma di accesso condiviso del contenitore
 
-Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
+Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/common/storage-sas-overview.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Per altre informazioni sulla gestione dell'hub Azure, vedere gli articoli seguen
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 
 
-* [Servizio Device Provisioning in hub IoT di Azure](/azure/iot-dps)
+* [Servizio Device Provisioning in hub IoT di Azure](../iot-dps/index.yml)

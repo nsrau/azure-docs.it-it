@@ -11,12 +11,12 @@ ms.author: menchi
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733448"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142919"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (C)
 
@@ -391,4 +391,4 @@ int main(void)
 Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
 
 * [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md)
-* [Introduzione a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introduzione a IoT Edge](../iot-edge/quickstart-linux.md)

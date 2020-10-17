@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921093"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143856"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 
@@ -35,7 +35,7 @@ In questa architettura l'area di lavoro viene distribuita nel tenant del cliente
 
 Ci sono due modi in cui gli amministratori del provider di servizi possono accedere a un'area di lavoro Log Analytics in un tenant del cliente:
 
-- Un cliente può aggiungere singoli utenti dal provider di servizi come [Azure Active Directory utenti Guest (B2B)](../../active-directory/b2b/what-is-b2b.md). Gli amministratori del provider di servizi dovranno accedere alla directory di ogni cliente nel portale di Azure per poter accedere a queste aree di lavoro. Questa operazione richiede inoltre ai clienti di gestire l'accesso singolo per ogni amministratore del provider di servizi.
+- Un cliente può aggiungere singoli utenti dal provider di servizi come [Azure Active Directory utenti Guest (B2B)](../../active-directory/external-identities/what-is-b2b.md). Gli amministratori del provider di servizi dovranno accedere alla directory di ogni cliente nel portale di Azure per poter accedere a queste aree di lavoro. Questa operazione richiede inoltre ai clienti di gestire l'accesso singolo per ogni amministratore del provider di servizi.
 - Per una maggiore scalabilità e flessibilità, i provider di servizi possono usare la funzionalità di [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) di [Azure Lighthouse](../../lighthouse/overview.md) per accedere al tenant del cliente. Con questo metodo, gli amministratori del provider di servizi sono inclusi in un gruppo di utenti Azure AD nel tenant del provider di servizi e a questo gruppo viene concesso l'accesso durante il processo di onboarding per ogni cliente. Questi amministratori possono quindi accedere alle aree di lavoro di ogni cliente dall'interno del proprio tenant del provider di servizi, anziché dover accedere singolarmente al tenant di ogni cliente. L'accesso alle risorse dell'area di lavoro Log Analytics dei clienti in questo modo riduce il lavoro necessario sul lato cliente e può semplificare la raccolta e l'analisi dei dati tra più clienti gestiti dallo stesso provider di servizi tramite strumenti come le [cartelle](./workbooks-overview.md)di lavoro di monitoraggio di Azure. Per altre informazioni, vedere [monitorare le risorse dei clienti su larga scala](../../lighthouse/how-to/monitor-at-scale.md).
 
 I vantaggi dell'architettura distribuita sono:
@@ -81,7 +81,7 @@ Sono disponibili due opzioni per implementare i log in una posizione centrale:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](template-workspace-configuration.md)
+* Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](../samples/resource-manager-workspace.md)
 
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](./powershell-workspace-configuration.md)
 
