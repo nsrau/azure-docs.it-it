@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Informazioni su come instradare gli eventi nei dispositivi gemelli digitali di Azure e ad altri servizi di Azure.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044293"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145971"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
 È anche possibile creare route usando l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+
+## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
+Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**. I dispositivi gemelli digitali di Azure non vengono recapitati a un evento quando viene soddisfatta **una delle condizioni seguenti** . 
+
+- L'evento non viene recapitato entro la durata (TTL)
+- Il numero di tentativi di recapitare l'evento ha superato il limite
+
+Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapitabile.  Per impostazione predefinita, ogni endpoint non attiva i messaggi **non** recapitabili. Per abilitarla, è necessario specificare un account di archiviazione per conservare gli eventi non recapitati durante la creazione dell'endpoint. Per risolvere le operazioni di recapito, viene eseguito il pull degli eventi da questo account di archiviazione.
+
+Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Per altre informazioni sui token SAS, vedere [ *concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Per informazioni su come configurare un messaggio non recapitabile, vedere [*How-to: Manage Endpoints and routes in Azure Digital gemells (API e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipi di messaggi di evento
 

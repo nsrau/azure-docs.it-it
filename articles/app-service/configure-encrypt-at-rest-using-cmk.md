@@ -3,12 +3,12 @@ title: Crittografare l'origine dell'applicazione inattiva
 description: Informazioni su come crittografare i dati dell'applicazione in archiviazione di Azure e distribuirli come file di pacchetto.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90978489"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146052"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Crittografia dei componenti inattivi con chiavi gestite dal cliente
 
@@ -22,7 +22,7 @@ Per crittografare i dati dell'applicazione dell'app Web inattivi sono necessari 
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
-Prima di tutto, [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) e [crittografarlo con chiavi gestite dal cliente](../storage/common/encryption-customer-managed-keys.md). Una volta creato l'account di archiviazione, usare il [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file del pacchetto.
+Prima di tutto, [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) e [crittografarlo con chiavi gestite dal cliente](../storage/common/customer-managed-keys-overview.md). Una volta creato l'account di archiviazione, usare il [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file del pacchetto.
 
 Usare quindi il Storage Explorer per [generare una](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer)firma di accesso condiviso. 
 

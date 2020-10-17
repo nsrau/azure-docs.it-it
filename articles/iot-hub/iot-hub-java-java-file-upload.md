@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: e6006444e933dd93467dde01affd29c5d0c4a146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a02dc94c0dc0939e6c1eef624fc6fe65fb98ac6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019547"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147008"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Caricare file da un dispositivo al cloud con l'hub IoT (Java)
 
@@ -52,7 +52,7 @@ Al termine di questa esercitazione verranno eseguite due app console Java:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -284,4 +284,4 @@ In questa esercitazione si è appreso come usare le funzionalità di caricamento
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Simulazione di un dispositivo con IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Simulazione di un dispositivo con IoT Edge](../iot-edge/quickstart-linux.md)

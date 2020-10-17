@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fec74938adea4058041766a5c28c5a5200aa189e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438399"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146555"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -36,7 +36,7 @@ Hub IoT fornisce inoltre metriche specifiche che è possibile usare per comprend
 
 Monitoraggio di Azure fornisce informazioni di diagnostica per le risorse di Azure, il che significa che è possibile monitorare le operazioni che si verificano all'interno dell'hub IoT.
 
-Per altre informazioni sulle metriche specifiche e gli eventi che Monitoraggio di Azure controlla, vedere [Metriche supportate con il monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md) e [Servizi, schemi e categorie supportati per i log di Diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
+Per altre informazioni sulle metriche specifiche e gli eventi che Monitoraggio di Azure controlla, vedere [Metriche supportate con il monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md) e [Servizi, schemi e categorie supportati per i log di Diagnostica di Azure](../azure-monitor/platform/resource-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -122,7 +122,7 @@ La categoria di operazioni di identità del dispositivo tiene traccia degli erro
 
 #### <a name="routes"></a>Route
 
-La categoria [routing messaggi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) tiene traccia degli errori che si verificano durante la valutazione della route dei messaggi e l'integrità degli endpoint come percepiti dall'hub. Questa categoria include eventi di questo tipo:
+La categoria [routing messaggi](./iot-hub-devguide-messages-d2c.md) tiene traccia degli errori che si verificano durante la valutazione della route dei messaggi e l'integrità degli endpoint come percepiti dall'hub. Questa categoria include eventi di questo tipo:
 
 * Una regola viene valutata come "non definita"
 * Hub IoT contrassegna un endpoint come inattivo

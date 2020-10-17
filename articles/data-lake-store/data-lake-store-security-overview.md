@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106825"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146297"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
 
@@ -42,7 +42,7 @@ Dopo che Azure Active Directory ha autenticato un utente in modo che possa acced
 * [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per la gestione degli account
 * POSIX ACL per l'accesso ai dati nell'archivio
 
-### <a name="rbac-for-account-management"></a>Controllo degli accessi in base al ruolo per la gestione degli account
+### <a name="azure-rbac-for-account-management"></a>RBAC di Azure per la gestione degli account
 
 Quattro ruoli di base vengono definiti per Data Lake Storage Gen1 per impostazione predefinita. I ruoli permettono di eseguire diverse operazioni su un account Data Lake Storage Gen1 tramite il portale di Azure, i cmdlet di PowerShell e le API REST. I ruoli Proprietario e Collaboratore possono eseguire un'ampia gamma di funzioni di amministrazione sull'account. È possibile assegnare il ruolo Lettore agli utenti limitati alla sola visualizzazione dei dati di gestione degli account.
 
@@ -117,7 +117,7 @@ I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protett
 
 Per vedere nuove funzionalità in Data Lake Storage Gen1, inviare commenti e suggerimenti al [forum UserVoice di Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Iniziare a usare Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
