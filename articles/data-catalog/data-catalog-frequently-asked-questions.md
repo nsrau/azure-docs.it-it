@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397301"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151956"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -33,7 +33,7 @@ Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 ## <a name="what-is-its-availability-by-region"></a>Qual è la disponibilità per area?
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:
 
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Stati Uniti orientali
 * Europa occidentale
 * Europa settentrionale
@@ -87,7 +87,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 >
 
 > [!NOTE]
-> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali SQL Server *locali* che non dispongono di una proprietà **Description** di prima classe, lo strumento di registrazione dell'origine dati Data Catalog estrae il valore dalla **MS_Description** proprietà estesa per gli oggetti e le colonne. Questa proprietà non è supportata per SQL Azure. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali SQL Server *locali* che non dispongono di una proprietà **Description** di prima classe, lo strumento di registrazione dell'origine dati Data Catalog estrae il valore dalla **MS_Description** proprietà estesa per gli oggetti e le colonne. Questa proprietà non è supportata per SQL Azure. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ Data Catalog è un servizio cloud che può usare origini dati locali e del cloud
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>È possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
 Si sta lavorando attivamente per ampliare le funzionalità di Data Catalog. Se si è interessati all'estrazione di altri metadati dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerito) sul [Data Catalog in Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Se si desidera includere i metadati dello schema o della colonna, le anteprime o i profili di dati, per le origini dati in cui i metadati non vengono estratti dallo strumento di registrazione dell'origine dati, è possibile usare l'API di Data Catalog per aggiungere questi metadati. Per altre informazioni, vedere l'[API REST di Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
+Se si desidera includere i metadati dello schema o della colonna, le anteprime o i profili di dati, per le origini dati in cui i metadati non vengono estratti dallo strumento di registrazione dell'origine dati, è possibile usare l'API di Data Catalog per aggiungere questi metadati. Per altre informazioni, vedere l'[API REST di Azure Data Catalog](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Come si limita la visibilità degli asset di dati registrati, in modo che solo determinati utenti possano individuarli?
 Selezionare gli asset di dati in Data Catalog e fare clic sul pulsante **Assumi proprietà**. I proprietari degli asset di dati in Data Catalog possono modificare le impostazioni di visibilità per consentire a tutti gli utenti di trovare gli asset di proprietà o limitare la visibilità a utenti specifici. Per altre informazioni, vedere [Gestire gli asset di dati in Azure Data Catalog](data-catalog-how-to-manage.md).

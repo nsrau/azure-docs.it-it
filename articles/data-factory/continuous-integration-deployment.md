@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616896"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147444"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -656,7 +656,7 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
     - Le entità della data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline, le pipeline dipendono dai set di dati e da altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
     - Nei rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere [ambiente di produzione hotfix](#hotfix-production-environment).
 
-- Il team Azure Data Factory non consiglia di assegnare controlli RBAC a singole entità (pipeline, set di impostazioni e così via) in una data factory. Se, ad esempio, uno sviluppatore ha accesso a una pipeline o a un set di dati, deve essere in grado di accedere a tutte le pipeline o i set di dati nel data factory. Se si ritiene che sia necessario implementare molti ruoli di controllo degli accessi in base al ruolo all'interno di una data factory, vedere Distribuzione di un secondo data factory.
+- Il team Azure Data Factory non consiglia di assegnare controlli RBAC di Azure a singole entità (pipeline, set di impostazioni e così via) in una data factory. Se, ad esempio, uno sviluppatore ha accesso a una pipeline o a un set di dati, deve essere in grado di accedere a tutte le pipeline o i set di dati nel data factory. Se si ritiene che sia necessario implementare molti ruoli di Azure in una data factory, vedere Distribuzione di un secondo data factory.
 
 -   Non è possibile pubblicare da rami privati.
 

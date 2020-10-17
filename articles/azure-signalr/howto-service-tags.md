@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302103"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152325"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Usare i tag di servizio per il servizio Azure SignalR
 
-È possibile usare i [tag di servizio](../virtual-network/security-overview.md#service-tags) per il servizio Azure SignalR durante la configurazione del gruppo di sicurezza di [rete](../virtual-network/security-overview.md#network-security-groups). Consente di definire la regola di sicurezza di rete in uscita per gli endpoint del servizio Azure SignalR senza che sia necessario impostare come hardcoded gli indirizzi IP.
+È possibile usare i [tag di servizio](../virtual-network/network-security-groups-overview.md#service-tags) per il servizio Azure SignalR durante la configurazione del gruppo di sicurezza di [rete](../virtual-network/network-security-groups-overview.md#network-security-groups). Consente di definire la regola di sicurezza di rete in uscita per gli endpoint del servizio Azure SignalR senza che sia necessario impostare come hardcoded gli indirizzi IP.
 
 Il servizio Azure SignalR gestisce questi tag del servizio. Non è possibile creare un tag di servizio personalizzato o modificarne uno esistente. Microsoft gestisce questi prefissi di indirizzo che corrispondono al tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi.
 
@@ -46,4 +46,4 @@ Il servizio Azure SignalR gestisce questi tag del servizio. Non è possibile cre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gruppi di sicurezza di rete: Tag del servizio](../virtual-network/security-overview.md#security-rules)
+- [Gruppi di sicurezza di rete: Tag del servizio](../virtual-network/network-security-groups-overview.md#security-rules)

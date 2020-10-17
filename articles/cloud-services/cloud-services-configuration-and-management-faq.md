@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070011"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144681"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -217,7 +217,7 @@ Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/htt
 ## <a name="permissions"></a>Autorizzazioni
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Come si implementa l'accesso in base al ruolo per Servizi cloud?
-Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo, perché non è un servizio basato su Azure Resource Manager.
+Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo di Azure (RBAC di Azure), perché non è un servizio basato su Azure Resource Manager.
 
 Vedere [Comprendere i diversi ruoli in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -315,7 +315,7 @@ New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddr
 
 Come descritto [qui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|valore|Significato|
+|Valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata|

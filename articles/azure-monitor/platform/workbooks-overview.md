@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932397"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143636"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
@@ -51,7 +51,7 @@ Le cartelle di lavoro di offrono un set completo di funzionalità per la visuali
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 
@@ -97,7 +97,7 @@ Se si seleziona il pulsante modifica immediatamente sotto la griglia dei dati de
 
 ![Screenshot della query kusto sottostante](./media/workbooks-overview/kusto.png)
 
-Facendo clic sugli altri pulsanti di **modifica** a destra si riveleranno alcuni componenti di base che compongono cartelle di lavoro quali [caselle di testo](workbooks-visualizations.md#text)basate su Markdown, elementi dell'interfaccia utente per la [selezione dei parametri](workbooks-parameters.md) e altri [tipi di grafico/visualizzazione](workbooks-visualizations.md). 
+Facendo clic sugli altri pulsanti di **modifica** a destra si riveleranno alcuni componenti di base che compongono cartelle di lavoro quali [caselle di testo](workbooks-text-visualizations.md)basate su Markdown, elementi dell'interfaccia utente per la [selezione dei parametri](workbooks-parameters.md) e altri [tipi di grafico/visualizzazione](#visualizations). 
 
 Esplorare i modelli predefiniti in modalità di modifica e quindi modificarli in base alle proprie esigenze e salvare la cartella di lavoro personalizzata è un modo eccellente per iniziare a conoscere le funzionalità possibili con le cartelle di lavoro di monitoraggio di Azure.
 
@@ -129,5 +129,5 @@ Una volta avviata la creazione di modelli di cartella di lavoro personalizzati, 
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* Per [iniziare ad](#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

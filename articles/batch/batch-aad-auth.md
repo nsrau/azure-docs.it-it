@@ -4,12 +4,12 @@ description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. In
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533513"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144824"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -103,7 +103,7 @@ La sezione **Autorizzazioni API** mostra ora che l'applicazione Azure AD ha acce
 Per autenticare un'applicazione in esecuzione automatica, usare un'entità servizio. Dopo aver registrato l'applicazione, seguire questi passaggi nel portale di Azure per configurare un'entità servizio:
 
 1. Richiedere un segreto per l'applicazione.
-1. Assegnare il controllo degli accessi in base al ruolo all'applicazione.
+1. Assegnare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) all'applicazione.
 
 ### <a name="request-a-secret-for-your-application"></a>Richiedere un segreto per l'applicazione
 
@@ -119,15 +119,15 @@ Seguire questa procedura nel portale di Azure:
 
     ![Creare una chiave privata](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>Assegnare un controllo degli accessi in base al ruolo all'applicazione
+### <a name="assign-azure-rbac-to-your-application"></a>Assegnare il controllo degli accessi in base al ruolo di Azure
 
-Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare il controllo degli accessi in base al ruolo all'applicazione. A tale scopo, seguire questa procedura:
+Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare il controllo degli accessi in base al ruolo di Azure all'applicazione. A tale scopo, seguire questa procedura:
 
 1. Nel portale di Azure passare all'account Batch usato dall'applicazione.
 1. Nella sezione **Impostazioni** per l'account Batch selezionare **Controllo di accesso (IAM)** .
 1. Selezionare la scheda **Assegnazioni di ruolo**.
 1. Selezionare **Aggiungi assegnazione ruolo**.
-1. Dall'elenco a discesa **Ruolo** scegliere il ruolo *Collaboratore* o *Lettore* per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
+1. Dall'elenco a discesa **Ruolo** scegliere il ruolo *Collaboratore* o *Lettore* per l'applicazione. Per altre informazioni su questi ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo di Azure nel portale di Azure](../role-based-access-control/overview.md).
 1. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e fare clic su **Salva**.
 
 L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo di Azure assegnato.
@@ -138,7 +138,7 @@ L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo 
 
 Un ruolo personalizzato concede l'autorizzazione granulare a un utente per l'invio di processi, attività e altro ancora. Questo consente di impedire agli utenti di eseguire operazioni che influiscono sui costi, ad esempio la creazione di pool o la modifica di nodi.
 
-È possibile usare un ruolo personalizzato per concedere autorizzazioni a un utente Azure AD, un gruppo o un'entità servizio per le seguenti operazioni di controllo degli accessi in base al ruolo:
+È possibile usare un ruolo personalizzato per concedere le autorizzazioni a un utente Azure AD, a un gruppo o a un'entità servizio per le operazioni RBAC di Azure seguenti:
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete

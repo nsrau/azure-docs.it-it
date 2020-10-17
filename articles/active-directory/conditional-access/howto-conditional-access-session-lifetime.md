@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145265"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
@@ -134,9 +134,8 @@ Utilizzare lo strumento What-If per simulare l'accesso dell'utente all'applicazi
 
 ## <a name="policy-deployment"></a>Distribuzione dei criteri
 
-La procedura consigliata è testare i criteri prima di distribuirli nell'ambiente di produzione per assicurarsi che funzionino nel modo previsto. L'approccio ideale è usare un tenant di test per verificare se il nuovo criterio funziona nel modo previsto. Per ulteriori informazioni, vedere l'articolo [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+La procedura consigliata è testare i criteri prima di distribuirli nell'ambiente di produzione per assicurarsi che funzionino nel modo previsto. L'approccio ideale è usare un tenant di test per verificare se il nuovo criterio funziona nel modo previsto. Per altre informazioni, vedere l'articolo [pianificare una distribuzione dell'accesso condizionale](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come configurare i criteri di accesso condizionale, vedere l'articolo richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](../authentication/tutorial-enable-azure-mfa.md).
-* Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere l'articolo [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+* Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere l'articolo [pianificare una distribuzione dell'accesso condizionale](plan-conditional-access.md).
