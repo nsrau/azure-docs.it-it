@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293569"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167993"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ Questo articolo descrive come usare i modelli di avvio rapido di Azure per autom
    | &nbsp; | &nbsp; |
 
 Altre parti della configurazione del gruppo di disponibilità devono essere eseguite manualmente, ad esempio la creazione del gruppo di disponibilità e del bilanciamento del carico interno. Questo articolo illustra la sequenza dei passaggi automatizzati e manuali.
+
+Sebbene questo articolo usi i modelli di avvio rapido di Azure per configurare l'ambiente del gruppo di disponibilità, è anche possibile usare la [portale di Azure](availability-group-azure-portal-configure.md), [PowerShell o l'interfaccia della](availability-group-az-commandline-configure.md)riga di comando di Azure oppure [manualmente](availability-group-manually-configure-tutorial.md) . 
  
 
 ## <a name="prerequisites"></a>Prerequisiti 
@@ -102,6 +104,9 @@ Creare manualmente il gruppo di disponibilità come di consueto, usando [SQL Ser
 > *Non* creare un listener in questo momento perché non viene eseguito automaticamente dal modello di avvio rapido **101-sql-vm-aglistener-setup** nel passaggio 4. 
 
 ## <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Il listener del gruppo di disponibilità AlwaysOn richiede un'istanza interna di Azure Load Balancer. Il bilanciamento del carico interno specifica un indirizzo IP "mobile" per il listener del gruppo di disponibilità che consente la riconnessione e il failover più rapidi. Se le VM di SQL Server in un gruppo di disponibilità fanno parte dello stesso set di disponibilità, è possibile usare Load Balancer Basic. In caso contrario, è necessario usare Load Balancer Standard. 
 
 > [!IMPORTANT]

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847486"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167934"
 ---
 # <a name="manage-farms"></a>Gestire aziende agricole
 
@@ -25,7 +25,7 @@ Eseguire la procedura descritta di seguito:
 
     Di seguito è illustrata l'immagine di esempio:
 
-    ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Screenshot che mostra la pagina Farm.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Selezionare **Crea Farm** e specificare **nome**, **raccolti** e **Indirizzo**.
@@ -33,14 +33,14 @@ Eseguire la procedura descritta di seguito:
 
 Ecco i due modi per definire un limite della farm:
 
-1. **Contrassegno sulla mappa**: usare lo strumento di controllo della mappa per tracciare e contrassegnare il limite della farm. Per contrassegnare i limiti, la  ![ farm ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) del progetto batte e contrassegna i limiti esatti.
+1. **Contrassegno sulla mappa**: usare lo strumento di controllo della mappa per tracciare e contrassegnare il limite della farm. Per contrassegnare i limiti,  ![ screenshot che mostra l'icona a matita per disegnare i limiti sulla mappa ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e contrassegnare i limiti esatti.
 
-    ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Screenshot che mostra i limiti disegnati su una mappa.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Incollare il codice GeoJSON**: il formato GeoJSON è un formato per la codifica di strutture di dati geografici, usando JavaScript Object Notation (JSON). Questa opzione consente di visualizzare una casella di testo in cui è possibile immettere una stringa GeoJSON per contrassegnare i limiti della farm. È anche possibile creare codice GeoJSON da GeoJSON.io.
 Utilizzare le descrizioni comandi per compilare le informazioni.
 
-    ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Schermata che evidenzia l'opzione Incolla codice GeoJSON nella schermata Crea farm.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Selezionare **Submit (Invia** ) per creare una farm. Una nuova farm verrà creata e visualizzata nella pagina **Farm** .
 
@@ -71,7 +71,7 @@ Nella pagina **Farm** viene visualizzato un elenco di farm create. Per eliminare
 1.  Selezionare una farm dall'elenco per eliminare i dettagli della farm.
 2.  Selezionare **Elimina Farm** per eliminare la farm.
 
-    ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Screenshot che mostra la schermata Elimina Farm ed evidenzia il pulsante Elimina.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Quando si elimina una farm, i dispositivi e le mappe associate alla farm non vengono eliminati. Le informazioni sulla farm associate al dispositivo e alle mappe non saranno rilevanti. È possibile continuare a visualizzare dispositivi, telemetria e mappe dal servizio FarmBeats.

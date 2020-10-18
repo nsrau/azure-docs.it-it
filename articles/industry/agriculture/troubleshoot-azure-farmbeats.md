@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797939"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168291"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Risoluzione dei problemi di Azure FarmBeats
 
@@ -174,7 +174,7 @@ Durante l'eliminazione di un dispositivo, è possibile che si verifichi uno dei 
 
 Se è già stato ottenuto l'accesso e si è verificato questo errore, riprovare aggiornando la pagina. Se l'errore persiste, contattare Microsoft con il messaggio di errore e i log.
 
-![Progetto FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Screenshot che mostra l'errore di autorizzazione.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Problemi con Accelerator  
 
@@ -293,7 +293,7 @@ questo problema può verificarsi quando vengono eseguite attività di manutenzio
 6. Nel riquadro sinistro selezionare **Contenitori BLOB**, quindi selezionare **job-logs** per i log di Azure Data Factory o **appinsights-logs** per i log del servizio app.
 7. Selezionare **Scarica** e scaricare i log in una cartella locale nel computer.
 
-    ![Progetto FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Screenshot che mostra i file di log scaricati.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Raccogliere i log dei processi di Azure Data Factory o i log del servizio app per Accelerator
 
@@ -327,26 +327,26 @@ questo problema può verificarsi quando vengono eseguite attività di manutenzio
 > [!NOTE]
 > Per visualizzare i tag dei servizi nel gruppo di risorse, fare clic su "modifica colonne" e aggiungere "tag" alla visualizzazione del gruppo di risorse.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 3. Nella pagina Panoramica della data factory fare clic su **autore e monitoraggio**. Verrà aperta una nuova scheda nel browser. Fare clic su **monitoraggio**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 4. Verrà visualizzato un elenco di esecuzioni di pipeline che fanno parte dell'esecuzione del processo Meteo. Fare clic sul processo per cui si vogliono raccogliere i log
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 5. Nella pagina Panoramica pipeline verrà visualizzato l'elenco delle esecuzioni di attività. Prendere nota degli ID di esecuzione delle attività per cui si vogliono raccogliere i log
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 6. Tornare al gruppo di risorse FarmBeats in portale di Azure e fare clic sull'account di archiviazione con il nome **datahublogs-xxxx**
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 7. Fare clic su **contenitori**  ->  **adfjobs**. Nella casella di ricerca immettere l'ID di esecuzione del processo annotato nel passaggio 5 riportato sopra.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Progetto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Schermata che evidenzia il tag SKU: datahub.":::
 
 8. Il risultato della ricerca conterrà la cartella che contiene i log relativi al processo. Scaricare i log e inviarli a farmbeatssupport@microsoft.com per assistenza nel debug del problema.

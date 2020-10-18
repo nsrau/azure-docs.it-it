@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131667"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167815"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: non è possibile eliminare una rete virtuale in Azure
 
@@ -48,7 +48,7 @@ In caso di reti virtuali classiche, accedere alla pagina **Panoramica** della re
 
 In caso di reti virtuali, accedere alla pagina **Panoramica** della rete virtuale. Controllare i **dispositivi connessi** associati al gateway di rete virtuale.
 
-![Controllare il dispositivo collegato](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Screenshot dell'elenco dei dispositivi connessi per una rete virtuale in portale di Azure. Il gateway di rete virtuale è evidenziato nell'elenco.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Prima di poter rimuovere il gateway, è necessario rimuovere eventuali oggetti **Connessione** presenti nel gateway. 
 
@@ -56,7 +56,7 @@ Prima di poter rimuovere il gateway, è necessario rimuovere eventuali oggetti *
 
 Accedere alla pagina **Panoramica** della rete virtuale. Controllare i **dispositivi connessi** associati al gateway applicazione.
 
-![Controllare il dispositivo collegato](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Screenshot dell'elenco dei dispositivi connessi per una rete virtuale in portale di Azure. Il gateway applicazione è evidenziato nell'elenco.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Se è presente un gateway applicazione, è necessario rimuoverlo prima di poter eliminare la rete virtuale.
 
@@ -64,7 +64,7 @@ Se è presente un gateway applicazione, è necessario rimuoverlo prima di poter 
 
 Se Active Directory Domain Service è abilitato e connesso alla rete virtuale, non è possibile eliminare la rete virtuale. 
 
-![Controllare il dispositivo collegato](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Screenshot della schermata Azure AD Domain Services in portale di Azure. Il campo disponibile nel campo rete virtuale/subnet è evidenziato.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 Per disabilitare il servizio, vedere [Disabilitare Azure Active Directory Domain Services tramite il portale di Azure](../active-directory-domain-services/delete-aadds.md).
 

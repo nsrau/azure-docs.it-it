@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107522"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168087"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Baseline della sicurezza di Azure per funzioni di Azure
 
@@ -315,7 +315,7 @@ Facoltativamente, è possibile abilitare ed eseguire l'onboarding dei dati in Az
 
 - [Come abilitare le impostazioni di diagnostica per funzioni di Azure](./functions-monitor-log-analytics.md)
 
-- [Come abilitare Application Insights per funzioni di Azure](./functions-monitoring.md#enable-application-insights-integration)
+- [Come abilitare Application Insights per funzioni di Azure](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Come creare avvisi in Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Facoltativamente, è possibile abilitare ed eseguire l'onboarding dei dati in Az
 
 **Linee guida**: l'accesso del piano di controllo alle funzioni di Azure viene controllato tramite Azure Active Directory (ad). Azure AD non è il concetto di password predefinite.
 
-L'accesso al piano dati può essere controllato tramite diversi mezzi, incluse le chiavi di autorizzazione, le restrizioni di rete e la convalida di un'identità AAD. Le chiavi di autorizzazione vengono usate dai client che si connettono agli endpoint HTTP di funzioni di Azure e possono essere rigenerate in qualsiasi momento. Per impostazione predefinita, queste chiavi vengono generate per i nuovi endpoint HTTP.
+L'accesso al piano dati può essere controllato tramite diversi mezzi, incluse le chiavi di autorizzazione, le restrizioni di rete e la convalida di un'identità Azure AD. Le chiavi di autorizzazione vengono usate dai client che si connettono agli endpoint HTTP di funzioni di Azure e possono essere rigenerate in qualsiasi momento. Per impostazione predefinita, queste chiavi vengono generate per i nuovi endpoint HTTP.
 
 Sono disponibili più metodi di distribuzione per le app per le funzioni, alcune delle quali possono sfruttare un set di credenziali generate. Esaminare i metodi di distribuzione che verranno usati per l'applicazione.
 
@@ -463,7 +463,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 - [Come configurare l'app funzioni di Azure per usare Azure AD account di accesso](../app-service/configure-authentication-provider-aad.md)
 
-- [Come creare e configurare un'istanza di AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

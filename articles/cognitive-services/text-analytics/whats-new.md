@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015925"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166183"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -25,6 +25,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 
 * Supporto hindi per Analisi del sentiment V3. x, a partire dalla versione del modello `2020-04-01` . 
 * Modello versione `2020-09-01` per l'endpoint/languages V3, che consente di migliorare il rilevamento della lingua e i miglioramenti dell'accuratezza.
+* disponibilità V3 in India centrale e Emirati Arabi Uniti settentrionali.
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -171,16 +172,16 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Evento
+    * Event
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organizzazione
+    * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * Email 
+    * E-mail 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP

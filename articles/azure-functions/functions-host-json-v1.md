@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757527"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167722"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -188,7 +188,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-|Enabled|true|Indica se la funzionalità è abilitata. | 
+|Enabled|True|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
@@ -230,7 +230,7 @@ Se si condivide un account di archiviazione tra più app per le funzioni, assicu
 
 ## <a name="logger"></a>logger
 
-Controlla le operazioni di filtro per i log scritti da un [oggetto ILogger](functions-monitoring.md#write-logs-in-c-functions) o [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controlla il filtro per i log scritti da un oggetto [ILogger](functions-dotnet-class-library.md#ilogger) o da [context. log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 
 *Versione 1.x*
 
-Le impostazioni di configurazione per i log creati usando un oggetto `TraceWriter`. Vedere [registrazione C#](functions-reference-csharp.md#logging) e [registrazione Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Le impostazioni di configurazione per i log creati usando un oggetto `TraceWriter`. Per altre informazioni, vedere [registrazione in C#].
 
 ```json
 {

@@ -4,12 +4,12 @@ description: Informazioni su come evitare i problemi di prestazioni in Funzioni 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: a305c692c63f278c4edc4240f7adf9de22b22c56
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6a426aff1721ac3565b53cf2eef7c5aa094dd7e2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106094"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168308"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -21,11 +21,11 @@ Il numero di connessioni disponibili è limitato in parte perché un'app per le 
 
 Questo limite è per ogni istanza. Quando il [controller di scalabilità aggiunge le istanze dell'app](functions-scale.md#how-the-consumption-and-premium-plans-work) per le funzioni per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Ciò significa che non esiste alcun limite di connessione globale ed è possibile avere più di 600 connessioni attive tra tutte le istanze attive.
 
-Per la risoluzione dei problemi, verificare di aver abilitato Application Insights per l'app per le funzioni. Application Insights consente di visualizzare le metriche per le app per le funzioni, ad esempio le esecuzioni. Per altre informazioni, vedere [visualizzare i dati di telemetria in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
+Per la risoluzione dei problemi, verificare di aver abilitato Application Insights per l'app per le funzioni. Application Insights consente di visualizzare le metriche per le app per le funzioni, ad esempio le esecuzioni. Per altre informazioni, vedere [visualizzare i dati di telemetria in Application Insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 
 ## <a name="static-clients"></a>Client statici
 
-Per evitare di mantenere più connessioni del necessario, riutilizzare le istanze di client, anziché crearne di nuove con ogni chiamata di funzione. Si consiglia di riutilizzare le connessioni client per qualsiasi lingua in cui è possibile scrivere la funzione. Ad esempio, i client .NET come [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1), [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)e i client di archiviazione di Azure possono gestire le connessioni se si usa un singolo client statico.
+Per evitare di mantenere più connessioni del necessario, riutilizzare le istanze di client, anziché crearne di nuove con ogni chiamata di funzione. Si consiglia di riutilizzare le connessioni client per qualsiasi lingua in cui è possibile scrivere la funzione. Ad esempio, i client .NET come [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true), [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)e i client di archiviazione di Azure possono gestire le connessioni se si usa un singolo client statico.
 
 Di seguito sono riportate alcune linee guida da seguire quando si usa un client specifico del servizio in un'applicazione di funzioni di Azure:
 
@@ -39,7 +39,7 @@ Questa sezione illustra le procedure consigliate per la creazione e l'utilizzo d
 
 ### <a name="httpclient-example-c"></a>Esempio di HttpClient (C#)
 
-Di seguito è riportato un esempio di codice della funzione C# che crea un'istanza di [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) statica:
+Di seguito è riportato un esempio di codice della funzione C# che crea un'istanza di [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) statica:
 
 ```cs
 // Create a single, static HttpClient
@@ -52,7 +52,7 @@ public static async Task Run(string input)
 }
 ```
 
-Una domanda comune su [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) in .NET è "è necessario eliminare il client?" In generale, si eliminano gli oggetti che implementano `IDisposable` al termine dell'utilizzo. Ma non si elimina un client statico perché l'operazione non viene eseguita al termine della funzione. La durata del client statico deve coincidere con quella dell'applicazione.
+Una domanda comune su [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) in .NET è "è necessario eliminare il client?" In generale, si eliminano gli oggetti che implementano `IDisposable` al termine dell'utilizzo. Ma non si elimina un client statico perché l'operazione non viene eseguita al termine della funzione. La durata del client statico deve coincidere con quella dell'applicazione.
 
 ### <a name="http-agent-examples-javascript"></a>Esempi di agenti HTTP (JavaScript)
 
@@ -143,10 +143,10 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>Connessioni SqlClient
 
-Il codice di funzione può usare il provider di dati .NET Framework per SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1)) per stabilire connessioni a un database relazionale SQL. Si tratta anche del provider sottostante per i Framework di dati che si basano su ADO.NET, ad esempio [Entity Framework](/ef/ef6/). A differenza delle connessioni [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) e [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient), ADO.NET implementa pool di connessioni per impostazione predefinita. Tuttavia, poiché è comunque possibile esaurire le connessioni, è consigliabile ottimizzare le connessioni al database. Per altre informazioni, vedere [Pool di connessioni SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
+Il codice di funzione può usare il provider di dati .NET Framework per SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient)) per stabilire connessioni a un database relazionale SQL. Si tratta anche del provider sottostante per i Framework di dati che si basano su ADO.NET, ad esempio [Entity Framework](/ef/ef6/). A differenza delle connessioni [HttpClient](/dotnet/api/system.net.http.httpclient) e [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient), ADO.NET implementa pool di connessioni per impostazione predefinita. Tuttavia, poiché è comunque possibile esaurire le connessioni, è consigliabile ottimizzare le connessioni al database. Per altre informazioni, vedere [Pool di connessioni SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Alcuni framework di dati, ad esempio Entity Framework, ottengono in genere stringhe di connessione dalla sezione **connectionStrings** di un file di configurazione. In questo caso, è necessario aggiungere esplicitamente le stringhe di connessione di database SQL alla raccolta delle **stringhe di connessione** delle impostazioni dell'app per le funzioni e al file [local.settings.json](functions-run-local.md#local-settings-file) nel progetto locale. Se si sta creando un'istanza di [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) nel codice della funzione, è necessario archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni.
+> Alcuni framework di dati, ad esempio Entity Framework, ottengono in genere stringhe di connessione dalla sezione **connectionStrings** di un file di configurazione. In questo caso, è necessario aggiungere esplicitamente le stringhe di connessione di database SQL alla raccolta delle **stringhe di connessione** delle impostazioni dell'app per le funzioni e al file [local.settings.json](functions-run-local.md#local-settings-file) nel progetto locale. Se si sta creando un'istanza di [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) nel codice della funzione, è necessario archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

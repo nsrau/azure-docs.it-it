@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444835"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164500"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurare Always Encrypted tramite Azure Key Vault 
 
@@ -149,7 +149,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
 1. Espandere **database**  >  **Clinic**  >  **tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata Always Encrypted:
 
-    ![Crittografa colonne](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Screenshot che evidenzia le colonne Encrypt... opzione di menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master**, **Convalida** e **Riepilogo**.
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 È possibile osservare che le colonne crittografate non contengono dati di testo non crittografato.
 
-   ![Nuova applicazione console](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Screenshot che indica che le colonne crittografate non contengono dati in testo non crittografato.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get*, *unwrapKey* e *verify*. Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -584,7 +584,7 @@ Aggiungere quindi il parametro *Column Encryption Setting=enabled* durante la co
 2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e fare clic su **Opzioni**.
 3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
-    ![Nuova applicazione console](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Screenshot che mostra la scheda parametri aggiuntivi per la correzione.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Eseguire la query seguente nel database Clinic.
 

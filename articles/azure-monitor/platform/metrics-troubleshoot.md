@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a9286ff15834fafe4a69907836ce1abd17abca6
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440678"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168070"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -79,16 +79,16 @@ Questo problema può verificarsi quando il dashboard è stato creato con una met
 ## <a name="chart-shows-dashed-line"></a>Grafico che mostra la linea tratteggiata
 
 I grafici delle metriche di Azure usano lo stile di linea tratteggiata per indicare che è presente un valore mancante (noto anche come "valore null") tra due punti dati del tempo noto. Se, ad esempio, nel selettore di tempo è stata selezionata la granularità dell'ora "1 minuto" ma la metrica è stata segnalata a 07:26, 07:27, 07:29 e 07:30 (si noti un gap di minuti tra il secondo e il terzo punto dati), una linea tratteggiata connetterà 07:27 e 07:29 e una linea continua connetterà tutti gli altri punti dati. La linea tratteggiata scende verso il basso fino a zero quando la metrica usa l'aggregazione **count** e **Sum** . Per le aggregazioni **AVG**, **min** o **Max** , la linea tratteggiata connette due punti dati noti più vicini. Inoltre, quando mancano i dati sul lato all'estrema destra o sinistra del grafico, la linea tratteggiata si espande nella direzione dei punti dati mancanti.
-  ![Immagine di metrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![Screenshot che mostra in che modo quando i dati risultano mancanti a destra o a sinistra del grafico, la linea tratteggiata si espande fino alla direzione del punto dati mancante.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Soluzione:** Questo comportamento è da progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee rappresenta una scelta superiore per la visualizzazione delle tendenze delle metriche ad alta densità, ma può essere difficile da interpretare per le metriche con valori di tipo sparse, soprattutto quando i valori con granularità temporale sono importanti. La linea tratteggiata rende più facile la lettura di questi grafici. Tuttavia, se il grafico è ancora poco chiaro, valutare l'uso di un tipo di grafico diverso per visualizzare le metriche. Un grafico tracciato sparse per la stessa metrica, ad esempio, mostra chiaramente ogni granularità visualizzando un punto solo quando è presente un valore e ignorando completamente il punto dati quando il valore è mancante: ![ immagine metrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Soluzione:** Questo comportamento è da progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee rappresenta una scelta superiore per la visualizzazione delle tendenze delle metriche ad alta densità, ma può essere difficile da interpretare per le metriche con valori di tipo sparse, soprattutto quando i valori con granularità temporale sono importanti. La linea tratteggiata rende più facile la lettura di questi grafici. Tuttavia, se il grafico è ancora poco chiaro, valutare l'uso di un tipo di grafico diverso per visualizzare le metriche. Un grafico tracciato sparse per la stessa metrica, ad esempio, mostra chiaramente ogni intervallo di tempo visualizzando un punto solo quando è presente un valore e ignorando completamente il punto dati quando il valore è mancante: ![ screenshot che evidenzia l'opzione di menu scatter chart (grafico a dispersione).](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Se si preferisce comunque un grafico a linee per la metrica, lo spostamento del mouse sul grafico può aiutare a valutare la granularità temporale evidenziando il punto dati in corrispondenza della posizione del puntatore del mouse.
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>Il grafico mostra una riduzione imprevista dei valori
 
-In molti casi, il calo percepito nei valori delle metriche deriva da un'errata interpretazione dei dati visualizzati nel grafico. È possibile giungere a conclusioni fuorvianti da un calo delle somme o dei conteggi quando nel grafico vengono visualizzati gli ultimi minuti perché gli ultimi punti dati delle metriche non sono stati ancora ricevuti o elaborati da Azure. A seconda del servizio, la latenza delle metriche di elaborazione può essere compresa in un intervallo di due minuti. Per i grafici che mostrano un intervallo di tempo recente con una granularità di 1 o 5 minuti, un calo del valore negli ultimi minuti diventa più evidente: ![ metrica immagine](./media/metrics-troubleshoot/drop-in-values.png)
+In molti casi, il calo percepito nei valori delle metriche deriva da un'errata interpretazione dei dati visualizzati nel grafico. È possibile giungere a conclusioni fuorvianti da un calo delle somme o dei conteggi quando nel grafico vengono visualizzati gli ultimi minuti perché gli ultimi punti dati delle metriche non sono stati ancora ricevuti o elaborati da Azure. A seconda del servizio, la latenza delle metriche di elaborazione può essere compresa in un intervallo di due minuti. Per i grafici che mostrano un intervallo di tempo recente con una granularità di 1 o 5 minuti, un calo del valore negli ultimi minuti diventa più evidente: ![ screenshot che mostra un rilascio del valore negli ultimi minuti.](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Soluzione:** Questo comportamento è da progettazione. Microsoft ritiene che la visualizzazione dei dati appena ricevuti sia utile anche quando i dati sono *parziali* o *incompleti*. In questo modo è possibile giungere a importanti conclusioni più rapidamente e avviare eventuali indagini sin da subito. Ad esempio, per una metrica che mostra il numero di errori, visualizzare un valore parziale X indica che si sono verificati almeno X errori in un minuto specificato. È possibile iniziare l'analisi del problema sin da subito, anziché attendere il conteggio esatto degli errori che si sono verificati in questo minuto, che potrebbe non essere importante. Il grafico verrà aggiornato una volta ricevuto l'intero set di dati, ma in quel momento potrebbe mostrare anche nuovi punti dati incompleti di minuti più recenti.
 

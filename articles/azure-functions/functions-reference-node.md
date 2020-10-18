@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317177"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164823"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -18,7 +18,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Apprendimento guidato |
+| Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
 | <ul><li>[Node.js funzione utilizzando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Permette di scrivere nei log della console di streaming nel livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che permettono di scrivere log di funzioni in altri livelli di traccia:
+Consente di scrivere nei log delle funzioni di flusso a livello di traccia predefinito, con altri livelli di registrazione disponibili. La registrazione della traccia è descritta in dettaglio nella sezione successiva. 
 
+## <a name="write-trace-output-to-logs"></a>Scrivere l'output di traccia nei log
 
-| Metodo                 | Descrizione                                |
-| ---------------------- | ------------------------------------------ |
-| **errore (_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
-| **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
-| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
-| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+In funzioni è possibile usare i `context.log` metodi per scrivere l'output di traccia nei log e nella console. Quando si chiama `context.log()` , il messaggio viene scritto nei log a livello di traccia predefinito, ovvero il livello di traccia _info_ . Funzioni si integra con applicazione Azure Insights per acquisire meglio i log delle app per le funzioni. Application Insights, parte di monitoraggio di Azure, fornisce funzionalità per la raccolta, il rendering visivo e l'analisi dei dati di telemetria dell'applicazione e degli output di traccia. Per altre informazioni, vedere [monitoraggio di funzioni di Azure](functions-monitoring.md).
 
-L'esempio seguente scrive un log nel livello di traccia di avviso:
+Nell'esempio seguente viene scritto un log a livello di traccia info, incluso l'ID chiamata:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-È possibile [configurare la soglia del livello di traccia per la registrazione](#configure-the-trace-level-for-console-logging) nel file host.json. Per altre informazioni sulla scrittura di log, vedere [Scrittura dell'output di traccia nella console](#writing-trace-output-to-the-console) più avanti.
-
-Vedere [Monitoraggio di Funzioni di Azure](functions-monitoring.md) per altre informazioni sulla visualizzazione e sull'esecuzione di query su log di funzioni.
-
-## <a name="writing-trace-output-to-the-console"></a>Scrittura dell'output di traccia nella console 
-
-In Funzioni usare i metodi `context.log` per scrivere l'output di traccia nella console. In Funzioni di Azure v2.x gli output di traccia tramite `console.log` vengono acquisiti a livello di app per le funzioni. Ciò significa che gli output di `console.log` non sono associati a una chiamata di funzione specifica e non vengono visualizzati nei log di una funzione specifica. Vengono tuttavia propagati in Application Insights. In Funzioni di Azure v1.x non è possibile usare `console.log` per scrivere nella console.
-
-Quando si chiama `context.log()`, il messaggio viene scritto nella console a livello di traccia predefinito, ovvero il livello di traccia _info_. Il codice seguente scrive nella console a livello di traccia informazioni:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Questo codice equivale al codice mostrato sopra:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Questo codice scrive nella console a livello di errore:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Poiché _error_ è il livello di traccia più alto, questa traccia viene scritta nell'output a tutti i livelli di traccia, fintantoché la registrazione è abilitata.
 
 Tutti i metodi `context.log` supportano lo stesso formato di parametri supportato dal metodo Node.js [ util.format](https://nodejs.org/api/util.html#util_util_format_format). Si consideri il codice seguente, che scrive log di funzioni usando il livello di traccia predefinito:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configurare il livello di traccia per la registrazione della console
+> [!NOTE]  
+> Non usare `console.log` per scrivere gli output di traccia. Poiché l'output di `console.log` viene acquisito a livello di app per le funzioni, non è associato a una chiamata di funzione specifica e non viene visualizzato nei log di una funzione specifica. Inoltre, la versione 1. x del runtime di funzioni non supporta l'uso `console.log` di per scrivere nella console.
 
-Con Funzioni 1.x è possibile definire la soglia del livello di traccia per la scrittura nella console. Ciò consente di controllare più facilmente il modo in cui le tracce vengono scritte nella console dalla funzione. Per impostare la soglia per tutte le tracce scritte nella console, usare la proprietà `tracing.consoleLevel` nel file host.json. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni. L'esempio seguente imposta la soglia di traccia per abilitare la registrazione dettagliata:
+### <a name="trace-levels"></a>Livelli di traccia
+
+Oltre al livello predefinito, sono disponibili i seguenti metodi di registrazione che consentono di scrivere log delle funzioni a livelli di traccia specifici.
+
+| Metodo                 | Descrizione                                |
+| ---------------------- | ------------------------------------------ |
+| **errore (_messaggio_)**   | Scrive un evento a livello di errore nei log.   |
+| **warn(_messaggio_)**    | Scrive un evento a livello di avviso nei log. |
+| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+
+Nell'esempio seguente viene scritto lo stesso log a livello di traccia di avviso, anziché il livello info:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Poiché _error_ è il livello di traccia più alto, questa traccia viene scritta nell'output a tutti i livelli di traccia, fintantoché la registrazione è abilitata.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configurare il livello di traccia per la registrazione
+
+Funzioni consente di definire il livello di traccia della soglia per la scrittura nei log o nella console. Le impostazioni di soglia specifiche dipendono dalla versione del runtime di funzioni.
+
+# <a name="v2x"></a>[V2. x +](#tab/v2)
+
+Per impostare la soglia per le tracce scritte nei log, utilizzare la `logging.logLevel` proprietà nell'host.jssu file. Questo oggetto JSON consente di definire una soglia predefinita per tutte le funzioni nell'app per le funzioni, più è possibile definire soglie specifiche per le singole funzioni. Per altre informazioni, vedere [How to configure Monitoring for Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+Per impostare la soglia per tutte le tracce scritte nei log e nella console, usare la `tracing.consoleLevel` proprietà nell'host.jssu file. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni. L'esempio seguente imposta la soglia di traccia per abilitare la registrazione dettagliata:
 
 ```json
 {
@@ -360,7 +358,65 @@ Con Funzioni 1.x è possibile definire la soglia del livello di traccia per la s
 }  
 ```
 
-I valori di **consoleLevel** corrispondono ai nomi dei metodi `context.log`. Per disabilitare tutta la registrazione traccia nella console, impostare **consoleLevel** su _off_. Per altre informazioni, vedere il [riferimento su host.json](functions-host-json-v1.md).
+I valori di **consoleLevel** corrispondono ai nomi dei metodi `context.log`. Per disabilitare tutta la registrazione traccia nella console, impostare **consoleLevel** su _off_. Per ulteriori informazioni, vedere [host.jsil riferimento V1. x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Registrare i dati di telemetria personalizzati
+
+Per impostazione predefinita, funzioni scrive l'output come tracce in Application Insights. Per un maggiore controllo, è invece possibile usare il [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) per inviare dati di telemetria personalizzati all'istanza di Application Insights. 
+
+# <a name="v2x"></a>[V2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+Il parametro `tagOverrides` imposta `operation_Id` sull'ID di chiamata alla funzione. Questa impostazione consente di correlare tutti i dati di telemetria personalizzati e generati automaticamente per una chiamata di funzione specifica.
 
 ## <a name="http-triggers-and-bindings"></a>Trigger e associazioni HTTP
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207158"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168189"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Risolvere problemi comuni o problemi con il controller di ingresso
 
@@ -85,15 +85,15 @@ Una volta completata la distribuzione dell'app sopra il cluster AKS, sarà prese
 Ottenere l'elenco di Pod con [cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide` .
 Si prevede che un pod denominato ' test-Agic-app-pod ' sia stato creato. Avrà un indirizzo IP. Questo indirizzo deve trovarsi all'interno della VNET del gateway applicazione, che viene usato con AKS.
 
-![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Screenshot della finestra bash in Azure Cloud Shell che mostra un elenco di pod che include test-Agic-app-pod nell'elenco.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Ottenere l'elenco di servizi: `kubectl get services -o wide` . Si prevede di visualizzare un servizio denominato "test-Agic-app-Service".
 
-![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Screenshot della finestra bash in Azure Cloud Shell che mostra un elenco di servizi che include test-Agic-app-pod nell'elenco.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Ottiene l'elenco dei in ingresso: `kubectl get ingress` . È prevista la creazione di una risorsa di ingresso denominata ' test-Agic-app-ingress '. La risorsa avrà un nome host ' test.agic.contoso.com '.
 
-![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Screenshot della finestra bash in Azure Cloud Shell che mostra un elenco di ingress che include test-Agic-app-ingress nell'elenco.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 Uno dei pod sarà AGIC. `kubectl get pods` mostrerà un elenco di Pod, uno dei quali inizierà con "ingresso-Azure". Ottenere tutti i log di tale Pod con `kubectl logs <name-of-ingress-controller-pod>` per verificare che la distribuzione sia stata completata correttamente. Una distribuzione riuscita avrebbe aggiunto le righe seguenti al log:
 ```
@@ -120,7 +120,7 @@ Infine, è possibile usare il `cURL` comando dall'interno [cloud Shell](https://
 1. Usare `kubectl get ingress` per ottenere l'indirizzo IP pubblico del gateway applicazione
 2. Utilizzare `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`.
 
-![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Screenshot della finestra bash in Azure Cloud Shell che mostra un comando cURL che stabilisce correttamente una connessione HTTP all'app di test.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 `HTTP/1.1 200 OK`Il risultato indica che il sistema gateway applicazione + AKS + AGIC funziona come previsto.
 
