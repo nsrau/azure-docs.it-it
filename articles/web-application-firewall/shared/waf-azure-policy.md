@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564af59c473d5c3f55bef059905500496adf060c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224061"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165911"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall applicazione Web di Azure e criteri di Azure
 
@@ -44,7 +44,7 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
 3.  Nella pagina assegnazioni selezionare l'icona **assegna criterio** nella parte superiore.
 
 [!div class="mx-imgBorder"]
-![web application firewall di Azure](../media/waf-azure-policy/assign-policy.png)
+![Screenshot che mostra la scheda nozioni di base nella pagina Assegna criterio.](../media/waf-azure-policy/assign-policy.png)
 
 4.  Nella scheda assegna nozioni di base della pagina dei criteri aggiornare i campi seguenti:
     1.  **Ambito**: selezionare le sottoscrizioni di Azure e i gruppi di risorse che devono essere interessati dai criteri di Azure.
@@ -52,7 +52,7 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
     3.  **Definizione dei criteri**: selezionare i criteri di Azure da applicare all'ambito con esclusioni. Digitare "Web Application Firewall" nella barra di ricerca per scegliere il criterio di Azure per il Web Application Firewall pertinente.
 
 [!div class="mx-imgBorder"]
-![web application firewall di Azure](../media/waf-azure-policy/policy-listing.png)
+![Screenshot che mostra le definizioni dei criteri disponibili.](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selezionare la scheda **parametri** e aggiornare i parametri dei criteri. Per chiarire ulteriormente il comportamento del parametro, passare il puntatore del mouse sull'icona delle informazioni accanto al nome del parametro per ulteriori chiarimenti.

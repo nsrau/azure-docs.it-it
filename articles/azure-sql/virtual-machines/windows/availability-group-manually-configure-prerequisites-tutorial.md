@@ -14,18 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075706"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166897"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questa esercitazione illustra come completare i prerequisiti per la creazione di un [SQL Server Always on gruppo di disponibilità in macchine virtuali (VM) di Azure](availability-group-manually-configure-tutorial.md). Una volta completati i prerequisiti, saranno disponibili un controller di dominio, due SQL Server macchine virtuali e un server di controllo del mirroring in un singolo gruppo di risorse.
+
+Sebbene questo articolo configuri manualmente l'ambiente del gruppo di disponibilità, è anche possibile usare l' [portale di Azure](availability-group-azure-portal-configure.md), [PowerShell o l'interfaccia della](availability-group-az-commandline-configure.md)riga di comando di Azure o i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md) . 
 
 **Tempo stimato**: il completamento dei prerequisiti potrebbe richiedere un paio d'ore. Il tempo è dedicato principalmente alla creazione delle macchine virtuali.
 
@@ -35,7 +37,7 @@ Il diagramma seguente illustra le operazioni di compilazione nell'esercitazione.
 
 ## <a name="review-availability-group-documentation"></a>Esaminare la documentazione relativa ai gruppi di disponibilità
 
-L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità AlwaysOn di SQL Server. Se non si ha familiarità con questa tecnologia, vedere [Panoramica di gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità AlwaysOn di SQL Server. Se non si ha familiarità con questa tecnologia, vedere [Panoramica di gruppi di disponibilità always on (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Creare un account Azure
@@ -60,7 +62,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
 9. Verificare che l'opzione **Aggiungi al dashboard** sia selezionata. Questa impostazione facoltativa inserisce un collegamento per il gruppo di risorse nel dashboard del portale di Azure.
 
-   ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Collegamento del gruppo di risorse per la portale di Azure](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Selezionare **Crea** per creare il gruppo di risorse.
 
@@ -118,13 +120,13 @@ La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller
 
     Si noti la subnet già creata.
 
-   ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Si noti la subnet già creata](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. Per creare una seconda subnet, selezionare **+ subnet**.
 6. In **Aggiungi subnet** configurare la subnet digitando **sqlsubnet** in **Nome**. Azure specifica automaticamente un **Intervallo di indirizzi**valido. Verificare che questo intervallo di indirizzi includa almeno 10 indirizzi. In un ambiente di produzione potrebbero essere necessari più indirizzi.
-7. Selezionare **OK**.
+7. Fare clic su **OK**.
 
-    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Configura subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
@@ -415,7 +417,7 @@ A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com
 2. In **Server Manager** selezionare **Server locale**.
 3. Selezionare il collegamento del **gruppo** di lavoro.
 4. Nella sezione **nome computer** selezionare **Cambia**.
-5. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Selezionare **OK**.
+5. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Fare clic su **OK**.
 6. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\DomainAdmin**) e la password (**Contoso!0000**).
 7. Quando viene visualizzato il messaggio "Benvenuto nel dominio corp.contoso.com", fare clic su **OK**.
 8. Selezionare **Chiudi**, quindi fare clic su **Riavvia ora** nella finestra di dialogo popup.
@@ -465,7 +467,7 @@ Usare l'account di installazione (CORP\install) per configurare il gruppo di dis
 
 1. Impostare l'account di accesso come membro del ruolo del server predefinito **sysadmin**.
 
-1. Selezionare **OK**.
+1. Fare clic su **OK**.
 
 Ripetere i passaggi precedenti nell'altra VM di SQL Server.
 

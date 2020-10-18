@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 31c9f9d94acab7322cf11d084e4010f2defd6f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a8f44831f1af13158261bedb19a254c6a565a6
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261699"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165299"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Come configurare e leggere i log quando si usa il trigger di Funzioni di Azure per Cosmos DB
 
@@ -25,7 +25,7 @@ I log di integrità descrivono il comportamento del trigger di Funzioni di Azure
 
 ## <a name="enabling-logging"></a>Abilitazione della registrazione
 
-Per abilitare la registrazione usando il trigger di Funzioni di Azure per Cosmos DB, individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app Funzioni di Azure e [configurare il livello di registrazione necessario](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). È necessario abilitare le tracce per `Host.Triggers.CosmosDB`, come illustrato nell'esempio seguente:
+Per abilitare la registrazione usando il trigger di Funzioni di Azure per Cosmos DB, individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app Funzioni di Azure e [configurare il livello di registrazione necessario](../azure-functions/configure-monitoring.md#configure-log-levels). È necessario abilitare le tracce per `Host.Triggers.CosmosDB`, come illustrato nell'esempio seguente:
 
 ```js
 {

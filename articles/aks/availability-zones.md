@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489137"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165809"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes che usi le zone di disponibilità
 
@@ -29,6 +29,7 @@ Questo articolo illustra come creare un cluster del servizio Azure Kubernetes e 
 I cluster del servizio Azure Kubernetes possono essere attualmente creati usando le zone di disponibilità nelle aree seguenti:
 
 * Australia orientale
+* Canada centrale
 * Stati Uniti centrali
 * Stati Uniti orientali 2
 * Stati Uniti orientali

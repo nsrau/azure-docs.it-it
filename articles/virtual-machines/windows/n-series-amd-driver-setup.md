@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6885c28d993b8ddab5fe158ad7b1480259cb8fb0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150749"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92163786"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD sulle macchine virtuali serie N eseguite in Windows
 
@@ -48,11 +48,12 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 È possibile verificare l'installazione del driver in Gestione dispositivi. L'esempio seguente illustra la corretta configurazione della scheda Radeon Instinct MI25 in una macchina virtuale NVv4 di Azure.
 <br />
-![Stato dispositivo GPU](./media/n-series-amd-driver-setup/device-manager.png)
+
+![Screenshot che illustra la corretta configurazione della scheda Radeon Instinct MI25 in una VM NVv4 di Azure.](./media/n-series-amd-driver-setup/device-manager.png)
 
 È possibile usare dxdiag per verificare le proprietà di visualizzazione della GPU, inclusa la RAM video. L'esempio seguente illustra una partizione 1/2 della scheda Radeon Instinct MI25 in una macchina virtuale NVv4 di Azure.
 <br />
-![Proprietà GPU](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Screenshot che mostra una partizione 1/2 della scheda Radeon Instinct MI25 in una VM NVv4 di Azure.](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Se si esegue Windows 10 Build 1903 o versione successiva, dxdiag non visualizzerà alcuna informazione nella scheda 'Display'. Usare quindi l'opzione 'Salva tutte le informazioni' nella parte inferiore e il file di output visualizzerà le informazioni correlate alla GPU AMD MI25.
 

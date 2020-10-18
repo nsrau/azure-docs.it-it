@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018595"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164228"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -734,7 +734,7 @@ Questo errore si verifica perché l'endpoint cloud è stato creato con contenuto
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Rimedio necessario** | Sì |
 
-Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessioni di sincronizzazione potrebbero presentare errori. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori quando sono presenti molti file che non riescono a eseguire la sincronizzazione con errori per elemento. Eseguire i passaggi illustrati nella [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) sezione per risolvere gli errori per elemento. Per ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED di errore di sincronizzazione, aprire un caso di supporto.
 
 > [!NOTE]
 > Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti.

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326780"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166285"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
 
@@ -66,6 +66,9 @@ A questo punto, continuare con i passaggi seguenti:
 <a name="connect-azure-sql-db"></a>
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Connettersi al database SQL di Azure o Istanza gestita
+
+Per accedere a un Istanza gestita di Azure SQL senza usare il gateway dati locale o l'ambiente del servizio di integrazione, è necessario [configurare l'endpoint pubblico nel istanza gestita SQL di Azure](../azure-sql/managed-instance/public-endpoint-configure.md). L'endpoint pubblico usa la porta 3342, quindi assicurarsi di specificare questo numero di porta quando si crea la connessione dall'app per la logica.
+
 
 La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione SQL](#add-sql-action)e in precedenza non è stata creata una connessione al database, viene richiesto di completare i passaggi seguenti:
 
@@ -248,6 +251,18 @@ Quando si chiama un stored procedure usando il connettore SQL Server, l'output r
 
 1. Per fare riferimento alle proprietà di contenuto JSON, fare clic all'interno delle caselle di modifica in cui si desidera fare riferimento a tali proprietà in modo che venga visualizzato l'elenco contenuto dinamico. Nell'elenco, sotto l'intestazione [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , selezionare i token di dati per le proprietà di contenuto JSON desiderate.
 
+## <a name="troubleshoot-problems"></a>Risolvere i problemi
+
+È molto comune riscontrare un problema di connettività. Di seguito è riportato un esempio di messaggio di errore:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Per risolvere il problema, seguire la [risoluzione degli errori di connettività per SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) .
+
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
 Per informazioni tecniche sui trigger, le azioni e i limiti di questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/), generata dalla descrizione di spavalderia.
@@ -255,4 +270,3 @@ Per informazioni tecniche sui trigger, le azioni e i limiti di questo connettore
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori per App per la logica di Azure](../connectors/apis-list.md)
-

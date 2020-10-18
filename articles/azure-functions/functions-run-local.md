@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108491"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164865"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` supporta le opzioni seguenti, ovvero la versione 3. x/2. x-only, salvo diversa indicazione:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Crea funzioni .NET come script C#, che è il comportamento della versione 1. x. È valido esclusivamente con `--worker-runtime dotnet`. |
 | **`--docker`** | Crea un Dockerfile per un contenitore usando un'immagine di base basata sull'oggetto selezionato `--worker-runtime` . Usare questa opzione quando si prevede di pubblicare in un contenitore Linux personalizzato. |
@@ -309,7 +309,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 È anche possibile specificare queste opzioni nel comando usando gli argomenti seguenti:
 
-| Argomento     | Description                            |
+| Argomento     | Descrizione                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versione 2. x e versioni successive). Genera gli stessi modelli di script C# (. CSX) usati nella versione 1. x e nel portale. |
 | **`--language`**, **`-l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2. x e versioni successive, non usare questa opzione o scegliere una lingua corrispondente al runtime del ruolo di lavoro. |
@@ -377,7 +377,7 @@ npm start
 
 `func start` supporta le opzioni seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Non supportato per la versione 1. x. |
 | **`--cors-credentials`** | Consenti le richieste autenticate tra le origini, ad esempio i cookie e l'intestazione di autenticazione, non sono supportate per la versione 1. x. |
@@ -486,7 +486,7 @@ Nella versione 1. x, è anche possibile richiamare una funzione direttamente usa
 
 `func run` supporta le opzioni seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Contenuto inline. |
 | **`--debug`**, **`-d`** | Associare un debugger al processo host prima di eseguire la funzione.|
@@ -528,14 +528,14 @@ Questo comando consente di pubblicare un'app per le funzioni esistente in Azure.
 
 Le seguenti opzioni di pubblicazione si applicano a tutte le versioni:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa il Emulatore di archiviazione di Microsoft Azure, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
 Le opzioni di pubblicazione seguenti sono supportate solo per la versione 2. x e le versioni successive:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |
@@ -559,7 +559,7 @@ func deploy
 
 Sono disponibili le opzioni di distribuzione del contenitore personalizzato seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Il nome di un registro Docker a cui l'utente corrente ha eseguito l'accesso. |
 | **`--platform`** | Piattaforma di hosting per le app per le funzioni. Le opzioni valide sono `kubernetes` |
@@ -574,15 +574,11 @@ Il modo consigliato per monitorare l'esecuzione delle funzioni è l'integrazione
 
 ### <a name="application-insights-integration"></a>Integrazione di Application Insights
 
-L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. Per altre informazioni, vedere [Enable Application Insights Integration](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Abilitare i log in streaming
 
 È possibile visualizzare un flusso di file di log generati dalle funzioni in una sessione della riga di comando nel computer locale. 
-
-#### <a name="native-streaming-logs"></a>Log in streaming nativi
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

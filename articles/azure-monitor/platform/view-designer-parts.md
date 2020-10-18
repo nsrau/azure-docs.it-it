@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539398"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166591"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -44,7 +44,7 @@ Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative p
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
 Nella parte elenco di query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
 
-![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-list-queries.png)
+![Screenshot della parte visualizzazione elenco di query in Progettazione viste di monitoraggio di Azure.](media/view-designer-parts/view-list-queries.png)
 
 | Impostazione | Descrizione |
 |:--- |:--- |
@@ -60,7 +60,7 @@ Nella parte elenco di query viene visualizzato un elenco di query di log. È pos
 ## <a name="number-and-list-part"></a>Parte relativa a Numero ed elenco
 Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio dei record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-number-list.png)
+![Screenshot delle parti di visualizzazione numero ed elenco in Progettazione viste di monitoraggio di Azure.](media/view-designer-parts/view-number-list.png)
 
 | Impostazione | Descrizione |
 |:--- |:--- |
@@ -69,7 +69,7 @@ Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio d
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
-| **Title** | |
+| **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
@@ -100,7 +100,7 @@ L'intestazione contiene due numeri che visualizzano un conteggio di record da qu
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Navigazione nel titolo** | |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
-| **Title** | |
+| **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | **Elenco** | |
@@ -209,7 +209,7 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | URL |URL del collegamento. |
 | **Elementi informazioni** | |
 | Titolo |Testo che viene visualizzato per il titolo di ogni elemento. |
-| Content |Testo che viene visualizzato per ogni elemento. |
+| Contenuto |Testo che viene visualizzato per ogni elemento. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Parte relativa a Grafico a linee, callout ed elenco
 L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.

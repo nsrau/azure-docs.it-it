@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482569"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165554"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
 
@@ -54,7 +54,7 @@ Dopo aver collegato l'account del sensore in Azure FarmBeats, è necessario asse
 2.  Selezionare **Farm**  >  **Aggiungi dispositivi**.
 3.  Viene visualizzata la finestra **Aggiungi dispositivi** . Selezionare un dispositivo collegato ai sensori di umidità del suolo per la farm.
 
-    ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Screenshot che mostra la schermata Aggiungi dispositivi.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Selezionare **Aggiungi dispositivi**.     
 
@@ -70,7 +70,7 @@ Questo passaggio consente di creare un processo o un'operazione a esecuzione pro
 6.  Nella misura **Seleziona** **sensore**di umidità del suolo immettere la misura che si vuole usare per la mappa.
     Per trovare la misura del sensore, in **sensori**selezionare qualsiasi sensore di umidità del suolo. In **Proprietà sensore**usare il valore **Nome misura** .
 
-    ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Screenshot che mostra la schermata di umidità del suolo.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Selezionare **genera mappe**.

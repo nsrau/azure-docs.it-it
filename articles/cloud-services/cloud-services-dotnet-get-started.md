@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073802"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164364"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -64,7 +64,7 @@ L'app archivia inserzioni pubblicitarie in un database SQL usando Code First di 
 
 Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web archivia l'immagine in un [BLOB di Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), quindi archivia le informazioni sulle inserzioni nel database con un URL che fa riferimento al BLOB e, al tempo stesso, scrive un messaggio in una coda di Azure. Un processo back-end in esecuzione in un ruolo di lavoro esegue periodicamente il polling della coda alla ricerca di nuovi messaggi. Quando compare un nuovo messaggio, il ruolo di lavoro crea un'anteprima per quell'immagine e aggiorna il campo di database relativo all'URL dell'anteprima per quell'inserzione. Il diagramma seguente mostra l'interazione tra le parti dell'applicazione.
 
-![Architettura di Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagramma che illustra il modo in cui le parti dell'applicazione interagiscono.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -125,7 +125,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 5. Scegliere l'area geografica in cui si vuole distribuire l'applicazione.
 
     Questo campo specifica in quale data center viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
-5. Fare clic su **Crea**.
+5. Scegliere **Crea**.
 
     L'immagine seguente illustra la creazione di un servizio cloud il cui URL è CSvccontosoads.cloudapp.net.
 
@@ -154,7 +154,7 @@ Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 9. Fare clic su **Seleziona** per il nuovo server.
 
     ![Nuovo server](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Fare clic su **Crea**.
+10. Scegliere **Crea**.
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 Un account di archiviazione di Azure offre risorse per l'archiviazione di dati di code e BLOB nel cloud.
@@ -177,7 +177,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     Quando il servizio cloud e l'account di archiviazione si trovano in data center diversi (aree diverse), la latenza aumenterà e verrà addebitato il costo relativo alla larghezza di banda esterna al data center. La larghezza di banda nell'ambito di un data center è gratuita.
 
     I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Fare clic su **Crea**.
+7. Scegliere **Crea**.
 
     ![Nuovo account di archiviazione](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -217,7 +217,7 @@ Sarà necessario usare una [trasformazione Web.config](https://www.asp.net/mvc/t
 6. Selezionare e copiare la stringa di connessione, senza le virgolette tra cui è racchiusa, per usarla nei passaggi seguenti per la configurazione del progetto di ruolo di lavoro.
 7. In **Esplora soluzioni**, in **Ruoli** nel progetto di servizio cloud fare clic con il pulsante destro del mouse su **ContosoAdsWorker**, quindi scegliere **Proprietà**.
 
-    ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Schermata che evidenzia l'opzione del menu proprietà.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Fare clic sulla scheda **Impostazioni**.
 9. Impostare **Configurazione servizio** su **Cloud**.
 10. Selezionare il campo **Valore** per l'impostazione `ContosoAdsDbConnectionString` e quindi incollare la stringa di connessione copiata dalla sezione precedente dell'esercitazione.
@@ -378,7 +378,7 @@ In questa sezione verranno configurate le stringhe di connessione di Archiviazio
 2. Salvare le modifiche.
 3. Nel progetto ContosoAdsCloudService fare clic con il pulsante destro del mouse su ContosoAdsWeb in **Ruoli**, quindi scegliere **Proprietà**.
 
-    ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Schermata che evidenzia l'opzione del menu proprietà in ruoli.](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. Nella finestra delle proprietà di **ContosoAdsWeb [Role]** fare clic sulla scheda **Impostazioni**, quindi su **Aggiungi impostazione**.
 
     Lasciare l'opzione **Configurazione servizio** impostata su **Tutte le configurazioni**.

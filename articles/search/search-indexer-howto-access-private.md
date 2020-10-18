@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150417"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167475"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Connessioni di indicizzatore tramite un endpoint privato (Azure ricerca cognitiva)
 
@@ -23,7 +23,7 @@ Per usare questo metodo di connessione dell'indicizzatore, esistono due requisit
 
 + La risorsa di Azure che fornisce contenuto o codice deve essere registrata in precedenza con il [servizio di collegamento privato di Azure](https://azure.microsoft.com/services/private-link/).
 
-+ Il servizio ricerca cognitiva di Azure deve essere di base o superiore (non disponibile sul livello gratuito). Inoltre, per gli indicizzatori che hanno un skillt, il servizio di ricerca deve essere S2 o superiore. Per altre informazioni, vedere [limiti del servizio](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ Il servizio ricerca cognitiva di Azure deve essere di base o superiore (non disponibile sul livello gratuito). Inoltre, se l'indicizzatore ha un numero di competenze, il livello deve essere standard 2 (S2) o superiore. Per altre informazioni, vedere [limiti del servizio](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>API di gestione delle risorse di collegamento privato condivise
 

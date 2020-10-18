@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683901"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164211"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Ripristino di emergenza per FarmBeats
 
@@ -45,18 +45,18 @@ FarmBeats archivia i dati in tre servizi di prima entità di Azure, ovvero **arc
 Copiare la chiave di accesso del Cosmos DB ripristinato e aggiornare il nuovo Key Vault FarmBeats datahub.
 
 
-  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![Screenshot che evidenzia dove ottenere la copia della chiave di accesso.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copiare l'URL del Cosmos DB ripristinato e aggiornarlo nella nuova configurazione del servizio app FarmBeats datahub. È ora possibile eliminare Cosmos DB account nella nuova distribuzione di FarmBeats.
 
-  ![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Screenshot che mostra dove copiare l'URL del Cosmos DB ripristinato.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Configura account di archiviazione
 
 Copiare la chiave di accesso dell'account di archiviazione ripristinato e aggiornarla nel nuovo FarmBeats datahub Key Vault.
 
-![Ripristino di emergenza](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![Screenshot che mostra dove copiare la chiave di accesso dell'account di archiviazione ripristinato.](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Assicurarsi di aggiornare il nome dell'account di archiviazione nel nuovo file di configurazione della macchina virtuale FarmBeats batch.

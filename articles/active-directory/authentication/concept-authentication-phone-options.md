@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6b39852668e1b545ce576ac0d04a208e2058e8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965421"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165511"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -36,7 +36,7 @@ Per Azure Multi-Factor Authentication o la reimpostazione della password self-se
 
 Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory. Gli utenti devono invece popolare il proprio attributo **Telefono per l'autenticazione** tramite la registrazione delle informazioni di sicurezza combinate all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
 
-![Screenshot del portale di Azure che mostra i metodi di autenticazione con un numero di telefono inserito](media/concept-authentication-methods/user-authentication-methods.png)
+:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot del portale di Azure che mostra i metodi di autenticazione con un numero di telefono inserito":::
 
 Microsoft non garantisce l'invio coerente di prompt Azure Multi-Factor Authentication via SMS o tramite messaggio vocale allo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS. Microsoft non supporta i codici brevi in paesi o aree geografiche diversi da Stati Uniti e Canada.
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005937"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164803"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -47,7 +47,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 
-    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi.
+    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi. Per altre informazioni, vedere [visualizzare l'accesso a un utente per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![controllo di accesso](./media/create-account/access-control-iam.png)
 
@@ -61,7 +61,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 > [!NOTE]
 > Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.

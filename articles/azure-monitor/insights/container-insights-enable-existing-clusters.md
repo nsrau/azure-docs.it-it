@@ -4,12 +4,12 @@ description: Informazioni su come abilitare il monitoraggio di un cluster Azure 
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994515"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165401"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Abilitare il monitoraggio del cluster di Azure Kubernetes Service (AKS) già distribuito
 
@@ -132,12 +132,10 @@ Per abilitare il monitoraggio direttamente da uno dei cluster AKS nell'portale d
 2. Nell'elenco delle risorse digitare **Contenitori**.  L'elenco viene filtrato in base all'input.
 
 3. Selezionare **Servizi Kubernetes**.
+    
+4. Nell'elenco dei servizi Kubernetes selezionare un servizio.
 
-    ![Collegamento ai servizi Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. Nell'elenco dei contenitori selezionare un contenitore.
-
-5. Nella pagina di panoramica del contenitore selezionare **Monitora contenitori**.
+5. Nella pagina di panoramica del servizio Kubernetes selezionare **monitoraggio-informazioni dettagliate**.
 
 6. Se nella pagina **Onboarding di Monitoraggio di Azure per i contenitori** è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione del cluster, selezionarla dall'elenco a discesa.
     Nell'elenco sono preselezionate l'area di lavoro e la località predefinite in cui è distribuito il contenitore servizio Azure Kubernetes nella sottoscrizione.

@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995689"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164483"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Abilitare Monitoraggio di Azure per le macchine virtuali
 
@@ -37,30 +38,42 @@ Prima di iniziare, verificare di aver compreso quanto illustrato nelle sezioni s
 >[!NOTE]
 >Le seguenti informazioni descritte in questa sezione sono applicabili anche alla [soluzione mapping dei servizi](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
 
 Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log Analytics nelle aree seguenti:
 
-- Stati Uniti centro-occidentali
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
-- Stati Uniti centro-meridionali
-- Stati Uniti orientali
-- Stati Uniti Orientali 2
-- Stati Uniti centrali
-- Stati Uniti centro-settentrionali
-- US Gov AZ
-- US Gov va
-- Canada centrale
-- Regno Unito meridionale
-- Europa settentrionale
-- Europa occidentale
-- Asia orientale
-- Asia sud-orientale
-- India centrale
-- Giappone orientale
-- Australia orientale
-- Australia sud-orientale
+- Africa
+  - Sudafrica settentrionale
+- Asia Pacifico
+  - Asia orientale
+  - Asia sud-orientale
+- Australia
+  - Australia orientale
+  - Australia sud-orientale
+- Azure Government
+  - US Gov AZ
+  - US Gov va
+- Canada
+  - Canada centrale
+- Europa
+  - Europa settentrionale
+  - Europa occidentale
+- India
+  - India centrale
+- Giappone
+  - Giappone orientale
+- Regno Unito
+  - Regno Unito meridionale
+- Stati Uniti
+  - Stati Uniti centrali
+  - Stati Uniti orientali
+  - Stati Uniti Orientali 2
+  - Stati Uniti centro-settentrionali
+  - Stati Uniti centro-meridionali
+  - Stati Uniti centro-occidentali
+  - Stati Uniti occidentali
+  - Stati Uniti occidentali 2
+
 
 >[!NOTE]
 >È possibile monitorare le macchine virtuali di Azure in qualsiasi area. Le macchine virtuali non sono limitate alle aree supportate dall'area di lavoro Log Analytics.

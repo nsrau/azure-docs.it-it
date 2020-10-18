@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205433"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164840"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -249,7 +249,17 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> Per informazioni su un framework di registrazione più recente che è possibile usare al posto di `TraceWriter`, vedere [Scrivere i log nelle funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
+> Per informazioni su un Framework di registrazione più recente che è possibile usare anziché `TraceWriter` , vedere la documentazione di [ILogger](functions-dotnet-class-library.md#ilogger) nella Guida per gli sviluppatori di librerie di classi .NET.
+
+### <a name="custom-metrics-logging"></a>Registrazione delle metriche personalizzate
+
+È possibile usare il `LogMetric` metodo di estensione su `ILogger` per creare metriche personalizzate in Application Insights. Ecco un esempio di chiamata al metodo:
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+Questo codice è un'alternativa alla chiamata di `TrackMetric` con l'API di Application Insights per .NET.
 
 ## <a name="async"></a>Async
 

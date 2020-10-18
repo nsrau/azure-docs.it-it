@@ -5,19 +5,19 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 8665b49aebcb99ef3d3ded17e7e7653027aba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08abd9ff1134415e47923f22e753691225fc23b8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651626"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164721"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -31,7 +31,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 * Windows 7
 * Windows 8 e Windows 8.1
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows 10
 
@@ -96,6 +96,7 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 * [Informazioni sui modelli di programmazione Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 * [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * Informazioni sulle [Opzioni di supporto Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"

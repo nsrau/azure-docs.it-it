@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3cc579615a69b659bc1a4736984f0b3dcd6edb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272528"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165243"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creare un'istanza FCI con Spazi di archiviazione diretta (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 - Una sottoscrizione di Azure. Inizia subito [gratuitamente](https://azure.microsoft.com/free/). 
 - [Due o più macchine virtuali di Windows Azure predisposte](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
-- La versione più recente di [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>Aggiungere la funzionalità cluster Windows
@@ -164,7 +164,7 @@ I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono con
 
 1. [Creare un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Spazi di archiviazione diretta crea automaticamente un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione del volume. Questo processo include la formattazione, l'aggiunta del volume al cluster e la creazione di un volume CSV. Questo esempio crea un volume condiviso cluster da 800 GB:
+   Spazi di archiviazione diretta crea automaticamente un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione del volume. Questo processo include la formattazione, l'aggiunta del volume al cluster e la creazione di un volume CSV. Questo esempio Mostra come creare un file CSV da 800 Gigabyte (GB):
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurare la connettività 
 
-Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](hadr-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 e Windows Server 2016 (o versione successiva), è possibile visualizzare in anteprima la funzionalità nome di [rete distribuita](hadr-distributed-network-name-dnn-configure.md) . 
+Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 Cu2 (o versione successiva) e Windows Server 2016 (o versione successiva), è invece possibile usare la funzionalità nome di [rete distribuita](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -243,7 +243,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](hadr-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](failover-cluster-instance-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 Se Spazi di archiviazione diretta non è la soluzione di archiviazione FCI appropriata, provare a creare l'istanza FCI usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o le [condivisioni file Premium](failover-cluster-instance-premium-file-share-manually-configure.md) . 
 
