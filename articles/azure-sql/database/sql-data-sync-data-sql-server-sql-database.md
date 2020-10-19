@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057893"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173569"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -137,6 +137,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 - L'autenticazione Azure Active Directory non è supportata.
 - Se sono presenti tabelle con lo stesso nome ma con uno schema diverso (ad esempio, dbo. Customers e Sales. Customers), è possibile aggiungere in Sync solo una delle tabelle.
+- Un nome di tabella non può contenere caratteri con un valore ASCII minore o uguale a'-'.
 - Le colonne con tipi di dati User-Defined non sono supportate
 - Lo stato di trasferimento di server tra sottoscrizioni diverse non è supportato. 
 

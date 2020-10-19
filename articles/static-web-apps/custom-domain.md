@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563348"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173692"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
 
@@ -29,11 +29,11 @@ Quando si configurano i nomi di dominio, i record "A" vengono usati per eseguire
 
 Per un'applicazione sono disponibili diversi tipi di configurazioni DNS.
 
-| Se si vuole                                 | Risultato                                                |
-| -----------------------------------------------| --------------------------------------------------- |
-| Supporto tecnico `www.example.com` o `blog.example.net`| [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
-| Supporto di `example.com`                          | [Configurare un dominio radice](#configure-a-root-domain) |
-| Fare in modo che tutti i sottodomini puntino a `www.example.com`      | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain)            |
+| Se si vuole | Risultato |
+|--|--|
+| Supporto tecnico `www.example.com` o `blog.example.net` | [Esecuzione del mapping di un record CNAME](#map-a-cname-record) |
+| Supporto di `example.com` | [Configurare un dominio radice](#configure-a-root-domain) |
+| Fare in modo che tutti i sottodomini puntino a `www.example.com` | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain) |
 
 ## <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
@@ -46,6 +46,8 @@ Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare u
 1. Nella pagina _App Web statiche_ selezionare il nome dell'app.
 
 1. Nel menu fare clic su **Domini personalizzati**.
+
+1. Fare clic sul pulsante **Aggiungi**
 
 1. Nella finestra _Domini personalizzati_ copiare l'URL nel campo **Valore**.
 

@@ -3,12 +3,12 @@ title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande fre
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182514"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172515"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -32,7 +32,7 @@ Le credenziali dell'insieme di credenziali scadono dopo 10 giorni. Se il file de
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>Quali caratteri sono consentiti per la passphrase?
 
-La passphrase deve usare caratteri del set di caratteri ASCII, con [valori ASCII minori o uguali a 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+La passphrase deve usare caratteri del set di caratteri ASCII, con [valori ASCII minori o uguali a 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Da quali unità è possibile eseguire il backup di file e cartelle?
 
@@ -112,7 +112,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-    | Percorso del Registro | Chiave del Registro di sistema | Valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -127,7 +127,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 4. Copiare l'intera `\Scratch` cartella in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
-    | Percorso del Registro | Chiave del Registro di sistema | Valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |

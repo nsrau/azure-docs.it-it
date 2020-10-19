@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048458"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172254"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -170,7 +170,7 @@ Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.m
 | `fr-CH` <sup>Nuovo</sup> | Francese (Svizzera) | Female | `fr-CH-ArianeNeural` | Generale |
 | `fr-FR` | Francese (Francia) | Female | `fr-FR-DeniseNeural` | Generale |
 | `fr-FR` <sup>Nuovo</sup> | Francese (Francia) | Male | `fr-FR-HenriNeural` | Generale |
-| `he-IL` <sup>Nuovo</sup> | Ebraico (località) | Female | `he-IL-HilaNeural` | Generale |
+| `he-IL` <sup>Nuovo</sup> | Ebraico (Israele) | Female | `he-IL-HilaNeural` | Generale |
 | `hi-IN` | Hindi (India) | Female | `hi-IN-SwaraNeural` | Generale |
 | `hr-HR` <sup>Nuovo</sup> | Croato (Croazia) | Female | `hr-HR-GabrijelaNeural` | Generale |
 | `hu-HU` <sup>Nuovo</sup> | Ungherese (Ungheria) | Female | `hu-HU-NoemiNeural` | Generale |

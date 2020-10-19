@@ -4,12 +4,12 @@ description: Informazioni su come le funzionalità di crittografia in backup di 
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: f55deba58cd7b725bd030409296794e5de911c09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47ecf5c16682691bd9ff7014400ea6e8ab658a92
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017907"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173936"
 ---
 # <a name="encryption-in-azure-backup"></a>Crittografia in Backup di Azure
 
@@ -24,12 +24,12 @@ Backup di Azure include la crittografia su due livelli:
   - **Uso delle chiavi gestite dal cliente**: quando si esegue il backup delle macchine virtuali di Azure, è possibile scegliere di crittografare i dati usando chiavi di crittografia di proprietà e gestite dall'utente. Backup di Azure consente di usare le chiavi RSA archiviate nel Azure Key Vault per la crittografia dei backup. La chiave di crittografia usata per crittografare i backup può essere diversa da quella usata per l'origine. I dati vengono protetti usando una chiave di crittografia dei dati basata su AES 256, che a sua volta è protetta usando le chiavi. In questo modo si ottiene il controllo completo sui dati e sulle chiavi. Per consentire la crittografia, è necessario concedere all'insieme di credenziali dei servizi di ripristino l'accesso alla chiave di crittografia nel Azure Key Vault. È possibile disabilitare la chiave o revocare l'accesso ogni volta che è necessario. Tuttavia, è necessario abilitare la crittografia usando le chiavi prima di provare a proteggere gli elementi nell'insieme di credenziali. [Altre informazioni](encryption-at-rest-with-cmk.md)sono disponibili qui.
   - **Crittografia a livello di infrastruttura**: oltre a crittografare i dati nell'insieme di credenziali di servizi di ripristino usando chiavi gestite dal cliente, è anche possibile scegliere di disporre di un ulteriore livello di crittografia configurato nell'infrastruttura di archiviazione. Questa crittografia dell'infrastruttura viene gestita dalla piattaforma. Insieme alla crittografia dei dati inattivi con chiavi gestite dal cliente, consente la crittografia a due livelli dei dati di backup. La crittografia dell'infrastruttura può essere configurata solo se si sceglie prima di tutto di usare le proprie chiavi per la crittografia dei computer inattivi. La crittografia dell'infrastruttura USA chiavi gestite dalla piattaforma per la crittografia dei dati.
 - **Crittografia specifica del carico di lavoro di cui viene eseguito il backup**  
-  - **Backup di macchine virtuali di Azure**: backup di Azure supporta il backup di macchine virtuali con dischi crittografati tramite [chiavi gestite dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), nonché [chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) di proprietà e gestite dall'utente. Inoltre, è anche possibile eseguire il backup delle macchine virtuali di Azure con il sistema operativo o i dischi dati crittografati tramite [crittografia dischi di Azure](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE USA BitLocker per le macchine virtuali Windows e DM-Crypt per le macchine virtuali Linux, per eseguire la crittografia nel guest.
+  - **Backup di macchine virtuali di Azure**: backup di Azure supporta il backup di macchine virtuali con dischi crittografati tramite [chiavi gestite dalla piattaforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys), nonché [chiavi gestite dal cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) di proprietà e gestite dall'utente. Inoltre, è anche possibile eseguire il backup delle macchine virtuali di Azure con il sistema operativo o i dischi dati crittografati tramite [crittografia dischi di Azure](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE USA BitLocker per le macchine virtuali Windows e DM-Crypt per le macchine virtuali Linux, per eseguire la crittografia nel guest.
 
 >[!NOTE]
 >La crittografia dell'infrastruttura è attualmente in anteprima limitata ed è disponibile solo nelle aree Stati Uniti orientali, Stati Uniti West2, Stati Uniti centro-meridionali, US Gov Arizona e US GOV Virginia. Se si vuole usare la funzionalità in una di queste aree, compilare [questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e inviare un messaggio di posta elettronica all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
 - Domande [frequenti su backup di Azure](backup-azure-backup-faq.md#encryption) per eventuali domande sulla crittografia

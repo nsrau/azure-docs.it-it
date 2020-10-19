@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293085"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171543"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -27,6 +27,8 @@ Per semplificare la creazione di impostazioni di diagnostica su larga scala (con
 * Ambito del gruppo di gestione attualmente non supportato.
 
 * Il criterio predefinito non è attualmente disponibile nei cloud nazionali.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Assegnazione dei criteri predefiniti a un ambito
 

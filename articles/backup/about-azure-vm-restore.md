@@ -3,12 +3,12 @@ title: Informazioni sul processo di ripristino della macchina virtuale di Azure
 description: Informazioni su come il servizio backup di Azure Ripristina le macchine virtuali di Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985327"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171769"
 ---
 # <a name="about-azure-vm-restore"></a>Informazioni sul ripristino di VM di Azure
 
@@ -32,7 +32,7 @@ Questo articolo descrive il modo in cui il [servizio backup di Azure](./backup-o
 - **Disponibilità (tipi di replica)**: backup di Azure offre due tipi di replica per assicurare la disponibilità elevata di archiviazione/dati:
   - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy.md#locally-redundant-storage) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
   - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di servizio a livello di area.
-  - L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendone la residenza e la resilienza nella stessa area. L'archiviazione con ridondanza della zona non prevede tempi di inattività. Pertanto, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e non possono subire tempi di inattività possono essere sottoposti a backup nell'archiviazione con ridondanza della zona.
+  - L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendone la residenza e la resilienza nella stessa area. L'archiviazione con ridondanza della zona non prevede tempi di inattività. Pertanto, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e non possono subire tempi di inattività possono essere sottoposti a backup nell'archiviazione con ridondanza della zona.
 
 - **Ripristino tra più aree (CRR)**: come una delle [Opzioni di ripristino](./backup-azure-arm-restore-vms.md#restore-options), il ripristino tra aree (CRR) consente di ripristinare macchine virtuali di Azure in un'area secondaria, ovvero un' [area abbinata ad Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 

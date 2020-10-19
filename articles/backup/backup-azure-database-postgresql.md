@@ -4,12 +4,12 @@ description: Informazioni sul backup di database di Azure per PostgreSQL con con
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093889"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173574"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Backup del database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 
@@ -244,7 +244,7 @@ Questa sezione fornisce informazioni sulla risoluzione dei problemi per il backu
 
 Concedere all'insieme di credenziali per il backup l'accesso in **lettura** MSI al server PG di cui si vuole eseguire il backup o il ripristino:
 
-Per stabilire una connessione sicura al database PostgreSQL, backup di Azure usa il modello di autenticazione [identità del servizio gestita (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Questo significa che l'insieme di credenziali di backup avrà accesso solo alle risorse a cui l'utente ha concesso esplicitamente l'autorizzazione.
+Per stabilire una connessione sicura al database PostgreSQL, backup di Azure usa il modello di autenticazione [identità del servizio gestita (MSI)](../active-directory/managed-identities-azure-resources/overview.md) . Questo significa che l'insieme di credenziali di backup avrà accesso solo alle risorse a cui l'utente ha concesso esplicitamente l'autorizzazione.
 
 Un MSI di sistema viene assegnato automaticamente all'insieme di credenziali al momento della creazione. È necessario assegnare a questo insieme di credenziali MSI l'accesso ai server PostgreSQL da cui si intende eseguire il backup dei database.
 
@@ -308,7 +308,7 @@ Stabilire la linea di rete abilitando il flag **Consenti l'accesso a servizi di 
 
     ![Assegnare il ruolo di collaboratore dati BLOB di archiviazione](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. In alternativa, assegnare autorizzazioni granulari al contenitore specifico in cui si esegue il ripristino usando l'interfaccia della riga di comando di Azure [AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment) .
+1. In alternativa, assegnare autorizzazioni granulari al contenitore specifico in cui si esegue il ripristino usando l'interfaccia della riga di comando di Azure [AZ Role Assignment create](/cli/azure/role/assignment) .
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

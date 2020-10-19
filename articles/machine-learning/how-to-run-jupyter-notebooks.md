@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 94c67be39ddd9f52087fa4632e239a8e85930886
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144251"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171471"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -224,7 +224,7 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
     ```
 
 > [!NOTE]
-> Per la gestione dei pacchetti in un notebook, utilizzare **% PIP** o **% conda** Magic Functions installa automaticamente i pacchetti nel **kernel attualmente in esecuzione** anziché **! PIP** o **! conda** che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 

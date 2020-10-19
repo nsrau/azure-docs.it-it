@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506628"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171462"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -296,7 +296,7 @@ Backup di Azure consente anche di eseguire il backup in modo selettivo di un sub
 
 Nel corpo della richiesta precedente, l'elenco dei dischi di cui eseguire il backup viene fornito nella sezione proprietà estese.
 
-|Proprietà  |Valore  |
+|Proprietà  |valore  |
 |---------|---------|
 |diskLunList     | L'elenco di LUN del disco è un elenco di *lun di dischi dati*. **Viene sempre eseguito il backup del disco del sistema operativo e non è necessario citarlo**.        |
 |Di inclusione     | Deve essere **true** per i LUN da includere durante il backup. Se è **false**, i LUN sopra indicati verranno esclusi.         |
@@ -437,7 +437,7 @@ Se è già stato eseguito il backup della macchina virtuale di Azure, è possibi
 > [!IMPORTANT]
 > Il corpo della richiesta precedente è sempre la copia finale dei dischi dati da escludere o includere. Questa operazione non viene *aggiunta* alla configurazione precedente. Ad esempio, se si aggiorna la protezione per la prima volta come "Escludi disco dati 1" e si ripete con "Escludi disco dati 2", *solo i dati del disco 2 verranno esclusi* nei backup successivi e verrà incluso il disco dati 1. Si tratta sempre dell'elenco finale che verrà incluso/escluso nei backup successivi.
 
-Per ottenere l'elenco corrente dei dischi esclusi o inclusi, ottenere le informazioni sull'elemento protetto come indicato [qui](https://docs.microsoft.com/rest/api/backup/protecteditems/get). La risposta fornirà l'elenco dei LUN del disco dati e indicherà se sono inclusi o esclusi.
+Per ottenere l'elenco corrente dei dischi esclusi o inclusi, ottenere le informazioni sull'elemento protetto come indicato [qui](/rest/api/backup/protecteditems/get). La risposta fornirà l'elenco dei LUN del disco dati e indicherà se sono inclusi o esclusi.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrestare la protezione dati, ma conservare i dati esistenti
 

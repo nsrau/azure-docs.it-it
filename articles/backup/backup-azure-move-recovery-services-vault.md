@@ -4,12 +4,12 @@ description: Istruzioni su come spostare un insieme di credenziali di servizi di
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056430"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171611"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -178,7 +178,7 @@ Se è necessario mantenere i dati protetti correnti nell'insieme di credenziali 
   - Sarà possibile ripristinare i dati di cui è stato eseguito il backup solo per i punti di ripristino non scaduti nell'insieme di credenziali precedente.
   - Sarà necessario creare una nuova replica iniziale dei dati nel nuovo insieme di credenziali.
 
-- Per una macchina virtuale di Azure, è possibile [arrestare la protezione con Mantieni i dati](backup-azure-manage-vms.md#stop-protecting-a-vm) per la macchina virtuale nell'insieme di credenziali precedente, spostare la macchina virtuale in un altro gruppo di risorse e quindi proteggere la macchina virtuale nel nuovo insieme di credenziali. Vedere [linee guida e limitazioni](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) per lo stato di trasferimento di una macchina virtuale in un altro gruppo di risorse.
+- Per una macchina virtuale di Azure, è possibile [arrestare la protezione con Mantieni i dati](backup-azure-manage-vms.md#stop-protecting-a-vm) per la macchina virtuale nell'insieme di credenziali precedente, spostare la macchina virtuale in un altro gruppo di risorse e quindi proteggere la macchina virtuale nel nuovo insieme di credenziali. Vedere [linee guida e limitazioni](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) per lo stato di trasferimento di una macchina virtuale in un altro gruppo di risorse.
 
   Una macchina virtuale può essere protetta solo in un insieme di credenziali alla volta. Tuttavia, la macchina virtuale nel nuovo gruppo di risorse può essere protetta nel nuovo insieme di credenziali perché è considerata una macchina virtuale diversa.
 

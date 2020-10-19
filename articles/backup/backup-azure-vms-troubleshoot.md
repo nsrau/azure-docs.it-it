@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: da650453006b77490769d1cef57fc3d4f4447e40
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169371"
+ms.locfileid: "92173829"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -129,9 +129,9 @@ Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazio
 
 Soluzione:
 
-* Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
 * Modificare i criteri di backup per eseguire i backup durante gli orari di minore traffico, quando il carico della VM è il più basso.
-* Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](../virtual-machines/disks-types.md)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - L'operazione di creazione snapshot non è riuscita perché lo stato del servizio Copia Shadow del volume non è valido
 
@@ -157,15 +157,15 @@ Codice di errore: messaggio di errore UserErrorSkuNotAvailable: Impossibile crea
 
 Questo errore si verifica perché le dimensioni della macchina virtuale selezionate durante l'operazione di ripristino non sono supportate. <br>
 
-Per risolvere questo problema, utilizzare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino. Usare questi dischi per creare una macchina virtuale dall'elenco delle [dimensioni di VM supportate disponibili](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) usando i [cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+Per risolvere questo problema, utilizzare l'opzione [Ripristina dischi](./backup-azure-arm-restore-vms.md#restore-disks) durante l'operazione di ripristino. Usare questi dischi per creare una macchina virtuale dall'elenco delle [dimensioni di VM supportate disponibili](./backup-support-matrix-iaas.md#vm-compute-support) usando i [cmdlet di PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-la creazione della macchina virtuale non è riuscita perché la richiesta di acquisto del mercato non è presente
 
 Codice di errore: messaggio di errore UserErrorMarketPlaceVMNotSupported: creazione della macchina virtuale non riuscita a causa di una richiesta di acquisto del mercato non presente.
 
-Backup di Azure supporta il backup e il ripristino di macchine virtuali disponibili in Azure Marketplace. Questo errore si verifica quando si prova a ripristinare una macchina virtuale (con un'impostazione specifica del piano/editore) che non è più disponibile in Azure Marketplace. per [altre informazioni](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal), vedere qui.
+Backup di Azure supporta il backup e il ripristino di macchine virtuali disponibili in Azure Marketplace. Questo errore si verifica quando si prova a ripristinare una macchina virtuale (con un'impostazione specifica del piano/editore) che non è più disponibile in Azure Marketplace. per [altre informazioni](/legal/marketplace/participation-policy#offering-suspension-and-removal), vedere qui.
 
-* Per risolvere questo problema, usare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino e quindi usare i cmdlet di [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) o dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) per creare la VM con le informazioni più recenti sul Marketplace corrispondenti alla macchina virtuale.
+* Per risolvere questo problema, usare l'opzione [Ripristina dischi](./backup-azure-arm-restore-vms.md#restore-disks) durante l'operazione di ripristino e quindi usare i cmdlet di [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) o dell'interfaccia della riga di comando di [Azure](./tutorial-restore-disk.md) per creare la VM con le informazioni più recenti sul Marketplace corrispondenti alla macchina virtuale.
 * Se il server di pubblicazione non dispone di informazioni sul Marketplace, è possibile usare i dischi dati per recuperare i dati ed è possibile collegarli a una macchina virtuale esistente.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Errore durante l'analisi della configurazione per l'estensione di backup
@@ -255,7 +255,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione
@@ -321,8 +321,8 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 
 Se dopo il ripristino si nota che i dischi sono offline:
 
-* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements)  
-* Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#system-requirements)  
+* Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-il ripristino non è riuscito perché non è stato possibile trovare lo snapshot della macchina virtuale
 

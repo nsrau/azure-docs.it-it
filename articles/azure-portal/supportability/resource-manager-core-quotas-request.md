@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7fd04428edc28315e714b9e81af0bea0e9344e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763806"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173301"
 ---
 # <a name="quota-increase-requests"></a>Richieste di aumento della quota
 
@@ -22,6 +22,9 @@ Il primo livello è il limite di vCPU regionale totale per tutte le serie di mac
 È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali da portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità.
 
 Quando viene creata una nuova sottoscrizione, la vCPU locale totale predefinita potrebbe non essere uguale alla somma delle quote predefinite di vCPU per tutte le singole serie di macchine virtuali. Questo fatto può comportare una sottoscrizione con una quota sufficiente per ogni singola serie di VM che si vuole distribuire. Potrebbe non essere disponibile una quota sufficiente per la vCPU regionale totale per tutte le distribuzioni. In questo caso, è necessario inviare una richiesta per aumentare in modo esplicito il limite di vCPU regionale totale. Il limite di vCPU regionale totale non può superare la somma della quota approvata in tutte le serie di VM per l'area.
+
+> [!NOTE]
+> Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
 
 Per altre informazioni sulle quote, vedere la pagina relativa alle [quote vCPU della macchina virtuale](../../virtual-machines/windows/quotas.md) e alla [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 

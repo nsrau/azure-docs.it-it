@@ -3,12 +3,12 @@ title: Gestire la struttura di backup con Centro backup
 description: Informazioni su come gestire l'ambiente Azure per assicurarsi che tutte le risorse siano conformi da una prospettiva di backup con il centro di backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614333"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173795"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Gestire la struttura di backup con Centro backup
 
@@ -26,15 +26,15 @@ Backup Center consente di gestire l'ambiente Azure per assicurarsi che tutte le 
 
 ## <a name="azure-policies-for-backup"></a>Criteri di Azure per il backup
 
-Per visualizzare tutti i [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview) disponibili per il backup, selezionare la voce **di menu criteri di Azure per il backup** . Verranno visualizzate tutte le [definizioni di criteri di Azure](policy-reference.md) predefinite e personalizzate per il backup disponibili per l'assegnazione alle sottoscrizioni e ai gruppi di risorse.
+Per visualizzare tutti i [criteri di Azure](../governance/policy/overview.md) disponibili per il backup, selezionare la voce **di menu criteri di Azure per il backup** . Verranno visualizzate tutte le [definizioni di criteri di Azure](policy-reference.md) predefinite e personalizzate per il backup disponibili per l'assegnazione alle sottoscrizioni e ai gruppi di risorse.
 
-Selezionando una delle definizioni è possibile [assegnare i criteri](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a un ambito.
+Selezionando una delle definizioni è possibile [assegnare i criteri](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) a un ambito.
 
 ![Selezionare le definizioni dei criteri di Azure](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
 ## <a name="backup-compliance"></a>Conformità del backup
 
-Facendo clic sulla voce di menu conformità backup è possibile visualizzare la [conformità](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) delle risorse in base ai vari criteri predefiniti assegnati all'ambiente Azure. È possibile visualizzare la percentuale di risorse conformi a tutti i criteri, nonché i criteri che dispongono di una o più risorse non conformi.
+Facendo clic sulla voce di menu conformità backup è possibile visualizzare la [conformità](../governance/policy/how-to/get-compliance-data.md) delle risorse in base ai vari criteri predefiniti assegnati all'ambiente Azure. È possibile visualizzare la percentuale di risorse conformi a tutti i criteri, nonché i criteri che dispongono di una o più risorse non conformi.
 
 ![Visualizzare la conformità del backup](./media/backup-center-govern-environment/azure-policy-compliance.png)
 

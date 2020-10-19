@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448523"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174157"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -112,6 +112,9 @@ Per eliminare un'area di lavoro è necessario disporre di autorizzazioni come *C
 * Se si riceve un messaggio di errore "*Questo nome di dominio è già in uso*" o *"Conflitto"* durante la creazione di un'area di lavoro, la causa potrebbe essere:
   * Il nome dell'area di lavoro non è disponibile e viene usato da un utente dell'organizzazione o da un altro cliente.
   * L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è mantenuto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro per creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
-     1. [Recuperare](#recover-workspace) l'area di lavoro.
-     2. [Eliminare definitivamente](#permanent-workspace-delete) l'area di lavoro.
-     3. Creare una nuova area di lavoro usando il nome della stessa area di lavoro.
+    1. [Recuperare](#recover-workspace) l'area di lavoro.
+    2. [Eliminare definitivamente](#permanent-workspace-delete) l'area di lavoro.
+    3. Creare una nuova area di lavoro usando il nome della stessa area di lavoro.
+* Se viene visualizzato un codice di risposta 204 che indica che la *risorsa non è stata trovata*, è possibile che si verifichi un tentativo consecutivo di utilizzare l'operazione Elimina area di lavoro. 204 è una risposta vuota, che in genere indica che la risorsa non esiste, quindi l'eliminazione è stata completata senza eseguire alcuna operazione.
+  Al termine della chiamata di eliminazione nel back-end, è possibile ripristinare l'area di lavoro e completare l'operazione di eliminazione permanente in uno dei metodi suggeriti in precedenza.
+

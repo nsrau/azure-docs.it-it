@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461224"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172374"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -104,7 +104,7 @@ Un database che è possibile [aggiungere a un'istanza](backup-sql-server-databas
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>È possibile proteggere i database con Transparent Data Encryption (Transparent Data Encryption) accesi e il database rimane crittografato durante l'intero processo di backup?
 
-Sì, backup di Azure supporta il backup di database SQL Server o server con Transparent Data Encryption abilitato. Il backup supporta Transparent Data [Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) con chiavi gestite da Azure o con chiavi gestite dal cliente (BYOK).  Il backup non esegue alcuna crittografia SQL come parte del processo di backup, in modo che il database rimane crittografato quando viene eseguito il backup.
+Sì, backup di Azure supporta il backup di database SQL Server o server con Transparent Data Encryption abilitato. Il backup supporta Transparent Data [Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) con chiavi gestite da Azure o con chiavi gestite dal cliente (BYOK).  Il backup non esegue alcuna crittografia SQL come parte del processo di backup, in modo che il database rimane crittografato quando viene eseguito il backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

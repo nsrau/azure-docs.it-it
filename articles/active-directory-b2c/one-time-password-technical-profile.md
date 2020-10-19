@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418909"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172663"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -73,13 +73,15 @@ Per configurare la modalità di generazione del codice, è possibile usare le im
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60` ; Massimo: `1200` ; Impostazione predefinita: `600` . |
+| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60` ; Massimo: `1200` ; Impostazione predefinita: `600` . Ogni volta che viene fornito un codice (lo stesso codice che usa `ReuseSameCode` o un nuovo codice), la scadenza del codice viene estesa.  |
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio, `a-z0-9A-Z` Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
 | NumCodeGenerationAttempts | No | Numero massimo di tentativi di generazione del codice per identificatore. Se non è specificato, il valore predefinito è 10. |
 | Operazione | Sì | L'operazione da eseguire. Valore possibile: `GenerateCode` . |
-| ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
+| ReuseSameCode | No | Indica se deve essere specificato lo stesso codice anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`.  |
+
+
 
 ### <a name="example"></a>Esempio
 

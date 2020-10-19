@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986503"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172752"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -37,6 +37,8 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 
 * **Installare l'agente di macchine virtuali nella macchina virtuale**: Backup di Azure esegue il backup di macchine virtuali di Azure tramite l'installazione di un'estensione per l'agente di macchine virtuali di Azure in esecuzione nel computer. Se la macchina virtuale è stata creata da un'immagine di Azure Marketplace, l'agente è installato e in esecuzione. Se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina virtuale locale, può essere necessario [installare l'agente manualmente](#install-the-vm-agent).
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
@@ -45,7 +47,7 @@ Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione 
 
 * Se l'insieme di credenziali rappresenta il meccanismo principale di backup, è consigliabile usare l'archiviazione con ridondanza geografica.
 * Per un'opzione più economica, è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-* L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendone la residenza e la resilienza nella stessa area.
+* L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendone la residenza e la resilienza nella stessa area.
 
 Modificare il tipo di replica di archiviazione come segue:
 
@@ -81,7 +83,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
 
       ![Aggiungi macchine virtuali](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. Verrà aperto il riquadro **Seleziona macchine virtuali**. Selezionare le macchine virtuali di cui si vuole eseguire il backup usando i criteri. Quindi scegliere **OK**.
+1. Verrà aperto il riquadro **Seleziona macchine virtuali**. Selezionare le macchine virtuali di cui si vuole eseguire il backup usando i criteri. Selezionare **OK**.
 
    * Le macchine virtuali selezionate vengono convalidate.
    * È possibile selezionare solo macchine virtuali presenti nella stessa area dell'insieme di credenziali.
@@ -129,7 +131,7 @@ Il backup iniziale verrà eseguito in base alla pianificazione, ma è possibile 
 2. In **elementi di backup**selezionare **macchina virtuale di Azure**.
 3. Nell'elenco **elementi di backup selezionare i puntini** di sospensione (...).
 4. Selezionare **Esegui backup ora**.
-5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Quindi scegliere **OK**.
+5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Selezionare **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="verify-backup-job-status"></a>Verificare lo stato dei processi di backup
