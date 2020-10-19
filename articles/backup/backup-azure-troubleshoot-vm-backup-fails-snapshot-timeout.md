@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182038"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170295"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -103,7 +103,6 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 
 Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** . Per altre informazioni, vedere [Stati di provisioning](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup su richiesta. Questa azione reinstallerà le estensioni ed eseguirà il processo di backup.  <br>
 - Se un'altra estensione si trova in uno stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.
 - Se lo stato di provisioning della macchina virtuale è in stato di aggiornamento, può interferire con il backup. Verificare che sia integro e ripetere l'operazione di backup.
 

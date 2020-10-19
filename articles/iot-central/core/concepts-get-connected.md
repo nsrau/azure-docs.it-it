@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126842"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170052"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -113,7 +113,7 @@ Se si verifica una violazione della sicurezza o se il certificato primario è im
 
 ### <a name="register-and-connect-devices"></a>Registrare e connettere dispositivi
 
-Per connettere in blocco i dispositivi con certificati X. 509, registrare prima i dispositivi nell'applicazione usando un file CSV per [importare gli ID dispositivo e i nomi dei dispositivi](howto-manage-devices.md#import-devices). Tutti gli ID dispositivo devono essere specificati in minuscolo.
+Per connettere in blocco i dispositivi con certificati X. 509, registrare prima i dispositivi nell'applicazione usando un file CSV per [importare gli ID dispositivo e i nomi dei dispositivi](howto-manage-devices.md#import-devices). Un ID dispositivo può contenere lettere, numeri e il `-` carattere.
 
 Generare certificati foglia X. 509 per i dispositivi usando il certificato radice o intermedio caricato nel gruppo di registrazione X. 509. Usare l'**ID dispositivo** come valore `CNAME` nei certificati foglia. Il codice del dispositivo richiede il valore **Ambito ID** per l'applicazione, l'**ID dispositivo** e il certificato del dispositivo corrispondente.
 
@@ -149,7 +149,7 @@ Il flusso è leggermente diverso a seconda che i dispositivi usino token di firm
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Schermata di aggiunta di un gruppo di registrazioni X. 509":::
 
-1. Usare il `az iot central device compute-device-key` comando per generare le chiavi di firma di accesso condiviso del dispositivo. Usare la chiave primaria del gruppo del passaggio precedente. Gli ID dispositivo devono essere in minuscolo:
+1. Usare il `az iot central device compute-device-key` comando per generare le chiavi di firma di accesso condiviso del dispositivo. Usare la chiave primaria del gruppo del passaggio precedente. L'ID del dispositivo può contenere lettere, numeri e il `-` carattere:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ Il flusso è leggermente diverso a seconda che i dispositivi usino token di firm
 
 1. [Creare un gruppo di registrazione](#create-an-enrollment-group) e quindi [aggiungere e verificare un certificato X. 509 radice o intermedio](#add-and-verify-a-root-or-intermediate-x509-certificate) per l'applicazione IoT Central.
 
-1. Generare i certificati foglia per i dispositivi usando il certificato radice o intermedio aggiunto all'applicazione IoT Central. Usare gli ID dispositivo in minuscolo come `CNAME` nei certificati foglia.
+1. Generare i certificati foglia per i dispositivi usando il certificato radice o intermedio aggiunto all'applicazione IoT Central. Usare gli ID dispositivo come `CNAME` nei certificati foglia. Un ID dispositivo può contenere lettere, numeri e il `-` carattere.
 
 1. L'OEM esegue il flash di ogni dispositivo con un ID dispositivo, un certificato X.509 foglia generato e il valore **Ambito ID** dell'applicazione.
 
@@ -185,7 +185,7 @@ Il flusso è leggermente diverso a seconda che i dispositivi usino token di firm
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Connettività dei dispositivi basata sulla registrazione singola
 
-Per i clienti che connettono dispositivi che dispongono ognuno delle proprie credenziali di autenticazione, usare le registrazioni singole. Una registrazione singola è una voce per un singolo dispositivo a cui è consentita la registrazione. Le registrazioni singole possono usare sia certificati foglia X.509 che token di firma di accesso condiviso (da un TPM fisico o virtuale) come meccanismo di attestazione. L'ID dispositivo (definito anche ID di registrazione) in una registrazione singola è alfanumerico, con caratteri minuscoli e può contenere trattini. Per altre informazioni, vedere [Registrazione singola DPS](../../iot-dps/concepts-service.md#individual-enrollment).
+Per i clienti che connettono dispositivi che dispongono ognuno delle proprie credenziali di autenticazione, usare le registrazioni singole. Una registrazione singola è una voce per un singolo dispositivo a cui è consentita la registrazione. Le registrazioni singole possono usare sia certificati foglia X.509 che token di firma di accesso condiviso (da un TPM fisico o virtuale) come meccanismo di attestazione. L'ID del dispositivo (noto anche come ID di registrazione) in una singola iscrizione un ID dispositivo può contenere lettere, numeri e il `-` carattere. Per altre informazioni, vedere [Registrazione singola DPS](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Quando si crea una registrazione singola per un dispositivo, essa ha la precedenza sulle opzioni di registrazione di gruppo predefinite nell'applicazione IoT Central.

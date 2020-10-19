@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038503"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
 
@@ -228,7 +228,7 @@ Un hub virtuale può propagare una route predefinita appresa a una connessione d
 Se un hub virtuale riconosce la stessa route da più hub remoti, l'ordine in cui decide è il seguente:
 
 1. Corrispondenza di prefisso più lungo.
-2. Route locali tramite route tra hub.
+2. Route locali tramite interhub (l'hub virtuale assegna 65520-65520 come spazio indirizzi dell'interhub)
 3. Route statiche tramite il protocollo BGP: se la decisione viene presa dal router dell'hub virtuale. Tuttavia, se il decisore è il gateway VPN in cui un sito annuncia le route tramite BGP o fornisce prefissi di indirizzo statici, le route statiche potrebbero essere preferibili rispetto alle route BGP.
 4. ExpressRoute (ER) tramite VPN: ER è preferibile rispetto a VPN se il contesto è un hub locale. La connettività di transito tra circuiti ExpressRoute è disponibile solo tramite Copertura globale. Pertanto, negli scenari in cui il circuito ExpressRoute è connesso a un hub ed è presente un altro circuito ExpressRoute connesso a un hub diverso con connessione VPN, la VPN potrebbe essere preferibile per scenari tra hub.
 5. Lunghezza del percorso routing asimmetrico.

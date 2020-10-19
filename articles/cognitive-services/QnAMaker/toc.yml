@@ -6,7 +6,7 @@
       href: Overview/overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Con il portale di QnA Maker
       items:
@@ -24,26 +24,14 @@
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Creare un bot di domande frequenti con il servizio Azure Bot
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: Eseguire test con file batch
-      href: Quickstarts/batch-testing.md
 - name: Concetti
   items:
     - name: Pianificare la knowledge base
       href: Concepts/plan.md
     - name: Pianificare le risorse di QnA Maker
       href: Concepts/azure-resources.md
-    - name: Progettare una Knowledge Base
-      items:
-        - name: Per le lingue
-          href: Concepts/design-language-culture.md
-        - name: Per le applicazioni client
-          href: Concepts/integration-with-other-applications.md
     - name: Origini dati e contenuto
-      items:
-        - name: Importazione da origini dati
-          href: Concepts/knowledge-base.md
-        - name: Tipi di contenuto importati
-          href: Concepts/content-types.md
+      href: Concepts/data-sources-and-content.md
     - name: Processo del classificatore
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -58,22 +46,14 @@
 - name: Guide pratiche
   items:
     - name: Gestire le risorse di Azure
-      items:
-        - name: Gestione di risorse
-          href: How-To/set-up-qnamaker-service-azure.md
-          displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Collaborare
-          href: How-To/collaborate-knowledge-base.md
-        - name: Attivare l'apprendimento attivo
-          href: How-To/use-active-learning.md
-        - name: Cambiare la risposta predefinita
-          href: How-To/change-default-answer.md
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Gestire l'app QnA Maker
+      href: How-To/manage-qna-maker-app.md
     - name: Gestire la knowledge base
       items:
         - name: Creare la knowledge base
           href: How-To/manage-knowledge-bases.md
-        - name: Selezione della lingua
-          href: How-To/language-knowledge-base.md
         - name: Aggiungere chit chat
           href: How-to/chit-chat-knowledge-base.md
         - name: Eseguire la migrazione a una nuova knowledge base
@@ -102,7 +82,7 @@
       href: Overview/language-support.md
     - name: Limiti
       href: limits.md
-    - name: Controllo degli accessi in base al ruolo
+    - name: Controllo degli accessi in base al ruolo di Azure
       href: Concepts/role-based-access-control.md
     - name: Apprendimento attivo
       href: Concepts/active-learning-suggestions.md
@@ -115,6 +95,8 @@
     - name: Aggiungere file di SharePoint protetti
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: Cambiare la risposta predefinita
+      href: How-To/change-default-answer.md
     - name: Configurazione del servizio
       href: reference-app-service.md
     - name: Formato di contenuto e dati

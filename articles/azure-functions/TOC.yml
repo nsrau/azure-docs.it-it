@@ -10,7 +10,7 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opzioni del piano di hosting
       href: functions-scale.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una funzione
@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: Baseline di sicurezza
           href: security-baseline.md
+    - name: Monitoraggio
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: Diagnostica
       href: functions-diagnostics.md
     - name: Costi del piano a consumo
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Monitorare
       items:
-        - name: Funzioni di Monitoraggio
-          href: functions-monitoring.md
+        - name: Configurare il monitoraggio
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: Analizzare i log
+        - name: Analizzare i dati di telemetria
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: Streaming dei log
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Log di diagnostica
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: Sicurezza
       items:
         - name: Aggiungere un certificato SSL

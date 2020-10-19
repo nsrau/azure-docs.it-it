@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/05/2019
+ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84466878"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116807"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -27,7 +27,7 @@ ms.locfileid: "84466878"
 | Numero massimo di oggetti file system (directory e file) in una directory | 5 milioni di oggetti | Sì |
 | Dimensioni massime del descrittore di protezione (directory e file) dell'oggetto | 64 KiB | Sì |
 | Dimensione del file | 100 GiB | No |
-| Dimensioni minime per un file da rendere a livelli | V9: basate sulle dimensioni del cluster del file system (raddoppia le dimensioni del cluster del file system). Se, ad esempio, le dimensioni del cluster del file system sono 4 KB, le dimensioni minime del file saranno 8 KB.<br> V8 e versioni precedenti: 64 KiB  | Sì |
+| Dimensioni minime per un file da rendere a livelli | V9 e più recenti: basate sulle dimensioni del cluster del file system (raddoppia le dimensioni del cluster del file system). Se, ad esempio, le dimensioni del cluster del file system sono 4 KB, le dimensioni minime del file saranno 8 KB.<br> V8 e versioni precedenti: 64 KiB  | Sì |
 
 > [!Note]  
 > Le dimensioni di un endpoint di Sincronizzazione file di Azure possono aumentare fino a quelle di una condivisione file di Azure. Se viene raggiunto il limite delle dimensioni della condivisione file di Azure, la sincronizzazione non funzionerà.

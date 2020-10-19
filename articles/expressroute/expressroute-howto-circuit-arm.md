@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare e modificare un circuito con ExpressRoute - Azure PowerShell'
-description: Creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
+description: Questa guida di avvio rapido descrive le procedure di creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761907"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971541"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Avvio rapido: Creare e modificare un circuito ExpressRoute con Azure PowerShell
 
@@ -371,7 +371,7 @@ Tenere presente quanto segue:
 * Se lo stato di provisioning del provider del servizio del circuito ExpressRoute è **Provisioning in corso** o **Provisioning eseguito**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato del provider. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
 * Se il provider di servizi ha effettuato il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su **Senza provisioning**, è possibile eliminare il circuito. La fatturazione per il circuito verrà quindi interrotta.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile eliminare un circuito ExpressRoute eseguendo questo comando:
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588804"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124152"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Rinnovare i certificati di Azure Key Vault
 
@@ -25,12 +25,20 @@ Usando certificati di breve durata o incrementando la frequenza della rotazione 
 
 Questo articolo illustra come rinnovare i certificati di Azure Key Vault.
 
-## <a name="get-notified-about-certificate-expirations"></a>Ricevere notifiche sulle scadenze dei certificati
-Per ricevere notifiche quando i certificati stanno per scadere, seguire questa procedura:
+## <a name="get-notified-about-certificate-expiration"></a>Ricevere notifiche sulle scadenze dei certificati
+Per ricevere notifiche sugli eventi di durata del certificato, è necessario aggiungere il contatto del certificato. I contatti relativi al certificato contengono le informazioni di contatto per inviare notifiche attivate da eventi di durata dei certificati. Le informazioni dei contatti vengono condivise da tutti i certificati nell'insieme di credenziali delle chiavi. Viene inviata una notifica a tutti i contatti specificati per un evento per qualsiasi certificato presente nell'insieme di credenziali delle chiavi.
 
-Aggiungere prima di tutto un contatto del certificato all'insieme di credenziali delle chiavi usando il cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) di PowerShell.
+### <a name="steps-to-set-certificate-notifications"></a>Passaggi per impostare le notifiche sui certificati:
+Aggiungere prima di tutto un contatto del certificato all'insieme di credenziali delle chiavi. A questo scopo è possibile usare il portale di Azure o il cmdlet [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) di PowerShell.
 
 Configurare quindi quando si vogliono ricevere notifiche sulla scadenza dei certificati. Per configurare gli attributi del ciclo di vita del certificato, vedere [Configurare la rotazione automatica dei certificati in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Se i criteri del certificato sono impostati per il rinnovo automatico, viene inviata una notifica sugli eventi seguenti.
+
+- Prima del rinnovo del certificato
+- Dopo il rinnovo del certificato, che indica se il certificato è stato rinnovato, o se si è verificato un errore, richiede il rinnovo manuale del certificato.  
+
+  Se i criteri del certificato sono impostati per il rinnovo manuale (solo posta elettronica), viene inviata una notifica al momento del rinnovo.  
 
 In Key Vault sono disponibili tre categorie di certificati:
 -   Certificati creati con un'autorità di certificazione integrata, ad esempio DigiCert o GlobalSign

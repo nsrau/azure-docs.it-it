@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595989"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125253"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -51,7 +51,9 @@ L'applicazione necessita anche che sia assegnato almeno un ruolo di gestione del
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>In che modo è possibile ridistribuire Key Vault con un modello di Azure Resource Manager senza eliminare i criteri di accesso esistenti?
 
-Attualmente, la ridistribuzione di Key Vault comporta l'eliminazione degli eventuali criteri di accesso in Key Vault, che vengono sostituiti con quelli nel modello di Azure Resource Manager. Non è disponibile alcuna opzione incrementale per i criteri di accesso di Key Vault. Per mantenere i criteri di accesso in Key Vault, è necessario leggere i criteri di accesso esistenti in Key Vault e popolare il modello di Azure Resource Manager con tali criteri per evitare interruzioni dell'accesso.
+Attualmente, la ridistribuzione di Key Vault comporta l'eliminazione degli eventuali criteri di accesso in Key Vault, che vengono sostituiti con quelli nel modello di Azure Resource Manager. Non è disponibile alcuna opzione incrementale per i criteri di accesso di Key Vault. Per mantenere i criteri di accesso in Key Vault, è necessario leggere i criteri di accesso esistenti in Key Vault e usarli per popolare il modello di Azure Resource Manager per evitare interruzioni dell'accesso.
+
+Un'altra opzione che può essere utile per questo scenario consiste nell'usare i ruoli Controllo degli accessi in base al ruolo come alternativa ai criteri di accesso. Con il controllo degli accessi in base al ruolo è possibile ridistribuire l'insieme di credenziali delle chiavi senza specificare di nuovo il criterio. Altre informazioni su questa soluzione sono disponibili [qui](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Procedure consigliate per la risoluzione dei problemi per i tipi di errore seguenti
 

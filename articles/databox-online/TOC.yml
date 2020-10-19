@@ -34,7 +34,11 @@
     - name: Concetti
       items:
         - name: Esaminare i requisiti
-          href: azure-stack-edge-gpu-system-requirements.md
+          items:
+            - name: Per Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements.md
+            - name: Per archiviazione BLOB di Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements-rest.md
         - name: Conoscere i limiti
           href: azure-stack-edge-limits.md
         - name: Panoramica della sicurezza

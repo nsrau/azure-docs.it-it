@@ -6,10 +6,8 @@
       href: introduction.md
 - name: Avvio rapido
   items:
-    - name: Processo di pre-distribuzione
+    - name: 0- Pianificare la distribuzione
       href: production-ready-deployment-steps.md
-    - name: Elenco di controllo per la pre-distribuzione
-      href: pre-deployment-checklist.md
     - name: 1 - Distribuire la soluzione Azure VMware
       href: deploy-azure-vmware-solution.md
     - name: 2 - Connettersi all'ambiente locale
@@ -104,3 +102,7 @@
           href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
       href: faq.md
+- name: Informazioni di riferimento
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware

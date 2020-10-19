@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8e92c893d97ce9fadfa2d40476631c2b9ba5d177
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018271"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 
@@ -57,19 +57,19 @@ Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati d
 
 È possibile specificare l'area di lavoro e l'area geografica in cui vengono archiviati i dati raccolti dai computer. L'impostazione predefinita prevede l'archiviazione dei dati raccolti dai computer nell'area di lavoro più vicina, come illustrato nella tabella seguente:
 
-| Area geografica VM                              | Area geografica area di lavoro |
-|-------------------------------------|---------------|
-| Stati Uniti, Brasile, Sudafrica | Stati Uniti |
-| Canada                              | Canada        |
-| Europa (escluso il Regno Unito)   | Europa        |
-| Regno Unito                      | Regno Unito |
-| Asia (esclusi India, Giappone, Corea, Cina)   | Asia Pacifico  |
-| Corea del Sud                              | Asia Pacifico  |
-| India                               | India         |
-| Giappone                               | Giappone         |
-| Cina                               | Cina         |
-| Australia                           | Australia     |
-|||
+| Area geografica VM                                      | Area geografica area di lavoro  |
+|---------------------------------------------|----------------|
+| Stati Uniti, Brasile, Sudafrica         | Stati Uniti  |
+| Canada                                      | Canada         |
+| Europa (escluso il Regno Unito)           | Europa         |
+| Regno Unito                              | Regno Unito |
+| Asia (esclusi India, Giappone, Corea, Cina) | Asia Pacifico   |
+| Corea del Sud                                       | Asia Pacifico   |
+| India                                       | India          |
+| Giappone                                       | Giappone          |
+| Cina                                       | Cina          |
+| Australia                                   | Australia      |
+|                                             |                |
 
 > [!NOTE]
 > **Azure Defender per Archiviazione** archivia gli artefatti a livello di area in base alla località della risorsa di Azure correlata. Per altre informazioni, vedere [Introduzione ad Azure Defender per Archiviazione](defender-for-storage-introduction.md).
@@ -80,18 +80,16 @@ Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati d
 I clienti possono accedere ai dati relativi al Centro sicurezza dai flussi di dati seguenti:
 
 
-|STREAM  |Tipi di dati  |
-|---------|---------|
-|[Log attività di Azure](../azure-monitor/platform/activity-log.md)| Tutti gli avvisi di sicurezza, le richieste di accesso [JIT](security-center-just-in-time.md) del Centro sicurezza approvate e tutti gli accessi generati dai [controlli applicazioni adattivi](security-center-adaptive-application.md) |
-|[Log di Monitoraggio di Azure](../azure-monitor/platform/data-platform.md)|Tutti gli avvisi di sicurezza.|
-|[Diagramma delle risorse di Azure](../governance/resource-graph/overview.md)|Avvisi di sicurezza, raccomandazioni sulla sicurezza, risultati della valutazione delle vulnerabilità, informazioni sul punteggio di sicurezza, stato dei controlli di conformità e altro ancora.|
-|[API REST di Centro sicurezza di Azure](https://docs.microsoft.com/rest/api/securitycenter/)|Avvisi di sicurezza, raccomandazioni sulla sicurezza e altro ancora. .|
-|||
+| STREAM                                                                                | Tipi di dati                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Log attività di Azure](../azure-monitor/platform/activity-log.md)                       | Tutti gli avvisi di sicurezza, le richieste di accesso [JIT](security-center-just-in-time.md) del Centro sicurezza approvate e tutti gli accessi generati dai [controlli applicazioni adattivi](security-center-adaptive-application.md).|
+| [Log di Monitoraggio di Azure](../azure-monitor/platform/data-platform.md)                      | Tutti gli avvisi di sicurezza.                                                                                                                                                                                                |
+| [Diagramma delle risorse di Azure](../governance/resource-graph/overview.md)                      | Avvisi di sicurezza, raccomandazioni sulla sicurezza, risultati della valutazione delle vulnerabilità, informazioni sul punteggio di sicurezza, stato dei controlli di conformità e altro ancora.                                                                       |
+| [API REST di Centro sicurezza di Azure](https://docs.microsoft.com/rest/api/securitycenter/) | Avvisi di sicurezza, raccomandazioni sulla sicurezza e altro ancora.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo documento ha illustrato come i dati vengono gestiti e protetti nel Centro sicurezza di Azure. 
 
-Per altre informazioni sul Centro sicurezza di Azure, vedere:
-
-- [Che cos'è il Centro sicurezza di Azure?](security-center-introduction.md)
+Per altre informazioni sul Centro sicurezza di Azure, vedere [Che cos'è il Centro sicurezza di Azure?](security-center-introduction.md)

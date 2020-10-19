@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863ab9b600b81006cdeb670811c61ed961e8c623
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983706"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170248"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -46,7 +46,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **Gestione API** | Traffico per distribuzioni dedicate di Gestione API di Azure. <br/><br/>*Nota:* questo tag rappresenta l'endpoint del servizio Gestione API di Azure per il piano di controllo per area. Ciò consente ai clienti di eseguire operazioni di gestione su API, operazioni, criteri e valori denominati nel servizio Gestione API.  | In ingresso | Sì | Sì |
 | **ApplicationInsightsAvailability** | Disponibilità di Application Insights. | In ingresso | No | No |
 | **AppConfiguration** | Configurazione app | In uscita | No | No |
-| **AppService**    | Servizio app di Azure. Questo tag è consigliato per le regole di sicurezza in uscita per i front-end delle app Web. | In uscita | Sì | Sì |
+| **AppService**    | Servizio app di Azure. Questo tag è consigliato per le regole di sicurezza in uscita per le app Web e le app per le funzioni.  | In uscita | Sì | Sì |
 | **AppServiceManagement** | Traffico di gestione per le distribuzioni dedicate all'ambiente del servizio app. | Entrambe | No | Sì |
 | **AzureActiveDirectory** | Azure Active Directory. | In uscita | No | Sì |
 | **AzureActiveDirectoryDomainServices** | Traffico di gestione per le distribuzioni dedicate in Azure Active Directory Domain Services. | Entrambe | No | Sì |

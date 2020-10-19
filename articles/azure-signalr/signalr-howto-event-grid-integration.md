@@ -7,18 +7,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76710824"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170373"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Come inviare eventi dal Servizio Azure SignalR a Griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che fornisce un consumo di eventi uniformi usando un modello di pubblicazione secondaria. In questa guida si userà l'interfaccia della riga di comando di Azure per creare un servizio Azure SignalR, sottoscrivere gli eventi di connessione e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, è possibile connettere e disconnettere e visualizzare il payload dell'evento nell'applicazione di esempio.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
+Se non si possiede una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -80,7 +80,7 @@ Per distribuire l'app di esempio, impostare `SITE_NAME` su un nome univoco per l
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
