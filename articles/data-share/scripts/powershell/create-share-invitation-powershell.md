@@ -1,20 +1,17 @@
 ---
-title: 'Script di PowerShell: creare un invito di condivisione dati di Azure | Microsoft Docs'
+title: 'Script di PowerShell: creare un invito di condivisione dati di Azure'
 description: Questo script di PowerShell Invia un invito alla condivisione dati.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 220677df3bd0c221f61efd28a80b05cfd76e2734
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f65d081e724206c1c64ad08189d1b620bbb4f2c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086643"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221333"
 ---
 # <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>Usare uno script di PowerShell per monitorare l'uso di una condivisione dati inviata
 
@@ -42,11 +39,11 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Creare un invito per la condivisione di dati. |
+| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) | Creare un invito per la condivisione di dati. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/).
+Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/).
 
 Altri esempi di script di PowerShell per la condivisione di dati di Azure sono disponibili negli esempi di PowerShell per la [condivisione di dati di Azure](../../samples-powershell.md).

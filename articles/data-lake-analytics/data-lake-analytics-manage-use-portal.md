@@ -1,18 +1,16 @@
 ---
 title: Gestire Azure Data Lake Analytics tramite il portale di Azure
 description: Questo articolo descrive come usare il portale di Azure per gestire utenti, processi, origini dati e account di Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148141"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218426"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +33,7 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Scegliere **Crea**. 
+4. Fare clic su **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 

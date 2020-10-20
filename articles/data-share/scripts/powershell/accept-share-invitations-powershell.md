@@ -1,20 +1,18 @@
 ---
-title: "Script di PowerShell: accettare l'invito da una condivisione dati di Azure | Microsoft Docs"
+title: "Script di PowerShell: accettare l'invito da una condivisione dati di Azure"
 description: Questo script di PowerShell accetta gli inviti da una condivisione dati esistente.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 246e3550650dfd458b4aeecda3b5b7733e49f017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24091bafac7ad5c558b975d52064f12715b3d622
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307341"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221401"
 ---
 # <a name="use-powershell-to-accept-a-data-share-invitation"></a>Usare PowerShell per accettare un invito alla condivisione dati
 
@@ -42,13 +40,12 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Ottenere ed elencare gli inviti di condivisione dati inviati. |
-| [New-AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | Creare una sottoscrizione per la condivisione di dati. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation) | Ottenere ed elencare gli inviti di condivisione dati inviati. |
+| [New-AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription) | Creare una sottoscrizione per la condivisione di dati. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/).
+Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/).
 
 Altri esempi di script di PowerShell per la condivisione di dati di Azure sono disponibili negli esempi di PowerShell per la [condivisione di dati di Azure](../../samples-powershell.md).
-

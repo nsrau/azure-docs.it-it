@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577850"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217168"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -118,7 +118,7 @@ Gli avvisi di Azure Defender sono disponibili nella pagina degli avvisi del Cent
 
 1. Gli avvisi sono progettati per essere indipendenti, con procedure dettagliate per la correzione e informazioni di analisi in ognuna di esse. È possibile approfondire ulteriormente l'uso di altre funzionalità del Centro sicurezza di Azure e di Azure Sentinel per una visualizzazione più ampia:
 
-    * Abilitare la funzionalità di controllo SQL Server per ulteriori indagini. Se si è un utente di Sentinel di Azure, è possibile caricare i log di controllo SQL dagli eventi del registro di sicurezza di Windows in Sentinel e usufruire di un'esperienza di analisi avanzata. [Altre informazioni sul controllo SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
+    * Abilitare la funzionalità di controllo SQL Server per ulteriori indagini. Se si è un utente di Sentinel di Azure, è possibile caricare i log di controllo SQL dagli eventi del registro di sicurezza di Windows in Sentinel e usufruire di un'esperienza di analisi avanzata. [Altre informazioni sul controllo SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true).
     * Per migliorare il comportamento di sicurezza, usare le raccomandazioni del Centro sicurezza per il computer host indicato in ogni avviso. Questa operazione ridurrà i rischi di attacchi futuri. 
 
     [Altre informazioni sulla gestione e la risposta agli avvisi](security-center-managing-and-responding-alerts.md).

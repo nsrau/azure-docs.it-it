@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083158"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215774"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure (anteprima)
 

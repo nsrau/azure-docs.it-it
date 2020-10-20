@@ -3,12 +3,13 @@ title: Configurare il monitoraggio per funzioni di Azure
 description: Informazioni su come connettere l'app per le funzioni a Application Insights per il monitoraggio e su come configurare la raccolta dei dati.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.openlocfilehash: 4b2c4e23bf54dc87325af7068b287fad2f9314a0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperfq2
+ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169007"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217185"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 

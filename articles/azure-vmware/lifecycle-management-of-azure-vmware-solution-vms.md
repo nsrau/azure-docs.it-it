@@ -3,12 +3,12 @@ title: Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 description: Informazioni su come gestire tutti gli aspetti del ciclo di vita delle macchine virtuali della soluzione VMware di Azure con Microsoft Azure strumenti nativi.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950364"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216250"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 
@@ -53,8 +53,8 @@ Le macchine virtuali della soluzione VMware di Azure possono essere monitorate t
 **Azure gestione aggiornamenti** in automazione di Azure gestisce gli aggiornamenti del sistema operativo per i computer Windows e Linux in un ambiente ibrido. Monitora la conformità delle patch e invia gli avvisi di deviazione delle patch a monitoraggio di Azure per la correzione. Azure Gestione aggiornamenti deve connettersi all'area di lavoro di Log Analytics per usare i dati archiviati per valutare lo stato degli aggiornamenti nelle VM.
 - Per aggiungere Log Analytics al Gestione aggiornamenti di Azure, è prima di tutto necessario [creare un account di automazione di Azure](../automation/automation-create-standalone-account.md).
 - Per collegare l'area di lavoro Log Analytics all'account di automazione, vedere [area di lavoro log Analytics e account di automazione](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
-- Per abilitare Gestione aggiornamenti di Azure per le macchine virtuali, vedere [abilitare Gestione aggiornamenti da un account di automazione](../automation/update-management/update-mgmt-enable-automation-account.md).
-- Dopo aver aggiunto le VM in Azure Gestione aggiornamenti, è possibile [distribuire gli aggiornamenti nelle VM ed esaminare i risultati](../automation/update-management/update-mgmt-deploy-updates.md). 
+- Per abilitare Gestione aggiornamenti di Azure per le macchine virtuali, vedere [abilitare Gestione aggiornamenti da un account di automazione](../automation/update-management/enable-from-automation-account.md).
+- Dopo aver aggiunto le VM in Azure Gestione aggiornamenti, è possibile [distribuire gli aggiornamenti nelle VM ed esaminare i risultati](../automation/update-management/deploy-updates.md). 
 
 Il **Centro sicurezza di Azure** offre protezione avanzata dalle minacce tra i carichi di lavoro ibridi nel cloud e in locale. Valuterà la vulnerabilità delle macchine virtuali della soluzione VMware di Azure e genererà avvisi in base alle esigenze. Questi avvisi di sicurezza possono essere trasmessi a monitoraggio di Azure per la risoluzione.
 - Il Centro sicurezza di Azure non richiede la distribuzione. Per ulteriori informazioni, vedere l'elenco delle [funzionalità supportate per le macchine virtuali](../security-center/security-center-services.md).

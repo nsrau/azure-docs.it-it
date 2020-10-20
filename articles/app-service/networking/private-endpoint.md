@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873099"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217066"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
@@ -91,7 +91,7 @@ Ad esempio, la risoluzione dei nomi sarà:
 
 |Nome |Type |valore |Commento |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<: Azure crea questa voce nel DNS pubblico di Azure per puntare il servizio app al privatelink e questo è gestito da Microsoft|
 |mywebapp.privatelink.azurewebsites.net|Una|10.10.10.8|<: si gestisce questa voce nel sistema DNS per puntare all'indirizzo IP dell'endpoint privato|
 
 Dopo questa configurazione DNS, è possibile raggiungere l'app Web privata con il nome predefinito mywebappname.azurewebsites.net. È necessario utilizzare questo nome, perché il certificato predefinito viene emesso per *. azurewebsites.net.

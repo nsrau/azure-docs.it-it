@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739385"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054611"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Esempio di progetto CIS Microsoft Azure Foundations Benchmark
 
@@ -46,7 +46,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
 
-1. Esaminare l'elenco degli artefatti che costituiscono l'esempio di progetto. Molti artefatti hanno parametri che verranno definiti in seguito. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza**.
+1. Esaminare l'elenco degli artefatti inclusi nell'esempio di progetto. Molti artefatti hanno parametri che verranno definiti in seguito. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza**.
 
 ### <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 

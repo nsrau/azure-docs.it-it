@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906735"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019376"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 
@@ -68,11 +68,11 @@ Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo di Azu
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Clonare le vignette di esempio 
 
-Clonare il repository GitHub https://github.com/azure/azureml-sdk-for-r per ottenere una copia dei file delle vignette che verranno eseguiti in questa esercitazione.
+Clonare il repository GitHub https://github.com/Azure/azureml-sdk-for-r per ottenere una copia dei file delle vignette che verranno eseguiti in questa esercitazione.
 
 1. In RStudio passare alla scheda "Terminal" (Terminale) e passare alla directory in cui si vuole clonare il repository.
 
-1. Eseguire "git clone https://github.com/Azure/azureml-sdk-for-r" nel terminale per clonare il repository.
+1. Eseguire `git clone https://github.com/Azure/azureml-sdk-for-r` nel terminale per clonare il repository.
 
 1. In RStudio passare alla cartella *vignettes* della cartella clonata *azureml-sdk-for-r*.  In *vignettes* selezionare il file *train-and-deploy-first-model.Rmd* per trovare le vignette usate in questa esercitazione. I file aggiuntivi usati per la vignetta si trovano nella sottocartella *train-and-deploy-first-model*. Dopo aver aperto la vignetta, impostare la directory di lavoro sul percorso del file tramite **Session > Set Working Directory > To Source File Location** (Sessione > Imposta directory di lavoro > Posizione file di origine). 
 

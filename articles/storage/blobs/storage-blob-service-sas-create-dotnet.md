@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eab8993a98ce202964ade9fb5deae5c741ac7eb6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9674c7f892c31bd65ec651baf2d032de0256ac6c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090353"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218205"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con .NET
 
@@ -39,24 +39,28 @@ Una firma di accesso condiviso del servizio è firmata con la chiave di accesso 
 Per creare una firma di accesso condiviso del servizio per un contenitore, chiamare il metodo [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
 
 ```csharp
-private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
+private static string GetContainerSasUri(CloudBlobContainer container, 
+                                         string storedPolicyName = null)
 {
     string sasContainerToken;
 
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
-        // to construct a shared access policy that is saved to the container's shared access policies.
+        // Note that the SharedAccessBlobPolicy class is used both to define
+        // the parameters of an ad hoc SAS, and to construct a shared access policy
+        // that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
-            // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
+            // When the start time for the SAS is omitted, the start time is assumed
+            // to be the time when the storage service receives the request. Omitting
+            // the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List
         };
 
-        // Generate the shared access signature on the container, setting the constraints directly on the signature.
+        // Generate the shared access signature on the container,
+        // setting the constraints directly on the signature.
         sasContainerToken = container.GetSharedAccessSignature(adHocPolicy, null);
 
         Console.WriteLine("SAS for blob container (ad hoc): {0}", sasContainerToken);
@@ -64,20 +68,21 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     }
     else
     {
-        // Generate the shared access signature on the container. In this case, all of the constraints for the
-        // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
+        // Generate the shared access signature on the container. In this case,
+        // all of the constraints for the shared access signature are specified
+        // on the stored access policy, which is provided by name. It is also possible
+        // to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
-        Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
+        Console.WriteLine("SAS for container (stored access policy): {0}", sasContainerToken);
         Console.WriteLine();
     }
 
     // Return the URI string for the container, including the SAS token.
     return container.Uri + sasContainerToken;
 }
-
 ```
+
 ---
 
 ## <a name="create-a-service-sas-for-a-blob"></a>Creare una firma di accesso condiviso del servizio per un BLOB
@@ -95,7 +100,9 @@ Una firma di accesso condiviso del servizio è firmata con la chiave di accesso 
 Per creare una firma di accesso condiviso del servizio per un BLOB, chiamare il metodo [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
 ```csharp
-private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
+private static string GetBlobSasUri(CloudBlobContainer container,
+                                    string blobName,
+                                    string policyName = null)
 {
     string sasBlobToken;
 
@@ -106,17 +113,22 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
-        // to construct a shared access policy that is saved to the container's shared access policies.
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters
+        // of an ad hoc SAS, and to construct a shared access policy that is saved to
+        // the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
-            // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
+            // When the start time for the SAS is omitted, the start time is assumed to be
+            // the time when the storage service receives the request. Omitting the start time
+            // for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-            Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create
+            Permissions = SharedAccessBlobPermissions.Read |
+                          SharedAccessBlobPermissions.Write |
+                          SharedAccessBlobPermissions.Create
         };
 
-        // Generate the shared access signature on the blob, setting the constraints directly on the signature.
+        // Generate the shared access signature on the blob,
+        // setting the constraints directly on the signature.
         sasBlobToken = blob.GetSharedAccessSignature(adHocSAS);
 
         Console.WriteLine("SAS for blob (ad hoc): {0}", sasBlobToken);
@@ -124,8 +136,8 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     }
     else
     {
-        // Generate the shared access signature on the blob. In this case, all of the constraints for the
-        // shared access signature are specified on the container's stored access policy.
+        // Generate the shared access signature on the blob. In this case, all of the constraints
+        // for the SAS are specified on the container's stored access policy.
         sasBlobToken = blob.GetSharedAccessSignature(null, policyName);
 
         Console.WriteLine("SAS for blob (stored access policy): {0}", sasBlobToken);

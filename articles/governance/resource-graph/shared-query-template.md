@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Creare una query condivisa con i modelli'
 description: Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager (modello ATM) per creare una query condivisa di Resource Graph che conta le macchine virtuali in base al sistema operativo.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685528"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057009"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Avvio rapido: Creare una query condivisa usando un modello di Resource Manager
 
@@ -53,9 +53,9 @@ Nel modello è definita la risorsa seguente:
    | Subscription | Selezionare la sottoscrizione di Azure. |
    | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
-   | Nome query | Lasciare il valore predefinito **Conta macchine virtuali per sistema operativo**. |
-   | Codice query | Lasciare il valore predefinito `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Descrizione query | Lasciare il valore predefinito **This shared query counts all virtual machine resources and summarizes by the OS type** (Questa query condivisa conta tutte le risorse macchina virtuale e le riepiloga in base al tipo di sistema operativo). |
+   | Nome query | Lasciare il valore predefinito: **Count VMs by OS** (Conta macchine virtuali in base al sistema operativo). |
+   | Codice query | Lasciare il valore predefinito: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Descrizione query | Lasciare il valore predefinito: **This shared query counts all virtual machine resources and summarizes by the OS type** (Questa query condivisa conta tutte le risorse macchina virtuale e le riepiloga in base al tipo di sistema operativo). |
    | Accetto le condizioni riportate sopra | (selezionare) |
 
 1. Selezionare **Acquisto**.
@@ -75,7 +75,7 @@ Per eseguire la nuova query condivisa, seguire questa procedura:
 
 1. Selezionare la query condivisa denominata **Conta macchine virtuali per sistema operativo**, quindi selezionare la scheda **Risultati** nella pagina **Panoramica**.
 
-In alternativa, è possibile aprire la query condivisa da Resource Graph Explorer:
+È anche possibile aprire la query condivisa da Resource Graph Explorer:
 
 1. Dalla barra di ricerca del portale cercare **Resource Graph Explorer** e selezionare la voce.
 
@@ -83,7 +83,7 @@ In alternativa, è possibile aprire la query condivisa da Resource Graph Explore
 
 1. Modificare il valore di **Tipo** e impostarlo su _Query condivise_. Se la query **Conta macchine virtuali per sistema operativo** non è visualizzata nell'elenco, usare la casella filtro per limitare i risultati. Quando la query condivisa **Conta macchine virtuali per sistema operativo** è visibile, selezionarne il nome.
 
-1. Una volta caricata la query, selezionare il pulsante **Esegui query**. I risultati vengono visualizzati nella scheda **Risultati** riportata sotto.
+1. Una volta caricata la query, selezionare il pulsante **Esegui query**. I risultati vengono visualizzati nella scheda **Risultati**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801921"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217389"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -30,6 +30,12 @@ Quando la connettività di Load Balancer non è disponibile, i sintomi più comu
 - Le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta configurata
 
 Quando i client esterni alle macchine virtuali back-end usano il bilanciamento del carico, per la comunicazione verrà usato l'indirizzo IP dei client. Assicurarsi che l'indirizzo IP dei client venga aggiunto all'elenco degli indirizzi consentiti del gruppo di sicurezza di rete. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Sintomo: nessuna connettività in uscita dal servizio di bilanciamento del carico interno standard (ILB)
+
+**Convalida e la risoluzione**
+
+Le gli ILB standard sono **sicure per impostazione predefinita**. Gli ILB di base hanno consentito la connessione a Internet tramite un indirizzo IP pubblico *nascosto* . Questo non è recommened per i carichi di lavoro di produzione perché l'indirizzo IP non è né statico né bloccato tramite gruppi di cui si è proprietari. Se è stato recentemente spostato da un ILB di base a un ILB standard, è necessario creare un indirizzo IP pubblico in modo esplicito tramite la configurazione [solo in uscita](egress-only.md) che blocca l'IP tramite gruppi. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità
 Per partecipare al set di bilanciamento del carico, i server back-end devono superare il controllo del probe. Per altre informazioni sui probe di integrità, vedere [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md). 

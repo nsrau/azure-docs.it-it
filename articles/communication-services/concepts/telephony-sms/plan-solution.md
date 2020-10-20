@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767149"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048220"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Pianificare l'uso della soluzione di telefonia e SMS
 
@@ -74,7 +74,9 @@ La tabella seguente illustra le località in cui è possibile acquisire i divers
 
 ## <a name="azure-subscriptions-eligibility"></a>Idoneità delle sottoscrizioni di Azure
 
-Per acquisire un numero di telefono, è necessario avere una sottoscrizione di Azure a pagamento. I numeri di telefono non possono essere acquisiti con account di valutazione. 
+Per acquisire un numero di telefono, è necessario avere una sottoscrizione di Azure a pagamento. Non è possibile acquistare i numeri di telefono con account di valutazione o usando i crediti gratuiti di Azure. 
+
+Attualmente, la disponibilità dei numeri di telefono è limitata alle sottoscrizioni di Azure con un indirizzo di fatturazione nel Stati Uniti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

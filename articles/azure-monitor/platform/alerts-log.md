@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299421"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217559"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -201,7 +201,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
     > [!NOTE]
     > Le regole di avviso del log sono attualmente senza stato e non vengono [risolte](alerts-unified-log.md#state-and-resolving-alerts).
 
-1. Per modificare le regole, fare clic sul pulsante **Gestisci regole** nella barra superiore:
+1. Per modificare le regole, fare clic sul pulsante **Gestisci regole di avviso** nella barra superiore:
 
     ![ gestione delle regole di avviso](media/alerts-log/manage-alert-rules.png)
 

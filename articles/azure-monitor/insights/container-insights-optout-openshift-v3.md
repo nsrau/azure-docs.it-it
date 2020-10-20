@@ -3,16 +3,25 @@ title: Come arrestare il monitoraggio del cluster di Azure Red Hat OpenShift V3 
 description: Questo articolo descrive come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815437"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216532"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift V3 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift V3
 
-Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con monitoraggio di Azure per i contenitori se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 2022 giugno.
+>
+> A partire dal 2020 ottobre non sarà più possibile creare nuovi cluster 3,11.
+> I cluster 3,11 esistenti continueranno a funzionare fino al giugno 2022, ma non saranno più supportati dopo tale data.
+>
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
+> Per domande specifiche, [Contattaci](mailto:aro-feedback@microsoft.com).
+
+Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con monitoraggio di Azure per i contenitori se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito.  
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 

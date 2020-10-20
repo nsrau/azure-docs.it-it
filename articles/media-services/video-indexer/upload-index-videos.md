@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268826"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218957"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -72,15 +72,15 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 > Il nome del video non può contenere più di 80 caratteri.
 
 1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/).
-2. Per caricare un video, premere il pulsante o il collegamento **Upload** (Carica).
+1. Per caricare un video, premere il pulsante o il collegamento **Upload** (Carica).
 
-    ![Caricamento](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Dopo il caricamento del video, Video Indexer avvia l'indicizzazione e l'analisi.
 
-    Dopo il caricamento del video, Video Indexer avvia l'indicizzazione e l'analisi.
-
-    ![Caricato](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Al termine dell'analisi si riceverà una notifica con un collegamento al video e una breve descrizione di ciò che è stato trovato nel video. Ad esempio: persone, argomenti, OCR.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Upload":::
+1. Al termine dell'analisi di Video Indexer, si riceverà un messaggio di posta elettronica con un collegamento al video e una breve descrizione di ciò che è stato trovato nel video. Ad esempio: persone, argomenti, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Caricare e indicizzare con l'API
 
@@ -176,7 +176,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
     Per ottenere la chiave API, passare a questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/
-    * Accedi
+    * Accesso
     * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.

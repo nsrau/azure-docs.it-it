@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/13/2020
+ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252876"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044038"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -83,7 +83,9 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Trasformazione Flat](https://youtu.be/VY2tFQJoAXE)
 
-[Trasformare dati gerarchici](https://youtu.be/oAEh21NFgWQ)
+[Trasformazione dati gerarchici](https://youtu.be/oAEh21NFgWQ)
+
+[Trasformazione classificazioni](https://youtu.be/6XvgkbMtws0)
 
 ## <a name="source-and-sink"></a>Origine e sink
 

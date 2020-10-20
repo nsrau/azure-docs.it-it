@@ -3,19 +3,19 @@ title: 'Avvio rapido: Portale Web di Advisor metriche'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come iniziare a usare il portale Web di Advisor metriche.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048237"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Avvio rapido: Monitorare la prima metrica con il portale Web
 
@@ -41,7 +41,7 @@ In questo documento si usa un database SQL come esempio per la creazione del pri
 
 ## <a name="sign-in-to-your-workspace"></a>Accedere all'area di lavoro
 
-Dopo aver distribuito la risorsa, accedere al [portale Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2143774). Selezionare l'area di lavoro per avviare il monitoraggio delle metriche. 
+Dopo aver creato la risorsa, accedere al [portale Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2143774). Selezionare l'area di lavoro per avviare il monitoraggio delle metriche. 
  
 Attualmente è possibile creare una risorsa di Advisor metriche in ogni area disponibile. È possibile spostare le aree di lavoro nel portale Advisor metriche in qualsiasi momento.
 
