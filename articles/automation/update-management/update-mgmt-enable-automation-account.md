@@ -2,15 +2,15 @@
 title: Abilitazione di Gestione aggiornamenti di Automazione di Azure da un account di Automazione
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da un account di Automazione.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669500"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206629"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
@@ -65,14 +65,14 @@ I computer installati manualmente o che inviano già report all'area di lavoro d
 
     ![Ricerche salvate](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Per abilitare Gestione aggiornamenti per tutti i computer disponibili che inviano report all'area di lavoro, selezionare **Abilita in tutti i computer disponibili** nella pagina Gestisci computer. Con questa azione viene disabilitato il controllo per aggiungere computer singolarmente. Questa attività aggiunge tutti i nomi dei computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer `MicrosoftDefaultComputerGroup` . Se l'opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato.
+3. Per abilitare Gestione aggiornamenti per tutti i computer disponibili che inviano report all'area di lavoro, selezionare **Abilita in tutti i computer disponibili** nella pagina Gestisci computer. Questa azione Disabilita il controllo per aggiungere i computer singolarmente e aggiunge tutti i computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer `MicrosoftDefaultComputerGroup` . Quando questa opzione è selezionata, questa azione Disabilita l'opzione **Gestisci computer** .
 
-4. Per abilitare la funzionalità per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione Elimina la configurazione di ricerca e ambito salvata dall'area di lavoro e consente alla funzionalità di includere tutti i computer Azure e non Azure attualmente o in futuro, che possono essere segnalati all'area di lavoro. Quando questa opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato in modo permanente, perché non è disponibile alcuna configurazione dell'ambito.
+4. Per abilitare la funzionalità per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione Elimina la configurazione di ricerca e ambito salvata dall'area di lavoro e consente alla funzionalità di includere tutti i computer Azure e non Azure attualmente o in futuro, che possono essere segnalati all'area di lavoro. Quando questa opzione è selezionata, questa azione Disabilita l'opzione **Gestisci computer** in modo permanente, perché non è disponibile alcuna configurazione dell'ambito.
 
     > [!NOTE]
-    > Poiché questa opzione Elimina le ricerche salvate e le configurazioni dell'ambito all'interno Log Analytics, è importante rimuovere i blocchi di eliminazione nell'area di lavoro Log Analytics prima di selezionare questa opzione. In caso contrario, l'opzione non riuscirà a rimuovere le configurazioni ed è necessario rimuoverle manualmente.
+    > Poiché questa opzione Elimina la ricerca salvata e la configurazione dell'ambito all'interno Log Analytics, è importante rimuovere i blocchi di eliminazione nell'area di lavoro Log Analytics prima di selezionare questa opzione. In caso contrario, l'opzione non riuscirà a rimuovere le configurazioni ed è necessario rimuoverle manualmente.
 
-5. Se necessario, è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente la query di ricerca salvata iniziale. Per altre informazioni, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](update-mgmt-scope-configuration.md).
+5. Se necessario, è possibile aggiungere di nuovo la configurazione dell'ambito aggiungendo nuovamente la query di ricerca salvata iniziale. Per altre informazioni, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](update-mgmt-scope-configuration.md).
 
 6. Per abilitare la funzionalità per uno o più computer, selezionare **Abilita nei computer selezionati** e selezionare **Aggiungi** accanto a ogni computer. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la funzionalità.
 

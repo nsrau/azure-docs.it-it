@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575181"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205320"
 ---
 # <a name="configure-the-model-conversion"></a>Configurare la conversione di modelli
 
@@ -258,7 +258,7 @@ Come illustrato nella sezione [procedure consigliate per le modifiche al formato
 ### <a name="texture-sizes"></a>Dimensioni trama
 
 A seconda del tipo di scenario, la quantità di dati di trama può superare la memoria usata per i dati di rete. I modelli fotogrammetria sono candidati.
-La configurazione della conversione non fornisce un modo per ridimensionare automaticamente le trame. Se necessario, il ridimensionamento della trama deve essere eseguito come passaggio di pre-elaborazione lato client. Il passaggio di conversione tuttavia sceglie un [formato di compressione della trama](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)appropriato:
+La configurazione della conversione non fornisce un modo per ridimensionare automaticamente le trame. Se necessario, il ridimensionamento della trama deve essere eseguito come passaggio di pre-elaborazione lato client. Il passaggio di conversione tuttavia sceglie un [formato di compressione della trama](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)appropriato:
 
 * `BC1` per le trame colore opaco
 * `BC7` per le trame colore di origine con canale alfa

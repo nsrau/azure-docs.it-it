@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42b86cadefea41bc438c8f2e91c5eaa86af172b0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055215"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204972"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory
 
@@ -139,14 +139,15 @@ Supportato, significa che l'esperienza è come previsto. in particolare, è ugua
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Pianificazione nei team
+- App Web di Planner
 
 ### <a name="services-currently-not-supported"></a>Servizi attualmente non supportati
 
 Il servizio senza supporto tecnico corrente potrebbe avere problemi di compatibilità con la nuova impostazione di restrizione Guest.
 
 - Moduli
-- Pianificazione nei team
-- App Planner
+- App per dispositivi mobili Planner
 - Project
 - Yammer
 
@@ -157,7 +158,7 @@ Domanda | Risposta
 Dove si applicano queste autorizzazioni? | Queste autorizzazioni a livello di directory vengono applicate tra Azure AD servizi e i portali, tra cui il Microsoft Graph, PowerShell V2, il portale di Azure e il portale app personali. Sono interessati anche i servizi Microsoft 365 che sfruttano i gruppi di Microsoft 365 per gli scenari di collaborazione, in particolare Outlook, Microsoft teams e SharePoint.
 Quali parti del portale delle app personali avranno effetto su questa funzionalità? | Le funzionalità dei gruppi nel portale app personali rispetteranno queste nuove autorizzazioni. Sono inclusi tutti i percorsi per visualizzare l'elenco dei gruppi e le appartenenze ai gruppi nelle app personali. Non sono state apportate modifiche alla disponibilità dei riquadri del gruppo. La disponibilità dei riquadri di gruppo è ancora controllata dall'impostazione del gruppo esistente nel portale di amministrazione di Azure.
 Queste autorizzazioni eseguono l'override delle impostazioni guest di SharePoint o Microsoft Teams? | No. Le impostazioni esistenti controllano ancora l'esperienza e l'accesso a tali applicazioni. Se, ad esempio, si riscontrano problemi in SharePoint, verificare le impostazioni di condivisione esterna.
-Quali sono i problemi di compatibilità noti in Planner e Yammer? | <li>Con le autorizzazioni impostate su' restricted ', i guest registrati nell'app Planner o l'accesso a Planner in Microsoft teams non saranno in grado di accedere ai piani o alle attività.<li>Con le autorizzazioni impostate su' restricted ', i guest registrati in Yammer non saranno in grado di uscire dal gruppo.
+Quali sono i problemi di compatibilità noti in Planner e Yammer? | <li>Con le autorizzazioni impostate su' restricted ', i guest registrati nell'app Planner per dispositivi mobili non saranno in grado di accedere ai piani o alle attività.<li>Con le autorizzazioni impostate su' restricted ', i guest registrati in Yammer non saranno in grado di uscire dal gruppo.
 Le autorizzazioni Guest esistenti verranno modificate nel tenant? | Non sono state apportate modifiche alle impostazioni correnti. Manteniamo la compatibilità con le impostazioni esistenti. Decidere quando si desidera apportare modifiche.
 Queste autorizzazioni verranno impostate per impostazione predefinita? | No. Le autorizzazioni predefinite esistenti rimangono invariate. Facoltativamente, è possibile impostare le autorizzazioni in modo che siano più restrittive.
 Sono previsti requisiti di licenza per questa funzionalità? | No, non sono previsti nuovi requisiti di licenza per questa funzionalità.

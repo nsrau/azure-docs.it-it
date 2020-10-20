@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742974"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200849"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -37,7 +37,7 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Il nuovo piano tariffario **PremiumV3** garantisce le [VM serie dv3](../virtual-machines/dv3-dsv3-series.md) con processori più veloci, archiviazione SSD e rapporto quadruplo tra memoria e Core rispetto al livello **standard** . **PremiumV3** supporta anche una scalabilità superiore tramite un numero maggiore di istanze, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel livello **standard** . Tutte le funzionalità disponibili nel livello **PremiumV2** esistente sono incluse in **PremiumV3**.
+> Il nuovo piano tariffario **PremiumV3** garantisce ai computer con processori più veloci (minimo 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per CPU virtuale), archiviazione SSD e rapporto quadruplo tra memoria e Core rispetto al livello **standard** . **PremiumV3** supporta anche una scalabilità superiore tramite un numero maggiore di istanze, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel livello **standard** . Tutte le funzionalità disponibili nel livello **PremiumV2** esistente sono incluse in **PremiumV3**.
 >
 > Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
 >

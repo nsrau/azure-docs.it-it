@@ -3,12 +3,12 @@ title: Ottenere le modifiche delle risorse
 description: Informazioni su come capire quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
 ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057570"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203467"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -28,7 +28,7 @@ Il rilevamento delle modifiche e i dettagli sono utili per gli scenari di esempi
 Questo articolo illustra come raccogliere queste informazioni tramite l'SDK di Resource Graph. Per visualizzare queste informazioni nel portale di Azure, vedere [Cronologia modifiche](../../policy/how-to/determine-non-compliance.md#change-history) di Criteri di Azure oppure [Cronologia modifiche](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) del log attività di Azure. Per informazioni dettagliate sulle modifiche apportate alle applicazioni dal livello infrastruttura fino alla distribuzione delle applicazioni, vedere [Usare Analisi delle modifiche alle applicazioni (anteprima) in Monitoraggio di Azure](../../../azure-monitor/app/change-analysis.md).
 
 > [!NOTE]
-> I dettagli delle modifiche in Resource Graph sono relativi alle proprietà di Resource Manager. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere il [rilevamento modifiche](../../../automation/change-tracking.md) di Automazione di Azure o la [configurazione guest per le macchine virtuali](../../policy/concepts/guest-configuration.md) di Criteri di Azure.
+> I dettagli delle modifiche in Resource Graph sono relativi alle proprietà di Resource Manager. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere il [rilevamento modifiche](../../../automation/change-tracking/overview.md) di Automazione di Azure o la [configurazione guest per le macchine virtuali](../../policy/concepts/guest-configuration.md) di Criteri di Azure.
 
 > [!IMPORTANT]
 > La cronologia delle modifiche in Azure Resource Graph è in anteprima pubblica.

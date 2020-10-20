@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097525"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207547"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -40,16 +40,15 @@ Accedere al [portale di Azure](https://portal.azure.com) con questo account.
 
 Per connettere un'istanza di Azure Digital Twins alle app per la logica in questo articolo, è necessario che l' **istanza di Azure Digital Twins** sia già configurata. 
 
-Prima di tutto, configurare un'istanza di Gemelli digitali di Azure e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
+Prima di tutto, **configurare un'istanza di Azure Digital Twins** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
+* Dopo aver configurato l'istanza di Azure Digital gemelli, sarà necessario il **_nome host_** dell'istanza ([trovare nella portale di Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-In questa esercitazione sono necessari diversi valori da quando si configura l'istanza di. Se è necessario raccogliere nuovamente questi valori, usare i collegamenti seguenti alle sezioni corrispondenti nell'articolo relativo alla configurazione per individuarli nel [portale di Azure](https://portal.azure.com).
-* **_Nome host_** dell'istanza di Gemelli digitali di Azure ([trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_ID applicazione (client)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
-* **_ID directory (tenant)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
+Per autenticare l'applicazione ADT Explorer, è anche necessario configurare una **registrazione dell'app**. Per configurare questa procedura, seguire le istruzioni in [*How-to: Create a app Registration*](how-to-create-app-registration.md) . 
+* Una volta eseguita la registrazione di un'app, sono necessari l'ID dell' **_applicazione (client)_** di registrazione e l' **_ID della directory (tenant)_** ([trovare nella portale di Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Ottenere il segreto client di registrazione dell'app
 
-Sarà inoltre necessario creare un **_segreto client_** per la registrazione dell'app Azure ad. A tale scopo, passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Selezionare la registrazione nell'elenco per aprirne i dettagli. 
+Sarà inoltre necessario creare un **_segreto client_** per la registrazione dell'app Azure ad. A tale scopo, passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Selezionare la registrazione creata nella sezione precedente dall'elenco per aprirne i dettagli. 
 
 Premere i *certificati e i segreti* dal menu della registrazione e selezionare *+ nuovo segreto client*.
 

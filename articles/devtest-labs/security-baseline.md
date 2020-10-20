@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151875"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207292"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -493,7 +493,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 **Linee guida:** Automazione di Azure offre il controllo completo durante la distribuzione, le operazioni e la rimozione delle autorizzazioni dei carichi di lavoro e delle risorse. Come amministratore della sottoscrizione, è possibile usare Rilevamento modifiche per identificare tutto il software installato nelle macchine virtuali ospitate in DevTest Labs. È possibile implementare un processo personalizzato o usare la configurazione dello stato di automazione di Azure per la rimozione di software non autorizzato.
 
 - [Introduzione ad Automazione di Azure](../automation/automation-intro.md)
-- [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/change-tracking.md)
+- [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/change-tracking/overview.md)
 - [Panoramica della configurazione dello stato di automazione di Azure](../automation/automation-dsc-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Non disponibile

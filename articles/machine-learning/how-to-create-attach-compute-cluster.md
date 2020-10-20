@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711472"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207122"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
 
@@ -52,11 +52,13 @@ I cluster di calcolo possono eseguire processi in modo sicuro in un [ambiente di
 
 * Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limiti predefiniti, ad esempio il numero di core che possono essere allocati. Per altre informazioni, consultare il documento [Gestire e richiedere quote per risorse di Azure](how-to-manage-quotas.md).
 
+* Azure consente di inserire _blocchi_ sulle risorse, in modo che non possano essere eliminati o siano di sola lettura. Non __applicare i blocchi di risorsa al gruppo di risorse che contiene l'area di lavoro__. L'applicazione di un blocco al gruppo di risorse che contiene l'area di lavoro impedirà operazioni di ridimensionamento per i cluster di calcolo di Azure ML. Per altre informazioni sul blocco delle risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/management/lock-resources.md).
+
 > [!TIP]
 > I cluster possono in genere essere ridimensionati fino a 100 nodi, purché si disponga di una quota sufficiente per il numero di core necessari. Per impostazione predefinita, i cluster sono impostati con la comunicazione tra i nodi abilitata, ad esempio per supportare i processi MPI. È tuttavia possibile ridimensionare i cluster a migliaia di nodi semplicemente [generando un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e richiedendo di consentire l'elenco della sottoscrizione o dell'area di lavoro o di un cluster specifico per la disabilitazione della comunicazione tra nodi. 
 
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
 **Tempo stimato**: circa 5 minuti.
 

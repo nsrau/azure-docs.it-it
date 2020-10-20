@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4a21300872e98a35ea27835385b4045921f4657
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969569"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206187"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -82,6 +82,8 @@ In questa sezione è possibile trovare informazioni su come configurare SSO con 
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 10/16/2020: modifica [della disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure su SLES con pacemaker](./dbms-guide-ha-ibm.md), [ha per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md), [ha IBM DB2 LUW in macchine virtuali di Azure in](./high-availability-guide-rhel-ibm-db2-luw.md)RHEL, [ha per SAP NW in macchine](./high-availability-guide-rhel-multi-sid.md)virtuali di Azure nella Guida a più SID di RHEL, [ha per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md). [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES for SAP Applications](./high-availability-guide-suse.md), [ha per SAP NNW in macchine virtuali di Azure in SLES](./high-availability-guide-suse-multi-sid.md)a più SID, [ha per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](./high-availability-guide-suse-netapp-files.md), [ha per NFS in macchine virtuali di Azure su SLES](./high-availability-guide-suse-nfs.md), [ha SAP Hana in macchine virtuali di Azure](./sap-hana-high-availability.md)su SLES, ha [per SAP Hana scalabilità verticale con e](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA SAP Hana sulle macchine virtuali di Azure in RHEL](./sap-hana-high-availability-rhel.md), [SAP Hana la scalabilità orizzontale di HSR con pacemaker in macchine virtuali di Azure in RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [preparare l'infrastruttura di Azure per SAP ASC/SCS con WSFC e il disco condiviso](./sap-high-availability-infrastructure-wsfc-shared-disk.md), la [Guida a più SID a disponibilità elevata per SAP ASC/SCS con WSFC e il disco condiviso di Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) e la guida a più [SID a disponibilità elevata per SAP ASC/SCS con WSFC e il disco condiviso](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) per aggiungere un'istruzione che l'IP mobile non è supportato negli scenari di bilanciamento del carico negli indirizzi IP secondari  
+- 10/15/2020: versione di SAP BusinessObjects BI Platform nella documentazione di Azure, [Guida alla pianificazione e all'implementazione della piattaforma SAP BUSINESSOBJECTS bi in Azure](businessobjects-deployment-guide.md) e [Guida alla distribuzione di SAP BusinessObjects BI Platform per Linux in Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: rilascio di [SAP Hana con scalabilità orizzontale HSR con pacemaker in macchine virtuali di Azure nella Guida alla configurazione di RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md)
 - 09/30/2020: modificare la [disponibilità elevata di SAP Hana in macchine virtuali di Azure in RHEL](./sap-hana-high-availability-rhel.md), [ha per SAP Hana la scalabilità verticale con e su RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e la [configurazione di pacemaker in RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) per adattare le istruzioni per RHEL 8,1
 - 09/29/2020: le restrizioni e le raccomandazioni sull'uso di PPG sono più ovvie nell'articolo [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](./sap-proximity-placement-scenarios.md) 

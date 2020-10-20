@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822389"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203773"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -22,8 +22,9 @@ I set di dati hanno cicli di vita specifici. All'inizio del ciclo di vita, gli u
 
 I criteri di gestione del ciclo di vita consentono di eseguire queste operazioni:
 
-- Spostare i BLOB a un livello di archiviazione ad accesso più sporadico (da frequente a sporadico, da frequente ad archivio o da sporadico ad archivio) per ottimizzare costi e prestazioni
-- Eliminare i BLOB al termine del ciclo di vita
+- Transizione di BLOB da accesso sporadico ad accesso frequente se si accede per ottimizzare le prestazioni 
+- Eseguire la transizione di BLOB, versioni BLOB e snapshot BLOB a un livello di archiviazione più freddo (accesso frequente ad accesso sporadico, da accesso frequente ad archivio o da accesso sporadico ad Archivio) se non si accede o si modifica per un determinato periodo di tempo per ottimizzare i costi
+- Eliminare BLOB, versioni BLOB e snapshot BLOB alla fine del ciclo di vita
 - Definire le regole da eseguire una volta al giorno a livello di account di archiviazione
 - Applicare regole a contenitori o a un subset di BLOB (usando i prefissi dei nomi o i [tag degli indici BLOB](storage-manage-find-blobs.md) come filtri)
 
@@ -33,7 +34,7 @@ Si consideri uno scenario in cui i dati ottengono un accesso frequente durante l
 
 ## <a name="availability-and-pricing"></a>Disponibilità e prezzi
 
-La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree di Azure per gli account per utilizzo generico V2 (GPv2), gli account di archiviazione BLOB e gli account di archiviazione BLOB in blocchi Premium. Nella portale di Azure è possibile aggiornare un account di per utilizzo generico esistente (utilizzo generico V1) a un account GPv2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
+La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree di Azure per gli account per utilizzo generico V2 (GPv2), gli account di archiviazione BLOB, gli account di archiviazione BLOB in blocchi Premium e gli account di Azure Data Lake Storage Gen2. Nella portale di Azure è possibile aggiornare un account di per utilizzo generico esistente (utilizzo generico V1) a un account GPv2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il costo normale dell'operazione per le chiamate all'API del [livello BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . L'operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -241,12 +242,12 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatoria |
+| Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | True |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
 ## <a name="rules"></a>Regole
 
@@ -263,29 +264,41 @@ La regola di esempio seguente Filtra l'account per eseguire le azioni sugli ogge
 - Impostare il BLOB sul livello di accesso sporadico 30 giorni dopo l'ultima modifica
 - Impostare il BLOB sul livello archivio 90 giorni dopo l'ultima modifica
 - Eliminare il BLOB 2.555 giorni (7 anni) dopo l'ultima modifica
-- Elimina gli snapshot del BLOB 90 giorni dopo la creazione dello snapshot
+- Elimina le versioni BLOB precedenti 90 giorni dopo la creazione
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -312,24 +325,24 @@ I filtri includono:
 
 Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizione di esecuzione.
 
-La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione di BLOB e l'eliminazione di snapshot BLOB. Definire almeno un'azione per ogni regola sui BLOB o sugli snapshot dei BLOB.
+La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione di BLOB, versioni precedenti di BLOB e snapshot BLOB. Definire almeno un'azione per ogni regola sui BLOB di base, sulle versioni precedenti dei BLOB o sugli snapshot BLOB.
 
-| Azione                      | BLOB di base                                   | Snapshot      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
-| enableAutoTierToHotFromCool | Supporta i BLOB attualmente a livello di accesso sporadico        | Non supportato |
-| tierToArchive               | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
-| Elimina                      | Supportato per `blockBlob` e `appendBlob`  | Supportato     |
+| Azione                      | BLOB di base                                  | Snapshot      | Versione
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Supportato per `blockBlob`                  | Supportato     | Supportato     |
+| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportato | Non supportato |
+| tierToArchive               | Supportato per `blockBlob`                  | Supportato     | Supportato     |
+| eliminare                      | Supportato per `blockBlob` e `appendBlob` | Supportato     | Supportato     |
 
 >[!NOTE]
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.
 
-Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
+Le condizioni di esecuzione sono basate sull'età. I BLOB di base usano l'ora dell'Ultima modifica, le versioni dei BLOB usano l'ora di creazione della versione e gli snapshot BLOB usano l'ora di creazione dello snapshot per tenere traccia dell'età.
 
-| Condizione di esecuzione azione               | Valore della condizione                          | Description                                                                      |
+| Condizione di esecuzione azione               | Valore della condizione                          | Descrizione                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base                                              |
-| daysAfterCreationGreaterThan       | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB                                          |
+| daysAfterCreationGreaterThan       | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni di versione BLOB e snapshot BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Valore intero che indica il tempo trascorso in giorni | anteprima Condizione per le azioni BLOB di base quando è abilitata l'ora dell'ultimo accesso |
 
 ## <a name="examples"></a>Esempi
@@ -522,26 +535,35 @@ Alcuni dati devono essere scaduti solo se contrassegnati in modo esplicito per l
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Eliminare gli snapshot precedenti
+### <a name="manage-versions"></a>Gestire le versioni
 
-Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo di vita vengono spesso usati gli snapshot per tenere traccia delle versioni precedenti dei dati. È possibile creare criteri che eliminino gli snapshot precedenti in base al tempo trascorso. Il tempo trascorso per lo snapshot viene determinato valutando la sua data/ora di creazione. Questa regola dei criteri elimina gli snapshot dei BLOB in blocchi all'interno del contenitore `activedata` per i quali sono trascorsi 90 giorni o più dalla creazione.
+Per i dati modificati e a cui si accede regolarmente per tutta la sua durata, è possibile abilitare il controllo delle versioni dell'archiviazione BLOB in modo da mantenere automaticamente le versioni precedenti di un oggetto. È possibile creare un criterio per il livello o eliminare le versioni precedenti. La validità della versione è determinata dalla valutazione dell'ora di creazione della versione. Questa regola dei criteri consente di livelli le versioni precedenti all'interno del contenitore `activedata` che sono 90 giorni o precedenti dopo la creazione della versione a livello di accesso sporadico ed Elimina le versioni precedenti che sono di 365 giorni o meno recenti.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

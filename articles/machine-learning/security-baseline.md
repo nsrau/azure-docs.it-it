@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107675"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204334"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -721,7 +721,7 @@ Rimuovere le risorse di Azure quando non sono più necessarie.
 
 - [Come usare il monitoraggio dell'integrità dei file](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../automation/change-tracking.md)
+- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../automation/change-tracking/overview.md)
 
 - [Come abilitare l'inventario delle macchine virtuali di Azure](../automation/automation-tutorial-installed-software.md)
 

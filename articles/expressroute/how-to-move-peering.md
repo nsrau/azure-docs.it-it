@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401419"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206289"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Spostare un peering pubblico nel peering Microsoft
 
@@ -31,7 +31,7 @@ Per connettersi al peering Microsoft, è necessario configurare e gestire i requ
 > [!Warning]
 > Il pool IP NAT annunciato per Microsoft non deve essere annunciato per Internet, altrimenti verrebbe interrotta la connettività con altri servizi Microsoft.
 
-Vedere [routing asimmetrico con più percorsi di rete](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) per avvertimenti del routing asimmetrico prima di configurare il peering Microsoft.
+Vedere [routing asimmetrico con più percorsi di rete](./expressroute-asymmetric-routing.md) per avvertimenti del routing asimmetrico prima di configurare il peering Microsoft.
 
 * Se si usa il peering pubblico e sono attualmente presenti regole di rete IP per gli indirizzi IP pubblici usati per accedere all' [archiviazione di Azure](../storage/common/storage-network-security.md) o al [database SQL di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md), è necessario assicurarsi che il pool di indirizzi IP NAT configurato con il peering Microsoft sia incluso nell'elenco di indirizzi IP pubblici per l'account di archiviazione di Azure o per l'account SQL di Azure.<br>
 * Per passare nel peering Microsoft senza tempi di inattività, usare i passaggi in questo articolo nell'ordine in cui sono elencati.

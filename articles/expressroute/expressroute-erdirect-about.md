@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566399"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202155"
 ---
 # <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
@@ -73,7 +73,7 @@ ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazi
     * È necessario aggiungere il tag di VLAN esterno (STAG) in base all'ID VLAN specificato da Microsoft, *applicabile solo su QinQ*
     * Deve supportare più sessioni BGP (VLAN) per porta e dispositivo
     * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna interfaccia secondaria aggiuntiva. L'indirizzo IPv6 verrà aggiunto all'interfaccia secondaria esistente*. 
-    * Facoltativo: supporto del [rilevamento di inoltri bidirezionale (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
+    * Facoltativo: supporto del [rilevamento di inoltri bidirezionale (BFD)](./expressroute-bfd.md) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 
