@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539339"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858269"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e cURL
 
@@ -34,9 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
  
 Si userà un comando come il seguente per chiamare l'API Viso e ottenere i dati dell'attributo viso da un'immagine. In primo luogo, copiare il codice in un editor di testo. È necessario apportare modifiche ad alcune parti prima di poterlo eseguire.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>Chiave della sottoscrizione
 Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso valida.
@@ -46,14 +44,6 @@ Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso val
 L'URL `https://<My Endpoint String>.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. Potrebbe essere necessario modificare la prima parte dell'URL in modo che equivalga all'endpoint che corrisponde alla chiave di sottoscrizione.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>Stringa di query URL
-
-La stringa di query dell'URL endpoint Viso specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>URL origine immagine
 L'URL di origine indica l'immagine da usare come input. È possibile modificarlo in modo che punti a un'immagine che si vuole analizzare.
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>Eseguire il comando
 
 Dopo aver apportato le modifiche, aprire un prompt dei comandi e immettere il nuovo comando. Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio:
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>Estrarre gli attributi del viso
+ 
+Per estrarre gli attributi del viso, usare il modello di rilevamento 1 e aggiungere il parametro di query `returnFaceAttributes`. Il comando avrà un aspetto simile al seguente. Come in precedenza, inserire l'endpoint e la chiave di sottoscrizione del servizio Viso.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+Le informazioni sul viso restituite ora includono gli attributi del viso. Ad esempio:
 
 ```json
 [

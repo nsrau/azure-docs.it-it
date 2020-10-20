@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045400"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218256"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Eseguire il debug di query di analisi di flusso di Azure localmente usando il diagramma processi in Visual Studio
 
@@ -87,7 +87,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
   
 #### <a name="output-sinks-live-output"></a>Sink di output (output Live)
 
-![Sink di output locale del diagramma processi](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagramma di processo che mostra i sink di output locali.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Metrica|Descrizione|
 |-|-|

@@ -2,7 +2,6 @@
 title: Schemi per gli avvisi del Centro sicurezza di Azure
 description: Questo articolo descrive i diversi schemi usati dal centro sicurezza di Azure per gli avvisi di sicurezza.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901334"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220670"
 ---
 # <a name="security-alerts-schemas"></a>Schemi degli avvisi di sicurezza
 
@@ -140,7 +139,7 @@ Per visualizzare gli eventi di avviso di sicurezza nel log attività, cercare l'
 
 ### <a name="the-data-model-of-the-schema"></a>Modello di dati dello schema
 
-|Campo|Descrizione|
+|Campo|Description|
 |----|----|
 |**canali**|Costante, "Operation"|
 |**correlationId**|ID avviso del Centro sicurezza di Azure|
@@ -173,7 +172,7 @@ Per visualizzare gli eventi di avviso di sicurezza nel log attività, cercare l'
 
 Microsoft Graph è il gateway per dati e intelligence in Microsoft 365. Fornisce un modello di programmabilità unificato che è possibile usare per accedere a una grande quantità di dati in Microsoft 365, Windows 10 e Enterprise Mobility + Security. Usa la vasta gamma di dati in Microsoft Graph per creare app per organizzazioni e consumatori che interagiscono con milioni di utenti.
 
-Lo schema e una rappresentazione JSON per gli avvisi di sicurezza inviati a MS Graph sono disponibili nella [documentazione di Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+Lo schema e una rappresentazione JSON per gli avvisi di sicurezza inviati a MS Graph sono disponibili nella [documentazione di Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
 
 ---
 

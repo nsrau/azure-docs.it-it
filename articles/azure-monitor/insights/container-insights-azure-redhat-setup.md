@@ -3,14 +3,23 @@ title: Configurare Azure Red Hat OpenShift V3. x con monitoraggio di Azure per i
 description: Questo articolo descrive come configurare il monitoraggio di un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 3 e successive.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994567"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216369"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V3 con monitoraggio di Azure per i contenitori 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V3 con monitoraggio di Azure per i contenitori
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 2022 giugno.
+>
+> A partire dal 2020 ottobre non sarà più possibile creare nuovi cluster 3,11.
+> I cluster 3,11 esistenti continueranno a funzionare fino al giugno 2022, ma non saranno più supportati dopo tale data.
+>
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Per domande specifiche, [Contattaci](mailto:aro-feedback@microsoft.com).
 
 Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per i cluster di Azure Kubernetes Service (AKS) e del motore AKS. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati in [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versione 3 e la versione supportata più recente della versione 3, per ottenere un'esperienza di monitoraggio simile.
 

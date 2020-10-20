@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ae504a7dcd6f598c13b5fabffaca4ec6ec067e4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7cb6a9691e1b3186e6493b4ae0b62857fb03f38c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549928"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944044"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Esercitazione: Integrare Kiteworks con Azure Active Directory
 
@@ -100,11 +100,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nel barra degli strumenti in alto fare clic su **Impostazioni**.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Screenshot che mostra l'icona "Settings" selezionata sulla barra degli strumenti.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. Nella sezione **Authentication and Authorization** (Autenticazione e autorizzazione) fare clic su **SSO Setup** (Configurazione SSO).
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Screenshot che mostra l'opzione "SSO Setup" selezionata nella sezione "Authentication and Authorization".](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. Nella pagina di configurazione dell’accesso Single Sign-On, seguire questa procedura:
 

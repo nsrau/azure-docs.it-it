@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 09/12/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aac8713affd56d011e5e1f5e9326de501fb3ce67
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8a57f340710144d9c92063d7a181181c3bd7237e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90975551"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971235"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)
 
-Questo articolo descrive i ruoli personalizzati di Azure AD in Azure Active Directory (Azure AD) con il controllo degli accessi in base al ruolo e gli ambiti delle risorse. I ruoli di Azure AD personalizzati evidenziano le autorizzazioni sottostanti dei [ruoli predefiniti](directory-assign-admin-roles.md), per poter creare e organizzare ruoli personalizzati. Questo approccio permette di concedere l'accesso in modo più granulare rispetto ai ruoli predefiniti, ogni volta che sono necessari. Questa prima versione dei ruoli personalizzati di Azure AD include la possibilità di creare un ruolo per assegnare le autorizzazioni per la gestione delle registrazioni app. In futuro verranno aggiunte ulteriori autorizzazioni per le risorse dell'organizzazione, ad esempio applicazioni aziendali, utenti e dispositivi.  
+Questo articolo descrive i ruoli personalizzati di Azure AD in Azure Active Directory (Azure AD) con il controllo degli accessi in base al ruolo e gli ambiti delle risorse. I ruoli di Azure AD personalizzati evidenziano le autorizzazioni sottostanti dei [ruoli predefiniti](directory-assign-admin-roles.md), per poter creare e organizzare ruoli personalizzati. Questo approccio permette di concedere l'accesso in modo più granulare rispetto ai ruoli predefiniti, ogni volta che sono necessari. Questa prima versione dei ruoli personalizzati di Azure AD include le autorizzazioni per la gestione delle registrazioni app e delle app aziendali. Nel corso del tempo verranno aggiunte ulteriori autorizzazioni per altre risorse dell'organizzazione.  
 
 Inoltre, i ruoli personalizzati di Azure AD supportano le assegnazioni in base alle singole risorse, oltre alle assegnazioni più tradizionali a livello di organizzazione. Questo approccio offre la possibilità di concedere l'accesso per gestire alcune risorse, ad esempio, una registrazione app, senza concedere l'accesso a tutte le risorse (tutte le registrazioni app).
 
@@ -34,7 +34,7 @@ La concessione di autorizzazioni tramite ruoli di Azure AD personalizzati è un 
 
 Una volta creata la definizione del ruolo, è possibile assegnarla a un utente creando un'assegnazione di ruolo. Un'assegnazione di ruolo concede all'utente le autorizzazioni in una definizione del ruolo in un ambito specificato. Questo processo in due passaggi consente di creare una singola definizione del ruolo e di assegnarla più volte in ambiti diversi. Un ambito definisce il set di risorse di Azure AD a cui il membro del ruolo può accedere. L'ambito più comune è l'ambito a livello di organizzazione. Un ruolo personalizzato può essere assegnato a livello di organizzazione, per concedere così al membro del ruolo le autorizzazioni del ruolo per tutte le risorse nell'organizzazione. È anche possibile assegnare un ruolo personalizzato a un ambito degli oggetti. Un ambito degli oggetti è ad esempio una singola applicazione. Lo stesso ruolo può essere assegnato a un utente per tutte le applicazioni dell'organizzazione e quindi a un altro utente con un ambito limitato all'app Contoso Expense Reports.  
 
-I ruoli predefiniti e personalizzati di Azure AD operano in base a concetti simili al [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). La [differenza tra questi due sistemi di controllo degli accessi in base al ruolo](../../role-based-access-control/rbac-and-directory-admin-roles.md) sta nel fatto che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio le macchine virtuali o lo spazio di archiviazione, tramite Gestione delle risorse di Azure e i ruoli personalizzati di Azure AD controllano l'accesso alle risorse di Azure AD tramite l'API Graph. Entrambi i sistemi sfruttano il concetto di definizioni del ruolo e assegnazioni di ruolo.
+I ruoli predefiniti e personalizzati di Azure AD operano in base a concetti simili al [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). La [differenza tra questi due sistemi di controllo degli accessi in base al ruolo](../../role-based-access-control/rbac-and-directory-admin-roles.md) sta nel fatto che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio le macchine virtuali o lo spazio di archiviazione, tramite Gestione delle risorse di Azure e i ruoli personalizzati di Azure AD controllano l'accesso alle risorse di Azure AD tramite l'API Graph. Entrambi i sistemi sfruttano il concetto di definizioni del ruolo e assegnazioni di ruolo. Le autorizzazioni di controllo degli accessi in base al ruolo di Azure AD non possono essere incluse nei ruoli Controllo degli accessi in base al ruolo di Azure e viceversa.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>In che modo Azure AD determina se un utente può accedere a una risorsa
 

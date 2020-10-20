@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964686"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221197"
 ---
 # <a name="unsupported-language-deployments"></a>Distribuzioni in lingue non supportate
 
@@ -35,11 +35,11 @@ Affinché i modelli siano candidati per la distribuzione, è necessario che sodd
 ## <a name="process"></a>Processo
 Dopo aver eseguito la migrazione dei modelli dall'hub candidati per la distribuzione, è possibile trovarli nella pagina **Impostazioni** per l'area di lavoro e scorrere fino alla fine della pagina in cui verrà visualizzata una sezione **Training Hub di conversione non supportata** .  Questa sezione viene visualizzata solo se sono presenti progetti che soddisfano i prerequisiti menzionati in precedenza.
 
-![Come eseguire la migrazione da Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Screenshot che evidenzia la sezione training dell'hub di conversione non supportata.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 Nella pagina di selezione **Training Hub di conversione non supportata** la scheda **Training non richiesti** contiene modelli idonei per la distribuzione.  Selezionare i modelli che si desidera distribuire e inviare una richiesta.   Prima della scadenza della distribuzione del 30 aprile, è possibile selezionare tutti i modelli desiderati per la distribuzione.
  
-![Come eseguire la migrazione da Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Screenshot che mostra la scheda Training non richiesti.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Una volta inviato, il modello non sarà più disponibile nella scheda **Training non richiesti** e verrà invece visualizzato nella scheda **training richiesti** .  È possibile visualizzare i training richiesti in qualsiasi momento.
 

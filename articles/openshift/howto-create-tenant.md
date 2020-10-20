@@ -6,16 +6,22 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469984"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221163"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](../active-directory/develop/quickstart-create-new-tenant.md) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 30 giugno 2022. Il supporto per la creazione di nuovi cluster Azure Red Hat OpenShift 3,11 continua fino al 30 novembre 2020. Dopo il ritiro, i cluster di Azure Red Hat OpenShift 3,11 rimanenti verranno arrestati per evitare vulnerabilità di sicurezza.
+> 
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Per domande specifiche, [Contattaci](mailto:arofeedback@microsoft.com).
+
+Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
 
 Se non si ha già un tenant di Azure AD, seguire queste istruzioni per crearne uno.
 

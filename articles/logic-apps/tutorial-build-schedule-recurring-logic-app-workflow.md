@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574732"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842564"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro di automazione ricorrenti e basati su pianificazione con App per la logica di Azure
 
@@ -335,7 +335,7 @@ Quindi testare ed eseguire l'app per la logica, che ora sarà simile a questo es
 
 ## <a name="run-your-logic-app"></a>Eseguire l'app per la logica
 
-Per avviare manualmente l'app per la logica, sulla barra degli strumenti della finestra di progettazione selezionare **Esegui**.
+Per avviare manualmente l'app per la logica, selezionare **Esegui** sulla barra degli strumenti della finestra di progettazione.
 
 * Se il tempo di percorrenza corrente rientra nel limite, l'app per la logica non esegue altre azioni e attende l'intervallo successivo per eseguire un nuovo controllo. 
 
@@ -360,18 +360,18 @@ L'app per la logica continuerà a essere eseguita finché non viene disabilitata
 
 1. Nella casella di ricerca del portale di Azure immettere il nome del gruppo di risorse creato. Nei risultati selezionare il gruppo di risorse in **Gruppi di risorse**.
 
-   Questo esempio ha creato il gruppo di risorse denominato `LA-TravelTime-RG`. 
+   Questo esempio ha creato il gruppo di risorse denominato `LA-TravelTime-RG`.
 
    ![Screenshot che mostra la casella di ricerca di Azure con la stringa "a-travel-time-rg" immessa e il risultato **LA-TravelTime-RG** selezionato.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Se la home page di Azure mostra il gruppo di risorse in **Risorse recenti**, è possibile selezionarlo qui.
 
-1. Nel menu gruppo di risorse verificare che sia selezionata l'opzione **Panoramica**. Sulla barra degli strumenti del riquadro **Panoramica** selezionare **Elimina gruppo di risorse**. 
+1. Nel menu gruppo di risorse verificare che sia selezionata l'opzione **Panoramica**. Sulla barra degli strumenti del riquadro **Panoramica** selezionare **Elimina gruppo di risorse**.
 
    ![Screenshot che mostra il riquadro "Panoramica" del gruppo di risorse e l'opzione "Elimina gruppo di risorse" selezionata sulla barra degli strumenti del riquadro.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. Nel riquadro di conferma immettere il nome del gruppo di risorse, quindi selezionare **Elimina**.
+1. Nel riquadro di conferma visualizzato immettere il nome del gruppo di risorse, quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

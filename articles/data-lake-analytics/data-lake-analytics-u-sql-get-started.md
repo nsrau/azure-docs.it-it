@@ -1,18 +1,16 @@
 ---
 title: Introduzione al linguaggio U-SQL di Azure Data Lake Analytics
 description: Informazioni di base sul linguaggio U-SQL in Azure Data Lake Analytics. Scrivere la prima query usando le variabili per dati aggiuntivi da file, trasformare il set di righe e aggregare i dati.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128846"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219922"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introduzione a U-SQL di Azure Data Lake Analytics
 
@@ -21,10 +19,10 @@ U-SQL è un linguaggio che combina SQL dichiarativo con C# imperativo per consen
 ## <a name="learning-resources"></a>Risorse di formazione
 
 * L'[esercitazione su U-SQL](https://aka.ms/usqltutorial) fornisce una procedura dettagliata guidata per la maggior parte del linguaggio U-SQL. Si consiglia la lettura di questo documento a tutti gli sviluppatori che vogliono apprendere il linguaggio U-SQL.
-* Per informazioni dettagliate sulla **sintassi del linguaggio U-SQL**, vedere le [Informazioni di riferimento sul linguaggio U-SQL](https://docs.microsoft.com/u-sql/).
+* Per informazioni dettagliate sulla **sintassi del linguaggio U-SQL**, vedere le [Informazioni di riferimento sul linguaggio U-SQL](/u-sql/).
 * Per informazioni sulla **filosofia di progettazione alla base di U-SQL**, vedere il post sul blog di Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introduzione a U-SQL: un linguaggio che facilita l'elaborazione dei Big Data).
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di analizzare gli esempi in U-SQL di questo documento, leggere e completare l'[Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Questa esercitazione illustra la meccanica dell'uso di U-SQL con Strumenti Azure Data Lake per Visual Studio.
 

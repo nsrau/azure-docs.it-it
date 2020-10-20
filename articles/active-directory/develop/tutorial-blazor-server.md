@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611472"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873184"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Esercitazione: Creare un'app Blazor Server che usa Microsoft Identity Platform per l'autenticazione
 
@@ -84,7 +84,7 @@ Nel browser passare a `https://localhost:5001` e accedere usando un account uten
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Recupero dei dati da Microsoft Graph
 
-[Microsoft Graph](/graph/overview) include numerose API che consentono di accedere ai dati Microsoft 365 degli utenti. Usando Microsoft Identity Platform come provider di identità per l'app, è possibile accedere più facilmente a queste informazioni perché Microsoft Graph supporta direttamente i token rilasciati da Microsoft Identity Platform. In questa sezione viene aggiunto il codice che consente di visualizzare i messaggi di posta elettronica dell'utente connesso nella pagina "Recupera dati" dell'applicazione.
+[Microsoft Graph](/graph/overview) include numerose API che consentono di accedere ai dati Microsoft 365 degli utenti. Usando Microsoft Identity Platform come provider di identità per l'app, è possibile accedere più facilmente a queste informazioni perché Microsoft Graph supporta direttamente i token rilasciati da Microsoft Identity Platform. In questa sezione viene aggiunto il codice per visualizzare i messaggi di posta elettronica dell'utente connesso nella pagina "Recupera dati" dell'applicazione.
 
 Prima di iniziare, disconnettersi dall'app perché verranno apportate modifiche alle autorizzazioni obbligatorie e il token corrente non funzionerà. Se non è già stato fatto, eseguire di nuovo l'app e selezionare **Disconnetti** prima di aggiornare il codice seguente.
 

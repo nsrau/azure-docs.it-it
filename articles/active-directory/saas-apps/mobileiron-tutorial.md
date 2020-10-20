@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554647"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Esercitazione: integrazione di Azure Active Directory con MobileIron
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con MobileIron, seguire que
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni sull'accesso Single Sign-On di URL e dominio MobileIron](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con MobileIron, seguire que
 
     c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni sull'accesso Single Sign-On di URL e dominio MobileIron](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con MobileIron, seguire que
 
 2. Passare a **Admin** > **Identity** (Amministratore > Identità) e selezionare l'opzione **AAD** nel campo **Info on Cloud IDP Setup** (Informazioni sulla configurazione del provider di identità cloud).
 
-    ![Pulsante Admin nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Screenshot che mostra la scheda Admin del sito MobileIron con l'opzione Identity selezionata.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copiare i valori di **Chiave** e **Host** e incollarli per completare gli URL nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    ![Pulsante Admin nella configurazione dell'accesso Single Sign-On](./media/mobileiron-tutorial/key.png)
+    ![Screenshot che mostra l'opzione Setting Up SAML con una chiave e un valore host.](./media/mobileiron-tutorial/key.png)
 
 4. Nel campo **Export metadata file from AAD and import to MobileIron Cloud** (Esporta file di metadati da AAD e importa nel cloud di MobileIron) fare clic su **Scegli file** per caricare i metadati scaricati dal portale di Azure. Dopo il caricamento fare clic su **Fatto**.
 

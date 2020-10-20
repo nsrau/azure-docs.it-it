@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Effetti di una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare i diversi effetti di una definizione di criteri.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565725"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073037"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modello di Criteri di Azure: effetti
 
@@ -24,7 +24,7 @@ Questa definizione di criteri verifica se il tag definito nel parametro **tagNam
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Un effetto **modify** richiede il blocco **policyRule.then.details** che definisce **roleDefinitionIds** e **operations**. Questi parametri indicano a Criteri di Azure quali ruoli sono necessari per aggiungere il tag e correggere la risorsa e quale operazione **modify** eseguire. In questo esempio, **operation** corrisponde a _add_ e i parametri vengono usati per impostare il tag e il relativo valore.
+Un effetto **modify** richiede il blocco **policyRule.then.details** che definisce **roleDefinitionIds** e **operations**. Questi parametri indicano a Criteri di Azure quali ruoli sono necessari per aggiungere il tag e correggere la risorsa e quale operazione **modify** usare. In questo esempio vengono usati l'**operation** _add_ e i parametri per impostare il tag e il relativo valore.
 
 ## <a name="sample-2-complex-effect"></a>Esempio 2: Effetto complesso
 

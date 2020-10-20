@@ -1,20 +1,20 @@
 ---
 title: "Avvio rapido: Libreria client dell'API Viso per Python"
-description: Usare la libreria client di Viso per Python per rilevare visi, trovare volti simili (ricerca di volti per immagine), identificare i visi (ricerca basata su riconoscimento facciale) ed eseguire la migrazione dei dati sui visi.
+description: Usare la libreria client di Viso per Python per rilevare visi, trovare volti simili (ricerca di volti per immagine) e identificare i visi (ricerca basata su riconoscimento facciale).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322967"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859674"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -25,7 +25,6 @@ Usare la libreria client dell'API Viso per Python per:
 * Creare ed eseguire il training di un gruppo di persone
 * Identificare un viso
 * Verificare i visi
-* Creare uno snapshot per la migrazione dei dati
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
 * [Identificare un viso](#identify-a-face)
 * [Verificare i visi](#verify-faces)
-* [Creare uno snapshot per la migrazione dei dati](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
@@ -207,52 +205,6 @@ Il codice seguente confronta ognuna delle immagini di origine con l'immagine di 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Creare uno snapshot per la migrazione dei dati
-
-La funzionalità Snapshot consente di spostare i dati sui visi salvati, ad esempio un **PersonGroup** sottoposto a training, in una sottoscrizione diversa dell'API Viso di Servizi cognitivi di Azure. È consigliabile usare questa funzionalità se, ad esempio, è stato creato un oggetto **PersonGroup** usando una sottoscrizione gratuita e ora si vuole eseguirne la migrazione a una sottoscrizione a pagamento. Per un'ampia panoramica della funzionalità Snapshot, vedere [Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa](../../Face-API-How-to-Topics/how-to-migrate-face-data.md).
-
-In questo esempio si eseguirà la migrazione del **PersonGroup** creato in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group). È possibile completare prima quella sezione o usare i propri costrutti di dati sui visi.
-
-### <a name="set-up-target-subscription"></a>Configurare la sottoscrizione di destinazione
-
-Prima di tutto è necessario avere una seconda sottoscrizione di Azure con una risorsa Viso. A tale scopo, seguire la procedura descritta nella sezione [Configurazione](#setting-up). 
-
-Quindi, creare le variabili seguenti nella parte iniziale dello script. Sarà anche necessario creare nuove variabili di ambiente per l'ID sottoscrizione dell'account Azure, oltre alla chiave, all'endpoint e all'ID sottoscrizione del nuovo account (di destinazione). 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>Autenticare il client di destinazione
-
-Più avanti nello script salvare l'oggetto client corrente come client di origine, quindi autenticare un nuovo oggetto client per la sottoscrizione di destinazione. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>Usare uno snapshot
-
-Il resto delle operazioni snapshot viene eseguita all'interno di una funzione asincrona. 
-
-1. Il primo passaggio consiste nel **creare** lo snapshot, che salva i dati relativi ai visi della sottoscrizione originale in una posizione cloud temporanea. Questo metodo restituisce un ID da usare per eseguire query sullo stato dell'operazione.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Successivamente, eseguire query sull'ID fino al completamento dell'operazione.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    Questo codice usa la funzione `wait_for_operation`, che deve essere definita separatamente:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Tornare alla funzione asincrona. Usare l'operazione **apply** per scrivere i dati relativi ai visi nella sottoscrizione di destinazione. Questo metodo restituisce anche un ID.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. Usare la funzione `wait_for_operation` per eseguire di nuovo query sull'ID fino al completamento dell'operazione.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Una volta completati questi passaggi, sarà possibile accedere ai costrutti di dati sui visi dalla nuova sottoscrizione (di destinazione).
-
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Eseguire l'app di riconoscimento volto dalla directory dell'applicazione con il comando `python`.
@@ -271,10 +223,6 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 Se è stato creato un oggetto **PersonGroup** in questa guida di avvio rapido e si vuole eliminarlo, eseguire il codice seguente nello script:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-Se è stata eseguita la migrazione dei dati usando la funzionalità Snapshot in questa guida di avvio rapido, sarà anche necessario eliminare il **PersonGroup** salvato nella sottoscrizione di destinazione.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

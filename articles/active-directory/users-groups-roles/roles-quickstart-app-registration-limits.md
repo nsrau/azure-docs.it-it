@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7304ecd73ed73e3ec6ae3c060fef264e016fe38
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb53f9a6121ec9329eaec5d8cb554e7f125e058f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89067808"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856654"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni per l'app illimitate
 
@@ -60,7 +60,7 @@ La procedura è stata completata. In questo argomento di avvio rapido è stato c
 Sono disponibili due autorizzazioni per concedere la possibilità di creare registrazioni dell'applicazione, ognuna con un comportamento diverso.
 
 - microsoft.directory/applications/createAsOwner: se si assegna questa autorizzazione, l'autore verrà aggiunto come primo proprietario della registrazione di app creata e la registrazione di app creata verrà calcolata nella quota dei 250 oggetti creati dell'autore.
-- microsoft.directory/applicationPolicies/create: se si assegna questa autorizzazione l'autore non verrà aggiunto come primo proprietario della registrazione di app creata e la registrazione di app creata non verrà calcolata nella quota dei 250 oggetti creati dell'autore. Usare questa autorizzazione con cautela, perché non è possibile impedire all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se vengono assegnate entrambe le autorizzazioni, questa autorizzazione avrà la precedenza.
+- microsoft.directory/applications/create: se si assegna questa autorizzazione l'autore non verrà aggiunto come primo proprietario della registrazione di app creata e la registrazione di app creata non verrà calcolata nella quota dei 250 oggetti creati dell'autore. Usare questa autorizzazione con cautela, perché non è possibile impedire all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se vengono assegnate entrambe le autorizzazioni, questa autorizzazione avrà la precedenza.
 
 ## <a name="create-a-custom-role-in-azure-ad-powershell"></a>Creare un ruolo personalizzato in Azure AD PowerShell
 

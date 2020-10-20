@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067825"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217780"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS con l'attività stored procedure in Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azur
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="azure-sql-database"></a>database SQL di Azure 
+### <a name="azure-sql-database"></a>Database SQL di Azure 
 La procedura dettagliata in questo articolo usa il database SQL di Azure per ospitare il catalogo SSIS. È anche possibile usare Istanza gestita SQL di Azure.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
@@ -95,7 +95,7 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
     7. Testare la connessione al database facendo clic sul pulsante **Test connessione**.
     8. Salvare il servizio collegato facendo clic sul pulsante **Salva**. 
 
-        ![Servizio collegato per il database SQL di Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Screenshot che illustra il processo di aggiunta di un nuovo servizio collegato.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Nella finestra Proprietà passare alla scheda **stored procedure** dalla scheda **account SQL** e seguire questa procedura: 
 
     1. Selezionare **Modifica**. 
