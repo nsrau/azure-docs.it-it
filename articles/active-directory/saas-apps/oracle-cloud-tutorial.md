@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543840"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996554"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Esercitazione: Integrare Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -101,7 +101,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione Oracle Cloud Infrastructure Console prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
-   ![image](common/edit-attribute.png)
+   ![Screenshot che mostra la finestra di dialogo "Attributi utente" con l'icona di modifica in alto a destra selezionata.](common/edit-attribute.png)
 
 1. Oltre a quelli elencati in precedenza, l'applicazione Oracle Cloud Infrastructure Console prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attributi e attestazioni utente** della finestra di dialogo **Attestazioni gruppo (Anteprima)** seguire questa procedura:
 
@@ -111,9 +111,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
  
    1. Fare clic su **Salva**.
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![Screenshot che mostra la "Attributi utente e attestazioni" con le icone di modifica per le opzioni "Valore identificatore nome" e "Gruppi restituiti nell'attestazione".](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![Screenshot che mostra la finestra di dialogo "Gestisci attestazioni utente" con "Persistente" e il pulsante "Salva" selezionati.](./media/oracle-cloud-tutorial/config11.png)
 
    1. Fare clic sulla **penna** accanto a **Gruppi restituiti nell'attestazione**.
 
@@ -173,15 +173,15 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 1. Fare clic sulla parte sinistra del menu e fare clic su **Identity** (Identità), quindi passare a **Federation** (Federazione).
 
-   ![Configurazione](./media/oracle-cloud-tutorial/config01.png)
+   ![Screenshot che mostra la finestra "Oracle Cloud Infrastructure Console" con le opzioni "Identity" e "Federation" selezionate nel menu in alto a sinistra.](./media/oracle-cloud-tutorial/config01.png)
 
 1. Salvare il **file di metadati del provider di servizi** facendo clic sul collegamento **Download this document** (Scarica questo documento) e caricarlo nella sezione **Configurazione SAML di base** del portale di Azure e quindi fare clic su **Add Identity Provider** (Aggiungi provider di identità).
 
-   ![Configurazione](./media/oracle-cloud-tutorial/config02.png)
+   ![Screenshot che mostra l'opzione "Federation" selezionata nel menu di sinistra e il pulsante "Add Identity Provider" e l'azione "Download this document" selezionati.](./media/oracle-cloud-tutorial/config02.png)
 
 1. Nella finestra popup **Add Identity Provider** (Aggiungi provider di identità) seguire questa procedura:
 
-   ![Configurazione](./media/oracle-cloud-tutorial/config03.png)
+   ![Screenshot che mostra il popup "Add Identity Provider".](./media/oracle-cloud-tutorial/config03.png)
 
    1. Nella casella di testo **NAME** (NOME) immettere il nome.
 
@@ -193,7 +193,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
    1. Fare clic su **Continue** (Continua) e nella sezione **Edit Identity Provider** (Modifica provider di identità) seguire questa procedura:
 
-      ![Configurazione](./media/oracle-cloud-tutorial/config09.png)
+      ![Screenshot che mostra la sezione "Edit Identity Provider" con le opzioni "Identity Provider Group", "OCI Group", "Add Mapping" e il pulsante "Submit" evidenziati.](./media/oracle-cloud-tutorial/config09.png)
 
    1. Il**gruppo di provider di identità** deve essere selezionato come gruppo personalizzato. L'ID del gruppo deve essere il GUID del gruppo di Azure Active Directory. Il gruppo deve essere mappato al gruppo corrispondente nel campo **OCI GROUP** (GRUPPO OCI).
 

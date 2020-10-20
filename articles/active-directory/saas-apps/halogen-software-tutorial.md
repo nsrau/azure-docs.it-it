@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549994"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944241"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Saba TalentSpace
 
@@ -131,15 +131,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Scegliere la scheda **Options (Opzioni)** .
   
-    ![Cos'è Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![Screenshot che mostra la home page di "saba TalentSpace" con la scheda "Options" selezionata.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. Nel riquadro di spostamento a sinistra fare clic su **SAML Configuration**.
   
-    ![Cos'è Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![Screenshot che mostra il riquadro di spostamento sinistro "User Interface" con l'opzione "SAML Configuration" selezionata.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. Nella pagina **Configurazione SAML** seguire la procedura seguente:
 
-    ![Cos'è Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![Screenshot che mostra la pagina "SAML Configuration" con le opzioni di "Settings" evidenziate.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. Come **Identificatore univoco**, selezionare **NameID**.
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente di nome Britta Simon in Saba Talen
 
 2. Fare clic sulla scheda **User Center** (Centro utenti) e quindi su **Create User** (Crea utente).
 
-    ![Cos'è Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![Screenshot che mostra la scheda "User Center" e l'opzione "Create User" selezionata.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. Nella pagina **Nuovo utente** eseguire la procedura seguente:
 

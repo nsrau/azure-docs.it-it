@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553975"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Esercitazione Integrazione di Azure Active Directory con PerformanceCentre
 
@@ -128,19 +128,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con PerformanceCentre, segu
 
 2. Nella barra di spostamento sul lato sinistro fare clic su **Configure**(Configura).
    
-    ![Single Sign-On di Microsoft Azure AD][10]
+    ![Screenshot che mostra il menu "PerformanceCenter" con l'opzione "Configure" selezionata.][10]
 
 3. Nella scheda sul lato sinistro fare clic su **Miscellaneous** (Varie) e quindi su **Single Sign On**.
    
-    ![Single Sign-On di Microsoft Azure AD][11]
+    ![Screenshot che mostra la scheda "Configure" con l'opzione "Single Sign-On" selezionata nel menu "Miscellaneous".][11]
 
 4. Per **Protocol** (Protocollo) selezionare **SAML**.
    
-    ![Single Sign-On di Microsoft Azure AD][12]
+    ![Screenshot che mostra la sezione "Single Sign-On Configuration" con l'opzione "SAML" selezionata nel menu "Protocol".][12]
 
 5. Aprire il file di metadati nel Blocco note, copiarne il contenuto negli Appunti, incollarlo nella casella di testo **Identity Provider Metadata** (Metadati provider di identità) e quindi fare clic su **Save** (Salva).
    
-    ![Single Sign-On di Microsoft Azure AD][13]
+    ![Screenshot che mostra la casella di testo "Identity Provider Metadata".][13]
 
 6. Verificare che i valori di **Entity Base URL** (URL base entità) e **Entity ID URL** (URL ID entità) siano corretti.
     
@@ -207,7 +207,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Performan
 
 2. Nel menu a sinistra fare clic su **Interrelate** (Collega) e quindi su **Create Participant** (Crea partecipante).
    
-    ![Crea utente][400]
+    ![Screenshot che mostra la pagina "Interrelate - Participants" del sito aziendale "PerformanceCenter" con il pulsante "Create Participant" selezionato.][400]
 
 3. Nella finestra di dialogo **Interrelate - Create Participant** (Collega - Crea partecipante) seguire questa procedura:
    

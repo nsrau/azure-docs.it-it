@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552724"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con iSAMS
 
@@ -132,16 +132,16 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Passare al pannello di controllo e aprire il modulo **Authentication** (Autenticazione).
 1. Nel menu a destra selezionare **Identity Providers** (Provider di identità)
 
-    ![Configurazione](./media/isams-tutorial/click-identity-provider.png)
+    ![Screenshot che mostra la sezione Active Directory Configuration con l'opzione Identity Providers selezionata.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Selezionare **Add Provider** (Aggiungi provider)
 
-    ![Configurazione](./media/isams-tutorial/add-identity-provider.png)
+    ![Screenshot che mostra la sezione Identity Providers con l'opzione Add Providers selezionata.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Nella pagina successiva seguire questa procedura:
 
-    ![Configurazione](./media/isams-tutorial/configure-isams.png)
+    ![Screenshot che mostra la sezione Identity Providers Wizard in cui è possibile eseguire la procedura descritta.](./media/isams-tutorial/configure-isams.png)
 
     a. Nella casella di testo **Name** (Nome) specificare un nome valido, ad esempio `Saml2 Azure`. Si tratta del nome che verrà visualizzato nella pagina di accesso.
 
@@ -159,12 +159,12 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2.  Passare a **Control Panel Home** -> **Security & Permissions** -> **User Accounts** -> **User Options & Tasks** -> **Modify User Properties** (Home page del pannello di controllo > Sicurezza e autorizzazioni > Account utente > Opzioni e attività utente > Modifica proprietà utente)
 
-    ![Utente test](./media/isams-tutorial/modify-user-properties.png)
+    ![Screenshot che mostra la pagina User Accounts con l'opzione Modify User Properties selezionata.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. Nella finestra popup visualizzata selezionare la scheda **Account Details** (Dettagli account) e modificare il valore di **Authorization** (Autorizzazione) in quello del provider di identità appena creato.
 
-    ![Utente test](./media/isams-tutorial/account-details.png)
+    ![Screenshot che mostra la scheda Account Details con un valore per Authorization.](./media/isams-tutorial/account-details.png)
 
 4. Fare clic su **Save & Close** (Salva e chiudi).
 

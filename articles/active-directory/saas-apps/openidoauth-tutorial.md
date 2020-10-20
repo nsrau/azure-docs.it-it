@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705623"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996617"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -99,19 +99,19 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
     a. Fare clic su **Registrazioni app** sul lato sinistro del menu e aprire l'applicazione digitandone il nome nella casella di ricerca.
 
-    ![API Graph](./media/openidoauth-tutorial/application.png)
+    ![Screenshot che mostra l'opzione "Registrazioni app" selezionata nel menu di sinistra e la casella di ricerca "ID applicazione" evidenziata.](./media/openidoauth-tutorial/application.png)
 
     b. Fare clic su **Visualizza le autorizzazioni dell'API**.
 
-    ![API Graph](./media/openidoauth-tutorial/api-permission.png)
+    ![Screenshot che mostra la pagina "Chiamata di API" con il pulsante "Visualizza le autorizzazioni dell'API" selezionato.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Fare clic su **Aggiungi un'autorizzazione**.
 
-    ![API Graph](./media/openidoauth-tutorial/add-permission.png)
+    ![Screenshot che mostra la sezione "Autorizzazioni API" con il pulsante "Aggiungi un'autorizzazione" selezionato.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Fare clic su **Microsoft Graph**.
 
-    ![API Graph](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Screenshot che mostra la pagina "Richiedi le autorizzazioni dell'API" con la scheda "Microsoft API" e il riquadro "Microsoft Graph" selezionati.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Selezionare le opzioni desiderate da **Autorizzazioni delegate** e **Autorizzazioni applicazione**.
 
