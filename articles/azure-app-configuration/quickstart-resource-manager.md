@@ -1,134 +1,105 @@
 ---
-title: Argomento di avvio rapido sulla distribuzione automatizzata di VM con Configurazione app di Azure
-description: Questo argomento di avvio rapido illustra come usare il modulo di Azure PowerShell e i modelli di Azure Resource Manager per distribuire un archivio di Configurazione app di Azure. I valori dell'archivio verranno quindi usati per distribuire una VM.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 08/11/2020
+title: Creare un archivio di Configurazione app di Azure con un modello di Azure Resource Manager
+titleSuffix: Azure App Configuration
+description: Informazioni su come creare un archivio di Configurazione app di Azure con un modello di Azure Resource Manager.
+author: ZhijunZhao
+ms.author: zhijzhao
+ms.date: 09/21/2020
+ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.service: azure-app-configuration
-ms.custom:
-- mvc
-- subject-armqs
-ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88661470"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824183"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Avvio rapido: Distribuzione automatizzata di macchine virtuali con Configurazione app e un modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Avvio rapido: Creare un archivio di Configurazione app di Azure con un modello di Resource Manager
 
-Informazioni su come usare i modelli di Azure Resource Manager e Azure PowerShell per distribuire un archivio di Configurazione app di Azure, come aggiungere le coppie chiave-valore nell'archivio e come usare le coppie chiave-valore nell'archivio per distribuire una risorsa di Azure come una macchina virtuale di Azure in questo esempio.
+Questa guida di avvio rapido descrive come:
+
+- Distribuire un archivio di Configurazione app con un modello di Resource Manager
+- Creare coppie chiave-valore in un archivio di Configurazione app con un modello di Resource Manager
+- Leggere le coppie chiave-valore in un archivio di Configurazione app da un modello di Resource Manager
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="review-the-templates"></a>Esaminare i modelli
+## <a name="review-the-template"></a>Rivedere il modello
 
-I modelli usati in questo argomento di avvio rapido provengono dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). Il [primo modello](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) crea un archivio di Configurazione app:
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Crea un nuovo archivio di Configurazione app con due coppie chiave-valore al suo interno. Usa quindi la funzione `reference` per restituire i valori delle due risorse chiave-valore. La lettura del valore della chiave in questo modo ne consente l'uso in altre parti del modello.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
+La guida di avvio rapido usa l'elemento `copy` per creare più istanze di una risorsa chiave-valore. Per altre informazioni sull'elemento `copy`, vedere [Iterazione delle risorse nei modelli di Azure Resource Manager](../azure-resource-manager/templates/copy-resources.md).
 
-Nel modello è definita una risorsa di Azure:
+> [!IMPORTANT]
+> Questo modello richiede la versione del provider di risorse di Configurazione app `2020-07-01-preview` o successiva. Questa versione usa la funzione `reference` per leggere le coppie chiave-valore. La funzione `listKeyValue` usata per la lettura di coppie chiave-valore nella versione precedente non è disponibile a partire dalla versione `2020-07-01-preview`.
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2019-10-01/configurationstores): crea un archivio di Configurazione app.
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
 
-Il [secondo modello](https://azure.microsoft.com/resources/templates/101-app-configuration/) crea una macchina virtuale usando le coppie chiave-valore dell'archivio. Prima di questo passaggio, è necessario aggiungere le coppie chiave-valore tramite il portale o l'interfaccia della riga di comando di Azure.
+Nel modello sono definite due risorse di Azure:
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration/azuredeploy.json" range="1-217" highlight="77, 181,189":::
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): crea un archivio di Configurazione app.
+- Microsoft.AppConfiguration/configurationStores/keyValues: crea una coppia chiave-valore all'interno dell'archivio di Configurazione app.
 
-## <a name="deploy-the-templates"></a>Distribuire i modelli
+> [!NOTE]
+> Il nome della risorsa `keyValues` è una combinazione di chiave ed etichetta. La chiave e l'etichetta sono unite dal delimitatore `$`. L'etichetta è facoltativa. Nell'esempio precedente la risorsa `keyValues` denominata `myKey` crea una coppia chiave-valore senza etichetta.
+>
+> La codifica percentuale, nota anche come codifica URL, consente di includere nelle chiavi o nelle etichette caratteri non consentiti nei nomi delle risorse del modello di Resource Manager. Neanche `%` è un carattere consentito, quindi al suo posto viene usato `~`. Per codificare correttamente un nome, seguire questa procedura:
+>
+> 1. Applicare la codifica URL
+> 2. Sostituire `~` con `~7E`.
+> 3. Sostituire `%` con `~`.
+>
+> Ad esempio, per creare una coppia chiave-valore con il nome della chiave `AppName:DbEndpoint` e il nome dell'etichetta `Test`, il nome della risorsa dovrà essere `AppName~3ADbEndpoint$Test`.
 
-### <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
+## <a name="deploy-the-template"></a>Distribuire il modello
 
-1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un archivio di Configurazione app.
+Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un archivio di Configurazione app con due coppie chiave-valore al suo interno.
 
-    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
-1. Selezionare o immettere i valori seguenti.
+È anche possibile distribuire il modello con il cmdlet di PowerShell seguente. Le coppie chiave-valore saranno incluse nell'output della console di PowerShell.
 
-    - **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare l'archivio di Configurazione app.
-    - **Gruppo di risorse**: selezionare **Crea nuovo** per creare un nuovo gruppo di risorse a meno che non si voglia usare un gruppo di risorse esistente.
-    - **Area**: selezionare una località per il gruppo di risorse.  Ad esempio **Stati Uniti orientali**.
-    - **Nome archivio di configurazione**: immettere un nuovo nome per l'archivio di Configurazione app.
-    - **Posizione**: specificare la posizione dell'archivio di Configurazione app.  Usare il valore predefinito.
-    - **Nome SKU**: specificare il nome dello SKU dell'archivio di Configurazione app. Usare il valore predefinito.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
 
-1. Selezionare **Rivedi e crea**.
-1. Verificare che nella pagina venga visualizzato **Convalida superata** e quindi selezionare **Crea**.
+$resourceGroupName = "${projectName}rg"
 
-Prendere nota del nome del gruppo di risorse e del nome dell'archivio di Configurazione app.  Questi valori saranno necessari per distribuire la macchina virtuale
-### <a name="add-vm-configuration-key-values"></a>Aggiungere le coppie chiave-valore di configurazione della VM
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 
-Dopo aver creato un archivio di Configurazione app, è possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per aggiungere le coppie chiave-valore all'archivio.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi passare all'archivio di Configurazione app appena creato.
-1. Selezionare **Esplora configurazioni** nel menu a sinistra.
-1. Selezionare **Crea** per aggiungere le coppie chiave-valore seguenti:
-
-   |Chiave|Valore|Etichetta|
-   |-|-|-|
-   |windowsOsVersion|2019-Datacenter|template|
-   |diskSizeGB|1023|template|
-
-   Lasciare vuoto il campo **Tipo di contenuto**.
-
-Per usare l'interfaccia della riga di comando di Azure, vedere [Usare coppie chiave-valore in un archivio di Configurazione app di Azure](./scripts/cli-work-with-keys.md).
-
-### <a name="deploy-vm-using-stored-key-values"></a>Distribuire una VM con le coppie chiave-valore archiviate
-
-Ora che sono state aggiunte le coppie chiave-valore nell'archivio, è possibile distribuire una VM usando un modello di Azure Resource Manager. Il modello fa riferimento alle chiavi **windowsOsVersion** e **diskSizeGB** create.
-
-> [!WARNING]
-> I modelli di Azure Resource Manager non possono fare riferimento alle chiavi in un archivio di Configurazione app con collegamento privato abilitato.
-
-1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea una macchina virtuale usando le coppie chiave-valore archiviate nell'archivio di Configurazione app.
-
-    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration%2Fazuredeploy.json)
-
-1. Selezionare o immettere i valori seguenti.
-
-    - **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare la macchina virtuale.
-    - **Gruppo di risorse**: specificare lo stesso gruppo di risorse dell'archivio di Configurazione app oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-    - **Area**: selezionare una località per il gruppo di risorse.  Ad esempio **Stati Uniti orientali**.
-    - **Posizione**: specificare la posizione della macchina virtuale. Usare il valore predefinito.
-    - **Nome utente amministratore**: specificare un nome utente amministratore per la macchina virtuale.
-    - **Password amministratore**: specificare la password di amministratore per la macchina virtuale.
-    - **Etichetta del nome di dominio**: specificare un nome di dominio univoco.
-    - **Nome dell'account di archiviazione**: specificare un nome univoco per un account di archiviazione associato alla macchina virtuale.
-    - **Gruppo di risorse dell'archivio di Configurazione app**: specificare il gruppo di risorse che contiene l'archivio di Configurazione app.
-    - **Nome dell'archivio di Configurazione app**: specificare il nome dell'archivio di Configurazione app di Azure.
-    - **Chiave SKU della macchina virtuale**: specificare **windowsOsVersion**.  Si tratta del nome del valore della chiave aggiunto all'archivio.
-    - **Chiave dimensioni disco**: specificare **diskSizeGB**. Si tratta del nome del valore della chiave aggiunto all'archivio.
-
-1. Selezionare **Rivedi e crea**.
-1. Verificare che nella pagina venga visualizzato **Convalida superata** e quindi selezionare **Crea**.
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi passare alla macchina virtuale appena creata.
-1. Selezionare **Panoramica** nel menu a sinistra e verificare che lo **SKU** sia **2019-Datacenter**.
-1. Selezionare **Dischi** nel menu a sinistra e verificare che il valore delle dimensioni del disco dati sia **2013**.
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Nella casella di ricerca del portale di Azure digitare **Configurazione app**. Selezionare **Configurazione app** nell'elenco.
+1. Selezionare la risorsa di Configurazione app appena creata.
+1. In **Operazioni** fare clic su **Esplora configurazioni**.
+1. Verificare che esistano due coppie chiave-valore.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, l'archivio di Configurazione app, la VM e tutte le risorse correlate. Se si prevede di usare l'archivio di Configurazione app o la VM in futuro, è possibile evitare di eliminarli. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questa guida introduttiva eseguendo il cmdlet seguente:
+Quando non sono più necessari, eliminare il gruppo di risorse, l'archivio di Configurazione app e tutte le risorse correlate. Se si prevede di usare l'archivio di Configurazione app in futuro, è possibile evitare di eliminarlo. Se non si intende continuare a usare l'archivio, eliminare tutte le risorse create con questa guida di avvio rapido eseguendo il cmdlet seguente:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup `
-  -Name $resourceGroup
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questo argomento di avvio rapido è stata distribuita una macchina virtuale usando un modello di Azure Resource Manager e le coppie chiave-valore di Configurazione app di Azure.
 
 Per informazioni sulla creazione di altre applicazioni con Configurazione app di Azure, continuare con l'articolo seguente:
 

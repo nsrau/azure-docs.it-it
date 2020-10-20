@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797701"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000214"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Jekyll in App Web statiche di Azure (anteprima)
 
@@ -118,7 +118,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. In _Ramo_ selezionare **master**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informazioni su GitHub inserite":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Dettagli inseriti":::
 
 ### <a name="build"></a>Compilare
 
@@ -146,12 +146,9 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Aprire l'app Jekyll in un editor di testo e aprire il file _.github/workflows/azure-pages-<NOME_FLUSSO_DI_LAVORO>.yml_.
 
-1. Aggiungere righe dopo il blocco `- uses: actions/checkout@v2` al blocco di configurazione seguente.
+1. Aggiungere il blocco di configurazione seguente dopo la riga `- uses: actions/checkout@v2`.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
@@ -174,7 +171,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Nella finestra _Panoramica_ del portale di Azure fare clic sul collegamento _URL_ per aprire l'applicazione distribuita.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Applicazione distribuita":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Dettagli inseriti":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

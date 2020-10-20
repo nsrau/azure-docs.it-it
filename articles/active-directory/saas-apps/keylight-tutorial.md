@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535840"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Esercitazione: Integrazione di Azure Active Directory con LockPath Keylight
 
@@ -133,15 +133,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con LockPath Keylight, segu
 
     b. Nel menu in alto fare clic su **Person** (Persona) e selezionare **Keylight Setup** (Configurazione Keylight).
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/401.png)
+    ![Screenshot che mostra l'icona "Person" selezionata e l'opzione "Keylight Setup" selezionata nell'elenco a discesa.](./media/keylight-tutorial/401.png)
 
     c. Nella visualizzazione albero a sinistra fare clic su **SAML**.
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/402.png)
+    ![Screenshot che mostra l'opzione "SAML" selezionata nella visualizzazione struttura ad albero.](./media/keylight-tutorial/402.png)
 
     d. Nella finestra di dialogo **SAML Settings** (Impostazioni SAML) fare clic su **Edit** (Modifica).
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/404.png)
+    ![Screenshot che mostra la finestra "SAML Settings" con il pulsante "Edit" selezionato.](./media/keylight-tutorial/404.png)
 
 1. Nella pagina della finestra di dialogo **Edit SAML Settings (Modifica impostazioni SAML)** seguire questa procedura:
 

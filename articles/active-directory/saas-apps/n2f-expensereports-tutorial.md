@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552561"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Esercitazione: Integrazione di Azure Active Directory con N2F - Expense reports
 
@@ -99,11 +99,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con N2F - Expense reports, 
 
 4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di N2F - Expense reports](common/preintegrated.png)
+    ![Screenshot che mostra la pagina di accesso basato su SAML con la configurazione SAML di base.](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di N2F - Expense reports](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra la pagina Integrations in cui è possibile aggiungere Azure A D Single Sign-On.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://www.n2f.com/app/`
 
@@ -127,23 +127,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con N2F - Expense reports, 
 
 2. Fare clic su **Settings** (Impostazioni) e quindi selezionare **Advance Settings** (Impostazioni avanzate) dall'elenco a discesa.
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Advanced Settings selezionata.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Selezionare la scheda **Account settings** (Impostazioni account).
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/configure2.png)
+    ![Screenshot che mostra l'opzione Account settings selezionata.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. Selezionare **Authentication** (Autenticazione) e quindi la scheda **Add an authentication method** (Aggiungi un metodo di autenticazione).
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione Authentication della scheda Account Setting in cui è possibile aggiungere un metodo di autenticazione.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. Selezionare **SAML Microsoft Office 365** come metodo di autenticazione.
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/configure4.png)
+    ![Screenshot che mostra la sezione Authentication method con l'opzione SAML Microsoft Office 365 selezionata.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. Nella sezione **Authentication method** (Metodo di autenticazione) seguire questa procedura:
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/configure5.png)
+    ![Screenshot che mostra la sezione Authentication Method in cui è possibile immettere i valori descritti.](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. Nella casella di testo **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
@@ -212,19 +212,19 @@ Per consentire agli utenti di Azure AD di accedere a N2F - Expense reports, è n
 
 2. Fare clic su **Settings** (Impostazioni) e quindi selezionare **Advance Settings** (Impostazioni avanzate) dall'elenco a discesa.
 
-    ![Aggiungere un utente in N2F - Expense reports](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Advanced Settings selezionata.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Selezionare la scheda **Users** (Utenti) dal riquadro di spostamento a sinistra.
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/user1.png)
+    ![Screenshot che mostra la scheda Users selezionata.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. Selezionare la scheda **New user** (Nuovo utente).
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/user2.png)
+    ![Screenshot che mostra l'opzione New User.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. Nella sezione **User** (Utente) seguire questa procedura:
 
-    ![Configurazione di N2F - Expense reports](./media/n2f-expensereports-tutorial/user3.png)
+    ![Screenshot che mostra la sezione in cui è possibile immettere i valori descritti.](./media/n2f-expensereports-tutorial/user3.png)
 
     a. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 

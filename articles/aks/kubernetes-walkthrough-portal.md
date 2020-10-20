@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare rapidamente un cluster Kubernetes, distribuire un'applicazione e monitorare le prestazioni nel servizio Azure Kubernetes usando il portale di Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 10/06/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 2331f2a9dc4ca0e94b251a03e7917547f360af4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459796"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850441"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
@@ -37,15 +37,15 @@ Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 
 3. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
     - **Dettagli del progetto**: Selezionare una **sottoscrizione** di Azure, quindi selezionare o creare un **gruppo di risorse** di Azure, ad esempio *myResourceGroup*.
-    - **Dettagli del cluster**: Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
-    - **Pool di nodi primario**: Selezionare le **dimensioni del nodo** della macchina virtuale per i nodi del servizio Azure Kubernetes. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
+    - **Dettagli del cluster**: Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area** e una **versione di Kubernetes** per il cluster del servizio Azure Kubernetes.
+    - **Pool di nodi primario**: Selezionare le **dimensioni del nodo** della macchina virtuale per i nodi del servizio Azure Kubernetes. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes.
             - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi *può* essere modificato dopo che il cluster è stato distribuito.
     
     ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selezionare **Avanti: Scala** al termine.
+    Selezionare **Avanti: Pool di nodi** al termine.
 
-4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
+4. Nella pagina **Pool di nodi** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
     > [!CAUTION]
     > Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. In questo caso, visitare [questa pagina](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) per avere informazioni su come mitigare tali problemi.
 

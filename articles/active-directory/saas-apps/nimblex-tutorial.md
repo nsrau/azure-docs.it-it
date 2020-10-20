@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554377"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Esercitazione: Integrazione di Azure Active Directory con Nimblex
 
@@ -132,19 +132,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa
 
 2. Fare clic sul logo delle **impostazioni** in alto a destra.
 
-    ![Impostazioni Nimblex](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![Screenshot che mostra l'icona Settings.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. Dalla pagina del **Pannello di controllo**, nella sezione **Sicurezza**, fare clic su **Single Sign-on**.
 
-    ![Impostazioni Nimblex](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![Screenshot che mostra l'opzione Single Sign-on selezionata dal menu Security.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. Nella pagina **Gestisci Single Sign-On**, selezionare il nome dell'istanza e fare clic su **Modifica**.
 
-    ![Saml Nimblex](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![Screenshot che mostra la pagina Manage Single Sign-On in cui è possibile selezionare l'opzione Edit.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. Nella pagina della finestra di dialogo **Modifica provider SSO** seguire questa procedura:
 
-    ![Saml Nimblex](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![Screenshot che mostra la sezione Edit SSO Provider in cui è possibile immettere i valori descritti.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. Nella casella di testo **Descrizione**, digitare il nome dell'istanza.
 

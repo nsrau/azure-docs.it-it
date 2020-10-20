@@ -31,6 +31,8 @@
       href: tutorial-private-endpoint-storage-portal.md
     - name: Connettersi a un account Azure Cosmos DB
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Connettersi a un'app Web
+      href: tutorial-private-endpoint-webapp-portal.md
 - name: Concetti
   items:
     - name: Endpoint privato

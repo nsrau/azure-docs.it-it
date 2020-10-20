@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554274"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Esercitazione: Integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
 5.  Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di ON24 Virtual Environment SAML Connection](common/both-signonurl.png)
+    ![Screenshot che mostra la sezione "Impostare URL aggiuntivi" con la casella di testo "URL di accesso" evidenziata.](common/both-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 

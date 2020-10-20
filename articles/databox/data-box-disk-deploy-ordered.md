@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266526"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950942"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -72,7 +72,7 @@ Per ordinare Data Box Disk, seguire questa procedura.
   
 4. Selezionare **Data Box Disk**. La capacità massima della soluzione per un singolo ordine di 5 dischi è di 35 TB. È possibile creare più ordini per volumi di dati maggiori.
 
-     ![Selezionare l'opzione Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Selezionare l'opzione Data Box Disk 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti.
 

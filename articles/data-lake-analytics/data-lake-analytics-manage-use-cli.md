@@ -1,17 +1,15 @@
 ---
 title: Gestire Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per gestire processi, origini dati e utenti di Data Lake Analytics.
-services: data-lake-analytics
-ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b471d85a52fe38b72ad55847d022fb56b3c4f0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320847"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220925"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -19,18 +17,17 @@ ms.locfileid: "91320847"
 
 Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario avere a disposizione le risorse seguenti:
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Interfaccia della riga di comando di Azure. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Interfaccia della riga di comando di Azure. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-  * Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
+  - Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
 
-* Eseguire l'autenticazione usando il comando `az login` e selezionare la sottoscrizione che si vuole usare. Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+- Eseguire l'autenticazione usando il comando `az login` e selezionare la sottoscrizione che si vuole usare. Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
    ```azurecli
    az login
@@ -46,11 +43,11 @@ Prima di iniziare questa esercitazione, è necessario avere a disposizione le ri
 
 ## <a name="manage-accounts"></a>Gestisci account
 
-Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo.  Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).  
+Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo.  Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ### <a name="create-accounts"></a>Creare account
 
-Eseguire il comando seguente per creare un account di Data Lake: 
+Eseguire il comando seguente per creare un account di Data Lake:
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
@@ -88,10 +85,10 @@ Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse 
 
 Data Lake Analytics supporta attualmente le due origini dati seguenti:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di Azure](../storage/common/storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
-Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
+Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure.
 
 ### <a name="find-the-default-data-lake-store-account"></a>Trovare l'account di Data Lake Store predefinito
 
@@ -127,7 +124,7 @@ Per aggiornare una chiave di account di archiviazione BLOB esistente:
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>Elencare le origini dati:
+### <a name="list-data-sources"></a>Elencare le origini dati
 
 Per elencare gli account di Data Lake Store:
 
@@ -143,7 +140,7 @@ Per elencare l'account di archiviazione BLOB:
 
 ![Screenshot che mostra Azure C I con le informazioni "dataLakeStoreAccounts:" evidenziate.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### <a name="delete-data-sources"></a>Eliminare origini dati:
+### <a name="delete-data-sources"></a>Elimina origini dati
 
 Per eliminare un account Archivio Data Lake:
 
@@ -185,6 +182,7 @@ Per eliminare un account di archiviazione BLOB:
 >    ```
 
 ### <a name="cancel-jobs"></a>Annullare i processi
+
 Usare il comando list per trovare l'ID processo, quindi usare Annulla per annullare il processo.
 
    ```azurecli
@@ -212,7 +210,8 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Introduzione all'uso di Data Lake Analytics con portale di Azure](data-lake-analytics-get-started-portal.md)
-* [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorare e risolvere i problemi Azure Data Lake Analytics processi utilizzando portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+- [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Introduzione all'uso di Data Lake Analytics con portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)
+- [Monitorare e risolvere i problemi Azure Data Lake Analytics processi utilizzando portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

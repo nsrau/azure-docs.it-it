@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d01808eac854e0a694608fc963bd97b035d29ac8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 03d960f95aed4c6843e29dbebd37feec64b6eae2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146189"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221146"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Baseline della sicurezza di Azure per Data Lake Analytics
 
 La linea di base di sicurezza di Azure per Data Lake Analytics contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
 **Linee guida**: usare le impostazioni del firewall per data Lake Analytics per limitare gli intervalli IP esterni per consentire l'accesso dai client locali e dai servizi di terze parti. La configurazione delle impostazioni del firewall è disponibile tramite il portale, le API REST o PowerShell.
 
-* [Regole del firewall](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Regole del firewall](/rest/api/datalakeanalytics/firewallrules)
 
-* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -58,9 +58,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Linee guida**: usare le impostazioni del firewall per data Lake Analytics per limitare gli intervalli IP esterni per consentire l'accesso dai client locali e dai servizi di terze parti. La configurazione delle impostazioni del firewall è disponibile tramite il portale, le API REST o PowerShell.
 
-* [Regole del firewall](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Regole del firewall](/rest/api/datalakeanalytics/firewallrules)
 
-* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -124,7 +124,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
@@ -140,13 +140,13 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti.
 
-* [Accesso ai log di diagnostica per Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)
+* [Accesso ai log di diagnostica per Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+* [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/learn/quick-collect-azurevm.md)
 
 * [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -158,9 +158,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare le impostazioni di diagnostica per data Lake Analytics per accedere ai log di controllo e richieste. Sono inclusi dati come origine evento, data, utente, timestamp e altri elementi utili.
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Informazioni sulla registrazione e sui diversi tipi di log in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+* [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -178,9 +178,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
 
-* [Modificare il periodo di conservazione dei dati in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+* [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -190,11 +190,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati delle risorse data Lake Analytics. Usare l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati di log. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Per ulteriori informazioni sull'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Per ulteriori informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -204,11 +204,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare le impostazioni di diagnostica per data Lake Analytics e inviare i log a un'area di lavoro di log Analytics. Eseguire l'onboarding dell'area di lavoro Log Analytics in Azure Sentinel perché fornisce una soluzione SOAR (Security Orchestration Automated Response). In questo modo è possibile creare playbook (soluzioni automatizzate) e usarli per risolvere i problemi di sicurezza.
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
 
-* [Accesso ai log di diagnostica per Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)
+* [Accesso ai log di diagnostica per Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -240,15 +240,15 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
 **Linee guida**: Azure ad dispone di ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-* [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -258,7 +258,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: data Lake Analytics non ha il concetto di password predefinite perché l'autenticazione viene fornita con Azure Active Directory e protetta dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
-* [Panoramica di Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
+* [Panoramica di Azure Data Lake Analytics](./data-lake-analytics-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -270,7 +270,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 È anche possibile abilitare l'accesso just-in-Time usando Azure AD Privileged Identity Management e Azure Resource Manager.
 
-* [Altre informazioni su Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -280,7 +280,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: laddove possibile, usare Azure Active Directory SSO anziché configurare singole credenziali autonome per servizio. Usare le raccomandazioni per l'identità e l'accesso del Centro sicurezza di Azure.
 
-* [Informazioni su SSO con Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -290,9 +290,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare l'autenticazione a più fattori Azure Active Directory e seguire le indicazioni per la gestione delle identità e degli accessi del Centro sicurezza di Azure per proteggere le risorse data Lake Analytics.
 
-* [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -302,9 +302,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o Paw) per le attività amministrative che richiedono privilegi elevati.
 
-* [Informazioni sulle workstation sicure gestite da Azure](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+* [Informazioni sulle workstation sicure gestite da Azure](../active-directory/devices/concept-azure-managed-workstation.md)
 
-* [Come abilitare l'autenticazione a più fattori Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare l'autenticazione a più fattori Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -314,9 +314,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare Azure Active Directory report di sicurezza per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-* [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -326,7 +326,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: usare Azure ad località denominate per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o di paesi/aree geografiche.
 
-* [Come configurare Azure AD località denominate](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Come configurare Azure AD località denominate](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -336,7 +336,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) offre un controllo granulare sull'accesso di un client alle risorse Data Lake Analytics.
 
-* [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -346,9 +346,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: Azure AD mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
 
-* [Informazioni sulla creazione di report Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Come usare Azure AD le verifiche di identità e accesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -358,7 +358,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare le impostazioni di diagnostica per Data Lake Analytics e Azure Active Directory, inviando tutti i log a un'area di lavoro log Analytics. Configurare gli avvisi desiderati, ad esempio i tentativi di accesso ai segreti disabilitati, all'interno Log Analytics.
 
-* [Integrare log di Azure AD con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Integrare log di Azure AD con i log di monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -368,11 +368,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare le funzionalità di protezione delle identità e dei rischi di Azure Active Directory per configurare risposte automatiche per le azioni sospette rilevate correlate alle risorse data Lake Analytics. È necessario abilitare le risposte automatiche tramite Sentinel di Azure per implementare le risposte di sicurezza dell'organizzazione.
 
-* [Come visualizzare gli accessi a rischio per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -382,7 +382,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: non applicabile; Customer Lockbox non supportato per Azure Data Lake Analytics.
 
-* [Servizi e scenari supportati in disponibilità generale](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Servizi e scenari supportati in disponibilità generale](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -390,13 +390,13 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
 **Linee guida**: usare i tag per facilitare il rilevamento delle risorse data Lake Analytics che archiviano o elaborano informazioni riservate.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -406,17 +406,17 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: implementare l'isolamento utilizzando sottoscrizioni separate, gruppi di gestione per singoli domini di sicurezza, ad esempio ambiente, riservatezza dei dati. È possibile limitare la Data Lake Analytics per controllare il livello di accesso alle risorse di Data Lake Analytics richieste dalle applicazioni e dagli ambienti aziendali. Quando vengono configurate le regole del firewall, solo le applicazioni che richiedono dati tramite il set di reti specificato possono accedere alle risorse Data Lake Analytics. È possibile controllare l'accesso alle Azure Data Lake Analytics tramite il controllo degli accessi in base al ruolo
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Gestire il controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+* [Gestire il controllo degli accessi in base al ruolo di Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
-* [Regole del firewall](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Regole del firewall](/rest/api/datalakeanalytics/firewallrules)
 
-* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -428,9 +428,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-* [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-* [Come proteggere gli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide)
+* [Come proteggere gli account di archiviazione di Azure](../storage/blobs/security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -440,7 +440,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: Microsoft Azure risorse negozieranno TLS 1,2 per impostazione predefinita. Assicurarsi che tutti i client che si connettono al Data Lake Analytics possano negoziare usando TLS 1,2 o versione successiva.
 
-* [Elenco operazioni di esempio](https://docs.microsoft.com/rest/api/datalakeanalytics/operations/list)
+* [Elenco operazioni di esempio](/rest/api/datalakeanalytics/operations/list)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -450,7 +450,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Indicazioni**: le funzionalità di identificazione dei dati non sono ancora disponibili per le risorse Azure Data Lake Analytics. Implementare una soluzione di terze parti, se necessaria ai fini della conformità.
 
-* [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -460,7 +460,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare la modalità di interazione degli utenti con il servizio.
 
-* [Gestisci RBAC di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+* [Gestisci RBAC di Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -478,7 +478,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: i dati vengono archiviati nell'account predefinito Data Lake storage Gen1. Per i dati inattivi, Data Lake Storage Gen1 supporta la crittografia trasparente "attivata per impostazione predefinita".
 
-* [Crittografia dei dati in Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
+* [Crittografia dei dati in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -488,7 +488,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di Azure Data Lake Analytics risorse.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -496,7 +496,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
@@ -504,7 +504,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Microsoft esegue la gestione delle vulnerabilità sui sistemi sottostanti che supportano Azure Data Lake Analytics.
 
-* [Informazioni sulle raccomandazioni del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [Informazioni sulle raccomandazioni del Centro sicurezza di Azure](../security-center/recommendations-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -546,7 +546,7 @@ Microsoft esegue la gestione delle vulnerabilità sui sistemi sottostanti che su
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -554,11 +554,11 @@ Microsoft esegue la gestione delle vulnerabilità sui sistemi sottostanti che su
 
 Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora risorse di Azure, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
 
-* [Come creare query con Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
-* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -568,7 +568,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -582,11 +582,11 @@ Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse ch
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -608,9 +608,9 @@ Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse ch
 
 Usare anche Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -646,9 +646,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -666,7 +666,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure.
 
-* [Come configurare l'accesso condizionale per bloccare l'accesso a ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Come configurare l'accesso condizionale per bloccare l'accesso a ARM](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -690,16 +690,16 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
 **Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. analisi data Lake" per creare criteri personalizzati per controllare o applicare la configurazione del Azure Data Lake Analytics. È anche possibile usare le definizioni di criteri predefinite correlate alla Azure Data Lake Analytics, ad esempio:
 - È consigliabile abilitare i log di diagnostica Data Lake Analytics
 
-* [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -717,9 +717,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Linee guida**: usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare impostazioni sicure nelle risorse di Azure.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -737,9 +737,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Linee guida**: usare Azure Repos per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, modelli di Azure Resource Manager, script di configurazione dello stato desiderato e così via. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS.
 
-* [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -773,7 +773,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. analisi data Lake" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Usare i criteri di Azure [audit], [deny] e [Deploy if not exist] per applicare automaticamente le configurazioni per le risorse Azure Data Lake Analytics.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -815,7 +815,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usare il software antimalware gestito centralmente
 
@@ -845,17 +845,17 @@ Pre-analisi di tutti i contenuti caricati nelle risorse di Azure, ad esempio ser
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire il backup automatico regolare
 
 **Linee guida**: data Lake Analytics i registri dei processi e l'output dei dati vengono archiviati nel servizio Data Lake storage Gen1 sottostante. È possibile usare diversi metodi per copiare dati, tra cui ADLCopy, Azure PowerShell o Azure Data Factory. È anche possibile usare automazione di Azure per eseguire il backup automatico dei dati a intervalli regolari.
 
-* [Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+* [Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Copiare i dati da BLOB di archiviazione di Azure a Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
+* [Copiare i dati da BLOB di archiviazione di Azure a Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
-* [Panoramica di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Panoramica di Automazione di Azure](../automation/automation-intro.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -865,9 +865,9 @@ Pre-analisi di tutti i contenuti caricati nelle risorse di Azure, ad esempio ser
 
 **Linee guida**: data Lake Analytics i registri dei processi e l'output dei dati vengono archiviati nel servizio Data Lake storage Gen1 sottostante. È possibile usare diversi metodi per copiare dati, tra cui ADLCopy, Azure PowerShell o Azure Data Factory.
 
-* [Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+* [Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Copiare i dati da BLOB di archiviazione di Azure a Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
+* [Copiare i dati da BLOB di archiviazione di Azure a Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -885,9 +885,9 @@ Pre-analisi di tutti i contenuti caricati nelle risorse di Azure, ad esempio ser
 
 **Linee guida**: i backup data Lake Analytics archiviati nell'data Lake storage Gen1 o nell'archiviazione di Azure supportano la crittografia per impostazione predefinita e non possono essere disattivati. È consigliabile gestire i backup come dati sensibili e applicare i controlli di accesso e protezione dei dati rilevanti come parte di questa linea di base.
 
-* [Protezione dei dati archiviati in Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data)
+* [Protezione dei dati archiviati in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md)
 
-* [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
+* [Autorizzazione dell'accesso ai dati in archiviazione di Azure](../storage/common/storage-auth.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -895,7 +895,7 @@ Pre-analisi di tutti i contenuti caricati nelle risorse di Azure, ad esempio ser
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -917,9 +917,9 @@ Pre-analisi di tutti i contenuti caricati nelle risorse di Azure, ad esempio ser
 
 Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione, tramite i tag e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
-* [Avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-* [Usare tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -939,7 +939,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
-* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -949,9 +949,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per contribuire a individuare i rischi per le risorse di Azure. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
 
-* [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
-* [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -961,7 +961,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Linee guida**: usare la funzionalità di automazione del flusso di lavoro nel centro sicurezza di Azure per attivare automaticamente le risposte tramite "app per la logica" negli avvisi di sicurezza e nei consigli per proteggere le risorse di Azure.
 
-* [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -969,7 +969,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -985,5 +985,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

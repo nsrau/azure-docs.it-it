@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554465"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con New Relic by Account
 
@@ -134,7 +134,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nel menu in alto fare clic su **Impostazioni account**.
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797036.png "Impostazioni account")
+    ![Screenshot che mostra la pagina Welcome con l'opzione Account settings selezionata.](./media/new-relic-tutorial/ic797036.png "Impostazioni account")
 
 3. Fare clic sulla scheda **Security and authentication** (Sicurezza e autenticazione), quindi fare clic sulla scheda **Single sign on**.
    
@@ -158,11 +158,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nel menu in alto fare clic su **Impostazioni account**.
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797040.png "Impostazioni account")
+    ![Screenshot che mostra l'opzione Account settings selezionata nella pagina Welcome.](./media/new-relic-tutorial/ic797040.png "Impostazioni account")
 
 3. Nel riquadro **Account** a sinistra fare clic su **Summary** (Riepilogo), quindi su **Add user** (Aggiungi utente).
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797041.png "Impostazioni account")
+    ![Screenshot che mostra il riquadro Summary in cui è possibile selezionare Add user.](./media/new-relic-tutorial/ic797041.png "Impostazioni account")
 
 4. Nella finestra di dialogo **Active users** (Utenti attivi) seguire questa procedura:
    

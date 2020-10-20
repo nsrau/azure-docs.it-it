@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 36d843e80f024408747c1f94512a3ccc04c6709b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6acb5f30268f0e771d80489dff52f03eb58234a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546909"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Esercitazione: Integrazione di Azure Active Directory con Kantega SSO for Bitbucket
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Kantega SSO for Bitbucket](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Kantega SSO for Bitbucket](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 1. Fare clic sull'ingranaggio e scegliere **Find new add-ons** (Trova nuovi componenti aggiuntivi).
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon1.png)
+    ![Screenshot che mostra la pagina Administration di BitBucket con il collegamento Find new add-ons selezionato.](./media/kantegassoforbitbucket-tutorial/addon1.png)
 
 1. Cercare **Kantega SSO for Bitbucket SAML & Kerberos** e fare clic su **Install** (Installa) per installare il nuovo plug-in di SAML.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon2.png)
+    ![Screenshot che mostra Kantega SSO for Bitbucket SAML & Kerberos con l'opzione per l'installazione.](./media/kantegassoforbitbucket-tutorial/addon2.png)
 
 1. Viene avviata l'installazione del plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon31.png)
+    ![Screenshot che mostra lo stato dell'installazione.](./media/kantegassoforbitbucket-tutorial/addon31.png)
 
 1. Al termine dell'installazione, Fare clic su **Close**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon33.png)
+    ![Screenshot che mostra il pulsante Close.](./media/kantegassoforbitbucket-tutorial/addon33.png)
 
 1. Fare clic su **Manage**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon34.png)
+    ![Screenshot che mostra il pulsante Manage.](./media/kantegassoforbitbucket-tutorial/addon34.png)
 
 1. Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon35.png)
+    ![Screenshot che mostra la sezione User-installed add-ons con l'opzione Configure selezionata.](./media/kantegassoforbitbucket-tutorial/addon35.png)
 
 1. Nella sezione **SAML** Selezionare **Azure Active Directory (Azure AD)** dall'elenco a discesa **Add identity provider** (Aggiungi provider di identità).
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon4.png)
+    ![Screenshot che mostra la sezione Kantega Single Sign-On con Azure A D selezionato come provider di identità.](./media/kantegassoforbitbucket-tutorial/addon4.png)
 
 1. Selezionare il livello di sottoscrizione **Basic** (Di base).
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon5.png)
+    ![Screenshot che mostra la sezione Preparing Azure A D con l'opzione Basic selezionata.](./media/kantegassoforbitbucket-tutorial/addon5.png)
 
 1. Nella sezione **App properties** (Proprietà app) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon6.png)
+    ![Screenshot che mostra la sezione App properties in cui è possibile fornire le informazioni in questo passaggio.](./media/kantegassoforbitbucket-tutorial/addon6.png)
 
     a. Copiare il valore di **App ID URI** (URI ID App) e usarlo come valore di **Identificatore, URL di risposta e URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 1. Nella sezione **Metadata import** (Importazione metadati) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon7.png)
+    ![Screenshot che mostra la sezione Metadata import in cui è possibile passare a un file di metadati.](./media/kantegassoforbitbucket-tutorial/addon7.png)
 
     a. Selezionare **Metadata file on my computer** (File metadati in questo computer) e caricare il file di metadati scaricato dal portale di Azure.
 
@@ -182,7 +182,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 1. Nella sezione **Name and SSO location** (Nome e percorso SSO) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon8.png)
+    ![Screenshot che mostra la sezione Name and S S O location in cui Azure A D è il nome del provider di identità.](./media/kantegassoforbitbucket-tutorial/addon8.png)
 
     a. Aggiungere il nome del provider di identità nella casella di testo **Identity provider name** (Nome provider di identità), ad esempio Azure AD.
 
@@ -190,11 +190,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 1. Verificare il certificato di firma e fare clic su **Next** (Avanti).
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon9.png)
+    ![Screenshot che mostra la sezione Signature verification.](./media/kantegassoforbitbucket-tutorial/addon9.png)
 
 1. Nella sezione **Bitbucket user accounts** (Account utente Bitbucket) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon10.png)
+    ![Screenshot che mostra la sezione BitBucket user accounts in cui è possibile scegliere di creare utenti.](./media/kantegassoforbitbucket-tutorial/addon10.png)
 
     a. Selezionare **Create users in Bitbucket's internal Directory if needed** (Crea utenti nella directory interna di Bitbucket se necessario) e immettere il nome appropriato del gruppo per gli utenti (è possibile specificare più gruppi separati da virgola).
 
@@ -202,11 +202,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
 1. Fare clic su **Fine**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon11.png)
+    ![Screenshot che mostra la pagina di riepilogo.](./media/kantegassoforbitbucket-tutorial/addon11.png)
 
 1. Nella sezione **Known domains for Azure AD** (Domini noti per Azure AD) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbitbucket-tutorial/addon12.png)
+    ![Screenshot che mostra la sezione Known domains for Azure A D in cui è possibile eseguire questi passaggi.](./media/kantegassoforbitbucket-tutorial/addon12.png)
 
     a. Selezionare **Known domains** (Domini noti) dal pannello sinistro della pagina.
 
@@ -275,19 +275,19 @@ Per consentire agli utenti di Azure AD di accedere a Bitbucket, è necessario ef
 
 1. Fare clic sull'icona delle impostazioni.
 
-    ![Aggiungere un dipendente](./media/kantegassoforbitbucket-tutorial/user1.png) 
+    ![Screenshot che mostra l'icona Settings.](./media/kantegassoforbitbucket-tutorial/user1.png) 
 
 1. Nella sezione della scheda **Administration** (Amministrazione) fare clic su **Users** (Utenti).
 
-    ![Aggiungere un dipendente](./media/kantegassoforbitbucket-tutorial/user2.png)
+    ![Screenshot che mostra la pagina Administration di BitBucket con il collegamento Users selezionato. ](./media/kantegassoforbitbucket-tutorial/user2.png)
 
 1. Fare clic su **Create User** (Crea utente).
 
-    ![Aggiungere un dipendente](./media/kantegassoforbitbucket-tutorial/user3.png)   
+    ![Screenshot che mostra la pagina Administration di BitBucket con il collegamento Create user selezionato.](./media/kantegassoforbitbucket-tutorial/user3.png)   
 
 1. Nella pagina della finestra di dialogo **Create User** (Crea utente) seguire questa procedura:
 
-    ![Aggiungere un dipendente](./media/kantegassoforbitbucket-tutorial/user4.png) 
+    ![Screenshot che mostra la finestra di dialogo Create user in cui eseguire questi passaggi.](./media/kantegassoforbitbucket-tutorial/user4.png) 
 
     a. Nella casella di testo **Username** (Nome utente) digitare l'indirizzo di posta elettronica di un utente, ad esempio Brittasimon@contoso.com.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552476"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
 
@@ -128,19 +128,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Namely, seguire questa 
 
 2. Fare clic su **Company**(Società) nella barra degli strumenti in alto.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Screenshot che mostra il valore Company selezionato.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Fare clic sulla scheda **Impostazioni**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Screenshot che mostra la scheda Company Settings selezionata.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Fare clic su **SAML**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Screenshot che mostra la scheda SAML selezionata.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Nella pagina delle **impostazioni SAML** seguire questa procedura:
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Screenshot che mostra la sezione SAML Settings in cui è possibile immettere i valori descritti.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Fare clic su **Enable SAML**. 
 
@@ -211,15 +211,15 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Namely.
 
 2. Fare clic su **People**(Persone) nella barra degli strumenti in alto.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Screenshot che mostra il valore People selezionato.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Fare clic sulla scheda **Directory** .
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Screenshot che mostra la scheda People Directory selezionata.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Fare clic su **Add New Person**.
 
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Screenshot che mostra l'opzione Add New Person.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. Nella finestra di dialogo **Add New Person** seguire questa procedura:
 

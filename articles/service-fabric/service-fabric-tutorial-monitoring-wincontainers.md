@@ -3,18 +3,17 @@ title: Monitorare e diagnosticare i contenitori Windows
 description: In questa esercitazione si apprenderà come configurare i log di Monitoraggio di Azure per il monitoraggio e la diagnostica dei contenitori di Windows in Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244804"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840677"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
-Questa è la terza parte di un'esercitazione in cui si spiega come configurare i log di Monitoraggio di Azure per monitorare i contenitori di Windows orchestrati in Service Fabric.
+Questa è la terza parte di un'esercitazione che illustra come configurare i log di Monitoraggio di Azure per monitorare i contenitori Windows orchestrati in Service Fabric.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -186,19 +185,17 @@ Per configurare la soluzione Contenitori nell'area di lavoro, cercare *Soluzione
 
 ![Aggiunta della soluzione Contenitori](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Quando viene chiesto di immettere l'*area di lavoro di Log Analytics* selezionare l'area di lavoro creata nel gruppo di risorse e fare clic su **Crea**. Questa operazione aggiunge una *Soluzione Monitoraggio contenitori* all'area di lavoro e fa sì che l'agente Log Analytics distribuito dal modello inizi a raccogliere statistiche e log di Docker. 
+Quando viene richiesta l'*area di lavoro Log Analytics*, selezionare l'area di lavoro creata nel gruppo di risorse, quindi selezionare **Crea**. Nell'area di lavoro viene aggiunta una *Soluzione Monitoraggio contenitori*, quindi l'agente di Log Analytics distribuito dal modello inizia a raccogliere statistiche e log di Docker.
 
-Tornare al *gruppo di risorse*, in cui è ora visibile la soluzione di monitoraggio appena aggiunta. Se si fa clic sulla soluzione, viene visualizzata la pagina di destinazione in cui viene mostrata la serie di immagini di contenitori in esecuzione.
+Tornare al *gruppo di risorse*, in cui è ora visibile la soluzione di monitoraggio appena aggiunta. Se si seleziona la soluzione, viene visualizzata la pagina di destinazione in cui viene mostrato il numero di immagini di contenitori in esecuzione.
 
-*Si noti che sono state eseguite 5 istanze del contenitore fabrikam derivanti dalla [seconda parte](service-fabric-host-app-in-a-container.md) dell'esercitazione*.
+*Si noti che sono state eseguite 5 istanze del contenitore fabrikam derivanti dalla [seconda parte](service-fabric-host-app-in-a-container.md) dell'esercitazione*
 
 ![Pagina di destinazione della soluzione Contenitori](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Se si fa clic nella **Soluzione Monitoraggio contenitori**, viene visualizzato un dashboard più dettagliato che consente di esaminare più pannelli, nonché di eseguire query sui log di Monitoraggio di Azure.
+Se si seleziona **Soluzione Monitoraggio contenitori**, viene visualizzato un dashboard più dettagliato che consente di scorrere tra più pannelli, nonché di eseguire query sui log di Monitoraggio di Azure.
 
-*Si noti che da settembre 2017 la soluzione è oggetto di alcuni aggiornamenti. Eventuali errori che si possono ottenere da eventi Kubernetes devono essere ignorati, in quanto si sta lavorando all'integrazione di più agenti di orchestrazione nella stessa soluzione.*
-
-Poiché raccoglie i log Docker, per impostazione predefinita l'agente mostra *stdout* e *stderr*. Se si scorre la schermata verso destra, si possono vedere l'inventario delle immagini dei contenitori, lo stato, le metriche e alcune query di esempio che è possibile eseguire per ottenere dati più utili.
+Poiché raccoglie i log Docker, per impostazione predefinita l'agente mostra *stdout* e *stderr*. Se si scorre la schermata orizzontalmente, sarà possibile vedere l'inventario delle immagini dei contenitori, lo stato, le metriche e alcune query di esempio che è possibile eseguire per ottenere dati più utili.
 
 ![Dashboard della soluzione Contenitori](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
@@ -211,13 +208,13 @@ Se si fa clic in uno qualsiasi di questi pannelli, viene visualizzata la query d
 Un altro vantaggio dell'uso dell'agente Log Analytics è la possibilità di modificare i contatori delle prestazioni che si vogliono acquisire attraverso l'interfaccia utente di Log Analytics, anziché dover configurare l'agente di diagnostica di Azure ed eseguire un aggiornamento basato su modelli di Resource Manager ogni volta. A tale scopo, fare clic sull'**area di lavoro di OMS** nella pagina di destinazione della Soluzione Monitoraggio contenitori (o Service Fabric).
 
 Verrà visualizzata l'area di lavoro Log Analytics, in cui è possibile visualizzare le proprie soluzioni, creare dashboard personalizzati e configurare l'agente Log Analytics. 
-* Per aprire il menu Impostazioni avanzate, fare clic su **Impostazioni avanzate**.
-* Fare clic su **Origini connesse** > **Server Windows** e verificare che siano presenti *5 computer Windows connessi*.
-* Fare clic su **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati dai log di Monitoraggio di Azure da cui è possibile raccogliere dati. È anche possibile cercare altri contatori. Verificare che i contatori **Processor(_Total)\% Processor Time** e **Memory(*)\Available MBytes** vengano raccolti.
+* Selezionare **Impostazioni avanzate** per aprire il menu corrispondente.
+* Selezionare **Origini connesse** > **Server Windows** per verificare che siano presenti *5 computer Windows connessi*.
+* Selezionare **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati dai log di Monitoraggio di Azure da cui è possibile raccogliere dati. È anche possibile cercare altri contatori. Verificare che i contatori **Processor(_Total)\% Processor Time** e **Memory(*)\Available MBytes** vengano raccolti.
 
 **Aggiornare** la soluzione Monitoraggio contenitori e in pochi minuti si dovrebbero iniziare a vedere i dati relativi alle *prestazioni del computer*. Questi dati consentono di capire come vengono usate le risorse. È possibile usare queste metriche anche per prendere decisioni appropriate sul ridimensionamento del cluster o per verificare se il bilanciamento del carico in un cluster avviene come previsto.
 
-*Nota: assicurarsi di impostare i filtri temporali nel modo appropriato per usare queste metriche.*
+*Nota: assicurarsi di impostare i filtri relativi al tempo nel modo appropriato per usare queste metriche.*
 
 ![Contatori delle prestazioni 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
@@ -230,9 +227,9 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Usare un'area di lavoro Log Analytics per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
 > * Configurare l'agente di Log Analytics per raccogliere le metriche relative ai contenitori e ai nodi
 
-Il monitoraggio dell'applicazione in contenitori è ora impostato ed è quindi possibile eseguire le operazioni seguenti:
+Ora che è stato configurato il monitoraggio per l'applicazione in contenitori, provare a eseguire quanto segue:
 
-* Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella appena illustrata. Fare riferimento a [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) per apportare le modifiche al modello di Resource Manager.
+* Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella di questa esercitazione. Fare riferimento a [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) per apportare le modifiche al modello di Resource Manager.
 * Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../azure-monitor/platform/alerts-overview.md) per semplificare il rilevamento e la diagnostica.
 * Esplorare l'elenco di [contatori delle prestazioni consigliati](service-fabric-diagnostics-event-generation-perf.md) in Service Fabric per configurare i cluster.
 * Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure.

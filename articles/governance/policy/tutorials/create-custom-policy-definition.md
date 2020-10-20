@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649821"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876295"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -66,12 +66,15 @@ L'[estensione per VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 
 ### <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
 
-È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) che include la proprietà da gestire.
+È possibile esaminare in vari modi un [modello di Resource Manager (ARM)](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) che include la proprietà da gestire.
 
 #### <a name="existing-resource-in-the-portal"></a>Risorsa esistente nel portale
 
 Il modo più semplice per trovare proprietà consiste nell'esaminare una risorsa esistente dello stesso tipo. Le risorse già configurate con l'impostazione da applicare forniscono anche il valore da confrontare.
 Esaminare la pagina **Esporta modello** in **Impostazioni** nel portale di Azure per questa specifica risorsa.
+
+> [!WARNING]
+> Il modello di Resource Manager esportato dal portale di Azure non può essere collegato direttamente alla proprietà `deployment` di un modello di Resource Manager in una definizione di criteri [deployIfNotExists](../concepts/effects.md#deployifnotexists).
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Screenshot della pagina Esporta modello in una risorsa esistente nel portale di Azure." border="false":::
 

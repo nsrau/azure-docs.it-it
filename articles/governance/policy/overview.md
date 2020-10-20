@@ -1,14 +1,14 @@
 ---
 title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538957"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873915"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -72,16 +72,16 @@ Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. I ruoli **Collaboratore** e **lettore** hanno accesso a tutte le operazioni di Criteri di Azure _in lettura_. Il ruolo **Collaboratore** può attivare la correzione delle risorse, ma non _creare_ definizioni o assegnazioni.
+Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. I ruoli **Collaboratore** e **lettore** hanno accesso a tutte le operazioni di Criteri di Azure _in lettura_. Il ruolo **Collaboratore** può attivare la correzione delle risorse, ma non _creare_ definizioni o assegnazioni. Il ruolo **Amministratore Accesso utenti** è necessario per concedere l'identità gestita nelle autorizzazioni necessarie per le assegnazioni di tipo **deployIfNotExists** o **modify**.
 
 Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> L'identità gestita di un'assegnazione dei criteri **deployIfNotExists** richiede autorizzazioni sufficienti per creare o aggiornare le risorse incluse nel modello. Per altre informazioni, vedere [Configurare le definizioni dei criteri per la correzione](./how-to/remediate-resources.md#configure-policy-definition).
+> L'identità gestita di un'assegnazione dei criteri **deployIfNotExists** o **modify** richiede autorizzazioni sufficienti per creare o aggiornare le risorse di destinazione. Per altre informazioni, vedere [Configurare le definizioni dei criteri per la correzione](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Risorse coperte da Criteri di Azure
 
-Criteri di Azure valuta tutte le risorse in Azure. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
+Criteri di Azure valuta tutte le risorse in Azure e le risorse con abilitazione di Azure Arc. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Raccomandazioni per la gestione dei criteri
 
@@ -112,7 +112,6 @@ In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio:
 - **Località consentite** (Deny): Limita le aree disponibili per le nuove risorse. L'effetto viene usato per imporre i requisiti di conformità geografica.
 - **SKU di macchine virtuali consentiti** (Deny): Specifica un set di SKU di macchine virtuali che è possibile distribuire.
 - **Aggiungi un tag alle risorse** (Modify): Applica un tag obbligatorio e il relativo valore predefinito quando non viene specificato nella richiesta di distribuzione.
-- **Aggiungi tag e relativo valore predefinito** (Append): Impone un tag obbligatorio e il relativo valore a una risorsa.
 - **Tipi di risorse non consentiti** (Deny): Impedisce la distribuzione di un tipo di risorsa.
 
 Per implementare queste definizioni di criteri (predefinite e personalizzate), sarà necessario assegnarle. Tutti questi criteri possono essere assegnati tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.

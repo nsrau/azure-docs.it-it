@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c43a50dbbd2276573a80b866ee673e4391d9736b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a503f93895d0e1377f8037818b68ea42178363c2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551408"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Grovo
 
@@ -137,11 +137,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Andare ad **Admin** (Amministratore) > **Integrations** (Integrazioni).
  
-    ![Configurazione di Grovo](./media/grovo-tutorial/tutorial_grovo_admin.png) 
+    ![Screenshot che mostra il menu "Admin" con l'opzione "Integrations" selezionata.](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
 3. Fare clic su **SET UP** (CONFIGURA) nella sezione **SP Initiated SAML 2.0** (SAML 2.0 avviato da SP).
 
-    ![Configurazione di Grovo](./media/grovo-tutorial/tutorial_grovo_setup.png)
+    ![Screenshot che mostra la sezione "S P initiated S A M L 2.0" con il pulsante "Set up" selezionato.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
 4. Nella finestra popup **SP Initiated SAML 2.0** (SAML 2.0 avviato da SP) seguire questa procedura:
 

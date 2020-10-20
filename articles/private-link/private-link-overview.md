@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 7c647ba9a89fedf0d43bd8b10460fed101d166b9
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1ce0368bb86134bd52473b80eabbfaf87e36148d
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801396"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939648"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -62,7 +62,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Bus di servizio di Azure | Tutte le aree pubbliche<br/>Tutte le aree per enti pubblici  | Supportato con il livello Premium del bus di servizio di Azure. [Selezionare per informazioni sui livelli di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Informazioni su come creare un endpoint privato per Bus di servizio di Azure.](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Servizio di inoltro di Azure | Tutte le aree pubbliche      |  | Anteprima <br/> [Informazioni su come creare un endpoint privato per Inoltro di Azure.](https://docs.microsoft.com/azure/azure-relay/private-link-service)  |
 |Griglia di eventi di Azure| Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici       |  | GA   <br/> [Informazioni su come creare un endpoint privato per Griglia di eventi di Azure.](https://docs.microsoft.com/azure/event-grid/network-security) |
-|App Web di Azure | Tutte le aree pubbliche      | Supportato con Funzioni Windows e Linux PremiumV2 e Database elastico Premium  | Anteprima   <br/> [Informazioni su come creare un endpoint privato per App Web di Azure.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
+|App Web di Azure | Tutte le aree pubbliche      | Supportato con il piano PremiumV2, PremiumV3 o Funzioni Premium  | GA   <br/> [Informazioni su come creare un endpoint privato per App Web di Azure.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
 |Azure Machine Learning | Tutte le aree pubbliche    |  | GA   <br/> [Informazioni su come creare un endpoint privato per Azure Machine Learning.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Automazione di Azure  | Tutte le aree pubbliche |  | Anteprima </br> [Informazioni su come creare un endpoint privato per Automazione di Azure.](https://docs.microsoft.com/azure/automation/how-to/private-link-security)| |
 | Hub IoT Azure | Tutte le aree pubbliche    |  | GA   <br/> [Informazioni su come creare un endpoint privato per Hub IoT di Azure.](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |

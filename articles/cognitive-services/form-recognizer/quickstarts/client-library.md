@@ -13,16 +13,16 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: elaborazione di moduli, elaborazione dati automatica
-ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b024b3fac76e51264e89100e63a3cdc477443157
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318911"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963056"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Avvio rapido: Usare la libreria client di Riconoscimento modulo
 
-Iniziare a usare la libreria client di Riconoscimento modulo nel linguaggio preferito. Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore e dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base.
+Iniziare a usare la libreria client di Riconoscimento modulo nel linguaggio preferito. Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore e dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base. La libreria client di Riconoscimento modulo è attualmente destinata alla versione 2.0 del servizio Riconoscimento modulo.
 
 Usare la libreria client di Riconoscimento modulo per:
 

@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006347"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215604"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -294,7 +294,7 @@ In un database relazionale è normale usare join nelle query per restituire dati
 
 Si supponga di archiviare le entità dipendente nel servizio tabelle usando la struttura seguente:  
 
-![Struttura di entità dipendente](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Screenshot che illustra come è possibile archiviare le entità Employee nel servizio tabelle.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 È inoltre necessario archiviare i dati cronologici relativi alle valutazioni e alle prestazioni per ogni anno che il dipendente ha lavorato presso l'organizzazione, nonché poter accedere a queste informazioni in base all'anno. Una possibilità consiste nel creare un'altra tabella di archiviazione delle entità con la struttura seguente:  
 

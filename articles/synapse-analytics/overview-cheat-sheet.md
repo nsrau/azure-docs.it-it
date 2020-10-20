@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91620274"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858439"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Scheda di riferimento rapido di Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Un'**area di lavoro di Synapse** è un limite di collaborazione a protezione dir
 Un'area di lavoro consente di eseguire analisi con SQL e Apache Spark. Le risorse disponibili per SQL e Spark Analytics sono organizzate in **pool** SQL e Spark. 
 
 ## <a name="synapse-sql"></a>SQL Synapse
-**Synapse SQL** offre la possibilità di eseguire analisi basate su T-SQL nell'area di lavoro di Synapse. Synapse SQL ha due modelli di utilizzo: dedicato e serverless.  Per il modello dedicato, usare **pool SQL** dedicati. Un'area di lavoro può avere un numero qualsiasi di questi pool. Per il modello serverless, utilizzare il pool SQL serverless denominato "SQL su richiesta". Ogni area di lavoro dispone di uno di questi pool.
+**Synapse SQL** offre la possibilità di eseguire analisi basate su T-SQL nell'area di lavoro di Synapse. Synapse SQL ha due modelli di utilizzo: dedicato e serverless.  Per il modello dedicato, usare **pool SQL** dedicati. Un'area di lavoro può contenere un numero qualsiasi di questi pool. Per il modello serverless, utilizzare il pool SQL serverless denominato "SQL su richiesta". Ogni area di lavoro dispone di uno di questi pool.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark per Synapse
 Per usare Spark Analytics, creare e usare **pool di Spark** nell'area di lavoro di Synapse.

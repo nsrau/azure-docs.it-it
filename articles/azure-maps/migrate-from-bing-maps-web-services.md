@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Eseguire la migrazione dei servizi Web da Bing Maps | Mappe di Microsoft Azure'
-description: Come eseguire la migrazione dei servizi Web da Bing Maps a Mappe di Microsoft Azure.
+description: Questa esercitazione illustra come eseguire la migrazione di servizi Web da Bing Maps a Mappe di Microsoft Azure.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741670"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873779"
 ---
-# <a name="migrate-web-service-from-bing-maps"></a>Eseguire la migrazione di un servizio Web da Bing Maps
+# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Bing Maps
 
 Sia Mappe di Azure che Bing Maps forniscono l'accesso alle API spaziali tramite servizi Web REST. Le interfacce API per queste piattaforme eseguono funzionalità simili, ma usano convenzioni di denominazione e oggetti risposta diversi.
 

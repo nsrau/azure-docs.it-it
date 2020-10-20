@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552391"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con People
 
@@ -142,11 +142,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
    
 4. Nella barra di spostamento sul lato sinistro fare clic su **Settings (Impostazioni)** .
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+    ![Screenshot che mostra il menu sul lato sinistro con l'opzione "Settings" selezionata.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Fare clic su **Azienda**.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+    ![Screenshot che mostra l'opzione "Company" selezionata nel menu "Settings".](./media/people-tutorial/tutorial_people_002.png)
 
 6. In **Upload 'Single Sign On' SAML meta-data file** (Carica il file dei metadati SAML "Single Sign-On") fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
 

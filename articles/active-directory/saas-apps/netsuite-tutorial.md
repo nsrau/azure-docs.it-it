@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554516"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940787"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
 
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     * Si otterrà il valore **<`Instance ID`>** nella sezione relativa alla configurazione di NetSuite che viene descritta più avanti nel passaggio 8 dell'esercitazione, in NetSuite Configuration (Configurazione NetSuite). Si troverà il dominio esatto, in questo caso system.na0.netsuite.com.
 
-        ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/domain-value.png)
+        ![Screenshot che mostra la pagina SAML Setup in cui è possibile ottenere il dominio.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > I valori negli URL precedenti non sono reali. Aggiornarli con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). È anche possibile fare riferimento ai formati illustrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -164,31 +164,31 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
 2. Nella barra di spostamento in alto selezionare **Setup** (Configura) e quindi **Company** (Società)  > **Enable Features** (Abilita funzionalità).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Screenshot che mostra l'opzione Enable Features selezionata in Company.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. Sulla barra degli strumenti al centro della pagina selezionare **SuiteCloud**.
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Screenshot che mostra SuiteCloud selezionato.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. In **Manage Authentication** (Gestisci autenticazione) selezionare la casella di controllo **SAML Single Sign-On** (Accesso SSO SAML) per abilitare l'opzione per l'acesso Single Sign-On SAML in NetSuite.
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Screenshot che mostra la sezione Manage Authentication in cui è possibile selezionare SAML Single Sign-on.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. Nella barra di spostamento in alto selezionare **Setup** (Configura).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot che mostra l'opzione Setup dalla barra di spostamento NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Nell'elenco **Setup Tasks** (Configura attività) selezionare **Integration** (Integrazione).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-integration.png)
+    ![Screenshot che mostra l'opzione Integration selezionata in SETUP TASKS.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. In **Manage Authentication** (Gestisci autenticazione) selezionare **SAML Single Sign-on** (Accesso SSO SAML).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-saml.png)
+    ![Screenshot che mostra l'opzione SAML Single Sign-On selezionata dalla voce Integration di SETUP TASKS.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. Nella sezione **NetSuite Configuration** (Configurazione NetSuite) del riquadro **SAML Setup** (Configurazione SAML) seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Screenshot che mostra la sezione SAML Setup in cui è possibile immettere i valori descritti.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Selezionare la casella di controllo **Primary Authentication Method** (Metodo di autenticazione primario).
 
@@ -198,9 +198,9 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
 9. Nella barra di spostamento in alto di NetSuite selezionare **Setup** (Configura) e quindi **Company** (Società)  > **Company Information** (Informazioni sulla società).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-com.png)
+    ![Screenshot che mostra l'opzione Company Information selezionata in Company.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Screenshot che mostra il riquadro in cui è possibile immettere i valori descritti.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. Nel riquadro **Company Information** (Informazioni sulla società) copiare il valore di **Account ID** (ID account) nella colonna di destra.
 
@@ -210,23 +210,23 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
     a. Nella barra di spostamento in alto selezionare **Setup** (Configura).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot che mostra l'opzione Setup dalla barra di spostamento NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. Nel riquadro sinistro selezionare **Users/Roles** (Utenti/Ruoli) e quindi **Manage Roles** (Gestisci ruoli).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Screenshot che mostra il riquadro Manage Roles in cui è possibile selezionare New Role.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Selezionare **New Role** (Nuovo ruolo).
 
     d. In **Name** (Nome) immettere un nome per il nuovo ruolo.
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Screenshot che mostra la sezione Setup in cui è possibile immettere un nome per il ruolo.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Selezionare **Salva**.
 
     f. Nella barra di spostamento in alto selezionare **Permissions** (Autorizzazioni). Selezionare quindi **Setup** (Configura).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-sso.png)
+    ![Screenshot che mostra la scheda Setup in cui è possibile immettere i valori descritti.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. Selezionare **SAML Single Sign-on** (Accesso SSO SAML) e quindi **Add** (Aggiungi).
 
@@ -234,19 +234,19 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
     i. Nella barra di spostamento in alto selezionare **Setup** (Configura) e quindi **Setup Manager** (Configura responsabile).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot che mostra l'opzione Setup dalla barra di spostamento NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. Nel riquadro sinistro selezionare **Users/Roles** (Utenti/Ruoli) e quindi **Manage Users** (Gestisci utenti).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Screenshot che mostra il riquadro Manage Users in cui è possibile selezionare Suite Demo Team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Selezionare un utente di test, scegliere **Edit** (Modifica) e quindi selezionare la scheda **Access** (Accesso).
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Screenshot che mostra il riquadro Manage Users in cui è possibile selezionare Edit.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. Nel riquadro **Roles** (Ruoli) assegnare il ruolo appropriato creato.
 
-    ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Screenshot che mostra la voce Administrator selezionata nella sezione Employee.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Selezionare **Salva**.
 

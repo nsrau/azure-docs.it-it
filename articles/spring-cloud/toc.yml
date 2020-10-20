@@ -94,25 +94,24 @@
     - name: Monitorare
     - name: Creare ruoli e autorizzazioni
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: Traccia distribuita e Application Insights
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Analizzare log e metriche
-          href: diagnostic-services.md
-        - name: Streaming dei log in tempo reale
-          href: spring-cloud-howto-log-streaming.md
-    - name: Distribuzione di DevOps
-      items:
-        - name: CI/CD con DevOps di Azure
-          href: spring-cloud-howto-cicd.md
-        - name: CI/CD con GitHub Actions
-          href: spring-cloud-howto-github-actions.md
-        - name: Autenticazione con Key Vault in GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
-    - name: Risolvere problemi
-      items:
-        - name: Guida per la risoluzione dei problemi
-          href: spring-cloud-troubleshoot.md
+    - name: Traccia distribuita e Application Insights
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Analizzare log e metriche
+      href: diagnostic-services.md
+    - name: Streaming dei log in tempo reale
+      href: spring-cloud-howto-log-streaming.md
+- name: Distribuzione di DevOps
+  items:
+    - name: CI/CD con DevOps di Azure
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD con GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Autenticazione con Key Vault in GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Risolvere problemi
+  items:
+    - name: Guida per la risoluzione dei problemi
+      href: spring-cloud-troubleshoot.md
 - name: Informazioni di riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure

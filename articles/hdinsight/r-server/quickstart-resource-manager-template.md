@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 6b4b4b8bcf5a69fdae9f29284fe965a30d634788
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: ad1b08110e91457f1c9031f864ba67086872f22e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539725"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855565"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Avvio rapido: Creare un cluster ML Services in Azure HDInsight con un modello di Resource Manager
 
@@ -59,13 +59,13 @@ Nel modello sono definite due risorse di Azure:
     |Nome utente SSH|Specificare il nome utente. Il valore predefinito è sshuser.|
     |Password SSH|Specificare la password.|
 
-    ![Modello di Resource Manager per HBase](./media/quickstart-resource-manager-template/resource-manager-template-rserver.png)
+    ![Distribuire il modello di Resource Manager per HBase](./media/quickstart-resource-manager-template/resource-manager-template-rserver.png)
 
 1. Leggere quanto riportato in **CONDIZIONI**. Selezionare quindi **Accetto le condizioni riportate sopra** e infine **Acquista**. Si riceverà una notifica che informa che la distribuzione è in corso. La creazione di un cluster richiede circa 20 minuti.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa**. Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'account di archiviazione predefinito associato. Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdinsight-hadoop-use-blob-storage.md) o un [account Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
+Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa**. Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'account di archiviazione predefinito associato. Ogni cluster ha una dipendenza da un account di [Archiviazione BLOB di Azure](../hdinsight-hadoop-use-blob-storage.md), [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) o [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -73,7 +73,7 @@ Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cl
 
 Nel portale di Azure passare al cluster e selezionare **Elimina**.
 
-![Screenshot mostra un cluster HDInsight con il gruppo di risorse da eliminare.](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
+[Eliminare il modello di Resource Manager per HBase](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
 
 È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse**. Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight che l'account di archiviazione predefinito.
 

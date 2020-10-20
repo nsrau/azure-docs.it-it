@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664852"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215434"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codici di errore: Azure Active Directory B2C
 
@@ -61,6 +61,7 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90055` | L'ambito ' {0} ' specificato nella richiesta deve specificare una risorsa, ad esempio ' https://example.com/calendar.read '. |
 | `AADB2C90057` | L'applicazione specificata non è configurata per consentire il flusso implicito OAuth. |
 | `AADB2C90058` | L'applicazione specificata non è configurata per consentire i client pubblici. |
+| `AADB2C99059` | La richiesta fornita deve presentare un code_challenge. Obbligatorio per le app a pagina singola che usano il flusso del codice di autorizzazione.| 
 | `AADB2C90067` | Il formato dell'URI di reindirizzamento dopo la disconnessione ' {0} ' non è valido. Specificare un URL basato su HTTPS, ad esempio ' https://example.com/return ', oppure per i client nativi usare l'URI di IETF Native Client ' urn: IETF: WG: OAuth: 2.0: OOB '. |
 | `AADB2C90068` | L'applicazione specificata con ID ' {0} ' non è valida per questo servizio. Usare un'applicazione creata tramite il portale B2C e riprovare. |
 | `AADB2C90075` | Lo scambio di attestazioni ' {0} ' specificato nel passaggio ' {1} ' ha restituito la risposta di errore HTTP con codice ' {2} ' e motivo ' {3} '. |

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 538024c88799b42e19ec04784b53cfc6c1a8430e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b9f2d3397e0a2067cb173741a0037422021f3d87
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833777"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858252"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go
 
@@ -33,83 +33,7 @@ In questa guida di avvio rapido si userà l'API REST Viso di Azure con Go per ri
 
 Creare un nuovo file denominato _faceDetection.go_ e aggiungere il codice seguente. Viene così chiamata l'API Viso per un determinato URL di immagine.
 
-```go
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
-)
-
-func main() {
-    const subscriptionKey = "<Subscription Key>"
-
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
-    const uriBase =
-      "https://<My Endpoint String>.com/face/v1.0/detect"
-    const imageUrl =
-      "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
-
-    const params = "?returnFaceAttributes=age,gender,headPose,smile,facialHair," +
-        "glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
-    const uri = uriBase + params
-    const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
-
-    reader := strings.NewReader(imageUrlEnc)
-
-    //Configure TLS, etc.
-    tr := &http.Transport{
-        TLSClientConfig: &tls.Config{
-            InsecureSkipVerify: true,
-        },
-    }
-    
-    // Create the Http client
-    client := &http.Client{
-        Transport: tr,
-        Timeout: time.Second * 2,
-    }
-
-    // Create the Post request, passing the image URL in the request body
-    req, err := http.NewRequest("POST", uri, reader)
-    if err != nil {
-        panic(err)
-    }
-
-    // Add headers
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    // Send the request and retrieve the response
-    resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-
-    defer resp.Body.Close()
-
-    // Read the response body.
-    // Note, data is a byte array
-    data, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        panic(err)
-    }
-
-    // Parse the Json data
-    var f interface{}
-    json.Unmarshal(data, &f)
-
-    // Format and display the Json result
-    jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
-    fmt.Println(string(jsonFormatted))
-}
-```
+:::code language="go" source="~/cognitive-services-quickstart-code/go/Face/rest/detect.go":::
 
 Sarà necessario aggiornare il valore `subscriptionKey` con la chiave di sottoscrizione e modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta.
 
@@ -132,6 +56,30 @@ detect-face
 ```
 
 Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi rilevati. Di seguito è riportato un esempio di risposta JSON con esito positivo.
+
+```json
+[
+  {
+    "faceId": "ae8952c1-7b5e-4a5a-a330-a6aa351262c9",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Estrarre gli attributi del viso
+ 
+Per estrarre gli attributi del viso, usare il modello di rilevamento 1 e aggiungere il parametro di query `returnFaceAttributes`.
+
+```go
+const params = "?detectionModel=detection_01&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
+```
+
+La risposta includerà gli attributi del viso. Ad esempio:
 
 ```json
 [
