@@ -3,29 +3,29 @@ title: Esercitazione - Distribuire e configurare VMware HCX
 description: Informazioni su come distribuire e configurare una soluzione VMware HCX per il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 69832d1537f0f1be95d3283f543ef6e54187b58d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 58fd8b4518f60f1f736d8c19ddcf62729353f251
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578943"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057996"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuire e configurare VMware HCX
 
-In questo articolo verranno illustrate in modo dettagliato le procedure necessarie per distribuire e configurare VMware HCX per il cloud privato della soluzione Azure VMWare. VMware HCX consente la migrazione dei carichi di lavoro VMware alla soluzione Azure VMware e ad altri siti connessi tramite diversi tipi di migrazione.
+Questo articolo illustra in modo dettagliato le procedure necessarie per distribuire e configurare l'istanza locale di VMware HCX Connector per il cloud privato della soluzione Azure VMware. VMware HCX consente la migrazione dei carichi di lavoro VMware alla soluzione Azure VMware e ad altri siti connessi tramite diversi tipi di migrazione. La soluzione Azure VMware ha già distribuito e configurato "Cloud Manager", quindi è necessario scaricare, attivare e configurare Connector nel proprio data center VMware locale.
 
-VMware HCX Advanced, pre-distribuito nella soluzione Azure VMware, supporta fino a tre connessioni al sito, da locale al cloud o da cloud a cloud. Se sono necessarie più di tre connessioni al sito per VMware HCX Enterprise, è possibile abilitare il componente aggiuntivo [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/), attualmente disponibile in *anteprima*, inviando una [richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Durante l'*anteprima*, VMware HCX EE per la soluzione Azure VMware è una funzione/un servizio gratuito ed è soggetto alle condizioni del servizio. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. Sarà anche possibile disattivare/rifiutare esplicitamente il servizio.
+VMware HCX Advanced Connector, predistribuito nella soluzione Azure VMware, supporta fino a tre connessioni al sito, da locale al cloud o da cloud a cloud. Se sono necessarie più di tre connessioni al sito, è possibile abilitare il componente aggiuntivo [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/), attualmente disponibile in *anteprima*, inviando una [richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Durante l'*anteprima*, VMware HCX EE per la soluzione Azure VMware è una funzione/un servizio gratuito ed è soggetto alle condizioni del servizio. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. Sarà anche possibile disattivare/rifiutare esplicitamente il servizio.
 
 Prima di iniziare, esaminare attentamente le sezioni [Prima di iniziare](#before-you-begin), [Requisiti della versione software](#software-version-requirements) e [Prerequisiti](#prerequisites). 
 
 Vengono poi illustrate tutte le procedure necessarie per:
 
 > [!div class="checklist"]
-> * Distribuire VMware HCX OVA (connettore) in locale
-> * Attivare VMware HCX
-> * Associare l'ambiente locale all'ambiente della soluzione Azure VMware
-> * Configurare l'interconnessione (profilo di calcolo, profilo/i di rete e mesh dei servizi)
-> * Completare l'installazione verificando lo stato dell'appliance
+> * Distribuire il file OVA di VMware HCX Connector in locale
+> * Attivare VMware HCX Connector
+> * Associare l'istanza locale di HCX Connector all'appliance HCX Cloud Manager della soluzione Azure VMware
+> * Configurare l'interconnessione (profilo di rete, profilo di calcolo e mesh del servizio)
+> * Completare la configurazione controllando lo stato dell'appliance e verificando che la migrazione sia possibile
 
 Al termine sarà possibile seguire i passaggi successivi consigliati alla fine dell'articolo.  
 
@@ -37,7 +37,8 @@ Al termine sarà possibile seguire i passaggi successivi consigliati alla fine d
 * Esaminare facoltativamente le [considerazioni sulla distribuzione di VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Esaminare facoltativamente i materiali di VMware correlati in HCX, ad esempio la [serie di blog](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) su VMware vSphere in HCX. 
 * Richiedere facoltativamente un'attivazione di HCX Enterprise per la soluzione Azure VMware tramite i canali di supporto della soluzione Azure VMware.
-* Per distribuire l'appliance WAN Interconnect, sono già stati allocati intervalli CIDR specifici da `\22` fornito dal cliente per la creazione del cloud privato.
+* Facoltativamente, [verificare le porte di rete necessarie per HCX](https://ports.vmware.com/home/VMware-HCX).
+* Mentre l'appliance HCX CLoud Manager della soluzione Azure VMware è preconfigurata dalla subnet /22 fornita per il cloud privato della soluzione Azure VMware, l'istanza locale di HCX Connector richiede l'allocazione di intervalli di rete dalla rete locale del cliente. Questi intervalli di rete sono descritti più avanti nel documento.
 
 Il dimensionamento dei carichi di lavoro rispetto alle risorse di calcolo e di archiviazione è un passaggio essenziale per la pianificazione. È necessario eseguire il passaggio di dimensionamento come parte della pianificazione iniziale dell'ambiente del cloud privato. 
 
@@ -62,32 +63,31 @@ I componenti dell'infrastruttura devono eseguire la versione minima richiesta.
 
 * È necessario che tutte le porte obbligatorie siano aperte per la comunicazione tra componenti locali e tra componenti locali e il data center software-defined della soluzione Azure VMware. Vedere la [documentazione di VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
-* Le appliance HCX IX e NE locali dovrebbero essere in grado di raggiungere l'infrastruttura vCenter e ESXi.
 
 ### <a name="ip-addresses"></a>Indirizzi IP
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
    
-## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuire VMware HCX OVA in locale
+## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Distribuire il file OVA di VMware HCX Connector in locale
 
 >[!NOTE]
->Prima di distribuire l'appliance virtuale nell'istanza locale di vCenter, sarà necessario scaricare il file OVA di VMware HCX. 
+>Prima di distribuire l'appliance virtuale nell'istanza locale di vCenter, è necessario scaricare il file OVA di VMware HCX Connector. 
 
-1. Accedere a HCX Manager della soluzione Azure VMware in `https://x.x.x.9` nella porta 443 con le credenziali dell'utente **cloudadmin** e quindi passare a **Support** (Supporto).
+1. Aprire una finestra del browser, accedere a HCX Manager della soluzione Azure VMware in `https://x.x.x.9` sulla porta 443 con le credenziali dell'utente **cloudadmin** e quindi passare a **Support** (Supporto).
 
    >[!TIP]
-   >Per identificare l'indirizzo IP di HCX Manager, nel pannello della soluzione Azure VMware passare a **Manage (Gestisci)**  > **Connectivity (Connettività)** e quindi selezionare la scheda **HCX**. 
+   >Prendere nota dell'IP di HCX Cloud Manager nella soluzione Azure VMware. Per identificare l'indirizzo IP di HCX Cloud Manager, nel pannello della soluzione Azure VMware passare a **Manage (Gestisci)**  > **Connectivity (Connettività)** e quindi selezionare la scheda **HCX**. 
    >
    >La password di vCenter è stata definita durante la configurazione del cloud privato.
 
-1. Selezionare il collegamento **download**per scaricare il file OVA di VMware HCX.
+1. Selezionare il collegamento **download** per scaricare il file OVA di VMware HCX Connector.
 
-1. Passare all'istanza locale di vCenter e selezionare un modello OVF, ovvero il file OVA scaricato, da distribuire nell'istanza locale di vCenter.  
+1. Passare all'istanza locale di vCenter e selezionare un modello OVF, ovvero il file OVA scaricato, per distribuire HCX Connector nell'istanza locale di vCenter.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Passare all'istanza locale di vCenter e selezionare un modello OVF da distribuire nell'istanza locale di vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Selezionare un nome e una posizione, una risorsa o un cluster in cui si distribuisce HCX e quindi esaminare i dettagli e le risorse necessarie.  
+1. Selezionare un nome e una posizione, una risorsa o un cluster in cui distribuire HCX Connector e quindi esaminare i dettagli e le risorse necessarie.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Passare all'istanza locale di vCenter e selezionare un modello OVF da distribuire nell'istanza locale di vCenter." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -97,10 +97,10 @@ I componenti dell'infrastruttura devono eseguire la versione minima richiesta.
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Passare all'istanza locale di vCenter e selezionare un modello OVF da distribuire nell'istanza locale di vCenter." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. Selezionare **Next** (Avanti), verificare la configurazione e quindi selezionare **Finish** (Fine) per distribuire il file OVA di HCX.
+1. Selezionare **Next** (Avanti), verificare la configurazione e quindi selezionare **Finish** (Fine) per distribuire il file OVA di HCX Connector.
      
    >[!NOTE]
-   >In genere, il servizio VMware HCX Manager che si sta distribuendo ora viene distribuito nella rete di gestione del cluster.  
+   >In genere, il servizio VMware HCX Connector che si sta distribuendo ora viene distribuito nella rete di gestione del cluster.  
    
    > [!IMPORTANT]
    > Al termine della distribuzione potrebbe essere necessario accendere manualmente l'appliance virtuale.
@@ -111,9 +111,9 @@ Per una panoramica completa di questo passaggio, guardare il video [Soluzione Az
 
 ## <a name="activate-vmware-hcx"></a>Attivare VMware HCX
 
-Dopo la distribuzione in locale del file OVA di VMware HCX è possibile passare all'attivazione di VMware HCX. Per attivare VMware HCX, è prima di tutto necessario recuperare una licenza.
+Dopo aver distribuito il file OVA di VMware HCX Connector in locale e aver avviato l'appliance, è possibile attivarla, ma prima occorre recuperare un codice di licenza dal portale della soluzione Azure VMware in Azure.
 
-1. Nella soluzione Azure VMware passare a **Manage (Gestisci)**  > **Connectivity (Connettività)** , selezionare la scheda **HCX** e quindi selezionare **Add** (Aggiungi).
+1. Nel portale della soluzione Azure VMware passare a **Manage (Gestisci)**  > **Connectivity (Connettività)** , selezionare la scheda **HCX** e quindi selezionare **Add** (Aggiungi).
 
 1. Accedere all'istanza locale di VMware HCX Manager in `https://HCXManagerIP:9443` con le credenziali dell'utente **admin**. 
 
@@ -150,13 +150,13 @@ Dopo la distribuzione in locale del file OVA di VMware HCX è possibile passare 
 Per una panoramica completa di questo passaggio, guardare il video [Soluzione Azure VMware - Attivazione di VMware HCX](https://www.youtube.com/embed/BkAV_TNYxdE).
 
 
-## <a name="configure-vmware-hcx"></a>Configurare VMware HCX
+## <a name="configure-vmware-hcx-connector"></a>Configurare VMware HCX Connector
 
 È ora possibile aggiungere un'associazione del sito, creare un profilo di rete e di calcolo e abilitare servizi, tra cui la migrazione, l'estensione di rete o il ripristino di emergenza. 
 
 ### <a name="add-a-site-pairing"></a>Aggiungere un'associazione del sito
 
-È possibile connettere (associare) VMware HCX Manager nella soluzione Azure VMware in VMware HCX Manager nel data center. 
+È possibile connettere (associare) VMware HCX Cloud Manager nella soluzione Azure VMware con VMware HCX Connector nel data center. 
 
 1. Accedere all'istanza locale di vCenter e in **Home** selezionare **HCX**.
 
@@ -166,14 +166,14 @@ Per una panoramica completa di questo passaggio, guardare il video [Soluzione Az
 
    :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Passare all'istanza locale di vCenter e selezionare un modello OVF da distribuire nell'istanza locale di vCenter." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
-1. Immettere un valore per **Remote HCX URL or IP address** (URL o indirizzo IP di HCX remoto), il nome utente cloudadmin@vsphere.local e la **password** della soluzione Azure VMware e quindi selezionare **Connect** (Connetti).
+1. Immettere un valore per **Remote HCX URL or IP address** (URL o indirizzo IP di HCX remoto) di cui si è preso nota, il nome utente cloudadmin@vsphere.local e la **password** della soluzione Azure VMware e quindi selezionare **Connect** (Connetti).
 
    > [!NOTE]
-   > Il valore **Remote HCX URL** (URL HCX remoto) corrisponde a HCX Manager del cloud privato della soluzione Azure VMware, ovvero in genere l'indirizzo ".9" della rete di gestione.  Se ad esempio vCenter è 192.168.4.2, l'URL di HCX sarà 192.168.4.9.
+   > Il valore **Remote HCX URL** (URL HCX remoto) corrisponde all'IP di HCX Cloud Manager del cloud privato della soluzione Azure VMware, ovvero in genere l'indirizzo ".9" della rete di gestione.  Se ad esempio vCenter è 192.168.4.2, l'URL di HCX sarà 192.168.4.9.
    >
    > Il valore per **password** corrisponderà alla password usata per accedere a vCenter. Questa password è stata definita nella schermata di distribuzione iniziale.
 
-   Viene visualizzata una schermata che mostra la connessione tra HCX Manager nella soluzione Azure VMware e l'istanza locale di HCX Manager (associazione).
+   Viene visualizzata una schermata che mostra la connessione (associazione) tra HCX Cloud Manager nella soluzione Azure VMware e l'istanza locale di HCX Connector.
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Passare all'istanza locale di vCenter e selezionare un modello OVF da distribuire nell'istanza locale di vCenter.":::
 
@@ -183,7 +183,7 @@ Per una panoramica completa di questo passaggio, guardare il video [Soluzione Az
 
 ### <a name="create-network-profiles"></a>Creare profili di rete
 
-VMware HCX distribuisce un paio di appliance virtuali (automatiche), ma necessita di più segmenti IP.  Quando si creano i profili di rete, si definiscono i segmenti IP, che sono stati identificati durante la [fase di preparazione e pianificazione pre-distribuzione dei segmenti di rete di VMware HCX](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX distribuisce un subset di appliance virtuali (automatizzate) che richiedono più segmenti IP.  Quando si creano i profili di rete, si definiscono i segmenti IP, che sono stati identificati durante la [fase di preparazione e pianificazione pre-distribuzione dei segmenti di rete di VMware HCX](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 Verranno creati quattro profili di rete:
 

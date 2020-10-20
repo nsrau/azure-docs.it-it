@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812319"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850380"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -29,8 +29,9 @@ Per completare questa esercitazione, è necessario avere accesso a un gruppo di 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
 1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
 1. Selezionare **Aggiungi** per creare un'area di lavoro.
-1. In **Nozioni di base** immettere i campi obbligatori e scegliere un nome per l'area di lavoro. In questa esercitazione si userà **myworkspace**.
-1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La scelta più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
+1. In **Informazioni di base** immettere le proprie preferenze in **Sottoscrizione**, **Gruppo di risorse** e **Area**, quindi scegliere un nome di area di lavoro. In questa esercitazione si userà **myworkspace**.
+1. Per creare un'area di lavoro, è necessario avere un account ADLSGEN2 e un contenitore. La scelta più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
+    1. L'area di lavoro di Synapse userà questo contenitore come posizione predefinita in cui archiviare i log di Spark e i dati e per le tabelle di Spark.
 1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
     1. Passare a **Selezionare Data Lake Storage Gen 2**. 
     1. Fare clic su **Crea nuovo** e scegliere **contosolake** come nome.

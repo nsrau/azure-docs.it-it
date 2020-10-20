@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852042"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214907"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori relative ai criteri personalizzati in Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | Funzionalità | Sviluppo | Anteprima | GA | Note |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Codice di autorizzazione OAuth2](authorization-code-flow.md) |  |  | X |  |
-| Codice di autorizzazione OAuth2 con PKCE |  |  | X | Solo applicazioni per dispositivi mobili  |
+| Codice di autorizzazione OAuth2 con PKCE |  |  | X | [Client pubblici e applicazioni a pagina singola](authorization-code-flow.md)  |
 | [Flusso implicito OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenziali password del proprietario della risorsa OAuth2](ropc-custom.md) |  | X |  |  |
 | [Connessione OIDC](openid-connect.md) |  |  | X |  |

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987368"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812438"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -50,14 +50,21 @@ I generatori di soluzioni usano IoT Central per creare una soluzione IoT ospitat
 
 I generatori di soluzioni possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Un modello di dispositivo è il progetto che definisce le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
 
-- I dati di telemetrica che invia.
-- Le proprietà di business modificabili da un operatore.
-- Le proprietà del dispositivo impostate da un dispositivo che sono di sola lettura nell'applicazione.
-- Le proprietà, impostate da un operatore, che determinano il comportamento del dispositivo.
+- I dati di telemetrica che invia. Gli esempi includono i dati di temperatura e umidità. La telemetria invia i dati in streaming.
+- Le proprietà di business modificabili da un operatore. Gli esempi includono un indirizzo del cliente e la data dell'ultima manutenzione.
+- Le proprietà del dispositivo impostate da un dispositivo che sono di sola lettura nell'applicazione. Ad esempio, lo stato di una valvola come aperto o chiuso.
+- Le proprietà, impostate da un operatore, che determinano il comportamento del dispositivo. Ad esempio, un obiettivo di temperatura per il dispositivo.
+- Comandi, che possono essere chiamati da un operatore, che vengono eseguiti in un dispositivo. Ad esempio, un comando per riavviare un dispositivo in modalità remota.
 
 Questo [modello di dispositivo](howto-set-up-template.md) include:
 
-- Un _modello di funzionalità di dispositivo_ in cui sono descritte le funzionalità che un dispositivo deve implementare, ad esempio i dati di telemetria inviati e le proprietà segnalate.
+- Un _modello di funzionalità del dispositivo_ che descrive le funzionalità che devono essere implementate da un dispositivo. Le funzionalità del dispositivo includono:
+
+  - I dati di telemetria inviati in streaming a IoT Central.
+  - Le proprietà di sola lettura usate per segnalare lo stato IoT Central.
+  - Le proprietà scrivibili ricevute da IoT Central per impostare lo stato del dispositivo.
+  - I comandi chiamati da IoT Central.
+
 - Proprietà cloud non archiviate nel dispositivo.
 - Personalizzazioni, dashboard e moduli che fanno parte dell'applicazione IoT Central.
 
@@ -144,7 +151,6 @@ Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambit
 - I tipi di schema della matrice non sono supportati.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
 - IoT Central è attualmente disponibile nelle località seguenti: Stati Uniti, Europa, Asia Pacifico, Australia, Regno Unito e Giappone.
-- Non è possibile usare il modello di applicazione **Applicazione personalizzata (legacy)** nelle località Regno Unito e Giappone.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
 
 ## <a name="next-steps"></a>Passaggi successivi

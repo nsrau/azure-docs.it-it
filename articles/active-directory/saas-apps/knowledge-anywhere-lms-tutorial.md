@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858116"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Esercitazione: Integrare Knowledge Anywhere LMS con Azure Active Directory
 
@@ -111,19 +111,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 4. Selezionare la scheda **Site** (Sito).
 
-    ![Configurazione di Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Screenshot che mostra la scheda Site.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Selezionare la scheda **SAML Settings** (Impostazioni SAML).
 
-    ![Configurazione di Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Screenshot che mostra la pagina di Knowledge anywhere con l'opzione SAML Settings selezionata.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Fare clic su **Add New** (Aggiungi nuova).
 
-    ![Configurazione di Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Screenshot che mostra il pulsante Add New in Service Provider Settings.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. Nella pagina **Add/Update SAML Settings** (Aggiungi/Aggiorna impostazioni SAML) seguire questa procedura:
 
-    ![Configurazione di Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Screenshot che mostra la pagina Add/Update SAML Settings in cui è possibile apportare le modifiche descritte qui.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Immettere il nome IDP previsto dall'organizzazione, ad esempio `Azure`.
 

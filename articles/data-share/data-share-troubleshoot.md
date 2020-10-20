@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151372"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220459"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni in Condivisione dati di Azure 
 
@@ -34,7 +34,7 @@ Il problema può dipendere dalle cause seguenti:
     1. Cercare **Microsoft.DataShare**
     1. Fare clic su **Registra** 
 
-    Per completare questi passaggi, è necessario avere il [ruolo di collaboratore di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) per la sottoscrizione di Azure. 
+    Per completare questi passaggi, è necessario avere il [ruolo di collaboratore di Azure](../role-based-access-control/built-in-roles.md#contributor) per la sottoscrizione di Azure. 
 
 * **L'invito viene inviato all'alias di posta elettronica anziché all'indirizzo di posta elettronica di accesso di Azure.** Se il servizio Condivisione dati di Azure è stato registrato o è già stata creata una risorsa di Condivisione dati nel tenant di Azure, ma non è ancora possibile visualizzare l'invito, il problema potrebbe essere dovuto al fatto che il provider ha immesso come destinatario l'alias di posta elettronica anziché l'indirizzo di posta elettronica di accesso di Azure. Contattare il provider di dati e assicurarsi che abbia inviato l'invito all'indirizzo di posta elettronica di accesso di Azure e non all'alias di posta elettronica personale.
 
@@ -81,4 +81,3 @@ Per le origini SQL, di seguito sono riportate altre cause degli errori di snapsh
 Per informazioni su come iniziare a condividere i dati, procedere con l'esercitazione sulla [condivisione dei dati](share-your-data.md). 
 
 Per informazioni su come ricevere dati, continuare con l'esercitazione [accettare e ricevere dati](subscribe-to-data-share.md) .
-

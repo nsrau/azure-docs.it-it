@@ -11,18 +11,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83652289"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962446"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. Per altre informazioni su Key Vault, vedere la relativa [panoramica](../general/overview.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per altre informazioni sui segreti, vedere (about-secrets.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -46,6 +50,9 @@ Prendere nota delle due proprietà elencate di seguito:
 
 * **Vault Name**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
 * **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contoso-vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+
+È anche possibile creare un'istanza di Key Vault con l'interfaccia della riga di comando di Azure e PowerShell: [Creare un'istanza di Key Vault usando PowerShell](../general/quick-create-powershell.md)
+[Creare un'istanza di Key Vault usando l'interfaccia della riga di comando di Azure](../general/quick-create-cli.md)
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
 
@@ -90,5 +97,8 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 In questa esercitazione dell'avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
+- Vedere [Proteggere l'accesso a un'istanza di Key Vault](../general/secure-your-key-vault.md)
+- Vedere [Usare Key Vault con l'app Web del servizio app](../general/tutorial-net-create-vault-azure-web-app.md)
+- Vedere [Usare Key Vault con l'applicazione distribuita nella macchina virtuale](../general/tutorial-net-virtual-machine.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
 - Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)

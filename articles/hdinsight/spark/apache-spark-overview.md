@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: contperfq1
 ms.topic: overview
-ms.date: 08/21/2020
-ms.openlocfilehash: 2cbe0b520156e77308f61a725937ac415cb80473
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 09/21/2020
+ms.openlocfilehash: f581f7bc2f67093afc26dd2c2f15916841a106e9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88756946"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854342"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Informazioni su Apache Spark in Azure HDInsight
 
-Apache Spark è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Apache Spark in Azure HDInsight è l'implementazione Microsoft di Apache Spark nel cloud. HDInsight rende più semplice creare e configurare un cluster Spark in Azure. I cluster Spark in HDInsight sono compatibili con Archiviazione di Azure e con Azure Data Lake Storage. Pertanto, è possibile usare i cluster Spark HDInsight per elaborare i dati archiviati in Azure. Per i componenti e per le informazioni sulle versioni, vedere [Componenti e versioni Apache Hadoop in Azure HDInsight](../hdinsight-component-versioning.md).
+Apache Spark è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Apache Spark in Azure HDInsight è l'implementazione Microsoft di Apache Spark nel cloud. HDInsight rende più semplice creare e configurare un cluster Spark in Azure. I cluster Spark in HDInsight sono compatibili con [Archiviazione BLOB di Azure](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md) o [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md). Pertanto, è possibile usare i cluster Spark HDInsight per elaborare i dati archiviati in Azure. Per i componenti e per le informazioni sulle versioni, vedere [Componenti e versioni Apache Hadoop in Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: un framework unificato](./media/apache-spark-overview/hdinsight-spark-overview.png)
 
@@ -34,7 +34,7 @@ I cluster Spark in HDInsight offrono un servizio Spark completamente gestito. I 
 | Facilità di creazione |È possibile creare un nuovo cluster Spark in HDInsight in pochi minuti usando il portale di Azure, Azure PowerShell o HDInsight .NET SDK. Vedere [Introduzione ai cluster Apache Spark in HDInsight](apache-spark-jupyter-spark-sql-use-portal.md). |
 | Semplicità d'uso |Il cluster Spark in HDInsight include notebook di Jupyter e Apache Zeppelin. È possibile usare questi notebook per la visualizzazione e l'elaborazione interattiva di dati. Vedere [Usare i notebook di Apache Zeppelin con Apache Spark](apache-spark-zeppelin-notebook.md) e [Caricare i dati ed eseguire query in un cluster Apache Spark](apache-spark-load-data-run-query.md).|
 | API REST |I cluster Spark in HDInsight includono [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un server dei processi Spark basato sull'API REST per l'invi e il monitoraggio remoto dei processi. Vedere [Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark](apache-spark-livy-rest-interface.md).|
-| Supporto per Azure Data Lake Storage | I cluster Spark in HDInsight possono usare Azure Data Lake Storage come risorsa di archiviazione primaria o come spazio di archiviazione aggiuntivo. Per altre informazioni su Data Lake Storage, vedere [Panoramica di Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
+| Supporto per l'archiviazione di Azure | I cluster Spark in HDInsight possono usare Azure Data Lake Storage Gen1/Gen2 come risorsa di archiviazione primaria o come spazio di archiviazione aggiuntivo. Per altre informazioni su Data Lake Storage Gen1, vedere [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md). Per altre informazioni su Data Lake Storage Gen2, vedere [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
 | Integrazione con servizi di Azure |Il cluster Spark in HDInsight viene fornito con un connettore per Hub eventi di Azure. È possibile compilare applicazioni di streaming tramite Hub eventi. È incluso Apache Kafka, che è già disponibile come parte di Spark. |
 | Supporto per ML Server | Il supporto per ML Server in HDInsight viene garantito con il tipo di cluster **ML Services**. È possibile impostare un cluster ML Services per eseguire calcoli R distribuiti con la velocità garantita da un cluster Spark. Per altre informazioni, vedere [Informazioni su ML Services in Azure HDInsight](../r-server/r-server-overview.md). |
 | Integrazione con IDE di terze parti | HDInsight fornisce numerosi plugin IDE utili per creare e inviare applicazioni a un cluster HDInsight Spark. Per altre informazioni, vedere [Usare Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), [Usare Spark & Hive Tools per VS Code](../hdinsight-for-vscode.md) e [Usare Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
@@ -42,7 +42,7 @@ I cluster Spark in HDInsight offrono un servizio Spark completamente gestito. I 
 | La memorizzazione nella cache nelle unità SSD |È possibile scegliere di memorizzare i dati in memoria o nelle SSD associate ai nodi del cluster. La memorizzazione nella cache in memoria offre le migliori prestazioni di query, ma può essere dispendiosa. La memorizzazione nella cache in unità SSD fornisce un'ottima opzione per migliorare le prestazioni delle query senza la necessità di creare un cluster con le dimensioni necessarie a contenere l'intero set di dati in memoria. Vedere [Migliorare le prestazioni dei carichi di lavoro di Apache Spark usando Cache IO Azure HDInsight](apache-spark-improve-performance-iocache.md). |
 | Integrazione con strumenti di Business Intelligence |I cluster Spark in HDInsight offrono connettori per strumenti di Business Intelligence, come Power BI per l'analisi dei dati. |
 | Librerie Anaconda precaricate |I cluster Spark in HDInsight sono dotati di librerie Anaconda preinstallate. [Anaconda](https://docs.continuum.io/anaconda/) offre quasi 200 librerie per il Machine Learning, l'analisi dei dati, la visualizzazione e così via. |
-| Adattabilità | HDInsight consente di modificare il numero di nodi del cluster in modo dinamico con la funzionalità di scalabilità automatica. Vedere [Ridimensionare automaticamente i cluster Azure HDInsight](../hdinsight-autoscale-clusters.md). È anche possibile eliminare i cluster Spark senza alcuna perdita di dati perché tutti i dati sono archiviati in Archiviazione di Azure o Data Lake Storage. |
+| Adattabilità | HDInsight consente di modificare il numero di nodi del cluster in modo dinamico con la funzionalità di scalabilità automatica. Vedere [Ridimensionare automaticamente i cluster Azure HDInsight](../hdinsight-autoscale-clusters.md). È anche possibile eliminare i cluster Spark senza alcuna perdita di dati perché tutti i dati sono archiviati in Archiviazione BLOB di Azure, [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md) o [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md). |
 | Contratto di servizio |I cluster Spark in HDInsight includono il supporto continuo 24 ore su 24, 7 giorni su 7 e un Contratto di servizio che garantisce tempi di attività pari al 99,9%. |
 
 I cluster Apache Spark in HDInsight includono i componenti seguenti che sono disponibili nei cluster per impostazione predefinita.
@@ -63,7 +63,7 @@ HDInsight Spark include un [driver ODBC](https://go.microsoft.com/fwlink/?LinkId
 
 Le applicazioni Spark vengono eseguite come set indipendenti di processi in un cluster, coordinati dall'oggetto SparkContext nel programma principale (denominato programma driver).
 
-SparkContext può connettersi a diversi tipi di gestori di cluster, che forniscono risorse alle applicazioni. Questi gestori di cluster includono Apache Mesos, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) o Spark Cluster Manager. Spark in HDInsight viene eseguito usando lo strumento di gestione cluster YARN. Una volta connesso, Spark acquisisce gli executor nei nodi di lavoro nel cluster, che sono i processi che eseguono calcoli e archiviano i dati per l'applicazione. Successivamente, invia il codice dell'applicazione (definito dai file JAR o Python passati a SparkContext) agli executor. Infine, SparkContext invia le attività agli executor per l'esecuzione.
+SparkContext può connettersi a diversi tipi di gestori di cluster, che forniscono risorse alle applicazioni. Questi gestori di cluster includono Apache Mesos, Apache Hadoop YARN o Spark Cluster Manager. Spark in HDInsight viene eseguito usando lo strumento di gestione cluster YARN. Una volta connesso, Spark acquisisce gli executor nei nodi di lavoro nel cluster, che sono i processi che eseguono calcoli e archiviano i dati per l'applicazione. Successivamente, invia il codice dell'applicazione (definito dai file JAR o Python passati a SparkContext) agli executor. Infine, SparkContext invia le attività agli executor per l'esecuzione.
 
 SparkContext esegue la funzione principale dell'utente e le diverse operazioni parallele nei nodi di lavoro. In seguito, SparkContext raccoglie i risultati delle operazioni. I nodi di lavoro leggono e scrivono i dati da e in Hadoop Distributed File System. I nodi di lavoro memorizzano nella cache i dati trasformati in memoria come oggetti RDD (Resilient Distributed Dataset).
 
@@ -75,7 +75,7 @@ I cluster Spark in HDInsight consentono gli scenari principali seguenti:
 
 ### <a name="interactive-data-analysis-and-bi"></a>Analisi dei dati interattivi e Business Intelligence
 
-Apache Spark in HDInsight archivia i dati nell'Archiviazione di Azure o in Azure Data Lake Storage. Gli esperti aziendali e i decision maker possono analizzare e creare report su tali dati, oltra a usare Microsoft Power BI per creare report interattivi dai dati analizzati. Gli analisti possono iniziare a usare dati non strutturati/parzialmente strutturati in una risorsa di archiviazione cluster, definire uno schema per i dati usando notebook e quindi creare modelli di dati usando Microsoft Power BI. I cluster Spark in HDInsight supportano anche diversi strumenti di business intelligence di terze parti, ad esempio Tableau, che semplificano le attività di analisti dei dati, esperti aziendali e decision maker.
+Apache Spark in HDInsight archivia i dati in Archiviazione BLOB di Azure, in Azure Data Lake Gen1 o Azure Data Lake Storage Gen2. Gli esperti aziendali e i decision maker possono analizzare e creare report su tali dati, oltra a usare Microsoft Power BI per creare report interattivi dai dati analizzati. Gli analisti possono iniziare a usare dati non strutturati/parzialmente strutturati in una risorsa di archiviazione cluster, definire uno schema per i dati usando notebook e quindi creare modelli di dati usando Microsoft Power BI. I cluster Spark in HDInsight supportano anche diversi strumenti di business intelligence di terze parti, ad esempio Tableau, che semplificano le attività di analisti dei dati, esperti aziendali e decision maker.
 
 * [Esercitazione: Visualizzare i dati di Spark usando Power BI](apache-spark-use-bi-tools.md)
 
@@ -93,19 +93,12 @@ I cluster Spark in HDInsight offrono un supporto completo per la creazione di so
 * [Panoramica di Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Panoramica di Apache Spark Structured Streaming](apache-spark-structured-streaming-overview.md)
 
-## <a name="where-do-i-start"></a>Dove iniziare?
-
-Per altre informazioni su Apache Spark in HDInsight, è possibile usare gli articoli seguenti:
-
-* [Avvio rapido: Creare un cluster di Apache Spark in HDInsight ed eseguire query interattive usando Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
-* [Esercitazione: Eseguire un processo Apache Spark usando Jupyter](./apache-spark-load-data-run-query.md)
-* [Esercitazione: Analizzare i dati usando gli strumenti di business intelligence](./apache-spark-use-bi-tools.md)
-* [Esercitazione: Machine Learning con Apache Spark](./apache-spark-ipython-notebook-machine-learning.md)
-* [Esercitazione: Creare un'applicazione di Scala Maven usando IntelliJ](./apache-spark-create-standalone-application.md)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa panoramica si ottiene una conoscenza di base di Apache Spark in Azure HDInsight. Informazioni su come creare un cluster Spark in HDInsight ed eseguire alcune query SQL Spark:
+Con questa panoramica sono state acquisite conoscenze di base su Apache Spark in Azure HDInsight.  È possibile usare gli articoli seguenti per altre informazioni su Apache Spark in HDInsight ed è possibile creare un cluster HDInsight Spark ed eseguire alcune query Spark di esempio:
 
-* [Creare un cluster Apache Spark in HDInsight](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [Avvio rapido: Creare un cluster di Apache Spark in HDInsight ed eseguire query interattive usando Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [Esercitazione: Caricare i dati ed eseguire query in un processo Apache Spark con Jupyter](./apache-spark-load-data-run-query.md)
+* [Esercitazione: Visualizzare i dati di Spark usando Power BI](apache-spark-use-bi-tools.md)
+* [Esercitazione: Prevedere la temperatura dell'edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Ottimizzare i processi Spark per ottenere prestazioni ottimali](apache-spark-perf.md)

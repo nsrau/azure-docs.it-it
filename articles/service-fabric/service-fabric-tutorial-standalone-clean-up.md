@@ -1,31 +1,29 @@
 ---
 title: Pulire un cluster autonomo
-description: Questa esercitazione illustra come pulire le risorse di AWS o di Azure in un cluster autonomo di Service Fabric.
-author: dkkapur
+description: Questa esercitazione illustra come pulire le risorse di AWS o di Azure per il cluster autonomo di Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75639021"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842887"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Esercitazione: Pulire il cluster autonomo
 
-I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS o Azure e viene installata un'applicazione al suo interno.
+I cluster autonomi di Service Fabric offrono la possibilità di scegliere un ambiente personalizzato in cui ospitare Service Fabric. In questa serie di esercitazioni verrà creato un cluster autonomo ospitato in AWS o in Azure e verrà distribuita un'applicazione al suo interno.
 
-Questa è la quarta di una serie di esercitazioni. Questa parte dell'esercitazione illustra come pulire le risorse AWS o Azure create per ospitare il cluster di Service Fabric.
+Questa è la quarta di una serie di esercitazioni. Questa parte dell'esercitazione illustra come pulire le risorse di AWS o di Azure create per ospitare il cluster di Service Fabric.
 
-Nella quarta parte della serie si apprenderà come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
-> * Pulire un cluster di Service Fabric
-> * Pulire le risorse di AWS o Azure
+> * Rimuovere un cluster di Service Fabric
+> * Eliminare le risorse di AWS o di Azure
 
-## <a name="clean-up-service-fabric-cluster"></a>Pulire un cluster di Service Fabric
+## <a name="remove-a-service-fabric-cluster"></a>Rimuovere un cluster di Service Fabric
 
 1. Eseguire RDP nella macchina virtuale usata per installare Service Fabric.
 2. Aprire PowerShell.
@@ -36,7 +34,7 @@ Nella quarta parte della serie si apprenderà come:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Immettere `Y` quando richiesto; in caso di esito positivo l'output avrà un aspetto simile al seguente, con gli indirizzi IP sostituiti in:
+5. Quando richiesto, immettere `Y`. In caso di esito positivo l'output sarà simile al seguente, con i propri indirizzi IP:
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -49,23 +47,23 @@ Nella quarta parte della serie si apprenderà come:
   The cluster is successfully removed.
   ```
 
-## <a name="clean-up-aws-resources"></a>Pulire le risorse AWS
+## <a name="delete-aws-resources"></a>Eliminare le risorse di AWS
 
 1. Effettuare l'accesso all'account AWS.
 2. Accedere alla Console EC2.
 3. Selezionare i tre nodi creati nella prima parte dell'esercitazione.
-4. Fare clic su **Azioni** > **Stato istanza** > **Termina**.
+4. Selezionare **Azioni** > **Stato istanza** > **Termina**.
 
-## <a name="clean-up-azure-resources"></a>Pulire le risorse di Azure
+## <a name="delete-azure-resources"></a>Eliminare le risorse di Azure
 
 1. Accedere al portale di Azure.
 2. Andare alla sezione **Macchine virtuali**.
 3. Selezionare le caselle di spunta per i tre nodi creati nella prima parte dell'esercitazione.
-4. Fare clic su **Elimina**.
+4. Selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella quarta parte della serie è stato descritto come pulire le risorse create nei passaggi precedenti.
+In questa esercitazione si è appreso come eliminare le risorse create nei passaggi precedenti.
 
 > [!div class="checklist"]
 > * Pulire le risorse

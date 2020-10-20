@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Lifesize Cloud
 
@@ -137,15 +137,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Lifesize Cloud, seguire
 
 2. Nell'angolo superiore destro fare clic sul proprio nome e quindi su **Impostazioni avanzate**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Screenshot che mostra la voce di menu Impostazioni avanzate.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. Nelle impostazioni avanzate fare clic sul collegamento **SSO Configuration** (Configurazione SSO). Verrà aperta la pagina della configurazione SSO per l'istanza.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Screenshot che mostra la sezione Impostazioni avanzate in cui è possibile selezionare il collegamento S S O Configuration.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Ora configurare i valori seguenti nell'interfaccia utente di configurazione SSO.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Screenshot che mostra la pagina S S O Configuration in cui è possibile immettere i valori descritti.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Nella casella di testo **Identity Provider Issuer** (Autorità di certificazione del provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 

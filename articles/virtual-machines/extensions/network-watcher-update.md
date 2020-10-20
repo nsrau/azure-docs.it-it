@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: e367c348364d03cec6914c99e7ff112803fc58f6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 640b148dc22aa87592a6adcfca99c8ed35731934
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132432"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220588"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Aggiornare l'estensione Network Watcher alla versione più recente
 
@@ -52,20 +52,22 @@ Per aggiornare l'estensione, è necessario essere a conoscenza della versione de
 Eseguire il comando seguente da un prompt dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+Individuare **"AzureNetworkWatcherExtension"** nell'output e identificare il numero di versione dal campo *"TypeHandlerVersion"* nell'output.  Nota: le informazioni sull'estensione vengono visualizzate più volte nell'output JSON. Esaminare il blocco "Extensions" per visualizzare il numero di versione completo dell'estensione. 
 
-Individuare l'estensione AzureNetworkWatcher nell'output. Identificare il numero di versione nel campo "TypeHandlerVersion" nell'output.  
+Verrà visualizzata una schermata simile alla seguente: schermata dell'interfaccia della riga di comando di ![ Azure](./media/network-watcher/azure-cli-screenshot.png)
 
 #### <a name="usepowershell"></a>Usare PowerShell
 
 Eseguire i comandi seguenti da un prompt di PowerShell:
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+Individuare l'estensione Azure Network Watcher nell'output e identificare il numero di versione dal campo *"TypeHandlerVersion"* nell'output.   
 
-Individuare l'estensione AzureNetworkWatcher nell'output. Identificare il numero di versione nel campo "TypeHandlerVersion" nell'output.
+Verrà visualizzata una schermata simile alla seguente: ![ PowerShell](./media/network-watcher/powershell-screenshot.png)
 
 ### <a name="update-your-extension"></a>Aggiornare l'estensione
 
@@ -81,6 +83,25 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 #Windows command
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+```
+
+Se questo non funziona. Rimuovere e installare di nuovo l'estensione, eseguendo la procedura riportata di seguito. Verrà aggiunta automaticamente la versione più recente.
+
+Rimozione dell'estensione 
+
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+Installazione dell'estensione
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
 ```
 
 #### <a name="option-2-use-the-azure-cli"></a>Opzione 2: usare l'interfaccia della riga di comando di Azure

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot con poco codice, conversazioni a più turni
-ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776783"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874425"
 ---
 # <a name="what-is-qna-maker"></a>Informazioni su QnA Maker
 
@@ -83,9 +83,9 @@ QnA Maker fornisce funzionalità di creazione, training e pubblicazione oltre al
 
 Sono disponibili guide di avvio rapido nei linguaggi di programmazione più diffusi, ognuna progettata per insegnare gli schemi progettuali di base e consentire all'utente di eseguire il codice in meno di 10 minuti. Per accedere alla guida di avvio rapido per ogni funzionalità, vedere l'elenco seguente.
 
-* [Introduzione alla libreria client LUIS](../quickstarts/quickstart-sdk.md)
-* [Introduzione al portale LUIS](../quickstarts/create-publish-knowledge-base.md)
-* [Introduzione alle API REST LUIS](../quickstarts/quickstart-rest-curl.md)
+* [Introduzione alla libreria client di QnA Maker](../quickstarts/quickstart-sdk.md)
+* [Introduzione al portale di QnA Maker](../quickstarts/create-publish-knowledge-base.md)
+* [Introduzione alle API REST di QnA Maker](../quickstarts/quickstart-rest-curl.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

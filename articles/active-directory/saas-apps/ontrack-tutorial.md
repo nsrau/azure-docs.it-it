@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544061"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Esercitazione: Integrazione di Azure Active Directory con OnTrack
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OnTrack, seguire questa
 
 5. L'applicazione OnTrack prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attributi utente" con l'icona di modifica selezionata in alto a destra.](common/edit-attribute.png)
 
 6. Oltre quelli elencati in precedenza, l'applicazione OnTrack prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OnTrack, seguire questa
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attestazioni utente" con le azioni "Aggiungi nuova attestazione" e "Salva" selezionate.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

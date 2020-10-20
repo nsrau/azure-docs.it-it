@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521554"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856824"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SignalFx
 
@@ -159,7 +159,7 @@ Esaminare le informazioni seguenti relative a come testare l'accesso Single Sign
         * Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * È possibile accedere all'applicazione SignalFx dal pannello di accesso o tramite una pagina di accesso personalizzata assegnata all'organizzazione. L'utente di test deve testare l'integrazione a partire da una di queste posizioni.
-    * L'utente di test può usare le credenziali create in precedenza in questo processo per **b.simon@contoso.com** .
+    * L'utente di test può usare le credenziali create in precedenza in questo processo per **b.simon\@contoso.com**.
 
 ### <a name="first-time-logins"></a>Primo accesso
 

@@ -1,20 +1,18 @@
 ---
 title: Modificare le quote e i limiti in Azure Data Lake Analytics
 description: Informazioni su come modificare e aumentare le quote e i limiti negli account di Azure Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
-ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87127588"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220840"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Modificare le quote e i limiti in Azure Data Lake Analytics
 
@@ -27,8 +25,9 @@ Informazioni su come modificare e aumentare la quota e i limiti negli account di
 Se si tenta di creare un sesto account di ADLA, si ottiene un messaggio di errore che indica che è stato raggiunto il numero massimo di account di Data Lake Analytics consentiti (5) nell'area sotto il nome della sottoscrizione.
 
 Per superare questo limite, è possibile provare queste opzioni:
-* Scegliere un'altra area, se appropriato
-* Contattare il supporto di Azure [aprendo un ticket di supporto](#increase-maximum-quota-limits) per richiedere un aumento della quota.
+
+- Scegliere un'altra area, se appropriato
+- Contattare il supporto di Azure [aprendo un ticket di supporto](#increase-maximum-quota-limits) per richiedere un aumento della quota.
 
 ## <a name="default-adla-account-limits"></a>Limiti predefiniti degli account di ADLA
 
@@ -36,8 +35,8 @@ Per superare questo limite, è possibile provare queste opzioni:
 
 Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio:
 
-* Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
-* Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.
+- Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
+- Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.
 
     ![Pagina limiti e quota Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
@@ -62,18 +61,21 @@ Questo è il numero massimo di processi che si possono eseguire contemporaneamen
 
 1. Aprire una richiesta di supporto nel portale di Azure.
 
-    ![Pagina del portale di Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+   ![Portale di Azure Data Lake Analytics-Guida e supporto tecnico](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Pagina del portale di Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+   ![Nuova richiesta di supporto per Azure Data Lake Analytics portale](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+
 2. Selezionare il tipo di problema **Quota**.
+
 3. Selezionare la **sottoscrizione** (assicurarsi che non sia una sottoscrizione di prova).
+
 4. Selezionare il tipo di quota **Data Lake Analytics**.
 
-    ![Pagina del portale di Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+   ![Tipo di quota della richiesta di supporto Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
 5. Nella pagina del problema indicare la richiesta di aumento del limite con i **dettagli** del motivo per cui viene richiesta la capacità aggiuntiva.
 
-    ![Pagina del portale di Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+   ![Dettagli della richiesta di supporto Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. Verificare le informazioni di contatto e creare la richiesta di supporto.
 
@@ -81,6 +83,6 @@ Microsoft esamina la richiesta e tenta di eseguire l’operazione richiesta appe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitorare e risolvere i problemi Azure Data Lake Analytics processi utilizzando portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Monitorare e risolvere i problemi Azure Data Lake Analytics processi utilizzando portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

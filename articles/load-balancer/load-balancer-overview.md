@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299202"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017727"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -80,10 +80,8 @@ Vedere [Contratto di servizio per Load Balancer](https://aka.ms/lbsla). Load Bal
 Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti di Azure Load Balancer nella pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Aggiornare Load Balancer Basic](upgrade-basic-standard.md) per aggiornare Load Balancer Basic a Load Balancer Standard.
 
-Per iniziare a usare il servizio Load Balancer, vedere [Creare un servizio Load Balancer Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
+Per iniziare a usare un servizio di bilanciamento del carico, vedere [Creare un servizio di bilanciamento del carico Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
 
 Per altre informazioni su componenti e limiti di Azure Load Balancer, vedere [Componenti di Azure Load Balancer](./components.md) e [Concetti di Azure Load Balancer](./concepts.md).
 
-Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

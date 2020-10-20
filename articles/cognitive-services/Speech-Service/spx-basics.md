@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854890"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893816"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Nozioni di base sull'interfaccia della riga di comando per Voce
 
@@ -69,6 +69,51 @@ In questo comando è possibile specificare sia la lingua di origine (lingua **da
 
 > [!NOTE]
 > Per un elenco di tutte le lingue supportate con i rispettivi codici delle impostazioni locali, vedere l'[articolo relativo alla lingua e alle impostazioni locali](language-support.md).
+
+### <a name="configuration-files-in-the-datastore"></a>File di configurazione nell'archivio dati
+
+L'interfaccia della riga di comando del servizio Voce può eseguire la lettura e la scrittura di più impostazioni nei file di configurazione, che sono archiviati nell'archivio dati locale dell'interfaccia della riga di comando del servizio Voce e che sono denominati all'interno delle chiamate dell'interfaccia della riga di comando del servizio Voce usando il simbolo @. L'interfaccia della riga di comando del servizio Voce tenta di salvare una nuova impostazione in una nuova sottodirectory `./spx/data` creata nella directory di lavoro corrente.
+Quando si cerca un valore di configurazione, l'interfaccia della riga di comando del servizio Voce esegue la ricerca nella directory di lavoro corrente, quindi nel percorso `./spx/data`.
+In precedenza, si usava l'archivio dati per salvare i valori `@key` e `@region`, quindi non era necessario specificarli con ogni chiamata della riga di comando.
+È anche possibile usare i file di configurazione per archiviare le proprie impostazioni di configurazione o usarli per passare URL o altri contenuti dinamici generati in fase di esecuzione.
+
+Questa sezione mostra come usare un file di configurazione nell'archivio dati locale per archiviare e recuperare le impostazioni dei comandi usando `spx config` e archiviare l'output dell'interfaccia della riga di comando del servizio Voce usando l'opzione `--output`.
+
+Nell'esempio seguente viene cancellato il file di configurazione `@my.defaults`, vengono aggiunte coppie chiave-valore per **chiave** e **area** nel file e viene usata la configurazione in una chiamata a `spx recognize`.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+È anche possibile eseguire la scrittura di contenuto dinamico in un file di configurazione. Il comando seguente ad esempio crea un modello di conversione voce/testo personalizzato e archivia l'URL del nuovo modello in un file di configurazione. Il comando successivo attende fino a quando il modello in tale URL non è pronto per l'uso prima di restituire il risultato.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+L'esempio seguente esegue la scrittura di due URL nel file di configurazione `@my.datasets.txt`.
+In questo scenario, `--output` può includere una parola chiave **add** facoltativa per creare un file di configurazione o accodarlo a quello esistente.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Per informazioni dettagliate sui file di archivio dati, incluso l'utilizzo dei file di configurazione predefiniti (`@spx.default`, `@default.config` e `@*.default.config` per le impostazioni predefinite specifiche dei comandi), immettere questo comando:
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Operazioni batch
 

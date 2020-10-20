@@ -2,14 +2,14 @@
 title: Panoramica dei server con abilitazione di Azure Arc
 description: Informazioni su come usare i server con abilitazione di Azure Arc per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 9fcac35f943eefb15a200e9b148b22ce67cc3941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90887531"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818749"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -21,7 +21,7 @@ Per offrire questa esperienza con le macchine virtuali ibride ospitate all'ester
 
 Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, è possibile eseguire le attività di gestione della configurazione e di monitoraggio seguenti:
 
-- Assegnare [configurazioni guest di Criteri di Azure](../../governance/policy/concepts/guest-configuration.md) usando la stessa esperienza dell'assegnazione dei criteri per le macchine virtuali di Azure.
+- Assegnare [configurazioni guest di Criteri di Azure](../../governance/policy/concepts/guest-configuration.md) usando la stessa esperienza dell'assegnazione dei criteri per le macchine virtuali di Azure. Oggi la maggior parte dei criteri di Configurazione guest non applicano configurazioni, ma si limitano a controllare le impostazioni all'interno del computer. Per informazioni sul costo associato all'uso dei criteri di Configurazione guest di Criteri di Azure con server con abilitazione di Arc, vedere la [guida sui prezzi](https://azure.microsoft.com/pricing/details/azure-policy/) di Criteri di Azure.
 
 - Creare report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al Registro di sistema e ai file di Windows, nonché ai daemon Linux nei server monitorati usando [Rilevamento modifiche e inventario](../../automation/change-tracking.md) di Automazione di Azure.
 

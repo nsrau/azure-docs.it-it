@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554661"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Esercitazione: integrazione di Azure Active Directory con moconavi
 
@@ -191,15 +191,15 @@ In questa sezione viene creato un utente di nome Britta Simon in moconavi. Colla
 
 3. Fare clic sul pulsante **Connect setting** (Impostazione di connessione).
 
-    ![Test dell'accesso Single Sign-On](./media/moconavi-tutorial/testing1.png)
+    ![Screenshot che mostra moconavi con il pulsante Connection setting.](./media/moconavi-tutorial/testing1.png)
 
 4. Immettere `https://mcs-admin.moconavi.biz/gateway` nella casella di testo **Connect to URL** (Connetti all'URL) e quindi fare clic sul pulsante **Done** (Fatto).
 
-    ![Test dell'accesso Single Sign-On](./media/moconavi-tutorial/testing2.png)
+    ![Screenshot che mostra la casella Connect to U R L e il pulsante Done.](./media/moconavi-tutorial/testing2.png)
 
 5. Nella schermata riportata di seguito seguire questa procedura:
 
-    ![Test dell'accesso Single Sign-On](./media/moconavi-tutorial/testing3.png)
+    ![Screenshot che mostra la pagina moconavi in cui è possibile immettere i valori descritti.](./media/moconavi-tutorial/testing3.png)
 
     a. Immettere la **chiave di autenticazione di input**:`azureAD` nella casella di testo **Input Authentication Key** (Chiave di autenticazione di input).
 
@@ -209,11 +209,11 @@ In questa sezione viene creato un utente di nome Britta Simon in moconavi. Colla
 
 6. Immettere la password di Azure AD nella casella di testo **Password** e quindi fare clic sul pulsante **Login** (Accedi).
 
-    ![Test dell'accesso Single Sign-On](./media/moconavi-tutorial/testing4.png)
+    ![Schermata che mostra dove immettere la password di Azure A D.](./media/moconavi-tutorial/testing4.png)
 
 7. L'autenticazione di Azure AD ha esito positivo quando viene visualizzato il menu.
 
-    ![Test dell'accesso Single Sign-On](./media/moconavi-tutorial/testing5.png)
+    ![Screenshot che mostra l'icona del telefono in moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

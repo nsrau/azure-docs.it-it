@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bef0b2d0387b82140e9874f837d9464408d78090
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 05fd1fc23afc72174f5454c805dd59a6eb2e9714
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546968"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Esercitazione: Integrazione di Azure Active Directory con Kantega SSO for Confluence
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Kantega SSO for Confluence](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con i campi "Identificatore" e "U R L di risposta" evidenziati e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,47 +134,47 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 1. Passare il puntatore del mouse sulla rotellina e scegliere **Add-ons** (Componenti aggiuntivi).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon1.png)
+    ![Screenshot che mostra l'icona della rotellina e l'opzione "Add-ons" selezionate.](./media/kantegassoforconfluence-tutorial/addon1.png)
 
 1. Nella scheda **ATLASSIAN MARKETPLACE** (MARKETPLACE DI ATLASSIAN) fare clic su **Find new add-ons** (Trova nuovi componenti aggiuntivi).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon.png)
+    ![Screenshot che mostra la scheda "ATTLASSIAN MARKETPLACE" con l'opzione "Find new add-ons" selezionata.](./media/kantegassoforconfluence-tutorial/addon.png)
 
 1. Cercare **Kantega SSO for Confluence SAML Kerberos** e fare clic su **Install** (Installa) per installare il nuovo plug-in di SAML.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon2.png)
+    ![Screenshot che mostra la sezione "Find new add-ons" con "Kantega S S O for Confluence S A M L & Kerberos" nella casella di ricerca e il pulsante "Install" selezionato.](./media/kantegassoforconfluence-tutorial/addon2.png)
 
 1. Viene avviata l'installazione del plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon3.png)
+    ![Screenshot che mostra la schermata di installazione del plug-in.](./media/kantegassoforconfluence-tutorial/addon3.png)
 
 1. Al termine dell'installazione, Fare clic su **Close**.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon33.png)
+    ![Screenshot che mostra la schermata "Installed and ready to go" con il pulsante "Close" selezionato.](./media/kantegassoforconfluence-tutorial/addon33.png)
 
 1. Fare clic su **Manage**.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon34.png)
+    ![Screenshot che mostra il plug-in "Kantega Single Sign-on with Kerberos and S A M L" con il pulsante "Manage" selezionato.](./media/kantegassoforconfluence-tutorial/addon34.png)
 
 1. Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon35.png)
+    ![Screenshot che mostra la pagina "Kantega Single Sign-on with Kerberos and S A M L" con il pulsante "Configure" selezionato.](./media/kantegassoforconfluence-tutorial/addon35.png)
 
 1. Questo nuovo plug-in è disponibile anche nella scheda**USERS & SECURITY** (UTENTI E SICUREZZA).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon36.png)
+    ![Screenshot che mostra la scheda "USERS & SECURITY"" con l'azione "Kantega Single Sign-On" selezionata.](./media/kantegassoforconfluence-tutorial/addon36.png)
 
 1. Nella sezione **SAML** Selezionare **Azure Active Directory (Azure AD)** dall'elenco a discesa **Add identity provider** (Aggiungi provider di identità).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon4.png)
+    ![Screenshot che mostra la sezione "S A M L" con le opzioni "Add Identity provider" e "Azure Active Directory (Azure AD)" selezionate.](./media/kantegassoforconfluence-tutorial/addon4.png)
 
 1. Selezionare il livello di sottoscrizione **Basic** (Di base).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon5.png)
+    ![Screenshot che mostra la pagina "Preparing Azure AD" con l'opzione "Basic" selezionata.](./media/kantegassoforconfluence-tutorial/addon5.png)
 
 1. Nella sezione **App properties** (Proprietà app) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon6.png)
+    ![Screenshot che mostra la sezione "App properties" con il campo "App I D U R L" evidenziata, il pulsante "Copy" evidenziato e il pulsante "Next" selezionato.](./media/kantegassoforconfluence-tutorial/addon6.png)
 
     a. Copiare il valore di **App ID URI** (URI ID App) e usarlo come valore di **Identificatore, URL di risposta e URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -182,7 +182,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 1. Nella sezione **Metadata import** (Importazione metadati) seguire questa procedura: 
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon7.png)
+    ![Screenshot che mostra la sezione "Metadata import" con l'opzione "Metadata file on my computer" selezionata.](./media/kantegassoforconfluence-tutorial/addon7.png)
 
     a. Selezionare **Metadata file on my computer** (File metadati in questo computer) e caricare il file di metadati scaricato dal portale di Azure.
 
@@ -190,7 +190,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 1. Nella sezione **Name and SSO location** (Nome e percorso SSO) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon8.png)
+    ![Screenshot che mostra la sezione "Name and S S O location" con la casella di testo "Identity provider name" evidenziata e il pulsante "Next" selezionato.](./media/kantegassoforconfluence-tutorial/addon8.png)
 
     a. Aggiungere il nome del provider di identità nella casella di testo **Identity provider name** (Nome provider di identità), ad esempio Azure AD.
 
@@ -198,11 +198,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 1. Verificare il certificato di firma e fare clic su **Next** (Avanti).
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon9.png)
+    ![Screenshot che mostra la sezione "Signature verification" con il pulsante "Next" selezionato.](./media/kantegassoforconfluence-tutorial/addon9.png)
 
 1. Nella sezione **Confluence user accounts** (Account utente Confluence) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon10.png)
+    ![Screenshot che mostra la sezione "Confluence user accounts" con l'opzione "Create users in Confluence's Internal Directory if needed" e il pulsante "Next" selezionati.](./media/kantegassoforconfluence-tutorial/addon10.png)
 
     a. Selezionare **Create users in Confluence's internal Directory if needed** (Crea utenti nella directory interna di Confluence se necessario) e immettere il nome appropriato del gruppo per gli utenti (è possibile specificare più gruppi separati da virgola).
 
@@ -210,11 +210,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Conflue
 
 1. Fare clic su **Fine**.
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon11.png)
+    ![Screenshot della pagina "Summary" con il pulsante "Finish" selezionato.](./media/kantegassoforconfluence-tutorial/addon11.png)
 
 1. Nella sezione **Known domains for Azure AD** (Domini noti per Azure AD) seguire questa procedura: 
 
-    ![Configure Single Sign-On](./media/kantegassoforconfluence-tutorial/addon12.png)
+    ![Screenshot che mostra la pagina "Known domains for Azure AD" con la casella di testo "Known domains" evidenziata e il pulsante "Save" selezionato.](./media/kantegassoforconfluence-tutorial/addon12.png)
 
     a. Selezionare **Known domains** (Domini noti) dal pannello sinistro della pagina.
 
@@ -283,7 +283,7 @@ Per consentire agli utenti di Azure AD di accedere a Confluence, è necessario e
 
 1. Passare il puntatore del mouse e fare clic su **User management** (Gestione utenti).
 
-    ![Aggiungere un dipendente](./media/kantegassoforconfluence-tutorial/user1.png)
+    ![Screenshot che mostra l'icona della rotellina e l'opzione "User management" selezionate.](./media/kantegassoforconfluence-tutorial/user1.png)
 
 1. Nella sezione Users (Utenti) fare clic sula scheda **Add users** (Aggiungi utenti). Nella pagina della finestra di dialogo **Add a User** (Aggiungi un utente) eseguire la procedura seguente:
 

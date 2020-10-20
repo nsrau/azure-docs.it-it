@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420558"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048288"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Esercitazione: Creare e gestire connessioni VPN da sito a sito con PowerShell
 
@@ -33,7 +33,7 @@ Il diagramma seguente illustra la topologia per questa esercitazione:
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>Requisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la prima esercitazione: [Creare un gateway VPN con Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) per creare le risorse seguenti:
 
@@ -242,8 +242,7 @@ In questa esercitazione si è appreso come creare e gestire connessioni VPN da s
 > * Aggiungere altre connessioni VPN
 > * Eliminare una connessione VPN
 
-Passare alle esercitazioni seguenti per informazioni sulle connessioni da sito a sito, da rete virtuale a rete virtuale e da punto a sito.
+Successivamente, è possibile aggiungere una connessione da punto a sito:
 
 > [!div class="nextstepaction"]
-> * [Creare connessioni da rete virtuale a rete virtuale](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Creare connessioni da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

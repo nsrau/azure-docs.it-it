@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251899"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044956"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -39,6 +39,10 @@ Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer S
 
 Se si preferisce, usare l'[interfaccia della riga di comando di Azure](load-balancer-standard-public-zonal-cli.md) per completare questa esercitazione.
 
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -50,7 +54,7 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupZLB* nella casella di testo.|
@@ -228,5 +232,6 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di b
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md).
-- [Bilanciare il carico delle VM tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Per informazioni su come bilanciare il carico delle VM tra zone di disponibilità, procedere con l'articolo successivo.
+> [!div class="nextstepaction"]
+> [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

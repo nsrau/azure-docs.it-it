@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286931"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855209"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Palo Alto Networks - GlobalProtect
 
@@ -117,7 +117,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Configurare l'accesso Single Sign-On di Palo Alto Networks - GlobalProtect
 
-1. Aprire Palo Alto Networks Firewall GlobalProtect come amministratore in un'altra finestra del browser.
+1. Aprire Palo Alto Networks - GlobalProtect come amministratore in un'altra finestra del browser.
 
 2. Fare clic su **Device** (Dispositivo).
 

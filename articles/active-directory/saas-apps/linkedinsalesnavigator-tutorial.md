@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cab4cd34458e6107c653859c97dfda12486a38a1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32b856a80209c015c9fc96029bdf8d540b340c25
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549744"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858184"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-sales-navigator"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con LinkedIn Sales Navigator
 
@@ -145,11 +145,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In **Account Center** (Centro account) fare clic su **Global Settings** (Impostazioni globali) in **Settings** (Impostazioni). Selezionare **Sales Navigator** nell'elenco a discesa.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+    ![Screenshot che mostra la sezione Application Settings in cui è possibile selezionare l'opzione Sales Navigator.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Fare clic su **OR Click Here to load and copy individual fields from the form** (OPPURE fare clic qui per caricare e copiare singoli campi del modulo) e seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+    ![Screenshot che mostra la sezione Single Sign-On in cui è possibile immettere i valori descritti.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
     a. Copiare il valore di **Entity Id** (ID entità) e incollarlo nella casella di testo **Identificatore** in **Configurazione SAML di base** del portale di Azure.
 
@@ -157,11 +157,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Accedere alla sezione **LinkedIn Admin Settings** (Impostazioni di amministrazione LinkedIn). Per caricare il file XML scaricato dal portale di Azure, fare clic sull'opzione **Upload XML file** (Carica il file XML).
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Screenshot che mostra la sezione Configure the LinkedIn service provider SSO settings in cui è possibile caricare un file XML.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Fare clic su **On** per abilitare SSO. Lo stato SSO passa da **Not Connected** (Non connesso) a **Connected** (Connesso)
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+    ![Screenshot che mostra la sezione Single Sign-On in cui è possibile abilitare l'opzione Authenticate users with SSO.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-sales-navigator-test-user"></a>Creare l'utente di test di LinkedIn Sales Navigator
 
