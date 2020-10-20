@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f35f1d390762d3f83176d7b36db8959dc5ed0157
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653384"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204878"
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.
@@ -64,7 +64,7 @@ Per ottimizzare il routing per gli utenti di entrambi gli uffici, è necessario 
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Routing non ottimale da Microsoft al cliente
-Ecco un altro esempio in cui le connessioni da Microsoft usano un percorso più lungo per raggiungere la rete del cliente. In questo caso, si usano i server di Exchange in locale ed Exchange Online in un [ambiente ibrido](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Gli uffici sono connessi a una rete WAN. Si annunciano a Microsoft i prefissi dei server locali in entrambi gli uffici tramite i due circuiti ExpressRoute. Nel caso, ad esempio, di migrazione delle cassette postali, Exchange Online avvierà le connessioni ai server locali. La connessione all'ufficio di Los Angeles viene purtroppo instradata al circuito ExpressRoute negli Stati Uniti orientali, attraversando l'intero continente prima di ritornare alla costa occidentale. La causa di questo problema è simile a quella del primo. Senza indicazioni la rete Microsoft non può stabilire quale prefisso del cliente è più vicino agli Stati Uniti orientali e quale agli Stati Uniti occidentali. Può quindi accadere che venga scelga il percorso errato per l'ufficio di Los Angeles.
+Ecco un altro esempio in cui le connessioni da Microsoft usano un percorso più lungo per raggiungere la rete del cliente. In questo caso, si usano i server di Exchange in locale ed Exchange Online in un [ambiente ibrido](/exchange/exchange-hybrid). Gli uffici sono connessi a una rete WAN. Si annunciano a Microsoft i prefissi dei server locali in entrambi gli uffici tramite i due circuiti ExpressRoute. Nel caso, ad esempio, di migrazione delle cassette postali, Exchange Online avvierà le connessioni ai server locali. La connessione all'ufficio di Los Angeles viene purtroppo instradata al circuito ExpressRoute negli Stati Uniti orientali, attraversando l'intero continente prima di ritornare alla costa occidentale. La causa di questo problema è simile a quella del primo. Senza indicazioni la rete Microsoft non può stabilire quale prefisso del cliente è più vicino agli Stati Uniti orientali e quale agli Stati Uniti occidentali. Può quindi accadere che venga scelga il percorso errato per l'ufficio di Los Angeles.
 
 ![Caso 2 ExpressRoute: routing non ottimale da Microsoft al cliente](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
