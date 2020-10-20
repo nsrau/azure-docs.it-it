@@ -8,12 +8,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856433"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207581"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architetture di continuità aziendale di Azure HDInsight
 
@@ -24,7 +24,7 @@ Questo articolo fornisce alcuni esempi di architetture di continuità aziendale 
 
 ## <a name="apache-hive-and-interactive-query"></a>Apache Hive e query interattive
 
-La [replica hive V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) è l'opzione consigliata per la continuità aziendale nei cluster HDInsight hive e Interactive query. Le sezioni persistenti di un cluster hive autonomo che devono essere replicate sono il livello di archiviazione e il metastore Hive. I cluster hive in uno scenario multiutente con Enterprise Security Package necessitano di Azure Active Directory Domain Services e Metastore Ranger.
+La [replica di hive V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) è consigliata per la continuità aziendale nei cluster HDInsight hive e Interactive query. Le sezioni persistenti di un cluster hive autonomo che devono essere replicate sono il livello di archiviazione e il metastore Hive. I cluster hive in uno scenario multiutente con Enterprise Security Package necessitano di Azure Active Directory Domain Services e Metastore Ranger.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Architettura Interactive query e hive":::
 
@@ -57,6 +57,8 @@ In una replica *primaria attiva con architettura secondaria su richiesta* , le a
 In una replica *primaria attiva con la replica secondaria standby*, le applicazioni scrivono nell'area primaria attiva mentre un cluster secondario con scalabilità in standby viene eseguito in modalità di sola lettura durante le normali operazioni. Durante le normali operazioni, è possibile scegliere di eseguire l'offload delle operazioni di lettura specifiche dell'area nel database secondario.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architettura Interactive query e hive":::
+
+Per altre informazioni sulla replica di hive e sugli esempi di codice, vedere [Apache hive replica nei cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

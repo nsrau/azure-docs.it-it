@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc79261035ef0f8671b9e43e1332ad68d1c9d39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654187"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203756"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modifiche ai certificati TLS di Azure  
 
@@ -22,11 +22,11 @@ Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi
 
 ## <a name="when-will-this-change-happen"></a>Quando verrà applicata questa modifica?
 
-- Il servizio [Azure Active Directory](/azure/active-directory) (Azure ad) ha iniziato questa transizione il 7 luglio 2020.
+- La transizione dei servizi di [Azure Active Directory](/azure/active-directory) (Azure AD) inizia il 7 luglio 2020.
 - Tutti gli endpoint TLS/SSL di Azure appena creati contengono certificati aggiornati concatenati alle nuove CA radice.
-- La transizione degli endpoint di Azure esistenti verrà avviata in fasi a partire dal 13 agosto 2020 e verrà completata entro il 26 ottobre 2020.
+- Gli endpoint di Azure esistenti eseguiranno la transizione in modo graduale a partire dal 13 agosto 2020.
 - L'[hub IoT di Azure](https://azure.microsoft.com/services/iot-hub) e il [servizio Device Provisioning](/azure/iot-dps/) rimarranno di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Archiviazione di Azure](/azure/storage) rimarrà nell'autorità di certificazione radice Baltimore Cybertrust, ma le autorità di certificazione intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- I servizio [Archiviazione di Azure](/azure/storage) rimarrà di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
 > [!IMPORTANT]
 > Dopo questa modifica, è possibile che i clienti debbano aggiornare le loro applicazioni per evitare problemi di connettività quando provano a connettersi ai servizi di Azure.
@@ -56,20 +56,20 @@ I certificati della CA corrente *non* verranno revocati fino al 15 febbraio 2021
 
 Se questa data cambia, si riceverà un avviso sulla nuova data di revoca.
 
-## <a name="will-this-change-affect-me"></a>Questa modifica avrà effetto? 
+## <a name="will-this-change-affect-me"></a>Quali sono gli effetti di questa modifica? 
 
 Si prevede che la modifica **non influirà sulla maggior parte dei clienti di Azure non**.  Tuttavia, le applicazioni potrebbero essere interessate se specificano esplicitamente un elenco di CA accettabili. Questa procedura è nota come associazione di certificati.
 
 Ecco come rilevare se un'applicazione è interessata:
 
-- Cercare nel codice sorgente l'identificazione personale, il nome comune e altre proprietà del certificato di una delle CA TLS di Microsoft IT riportate [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). Se si trova una corrispondenza, l'applicazione sarà interessata. Per risolvere il problema, aggiornare il codice sorgente per includere le nuove CA. Come procedura consigliata, assicurarsi che le autorità di certificazione possono essere aggiunte o modificate in breve preavviso. Le normative di settore richiedono la sostituzione dei certificati della CA entro sette giorni, quindi i clienti che si affidano al blocco devono rispondere rapidamente.
+- Cercare nel codice sorgente l'identificazione personale, il nome comune e altre proprietà del certificato di una delle CA TLS di Microsoft IT riportate [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). Se si trova una corrispondenza, l'applicazione sarà interessata. Per risolvere il problema, aggiornare il codice sorgente per includere le nuove CA. Come procedura consigliata, assicurarsi che le CA possano essere aggiunte o modificate con un breve preavviso. Le normative di settore richiedono la sostituzione dei certificati delle CA entro sette giorni, quindi i clienti che si basano sull'associazione dovranno reagire rapidamente.
 
 - Se un'applicazione si integra con API di Azure o con altri servizi di Azure e non si sa se usa l'associazione di certificati, contattare il fornitore dell'applicazione.
 
 - Per sistemi operativi e runtime di linguaggi diversi che comunicano con i servizi di Azure può essere necessario eseguire passaggi aggiuntivi per creare correttamente la catena di certificati con queste nuove radici:
-    - **Linux**: per molte distribuzioni è necessario aggiungere CA a/etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
+    - **Linux**: per molte distribuzioni è necessario aggiungere le CA e in /etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
     - **Java**: verificare che l'archivio chiavi Java contenga le CA elencate sopra.
-    - **Windows in esecuzione in ambienti disconnessi**: i sistemi in esecuzione in ambienti disconnessi dovranno avere le nuove radici aggiunte all'archivio delle autorità di certificazione radice attendibili e i intermedi aggiunti all'archivio delle autorità di certificazione intermedie.
+    - **Windows in esecuzione in ambienti disconnessi**: per i sistemi in esecuzione in ambienti disconnessi sarà necessario aggiungere le nuove radici all'archivio di autorità di certificazione radice attendibili e le CA intermedie all'archivio di autorità di certificazione intermedie.
     - **Android**: controllare la documentazione relativa al dispositivo e alla versione di Android.
     - **Altri dispositivi hardware, soprattutto IoT**: contattare il produttore del dispositivo.
 

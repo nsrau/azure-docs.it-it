@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044497"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206578"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemi comuni durante la certificazione delle immagini di macchine virtuali per Azure Marketplace
 
@@ -35,7 +35,7 @@ Per risolvere questo problema, recuperare l'immagine da Azure Marketplace e appo
 - [Immagini di Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Se si usa un'immagine di base Linux non ricavata da Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM nel Marketplace.  
+> Se si usa un'immagine di base Linux non ricavata da Azure Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM in Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
@@ -87,7 +87,7 @@ Se si sta tentando di installare Visual Studio o un prodotto concesso in licenza
 
 Per altre informazioni sulla selezione di una base approvata, vedere [creare le risorse tecniche della macchina virtuale di Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Esecuzione test case del kit di strumenti non riuscita 
+## <a name="tool-kit-test-case-execution-failed"></a>Esecuzione test case del kit di strumenti non riuscita
 
 Microsoft Certification Toolkit può essere utile per eseguire i test case e verificare che il disco rigido virtuale o l'immagine siano compatibili con l'ambiente Azure.
 
@@ -145,7 +145,7 @@ Nella tabella seguente sono elencati i test case di Windows che verranno eseguit
 |16|Windows Internet Name Service|Windows Internet Name Service. Questa funzionalità server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
 |17|Servizio LAN Wireless|Servizio LAN wireless. Questa funzionalità server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
 
-Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Se sono necessarie altre informazioni, contattare il team di supporto. 
+Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Se sono necessarie altre informazioni, contattare il team di supporto.
 
 ## <a name="data-disk-size-verification"></a>Verifica delle dimensioni del disco dati
 
@@ -199,8 +199,8 @@ Aggiornare il kernel con una versione approvata e inviare nuovamente la richiest
 
 Se l'immagine non è installata con una delle seguenti versioni del kernel, aggiornarla con le patch corrette. Richiedere l'approvazione necessaria al team di supporto dopo che l'immagine è stata aggiornata con le patch richieste seguenti:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Famiglia del sistema operativo|Versione|Kernel|
@@ -261,12 +261,12 @@ Se si verificano problemi di accesso negato durante l'esecuzione dei test case n
 Verificare se è abilitato l'accesso corretto per l'account in cui sono in esecuzione i test case autonomi. Se l'accesso non è abilitato, abilitarlo per l'esecuzione dei test case. Se non si vuole abilitare l'accesso, è possibile condividere i risultati della test case automatica con il team di supporto.
 
 ## <a name="download-failure"></a>Errore di download
-    
+
 Vedere la tabella seguente per eventuali problemi che si verificano quando si scarica l'immagine di macchina virtuale usando un URL di firma di accesso condiviso (SAS).
 
 |Scenario|Errore|Motivo|Soluzione|
 |---|---|---|---|
-|1|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.|| 
+|1|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.||
 |2|BLOB in uso|Il disco rigido virtuale viene usato da un altro processo interno.|Il disco rigido virtuale deve trovarsi nello stato usato quando lo si Scarica usando un URL di firma di accesso condiviso.|
 |3|URL SAS non valido|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
 |4|Firma non valida|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
@@ -317,7 +317,7 @@ Per le soluzioni a errori correlati al disco dati, usare la tabella seguente:
 
 ## <a name="remote-access-issue"></a>Problema di accesso remoto
 
-Se l'opzione Remote Desktop Protocol (RDP) non è abilitata per l'immagine di Windows, verrà visualizzato questo errore. 
+Se l'opzione Remote Desktop Protocol (RDP) non è abilitata per l'immagine di Windows, verrà visualizzato questo errore.
 
 Abilitare l'accesso RDP per le immagini Windows prima di inviarli.
 
@@ -334,11 +334,11 @@ Passaggio 2: Selezionare la prima opzione "RunShellScript" ed eseguire il comand
 
 Comando: "cat/dev/null > ~/.bash_history && History-c" ![ bash History Command on portale di Azure](./media/vm-certification-issues-solutions-4.png)
 
-Passaggio 3. Al termine dell'esecuzione del comando, riavviare la macchina virtuale.
+Passaggio 3. al termine dell'esecuzione del comando, riavviare la macchina virtuale.
 
-Passaggio 4. Generalizzare la VM, estrarre il disco rigido virtuale dell'immagine e arrestare la macchina virtuale.
+Passaggio 4. generalizzare la VM, estrarre il disco rigido virtuale dell'immagine e arrestare la macchina virtuale.
 
-Passaggio 5.     Re-Submit l'immagine generalizzata.
+Passaggio 5. Re-Submit l'immagine generalizzata.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Richiesta di eccezioni (modelli personalizzati) sulle immagini di VM per i test selettivi
 
@@ -349,7 +349,7 @@ Nelle sezioni seguenti verranno illustrati gli scenari principali in cui vengono
 
 Scenari per l'eccezione
 
-Esistono tre scenari/casi in cui i Publisher richiedono in genere queste eccezioni. 
+Esistono tre scenari/casi in cui i Publisher richiedono in genere queste eccezioni.
 
 * **Eccezione per uno o più test case:** Gli editori possono raggiungere le eccezioni di richiesta del supporto per l' [editore del Marketplace](https://aka.ms/marketplacepublishersupport) per i test case. 
 
@@ -357,20 +357,22 @@ Esistono tre scenari/casi in cui i Publisher richiedono in genere queste eccezio
        In questo caso, i server di pubblicazione possono scaricare lo [strumento di test certificato](https://aka.ms/AzureCertificationTestTool) e fornire il report al supporto per gli editori del [Marketplace](https://aka.ms/marketplacepublishersupport)
 
 
-* **Modelli personalizzati:** Alcuni editori pubblicano immagini di VM che richiedono un modello ARM personalizzato per distribuire le macchine virtuali. In questo caso, è necessario che gli editori forniscano i modelli personalizzati del supporto per l' [editore del Marketplace](https://aka.ms/marketplacepublishersupport) , in modo che possano essere usati dal team di certificazione per la convalida. 
+* **Modelli personalizzati:** Alcuni editori pubblicano immagini di VM che richiedono un modello ARM personalizzato per distribuire le macchine virtuali.
+
+In questo caso, è necessario che gli editori forniscano i modelli personalizzati del supporto per l' [editore del Marketplace](https://aka.ms/marketplacepublishersupport) , in modo che possano essere usati dal team di certificazione per la convalida.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>Informazioni da fornire per gli scenari di eccezione
 
 Gli editori devono rivolgersi al supporto tecnico di [Marketplace Publisher](https://aka.ms/marketplacepublishersupport) per la richiesta di eccezioni per lo scenario precedente con le informazioni aggiuntive seguenti:
 
-   1.   ID editore: ID editore nel portale del centro per i partner
-   2.   ID offerta/nome: ID offerta/nome per cui è richiesta l'eccezione 
-   3.   ID dello SKU/piano: ID del piano/SKU dell'offerta di macchina virtuale per cui è richiesta l'eccezione
-   4.    Version (versione): la versione dell'offerta di macchina virtuale per cui è richiesta l'eccezione
-   5.   Tipo di eccezione: test, macchine virtuali bloccate, modelli personalizzati
-   6.   Motivo della richiesta: motivo dell'eccezione e informazioni sui test da esentare 
-   7. Sequenza temporale-data fino alla quale è stata richiesta questa eccezione 
-   8.   Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
+   1. ID editore: ID editore nel portale del centro per i partner
+   1. ID offerta/nome: ID offerta/nome per cui è richiesta l'eccezione 
+   1. ID dello SKU/piano: ID del piano/SKU dell'offerta di macchina virtuale per cui è richiesta l'eccezione
+   1. Version (versione): la versione dell'offerta di macchina virtuale per cui è richiesta l'eccezione
+   1. Tipo di eccezione: test, macchine virtuali bloccate, modelli personalizzati
+   1. Motivo della richiesta: motivo dell'eccezione e informazioni sui test da esentare 
+   1. Sequenza temporale-data fino alla quale è stata richiesta questa eccezione 
+   1. Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Come risolvere una vulnerabilità o sfruttare gli exploit in un'offerta di macchina virtuale
 
@@ -403,7 +405,7 @@ Per completare questi passaggi, è necessario preparare l'asset tecnico per l'im
 1. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano a cui si vuole aggiungere la macchina virtuale.
 1. Nella scheda **configurazione tecnica** , in **Immagini VM**, selezionare **+ Aggiungi immagine macchina virtuale**.
    > [!NOTE]
-   > È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo e attendere che raggiunga la fase di _conclusione dell'editore_ prima di aggiungere la successiva immagine di macchina virtuale.
+   > È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicarle ogni volta prima di aggiungere l'immagine di macchina virtuale successiva.
 1. Nelle caselle visualizzate specificare una nuova versione del disco e l'immagine della macchina virtuale.
 1. Selezionare **Salva bozza**.
 1. Passare alla sezione successiva per rimuovere l'immagine della macchina virtuale con la vulnerabilità di sicurezza.
@@ -425,6 +427,7 @@ Una volta rimossa o sostituita l'immagine di macchina virtuale, è necessario ri
 1. Selezionare **revisione e pubblicazione**.
 1. Se è necessario fornire informazioni al team di certificazione, aggiungerlo alla casella **Note per la certificazione** .
 1. Selezionare **Pubblica**.
+1. Quando lo stato di pubblicazione raggiunge la fase di pubblicazione, selezionare **Go Live**.
 
 Per ulteriori informazioni sul processo di pubblicazione, vedere [How to Review and publish an offer to the Commercial Marketplace](../review-publish-offer.md).
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
-ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: ec076567d06a8237db2a708a5276a358f64a8388
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033252"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204912"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -36,7 +36,7 @@ L'opzione di co-selling nel centro per i partner è attualmente disponibile per 
 
 ## <a name="listing"></a>Elenco
 
-Gli elenchi di co-selling aiuteranno i team di vendita Microsoft a commercializzare la tua soluzione a un pubblico più ampio.
+Gli elenchi di co-selling aiuteranno i team di vendita Microsoft a commercializzare la tua soluzione a un pubblico più ampio. *(Tutti i campi necessari).*
 
 - Scegliere le piattaforme Microsoft con cui l'offerta viene compilata, si estende o si integra con.
 - Selezionare i segmenti di mercato a cui è destinata l'offerta.
@@ -51,33 +51,33 @@ I tipi di soluzioni consentono di definire gli scenari in cui l'offerta è proge
 | :------------------- | :-------------------|
 | Dispositivo (hardware) | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
 | IP (applicazione) | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
 | Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
 ### <a name="solution-areas"></a>Aree della soluzione
 
 Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
-È possibile aggiungere fino a tre aree della soluzione per l'offerta. Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, utilizzare il `Ctrl` tasto (in Windows) o il tasto di comando (in Mac OS).
+È possibile aggiungere fino a tre aree della soluzione per l'offerta. Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usare la `Ctrl` chiave (in Windows) o il tasto di comando (in MacOS).
 
 ## <a name="documents"></a>Documenti
 
-È possibile fornire documenti collaterali che Microsoft utilizzerà per ottenere ulteriori informazioni sull'offerta e valutarne la idoneità alle esigenze dei clienti. Tutti i documenti elencati nella tabella riportata di seguito sono facoltativi.
+È possibile fornire documenti collaterali che Microsoft utilizzerà per ottenere ulteriori informazioni sull'offerta e valutarne la idoneità alle esigenze dei clienti.
 
 | **Documents** (Documenti)    | **Descrizione**  |
 | :------------------- | :-------------------|
-| *Un cercapersone del cliente* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Microsoft 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul> |
-| *Presentazione del cliente* | Slide deck per passare la soluzione e la relativa proposta di valore. Dopo aver verificato che l'offerta sia pronta per il cliente, i team di vendita Microsoft possono condividere la presentazione con i clienti per esprimere il valore che entrambe le aziende portano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe comprendere le funzionalità della soluzione, il modo in cui può aiutare i clienti, i settori a cui è destinata la soluzione e il modo in cui vengono confrontati con le soluzioni in competizione. <br> <br> Usare il modello disponibile nel centro per i partner.|
+| *Customer One-pager (obbligatorio)* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Microsoft 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul> |
+| *Presentazione del cliente (obbligatoria)* | Slide deck per passare la soluzione e la relativa proposta di valore. Dopo aver verificato che l'offerta sia pronta per il cliente, i team di vendita Microsoft possono condividere la presentazione con i clienti per esprimere il valore che entrambe le aziende portano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe comprendere le funzionalità della soluzione, il modo in cui può aiutare i clienti, i settori a cui è destinata la soluzione e il modo in cui vengono confrontati con le soluzioni in competizione. <br> <br> Usare il modello disponibile nel centro per i partner.|
 | *case study cliente* | Queste informazioni indicano a un potenziale cliente la distribuzione corretta di questa soluzione nei casi precedenti. <br> <br> Usare il modello disponibile nel centro per i partner. |
-| *WINS del cliente verificabile (facoltativo)* | Esempi specifici di successi dei clienti dopo la distribuzione della soluzione. |
-| *Deck pitch deck (facoltativo)* | Una presentazione con informazioni che consentiranno ai rivenditori di canale di ottenere ulteriori informazioni sulla soluzione e di preparare i team di vendita a vendere l'offerta. Include in genere un passo dell'ascensore, informazioni sui clienti di destinazione, domande per chiedere ai clienti, punti di discussione e collegamenti a video, documentazione e informazioni di supporto. |
+| *WINS cliente verificabile* | Esempi specifici di successi dei clienti dopo la distribuzione della soluzione. |
+| *Deck pitch Channel* | Una presentazione con informazioni che consentiranno ai rivenditori di canale di ottenere ulteriori informazioni sulla soluzione e di preparare i team di vendita a vendere l'offerta. Include in genere un passo dell'ascensore, informazioni sui clienti di destinazione, domande per chiedere ai clienti, punti di discussione e collegamenti a video, documentazione e informazioni di supporto. |
 | *Diagrammi dell'architettura di riferimento* | Documento che mostra il modello che rappresenta l'indirizzo IP creato dal partner, insieme alla relazione con i servizi cloud Microsoft e in che modo soddisfa i requisiti tecnici del programma di co-selling IP. |
 | *Altri documenti* | Facoltativamente, è possibile caricare fino a cinque documenti o video aggiuntivi per consentire ai team di vendita Microsoft e ai rivenditori di canale di ottenere ulteriori informazioni su soluzione, organizzazione e/o differenziazione. |
 | *URL di riferimento esterno* | Il collegamento al sito del prodotto, in cui i team di vendita e i rivenditori di canale Microsoft possono ottenere ulteriori informazioni sulla soluzione. |
 
 ## <a name="contacts"></a>Contatti
 
-Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali.
+Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. *Per il programma di co-selling è necessario un contatto per ogni area geografica in cui è disponibile l'offerta.* Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali.
 
 È possibile fornire i contatti scaricando il modello CSV dal centro per i partner, inserendo ogni riga con le informazioni sul contatto e importando il file CSV. Se si importa un file CSV, i contatti esistenti vengono sovrascritti.
 

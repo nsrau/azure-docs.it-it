@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047404"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205491"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -24,7 +24,8 @@ Questa versione di questo articolo descrive manualmente questa procedura, una al
 * Per eseguire questa procedura manualmente usando l'interfaccia della riga di comando, vedere la versione dell'interfaccia della riga di comando di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md).
 * Per eseguire un'installazione automatica usando uno script di distribuzione di esempio, vedere la versione con script di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Creare l'istanza di Azure Digital Twins
 
@@ -94,72 +95,7 @@ Al termine dell'immissione dei dettagli, fare clic sul pulsante *Salva* .
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
-A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso e sono state assegnate le autorizzazioni per gestirla. Successivamente, si imposteranno le autorizzazioni per l'accesso di un'app client.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Configurare le autorizzazioni di accesso per le applicazioni client
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Per iniziare, passare a [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) nell'portale di Azure (è possibile usare questo collegamento o trovarlo nella barra di ricerca del portale). Selezionare *registrazioni app* dal menu servizio e quindi *+ nuova registrazione*.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Nella pagina *registra un'applicazione* che segue compilare i valori richiesti:
-* **Nome**: un Azure ad nome visualizzato dell'applicazione da associare alla registrazione
-* **Tipi di account supportati**: selezionare *solo gli account in questa directory organizzativa (solo directory predefinita-tenant singolo)*
-* **URI di reindirizzamento**: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. Aggiungere un URI *public client/native (mobile & desktop)* per `http://localhost` .
-
-Al termine, fare clic sul pulsante *Register (registra* ).
-
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Al termine dell'impostazione della registrazione, il portale reindirizza alla pagina dei dettagli.
-
-### <a name="provide-azure-digital-twins-api-permission"></a>Fornire l'autorizzazione API per i dispositivi digitali gemelli di Azure
-
-Successivamente, configurare la registrazione dell'app creata con le autorizzazioni di base per le API dei dispositivi gemelli digitali di Azure.
-
-Dalla pagina del portale per la registrazione dell'app, selezionare *autorizzazioni API* dal menu. Nella pagina autorizzazioni seguenti, fare clic sul pulsante *+ Aggiungi un'autorizzazione* .
-
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Nella pagina *autorizzazioni API richiesta* seguente passare alle API usate dall' *organizzazione* e cercare i dispositivi *gemelli digitali di Azure*. Selezionare _**Azure Digital gemelli**_ dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per le API dei dispositivi gemelli digitali di Azure.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
->[!NOTE]
-> Se la sottoscrizione ha ancora un'istanza di Azure Digital Twins esistente dalla precedente anteprima pubblica del servizio (prima del 2020 luglio), è necessario cercare e selezionare il _**servizio Azure Smart Spaces**_ . Si tratta di un nome precedente per lo stesso set di API (si noti che l' *ID dell'applicazione (client)* è identico a quello della schermata precedente) e l'esperienza non verrà modificata oltre questo passaggio.
-> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Selezionare quindi le autorizzazioni da concedere per le API. Espandere l'autorizzazione **lettura (1)** e selezionare la casella *Read. Write* per concedere le autorizzazioni di lettura e scrittura per la registrazione dell'app.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Al termine, fare clic su *Aggiungi autorizzazioni* .
-
-### <a name="verify-success"></a>Verificare l'esito positivo
-
-Tornare alla pagina *autorizzazioni API* , verificare che sia ora disponibile una voce per i dispositivi gemelli digitali di Azure che riflettono le autorizzazioni di lettura/scrittura:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-È anche possibile verificare la connessione ai dispositivi gemelli digitali di Azure entro la *manifest.js*della registrazione dell'app in, che è stata aggiornata automaticamente con le informazioni di Azure Digital gemelli quando sono state aggiunte le autorizzazioni dell'API.
-
-A tale scopo, selezionare *manifesto* dal menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-### <a name="collect-important-values"></a>Raccogli valori importanti
-
-Selezionare quindi *Panoramica* dalla barra dei menu per visualizzare i dettagli della registrazione dell'app:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
-
-Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)* visualizzati nella **pagina.** Questi valori saranno necessari in un secondo momento per [autenticare un'app client sulle API dei dispositivi gemelli digitali di Azure](how-to-authenticate-client.md). Se non si è la persona che scriverà il codice per tali applicazioni, è necessario condividere questi valori con la persona che lo sarà.
-
-### <a name="other-possible-steps-for-your-organization"></a>Altri passaggi possibili per l'organizzazione
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso e sono state assegnate le autorizzazioni per gestirla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -167,5 +103,5 @@ Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfac
 * [riferimento AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
-In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:
+In alternativa, vedere come connettere un'applicazione client all'istanza con il codice di autenticazione:
 * [*Procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md)

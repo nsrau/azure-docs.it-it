@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802991"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204028"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -62,7 +62,7 @@ Se si sta eseguendo il test a livelli di velocità effettiva elevata o a tariffe
 > [!NOTE] 
 > Un utilizzo elevato della CPU può causare un aumento della latenza e delle eccezioni di timeout richieste.
 
-## <a name="networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 <a id="direct-connection"></a>
 
 **Criteri di connessione: usare la modalità di connessione diretta**
@@ -163,7 +163,7 @@ Quando si lavora con funzioni di Azure, è necessario che le istanze seguano anc
 Per i carichi di lavoro con payload di creazione pesanti, impostare l' `EnableContentResponseOnWrite` opzione Request su `false` . Il servizio non restituirà più la risorsa creata o aggiornata all'SDK. In genere, poiché l'applicazione dispone dell'oggetto che viene creato, non è necessario che il servizio lo restituisca. I valori dell'intestazione sono ancora accessibili, ad esempio un addebito per la richiesta. La disabilitazione della risposta al contenuto può contribuire a migliorare le prestazioni, perché l'SDK non deve più allocare memoria o serializzare il corpo della risposta. Consente inoltre di ridurre l'utilizzo della larghezza di banda di rete per migliorare le prestazioni.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562741"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201434"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -29,9 +29,9 @@ Generalmente, questo errore indica che le autorizzazioni di controllo degli acce
 
 ### <a name="cause-2"></a>Causare #2
 
-Se si usa un'app client per comunicare con i dispositivi gemelli digitali di Azure, questo errore può verificarsi perché la registrazione dell'app [Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md) non ha le autorizzazioni impostate per il servizio Azure Digital Twins.
+Se si usa un'app client per comunicare con i dispositivi gemelli digitali di Azure che eseguono l'autenticazione con la registrazione di un' [app](how-to-create-app-registration.md), questo errore può verificarsi perché per la registrazione dell'app non sono configurate le autorizzazioni per il servizio dispositivi gemelli digitali di Azure.
 
-La registrazione dell'app è necessaria per avere le autorizzazioni di accesso configurate per le API dei dispositivi gemelli digitali di Azure. Quindi, quando l'app client esegue l'autenticazione con la registrazione dell'app, verranno concesse le autorizzazioni configurate per la registrazione dell'app.
+La registrazione dell'app deve avere le autorizzazioni di accesso configurate per le API gemelle digitali di Azure. Quindi, quando l'app client esegue l'autenticazione con la registrazione dell'app, verranno concesse le autorizzazioni configurate per la registrazione dell'app.
 
 ## <a name="solutions"></a>Soluzioni
 
@@ -59,23 +59,33 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
 
-Se questa assegnazione di ruolo è già presente e si verifica ancora il problema 403, passare alla soluzione successiva.
+Se questa assegnazione di ruolo è già stata usata *e* si sta usando una registrazione dell'app Azure ad per autenticare un'app client, è possibile passare alla soluzione successiva se questa soluzione non ha risolto il problema 403.
 
 ### <a name="solution-2"></a>#2 soluzione
 
-La seconda soluzione consiste nel verificare che la registrazione dell'app Azure AD disponga di autorizzazioni configurate per il servizio Azure Digital Twins. Se questo non è configurato, configurarlo.
+Se si usa una registrazione dell'app Azure AD per autenticare un'app client, la seconda possibile soluzione consiste nel verificare che la registrazione dell'app disponga di autorizzazioni configurate per il servizio Azure Digital Twins. Se questi elementi non sono configurati, impostarli.
 
 #### <a name="check-current-setup"></a>Controllare l'installazione corrente
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Per verificare se le autorizzazioni sono state configurate correttamente, passare alla [pagina Panoramica della registrazione dell'app Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) nel portale di Azure. Per ottenere questa pagina, è possibile cercare *registrazioni app* nella barra di ricerca del portale.
+
+Passare alla scheda *tutte le applicazioni* per visualizzare tutte le registrazioni dell'app che sono state create nella sottoscrizione.
+
+Verrà visualizzata la registrazione dell'app appena creata nell'elenco. Selezionarlo per aprirne i dettagli.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Registrazioni app pagina nella portale di Azure":::
 
 Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Digital Twins siano state impostate correttamente nella registrazione. A tale scopo, selezionare *manifesto* dalla barra dei menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Registrazioni app pagina nella portale di Azure":::
+
+Selezionare quindi *autorizzazioni API* dalla barra dei menu per verificare che la registrazione dell'app contenga le autorizzazioni di lettura/scrittura per i dispositivi gemelli digitali di Azure. Verrà visualizzata una voce simile alla seguente:
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Registrazioni app pagina nella portale di Azure":::
 
 #### <a name="fix-issues"></a>Risolvere i problemi
 
-Se una di queste impostazioni viene visualizzata in modo diverso rispetto a quanto descritto, seguire le istruzioni su come configurare la registrazione dell'app nella [sezione *configurare le autorizzazioni di accesso per le applicazioni client* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) di *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
+Se una di queste impostazioni viene visualizzata in modo diverso rispetto a quanto descritto, seguire le istruzioni su come configurare la registrazione di un'app in [*procedura: creare una registrazione dell'app*](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323726"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207411"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -80,7 +80,7 @@ Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchi
 È necessario installare il software seguente:
 
 * La versione più recente di **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
+* [Visual Studio Tools per Realtà mista](/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
   * **Sviluppo per desktop con C++**
   * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

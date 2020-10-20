@@ -4,21 +4,21 @@ description: Informazioni sulle funzionalità di rete nel servizio app Azure e s
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743047"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207053"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
 Le applicazioni nel servizio app Azure possono essere distribuite in diversi modi. Per impostazione predefinita, le app ospitate dal servizio app sono direttamente accessibili a Internet e possono raggiungere solo endpoint ospitati da Internet. Molte applicazioni dei clienti, tuttavia, devono controllare il traffico di rete in ingresso e in uscita. Nel servizio app sono disponibili diverse funzionalità per soddisfare queste esigenze. La sfida è conoscere la funzionalità da utilizzare per risolvere un determinato problema. Questo documento è destinato a consentire ai clienti di determinare la funzionalità da usare in base ad alcuni casi d'uso di esempio.
 
-Esistono due tipi di distribuzione principali per il servizio app Azure. È disponibile il servizio pubblico multi-tenant che ospita i piani di servizio app negli SKU di prezzo gratuito, condiviso, Basic, standard, Premium, PremiumV2 e PremiumV3. A questo punto, è presente la ambiente del servizio app del singolo tenant, che ospita i piani di servizio App SKU isolati direttamente nella rete virtuale di Azure (VNet). Le funzionalità usate variano a seconda che si trovino in un servizio multi-tenant o in un ambiente del servizio app. 
+Esistono due tipi di distribuzione principali per il servizio app Azure. È disponibile il servizio pubblico multi-tenant che ospita i piani di servizio app negli SKU di prezzo gratuito, condiviso, Basic, standard, Premium, Premiumv2 e Premiumv3. A questo punto, è presente la ambiente del servizio app del singolo tenant, che ospita i piani di servizio App SKU isolati direttamente nella rete virtuale di Azure (VNet). Le funzionalità usate variano a seconda che si trovino in un servizio multi-tenant o in un ambiente del servizio app. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Funzionalità di rete del servizio app multi-tenant 
 
@@ -41,9 +41,9 @@ Per ogni caso di utilizzo specifico, è possibile risolvere il problema in alcun
 | Supportare le esigenze SSL basate su IP per l'app | indirizzo assegnato dall'app |
 | Indirizzo in ingresso non condiviso e dedicato per l'app | indirizzo assegnato dall'app |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
-| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privato (anteprima) |
-| Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio </br> Endpoint servizio (anteprima) |
-| Proteggi l'app con un WAF | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
+| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privati |
+| Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privati </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio |
+| Proteggi l'app con un Web Application Firewall (WAF) | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint privati </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
 | Bilanciare il carico del traffico verso le app personali in aree diverse | Sportello anteriore di Azure con restrizioni di accesso | 
 | Bilanciare il carico del traffico nella stessa area | [Gateway applicazione con endpoint di servizio][appgwserviceendpoints] | 
 
@@ -62,11 +62,15 @@ I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità d
 
 ### <a name="default-networking-behavior"></a>Comportamento di rete predefinito
 
-Le unità di scala del servizio app Azure supportano molti clienti in ogni distribuzione. I piani di SKU gratuito e condiviso ospitano i carichi di lavoro dei clienti sui ruoli di lavoro multi-tenant. I piani Basic e superiori ospitano i carichi di lavoro dei clienti dedicati a un solo piano di servizio app (ASP). Se si dispone di un piano di servizio app standard, tutte le app del piano vengono eseguite nello stesso thread di lavoro. Se il ruolo di lavoro viene scalato in orizzontale, tutte le app in tale ASP verranno replicate in un nuovo ruolo di lavoro per ogni istanza di ASP. I thread di lavoro usati per PremiumV2 e PremiumV3 sono diversi da quelli usati per gli altri piani. Ogni distribuzione del servizio app ha un indirizzo IP usato per tutto il traffico in ingresso per le app nella distribuzione del servizio app. Esistono tuttavia da 4 a 11 indirizzi usati per eseguire chiamate in uscita. Questi indirizzi sono condivisi da tutte le app presenti nella distribuzione del servizio app. Gli indirizzi in uscita sono diversi in base ai diversi tipi di lavoro. Questo significa che gli indirizzi usati dagli ASP gratuito, condiviso, Basic, standard e Premium sono diversi dagli indirizzi usati per le chiamate in uscita da PremiumV2 e PremiumV3 ASP. Se si osservano le proprietà dell'app, è possibile visualizzare gli indirizzi in ingresso e in uscita usati dall'app. Se è necessario bloccare una dipendenza con un ACL IP, usare possibleOutboundAddresses. 
+Le unità di scala del servizio app Azure supportano molti clienti in ogni distribuzione. I piani di SKU gratuito e condiviso ospitano i carichi di lavoro dei clienti sui ruoli di lavoro multi-tenant. I piani Basic e superiori ospitano i carichi di lavoro dei clienti dedicati a un solo piano di servizio app (ASP). Se si dispone di un piano di servizio app standard, tutte le app del piano vengono eseguite nello stesso thread di lavoro. Se il ruolo di lavoro viene scalato in orizzontale, tutte le app in tale ASP verranno replicate in un nuovo ruolo di lavoro per ogni istanza di ASP. 
+
+#### <a name="outbound-addresses"></a>Indirizzi in uscita
+
+Le macchine virtuali di lavoro sono suddivise in gran parte dai piani tariffari del servizio app. I tipi Free, Shared, Basic, standard e Premium utilizzano lo stesso tipo di macchina virtuale del ruolo di lavoro. Premiumv2 è in un altro tipo di macchina virtuale. Premiumv3 è ancora in un altro tipo di macchina virtuale. Con ogni modifica apportata alla famiglia di macchine virtuali, è disponibile un diverso set di indirizzi in uscita. Se si esegue la scalabilità da standard a Premiumv2, gli indirizzi in uscita cambieranno. Se si esegue la scalabilità da Premiumv2 a Premiumv3, gli indirizzi in uscita cambieranno. Sono disponibili alcune unità di scala obsolete che modificano sia gli indirizzi in ingresso che quelli in uscita quando si esegue la scalabilità da standard a Premiumv2. Sono disponibili diversi indirizzi per la creazione di chiamate in uscita. Gli indirizzi in uscita usati dall'app per effettuare chiamate in uscita sono elencati nelle proprietà dell'app. Questi indirizzi sono condivisi da tutte le app in esecuzione nella stessa famiglia di macchine virtuali di lavoro nella distribuzione del servizio app. Per visualizzare tutti i possibili indirizzi che possono essere usati dall'app nell'unità di scala, è presente un'altra proprietà denominata possibleOutboundAddresses che li elenca. 
 
 ![Proprietà dell'app](media/networking-features/app-properties.png)
 
-Il servizio app include diversi endpoint usati per gestire il servizio.  Questi indirizzi vengono pubblicati in un documento separato e si trovano anche nel tag del servizio IP AppServiceManagement. Il tag AppServiceManagement viene usato solo con un ambiente del servizio app (ASE) in cui è necessario consentire tale traffico. Gli indirizzi in ingresso del servizio app vengono rilevati nel tag del servizio IP di AppService. Non è presente alcun tag del servizio IP che contiene gli indirizzi in uscita usati dal servizio app. 
+Il servizio app include diversi endpoint usati per gestire il servizio.  Questi indirizzi vengono pubblicati in un documento separato e si trovano anche nel tag del servizio IP AppServiceManagement. Il tag AppServiceManagement viene usato solo con un ambiente del servizio app in cui è necessario consentire tale traffico. Gli indirizzi in ingresso del servizio app vengono rilevati nel tag del servizio IP di AppService. Non è presente alcun tag del servizio IP che contiene gli indirizzi in uscita usati dal servizio app. 
 
 ![Diagramma in ingresso e in uscita del servizio app](media/networking-features/default-behavior.png)
 
@@ -100,7 +104,7 @@ Se si vuole bloccare l'accesso all'app in modo che possa essere raggiunto solo d
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 
-Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'app in modo che l'indirizzo di origine debba provenire da un set di subnet selezionato. Questa funzionalità funziona insieme alle restrizioni di accesso IP. Gli endpoint di servizio vengono impostati nella stessa esperienza utente delle restrizioni di accesso IP. È possibile compilare un elenco Consenti/Nega di regole di accesso che include indirizzi pubblici e subnet nella reti virtuali. Questa funzionalità supporta scenari come:
+Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'app in modo che l'indirizzo di origine debba provenire da un set di subnet selezionato. Questa funzionalità funziona insieme alle restrizioni di accesso IP. Gli endpoint di servizio non sono compatibili con il debug remoto. Per usare il debug remoto con l'app, il client non può trovarsi in una subnet con gli endpoint di servizio abilitati. Gli endpoint di servizio vengono impostati nella stessa esperienza utente delle restrizioni di accesso IP. È possibile compilare un elenco Consenti/Nega di regole di accesso che include indirizzi pubblici e subnet nella reti virtuali. Questa funzionalità supporta scenari come:
 
 ![endpoint di servizio](media/networking-features/service-endpoints.png)
 
@@ -111,10 +115,18 @@ Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'ap
 
 Per altre informazioni sulla configurazione degli endpoint di servizio con l'app, vedere l'esercitazione sulla [configurazione delle restrizioni di accesso agli endpoint di servizio][serviceendpoints]
 
-### <a name="private-endpoint-preview"></a>Endpoint privato (anteprima)
+### <a name="private-endpoints"></a>Endpoint privati
 
 L'endpoint privato è un'interfaccia di rete che si connette privatamente e in modo sicuro all'app Web dal collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare l'app Web in VNet. Questa funzionalità è solo per i flussi in **ingresso** per l'app Web.
-[Uso di endpoint privati per app Web di Azure (anteprima)][privateendpoints]
+[Uso di endpoint privati per l'app Web di Azure][privateendpoints]
+
+Gli endpoint privati consentono scenari come:
+
+* Limitare l'accesso all'app dalle risorse in una VNet 
+* Esporre l'app in un indirizzo IP privato nella VNet 
+* Proteggi l'app con un WAF 
+
+Gli endpoint privati impediscono ai dati exfiltration come l'unica cosa che è possibile raggiungere nell'endpoint privato è l'app con cui è configurata. 
  
 ### <a name="hybrid-connections"></a>connessioni ibride
 
@@ -152,7 +164,7 @@ Quando questa funzionalità è abilitata, l'app userà il server DNS con cui è 
 
 ### <a name="vnet-integration"></a>Integrazione rete virtuale
 
-La funzionalità di integrazione VNet necessaria per il gateway è molto utile, ma non risolve l'accesso alle risorse tra ExpressRoute. Oltre a dover raggiungere le connessioni ExpressRoute, è necessario che le app siano in grado di effettuare chiamate a servizi protetti con endpoint di servizio. Per risolvere entrambe le esigenze aggiuntive, è stata aggiunta un'altra funzionalità di integrazione VNet. La nuova funzionalità di integrazione VNet consente di collocare il back-end dell'app in una subnet in un Gestione risorse VNet nella stessa area. Questa funzionalità non è disponibile da un ambiente del servizio app, che è già presente in una VNet. Questa funzionalità consente di:
+La funzionalità di integrazione VNet necessaria per il gateway è utile, ma non risolve ancora l'accesso alle risorse in ExpressRoute. Oltre a dover raggiungere le connessioni ExpressRoute, è necessario che le app siano in grado di effettuare chiamate a servizi protetti con endpoint di servizio. Per risolvere entrambe le esigenze aggiuntive, è stata aggiunta un'altra funzionalità di integrazione VNet. La nuova funzionalità di integrazione VNet consente di collocare il back-end dell'app in una subnet in un Gestione risorse VNet nella stessa area. Questa funzionalità non è disponibile da un ambiente del servizio app, che è già presente in una VNet. Questa funzionalità consente di:
 
 * Accesso alle risorse in Gestione risorse reti virtuali nella stessa area
 * Accesso alle risorse protette con gli endpoint di servizio 
@@ -213,22 +225,58 @@ Questo stile di distribuzione non fornisce un indirizzo dedicato per il traffico
 
 ### <a name="create-multi-tier-applications"></a>Creazione di applicazioni multilivello
 
-Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Per creare un'applicazione multilivello, è possibile:
+Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una VNet. Questa operazione consentirà all'app Web di effettuare chiamate a VNet. Dopo che l'app front-end è connessa alla VNet, è necessario scegliere come bloccare l'accesso all'applicazione per le API.  è possibile:
 
-* Usare l'integrazione di VNet per connettere il back-end dell'app Web front-end a una subnet in una VNet
-* Usare gli endpoint di servizio per proteggere il traffico in ingresso verso l'app per le API in modo che provenga solo dalla subnet usata dall'app Web front-end
+* ospitare sia il front-end che l'app per le API nello stesso ambiente del servizio app ILB ed esporre l'app front-end a Internet con un gateway applicazione
+* ospitare il front-end nel servizio multi-tenant e il back-end in un ambiente del servizio app ILB
+* ospitare sia il front-end che l'app per le API nel servizio multi-tenant
 
-![app multilivello](media/networking-features/multi-tier-app.png)
+Se si ospitano sia il front-end che l'app per le API per un'applicazione multilivello, è possibile:
 
-È possibile avere più app front-end che usano la stessa app per le API usando l'integrazione VNet dalle altre app front-end e gli endpoint di servizio dall'app per le API con le rispettive subnet.  
+Esporre l'applicazione API con endpoint privati nella VNet
+
+![app a due livelli degli endpoint privati](media/networking-features/multi-tier-app-private-endpoint.png)
+
+Usare gli endpoint di servizio per proteggere il traffico in ingresso verso l'app per le API in modo che provenga solo dalla subnet usata dall'app Web front-end
+
+![app protetta degli endpoint di servizio](media/networking-features/multi-tier-app.png)
+
+I compromessi tra le due tecniche sono:
+
+* con gli endpoint di servizio, è necessario proteggere il traffico per l'app per le API solo per la subnet di integrazione. In questo modo si protegge l'app per le API, ma si può comunque avere una possibilità di exfiltration dati dall'app front-end ad altre app nel servizio app.
+* con gli endpoint privati si hanno due subnet in gioco. Questa operazione consente di aumentare la complessità. Inoltre, l'endpoint privato è una risorsa di livello superiore e ne aggiunge altre da gestire. Il vantaggio dell'uso di endpoint privati è la possibilità di exfiltration di dati. 
+
+Entrambe le tecniche funzioneranno con più front-end. Su scala ridotta, gli endpoint di servizio sono molto più semplici da usare perché è sufficiente abilitare gli endpoint di servizio per l'app per le API nella subnet di integrazione front-end. Quando si aggiungono altre app front-end, è necessario modificare ogni app per le API per avere endpoint di servizio con la subnet di integrazione. Con gli endpoint privati è più complessa, ma non è necessario apportare modifiche alle app per le API dopo aver impostato un endpoint privato. 
+
+### <a name="line-of-business-applications"></a>Applicazioni line-of-business
+
+Le applicazioni line-of-business (LOB) sono applicazioni interne che in genere non sono esposte per l'accesso da Internet. Queste applicazioni vengono chiamate dall'interno di reti aziendali in cui è possibile controllare rigorosamente l'accesso. Se si usa un ambiente del servizio app ILB, è facile ospitare le applicazioni line-of-business. Se si usa il servizio multi-tenant, è possibile usare endpoint privati o endpoint di servizio combinati con un gateway applicazione. Esistono due motivi per usare un gateway applicazione con gli endpoint del servizio anziché gli endpoint privati:
+
+* è necessaria la protezione WAF nelle app LOB
+* si vuole bilanciare il carico in più istanze delle app LOB
+
+In caso contrario, è preferibile usare endpoint privati. Con gli endpoint privati disponibili nel servizio app, è possibile esporre le app negli indirizzi privati della VNet. L'endpoint privato che si inserisce nella VNet può essere raggiunto attraverso connessioni VPN e ExpressRoute. La configurazione degli endpoint privati esporrà le app in un indirizzo privato, ma sarà necessario configurare DNS per raggiungere tale indirizzo dall'ambiente locale. Per eseguire questa operazione, sarà necessario inviare la zona privata di DNS di Azure contenente gli endpoint privati ai server DNS locali. Le zone private di DNS di Azure non supportano l'invio di zone, ma è possibile supportarle usando un server DNS a tale scopo. Questo modello, [server di trasmissione DNS](https://azure.microsoft.com/resources/templates/301-dns-forwarder/), rende più semplice l'invio della zona privata di DNS di Azure ai server DNS locali.
+
+## <a name="app-service-ports"></a>Porte del servizio app
+
+Se si analizza il servizio app, saranno disponibili diverse porte esposte per le connessioni in ingresso. Non è possibile bloccare o controllare l'accesso a queste porte nel servizio multi-tenant. Le porte esposte sono le seguenti:
+
+| Usa | Porte |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  Gestione | 454, 455 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Debug remoto in Visual Studio  |  4020, 4022, 4024 |
+|  Servizio Distribuzione Web | 8172 |
+|  Uso dell'infrastruttura | 7654, 1221 |
 
 <!--Links-->
-[appassignedaddress]: ./configure-ssl-certificate.md
-[iprestrictions]: ./app-service-ip-restrictions.md
-[serviceendpoints]: ./app-service-ip-restrictions.md
-[hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
-[networkinfo]: ./environment/network-info.md
-[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
