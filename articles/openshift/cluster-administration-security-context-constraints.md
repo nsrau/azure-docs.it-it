@@ -7,14 +7,20 @@ ms.author: b-trconn
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5c568f056a99187a0e7a78a6f89b206f2d8dec
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80063184"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220245"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShift 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 30 giugno 2022. Il supporto per la creazione di nuovi cluster Azure Red Hat OpenShift 3,11 continua fino al 30 novembre 2020. Dopo il ritiro, i cluster di Azure Red Hat OpenShift 3,11 rimanenti verranno arrestati per evitare vulnerabilità di sicurezza.
+> 
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Per domande specifiche, [Contattaci](mailto:arofeedback@microsoft.com).
 
 I vincoli del contesto di sicurezza (SCCs) consentono agli amministratori del cluster di controllare le autorizzazioni per i pod. Per ulteriori informazioni su questo tipo di API, vedere la [documentazione dell'architettura per SCCS](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). È possibile gestire SCCs nell'istanza come oggetti API normali usando l'interfaccia della riga di comando.
 

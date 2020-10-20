@@ -1,6 +1,6 @@
 ---
 title: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
-description: In questa esercitazione viene configurata la replica tra un'istanza gestita del server di pubblicazione, un'istanza gestita del server di distribuzione e un sottoscrittore di SQL Server in una macchina virtuale di Azure, insieme ai componenti di rete necessari come una zona DNS privato e il peering VPN.
+description: In questa esercitazione viene configurata la replica tra un'istanza gestita del server di pubblicazione, un'istanza gestita del server di distribuzione e un sottoscrittore di SQL Server in una macchina virtuale di Azure, insieme ai componenti di rete necessari quali una zona DNS privato e il peering reti virtuali.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283191"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058557"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Questa esercitazione è destinata a un pubblico esperto e presuppone che l'utent
 
 
 > [!NOTE]
-> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) nell'istanza gestita di SQL di Azure. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità dell'istanza gestita di SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Per la configurazione della [ replica transazionale con i gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti alcune considerazioni aggiuntive.
+> Questo articolo descrive l'uso della [replica transazionale](/sql/relational-databases/replication/transactional/transactional-replication) nell'istanza gestita di SQL di Azure. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità dell'istanza gestita di SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Per la configurazione della [ replica transazionale con i gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti alcune considerazioni aggiuntive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,10 +48,10 @@ Per completare questa esercitazione, verificare di avere i prerequisiti seguenti
 - Esperienza nella distribuzione di due istanze gestite all'interno della stessa rete virtuale.
 - Un sottoscrittore di SQL Server, in locale o in una macchina virtuale di Azure. Questa esercitazione usa una VM di Azure.  
 - [SQL Server Management Studio (SSMS) 18.0 o versione successiva](/sql/ssms/download-sql-server-management-studio-ssms).
-- La versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- La versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps).
 - Le porte 445 e 1433 consentono il traffico SQL in Firewall di Azure e Windows Firewall.
 
-## <a name="1---create-the-resource-group"></a>1 - Creare il gruppo di risorse
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Usare il frammento di codice di PowerShell seguente per creare un nuovo gruppo di risorse:
 
@@ -64,7 +64,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - Creare due istanze gestite
+## <a name="create-two-managed-instances"></a>Creare due istanze gestite
 
 Creare due istanze gestite all'interno di questo nuovo gruppo di risorse usando il [portale di Azure](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ Creare due istanze gestite all'interno di questo nuovo gruppo di risorse usando 
 Per altre informazioni sulla creazione di un'istanza gestita, vedere [Creare un'istanza gestita nel portale](instance-create-quickstart.md).
 
   > [!NOTE]
-  > Per semplicità, e poiché si tratta della configurazione più comune, questa esercitazione suggerisce di inserire l'istanza del server di distribuzione nella stessa rete virtuale del server di pubblicazione. È tuttavia possibile creare il server di distribuzione in una rete virtuale distinta. A tale scopo, sarà necessario configurare il peering VPN tra la rete virtuale del server di pubblicazione e quella del server di distribuzione e quindi tra la rete virtuale del server di distribuzione e quella del sottoscrittore.
+  > Per semplicità, e poiché si tratta della configurazione più comune, questa esercitazione suggerisce di inserire l'istanza del server di distribuzione nella stessa rete virtuale del server di pubblicazione. È tuttavia possibile creare il server di distribuzione in una rete virtuale distinta. A questo scopo è necessario configurare il peering reti virtuali tra la rete virtuale del server di pubblicazione e quella del server di distribuzione e quindi tra la rete virtuale del server di distribuzione e quella del sottoscrittore.
 
-## <a name="3---create-a-sql-server-vm"></a>3 - Creare una VM di SQL Server
+## <a name="create-a-sql-server-vm"></a>Creare una macchina virtuale di SQL Server
 
 Creare una macchina virtuale di SQL server usando il [portale di Azure](https://portal.azure.com). La macchina virtuale di SQL Server deve avere le caratteristiche seguenti:
 
@@ -89,9 +89,9 @@ Creare una macchina virtuale di SQL server usando il [portale di Azure](https://
 
 Per altre informazioni sulla distribuzione di una VM di SQL Server in Azure, vedere [Avvio rapido: Creare una macchina virtuale di SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## <a name="4---configure-vpn-peering"></a>4 - Configurare il peering VPN
+## <a name="configure-vnet-peering"></a>Configurare il peering reti virtuali
 
-Configurare il peering VPN per consentire la comunicazione tra la rete virtuale delle due istanze gestite e la rete virtuale di SQL Server. A questo scopo, usare questo frammento di codice di PowerShell:
+Configurare il peering reti virtuali per consentire la comunicazione tra la rete virtuale delle due istanze gestite e la rete virtuale di SQL Server. A questo scopo, usare questo frammento di codice di PowerShell:
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,11 +136,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Una volta stabilito il peering VPN, testare la connettività avviando SQL Server Management Studio (SSMS) in SQL Server e connettendosi a entrambe le istanze gestite. Per altre informazioni sulla connessione a un'istanza gestita con SSMS, vedere [Usare SSMS per connettersi all'istanza gestita di SQL](point-to-site-p2s-configure.md#connect-with-ssms).
+Una volta stabilito il peering reti virtuali, testare la connettività avviando SQL Server Management Studio (SSMS) in SQL Server e connettendosi a entrambe le istanze gestite. Per altre informazioni sulla connessione a un'istanza gestita con SSMS, vedere [Usare SSMS per connettersi all'istanza gestita di SQL](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Testare la connettività alle istanze gestite](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 - Creare una zona DNS privato
+## <a name="create-a-private-dns-zone"></a>Creare una zona DNS privato
 
 Una zona DNS privato consente il routing DNS tra le istanze gestite e SQL Server.
 
@@ -180,7 +180,7 @@ Una zona DNS privato consente il routing DNS tra le istanze gestite e SQL Server
 1. Selezionare **OK** per collegarsi alla rete virtuale.
 1. Ripetere questi passaggi per aggiungere un collegamento per la rete virtuale del server di sottoscrizione, con un nome come `Sub-link`.
 
-## <a name="6---create-an-azure-storage-account"></a>6 - Creare un account di archiviazione di Azure
+## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../../storage/files/storage-how-to-create-file-share.md) al suo interno.
 
@@ -194,7 +194,7 @@ Esempio: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5
 
 Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
-## <a name="7---create-a-database"></a>7 - Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 Creare un nuovo database nell'istanza gestita del server di pubblicazione. A questo scopo, attenersi alla procedura seguente:
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - Configurare la distribuzione
+## <a name="configure-distribution"></a>Configurare la distribuzione
 
 Una volta stabilita la connettività e creato un database di esempio, è possibile configurare la distribuzione nell'istanza gestita `sql-mi-distributor`. A questo scopo, attenersi alla procedura seguente:
 
@@ -277,7 +277,7 @@ Una volta stabilita la connettività e creato un database di esempio, è possibi
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 - Creare la pubblicazione
+## <a name="create-the-publication"></a>Creare la pubblicazione
 
 Una volta configurata la distribuzione, è ora possibile creare la pubblicazione. A questo scopo, attenersi alla procedura seguente:
 
@@ -298,7 +298,7 @@ Una volta configurata la distribuzione, è ora possibile creare la pubblicazione
 1. Nella pagina **Completare la procedura guidata** assegnare alla pubblicazione il nome `ReplTest` e selezionare **Avanti** per creare la pubblicazione.
 1. Dopo aver creato la pubblicazione, aggiornare il nodo **Replica** in **Esplora oggetti** ed espandere **Pubblicazioni locali** per visualizzare la nuova pubblicazione.
 
-## <a name="10---create-the-subscription"></a>10 - Creare la sottoscrizione
+## <a name="create-the-subscription"></a>Creare la sottoscrizione
 
 Una volta creata la pubblicazione, è possibile creare la sottoscrizione. A questo scopo, attenersi alla procedura seguente:
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - Testare la replica
+## <a name="test-replication"></a>Testare la replica
 
 Dopo aver configurato la replica, è possibile testarla inserendo nuovi elementi nel server di pubblicazione e osservando le modifiche che si propagano nel sottoscrittore.
 
@@ -393,7 +393,7 @@ Possibili soluzioni:
 - Verificare che sia stato usato il nome DNS quando è stato creato il sottoscrittore.
 - Verificare che le reti virtuali siano correttamente collegate nella zona DNS privato.
 - Verificare che il record A sia configurato correttamente.
-- Verificare che il peering VPN sia configurato correttamente.
+- Verificare che il peering reti virtuali sia configurato correttamente.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Nessuna pubblicazione disponibile per la sottoscrizione
 
