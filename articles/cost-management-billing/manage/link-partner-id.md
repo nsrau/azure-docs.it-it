@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772720"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017013"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -134,7 +134,7 @@ Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
 Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del cliente. Collegare l'ID partner in ogni tenant del cliente.
 
-Se tuttavia le risorse dei clienti vengono gestite tramite Azure Lighthouse, è consigliabile creare il collegamento nel tenant del provider di servizi, usando un account che abbia accesso a tali risorse. Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+Se tuttavia le risorse dei clienti vengono gestite tramite Azure Lighthouse, è consigliabile creare il collegamento nel tenant del provider di servizi, usando un account che abbia accesso a tali risorse. Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
 
@@ -164,7 +164,7 @@ Sì, è possibile collegare l'ID partner per Azure Stack.
 
 Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente.
 
-Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Come si spiega il collegamento amministrazione partner al cliente?**
 

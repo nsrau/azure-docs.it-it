@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681958"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057876"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Come viene applicato lo sconto per le prenotazioni a Database SQL di Azure
 
-Dopo avere acquistato capacità riservata per Database SQL di Azure, lo sconto per le prenotazioni viene automaticamente applicato ai database SQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione comprende i costi delle risorse di calcolo del database SQL. Vengono addebitate le tariffe normali per software, archiviazione e rete. È possibile coprire i costi di licenza per Database SQL con il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Dopo avere acquistato capacità riservata per Database SQL di Azure, lo sconto per le prenotazioni viene automaticamente applicato ai database SQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione è applicabile ai costi delle risorse di calcolo del Database SQL, incluse la replica primaria ed eventuali repliche secondarie fatturabili. Vengono addebitate le tariffe normali per software, archiviazione e rete. È possibile coprire i costi di licenza per Database SQL con il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Si noti che gli sconti per le prenotazioni non si applicano al database SQL di Azure serverless.
 
@@ -31,7 +31,7 @@ Quando si arresta una risorsa, lo sconto per la prenotazione si applica automati
 
 ## <a name="discount-applied-to-running-sql-databases"></a>Sconto applicato ai database SQL in esecuzione
 
- Lo sconto sulla capacità riservata di Database SQL viene applicato ai database SQL i esecuzione su base oraria. La prenotazione acquistata viene confrontata con l'utilizzo delle risorse di calcolo generato dai database SQL in esecuzione. Per i database che non vengono eseguiti per un'ora intera, la prenotazione viene automaticamente applicata ad altri database SQL che corrispondono agli attributi della prenotazione. Lo sconto può essere applicato a database SQL in esecuzione simultaneamente. Se nessun database SQL in esecuzione per l'ora intera corrisponde agli attributi della prenotazione, non è possibile ottenere il vantaggio completo dello sconto sulla prenotazione per questa ora.
+Lo sconto sulla capacità riservata di Database SQL viene applicato ai database SQL i esecuzione su base oraria. La prenotazione acquistata viene confrontata con l'utilizzo delle risorse di calcolo generato dai database SQL in esecuzione. Per i database che non vengono eseguiti per un'ora intera, la prenotazione viene automaticamente applicata ad altri database SQL che corrispondono agli attributi della prenotazione. Lo sconto può essere applicato a database SQL in esecuzione simultaneamente. Se nessun database SQL in esecuzione per l'ora intera corrisponde agli attributi della prenotazione, non è possibile ottenere il vantaggio completo dello sconto sulla prenotazione per questa ora.
 
 Gli esempi seguenti mostrano come viene applicato lo sconto sulla capacità riservata dei database SQL a seconda del numero di core acquistati e dei tempi di esecuzione.
 
@@ -42,6 +42,7 @@ Per gli altri esempi, si presuppone che la capacità riservata di Database SQL a
 - Scenario 2: si eseguono per un'ora due database SQL con 8 core ciascuno. Lo sconto sulla prenotazione di 16 core viene applicato all'utilizzo delle risorse di calcolo per entrambi i database SQL con 8 core.
 - Scenario 3: si esegue un database SQL con 16 core dalle 13.00 alle 13.30. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. A entrambi i database viene applicato lo sconto sulla prenotazione.
 - Scenario 4: si esegue un database SQL con 16 core dalle 13.00 alle 13.45. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
+- Scenario 5: si esegue un database SQL Hyperscale con 4 core con tre repliche secondarie, ognuna delle quali ha 4 core. La prenotazione è applicabile all'utilizzo delle risorse di calcolo per la replica primaria e tutte le repliche secondarie.
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](understand-reserved-instance-usage-ea.md).
 

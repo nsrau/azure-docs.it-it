@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372256"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827580"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -151,9 +151,11 @@ Per visualizzare i costi per una sottoscrizione, aprire **Gestione dei costi e f
 
 L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti di sottoscrizione e del gruppo di risorse di Controllo degli accessi in base al ruolo di Azure con costi basati sulle tariffe con pagamento in base al consumo.
 
-Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate negli ambiti di Controllo degli accessi in base al ruolo di Azure indicano addebiti pari a zero. I costi delle istanze riservate vengono visualizzati solo negli ambiti di fatturazione in cui sono stati effettuati gli acquisti.
+Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate negli ambiti di Controllo degli accessi in base al ruolo di Azure indicano addebiti pari a zero. I costi di acquisto per entitlement quali Istanze riservate e tariffe del marketplace vengono visualizzati solo negli ambiti di fatturazione nel tenant del partner in cui sono stati effettuati gli acquisti.
 
 Le tariffe al dettaglio usate per calcolare i costi indicati nella visualizzazione corrispondono ai prezzi visualizzati nel Calcolatore prezzi di Azure per tutti i clienti. I costi visualizzati non includono eventuali sconti o crediti del partner, come i crediti guadagnati dal partner, gli sconti in base al livello e gli sconti dei servizi globali.
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizzare i costi nell'analisi dei costi
 
