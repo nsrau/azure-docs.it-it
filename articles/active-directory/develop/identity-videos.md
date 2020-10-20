@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 74ca7f80f483a722cc8dabde76d295210074bebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c03f0221fe781deffed6ecab107ab33d8a5ab829
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87540292"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203220"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Video su Microsoft Identity Platform
 
@@ -25,7 +25,33 @@ Informazioni sulle nozioni di base relative alla moderna autenticazione, alla pi
 
 ## <a name="microsoft-identity-platform-for-developers"></a>Microsoft Identity Platform per sviluppatori
 
-Nella serie di video *Identity per sviluppatori*, Matthijs Hoekstra e Kyle Marsh offrono un'introduzione guidata a Microsoft Identity Platform. Informazioni sui componenti e le funzionalità principali della piattaforma e su come usare le Authentication Library per iniziare ad aggiungere un'autenticazione moderna e sicura alle app.
+Informazioni sui componenti e le funzionalità principali della piattaforma di identità Microsoft.
+
+___
+
+:::row:::
+  :::column:::
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">Nozioni di base sull'autenticazione moderna-piattaforma <span class="docon docon-navigate-external x-hidden-focus"></span> di identità Microsoft</a> (12:28)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+
+<!-- IMAGES -->
+[id-plat-06-img]: ./media/identity-videos/id-for-devs-07.jpg
+
+<!-- VIDEOS -->
+[id-plat-06-vid]: https://www.youtube.com/watch?v=tkQJSHFsduY
+
+## <a name="developer-training-series"></a>Serie di formazione per sviluppatori
+
+Nella serie di video Identity per sviluppatori, Matthijs Hoekstra e Kyle Marsh offrono un'introduzione guidata a Microsoft Identity Platform. Informazioni sui componenti e le funzionalità principali della piattaforma e su come usare le Authentication Library per iniziare ad aggiungere un'autenticazione moderna e sicura alle app.
 
 Grazie al contenuto curato e affinato durante le numerose sessioni di training svolte, questa serie rappresenta un punto di partenza ideale per gli sviluppatori che si accingono a usare l'identità in Azure.
 ___
@@ -78,6 +104,7 @@ ___
 [id-plat-03-img]: ./media/identity-videos/id-for-devs-03.jpg
 [id-plat-04-img]: ./media/identity-videos/id-for-devs-04.jpg
 [id-plat-05-img]: ./media/identity-videos/id-for-devs-05.jpg
+[id-plat-06-img]: ./media/identity-videos/id-for-devs-07.jpg
 
 <!-- VIDEOS -->
 [id-plat-01-vid]: https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1
@@ -85,6 +112,7 @@ ___
 [id-plat-03-vid]: https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3
 [id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
 [id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
+[id-plat-06-vid]: https://www.youtube.com/watch?v=tkQJSHFsduY
 
 ## <a name="authentication-fundamentals"></a>Nozioni fondamentali di autenticazione
 

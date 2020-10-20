@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930493"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205847"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
 
@@ -30,8 +30,8 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
 
 1. Creare [criteri di accesso in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
-    > [!IMPORTANT]
-    > I riferimenti Key Vault non sono attualmente in grado di risolvere i segreti archiviati in un insieme di credenziali delle chiavi con [restrizioni di rete](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > I riferimenti Key Vault non sono attualmente in grado di risolvere i segreti archiviati in un insieme di credenziali delle chiavi con [restrizioni di rete](../key-vault/general/overview-vnet-service-endpoints.md) , a meno che l'app non sia ospitata in una [ambiente del servizio app](./environment/intro.md).
 
 ## <a name="reference-syntax"></a>Sintassi del riferimento
 
@@ -45,8 +45,8 @@ Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({refe
 
 > [!NOTE] 
 > Le versioni sono attualmente obbligatorie. Durante la rotazione dei segreti sarà necessario aggiornare la versione nella configurazione dell'applicazione.
-
 Un riferimento completo, ad esempio, avrebbe un aspetto simile al seguente:
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)

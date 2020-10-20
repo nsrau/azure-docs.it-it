@@ -3,12 +3,12 @@ title: Informazioni sulla configurazione del backup periodico
 description: Usare la funzionalità di backup e ripristino periodico di Service Fabric per configurare il backup periodico dei servizi reliable con stato o Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538620"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205694"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
@@ -23,6 +23,9 @@ La configurazione del backup periodico dei servizi Reliable con stato o dei Reli
 Un criterio di backup è costituito dalle configurazioni seguenti:
 
 * **Auto restore on data loss** (Ripristino automatico per perdita di dati): specifica se attivare automaticamente il ripristino usando l'ultimo backup disponibile quando la partizione registra un evento di perdita di dati.
+> [!NOTE]
+> Si consiglia di non impostare il ripristino automatico nei cluster di produzione
+>
 
 * **Max incremental backups** (N. massimo di backup incrementali): definisce il numero massimo di backup incrementali eseguibili tra due backup completi. Max incremental backups (N. massimo di backup incrementali) specifica il limite massimo. Un backup completo può essere eseguito prima del raggiungimento del numero di backup incrementali specificato se si verifica una delle situazioni seguenti:
 
@@ -86,6 +89,9 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> Il servizio Backup Restore non funziona con archiviazione di Azure V1
+>
 
     2. **Condivisione file**: questo tipo di archiviazione deve essere selezionato per i cluster _autonomi_ quando è necessario archiviare il backup dei dati in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
         1. _Autenticazione di Windows integrata_: l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
@@ -129,6 +135,10 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 
 ## <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un'_applicazione_, a un _servizio_ o a una _partizione_.
+
+> [!NOTE]
+> Verificare che non siano in corso aggiornamenti dell'applicazione prima di abilitare il backup
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagazione gerarchica dei criteri di backup
 In Service Fabric la relazione tra applicazione, servizio e partizioni è gerarchica, come illustrato in [Modello applicativo](./service-fabric-application-model.md). Il criterio di backup può essere associato a un'_applicazione_, un _servizio_ o una _partizione_ nella gerarchia. Il criterio si propaga gerarchicamente al livello successivo. Se ad esempio è presente un solo criterio di backup associato a un'_applicazione_, tutte le partizioni con stato appartenenti a tutti i _servizi Reliable con stato_ e i _Reliable Actors_ dell'_applicazione_ vengono sottoposte a backup usando il criterio di backup. Se invece il criterio di backup è associato a un _servizio Reliable con stato_, tutte le partizioni del servizio vengono sottoposte a backup usando il criterio di backup.
@@ -186,6 +196,9 @@ Il diagramma seguente visualizza i criteri di backup abilitati in modo esplicito
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Verificare che non siano in corso aggiornamenti dell'applicazione prima di disabilitare il backup
+>
 
 ## <a name="suspend--resume-backup"></a>Sospendere e riprendere il backup
 In determinati casi può risultare necessario sospendere temporaneamente il backup periodico dei dati. In tali situazioni, a seconda delle esigenze, è possibile usare l'API di sospensione del backup a livello di _applicazione_, _servizio_ o _partizione_. La sospensione del backup periodico è transitiva per il sottoalbero della gerarchia dell'applicazione dal punto in cui viene applicata. 
@@ -213,6 +226,10 @@ Mentre la disabilitazione può essere richiamata solo a un livello precedentemen
 La partizione del servizio potrebbe perdere dati a causa di errori imprevisti. Ad esempio, il disco per due su tre repliche per una partizione, inclusa la replica primaria, viene danneggiato o cancellato.
 
 Quando Service Fabric rileva che nella partizione si verifica la perdita di dati, chiama il metodo di interfaccia `OnDataLossAsync` per la partizione e prevede che la partizione esegua l'azione necessaria per bloccare la perdita di dati. In questa situazione, se il flag `AutoRestoreOnDataLoss` del criterio di backup in vigore nella partizione è impostato su `true` il ripristino viene attivato automaticamente usando il backup disponibile più recente per la partizione.
+
+> [!NOTE]
+> Si consiglia di non impostare il ripristino automatico nei cluster di produzione
+>
 
 ## <a name="get-backup-configuration"></a>Ottenere la configurazione del backup
 API diverse consentono di ottenere informazioni di configurazione del backup a livello di _applicazione_, _servizio_ e _partizione_. Le API sono rispettivamente [Get Application Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Get Partition Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo). In generale queste API restituiscono il criterio di backup applicabile, l'ambito di applicazione del criterio e i dettagli della sospensione del backup. Segue una breve descrizione dei risultati restituiti da queste API.

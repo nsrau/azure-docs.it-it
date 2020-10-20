@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108151"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206453"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Caricare i dati di fatturazione in Azure e visualizzarli nel portale di Azure
 
@@ -117,7 +117,7 @@ Per visualizzare i dati di fatturazione nel portale di Azure, attenersi alla pro
 1. Fare clic sul pulsante **costo per risorsa** nella parte superiore della visualizzazione.
 1. Verificare che l'ambito sia impostato sulla sottoscrizione in cui sono state create le risorse del servizio dati.
 1. Selezionare **costo per risorsa** nell'elenco a discesa della vista accanto al selettore dell'ambito nella parte superiore della visualizzazione.
-1. Verificare che il filtro della data sia impostato su **questo mese** o su un altro intervallo di tempo che abbia senso in base all'intervallo di tempo durante il quale sono state create le risorse del servizio dati.
+1. Verificare che il filtro della data sia impostato su **questo mese** o su un altro intervallo di tempo che abbia senso in base alla tempistica di creazione delle risorse del servizio dati.
 1. Fare clic su **Aggiungi filtro** per aggiungere un filtro per **tipo di risorsa**  =  `microsoft.azuredata/<data service type>` se si desidera filtrare in base a un solo tipo di servizio dati abilitato per Azure Arc.
 1. Verrà ora visualizzato un elenco di tutte le risorse che sono state create e caricate in Azure. Poiché il contatore per la fatturazione è $0, si noterà che il costo è sempre $0.
 
@@ -135,11 +135,11 @@ Per visualizzare i dati di fatturazione nel portale di Azure, attenersi alla pro
 
 Per configurare un processo di esportazione fatturazione, attenersi alla procedura seguente:
 
-1. Fare clic su Exports (Esporta) a sinistra.
-1. Fare clic su Aggiungi.
+1. Fare clic su **exports (Esporta** ) a sinistra.
+1. Scegliere **Aggiungi**.
 1. Immettere un nome e una frequenza di esportazione, quindi fare clic su Avanti.
-1. Scegliere di creare un nuovo account di archiviazione o crearne uno nuovo e compilare il modulo per specificare l'account di archiviazione, il contenitore e il percorso della directory in cui esportare i file di dati di fatturazione, quindi fare clic su Avanti.
-1. Fare clic su Crea.
+1. Scegliere di creare un nuovo account di archiviazione o utilizzarne uno esistente e compilare il modulo per specificare l'account di archiviazione, il contenitore e il percorso della directory in cui esportare i file di dati di fatturazione, quindi fare clic su Avanti.
+1. Scegliere **Crea**.
 
 I file di esportazione dei dati di fatturazione saranno disponibili in circa 4 ore e verranno esportati nella pianificazione specificata durante la creazione del processo di esportazione della fatturazione.
 
@@ -156,7 +156,7 @@ Per visualizzare i file di dati di fatturazione esportati, attenersi alla proced
 5. Fare clic sul contenitore specificato durante la creazione del processo di esportazione fatturazione precedente.
 6. Fare clic sulla cartella specificata durante la creazione del processo di esportazione fatturazione precedente.
 7. Eseguire il drill-down nelle cartelle e nei file generati e fare clic su uno dei file CSV generati.
-8. Fare clic sul pulsante download che consente di salvare il file nella cartella download locale.
+8. Fare clic sul pulsante **download** che consente di salvare il file nella cartella download locale.
 9. Aprire il file usando un visualizzatore di file con estensione CSV, ad esempio Excel.
 10. Filtrare i risultati per visualizzare solo le righe con il **tipo di risorsa**  =  `Microsoft.AzureData/<data service resource type` .
 11. Viene visualizzato il numero di ore in cui l'istanza è stata usata nel periodo di 24 ore corrente nella colonna UsageQuantity.
