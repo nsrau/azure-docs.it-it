@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: acf35015ff7851f7ea2a2527852be2573512e35d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72308bf64246a8041bd40fa557280014a13c95eb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "72254849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218783"
 ---
 # <a name="what-is-azure-fxt-edge-filer-hybrid-storage-cache"></a>Informazioni sulla cache di archiviazione ibrida Azure FXT Edge Filer
 
@@ -19,7 +19,7 @@ Azure FXT Edge Filer è un'appliance di memorizzazione nella cache per l'archivi
 
 Funziona con più origini dati, archiviate in un data center locale, in remoto o nel cloud. Azure FXT Edge Filer può fornire uno spazio dei nomi unificato per i dati contenuti in sistemi di archiviazione eterogenei.
 
-Tre o più dispositivi hardware FXT Edge Filer operano insieme come un file system in cluster per fornire la cache. Per informazioni dettagliate sull'acquisto dell'hardware richiesto, contattare il rappresentante Microsoft. 
+Tre o più dispositivi hardware FXT Edge Filer operano insieme come un file system in cluster per fornire la cache. Per informazioni dettagliate sull'acquisto dell'hardware richiesto, contattare il rappresentante Microsoft.
 
 Per altre informazioni, leggere le informazioni sul prodotto e il foglio dati di [Azure FXT Edge Filer](https://azure.microsoft.com/services/fxt-edge-filer/).
 
@@ -27,31 +27,30 @@ Per altre informazioni, leggere le informazioni sul prodotto e il foglio dati di
 
 Azure FXT Edge Filer aumenta in modo particolare la produttività per i flussi di lavoro simili ai seguenti:
 
-* Flusso di lavoro di accesso ai file con intensa attività di lettura 
+* Flusso di lavoro di accesso ai file con intensa attività di lettura
 * Protocolli NFSv3 o SMB2
 * Farm di calcolo da 1000 a 100.000 core CPU
 
 ### <a name="nas-optimization-and-scaling"></a>Ottimizzazione e scalabilità NAS
 
-È possibile usare la cache di Azure FXT Edge Filer per semplificare l'accesso ai sistemi NAS NetApp e Dell EMC Isilon esistenti. È anche possibile aggiungere BLOB di Azure o altre risorse di archiviazione cloud per offrire scalabilità senza dover rielaborare i processi di accesso ai dati sul lato client. 
+È possibile usare la cache di Azure FXT Edge Filer per semplificare l'accesso ai sistemi NAS NetApp e Dell EMC Isilon esistenti. È anche possibile aggiungere BLOB di Azure o altre risorse di archiviazione cloud per offrire scalabilità senza dover rielaborare i processi di accesso ai dati sul lato client.
 
 ### <a name="wan-caching"></a>Memorizzazione nella cache WAN
 
-Azure FXT Edge Filer può essere usato per supportare l'accesso rapido ai file da parte di utenti esperti, quando i dati necessari sono archiviati in un'altra posizione. Fornire l'accesso, mantenendo al tempo stesso il backup e altri sistemi di gestione dati in un data center centralizzato. 
+Azure FXT Edge Filer può essere usato per supportare l'accesso rapido ai file da parte di utenti esperti, quando i dati necessari sono archiviati in un'altra posizione. Fornire l'accesso, mantenendo al tempo stesso il backup e altri sistemi di gestione dati in un data center centralizzato.
 
 ### <a name="active-archive-in-azure-blob"></a>Archivio attivo nel BLOB di Azure
 
-Espandere il data center nell'archiviazione cloud con Azure FXT Edge Filer come punto di accesso. 
+Espandere il data center nell'archiviazione cloud con Azure FXT Edge Filer come punto di accesso.
 
-## <a name="features"></a>Funzionalità 
+## <a name="features"></a>Funzionalità
 
-Sono disponibili due modelli di hardware. 
+Sono disponibili due modelli di hardware.
 
-| Modello | DRAM | SSD NVMe | Porte di rete | 
+| Modello | DRAM | SSD NVMe | Porte di rete |
 |-------|------|----------|---------------|
 | FXT 6600 | 1536 GB | 25,6 TB | 6 x 25 Gb/10 Gb + 2 x 1 Gb |
 | FXT 6400 | 768 GB | 12,8 TB | 6 x 25 Gb/10 Gb + 2 x 1 Gb |
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

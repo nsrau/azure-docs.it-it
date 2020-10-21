@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102154"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342128"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -228,7 +228,7 @@ Assicurarsi di usare i comandi dell'interfaccia della riga di comando corretti p
 Per creare una regola di avviso per la metrica, è necessario disporre delle autorizzazioni seguenti:
 
 - Autorizzazione Read per la risorsa di destinazione della regola di avviso
-- Autorizzazione di scrittura per il gruppo di risorse in cui viene creata la regola di avviso (se si sta creando la regola di avviso dal portale di Azure, la regola di avviso viene creata nello stesso gruppo di risorse in cui risiede la risorsa di destinazione)
+- Autorizzazione di scrittura per il gruppo di risorse in cui viene creata la regola di avviso (se si sta creando la regola di avviso dal portale di Azure, la regola di avviso viene creata per impostazione predefinita nello stesso gruppo di risorse in cui risiede la risorsa di destinazione)
 - Autorizzazione Read per qualsiasi gruppo di azione associato alla regola di avviso (se applicabile)
 
 
@@ -250,7 +250,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Esempio:
+Ad esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

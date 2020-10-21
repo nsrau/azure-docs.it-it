@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106264"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342196"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 
@@ -41,7 +41,7 @@ Microsoft tiene inoltre traccia degli standard normativi e migliora automaticame
 
 È possibile aggiungere standard come NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, Canada Federal PBMM e Azure CIS 1.1.0 (nuova versione), una rappresentazione più completa di Azure CIS 1.1.0. 
 
-Inoltre, è possibile aggiungere **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).
+Inoltre, è possibile aggiungere **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 Nel dashboard verranno supportati altri standard non appena saranno disponibili. 
 
@@ -116,6 +116,6 @@ In questo articolo si è appreso come **aggiungere pacchetti di conformità** pe
 
 Per altri materiali correlati, vedere gli articoli seguenti: 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Dashboard di conformità alle normative del Centro sicurezza](security-center-compliance-dashboard.md)
 - [Uso dei criteri di sicurezza](tutorial-security-policy.md)

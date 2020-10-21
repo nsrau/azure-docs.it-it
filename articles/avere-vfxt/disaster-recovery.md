@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966658"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342247"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Linee guida per il ripristino di emergenza per vFXT per Azure
 
@@ -117,7 +117,7 @@ Per accedere al contenitore di backup da un cluster vFXT per Azure, seguire ques
 * Per altre informazioni sulla personalizzazione delle impostazioni per vFXT per Azure, vedere Ottimizzazione del [cluster](avere-vfxt-tuning.md).
 * Scopri di più sul ripristino di emergenza e sulla creazione di applicazioni resilienti in Azure:
 
-  * [Indicazioni tecniche sulla resilienza di Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-  * [Eseguire il ripristino dopo un'interruzione di servizio a livello di area](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
-  * [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
+  * [Indicazioni tecniche sulla resilienza di Azure](/azure/architecture/framework/resiliency/overview)
+  * [Eseguire il ripristino dopo un'interruzione di servizio a livello di area](/azure/architecture/resiliency/recovery-loss-azure-region)
+  * [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->

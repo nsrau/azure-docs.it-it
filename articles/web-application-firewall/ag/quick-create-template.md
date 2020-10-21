@@ -8,12 +8,13 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: subject-armqs
+ms.openlocfilehash: 4c5d5c4cafee9402e2afd7ddc047fd3b68e84540
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266956"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091322"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Avvio rapido: Creare un'istanza di WAF di Azure v2 nel gateway applicazione con un modello di Azure Resource Manager
 

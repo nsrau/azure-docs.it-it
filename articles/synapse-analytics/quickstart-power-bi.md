@@ -5,16 +5,16 @@ services: synapse-analytics
 author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: business-intelligence
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9b4b9da37b753418773141f832f253003ad40014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260460"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171835"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Avvio rapido: Collegamento di un'area di lavoro Power BI a un'area di lavoro di Synapse
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275390"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342145"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -81,7 +81,7 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se è necessari
     > [!NOTE]
     > Per proteggere i computer abilitati per Azure Arc, seguire le istruzioni riportate in [avvio rapido: connettere un computer ibrido con i server abilitati per Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
 
-1. Se è già stato concesso in licenza e distribuito Microsoft Defender per gli endpoint sui server, rimuoverlo usando la procedura descritta in [offboard Windows Servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. Se è già stato concesso in licenza e distribuito Microsoft Defender per gli endpoint sui server, rimuoverlo usando la procedura descritta in [offboard Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione da modificare.
 1. Selezionare **Rilevamento delle minacce**.
@@ -94,11 +94,11 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se è necessari
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Accedere a Microsoft Defender per endpoint Portal
 
-1. Verificare che l'account utente disponga delle autorizzazioni necessarie. [Altre informazioni](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access)
+1. Verificare che l'account utente disponga delle autorizzazioni necessarie. [Altre informazioni](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access)
 
-1. Controllare se è presente un proxy o un firewall che blocca il traffico anonimo. Il Defender per l'endpoint Sensor si connette dal contesto del sistema, quindi è necessario consentire il traffico anonimo. Per garantire l'accesso senza ostacoli al Defender per endpoint Portal, seguire le istruzioni in [abilitare l'accesso agli URL del servizio nel server proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Controllare se è presente un proxy o un firewall che blocca il traffico anonimo. Il Defender per l'endpoint Sensor si connette dal contesto del sistema, quindi è necessario consentire il traffico anonimo. Per garantire l'accesso senza ostacoli al Defender per endpoint Portal, seguire le istruzioni in [abilitare l'accesso agli URL del servizio nel server proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Aprire il [portale di Microsoft Defender Security Center](https://securitycenter.windows.com/). Per altre informazioni sulle funzionalità e sulle icone del portale, vedere Panoramica del portale di [Microsoft Defender Security Center](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Aprire il [portale di Microsoft Defender Security Center](https://securitycenter.windows.com/). Per altre informazioni sulle funzionalità e sulle icone del portale, vedere Panoramica del portale di [Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 ## <a name="send-a-test-alert"></a>Invia un avviso di test
 
@@ -128,7 +128,7 @@ Defender for endpoint è incluso senza costi aggiuntivi con **Azure Defender per
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Ricerca per categorie passare da uno strumento EDR di terze parti?
 
-Le istruzioni complete per il passaggio da una soluzione endpoint non Microsoft sono disponibili nella documentazione di Microsoft Defender per l'endpoint: [Panoramica della migrazione](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+Le istruzioni complete per il passaggio da una soluzione endpoint non Microsoft sono disponibili nella documentazione di Microsoft Defender per l'endpoint: [Panoramica della migrazione](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 

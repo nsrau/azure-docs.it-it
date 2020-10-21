@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272417"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342111"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -42,7 +42,7 @@ Esistono alcune soluzioni alternative per consentire a un utente non proprietari
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota per il cluster vFXT
 
-Verificare di disporre di una quota sufficiente per i componenti di Azure seguenti. Se necessario, [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Verificare di disporre di una quota sufficiente per i componenti di Azure seguenti. Se necessario, [richiedere un aumento della quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > Le macchine virtuali e i componenti SSD elencati di seguito sono per il cluster vFXT stesso. Tenere presente che è necessaria anche la quota per le macchine virtuali e le unità SSD che si utilizzeranno per la farm di calcolo.

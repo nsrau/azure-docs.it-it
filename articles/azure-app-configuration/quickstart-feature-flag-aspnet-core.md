@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767725"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074448"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida di avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Con la modifica precedente, il [provider di configurazione per Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664) è stato registrato con l'API di configurazione di .NET Core.
+    Con la modifica precedente, il [provider di configurazione per Configurazione app](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) è stato registrato con l'API di configurazione di .NET Core.
 
 1. In *Startup.cs* aggiungere un riferimento alla gestione funzionalità di .NET Core:
 
@@ -260,7 +260,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato per gestire le funzionalità in un'app Web ASP.NET Core con le [librerie di gestione delle funzionalità](https://go.microsoft.com/fwlink/?linkid=2074664).
+In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato per gestire le funzionalità in un'app Web ASP.NET Core con le [librerie di gestione delle funzionalità](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Altre informazioni sulla [gestione delle funzionalità](./concept-feature-management.md).
 * [Gestire i flag di funzionalità](./manage-feature-flags.md).

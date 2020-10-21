@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763925"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072391"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 
@@ -54,7 +54,7 @@ I dashboard offrono una visualizzazione mirata delle risorse della sottoscrizion
 
 ## <a name="getting-around-the-portal"></a>Spostarsi nel portale
 
-È utile comprendere il layout del portale di base e come interagirvi. Qui verranno introdotti i componenti dell'interfaccia utente e alcuni dei termini usati per fornire istruzioni. Per una panoramica più dettagliata del portale, vedere la lezione del corso [Esplorare il portale](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+È utile comprendere il layout del portale di base e come interagirvi. Qui verranno introdotti i componenti dell'interfaccia utente e alcuni dei termini usati per fornire istruzioni. Per una panoramica più dettagliata del portale, vedere la lezione del corso [Esplorare il portale](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 Il menu del portale di Azure e l'intestazione di pagina sono elementi globali sempre presenti. Queste funzionalità permanenti rappresentano la "shell" dell'interfaccia utente associata a ogni singolo servizio o funzionalità e l'intestazione fornisce l'accesso ai controlli globali. La pagina di configurazione (talvolta definita "pannello") di una risorsa può includere anche un menu delle risorse che consente di spostarsi tra le funzionalità.
 

@@ -4,12 +4,12 @@ description: Panoramica del servizio Azure Site Recovery e riepilogo degli scena
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86135230"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281877"
 ---
 # <a name="about-site-recovery"></a>Informazioni su Site Recovery
 
@@ -50,7 +50,7 @@ Site Recovery può gestire la replica per:
 **Supportato** | **Dettagli**
 --- | ---
 **Scenari di replica** | Replica di VM di Azure da un'area di Azure a un'altra.<br/><br/>  Replica di VM VMware locali, VM Hyper-V, server fisici (Windows e Linux), VM Azure Stack in Azure.<br/><br/> Replica di istanze Windows per AWS in Azure.<br/><br/> Replica di VM VMware, VM Hyper-V gestite da System Center VMM e server fisici in un sito secondario.
-**Aree** | Vedere le [aree supportate](https://azure.microsoft.com/regions/services/) per Site Recovery. |
+**Aree** | Vedere le [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) per Site Recovery. |
 **Computer replicati** | Esaminare i requisiti per la replica di [VM di Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [server fisici e VM VMware locali](vmware-physical-azure-support-matrix.md#replicated-machines) e [VM Hyper-V locali](hyper-v-azure-support-matrix.md#replicated-vms).
 **Carichi di lavoro** | È possibile replicare qualsiasi carico di lavoro in esecuzione in un computer supportato per la replica. Il team di Site Recovery ha svolto test specifici per [numerose app](site-recovery-workload.md#workload-summary).
 

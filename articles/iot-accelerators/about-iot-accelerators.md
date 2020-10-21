@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f976bf4260e4a677aee5b5ccc4287db3d0b2e40d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542496"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074295"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni Azure IoT
 
@@ -85,7 +85,7 @@ Gli acceleratori di soluzioni originali sono stati scritti tramite .NET e un'arc
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulazione dei dispositivi      | Microservizi | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Per altre informazioni sull'architettura di microservizi, vedere [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/) (Introduzione all'architettura di riferimento di Azure IoT).
+Per altre informazioni sull'architettura di microservizi, vedere [Introduction to the Azure IoT reference architecture](/azure/architecture/reference-architectures/iot/) (Introduzione all'architettura di riferimento di Azure IoT).
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 

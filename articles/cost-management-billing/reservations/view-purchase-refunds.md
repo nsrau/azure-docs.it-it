@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681703"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151769"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Visualizzare le transazioni di acquisto e di rimborso della prenotazione
 
@@ -39,11 +39,11 @@ Un amministratore di fatturazione dell’iscrizione Enterprise o del Contratto d
 
 [![Esempio che mostra le transazioni di prenotazione](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Per altre informazioni, vedere [App Power BI Gestione costi di Azure per contratti Enterprise](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Per altre informazioni, vedere [App Power BI Gestione costi di Azure per contratti Enterprise](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Usare le API per ottenere le transazioni di prenotazione
 
-Gli utenti del Contratto Enterprise e del Contratto del cliente Microsoft possono ottenere i dati delle transazioni di prenotazione usando [Transazioni di prenotazione - Elenca API](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Gli utenti del Contratto Enterprise e del Contratto del cliente Microsoft possono ottenere i dati delle transazioni di prenotazione usando [Transazioni di prenotazione - Elenca API](/rest/api/consumption/reservationtransactions/list).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272774"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342417"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -64,7 +64,7 @@ Specificare le informazioni seguenti:
 
 * **Nome utente del controller** : impostare il nome utente radice per la macchina virtuale del controller cluster.
 
-* **Tipo di autenticazione**: scegliere se usare una password o l'autenticazione con chiave pubblica SSH per la connessione al controller. È consigliabile usare la chiave pubblica SSH. Per informazioni, vedere [Creare e usare chiavi SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+* **Tipo di autenticazione**: scegliere se usare una password o l'autenticazione con chiave pubblica SSH per la connessione al controller. È consigliabile usare la chiave pubblica SSH. Per informazioni, vedere [Creare e usare chiavi SSH](../virtual-machines/linux/ssh-from-windows.md).
 
 * **Password** o **Chiave pubblica SSH**: a seconda del tipo di autenticazione selezionato, nei campi successivi è necessario specificare una chiave pubblica RSA o una password. Queste credenziali devono essere usate con il nome utente specificato in precedenza.
 
