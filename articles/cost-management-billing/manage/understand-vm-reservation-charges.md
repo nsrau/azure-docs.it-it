@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132143"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Come viene applicato lo sconto per la prenotazione di Azure alle macchine virtuali
 
@@ -57,7 +57,7 @@ Quando si eseguono istanze di macchine virtuali Windows, viene applicata la pren
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Lo sconto può essere applicato a diverse dimensioni
 
-Quando si acquista un'istanza di VM riservata, se si seleziona **Ottimizzato per flessibilità delle dimensioni istanza**, la copertura degli sconti si applica alle dimensioni di VM selezionate. Può anche essere applicabile ad altre dimensioni di VM che si trovano nello stesso gruppo di flessibilità delle dimensioni istanza della serie. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Quando si acquista un'istanza di VM riservata, se si seleziona **Ottimizzato per flessibilità delle dimensioni istanza**, la copertura degli sconti si applica alle dimensioni di VM selezionate. Può anche essere applicabile ad altre dimensioni di VM che si trovano nello stesso gruppo di flessibilità delle dimensioni istanza della serie. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Le VM di archiviazione Premium non ottengono sconti non Premium
 

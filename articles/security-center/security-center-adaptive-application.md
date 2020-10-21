@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076981"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339714"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -52,7 +52,7 @@ Definendo elenchi di applicazioni sicure e generando avvisi quando viene eseguit
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
-|Computer supportati:|![Sì ](./media/icons/yes-icon.png) macchine virtuali di Azure e non Azure che eseguono Windows e Linux<br>![Sì ](./media/icons/yes-icon.png) computer [Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
+|Computer supportati:|![Sì ](./media/icons/yes-icon.png) macchine virtuali di Azure e non Azure che eseguono Windows e Linux<br>![Sì ](./media/icons/yes-icon.png) computer [Azure Arc](../azure-arc/index.yml)|
 |Autorizzazioni e ruoli obbligatori:|I ruoli Reader **e Reader di** **sicurezza** possono visualizzare i gruppi e gli elenchi di applicazioni sicure.<br>I ruoli di amministratore di **collaboratore** e **sicurezza** possono sia modificare i gruppi che gli elenchi di applicazioni sicure.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
@@ -85,7 +85,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
     - **Nessuna raccomandazione** -computer senza un elenco di applicazioni consentite definito e che non supportano la funzionalità. Il computer potrebbe trovarsi in questa scheda per i motivi seguenti:
       - Manca un agente Log Analytics
       - L'agente di Log Analytics non invia eventi
-      - Si tratta di un computer Windows con criteri di [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) preesistenti abilitati da un oggetto Criteri di gruppo o criteri di sicurezza locali
+      - Si tratta di un computer Windows con criteri di [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) preesistenti abilitati da un oggetto Criteri di gruppo o criteri di sicurezza locali
 
       > [!TIP]
       > Il Centro sicurezza necessita di almeno due settimane di dati per definire le raccomandazioni univoche per ogni gruppo di computer. I computer che sono stati creati di recente o che appartengono alle sottoscrizioni abilitate solo di recente con Azure Defender verranno visualizzati nella scheda **Nessuna raccomandazione** .
@@ -224,7 +224,7 @@ Quando si sposta un computer da un gruppo a un altro, il criterio di controllo d
 
 Per gestire i controlli applicazione adattivi a livello, usare l'API REST. 
 
-La documentazione completa dell'API è disponibile [qui](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+La documentazione completa dell'API è disponibile [qui](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Di seguito sono riportate alcune delle funzioni disponibili nell'API REST:
 
@@ -245,5 +245,5 @@ Di seguito sono riportate alcune delle funzioni disponibili nell'API REST:
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come usare il controllo delle applicazioni adattivi nel centro sicurezza di Azure per definire gli elenchi di applicazioni in esecuzione nei computer Azure e non Azure. Per ulteriori informazioni sulle altre funzionalità di protezione del carico di lavoro cloud del Centro sicurezza, vedere:
 
-* [Informazioni sull'accesso alla VM JIT (just-in-Time)](just-in-time-explained.md)
+* [Informazioni sull'accesso JIT alle macchine virtuali](just-in-time-explained.md)
 * [Protezione dei cluster Kubernetes di Azure](defender-for-kubernetes-introduction.md)

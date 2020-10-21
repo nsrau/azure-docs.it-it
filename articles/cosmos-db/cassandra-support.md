@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803501"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107488"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -151,6 +151,7 @@ Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account AP
 | CREATE USER (deprecato in Apache Cassandra nativo) | No |
 | DELETE | Sì |
 | DELETE (transazioni leggere con IF CONDITION)| Sì |
+| DISTINCT | No |
 | DROP AGGREGATE | No |
 | .DROP FUNCTION | No |
 | DROP INDEX | Sì |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272692"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342366"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -160,7 +160,7 @@ La rimozione e il ricollegamento delle unità SSD non sono supportati. I metadat
 
 ### <a name="does-the-system-encrypt-the-cache"></a>Il sistema esegue la crittografia della cache?
 
-Viene eseguito lo striping dei dati tra i dischi, ma i dati non vengono crittografati. Tuttavia, i dischi stessi possono essere crittografati. Per altre informazioni, vedere [Applicare la sicurezza e usare criteri in macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Viene eseguito lo striping dei dati tra i dischi, ma i dati non vengono crittografati. Tuttavia, i dischi stessi possono essere crittografati. Per altre informazioni, vedere [Applicare la sicurezza e usare criteri in macchine virtuali in Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Tecnica: rete
 
@@ -259,7 +259,7 @@ No. Il contratto di servizio per lo spazio di archiviazione non è compatibile c
 
 L'archiviazione BLOB di livello sporadico non è generalmente consigliata per un vFXT di ricerca per Azure Core filer. Il livello di accesso sporadico offre costi di archiviazione più bassi ma costi operativi più elevati. Per altri dettagli, vedere i [prezzi dei BLOB in blocchi](<https://azure.microsoft.com/pricing/details/storage/blobs/>) . Se i dati saranno accessibili e modificati o eliminati di frequente, prendere in considerazione l'uso del livello di accesso frequente.
 
-[Livelli di accesso](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) offre altre informazioni su quando potrebbe essere utile usare l'archiviazione a livello di accesso sporadico come filer di vFXT core.
+[Livelli di accesso](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) offre altre informazioni su quando potrebbe essere utile usare l'archiviazione a livello di accesso sporadico come filer di vFXT core.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Come è possibile crittografare il contenitore BLOB?
 

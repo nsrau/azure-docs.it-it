@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728438"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340377"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -98,5 +98,4 @@ Sono disponibili diverse opzioni per la visualizzazione degli avvisi all'esterno
 
 In questo articolo sono stati descritti i diversi tipi di avvisi disponibili nel Centro sicurezza. Per altre informazioni, vedere:
 
-- **Avvisi di sicurezza nel log attività di Azure**: oltre a essere disponibili nel portale di Azure o a livello di codice, gli avvisi di sicurezza e gli eventi imprevisti vengono controllati come eventi nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Per altre informazioni sullo schema di eventi, vedere [Avvisi di sicurezza nel log attività di Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
-
+- **Avvisi di sicurezza nel log attività di Azure**: oltre a essere disponibili nel portale di Azure o a livello di codice, gli avvisi di sicurezza e gli eventi imprevisti vengono controllati come eventi nel [log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log). Per altre informazioni sullo schema di eventi, vedere [Avvisi di sicurezza nel log attività di Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

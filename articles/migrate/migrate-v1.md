@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001638"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317213"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. |
 Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2008 R2 e tutti i Service Pack | Azure offre supporto completo.| Idoneo per Azure
 Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Idoneo per Azure
-Windows Server 2003, 2003 R2 | Non più supportato ed è necessario un [contratto di supporto personalizzato](https://aka.ms/WSosstatement) per il supporto in Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
+Windows Server 2003, 2003 R2 | Non più supportato ed è necessario un [contratto di supporto personalizzato](/troubleshoot/azure/virtual-machines/server-software-support) per il supporto in Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Non più supportato. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
 Client Windows 7, 8 e 10 | Azure offre supporto solo con [la sottoscrizione di Visual Studio.](../virtual-machines/windows/client-images.md) | Idoneo per Azure con condizioni
 Windows 10 Pro Desktop | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Idoneo per Azure con condizioni
