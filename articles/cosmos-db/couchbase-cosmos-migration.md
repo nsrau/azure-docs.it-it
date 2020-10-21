@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366722"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282479"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Eseguire la migrazione da CouchBase all'API SQL di Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Di seguito sono riportate le funzionalità chiave che funzionano in modo diverso
 
 * Azure Cosmos DB dispone di un campo "ID" all'interno del documento, mentre in Couchbase l'ID è incluso nel bucket. Il campo "ID" è univoco nell'intera partizione.
 
-* Azure Cosmos DB esegue il ridimensionamento mediante la tecnica di partizionamento o partizionamento orizzontale, suddividendo quindi i dati in più partizioni/partizioni di database. Queste partizioni/partizioni di database vengono create in base alla proprietà della chiave di partizione fornita. È possibile selezionare la chiave di partizione per ottimizzare le operazioni di lettura e scrittura o anche di lettura/scrittura ottimizzata. Per altre informazioni, vedere l'articolo sul [partizionamento](./partition-data.md).
+* Azure Cosmos DB esegue il ridimensionamento mediante la tecnica di partizionamento o partizionamento orizzontale, suddividendo quindi i dati in più partizioni/partizioni di database. Queste partizioni/partizioni di database vengono create in base alla proprietà della chiave di partizione fornita. È possibile selezionare la chiave di partizione per ottimizzare le operazioni di lettura e scrittura o anche di lettura/scrittura ottimizzata. Per altre informazioni, vedere l'articolo sul [partizionamento](./partitioning-overview.md).
 
 * In Azure Cosmos DB non è necessario che la gerarchia di primo livello denoti la raccolta perché il nome della raccolta esiste già. Questa funzionalità rende molto più semplice la struttura JSON. Di seguito è riportato un esempio che mostra le differenze nel modello di dati tra Couchbase e Azure Cosmos DB:
 

@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f14960f98a4257b0c8f920915327661cd8b867c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053753"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310399"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creare un gruppo assegnabile al ruolo in Azure Active Directory
 
-È possibile assegnare un ruolo solo a un gruppo creato con la proprietà' isAssignableToRole ' impostata su true oppure è stato creato nel portale di Azure AD con **Azure ad i ruoli possono essere assegnati al gruppo** attivato. Questo attributo di gruppo rende il gruppo uno che può essere assegnato a un ruolo in Azure Active Directory (Azure AD). Questo articolo descrive come creare questo tipo di gruppo speciale. **Nota:** Un gruppo con la proprietà isAssignableToRole impostata su true non può essere di tipo di appartenenza dinamica. Per ulteriori informazioni, vedere [utilizzo di un gruppo per gestire le assegnazioni di ruolo Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+È possibile assegnare un ruolo solo a un gruppo creato con la proprietà' isAssignableToRole ' impostata su true oppure è stato creato nel portale di Azure AD con **Azure ad i ruoli possono essere assegnati al gruppo** attivato. Questo attributo di gruppo rende il gruppo uno che può essere assegnato a un ruolo in Azure Active Directory (Azure AD). Questo articolo descrive come creare questo tipo di gruppo speciale. **Nota:** Un gruppo con la proprietà isAssignableToRole impostata su true non può essere di tipo di appartenenza dinamica. Per ulteriori informazioni, vedere [utilizzo di un gruppo per gestire le assegnazioni di ruolo Azure ad](./roles-groups-concept.md).
 
 ## <a name="using-azure-ad-admin-center"></a>Uso di Azure AD interfaccia di amministrazione
 
@@ -46,7 +46,7 @@ ms.locfileid: "90053753"
 
 Il gruppo viene creato con tutti i ruoli che potrebbero essere stati assegnati.
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 ### <a name="install-the-azure-ad-preview-module"></a>Installare il modulo Azure AD Preview
 

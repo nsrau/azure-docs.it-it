@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280526"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Azure Cosmos DB fornisce un'[API SQL per le query sui dati](how-to-sql-query.md)
 
 ## <a name="about-sql-query-execution"></a>Informazioni sull'esecuzione di query SQL
 
-In Azure Cosmos DB i dati vengono archiviati in contenitori, che possono raggiungere [dimensioni di archiviazione o velocità effettive delle richieste](partition-data.md) illimitate. Azure Cosmos DB esegue automaticamente il ridimensionamento dei dati tra le partizioni fisiche per gestire la crescita dei dati o l'aumento della velocità effettiva con provisioning. È possibile eseguire query SQL su qualsiasi contenitore usando l'API REST o uno dei [SDK di SQL](sql-api-sdk-dotnet.md) supportati.
+In Azure Cosmos DB i dati vengono archiviati in contenitori, che possono raggiungere [dimensioni di archiviazione o velocità effettive delle richieste](partitioning-overview.md) illimitate. Azure Cosmos DB esegue automaticamente il ridimensionamento dei dati tra le partizioni fisiche per gestire la crescita dei dati o l'aumento della velocità effettiva con provisioning. È possibile eseguire query SQL su qualsiasi contenitore usando l'API REST o uno dei [SDK di SQL](sql-api-sdk-dotnet.md) supportati.
 
 Una breve panoramica del partizionamento: si definisce una chiave di partizione come "city", che determina il modo in cui vengono suddivisi i dati tra le partizioni fisiche. I dati che appartengono a una singola chiave di partizione (ad esempio, "city" == "Seattle") vengono archiviati in una partizione fisica, ma in genere una singola partizione fisica contiene più chiavi di partizione. Quando una partizione raggiunge la dimensione di archiviazione, il servizio suddivide automaticamente la partizione in due nuove partizioni e divide la chiave di partizione in modo uniforme tra queste partizioni. Poiché le partizioni sono temporanee, le API usano un'astrazione "intervallo di chiavi di partizione", che indica gli intervalli degli hash delle chiavi di partizione. 
 
@@ -163,7 +163,7 @@ Con Azure Cosmos DB, in genere le query vengono eseguite nell'ordine seguente, d
 
 Le query che devono consultare tutte le partizioni comportano una latenza più elevata e possono usare più UR. Poiché ogni partizione dispone dell'indicizzazione automatica per tutte le proprietà, in questo caso la query può essere fornita in modo efficiente dall'indice. È possibile eseguire più velocemente le query che interessano diverse partizioni usando le opzioni di parallelismo.
 
-Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento in Azure Cosmos DB](partition-data.md).
+Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>Opzioni per SDK e query
 Per informazioni su come ottenere le migliori prestazioni sul lato client da Azure Cosmos DB, vedere [Suggerimenti sulle prestazioni](performance-tips.md) e [Test delle prestazioni](performance-testing.md). Sono inclusi l'uso degli SDK più recenti, la configurazione di impostazioni specifiche della piattaforma come il numero predefinito di connessioni, la frequenza della Garbage Collection e l'uso delle opzioni di connettività leggera come Direct/TCP. 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612983"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327400"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -73,7 +73,7 @@ Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a 
 
 * L'istanza della cache deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
 
-* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione.
+* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione.
 
   Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 

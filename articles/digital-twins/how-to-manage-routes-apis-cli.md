@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201734"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279087"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -90,13 +90,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**.
 
-Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario usare le [API ARM](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per creare l'endpoint. 
+Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario usare le [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per creare l'endpoint. 
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Per altre informazioni sui token SAS, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Per altre informazioni sui token SAS, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview)
 
-Per ulteriori informazioni sui messaggi non recapitabili, vedere [concetti: route degli eventi](./concepts-route-events.md#dead-letter-events)
+Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events).
 
 #### <a name="configuring-the-endpoint"></a>Configurazione dell'endpoint
 
@@ -114,7 +114,7 @@ Quando si crea un endpoint, aggiungere un `deadLetterSecret` `properties` oggett
 }
 ```
 
-Per altre informazioni, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Per altre informazioni, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schema di archiviazione messaggi
 
@@ -124,7 +124,7 @@ I messaggi non recapitabili verranno archiviati nel formato seguente nell'accoun
 
 I messaggi non recapitabili corrisponderanno allo schema dell'evento originale destinato a essere recapitato all'endpoint originale.
 
-Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
 
 ```json
 {

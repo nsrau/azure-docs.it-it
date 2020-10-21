@@ -520,9 +520,6 @@
           href: how-to-debug-pipelines.md
         - name: Registrare i dati della pipeline in Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Usare il passaggio di esecuzione in parallelo
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
         - name: Eseguire il debug e la risoluzione dei problemi del passaggio di esecuzione in parallelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md

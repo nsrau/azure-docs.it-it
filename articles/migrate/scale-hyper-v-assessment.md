@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70279446"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317168"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure
 
@@ -30,7 +30,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 
 > [!NOTE]
-> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](tutorial-prepare-hyper-v.md)
+> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](./tutorial-discover-hyper-v.md)
 
 ## <a name="plan-for-assessment"></a>Pianificare la valutazione
 
@@ -66,7 +66,7 @@ Preparare Azure e Hyper-V per la valutazione del server.
 2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate
 3. Preparare gli host e le macchine virtuali Hyper-V
 
-Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-prepare-hyper-v.md) .
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](./tutorial-discover-hyper-v.md) .
 
 ## <a name="create-a-project"></a>Creare un progetto
 

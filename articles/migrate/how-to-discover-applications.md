@@ -3,12 +3,12 @@ title: Individuare app, ruoli e funzionalità nei server locali con Azure Migrat
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118648"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315203"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -46,7 +46,7 @@ Dopo che l'appliance è stata distribuita e sono state fornite le credenziali, l
 
 ## <a name="verify-permissions"></a>Verificare le autorizzazioni
 
-È [stato creato un server vCenter account](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) di sola lettura per l'individuazione e la valutazione. L'account di sola lettura necessita di privilegi abilitati per **Virtual Machines**  >  **le operazioni Guest**delle macchine virtuali, per interagire con la macchina virtuale per l'individuazione delle app.
+È [stato creato un server vCenter account](./tutorial-discover-vmware.md#prepare-vmware) di sola lettura per l'individuazione e la valutazione. L'account di sola lettura necessita di privilegi abilitati per **Virtual Machines**  >  **le operazioni Guest**delle macchine virtuali, per interagire con la macchina virtuale per l'individuazione delle app.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Aggiungere l'account utente al dispositivo
 

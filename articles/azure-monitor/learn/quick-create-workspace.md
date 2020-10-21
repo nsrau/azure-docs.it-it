@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf7c89c23b3df51dce2710be50c3c62f8f1e3cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324285"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320090"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creare un'area di lavoro Log Analytics nel portale di Azure
 Usare il menu **Aree di lavoro Log Analytics** per creare un'area di lavoro Log Analytics tramite il portale di Azure. Un'area di lavoro Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro Log Analytics se si intende raccogliere dati dalle origini seguenti:
@@ -62,8 +62,5 @@ Quando si crea un'area di lavoro eliminata negli ultimi 14 giorni e in [stato di
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un'area di lavoro, è possibile configurare la raccolta di dati di telemetria di monitoraggio, eseguire ricerche nei log per analizzare i dati e aggiungere una soluzione di gestione per fornire informazioni analitiche dettagliate e dati aggiuntivi. 
 
-* Per abilitare la raccolta di dati dalle risorse di Azure con Diagnostica di Azure o l'archiviazione di Azure, vedere [Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
-* [Aggiungere System Center Operations Manager come origine dati](../platform/om-agents.md) per raccogliere i dati da agenti di creazione report per il gruppo di gestione Operations Manager e archiviarli nell'area di lavoro Log Analytics. 
-* Connettere [Configuration Manager](../platform/collect-sccm.md) per importare computer che sono membri di raccolte nella gerarchia.  
-* Esaminare le [soluzioni di monitoraggio](../insights/solutions.md) disponibili e verificare come aggiungere o rimuovere una soluzione dall'area di lavoro.
-
+* Vedere [monitorare l'integrità dell'area di lavoro log Analytics in monitoraggio di Azure](../platform/monitor-workspace.md) creare regole di avviso per monitorare l'integrità dell'area di lavoro. 
+* Vedere [raccogliere i log e le metriche dei servizi di Azure da usare in log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) per abilitare la raccolta di dati dalle risorse di azure con diagnostica di Azure o archiviazione di Azure.

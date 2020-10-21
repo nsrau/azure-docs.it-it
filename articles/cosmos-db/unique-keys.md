@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132654"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280996"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Vincoli di chiave univoca in Azure Cosmos DB
 
-Le chiavi univoche aggiungono un livello di integrità dei dati a un contenitore di Azure Cosmos. I criteri di chiave univoca si creano al momento della creazione di un contenitore di Azure Cosmos. Con le chiavi univoche si garantisce l'univocità di uno o più valori all'interno di una partizione logica. Si può anche garantire l'univocità per [chiave di partizione](partition-data.md).
+Le chiavi univoche aggiungono un livello di integrità dei dati a un contenitore di Azure Cosmos. I criteri di chiave univoca si creano al momento della creazione di un contenitore di Azure Cosmos. Con le chiavi univoche si garantisce l'univocità di uno o più valori all'interno di una partizione logica. Si può anche garantire l'univocità per [chiave di partizione](partitioning-overview.md).
 
 Dopo aver creato un contenitore con criteri di chiave univoca, viene impedita la creazione di un nuovo o di un aggiornamento di un elemento esistente risultante in un duplicato all'interno di una partizione logica, come specificato dal vincolo unique key. La chiave di partizione combinata con la chiave univoca garantisce l'univocità di un elemento all'interno dell'ambito del contenitore.
 
@@ -55,5 +55,5 @@ Se si cerca di inserire un altro elemento con le combinazioni elencate nella tab
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulle [partizioni logiche](partition-data.md)
+* Altre informazioni sulle [partizioni logiche](partitioning-overview.md)
 * Scopri [come definire chiavi univoche](how-to-define-unique-keys.md) durante la creazione di un contenitore

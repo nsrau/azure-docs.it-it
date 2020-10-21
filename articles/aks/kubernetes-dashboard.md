@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570825"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314511"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Accedere al dashboard (kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> A partire da [v 1.10.1 del dashboard di Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) o Kubernetes v 1.16 + non è più possibile usare l'account del servizio "Kubernetes-Dashboard" per recuperare le risorse a causa di una [correzione della sicurezza in tale versione](https://github.com/kubernetes/dashboard/pull/3400). Di conseguenza, le richieste senza informazioni di autenticazione restituiscono un errore 401 non autorizzato. Un bearer token recuperato da un account del servizio può comunque essere usato come in questo [esempio di dashboard Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), ma ciò influisce sul flusso di accesso del componente aggiuntivo del dashboard rispetto alle versioni precedenti.
+> A partire da [v 1.10.1 del dashboard di Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) o Kubernetes v 1.16 + non è più possibile usare l'account del servizio "Kubernetes-Dashboard" per recuperare le risorse a causa di una [correzione della sicurezza in tale versione](https://github.com/kubernetes/dashboard/pull/3400). Di conseguenza, le richieste senza informazioni di autenticazione restituiscono un [errore 401 non autorizzato](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Un bearer token recuperato da un account del servizio può comunque essere usato come in questo [esempio di dashboard Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), ma ciò influisce sul flusso di accesso del componente aggiuntivo del dashboard rispetto alle versioni precedenti.
 >
 >Se si esegue ancora una versione precedente alla 1,16, è comunque possibile concedere le autorizzazioni all'account del servizio "kubernetes-Dashboard", ma questa operazione **non è consigliata**:
 > ```console

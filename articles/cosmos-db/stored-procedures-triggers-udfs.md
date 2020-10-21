@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509670"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279906"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -24,7 +24,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 
 * **Logica procedurale:** JavaScript come linguaggio di programmazione di alto livello che fornisce un'interfaccia ricca e familiare per esprimere la logica di business. È possibile eseguire una sequenza di operazioni complesse sui dati.
 
-* **Transazioni atomiche:** Azure Cosmos DB garantisce che le operazioni del database eseguite all'interno di un singolo stored procedure o di un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
+* **Transazioni atomiche:** Azure Cosmos DB operazioni del database eseguite all'interno di un singolo stored procedure o di un trigger sono atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
 
 * **Prestazioni:** I dati JSON vengono mappati in modo intrinseco al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
 
@@ -55,7 +55,7 @@ In Azure Cosmos DB il runtime di JavaScript è ospitato all'interno del motore d
 
 ### <a name="scope-of-a-transaction"></a>Ambito di una transazione
 
-Le stored procedure sono associate a un contenitore di Azure Cosmos e stored procedure esecuzione ha come ambito una chiave di partizione logica. Le stored procedure devono includere un valore della chiave di partizione logica durante l'esecuzione che definisce la partizione logica per l'ambito della transazione. Per altre informazioni, vedere l'articolo [Partizionamento di Azure Cosmos DB](partition-data.md).
+Le stored procedure sono associate a un contenitore di Azure Cosmos e stored procedure esecuzione ha come ambito una chiave di partizione logica. Le stored procedure devono includere un valore della chiave di partizione logica durante l'esecuzione che definisce la partizione logica per l'ambito della transazione. Per altre informazioni, vedere l'articolo [Partizionamento di Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="commit-and-rollback"></a>Commit e rollback
 

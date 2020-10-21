@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108168"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320176"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
@@ -25,7 +25,7 @@ Periodicamente è possibile esportare le informazioni di utilizzo per finalità 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Sono necessarie l'interfaccia della riga di comando di Azure (AZ) e l'interfaccia della riga di comando di Azure Data (azdata).  [Installare gli strumenti](./install-client-tools.md)di.
+Sono necessari l'interfaccia della riga di comando di Azure (AZ) e l' [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installazione di.  [Installare gli strumenti](./install-client-tools.md)di.
 
 Prima di caricare i dati in Azure, è necessario assicurarsi che la sottoscrizione di Azure disponga del provider di risorse Microsoft. AzureData registrato.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Le informazioni sull'utilizzo, ad esempio l'inventario e l'utilizzo delle risorse, possono essere caricate in Azure nei due passaggi seguenti:
 
-1. Esportare i dati di utilizzo usando il ```azdata export``` comando, come indicato di seguito:
+1. Esportare i dati di utilizzo usando il `azdata export` comando, come indicato di seguito:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ Le informazioni sull'utilizzo, ad esempio l'inventario e l'utilizzo delle risors
    ```
    Questo comando crea un `usage.json` file con tutte le risorse di dati abilitate per Azure Arc, ad esempio le istanze gestite di SQL e le istanze di iperscala PostgreSQL e così via, create nel controller dei dati.
 
-2. Caricare i dati di utilizzo usando il ```azdata upload``` comando
+2. Caricare i dati di utilizzo usando il `azdata upload` comando
 
    > [!NOTE]
    > Attendere almeno 24 ore dopo aver creato il controller di dati di Azure Arc prima di eseguire il caricamento
@@ -313,7 +313,7 @@ Per caricare le metriche per le istanze gestite di SQL Azure Arc abilitate e i g
    >[!NOTE]
    >Attendere almeno 30 minuti dopo la creazione di istanze di dati abilitate per Azure Arc per il primo caricamento
    >
-   >Assicurarsi che `upload` la metrica immediatamente dopo `export` come monitoraggio di Azure accetti solo le metriche per gli ultimi 30 minuti. [Scopri di più](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+   >Assicurarsi che `upload` la metrica immediatamente dopo `export` come monitoraggio di Azure accetti solo le metriche per gli ultimi 30 minuti. [Altre informazioni](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
 
 
 Se viene visualizzato un errore che indica l'impossibilità di ottenere le metriche durante l'esportazione, verificare che la raccolta dati sia impostata su ```true``` eseguendo il comando seguente:

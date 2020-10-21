@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ea814f3f855758895a5a887b944e5f760edb5e9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93b2bdef6ddacb08a49a974fe1e74ac47e21150e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057791"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313174"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -142,7 +142,7 @@ In ingresso | Operazione consentita
 
 ### <a name="compliance-data-administrator"></a>[Amministratore dei dati sulla conformità](#compliance-data-administrator-permissions)
 
-Gli utenti con questo ruolo hanno le autorizzazioni per tenere traccia dei dati nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365 e in Azure. Gli utenti possono anche tenere traccia dei dati di conformità all'interno dell'interfaccia di amministrazione di Exchange, in Compliance Manager, nell'interfaccia di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. [Questa documentazione](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contiene informazioni dettagliate sulle differenze tra l'amministratore della conformità e l'amministratore dei dati di conformità.
+Gli utenti con questo ruolo hanno le autorizzazioni per tenere traccia dei dati nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365 e in Azure. Gli utenti possono anche tenere traccia dei dati di conformità all'interno dell'interfaccia di amministrazione di Exchange, in Compliance Manager, nell'interfaccia di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. [Questa documentazione](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contiene informazioni dettagliate sulle differenze tra l'amministratore della conformità e l'amministratore dei dati di conformità.
 
 In ingresso | Operazione consentita
 ----- | ----------

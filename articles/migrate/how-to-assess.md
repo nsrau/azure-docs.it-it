@@ -3,12 +3,12 @@ title: Aggiungere strumenti di valutazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di valutazione in Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122116"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317357"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
@@ -60,4 +60,4 @@ Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare una valutazione usando Azure Migrate server assessment per macchine virtuali [VMware](tutorial-prepare-vmware.md) , [Hyper-V](tutorial-prepare-hyper-v.md)o [server fisici](tutorial-prepare-physical.md)
+Provare una valutazione usando Azure Migrate server assessment per macchine virtuali [VMware](./tutorial-discover-vmware.md) , [Hyper-V](./tutorial-discover-hyper-v.md)o [server fisici](./tutorial-discover-physical.md)

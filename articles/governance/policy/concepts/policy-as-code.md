@@ -1,29 +1,29 @@
 ---
-title: Progettare flussi di lavoro di criteri come codice
+title: Progettare criteri di Azure come flussi di lavoro di codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598223"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320602"
 ---
-# <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
+# <a name="design-azure-policy-as-code-workflows"></a>Progettare criteri di Azure come flussi di lavoro di codice
 
 Lungo il percorso di implementazione dei processi di governance del cloud, arriva il momento in cui si è pronti a passare dalla gestione manuale di ogni definizione di criteri, tramite il portale di Azure o i vari SDK, a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali alla gestione dei sistemi su larga scala nel cloud sono:
 
 - Infrastruttura come codice: la pratica di trattare il contenuto che definisce gli ambienti, dal Azure Resource Manager modelli (modelli ARM) alle definizioni di criteri di Azure ai progetti di Azure, come codice sorgente.
 - DevOps: l'unione di persone, processi e prodotti per consentire il recapito continuo di valore agli utenti finali.
 
-Criteri come codice è la combinazione di queste idee. Essenzialmente, le definizioni dei criteri vengono mantenute nel controllo del codice sorgente e, ogni volta che viene apportata una modifica, tale modifica viene testata e convalidata. Tuttavia, questo non dovrebbe essere l'unico ambito del coinvolgimento dei criteri con Infrastruttura come codice o DevOps.
+Criteri di Azure come codice è la combinazione di queste idee. Essenzialmente, le definizioni dei criteri vengono mantenute nel controllo del codice sorgente e, ogni volta che viene apportata una modifica, tale modifica viene testata e convalidata. Tuttavia, questo non dovrebbe essere l'unico ambito del coinvolgimento dei criteri con Infrastruttura come codice o DevOps.
 
 Il passaggio della convalida dovrebbe essere un componente anche di altri flussi di lavoro di integrazione continua o distribuzione continua. Un esempio è la distribuzione di un ambiente applicativo o di un'infrastruttura virtuale. Rendendo la convalida dei criteri di Azure un componente iniziale del processo di compilazione e distribuzione, i team delle applicazioni e delle operazioni individuano se le modifiche non sono conformi, molto prima che sia troppo tardi e si stia tentando di eseguire la distribuzione nell'ambiente di produzione.
 
 ## <a name="definitions-and-foundational-information"></a>Definizioni e informazioni fondamentali
 
-Prima di accedere ai dettagli dei criteri come flusso di lavoro del codice, esaminare le definizioni e gli esempi seguenti:
+Prima di entrare nei dettagli di criteri di Azure come flusso di lavoro del codice, esaminare le definizioni e gli esempi seguenti:
 
 - [Definizione criteri](./definition-structure.md)
 - [Definizione di iniziativa](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ Vedere anche [esportare le risorse di criteri di Azure](../how-to/export-resourc
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
-Il flusso di lavoro generale consigliato di Criteri come codice è simile a questo diagramma:
+Il flusso di lavoro generale consigliato di criteri di Azure come codice è simile a questo diagramma:
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagramma che mostra i criteri come caselle del flusso di lavoro di codice da crea a test da distribuire." border="false":::
-   Il diagramma che mostra i criteri come caselle del flusso di lavoro di codice. Creazione copre la creazione delle definizioni di criteri e iniziative. Test illustra l'assegnazione con la modalità di imposizione disabilitata. Un controllo del gateway per lo stato di conformità è seguito dalla concessione delle autorizzazioni M S I e delle risorse di correzione.  Deploy include l'aggiornamento dell'assegnazione con la modalità di imposizione abilitata.
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagramma che mostra i criteri di Azure come caselle del flusso di lavoro di codice da crea a test per la distribuzione." border="false":::
+   Il diagramma che mostra i criteri di Azure come caselle del flusso di lavoro di codice. Creazione copre la creazione delle definizioni di criteri e iniziative. Test illustra l'assegnazione con la modalità di imposizione disabilitata. Un controllo del gateway per lo stato di conformità è seguito dalla concessione delle autorizzazioni M S I e delle risorse di correzione.  Deploy include l'aggiornamento dell'assegnazione con la modalità di imposizione abilitata.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Creare e aggiornare le definizioni dei criteri
@@ -56,22 +56,19 @@ Le definizioni dei criteri vengono create tramite JSON e archiviate nel controll
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ Anche le iniziative hanno il proprio file JSON e i file correlati che devono ess
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -114,7 +109,7 @@ L'assegnazione deve _disabilitare_ la proprietà [enforcementMode](./assignment-
 > [!NOTE]
 > Sebbene la modalità di imposizione sia utile, non si sostituisce al test accurato di una definizione di criteri in varie condizioni. La definizione dei criteri deve essere testata con le chiamate API REST `PUT` e `PATCH`, con risorse conformi e non conformi e con casi limite come una proprietà mancante nella risorsa.
 
-Una volta distribuita l'assegnazione, usare l'azione Policy SDK o [Azure Policy Compliance Scan](https://github.com/marketplace/actions/azure-policy-compliance-scan) per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve contenere risorse sia conformi che non conformi.
+Una volta distribuita l'assegnazione, usare Azure Policy SDK, l' [azione GitHub di analisi della conformità dei criteri di Azure](https://github.com/marketplace/actions/azure-policy-compliance-scan)o l' [attività Azure Pipelines Security and Compliance Assessment](/azure/devops/pipelines/tasks/deploy/azure-policy) per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve contenere risorse sia conformi che non conformi.
 Come un buon unit test per il codice, occorre verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo dei comportamenti previsti, i criteri potrebbero dare risultare imprevisti e non identificati. Per altre informazioni, vedere [Valutare l'impatto di una nuova definizione di Criteri di Azure](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Abilitare le attività di correzione
@@ -138,13 +133,13 @@ Una volta completati tutti i controlli di convalida, aggiornare l'assegnazione i
 
 ## <a name="process-integrated-evaluations"></a>Valutazioni integrate nel processo
 
-Il flusso di lavoro generale dei criteri come codice prevede lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli ARM per la creazione dell'infrastruttura.
+Il flusso di lavoro generale per i criteri di Azure come codice è per lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli ARM per la creazione dell'infrastruttura.
 
 In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_, è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
 
 ## <a name="review"></a>Verifica
 
-Questo articolo illustra il flusso di lavoro generale dei criteri come codice e descrive le situazioni in cui la valutazione dei criteri deve far parte di altri flussi di lavoro di distribuzione. Questo flusso di lavoro può essere usato in qualsiasi ambiente che supporti i passaggi controllati da script e l'automazione basata sui trigger.
+Questo articolo illustra il flusso di lavoro generale per i criteri di Azure come codice e anche per la valutazione dei criteri che deve far parte di altri flussi di lavoro di distribuzione. Questo flusso di lavoro può essere usato in qualsiasi ambiente che supporti i passaggi controllati da script e l'automazione basata sui trigger. Per un'esercitazione sull'uso di questo flusso di lavoro in GitHub, vedere [esercitazione: implementare criteri di Azure come codice con GitHub](../tutorials/policy-as-code-github.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
