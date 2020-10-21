@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 188c30a79074b819c5785cf5560f5843a3fcf6b4
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131616"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320482"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -203,7 +203,7 @@ Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di acc
 |--|--|--|
 |utente proprietario|`rwx`|`r-w`|
 |gruppo proprietario|`r-x`|`r--`|
-|Altro|`---`|`---`|
+|Altri|`---`|`---`|
 
 File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione. 
 
@@ -326,6 +326,11 @@ OID verrà visualizzato.
 
 Quando si dispone dell'OID corretto per l'entità servizio, passare alla pagina Storage Explorer **Gestisci accesso** per aggiungere l'OID e assegnare le autorizzazioni appropriate per l'OID. Assicurarsi di selezionare **Salva**.
 
+### <a name="can-i-set-the-acl-of-a-container"></a>È possibile impostare l'ACL di un contenitore?
+
+No. Un contenitore non dispone di un ACL. È tuttavia possibile impostare l'ACL della directory radice del contenitore. Ogni contenitore dispone di una directory radice e condivide lo stesso nome del contenitore. Se, ad esempio, il contenitore è denominato `my-container` , la directory radice sarà denominata `myContainer/` . 
+
+L'API REST di archiviazione di Azure contiene un'operazione denominata [set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), ma tale operazione non può essere usata per impostare l'ACL di un contenitore o la directory radice di un contenitore. Questa operazione viene invece usata per indicare se è possibile [accedere pubblicamente](anonymous-read-access-configure.md)ai BLOB in un contenitore. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
 

@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448652"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318209"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -58,7 +58,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare l'hash per OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](./tutorial-assess-vmware.md#verify-security).
+3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](./tutorial-discover-vmware.md#verify-security).
 
 
 
@@ -117,7 +117,7 @@ Configurare l'appliance per la prima volta.
    
    L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web. 
-4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](tutorial-prepare-vmware.md#prepare-azure) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
+4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
 
@@ -126,7 +126,7 @@ Configurare l'appliance per la prima volta.
 L'appliance deve connettersi al server vCenter per individuare la configurazione e i dati sulle prestazioni delle macchine virtuali.
 
 1. In **Passaggio 1: Specificare le credenziali del server vCenter**, fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **Nome utente** e **Password** per l'account del server vCenter che verrà usato dall'appliance per individuare le macchine virtuali nell'istanza del server vCenter.
-    - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter).
     - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter data center, cluster, una cartella di cluster, host, una cartella di host o singole VM), rivedere le istruzioni riportate in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure Migrate.
 1. In **Passaggio 2: Specificare i dettagli del server vCenter**, fare clic su **Aggiungi origine di individuazione** per selezionare il nome descrittivo per le credenziali nell'elenco a discesa, specificare **Indirizzo IP/FQDN** dell'istanza del server vCenter. È possibile lasciare l'impostazione predefinita per **Porta** (443) o specificare una porta personalizzata sulla quale sarà in ascolto il server vCenter e fare clic su **Salva**.
 1. Quando si fa clic su Salva, l'appliance tenterà di convalidare la connessione al server vCenter con le credenziali specificate e visualizzerà lo **Stato di convalida** nella tabella per ogni indirizzo IP/FQDN di server vCenter.
@@ -145,4 +145,4 @@ L'individuazione funziona come segue:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le esercitazioni per la [valutazione VMware](tutorial-assess-vmware.md) e la [migrazione senza agenti](tutorial-migrate-vmware.md).
+Esaminare le esercitazioni per la [valutazione VMware](./tutorial-assess-vmware-azure-vm.md) e la [migrazione senza agenti](tutorial-migrate-vmware.md).

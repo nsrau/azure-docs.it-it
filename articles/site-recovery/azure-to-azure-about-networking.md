@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096335"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320521"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -41,8 +41,8 @@ Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (
 > Se si usa un proxy autenticato per controllare la connettività di rete, questo non è supportato da Site Recovery e non è possibile abilitare la replica.
 
 >[!NOTE]
-> Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
-> Azure Site Recovery gli indirizzi IP non devono essere aggiunti nella tabella di routing di Azure per controllare la connettività in uscita.
+>- Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
+>- Azure Site Recovery gli indirizzi IP non devono essere aggiunti nella tabella di routing di Azure per controllare la connettività in uscita.
 
 ## <a name="outbound-connectivity-for-urls"></a>Connettività in uscita per gli URL
 

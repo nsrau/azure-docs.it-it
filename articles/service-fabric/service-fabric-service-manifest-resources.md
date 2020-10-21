@@ -4,12 +4,12 @@ description: Come descrivere le risorse di endpoint in un manifesto del servizio
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017591"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313577"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -158,7 +158,7 @@ Di seguito è riportato un esempio di ApplicationManifest che illustra la config
 
 Per i cluster Linux, l'archivio **MY** predefinito è la cartella **/var/lib/sfcerts**.
 
-Per un esempio di applicazione completa che usa un endpoint HTTPS, vedere [aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando gheppio](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Per un esempio di applicazione completa che usa un endpoint HTTPS, vedere [aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando gheppio](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>ACLing porta per endpoint HTTP
 Service Fabric verranno automaticamente ACL gli endpoint HTTP (S) specificati per impostazione predefinita. **Non** eseguirà la ACLing automatica se a un endpoint non è associato un [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) e Service Fabric è configurato per essere eseguito con un account con privilegi di amministratore.

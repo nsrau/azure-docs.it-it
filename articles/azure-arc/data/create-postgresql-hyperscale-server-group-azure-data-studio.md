@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273008"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310909"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Creare un'iperscalabilità PostgreSQL abilitata per Azure Arc con Azure Data Studio
 
@@ -62,7 +62,7 @@ Per ulteriori informazioni su SCCs in OpenShift, consultare la documentazione di
 1. Nella scheda connessioni fare clic sui tre puntini in alto a sinistra e scegliere "nuova distribuzione".
 1. Dalle opzioni di distribuzione selezionare **gruppo di server con iperscalabilità PostgreSQL-Azure Arc**
     >[!NOTE]
-    > Se non è attualmente installato, potrebbe essere richiesto di installare l'interfaccia della riga di comando `azdata` .
+    > Se non è attualmente installato, potrebbe essere richiesto di installare [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] qui.
 1. Accetta le condizioni di licenza e privacy e fai clic su **Seleziona** nella parte inferiore
 1. Nel pannello Distribuisci un gruppo di server con iperscalabilità PostgreSQL-Azure Arc immettere le informazioni seguenti:
    - Immettere un nome per il gruppo di server
