@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611290"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340309"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -74,9 +74,9 @@ Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Aggiungere i ruoli di controllo di accesso all'account
 
-Cache HPC di Azure usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
+Cache HPC di Azure usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
-Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "HPC cache Resource Provider".
+Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) per l'utente "HPC cache Resource Provider".
 
 È possibile eseguire questa operazione in anticipo oppure facendo clic su un collegamento nella pagina in cui si aggiunge una destinazione di archiviazione BLOB. Tenere presente che possono essere necessari fino a cinque minuti per la propagazione delle impostazioni dei ruoli nell'ambiente Azure, quindi è necessario attendere alcuni minuti dopo aver aggiunto i ruoli prima di creare una destinazione di archiviazione.
 
@@ -185,9 +185,9 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | Nessuno                     |
+| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | nessuno                     |
 | Scritture superiori al 15%       | Lettura/Scrittura   | Mai                 | 1 ora                   |
-| Client che ignorano la cache      | Lettura         | 30 secondi            | Nessuno                     |
+| Client che ignorano la cache      | Lettura         | 30 secondi            | nessuno                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Creare una destinazione di archiviazione NFS
 

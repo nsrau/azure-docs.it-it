@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 81fceb210981e5755bcdd8e241b381d161d4f637
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9fc7ecd633e92c22c8d2a65e4bf45371dab9697a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570205"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282410"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
 
-[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB offre [distribuzione globale predefinita](distribute-data-globally.md), [scalabilità elastica in termini di archiviazione e velocità effettiva](partition-data.md) ovunque nel mondo, latenze pari a singole unità di millisecondi al 99° percentile e disponibilità elevata garantita, il tutto supportato da [contratti di servizio leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indicizza automaticamente i dati](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici e schemi. Si tratta di un database multimodello che supporta modelli di dati di documenti, coppie chiave/valore, grafi e colonne. Il servizio Azure Cosmos DB implementa i protocolli di collegamento per le API NoSQL più comuni, tra cui Cassandra, MongoDB, Gremlin e Archiviazione tabelle di Azure. In questo modo, è possibile usare gli strumenti e i driver dei client NoSQL con cui si ha familiarità per interagire con il database Cosmos.
+[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB offre [distribuzione globale predefinita](distribute-data-globally.md), [scalabilità elastica in termini di archiviazione e velocità effettiva](partitioning-overview.md) ovunque nel mondo, latenze pari a singole unità di millisecondi al 99° percentile e disponibilità elevata garantita, il tutto supportato da [contratti di servizio leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indicizza automaticamente i dati](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici e schemi. Si tratta di un database multimodello che supporta modelli di dati di documenti, coppie chiave/valore, grafi e colonne. Il servizio Azure Cosmos DB implementa i protocolli di collegamento per le API NoSQL più comuni, tra cui Cassandra, MongoDB, Gremlin e Archiviazione tabelle di Azure. In questo modo, è possibile usare gli strumenti e i driver dei client NoSQL con cui si ha familiarità per interagire con il database Cosmos.
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilità del protocollo di collegamento
 

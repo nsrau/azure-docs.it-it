@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951010"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123892"
 ---
 ::: zone target="docs"
 
@@ -105,7 +105,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
     **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
     
-Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
@@ -131,7 +131,7 @@ Dopo aver stabilito la connessione alle condivisioni Data Box, il passaggio succ
 Dopo avere connesso la condivisione SMB, iniziare la copia dei dati. È possibile usare qualsiasi strumento di copia file compatibile con SMB, ad esempio Robocopy, per copiare i dati. È possibile avviare più processi di copia tramite Robocopy. Usare il comando seguente:
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
 ```
 
 Gli attributi sono descritti nella tabella seguente.

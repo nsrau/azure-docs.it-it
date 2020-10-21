@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532602"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342077"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usare Azure Defender per registri contenitori per analizzare le vulnerabilità delle immagini
 
@@ -29,7 +29,7 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|**Azure Defender per i registri contenitori** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
 |Registri e immagini supportati:|![Sì ](./media/icons/yes-icon.png) registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.<br>![Nessun ](./media/icons/no-icon.png) Registro ACR ospitato da Windows.<br>![Nessun ](./media/icons/no-icon.png) registro ' privato '-il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Il Centro sicurezza non è attualmente in grado di connettersi o analizzare i registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure.<br>![Non ci sono ](./media/icons/no-icon.png) Immagini con minimalista, ad esempio immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.|
-|Autorizzazioni e ruoli obbligatori:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Autorizzazioni e ruoli obbligatori:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](../container-registry/container-registry-roles.md)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 

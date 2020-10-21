@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372358"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132296"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -180,7 +180,7 @@ Gli ambiti seguenti sono supportati per i CSP con clienti in un Contratto del cl
 
 Solo gli utenti con i ruoli *Amministratore globale* e *Agente amministratore* possono gestire e visualizzare i costi per gli account di fatturazione, i profili di fatturazione e i clienti direttamente nel tenant di Azure del partner. Per altre informazioni sui ruoli del Centro per i partner, vedere [Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview).
 
-Gestione costi di Azure supporta i clienti del Centro per i partner CSP solo se dispongono di un Contratto del cliente Microsoft. Per i clienti supportati da CSP che non hanno ancora un Contratto del cliente Microsoft, vedere [Centro per i partner](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Gestione costi di Azure supporta i clienti del Centro per i partner CSP solo se dispongono di un Contratto del cliente Microsoft. Per i clienti supportati da CSP che non hanno ancora un Contratto del cliente Microsoft, vedere [Centro per i partner](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 I gruppi di gestione negli ambiti CSP non sono supportati da Gestione costi. Se si ha una sottoscrizione CSP e si imposta l'ambito su un gruppo di gestione nell'analisi dei costi, verrà visualizzato un errore simile al seguente:
 

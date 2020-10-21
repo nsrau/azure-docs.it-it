@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280120"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339799"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -93,7 +93,7 @@ Ogni programma di sicurezza include più flussi di lavoro per la risposta agli e
 
 Per altre informazioni sulle funzionalità automatiche e manuali del Centro sicurezza per l'esecuzione dei flussi di lavoro, vedere [Automazione del flusso di lavoro](workflow-automation.md).
 
-Sono disponibili altre informazioni sulla [creazione di app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Sono disponibili altre informazioni sulla [creazione di app per la logica](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrazione del Centro sicurezza di Azure con Windows Admin Center
@@ -214,7 +214,7 @@ Attualmente viene introdotta una nuova funzionalità del Centro sicurezza che co
 
 Per altre informazioni sulle funzionalità automatiche e manuali del Centro sicurezza per l'esecuzione dei flussi di lavoro, vedere [automazione del flusso di lavoro](workflow-automation.md).
 
-Per informazioni sulla creazione di app per la logica, vedere [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Per informazioni sulla creazione di app per la logica, vedere [App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Correzione rapida per le risorse bulk disponibili a livello generale
@@ -270,9 +270,9 @@ Le applicazioni installate in macchine virtuali possono spesso avere vulnerabili
 
 Il supporto del Centro sicurezza di Azure per la protezione dalle minacce e la valutazione della vulnerabilità per i database SQL in esecuzione sulle macchine virtuali IaaS è ora disponibile in anteprima.
 
-[Valutazione della vulnerabilità](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Consente di visualizzare il comportamento di sicurezza come parte del punteggio di sicurezza di Azure e prevede passaggi per risolvere i problemi di sicurezza e migliorare la protezione del database.
+[Valutazione della vulnerabilità](../azure-sql/database/sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Consente di visualizzare il comportamento di sicurezza come parte del punteggio di sicurezza di Azure e prevede passaggi per risolvere i problemi di sicurezza e migliorare la protezione del database.
 
-[Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il server SQL. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza orientati all'azione su modelli di accesso ai database anomali. Questi avvisi forniscono dettagli sulle attività sospette e azioni consigliate per l'analisi e la mitigazione della minaccia.
+[Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il server SQL. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza orientati all'azione su modelli di accesso ai database anomali. Questi avvisi forniscono dettagli sulle attività sospette e azioni consigliate per l'analisi e la mitigazione della minaccia.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Supporto per criteri personalizzati (anteprima)
@@ -346,7 +346,7 @@ Quando si abilita JIT per le macchine virtuali, si crea un criterio che determin
 
 Le richieste vengono registrate nel log attività di Azure, in modo che sia possibile monitorare e controllare facilmente l'accesso. La pagina JIT consente anche di identificare rapidamente le macchine virtuali esistenti in cui è abilitato JIT e le macchine virtuali in cui è consigliabile usare JIT.
 
-[Altre informazioni su Firewall di Azure](https://docs.microsoft.com/azure/firewall/overview).
+[Altre informazioni su Firewall di Azure](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Correzione con un solo clic per migliorare il comportamento di sicurezza (anteprima)

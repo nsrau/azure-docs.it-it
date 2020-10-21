@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971609"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340819"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -36,7 +36,7 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla 
 1. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Verrà visualizzato un avviso.
 
 > [!NOTE]
-> Quando si esamina questo avviso di test per Windows, verificare che gli argomenti di campo **controllo abilitato** sia **true**. Se è **false**, è necessario abilitare il controllo degli argomenti della riga di comando. Per abilitarla, usare il comando seguente:
+> Quando si esamina questo avviso di test per Windows, verificare che gli argomenti di campo **controllo abilitato** sia **true**. Se è **false**, è necessario abilitare il controllo degli argomenti della riga di comando. Per abilitarlo, usare il comando seguente: 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
@@ -65,7 +65,7 @@ Per altre informazioni su come difendere i cluster e i nodi Kubernetes, vedere [
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha presentato il processo di convalida degli avvisi. Dopo aver acquisito familiarità con tale convalida, vedere gli articoli seguenti:
 
-* [Convalida Azure Key Vault rilevamento minacce nel centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
+* [Convalidare il rilevamento delle minacce di Azure Key Vault nel Centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti della sicurezza nel centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
-* Informazioni sugli [avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-type.md) : informazioni sui diversi tipi di avvisi di sicurezza.
+* Informazioni sugli [avvisi di sicurezza nel centro sicurezza di Azure](./security-center-alerts-overview.md) : informazioni sui diversi tipi di avvisi di sicurezza.

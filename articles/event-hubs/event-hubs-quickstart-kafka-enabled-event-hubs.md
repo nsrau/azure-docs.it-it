@@ -3,12 +3,12 @@ title: 'Avvio rapido: Streaming di dati con Hub eventi tramite il protocollo Kaf
 description: 'Avvio rapido: Questo articolo fornisce informazioni su come eseguire lo streaming in Hub eventi di Azure tramite il protocollo e le API Kafka.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 612a7515c14b77569b34c91d9b43413353b4d0e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e87d9b1e4a444695d64dc6acfa0e29f7b72e37f2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90061548"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319360"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Avvio rapido: Streaming di dati con Hub eventi tramite il protocollo Kafka
 Questo argomento di avvio rapido illustra come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire cluster personalizzati. Si apprenderà come usare i producer e i consumer per comunicare con Hub eventi con solo una modifica della configurazione nelle applicazioni. 
@@ -22,7 +22,7 @@ Per completare questo avvio rapido, assicurarsi che vengano soddisfatti i prereq
 
 * Leggere con attenzione l'articolo [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven.
 * [Git](https://www.git-scm.com/)
 
@@ -103,4 +103,4 @@ Quando si crea uno spazio dei nomi di Hub eventi di livello **Standard**, l'endp
 Se il cluster Kafka di Hub eventi include eventi, si dovrebbe ora iniziare a riceverli dal consumer.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato illustrato come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire cluster personalizzati. Per altre informazioni, vedere [Guida per sviluppatori Apache Kafka per Hub eventi di Azure](apache-kafka-developer-guide.md). 
+In questo articolo è stato illustrato come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire cluster personalizzati. Per altre informazioni, vedere [Guida per sviluppatori Apache Kafka per Hub eventi di Azure](apache-kafka-developer-guide.md).

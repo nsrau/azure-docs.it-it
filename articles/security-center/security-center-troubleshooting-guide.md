@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9afc827d1cef4ae1f0ed304b3c1d3cfbfe89b82e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6646b8a563cfe156a23b47011a769c6df015a286
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201801"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340343"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
 Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
 
-Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Analytics. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione all'agente di Log Analytics.
+Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Analytics. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](./security-center-enable-data-collection.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione all'agente di Log Analytics.
 
 ## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -91,14 +91,14 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 | L'installazione non è riuscita - L'agente locale è già installato | L'installazione dell'agente di Log Analytics non è riuscita. Il Centro sicurezza ha identificato un agente locale (Log Analytics o System Center Operations Manager) già installato nella macchina virtuale. Per evitare una configurazione multihoming, in cui la VM invia report a due aree di lavoro separate, l'installazione dell'agente di Log Analytics è stata arrestata. | È possibile risolvere il problema in due modi: [installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e connetterla all'area di lavoro specifica. In alternativa, configurare l'area di lavoro da usare come area di lavoro predefinita e abilitare il provisioning automatico dell'agente.  Vedere [Abilitare il provisioning automatico](security-center-enable-data-collection.md). |
 | L'agente non riesce a connettersi all'area di lavoro | L'agente di Logs Analytics è stato installato ma l'operazione non è riuscita a causa di un errore di connettività di rete.  Verificare che sia disponibile l'accesso a Internet o che un proxy HTTP corretto sia stato configurato per l'agente. | Vedere Requisiti di rete di Monitoring Agent. |
 | L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha rilevato che l'agente di Log Analytics installato nella macchina virtuale è connesso a un'area di lavoro a cui non riesce ad accedere. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
-| L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. È anche possibile che l'agente invii i dati ma sia privo di un ID risorsa di Azure. Non è quindi possibile associare i dati alla macchina virtuale di Azure. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#troubleshoot-and-support) (Risoluzione dei problemi delle macchine virtuali Windows). |
+| L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. È anche possibile che l'agente invii i dati ma sia privo di un ID risorsa di Azure. Non è quindi possibile associare i dati alla macchina virtuale di Azure. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support) (Risoluzione dei problemi delle macchine virtuali Windows). |
 | Agente non installato | La raccolta di dati è disabilitata. | Attivare la raccolta di dati nel criterio di sicurezza o installare manualmente l'agente di Log Analytics. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Risoluzione dei problemi relativi ai requisiti di rete dell'agente di monitoraggio <a name="mon-network-req"></a>
 
 Per far sì che gli agenti si connettano e si registrino con il Centro sicurezza, devono avere accesso alle risorse di rete, compresi gli URL di dominio e i numeri di porta.
 
-* Per i server proxy, è necessario assicurarsi che le risorse del server proxy appropriate siano configurate nelle impostazioni dell'agente. Leggere questo articolo per altre informazioni su [come modificare le impostazioni del proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
+* Per i server proxy, è necessario assicurarsi che le risorse del server proxy appropriate siano configurate nelle impostazioni dell'agente. Leggere questo articolo per altre informazioni su [come modificare le impostazioni del proxy](../azure-monitor/platform/agent-windows.md).
 * Per i firewall che limitano l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso a Log Analytics. Non è necessaria alcuna azione sulle impostazioni dell'agente.
 
 Nella tabella seguente vengono visualizzate le risorse necessarie per la comunicazione.
@@ -124,7 +124,7 @@ L'agente guest è il processo padre di tutte le operazioni eseguite dall'estensi
 * Determinati elenchi di controllo di accesso (ACL) potrebbero impedire l'accesso al disco.
 * La mancanza di spazio su disco può bloccare il corretto funzionamento dell'agente guest.
 
-Per impostazione predefinita l'interfaccia utente di Microsoft Antimalware è disabilitata, leggere [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (Abilitazione dell'interfaccia utente di Microsoft Antimalware in seguito alla distribuzione delle VM in Azure Resource Manager) per ulteriori informazioni su come abilitarla in caso di necessità.
+Per impostazione predefinita l'interfaccia utente di Microsoft Antimalware è disabilitata, leggere [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](/archive/blogs/azuresecurity/enabling-microsoft-antimalware-user-interface-post-deployment) (Abilitazione dell'interfaccia utente di Microsoft Antimalware in seguito alla distribuzione delle VM in Azure Resource Manager) per ulteriori informazioni su come abilitarla in caso di necessità.
 
 ## <a name="troubleshooting-problems-loading-the-dashboard"></a>Risoluzione dei problemi di caricamento del dashboard
 
@@ -132,7 +132,7 @@ In caso di problemi di caricamento del dashboard del Centro sicurezza, assicurar
 
 ## <a name="contacting-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
-Alcuni problemi possono essere identificati usando le linee guida disponibili in questo articolo, altri possono anche essere documentati nel centro sicurezza pubblico [Microsoft Q&una pagina](https://docs.microsoft.com/answers/topics/azure-security-center.html). Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
+Alcuni problemi possono essere identificati usando le linee guida disponibili in questo articolo, altri possono anche essere documentati nel centro sicurezza pubblico [Microsoft Q&una pagina](/answers/topics/azure-security-center.html). Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
 
 ![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -143,12 +143,12 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-type.md)
+* [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](./security-center-alerts-overview.md)
 * [Esercitazione: Rispondere agli eventi imprevisti relativi alla sicurezza](tutorial-security-incident.md)
 * [Convalida degli avvisi nel Centro sicurezza di Azure](security-center-alert-validation.md)
 * [Notifiche tramite messaggio di posta elettronica nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md)
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)
-* [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
+* [Funzionalità di rilevamento del Centro sicurezza di Azure](./security-center-alerts-overview.md)
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](./security-center-partner-integration.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio
-* [Blog sulla sicurezza di Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
+* [Blog sulla sicurezza di Azure](/archive/blogs/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure

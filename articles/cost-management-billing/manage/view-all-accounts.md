@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360694"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132126"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Account e ambiti di fatturazione nel portale di Azure
 
@@ -27,7 +27,7 @@ Il portale di Azure supporta i tipi di account di fatturazione seguenti:
 
 - **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in determinate aree geografiche che si iscrivono tramite il sito Web di Azure per ricevere un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) possono avere un account di fatturazione per un Contratto del cliente Microsoft. In un Contratto del cliente Microsoft è possibile avere un massimo di 20 sottoscrizioni. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto del cliente Microsoft](../understand/mca-overview.md).
 
-- **Contratto Microsoft Partner**: un account di fatturazione per un contratto Microsoft Partner viene creato per i partner Cloud Solution Provider (CSP) per consentire loro di gestire i clienti nella nuova esperienza commerciale. I partner devono avere almeno un cliente con un [piano di Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) per gestire il relativo account di fatturazione nel portale di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto Microsoft Partner](../understand/mpa-overview.md).
+- **Contratto Microsoft Partner**: un account di fatturazione per un contratto Microsoft Partner viene creato per i partner Cloud Solution Provider (CSP) per consentire loro di gestire i clienti nella nuova esperienza commerciale. I partner devono avere almeno un cliente con un [piano di Azure](/partner-center/purchase-azure-plan) per gestire il relativo account di fatturazione nel portale di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto Microsoft Partner](../understand/mpa-overview.md).
 
 Per determinare il tipo di account di fatturazione, vedere [Verificare il tipo di account di fatturazione](#check-the-type-of-your-account).
 

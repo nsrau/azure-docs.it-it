@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439835"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340614"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -25,14 +25,11 @@ I messaggi di posta elettronica di invito sono strumenti fondamentali per entrar
 
 ![Screenshot che mostra il messaggio di posta elettronica di invito B2B](media/invitation-email-elements/invitation-email.png)
 
-> [!NOTE]
-> Questo nuovo modello di messaggio di posta elettronica è ancora in fase di implementazione a tutti i tenant, quindi alcuni tenant usano ancora una progettazione precedente. Entro la fine del 2020 maggio, questo modello verrà usato dagli inviti di tutti i tenant.
-
 ## <a name="explaining-the-email"></a>Descrizione del messaggio di posta elettronica
 
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Oggetto
 
 L'oggetto del messaggio di posta elettronica segue questo modello:
 
@@ -52,17 +49,11 @@ Il messaggio di posta elettronica inizia con un breve avviso per l'utente sul ph
 
 ![Immagine dell'avviso di phishing nel messaggio di posta elettronica](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informazioni sul mittente dell'invito
+### <a name="inviters-information-and-invitation-message"></a>Informazioni e messaggio di invito dell'invito
 
-Il messaggio di posta elettronica include informazioni sull'invito e sull'organizzazione da cui inviano l'invito. Sono inclusi il nome e l'indirizzo di posta elettronica del mittente, nonché il nome e il dominio primario associati all'organizzazione. Tutte queste informazioni dovrebbero aiutare l'invito a prendere decisioni informate sull'accettazione dell'invito.
+Il messaggio di posta elettronica include il nome e il dominio primario associati all'organizzazione che invia l'invito. Queste informazioni dovrebbero aiutare l'invito a prendere decisioni informate sull'accettazione dell'invito. Se il mittente dell'invito include un messaggio come parte del proprio invito quando [invita un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) o quando [Usa l'API di invito](customize-invitation-api.md), il messaggio viene evidenziato nella sezione principale del messaggio di posta elettronica. Sono incluse anche il nome e l'immagine del profilo dell'utente invitato se ne è stata impostata una. Il messaggio stesso è un'area di testo, quindi, per motivi di sicurezza, non elabora i tag HTML.
 
-![Immagine delle informazioni del mittente dell'invito nel messaggio di posta elettronica](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Messaggio di invito
-
-Se il mittente dell'invito include un messaggio come parte del proprio invito quando [invita un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) o quando [Usa l'API di invito](customize-invitation-api.md), il messaggio viene evidenziato nella sezione principale del messaggio di posta elettronica. Sono incluse anche il nome e l'immagine del profilo dell'utente invitato se ne è stata impostata una. Il messaggio stesso è un'area di testo, quindi, per motivi di sicurezza, non elabora i tag HTML.
-
-![Immagine del messaggio di invito nel messaggio di posta elettronica](media/invitation-email-elements/invitation-message.png)
+![Immagine del messaggio di invito nel messaggio di posta elettronica](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Pulsante accetta e URL di Reindirizzamento
 

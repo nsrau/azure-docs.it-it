@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 0ecf3e5f30ee38c0d60c77df3d6aae3ad90930e9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332286"
+ms.locfileid: "92342315"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Panoramica di criteri di rete di Azure Kubernetes
 
@@ -154,7 +154,7 @@ Aprire il portale di Azure. Una volta nelle informazioni dettagliate del cluster
 Oltre a visualizzare la cartella di lavoro (immagini seguenti), è anche possibile eseguire una query direttamente sulle metriche di Prometeo in "log" nella sezione Insights. Ad esempio, questa query restituirà tutte le metriche raccolte.
 | dove TimeGenerated > ago (5h) | dove nome contiene "npm_"
 
-È anche possibile eseguire una query Log Analytics direttamente per le metriche. Ulteriori informazioni su di esso con Introduzione con Log Analytics query] (https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+È anche possibile eseguire una query Log Analytics direttamente per le metriche. Scopri di più su di esso con [Introduzione con log Analytics query](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Visualizzazione nel dashboard di Grafana
 Configurare il server Grafana e configurare un'origine dati Log Analytics come descritto [qui](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Importare quindi il [dashboard di Grafana con un back-end log Analytics](https://grafana.com/grafana/dashboards/10956) in Grafana Labs.

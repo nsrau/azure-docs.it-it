@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355466"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282222"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con Azure PowerShell
 
@@ -26,9 +26,12 @@ Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. P
 
 DNS di Azure supporta anche la creazione di domini privati. Per istruzioni dettagliate sulla creazione della prima zona e del primo record DNS privati, vedere [Introduzione alle zone private di DNS di Azure con PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Installazione di Azure PowerShell in locale o Azure Cloud Shell.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
@@ -94,7 +97,7 @@ Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile t
 
 Il nome host **www\.contoso.xyz** viene risolto in **10.10.10.10**, esattamente come è stato configurato. Questo risultato conferma il corretto funzionamento della risoluzione dei nomi.
 
-## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, è possibile eliminare tutte le risorse create in questa guida introduttiva eliminando il gruppo di risorse:
 

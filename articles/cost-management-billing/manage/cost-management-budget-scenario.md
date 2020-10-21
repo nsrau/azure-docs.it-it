@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446448"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131463"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
-Il controllo dei costi è un componente essenziale per ottimizzare il valore del proprio investimento nel cloud. Esistono diversi scenari in cui la visibilità dei costi, la creazione di report e l'orchestrazione basata sui costi hanno un'importanza fondamentale per la continuità delle attività aziendali. Il set di [API di Gestione costi di Azure](https://docs.microsoft.com/rest/api/consumption/) offre supporto per ciascuno di questi scenari. Tramite queste API, gli utenti possono visualizzare i dati sull'utilizzo in modo da esaminare i costi in dettaglio a livello di singola istanza.
+Il controllo dei costi è un componente essenziale per ottimizzare il valore del proprio investimento nel cloud. Esistono diversi scenari in cui la visibilità dei costi, la creazione di report e l'orchestrazione basata sui costi hanno un'importanza fondamentale per la continuità delle attività aziendali. Il set di [API di Gestione costi di Azure](/rest/api/consumption/) offre supporto per ciascuno di questi scenari. Tramite queste API, gli utenti possono visualizzare i dati sull'utilizzo in modo da esaminare i costi in dettaglio a livello di singola istanza.
 
-Come parte dell'attività di controllo dei costi vengono comunemente usati i budget. In Azure è possibile definire l'ambito dei budget, ad esempio limitandone la visualizzazione in base alla sottoscrizione, ai gruppi di risorse o a una raccolta di risorse. Oltre a usare l'API dei budget per ricevere una notifica tramite posta elettronica quando viene raggiunta una soglia, è possibile usare i [gruppi di azioni di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) per attivare un set orchestrato di azioni risultanti da un evento di budget.
+Come parte dell'attività di controllo dei costi vengono comunemente usati i budget. In Azure è possibile definire l'ambito dei budget, ad esempio limitandone la visualizzazione in base alla sottoscrizione, ai gruppi di risorse o a una raccolta di risorse. Oltre a usare l'API dei budget per ricevere una notifica tramite posta elettronica quando viene raggiunta una soglia, è possibile usare i [gruppi di azioni di Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) per attivare un set orchestrato di azioni risultanti da un evento di budget.
 
 Un comune scenario d'uso dei budget per un cliente con un carico di lavoro non critico può verificarsi quando il cliente vuole gestire i costi rispetto a un budget e anche ottenere una previsione dei costi in base all'analisi della fattura mensile. Questo scenario richiede un'orchestrazione basata sui costi delle risorse che fanno parte dell'ambiente di Azure. Nello scenario è definito un budget mensile di € 1000 per la sottoscrizione e sono impostate soglie di notifica per attivare alcune orchestrazioni. Lo scenario prevede una soglia iniziale pari all'80% dei costi, in corrispondenza della quale vengono arrestate tutte le macchine virtuali nel gruppo di risorse **Facoltativo**, e una soglia successiva pari al 100% dei costi, oltre la quale verranno arrestate tutte le istanze delle macchine virtuali.
 
@@ -35,7 +35,7 @@ Le azioni descritte in questa esercitazione consentono di:
 
 ## <a name="create-an-azure-automation-runbook"></a>Creare un runbook di Automazione di Azure
 
-[Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) è un servizio che consente di creare script per eseguire la maggior parte delle attività di gestione delle risorse in base a una pianificazione o su richiesta. In questo scenario si creerà un [runbook di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types) che verrà usato per arrestare le macchine virtuali. Per creare lo scenario, si userà il runbook grafico [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) disponibile nella [raccolta](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Importando questo runbook nell'account Azure e pubblicandolo, si potranno arrestare le macchine virtuali quando viene raggiunta una determinata soglia di budget.
+[Automazione di Azure](../../automation/automation-intro.md) è un servizio che consente di creare script per eseguire la maggior parte delle attività di gestione delle risorse in base a una pianificazione o su richiesta. In questo scenario si creerà un [runbook di Automazione di Azure](../../automation/automation-runbook-types.md) che verrà usato per arrestare le macchine virtuali. Per creare lo scenario, si userà il runbook grafico [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) disponibile nella [raccolta](../../automation/automation-runbook-gallery.md). Importando questo runbook nell'account Azure e pubblicandolo, si potranno arrestare le macchine virtuali quando viene raggiunta una determinata soglia di budget.
 
 ### <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
 
@@ -49,7 +49,7 @@ Le azioni descritte in questa esercitazione consentono di:
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Importare il runbook Stop Azure V2 VMs
 
-Usando un [runbook di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types), importare il runbook grafico [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) dalla raccolta.
+Usando un [runbook di Automazione di Azure](../../automation/automation-runbook-types.md), importare il runbook grafico [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) dalla raccolta.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con le credenziali dell'account Azure.
 1. Aprire l'account di Automazione selezionando **Tutti i servizi** > **Account di automazione**. Selezionare quindi l'account di Automazione.
@@ -60,7 +60,7 @@ Usando un [runbook di Automazione di Azure](https://docs.microsoft.com/azure/aut
 1. Al termine del processo di importazione del runbook, selezionare **Modifica** per visualizzare l'editor del runbook grafico e l'opzione di pubblicazione.  
     ![Azure - Modifica runbook grafico](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Selezionare **Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto. Quando si pubblica un runbook, si sovrascrive l'eventuale versione pubblicata esistente con la versione bozza. In questo caso non esiste ancora una versione pubblicata perché il runbook è stato appena creato.
-    Per altre informazioni sulla pubblicazione di un runbook, vedere [Creare un runbook grafico](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    Per altre informazioni sulla pubblicazione di un runbook, vedere [Creare un runbook grafico](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Creare webhook per il runbook
 
@@ -91,7 +91,7 @@ A questo punto la configurazione di Automazione di Azure è completata. È possi
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>Creare un'app per la logica di Azure per l'orchestrazione
 
-App per la logica consente di creare, pianificare e automatizzare i processi sotto forma di flussi di lavoro in modo da integrare app, dati, sistemi e servizi in aziende e organizzazioni. In questo scenario si creerà un'[app per la logica](https://docs.microsoft.com/azure/logic-apps/) che non si limiterà a chiamare semplicemente il webhook di automazione creato.
+App per la logica consente di creare, pianificare e automatizzare i processi sotto forma di flussi di lavoro in modo da integrare app, dati, sistemi e servizi in aziende e organizzazioni. In questo scenario si creerà un'[app per la logica](../../logic-apps/index.yml) che non si limiterà a chiamare semplicemente il webhook di automazione creato.
 
 È possibile definire budget per attivare una notifica quando viene raggiunta una soglia specificata. Impostando più valori soglia per la ricezione di notifiche, l'app per la logica consentirà di eseguire azioni diverse in base alla soglia raggiunta. Nello scenario configurato in questo esempio si riceveranno due notifiche, la prima quando viene raggiunto l'80% del budget e la seconda quando viene toccata la soglia del 100%. L'app per la logica verrà usata per arrestare tutte le macchine virtuali nel gruppo di risorse. Prima verrà raggiunta la soglia denominata **Facoltativo** in corrispondenza dell'80% del budget e successivamente verrà raggiunta la seconda soglia, in cui tutte le macchine virtuali nella sottoscrizione verranno arrestate.
 
@@ -122,11 +122,11 @@ Dopo che Azure avrà distribuito l'app per la logica, viene visualizzata la sche
 Ogni app per la logica deve essere avviata con un trigger, che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che si avvia ed esegue il flusso di lavoro. Le azioni corrispondono a tutti i passaggi eseguiti dopo l'attivazione del trigger.
 
 1. Nella sezione **Modelli** dell'area **Progettazione app per la logica** scegliere **App per la logica vuota**.
-1. Aggiungere un [trigger](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) specificando "richiesta http" nella casella di ricerca di **Progettazione app per la logica** per trovare e selezionare il trigger denominato **Richiesta - Alla ricezione di una richiesta HTTP**.  
+1. Aggiungere un [trigger](../../logic-apps/logic-apps-overview.md#logic-app-concepts) specificando "richiesta http" nella casella di ricerca di **Progettazione app per la logica** per trovare e selezionare il trigger denominato **Richiesta - Alla ricezione di una richiesta HTTP**.  
     ![Azure - App per la logica - Trigger HTTP](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.  
     ![Azure - Nuovo passaggio - Aggiungere un'azione](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Nella casella di ricerca di **Progettazione app per la logica** cercare "analizza JSON" per trovare e selezionare l'[azione](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)**Operazioni dati - Analizza JSON**.  
+1. Nella casella di ricerca di **Progettazione app per la logica** cercare "analizza JSON" per trovare e selezionare l'[azione](../../logic-apps/logic-apps-overview.md#logic-app-concepts)**Operazioni dati - Analizza JSON**.  
     ![Azure - App per la logica - Aggiungere l'azione Analizza JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Inserire "Payload" come nome del **Contenuto** per il payload Analizza JSON o usare il tag "Body" dal contenuto dinamico.
 1. Selezionare l'opzione **Usare il payload di esempio per generare lo schema** nella casella **Analizza JSON**.  
@@ -311,7 +311,7 @@ In questa procedura si configurerà **Postman** per creare un budget chiamando l
     ```
 1. Fare clic su **Send** (Invia) per inviare la richiesta.
 
-A questo punto sono state completate tutte le operazioni necessarie per chiamare l'[API Budget](https://docs.microsoft.com/rest/api/consumption/budgets). Nelle informazioni di riferimento sull'API Budget sono inclusi altri dettagli sulle richieste specifiche, tra cui:
+A questo punto sono state completate tutte le operazioni necessarie per chiamare l'[API Budget](/rest/api/consumption/budgets). Nelle informazioni di riferimento sull'API Budget sono inclusi altri dettagli sulle richieste specifiche, tra cui:
 
 - **budgetName**: sono supportati più budget.  I nomi dei budget devono essere univoci.
 - **category**: deve essere **Cost** o **Usage**. L'API supporta i budget relativi ai costi e all'utilizzo.

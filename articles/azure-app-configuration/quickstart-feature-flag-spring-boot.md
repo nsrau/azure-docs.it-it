@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824201"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075536"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app Spring Boot
 
@@ -23,7 +23,7 @@ Le librerie di Gestione funzionalità di Spring Boot estendono il framework con 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) versione 8 supportato.
+* [Java Development Kit (JDK)](/java/azure/jdk) versione 8 supportato.
 * [Apache Maven](https://maven.apache.org/download.cgi) versione 3.0 o successive.
 
 ## <a name="create-an-app-configuration-instance"></a>Creare un'istanza di Configurazione app
@@ -304,7 +304,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato per gestire le funzionalità in un'app Web Spring Boot con le [librerie di Gestione funzionalità](https://go.microsoft.com/fwlink/?linkid=2074664).
+In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato per gestire le funzionalità in un'app Web Spring Boot con le [librerie di Gestione funzionalità](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Altre informazioni sulla [gestione delle funzionalità](./concept-feature-management.md).
 * [Gestire i flag di funzionalità](./manage-feature-flags.md).

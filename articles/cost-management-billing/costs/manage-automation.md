@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372188"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131973"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -21,7 +21,7 @@ ms.locfileid: "91372188"
 
 ## <a name="automate-cost-data-retrieval-for-offline-analysis"></a>Automatizzare il recupero dei dati sui costi per l'analisi offline
 
-Potrebbe essere necessario scaricare i dati sui costi di Azure per unirli ad altri set di dati. Oppure potrebbe essere necessario integrare i dati sui costi nei propri sistemi. Sono disponibili diverse opzioni in base alla quantità di dati coinvolti. In ogni caso, per usare le API e gli strumenti, è necessario avere le autorizzazioni di Gestione costi nell'ambito appropriato. Per altre informazioni, vedere [Assegnare l'accesso ai dati](https://docs.microsoft.com/azure/cost-management-billing/costs/assign-access-acm-data).
+Potrebbe essere necessario scaricare i dati sui costi di Azure per unirli ad altri set di dati. Oppure potrebbe essere necessario integrare i dati sui costi nei propri sistemi. Sono disponibili diverse opzioni in base alla quantità di dati coinvolti. In ogni caso, per usare le API e gli strumenti, è necessario avere le autorizzazioni di Gestione costi nell'ambito appropriato. Per altre informazioni, vedere [Assegnare l'accesso ai dati](./assign-access-acm-data.md).
 
 ## <a name="suggestions-for-handling-large-datasets"></a>Suggerimenti per la gestione di set di dati di grandi dimensioni
 
@@ -29,33 +29,33 @@ Se l'organizzazione usa diffusamente Azure tra molte risorse o sottoscrizioni, s
 
 **Power BI**
 
-Power BI consente di inserire e gestire grandi quantità di dati. I clienti con contratto Enterprise possono usare l'app modello di Power BI per analizzare i costi per l'account di fatturazione. Il report contiene le principali visualizzazioni usate dai clienti. Per altre informazioni, vedere [Analizzare i costi di Azure con l'app modello di Power BI](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Power BI consente di inserire e gestire grandi quantità di dati. I clienti con contratto Enterprise possono usare l'app modello di Power BI per analizzare i costi per l'account di fatturazione. Il report contiene le principali visualizzazioni usate dai clienti. Per altre informazioni, vedere [Analizzare i costi di Azure con l'app modello di Power BI](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 **Connettore dati di Power BI**
 
-Per analizzare i dati quotidianamente, è consigliabile usare il [connettore dati di Power BI](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management) per eseguire un'analisi dettagliata. Tutti i report creati vengono mantenuti aggiornati dal connettore mentre vengono accumulati altri costi.
+Per analizzare i dati quotidianamente, è consigliabile usare il [connettore dati di Power BI](/power-bi/connect-data/desktop-connect-azure-cost-management) per eseguire un'analisi dettagliata. Tutti i report creati vengono mantenuti aggiornati dal connettore mentre vengono accumulati altri costi.
 
 **Esportazioni di Gestione costi**
 
-A volte non è necessario analizzare i dati quotidianamente. In questo caso, è consigliabile usare la funzionalità [Esportazioni](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) per pianificare le esportazioni di dati in un account di archiviazione di Azure. È quindi possibile caricare i dati in Power BI, se necessario, o analizzarli in Excel se le dimensioni del file sono sufficientemente ridotte. Le esportazioni sono disponibili nel portale di Azure oppure è possibile configurarle con l'[API Esportazioni](https://docs.microsoft.com/rest/api/cost-management/exports).
+A volte non è necessario analizzare i dati quotidianamente. In questo caso, è consigliabile usare la funzionalità [Esportazioni](./tutorial-export-acm-data.md) per pianificare le esportazioni di dati in un account di archiviazione di Azure. È quindi possibile caricare i dati in Power BI, se necessario, o analizzarli in Excel se le dimensioni del file sono sufficientemente ridotte. Le esportazioni sono disponibili nel portale di Azure oppure è possibile configurarle con l'[API Esportazioni](/rest/api/cost-management/exports).
 
 **API Dettagli utilizzo**
 
-Se il set di dati sui costi è di piccole dimensioni, provare a usare l'[API Dettagli utilizzo](https://docs.microsoft.com/rest/api/consumption/usageDetails). Nel caso di una quantità elevata di dati sui costi, è consigliabile richiedere la quantità di dati sull'utilizzo minima possibile per un periodo. A tale scopo, specificare un intervallo di tempo ridotto o usare un filtro nella richiesta. Ad esempio, in uno scenario in cui sono necessari tre anni di dati sui costi, l'API offre prestazioni migliori se si effettuano più chiamate per intervalli di tempo diversi invece di una singola. Da qui, è possibile caricare i dati in Excel per un'ulteriore analisi.
+Se il set di dati sui costi è di piccole dimensioni, provare a usare l'[API Dettagli utilizzo](/rest/api/consumption/usageDetails). Nel caso di una quantità elevata di dati sui costi, è consigliabile richiedere la quantità di dati sull'utilizzo minima possibile per un periodo. A tale scopo, specificare un intervallo di tempo ridotto o usare un filtro nella richiesta. Ad esempio, in uno scenario in cui sono necessari tre anni di dati sui costi, l'API offre prestazioni migliori se si effettuano più chiamate per intervalli di tempo diversi invece di una singola. Da qui, è possibile caricare i dati in Excel per un'ulteriore analisi.
 
 ## <a name="automate-retrieval-with-usage-details-api"></a>Automatizzare il recupero con l'API Dettagli utilizzo
 
-L'[API Dettagli utilizzo ](https://docs.microsoft.com/rest/api/consumption/usageDetails) offre un modo semplice per ottenere dati sui costi non elaborati e non aggregati corrispondenti alla fattura di Azure. L'API è utile quando l'organizzazione necessita di una soluzione di recupero dei dati a livello di codice. È consigliabile usare l'API per l'analisi di set di dati sui costi di dimensioni ridotte. Nel caso di set di dati più grandi, è invece consigliabile usare le altre soluzioni identificate in precedenza. I dati in Dettagli utilizzo vengono forniti per ogni contatore al giorno. Vengono usati per il calcolo della fattura mensile. La versione disponibile a livello generale di queste API è `2019-10-01`. Usare `2019-04-01-preview` per accedere alla versione di anteprima per la prenotazione e gli acquisti in Azure Marketplace con le API.
+L'[API Dettagli utilizzo ](/rest/api/consumption/usageDetails) offre un modo semplice per ottenere dati sui costi non elaborati e non aggregati corrispondenti alla fattura di Azure. L'API è utile quando l'organizzazione necessita di una soluzione di recupero dei dati a livello di codice. È consigliabile usare l'API per l'analisi di set di dati sui costi di dimensioni ridotte. Nel caso di set di dati più grandi, è invece consigliabile usare le altre soluzioni identificate in precedenza. I dati in Dettagli utilizzo vengono forniti per ogni contatore al giorno. Vengono usati per il calcolo della fattura mensile. La versione disponibile a livello generale di queste API è `2019-10-01`. Usare `2019-04-01-preview` per accedere alla versione di anteprima per la prenotazione e gli acquisti in Azure Marketplace con le API.
 
 ### <a name="usage-details-api-suggestions"></a>Suggerimenti per l'API Dettagli utilizzo
 
 **Pianificazione delle richieste**
 
-È consigliabile effettuare _non più di una richiesta_ al giorno all'API Dettagli utilizzo. Per altre informazioni sulla frequenza di aggiornamento dei dati sui costi e su come viene gestito l'arrotondamento, vedere [Informazioni sui dati di Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#rated-usage-data-refresh-schedule).
+È consigliabile effettuare _non più di una richiesta_ al giorno all'API Dettagli utilizzo. Per altre informazioni sulla frequenza di aggiornamento dei dati sui costi e su come viene gestito l'arrotondamento, vedere [Informazioni sui dati di Gestione costi](./understand-cost-mgt-data.md).
 
 **Scegliere ambiti di primo livello senza filtro**
 
-Usare l'API per ottenere tutti i dati necessari nell'ambito di livello più alto disponibile. Attendere che vengano inseriti tutti i dati necessari prima di eseguire operazioni di filtro, raggruppamento o analisi aggregate. L'API è ottimizzata specificamente per fornire grandi quantità di dati sui costi non elaborati e non aggregati. Per altre informazioni sugli ambiti disponibili in Gestione costi, vedere [Informazioni e utilizzo degli ambiti](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-work-scopes). Una volta scaricati i dati necessari per un ambito, usare Excel per analizzare ulteriormente i dati con i filtri e le tabelle pivot.
+Usare l'API per ottenere tutti i dati necessari nell'ambito di livello più alto disponibile. Attendere che vengano inseriti tutti i dati necessari prima di eseguire operazioni di filtro, raggruppamento o analisi aggregate. L'API è ottimizzata specificamente per fornire grandi quantità di dati sui costi non elaborati e non aggregati. Per altre informazioni sugli ambiti disponibili in Gestione costi, vedere [Informazioni e utilizzo degli ambiti](./understand-work-scopes.md). Una volta scaricati i dati necessari per un ambito, usare Excel per analizzare ulteriormente i dati con i filtri e le tabelle pivot.
 
 ## <a name="example-usage-details-api-requests"></a>Esempi di richieste all'API Dettagli utilizzo
 
@@ -329,6 +329,6 @@ Per garantire un'esperienza coerente per tutti i sottoscrittori di Gestione cost
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Analizzare i costi di Azure con l'app modello di Power BI](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
-- [Creare e gestire dati esportati](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) con Esportazioni.
-- Altre informazioni sull'[API Dettagli utilizzo](https://docs.microsoft.com/rest/api/consumption/usageDetails).
+- [Analizzare i costi di Azure con l'app modello di Power BI](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+- [Creare e gestire dati esportati](./tutorial-export-acm-data.md) con Esportazioni.
+- Altre informazioni sull'[API Dettagli utilizzo](/rest/api/consumption/usageDetails).

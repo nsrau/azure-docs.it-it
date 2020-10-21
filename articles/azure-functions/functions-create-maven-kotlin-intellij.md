@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09dd868dc9e05241943899654d7c8bb427a8f268
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87055454"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104836"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Guida di avvio rapido: Creare la prima funzione attivata tramite HTTP con Kotlin e IntelliJ
 
@@ -23,7 +23,7 @@ Questo articolo illustra come creare un progetto di funzione [serverless](https:
 
 Per sviluppare una funzione con Kotlin e IntelliJ, installare il software seguente:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), versione 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK), versione 8
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versione Community o Ultimate con Maven
 - [Interfaccia della riga di comando di Azure](/cli/azure)

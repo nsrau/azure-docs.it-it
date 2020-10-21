@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 50414d48c3368ddf409630422d3316cdc45a63fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd2d9ddf17cf100e1a211785b9cc62c9f08352f9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88587396"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282419"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.6): funzionalità e sintassi supportate
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API di Azure Cosmos DB per MongoDB tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers) open source del client MongoDB. L'API di Azure Cosmos DB per MongoDB consente di usare driver client esistenti aderendo al [protocollo di collegamento](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantaggi di MongoDB con tutte le funzionalità aziendali offerte da Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, crittografia di dati inattivi, backup e molto altro.
+Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantaggi di MongoDB con tutte le funzionalità aziendali offerte da Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partitioning-overview.md), garanzie di disponibilità e latenza, crittografia di dati inattivi, backup e molto altro.
 
 ## <a name="protocol-support"></a>Protocolli supportati
 

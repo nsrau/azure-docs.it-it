@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758898"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090693"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Cos'è Azure Spring Cloud?
 
 Azure Spring Cloud semplifica la distribuzione di applicazioni di microservizi basate su Spring Boot in Azure, senza modificare il codice.  Azure Spring Cloud gestisce l'infrastruttura delle applicazioni Spring Cloud per consentire agli sviluppatori di concentrarsi sul codice.  Spring Cloud fornisce la gestione del ciclo di vita tramite funzionalità complete di monitoraggio e diagnostica, gestione della configurazione, individuazione dei servizi, integrazione di CI/CD, distribuzioni blu/verde e altro ancora.
 
-Azure Spring Cloud supporta sia app [Spring Boot](https://spring.io/projects/spring-boot) per Java che [Steeltoe](https://steeltoe.io/) per ASP.NET Core. Il supporto di Steeltoe è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Spring Cloud supporta sia app [Spring Boot](https://spring.io/projects/spring-boot) per Java che [Steeltoe](https://steeltoe.io/) per ASP.NET Core. Il supporto di Steeltoe è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 Facendo parte dell'ecosistema di Azure, Azure Spring Cloud si può associare facilmente ad altri servizi di Azure, come archiviazione, database, monitoraggio e così via.
 

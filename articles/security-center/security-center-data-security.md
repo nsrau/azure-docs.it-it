@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018271"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339476"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 
@@ -51,7 +51,7 @@ Microsoft usa modelli e intelligence per le minacce trovati in più tenant per m
 ## <a name="manage-data-collection-from-machines"></a>Gestire la raccolta di dati dai computer
 Quando si abilita il Centro sicurezza in Azure, viene attivata la raccolta dati per ogni sottoscrizione di Azure. È anche possibile abilitare la raccolta di dati per le sottoscrizioni nel Centro sicurezza. Se la raccolta di dati è abilitata, il Centro sicurezza effettua il provisioning dell'agente di Log Analytics in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create.
 
-L'agente di Log Analytics esegue l'analisi delle varie configurazioni correlate alla sicurezza e ne genera gli eventi nelle tracce di [Event Trace for Windows (ETW)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal). Il sistema operativo genererà anche eventi del log eventi durante l'esecuzione del computer. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. L'agente di Log Analytics legge le voci del log eventi ed ETW le traccia e le copia nelle aree di lavoro per l'analisi. L'agente di Log Analytics abilita anche gli eventi di creazione del processo e il controllo della riga di comando.
+L'agente di Log Analytics esegue l'analisi delle varie configurazioni correlate alla sicurezza e ne genera gli eventi nelle tracce di [Event Trace for Windows (ETW)](/windows/win32/etw/event-tracing-portal). Il sistema operativo genererà anche eventi del log eventi durante l'esecuzione del computer. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. L'agente di Log Analytics legge le voci del log eventi ed ETW le traccia e le copia nelle aree di lavoro per l'analisi. L'agente di Log Analytics abilita anche gli eventi di creazione del processo e il controllo della riga di comando.
 
 Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dati è necessaria per le sottoscrizioni protette da Azure Defender. Gli snapshot dei dischi delle VM e la raccolta di elementi resteranno abilitati anche se la raccolta dati è stata disabilitata.
 
@@ -85,7 +85,7 @@ I clienti possono accedere ai dati relativi al Centro sicurezza dai flussi di da
 | [Log attività di Azure](../azure-monitor/platform/activity-log.md)                       | Tutti gli avvisi di sicurezza, le richieste di accesso [JIT](security-center-just-in-time.md) del Centro sicurezza approvate e tutti gli accessi generati dai [controlli applicazioni adattivi](security-center-adaptive-application.md).|
 | [Log di Monitoraggio di Azure](../azure-monitor/platform/data-platform.md)                      | Tutti gli avvisi di sicurezza.                                                                                                                                                                                                |
 | [Diagramma delle risorse di Azure](../governance/resource-graph/overview.md)                      | Avvisi di sicurezza, raccomandazioni sulla sicurezza, risultati della valutazione delle vulnerabilità, informazioni sul punteggio di sicurezza, stato dei controlli di conformità e altro ancora.                                                                       |
-| [API REST di Centro sicurezza di Azure](https://docs.microsoft.com/rest/api/securitycenter/) | Avvisi di sicurezza, raccomandazioni sulla sicurezza e altro ancora.                                                                                                                                                                |
+| [API REST di Centro sicurezza di Azure](/rest/api/securitycenter/) | Avvisi di sicurezza, raccomandazioni sulla sicurezza e altro ancora.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Passaggi successivi
