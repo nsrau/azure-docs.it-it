@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168496"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317565"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -1065,7 +1065,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 
   * [Piani di servizio app Azure](../app-service/overview-hosting-plans.md)
   * [Opzioni di rete di Funzioni di Azure](../azure-functions/functions-networking-options.md)
-  * [Host dedicati di Azure per le macchine virtuali](../virtual-machines/windows/dedicated-hosts.md)
+  * [Host dedicati di Azure per le macchine virtuali](../virtual-machines/dedicated-hosts.md)
   * [Isolamento della macchina virtuale in Azure](../virtual-machines/isolation.md)
   * [Distribuire servizi di Azure dedicati in reti virtuali](../virtual-network/virtual-network-for-azure-services.md)
 

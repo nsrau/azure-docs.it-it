@@ -1,20 +1,19 @@
 ---
 title: Informazioni sul parser dei modelli digitali gemelli | Microsoft Docs
-description: Come sviluppatore, informazioni su come usare il parser DTDL per convalidare i modelli
+description: Gli sviluppatori imparano a usare il parser DTDL per convalidare i modelli.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331788"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Informazioni sul parser del modello Gemelli digitali
 
@@ -28,9 +27,12 @@ Il parser è disponibile in NuGet.org con ID: [Microsoft. Azure. DigitalTwins. p
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> Al momento della stesura di questo documento, la versione del parser è `3.12.5` .
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Utilizzare il parser per convalidare un modello
 
-Il modello che si vuole convalidare potrebbe essere composto da una o più interfacce descritte nei file JSON. È possibile utilizzare il parser per caricare tutti i file in una cartella specificata e utilizzare il parser per convalidare tutti i file nel suo complesso, inclusi i riferimenti tra i file:
+Un modello può essere composto da una o più interfacce descritte nei file JSON. È possibile utilizzare il parser per caricare tutti i file in una cartella specificata e utilizzare il parser per convalidare tutti i file nel suo complesso, inclusi i riferimenti tra i file:
 
 1. Creare un oggetto `IEnumerable<string>` con un elenco di tutti i contenuti del modello:
 
@@ -57,18 +59,20 @@ Il modello che si vuole convalidare potrebbe essere composto da una o più inter
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Verificare se sono presenti errori di convalida. Se il parser rileva errori, genera un'eccezione `AggregateException` con un elenco di messaggi di errore dettagliati:
+1. Verificare se sono presenti errori di convalida. Se il parser rileva errori, genera un'eccezione `ParsingException` con un elenco di errori:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ Il modello che si vuole convalidare potrebbe essere composto da una o più inter
 1. Esaminare il `Model` . Se la convalida ha esito positivo, è possibile usare l'API del parser del modello per esaminare il modello. Il frammento di codice seguente illustra come eseguire l'iterazione di tutti i modelli analizzati e visualizzare le proprietà esistenti:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

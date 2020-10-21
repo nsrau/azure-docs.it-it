@@ -3,12 +3,12 @@ title: Domini eventi in Griglia di eventi di Azure
 description: Questo articolo descrive come usare i domini eventi per gestire il flusso di eventi personalizzati per vari clienti, organizzazioni o applicazioni aziendali.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114364"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328828"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -37,13 +37,13 @@ Offre inoltre un singolo endpoint, in cui è possibile pubblicare tutti gli even
 
 ## <a name="access-management"></a>Gestione degli accessi
 
-Con un dominio si ottiene il controllo granulare dell'autenticazione e dell'autorizzazione su ogni argomento, tramite il controllo degli accessi in base al ruolo di Azure. È possibile usare questi ruoli per limitare ogni tenant nell'applicazione ai soli argomenti a cui si vuole concedere l'accesso.
+Con un dominio si ottengono l'autorizzazione e il controllo dell'autenticazione a granularità fine su ogni argomento tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). È possibile usare questi ruoli per limitare ogni tenant nell'applicazione ai soli argomenti a cui si vuole concedere l'accesso.
 
-Il controllo degli accessi in base al ruolo nei domini eventi funziona allo stesso modo del [controllo di accesso gestito](security-authorization.md) nel resto di Griglia di eventi e di Azure. Usare il controllo degli accessi in base al ruolo per creare e applicare definizioni del ruolo personalizzate nei domini eventi.
+Il controllo degli accessi in base al ruolo di Azure nei domini eventi funziona nello stesso modo in cui il [controllo di accesso gestito](security-authorization.md) funziona nel resto della griglia di eventi Usare il controllo degli accessi in base al ruolo di Azure per creare e applicare definizioni di ruolo personalizzate nei domini
 
 ### <a name="built-in-roles"></a>Ruoli predefiniti
 
-Griglia di eventi include due definizioni del ruolo predefinite per semplificare l'uso del controllo degli accessi in base al ruolo con i domini eventi. Questi ruoli sono **EventSubscription EventGrid Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)** e vengono assegnati a utenti che necessitano di sottoscrivere argomenti del dominio eventi del proprietario. È possibile definire l'ambito dell'assegnazione di ruolo solo per l'argomento a cui gli utenti devono sottoscrivere.
+Griglia di eventi include due definizioni di ruolo predefinite che consentono di semplificare il controllo degli accessi in base al ruolo di Azure. Questi ruoli sono **EventSubscription EventGrid Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)** e vengono assegnati a utenti che necessitano di sottoscrivere argomenti del dominio eventi del proprietario. È possibile definire l'ambito dell'assegnazione di ruolo solo per l'argomento a cui gli utenti devono sottoscrivere.
 
 Per informazioni su questi ruoli, vedere [Ruoli predefiniti per Griglia di eventi](security-authorization.md#built-in-roles).
 

@@ -4,17 +4,17 @@ description: Informazioni su come importare i file di certificato in un servizio
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313689"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importare un file di certificato in un contenitore in esecuzione in Service Fabric
 
 > [!NOTE]
-> Per i cluster Service Fabric eseguiti in Azure, è consigliabile usare [Service Fabric identità gestita dall'applicazione](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) per eseguire il provisioning dei certificati dell'applicazione all'interno di un contenitore. L'identità gestita fornisce l'isolamento di segreti e certificati a livello di servizio e consente il provisioning del certificato dell'applicazione in modo che faccia parte del flusso di lavoro dell'applicazione, anziché del flusso di lavoro dell'infrastruttura. Il meccanismo CertificateRef verrà deprecato in una versione futura.
+> Per i cluster Service Fabric eseguiti in Azure, è consigliabile usare [Service Fabric identità gestita dall'applicazione](./concepts-managed-identity.md) per eseguire il provisioning dei certificati dell'applicazione all'interno di un contenitore. L'identità gestita fornisce l'isolamento di segreti e certificati a livello di servizio e consente il provisioning del certificato dell'applicazione in modo che faccia parte del flusso di lavoro dell'applicazione, anziché del flusso di lavoro dell'infrastruttura. Il meccanismo CertificateRef verrà deprecato in una versione futura.
 
 È possibile proteggere i servizi del contenitore specificando un certificato. Service Fabric fornisce un meccanismo per i servizi all'interno di un contenitore per accedere a un certificato che viene installato nei nodi in un cluster di Windows o Linux (versione 5.7 o versioni successive). Questo certificato deve essere installato in un archivio certificati in LocalMachine in tutti i nodi del cluster. La chiave privata corrispondente al certificato deve essere disponibile, accessibile e, in Windows, esportabile. Le informazioni del certificato vengono fornite nel manifesto dell'applicazione sotto il tag `ContainerHostPolicies` come illustrato nel frammento di codice seguente:
 

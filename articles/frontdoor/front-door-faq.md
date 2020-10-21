@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819034"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282295"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -71,7 +71,7 @@ Il front-end di Azure è un servizio globale e non è associato ad alcuna area d
 
 ### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Quali sono i percorsi POP per il front-end di Azure?
 
-Il front-end di Azure presenta lo stesso elenco di località POP (Point of Presence) della rete CDN di Azure di Microsoft. Per l'elenco completo dei pop, vedere le [località pop della rete CDN di Azure di Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Il front-end di Azure presenta lo stesso elenco di località POP (Point of Presence) della rete CDN di Azure di Microsoft. Per l'elenco completo dei pop, vedere le [località pop della rete CDN di Azure di Microsoft](../cdn/cdn-pop-locations.md).
 
 ### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Il front-end di Azure è una distribuzione dedicata per l'applicazione o è condivisa tra i clienti?
 
@@ -91,9 +91,9 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 
 - Configurare ACLing IP per i back-end in modo che accettino il traffico dallo spazio degli indirizzi IP back-end di Azure front door e dai servizi di infrastruttura di Azure. Vedere i dettagli dell'indirizzo IP seguente per ACLing il back-end:
  
-    - Vedere la sezione *AzureFrontDoor. backend* negli [intervalli IP di Azure e nei tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519) per l'intervallo di indirizzi IP del back-end IPv4 di front-end oppure è possibile usare anche il tag di servizio *AzureFrontDoor. backend* nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
+    - Vedere la sezione *AzureFrontDoor. backend* negli [intervalli IP di Azure e nei tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519) per l'intervallo di indirizzi IP del back-end IPv4 di front-end oppure è possibile usare anche il tag di servizio *AzureFrontDoor. backend* nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules).
     - Lo spazio IP del back-end **IPv6** dello sportello anteriore mentre è incluso nel tag del servizio non è elencato nel file JSON degli intervalli IP di Azure. Se si sta cercando un intervallo di indirizzi IPv6 esplicito, è attualmente limitato a `2a01:111:2050::/44`
-    - Servizi di [infrastruttura di base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) di Azure tramite indirizzi IP host virtualizzati: `168.63.129.16` e `169.254.169.254`
+    - Servizi di [infrastruttura di base](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) di Azure tramite indirizzi IP host virtualizzati: `168.63.129.16` e `169.254.169.254`
 
     > [!WARNING]
     > Lo spazio IP back-end della porta anteriore potrebbe cambiare in un secondo momento, tuttavia, prima che ciò accada, avremmo integrato gli [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per eventuali modifiche o aggiornamenti.
@@ -156,7 +156,7 @@ Il servizio di Azure front door (AFD) richiede un indirizzo IP pubblico o un nom
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quali sono i diversi timeout e limiti per lo sportello anteriore di Azure?
 
-Informazioni su tutti i [timeout e i limiti](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits)documentati per il front-end di Azure.
+Informazioni su tutti i [timeout e i limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits)documentati per il front-end di Azure.
 
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Quanto tempo è necessario per rendere effettive le regole dopo essere state aggiunte al motore delle regole della porta anteriore?
 
@@ -179,7 +179,7 @@ Front door supporta le versioni di TLS 1,0, 1,1 e 1,2. TLS 1,3 non è ancora sup
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Quali certificati sono supportati in Azure front door?
 
 Per abilitare il protocollo HTTPS per la distribuzione sicura di contenuto in un dominio personalizzato di una porta anteriore, è possibile scegliere di usare un certificato gestito da Azure front door o usare il proprio certificato.
-L'opzione Managed Door (porta anteriore) effettua il provisioning di un certificato TLS/SSL standard tramite DigiCert e viene archiviato nel Key Vault di porte anteriori Se si sceglie di usare il proprio certificato, è possibile caricare un certificato da un'autorità di certificazione supportata e può essere un certificato standard TLS, Extended Validation o anche un certificato con caratteri jolly. I certificati autofirmati non sono supportati. Informazioni [su come abilitare HTTPS per un dominio personalizzato](https://aka.ms/FrontDoorCustomDomainHTTPS).
+L'opzione Managed Door (porta anteriore) effettua il provisioning di un certificato TLS/SSL standard tramite DigiCert e viene archiviato nel Key Vault di porte anteriori Se si sceglie di usare il proprio certificato, è possibile caricare un certificato da un'autorità di certificazione supportata e può essere un certificato standard TLS, Extended Validation o anche un certificato con caratteri jolly. I certificati autofirmati non sono supportati. Informazioni [su come abilitare HTTPS per un dominio personalizzato](./front-door-custom-domain-https.md).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>Lo sportello anteriore supporta la rotazione automatica dei certificati?
 
@@ -220,7 +220,7 @@ Quando si usano domini personalizzati con TLS 1.0/1.1 abilitato, sono supportati
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>È possibile configurare I criteri TLS per controllare le versioni del protocollo TLS?
 
-È possibile configurare una versione minima di TLS nella porta anteriore di Azure nelle impostazioni HTTPS del dominio personalizzato tramite portale di Azure o l' [API REST di Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Attualmente, è possibile scegliere tra 1,0 e 1,2.
+È possibile configurare una versione minima di TLS nella porta anteriore di Azure nelle impostazioni HTTPS del dominio personalizzato tramite portale di Azure o l' [API REST di Azure](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Attualmente, è possibile scegliere tra 1,0 e 1,2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>È possibile configurare la porta anteriore per supportare solo pacchetti di crittografia specifici?
 
@@ -247,7 +247,7 @@ Per avere correttamente le connessioni HTTPS al back-end, sia per i probe di int
 
 1. **Mancata corrispondenza del nome del soggetto del certificato**: per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end è impostato su `myapp-centralus.contosonews.net` e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
     1. **Soluzione**: Sebbene non sia consigliabile dal punto di vista della conformità, è possibile risolvere questo errore disabilitando la verifica del nome del soggetto del certificato per la porta anteriore. Questo è presente in impostazioni in portale di Azure e in BackendPoolsSettings nell'API.
-2. **Certificato di hosting back-end da autorità di certificazione non valida**: solo i certificati delle [autorità di certificazione valide](/azure/frontdoor/front-door-troubleshoot-allowed-ca) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
+2. **Certificato di hosting back-end da autorità di certificazione non valida**: solo i certificati delle [autorità di certificazione valide](./front-door-troubleshoot-allowed-ca.md) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>È possibile usare l'autenticazione client/reciproca con lo sportello anteriore di Azure?
 

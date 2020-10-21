@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni sulle diverse opzioni per aut
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85323186"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332383"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizzare l'accesso a Hub eventi di Azure
 Ogni volta che si pubblicano o utilizzano eventi/dati da un hub eventi, il client sta provando ad accedere alle risorse di hub eventi. Ogni richiesta a una risorsa protetta deve essere autorizzata, in modo che il servizio possa garantire che il client disponga delle autorizzazioni necessarie per pubblicare/utilizzare i dati. 
@@ -23,7 +23,7 @@ Hub eventi di Azure offre le opzioni seguenti per autorizzare l'accesso a risors
 > Questo articolo si applica sia a hub eventi che a scenari di [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) . 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-L'integrazione di Azure Active Directory (Azure AD) per le risorse di hub eventi fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa di hub eventi.
+L'integrazione di Azure Active Directory (Azure AD) per le risorse di hub eventi fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa di hub eventi.
 
 Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:
 
@@ -40,7 +40,7 @@ Per impostazione predefinita, tutte le risorse di hub eventi sono protette e son
 Per altre informazioni sull'autorizzazione con SAS, vedere [autorizzazione dell'accesso alle risorse di hub eventi tramite firme di accesso condiviso](authorize-access-shared-access-signature.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esaminare gli [esempi RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) pubblicati nel repository GitHub. 
+- Esaminare gli [esempi RBAC di Azure](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) pubblicati nel repository GitHub. 
 - Vedere gli articoli seguenti:
     - [Autenticare le richieste a hub eventi di Azure da un'applicazione usando Azure Active Directory](authenticate-application.md)
     - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi](authenticate-managed-identity.md)

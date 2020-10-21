@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131378"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332026"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -42,11 +42,11 @@ Usare i collegamenti seguenti per istruzioni dettagliate su come creare cluster 
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Quali tipi di autorizzazioni sono supportati da Data Lake Storage Gen2?
 
-Data Lake Storage Gen2 usa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo (RBAC) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Data Lake Storage Gen1 supporta gli elenchi di controllo di accesso solo per il controllo dell'accesso ai dati.
+Data Lake Storage Gen2 usa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Data Lake Storage Gen1 supporta gli elenchi di controllo di accesso solo per il controllo dell'accesso ai dati.
 
-RBAC usa le assegnazioni di ruolo per applicare in modo efficace set di autorizzazioni a utenti, gruppi ed entità servizio per le risorse di Azure. In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione BLOB di Azure. Per l'archiviazione BLOB di Azure e Data Lake Storage Gen2 anche questo meccanismo è stato esteso alla risorsa file system.
+Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare in modo efficace set di autorizzazioni a utenti, gruppi ed entità servizio per le risorse di Azure In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione BLOB di Azure. Per l'archiviazione BLOB di Azure e Data Lake Storage Gen2 anche questo meccanismo è stato esteso alla risorsa file system.
 
-Per altre informazioni sulle autorizzazioni per i file con RBAC, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Per altre informazioni sulle autorizzazioni per i file con RBAC di Azure, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Per altre informazioni sulle autorizzazioni per i file con ACL, vedere [elenchi di controllo di accesso su file e directory](../storage/blobs/data-lake-storage-access-control.md).
 

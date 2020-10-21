@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni che consentono di ottimizzare
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476258"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328267"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governance dell'infrastruttura di Azure DevTest Labs - Gestire i costi e la proprietà
 Costi e proprietà sono problemi primari quando si considera la creazione di ambienti di test e sviluppo. In questa sezione sono riportate informazioni che consentono di ottimizzare i costi e allineare la proprietà al proprio ambiente.
@@ -34,9 +34,9 @@ Solo i titolari di sottoscrizioni attive di Visual Studio (sottoscrizioni standa
 
 Se si decide di usufruire dell'offerta Sviluppo/test, si noti che questo vantaggio è riservato esclusivamente allo sviluppo e test delle proprie applicazioni. L'utilizzo entro i limiti della sottoscrizione non prevede un contratto di servizio con copertura finanziaria, fatta eccezione per l'uso di Azure DevOps e HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definire un accesso in base al ruolo all'interno dell'organizzazione
+## <a name="define-role-based-access-across-your-organization"></a>Definire l'accesso in base al ruolo all'interno dell'organizzazione
 ### <a name="question"></a>Domanda
-Come definisco il controllo degli accessi in base al ruolo per gli ambienti DevTest Labs al fine di garantire che l'IT possa governare mentre gli sviluppatori/i test possono svolgere il proprio lavoro? 
+Ricerca per categorie definire il controllo degli accessi in base al ruolo di Azure per gli ambienti DevTest Labs per assicurarsi che possa governare mentre gli sviluppatori o i test possono svolgere il proprio lavoro? 
 
 ### <a name="answer"></a>Risposta
 Esiste un criterio ampio, tuttavia i dettagli dipendono dalla propria organizzazione.

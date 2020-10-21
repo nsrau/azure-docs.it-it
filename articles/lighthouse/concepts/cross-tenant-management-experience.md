@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315943"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -69,6 +69,10 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Eseguire il backup e il ripristino dei dati dei clienti [da carichi di lavoro locali, VM di Azure, condivisioni file di Azure e altro ancora](../..//backup/backup-overview.md#what-can-i-back-up)
 - Usare l'[Explorer di Backup](../../backup/monitor-azure-backup-with-backup-explorer.md) per visualizzare le informazioni operative degli elementi di backup (incluse le risorse di Azure non ancora configurate per il backup) e le informazioni di monitoraggio (processi e avvisi) per le sottoscrizioni delegate. L'Explorer di Backup è attualmente disponibile solo per i dati delle macchine virtuali di Azure.
 - Usare i [report di Backup](../../backup/configure-reports.md) tra sottoscrizioni delegate per tenere traccia delle tendenze cronologiche, analizzare l'utilizzo dello spazio di archiviazione dei backup e controllare i backup e i ripristini.
+
+[Progetti di Azure](../../governance/blueprints/index.yml):
+
+- Usare i progetti di Azure per orchestrare la distribuzione di modelli di risorse e altri elementi (richiede l' [accesso aggiuntivo](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) per preparare la sottoscrizione del cliente)
 
 [Gestione dei costi di Azure e fatturazione](../../cost-management-billing/index.yml):
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217389"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314806"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -157,6 +157,17 @@ Se si decide di aprire un caso di supporto, raccogliere le informazioni seguenti
 - Usare Psping da una delle macchine virtuali back-end all'interno della rete virtuale per testare la risposta della porta probe, ad esempio psping 10.0.0.4:3389, e registrare i risultati. 
 - Se non si ricevono risposte in questi test di ping, eseguire una traccia Netsh simultanea nella macchina virtuale back-end e nella macchina virtuale di test della rete virtuale mentre si esegue PsPing, quindi arrestare la traccia Netsh. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Sintomo: Load Balancer in stato di errore 
+
+**Risoluzione**
+
+- Una volta identificata la risorsa in stato di errore, passare a [Azure Resource Explorer](https://resources.azure.com/) e identificare la risorsa in questo stato. 
+- Aggiornare l'interruttore sull'angolo superiore destro in lettura/scrittura.
+- Fare clic su modifica per la risorsa in stato di errore.
+- Fare clic su PUT seguito da GET per assicurarsi che lo stato di provisioning sia stato aggiornato a succeeded.
+- È quindi possibile continuare con altre azioni perché la risorsa non è in stato di errore.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).

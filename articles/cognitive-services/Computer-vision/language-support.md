@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: b5c263506db68ea62b0d65b7b866cfab33a36236
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9bd7e7dab5384ecd3e1e87d763d4b8f081b669be
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976879"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329833"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -25,7 +25,7 @@ Alcune funzionalità di Visione artificiale supportano più lingue; le funzional
 
 Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md) .
 
-|Linguaggio| Codice lingua | API OCR | Leggi v 3.1 | Lettura v 3.1-anteprima. 2 |
+|Linguaggio| Codice lingua | API OCR | Leggi 3,0 e 3,1 | Leggere v 3.2-Preview. 1 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Arabo | `ar`|✔ | | |
 |Cinese (semplificato) | `zh-Hans`|✔ | |✔ |

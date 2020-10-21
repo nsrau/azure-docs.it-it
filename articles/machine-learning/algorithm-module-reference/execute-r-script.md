@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542289"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330394"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
@@ -194,11 +194,11 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
     > [!NOTE]
     > Il codice R esistente potrebbe richiedere modifiche minime per l'esecuzione in una pipeline di progettazione. Ad esempio, i dati di input forniti in formato CSV devono essere convertiti in modo esplicito in un set di dati prima di poterli usare nel codice. I tipi di dati e di colonna usati nel linguaggio R variano anche in qualche modo dai tipi di dati e di colonna usati nella finestra di progettazione.
 
-    Se lo script è superiore a 16 KB, usare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
+1. Se lo script è superiore a 16 KB, usare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
     
     1. Aggregare lo script e altre risorse personalizzate in un file zip.
     1. Caricare il file zip come **set di dati di file** in studio. 
-    1. Trascinare il modulo set di dati dall'elenco My Datasets (set di dati *personali* ) nel riquadro del modulo a sinistra nella pagina Authoring della finestra di progettazione. 
+    1. Trascinare il modulo set di dati dall'elenco *set* di dati nel riquadro modulo sinistro della pagina Creazione e modifica della finestra di progettazione. 
     1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
     
     Di seguito è riportato il codice di esempio per l'utilizzo dello script nel bundle di script:

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617061"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058217"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Esercitazione: Configurare la replica tra due istanze gestite
 
@@ -48,7 +48,7 @@ Questa esercitazione è destinata a un pubblico esperto e presuppone che l'utent
 
 Per configurare Istanza gestita di SQL in modo che svolga la funzione di server di pubblicazione e/o database di distribuzione, è necessario che siano soddisfatti i requisiti seguenti:
 
-- L'istanza gestita del server di pubblicazione si trova nella stessa rete virtuale del database di distribuzione e del database sottoscrittore o il [peering di reti virtuali](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) è stato configurato tra le reti virtuali di tutte e tre le entità. 
+- L'istanza gestita del server di pubblicazione si trova nella stessa rete virtuale del database di distribuzione e del database sottoscrittore oppure sono stati configurati [gateway VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
 - La porta 445 (porta in uscita TCP) è aperta nelle regole di sicurezza del gruppo di sicurezza di rete per permettere alle istanze gestite di accedere alla condivisione file di Azure.  Se viene visualizzato l'errore `failed to connect to azure storage \<storage account name> with os error 53`, sarà necessario aggiungere una regola in uscita al gruppo di sicurezza di rete della subnet di Istanza gestita di SQL appropriata.

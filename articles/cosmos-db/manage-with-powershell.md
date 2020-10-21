@@ -4,19 +4,19 @@ description: Gestire Azure Cosmos DB risorse API Core (SQL) usando PowerShell.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 652c546c5a38543e89f7a3b5ab8bc036c8d80911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4147b9a3a5f0a249366431a4e43f924e89f9075
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840881"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281493"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Gestire Azure Cosmos DB risorse API Core (SQL) con PowerShell
 
-La guida seguente illustra come usare PowerShell per creare script e automatizzare la gestione di risorse API Azure Cosmos DB Core (SQL), tra cui l'account Cosmos, il database, il contenitore e la velocità effettiva.
+La guida seguente illustra come usare PowerShell per creare script e automatizzare la gestione di risorse API Azure Cosmos DB Core (SQL), tra cui l'account Cosmos, il database, il contenitore e la velocità effettiva. Per i cmdlet di PowerShell per altre API, vedere [esempi di PowerShell per Cassandra](powershell-samples-cassandra.md), esempi [di PowerShell per l'API MongoDB](powershell-samples-mongodb.md), [esempi di PowerShell per Gremlin](powershell-samples-gremlin.md), [esempi di PowerShell per la tabella](powershell-samples-table.md)
 
 > [!NOTE]
 > Negli esempi di questo articolo vengono usati i cmdlet di gestione di [Az.CosmosDB](/powershell/module/az.cosmosdb). Per informazioni sulle ultime modifiche, vedere la pagina di informazioni di riferimento dell'API [Az.CosmosDB](/powershell/module/az.cosmosdb).
