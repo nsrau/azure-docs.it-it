@@ -3,19 +3,19 @@ title: Automatizzare l'aggiunta di un utente del Lab in Azure DevTest Labs | Mic
 description: Questo articolo illustra come automatizzare l'aggiunta di un utente a un Lab in Azure DevTest Labs usando modelli di Azure Resource Manager, PowerShell e l'interfaccia della riga di comando.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483823"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327961"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizzare l'aggiunta di un utente del Lab in un Lab in Azure DevTest Labs
 Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo e test Self-Service usando il portale di Azure. Tuttavia, se si dispone di più team e di diverse istanze di DevTest Labs, l'automazione del processo di creazione può risparmiare tempo. [Azure Resource Manager modelli](https://github.com/Azure/azure-devtestlab/tree/master/Environments) consentono di creare Lab, macchine virtuali del Lab, immagini personalizzate, formule e aggiungere utenti in modo automatico. Questo articolo è incentrato soprattutto sull'aggiunta di utenti a un'istanza di DevTest Labs.
 
 Per aggiungere un utente a un Lab, è necessario aggiungere l'utente al ruolo **utente DevTest Labs** per il Lab. Questo articolo illustra come automatizzare l'aggiunta di un utente a un Lab usando uno dei modi seguenti:
 
-- Modelli di Azure Resource Manager
+- Modelli di Gestione risorse di Azure
 - Cmdlet di Azure PowerShell 
 - Interfaccia della riga di comando di Azure.
 
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 Per specificare la risorsa a cui vengono concesse le autorizzazioni, può essere specificata tramite una combinazione `ResourceName` di `ResourceType` , `ResourceGroup` o dal `scope` parametro. Indipendentemente dalla combinazione di parametri usati, fornire al cmdlet informazioni sufficienti per identificare in modo univoco l'oggetto Active Directory (utente, gruppo o entità servizio), l'ambito (gruppo di risorse o risorsa) e la definizione di ruolo.
 
 ## <a name="use-azure-command-line-interface-cli"></a>Usare l'interfaccia della riga di comando di Azure (CLI)
-Nell'interfaccia della riga di comando di Azure, l'aggiunta di un utente Labs a un Lab viene eseguita tramite il `az role assignment create` comando. Per altre informazioni sui cmdlet dell'interfaccia della riga di comando di Azure, vedere [gestire l'accesso alle risorse di Azure usando RBAC e l'interfaccia della riga di](../role-based-access-control/role-assignments-cli.md)comando
+Nell'interfaccia della riga di comando di Azure, l'aggiunta di un utente Labs a un Lab viene eseguita tramite il `az role assignment create` comando. Per altre informazioni sui cmdlet dell'interfaccia della riga di comando di Azure, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](../role-based-access-control/role-assignments-cli.md)della riga di comando
 
 L'oggetto a cui viene concesso l'accesso può essere specificato dai `objectId` `signInName` parametri,, `spn` . Il Lab a cui viene concesso l'accesso all'oggetto può essere identificato dall' `scope` URL o da una combinazione dei `resource-name` parametri, `resource-type` e `resource-group` .
 

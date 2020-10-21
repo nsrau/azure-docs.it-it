@@ -3,12 +3,12 @@ title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft 
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 95534d32bdf34d44a11b31c2476c153272717941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319838"
+ms.locfileid: "92327298"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint compatibile con le API Apache Kafka® Producer e consumer che possono essere usate dalla maggior parte delle applicazioni client Apache Kafka esistenti in alternativa all'esecuzione di un cluster Apache Kafka. Hub eventi supporta i client API Producer e consumer di Apache Kafka alla versione 1,0 e successive.
@@ -60,7 +60,7 @@ Hub eventi di Azure offre più opzioni per autorizzare l'accesso alle risorse pr
 - Firma di accesso condiviso
 
 #### <a name="oauth-20"></a>OAuth 2.0
-Hub eventi si integra con Azure Active Directory (Azure AD), che fornisce un server di autorizzazione centralizzato compatibile con **OAuth 2,0** . Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere autorizzazioni con granularità fine alle identità del client. È possibile usare questa funzionalità con i client Kafka specificando **SASL_SSL** per il protocollo e  **OAUTHBEARER** per il meccanismo. Per informazioni dettagliate sui ruoli e sui livelli di Azure per l'accesso con ambito, vedere [autorizzare l'accesso con Azure ad](authorize-access-azure-active-directory.md).
+Hub eventi si integra con Azure Active Directory (Azure AD), che fornisce un server di autorizzazione centralizzato compatibile con **OAuth 2,0** . Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere le autorizzazioni con granularità fine alle identità dei client. È possibile usare questa funzionalità con i client Kafka specificando **SASL_SSL** per il protocollo e  **OAUTHBEARER** per il meccanismo. Per informazioni dettagliate sui ruoli e sui livelli di Azure per l'accesso con ambito, vedere [autorizzare l'accesso con Azure ad](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

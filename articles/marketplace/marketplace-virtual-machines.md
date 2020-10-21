@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281815"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329033"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
 
@@ -23,10 +23,7 @@ Prima di iniziare, [creare un account Marketplace commerciale nel centro](https:
 
 ### <a name="technical-fundamentals"></a>Nozioni tecniche
 
-Il processo di progettazione, compilazione e test delle offerte richiede tempo e richiede esperienza nella piattaforma Azure e nelle tecnologie usate per creare l'offerta. Il team di progettazione deve avere una conoscenza professionale delle tecnologie Microsoft seguenti:
-
-- [Progettazione e architettura delle applicazioni di Azure](https://azure.microsoft.com/solutions/architecture/)
-- [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage#storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking#networking)
+Il processo di progettazione, compilazione e test delle offerte richiede tempo e richiede esperienza nella piattaforma Azure e nelle tecnologie usate per creare l'offerta. Il team di progettazione deve avere una conoscenza professionale delle [macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), dell' [archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage#storage)e della rete di [Azure](https://azure.microsoft.com/services/?filter=networking#networking), nonché delle competenze della [progettazione e dell'architettura delle applicazioni Azure](https://azure.microsoft.com/solutions/architecture/). Vedere le risorse tecniche aggiuntive seguenti: 
 
 - Esercitazioni
   - [Macchine virtuali di Linux](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -40,9 +37,17 @@ Il processo di progettazione, compilazione e test delle offerte richiede tempo e
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
+Le offerte di VM presentano i requisiti tecnici seguenti:
+
+- È necessario preparare un disco rigido virtuale (VHD) del sistema operativo. I dischi rigidi virtuali del disco dati sono facoltativi. Questa procedura è illustrata in dettaglio di seguito.
+- Il cliente può annullare l'offerta in qualsiasi momento.
+- È necessario creare almeno un piano per l'offerta. Il piano viene valutato in base all' [opzione di gestione delle licenze](#licensing-options) selezionata.
+   > [!IMPORTANT]
+   > Ogni immagine di macchina virtuale in un piano deve avere lo stesso numero di dischi dati.
+
 Una macchina virtuale contiene due componenti:
 
-- **Disco rigido virtuale (VHD) del sistema operativo** : contiene il sistema operativo e la soluzione distribuiti con l'offerta. Il processo di preparazione del disco rigido virtuale varia a seconda che si tratti di una macchina virtuale basata su Linux, Windows o personalizzata.
+- **VHD operativo** : contiene il sistema operativo e la soluzione distribuiti con l'offerta. Il processo di preparazione del disco rigido virtuale varia a seconda che si tratti di una macchina virtuale basata su Linux, Windows o personalizzata.
 - Dischi **rigidi virtuali del disco dati** (facoltativo): archivio permanente dedicato per una macchina virtuale. Non usare il disco rigido virtuale del sistema operativo (ad esempio, l'unità C:) per archiviare informazioni permanenti. 
     - È possibile includere fino a 16 dischi dati.
     - Usare un disco rigido virtuale per ogni disco dati, anche se il disco è vuoto.
@@ -50,13 +55,7 @@ Una macchina virtuale contiene due componenti:
     > [!NOTE]
     > Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per la soluzione. In fase di distribuzione i clienti non possono rimuovere dischi che fanno parte di un'immagine ma possono sempre aggiungerne altri durante o dopo la distribuzione.
 
-Le offerte di VM presentano i requisiti tecnici seguenti:
-
-- È necessario preparare un disco rigido virtuale (VHD) del sistema operativo. I dischi rigidi virtuali del disco dati sono facoltativi.
-- Il cliente può annullare l'offerta in qualsiasi momento.
-- È necessario creare almeno un piano per l'offerta. Il piano viene valutato in base all' [opzione di gestione delle licenze](#licensing-options) selezionata.
-   > [!IMPORTANT]
-   > Ogni immagine di macchina virtuale in un piano deve avere lo stesso numero di dischi dati.
+Per istruzioni dettagliate sulla preparazione delle risorse tecniche, vedere [creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando un'immagine personalizzata](azure-vm-create-using-own-image.md).
 
 ## <a name="preview-audience"></a>Destinatari dell'anteprima
 
@@ -134,5 +133,6 @@ Quando si crea l'offerta nel centro per i partner, viene visualizzata la scheda 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Creare un'offerta di macchina virtuale in Azure Marketplace](azure-vm-create.md)
 - [Creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando un'immagine personalizzata](azure-vm-create-using-own-image.md).
 - [Procedure consigliate per le inserzioni di offerte](gtm-offer-listing-best-practices.md)

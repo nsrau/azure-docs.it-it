@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201434"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331499"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -25,7 +25,7 @@ Questo errore può verificarsi in molti tipi di richieste di servizio che richie
 
 ### <a name="cause-1"></a>Causare #1
 
-Generalmente, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo (RBAC) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo *proprietario (anteprima) di Azure Digital Twins* nell' **istanza che si sta tentando di gestire**. 
+In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo *proprietario (anteprima) di Azure Digital Twins* nell' **istanza che si sta tentando di gestire**. 
 
 ### <a name="cause-2"></a>Causare #2
 

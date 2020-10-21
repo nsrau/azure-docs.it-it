@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843312"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320515"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -78,7 +78,7 @@ Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](servic
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete 
 I gruppi di sicurezza di rete (NSG) controllano il traffico in ingresso e in uscita di una subnet, una macchina virtuale o una scheda di interfaccia di rete specifica.  Per impostazione predefinita, quando più macchine virtuali si trovano nella stessa rete virtuale, possono comunicare tra loro attraverso qualsiasi porta.  Se si vogliono limitare le comunicazioni tra le macchine virtuali, è possibile definire gruppi di sicurezza di rete per segmentare la rete o isolare le macchine virtuali l'una dall'altra.  Se un cluster contiene più tipi di nodo, è possibile applicare gruppi di sicurezza di rete alle subnet per impedire alle macchine virtuali che appartengono a tipi di nodo diversi di comunicare tra loro.  
 
-Per altre informazioni, vedere [Gruppi di sicurezza](../virtual-network/security-overview.md)
+Per altre informazioni, vedere [Gruppi di sicurezza](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>Scalabilità
 
@@ -96,7 +96,7 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| R2 per Windows Server 2012 | Tutte le versioni |
+| Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |

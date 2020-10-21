@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -43,6 +43,12 @@
     - name: Gestire la governance dei tag
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implementare Criteri di Azure come codice con GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Informazioni su: Controllare le risorse con Criteri di Azure'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Esempi
   items:
     - name: Indice
@@ -113,7 +119,7 @@
     - name: Conformità alle normative
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Progettare flussi di lavoro di criteri come codice
+    - name: Progettare flussi di lavoro di Criteri di Azure come codice
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Integrazione di Kubernetes

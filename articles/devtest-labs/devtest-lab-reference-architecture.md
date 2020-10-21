@@ -4,12 +4,12 @@ description: Questo articolo fornisce indicazioni sull'architettura di riferimen
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144548"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328845"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architettura di riferimento Azure DevTest Labs per le aziende
 Questo articolo fornisce un'architettura di riferimento per facilitare la distribuzione di una soluzione basata su Azure DevTest Labs in un'organizzazione. Include quanto segue:
@@ -24,7 +24,7 @@ Questo articolo fornisce un'architettura di riferimento per facilitare la distri
 Questi sono gli elementi chiave dell'architettura di riferimento:
 
 - **Azure Active Directory (Azure ad)**: DevTest Labs usa il [servizio Azure ad per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Considerare questi due aspetti chiave quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs:
-    - **Gestione delle risorse**: consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita in Azure usando il controllo degli accessi in base al ruolo (RBAC). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
+    - **Gestione delle risorse**: consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
     - **Macchine virtuali (a livello di rete)**: nella configurazione predefinita, le macchine virtuali usano un account amministratore locale. Se è disponibile un dominio ([Azure ad Domain Services](../active-directory-domain-services/overview.md), un dominio locale o un dominio basato su cloud), i computer possono essere aggiunti al dominio. Gli utenti possono quindi usare le proprie identità basate su dominio per connettersi alle macchine virtuali.
 - **Connettività locale**: nel diagramma dell'architettura viene usato [ExpressRoute](../expressroute/expressroute-introduction.md) . È anche possibile usare una [VPN da sito a sito](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Sebbene ExpressRoute non sia necessario per DevTest Labs, viene comunemente usato nelle aziende. ExpressRoute è necessario solo se è necessario l'accesso alle risorse aziendali. Scenari comuni:
     - Sono presenti dati locali che non possono essere spostati nel cloud.

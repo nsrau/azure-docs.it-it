@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401130"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329628"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Baseline della sicurezza di Azure per hub eventi
 
@@ -397,7 +397,7 @@ Come configurare località denominate in Azure: https://docs.microsoft.com/azure
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida**: usare Azure Active Directory (ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio hub eventi. Questo consente il controllo degli accessi in base al ruolo (RBAC) per le risorse amministrative riservate.
+**Linee guida**: usare Azure Active Directory (ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio hub eventi. Questo consente il controllo degli accessi in base al ruolo di Azure (RBAC) per le risorse amministrative riservate.
 
  Come creare e configurare un'istanza di Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: Hub eventi di Azure supporta l'uso di Azure Active Directory (ad) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
+**Linee guida**: Hub eventi di Azure supporta l'uso di Azure Active Directory (ad) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
-Informazioni su Azure AD RBAC e sui ruoli disponibili per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Informazioni sui ruoli disponibili e RBAC di Azure per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

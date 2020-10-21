@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 09/21/2020
-  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
+  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91949106"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92172137"
 landingContent:
 - title: Informazioni sulla soluzione Azure VMware
   linkLists:
@@ -36,14 +36,12 @@ landingContent:
       url: concepts-role-based-access-control.md
     - text: Aggiornamenti di cloud privati
       url: concepts-upgrades.md
-- title: Distribuire la soluzione Azure VMware
+- title: Introduzione
   linkLists:
-  - linkListType: get-started
+  - linkListType: deploy
     links:
-    - text: Processo di pre-distribuzione
+    - text: Pianificare la distribuzione
       url: production-ready-deployment-steps.md
-    - text: Elenco di controllo per la pre-distribuzione
-      url: pre-deployment-checklist.md
     - text: 1 - Distribuire la soluzione Azure VMware
       url: deploy-azure-vmware-solution.md
     - text: 2 - Connettersi all'ambiente locale
@@ -64,14 +62,16 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: Eseguire il peering dal cloud locale al cloud privato
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Distribuire e configurare VMware HCX
-      url: tutorial-deploy-vmware-hcx.md
     - text: Ridimensionare un cloud privato
       url: tutorial-scale-private-cloud.md
 - title: Estendere la soluzione Azure VMware
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Abilitare la soluzione Azure VMware
+      url: enable-azure-vmware-solution.md
+    - text: Risparmiare sui costi con le istanze riservate
+      url: reserved-instance.md
     - text: Valutazione della migrazione
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Gestire DHCP
@@ -80,5 +80,49 @@ landingContent:
       url: disaster-recovery-for-virtual-machines.md
     - text: Distribuire VM tramite una raccolta di contenuto
       url: ./deploy-vm-content-library.md
-    - text: Usare la funzionalità degli indirizzi IP pubblici
+    - text: Configurare GitHub Enterprise Server
+      url: github-enterprise-server.md
+    - text: Utilizzo di IP pubblici
       url: public-ip-usage.md
+    - text: Creare un tunnel IPSec
+      url: create-ipsec-tunnel.md
+- title: Integrazione nativa di Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestione API
+      url: concepts-api-management.md
+    - text: Hub e spoke
+      url: concepts-hub-and-spoke.md
+    - text: Server di backup di Azure
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Gestione del ciclo di vita nelle VM
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Gateway applicazione
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Gestione traffico
+      url: deploy-traffic-manager-balance-workloads.md
+- title: Soluzioni VMware
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare operazioni vRealize
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: Distribuire VMware Horizon
+      url: azure-vmware-solution-horizon.md
+- title: Ecosistema di VMware
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Soluzioni di backup per le macchine virtuali
+      url: ecosystem-back-up-vms.md
+- title: Risorse
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.vmware
+    - text: Ottenere assistenza per gli errori di distribuzione o provisioning
+      url: fix-deployment-provisioning-failures.md
+    - text: Domande frequenti
+      url: faq.md

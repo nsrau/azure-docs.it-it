@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: Osservabilità
       href: observability.md
+    - name: CI/CD con modelli di Resource Manager
+      href: devops-api-development-templates.md
 - name: Guide pratiche
   items:
     - name: Definire API

@@ -3,12 +3,12 @@ title: Supporto per la valutazione di Hyper-V in Azure Migrate
 description: Informazioni sul supporto per la valutazione di Hyper-V con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311321"
+ms.locfileid: "92331975"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
@@ -63,7 +63,7 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 **Dispositivo** | **Connection**
 --- | ---
 **Appliance** | Connessioni in ingresso sulla porta TCP 3389 per consentire la connessione dal desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione dell'appliance tramite l'URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Connessioni in uscita sulle porte 443 (HTTPS) per inviare i metadati di individuazione e prestazioni a Azure Migrate.
-**Host/cluster Hyper-V** | Connessione in ingresso sulla porta WinRM 5985 (HTTP) per eseguire il pull dei dati sulle prestazioni e sui metadati per le VM Hyper-V tramite una sessione di Common Information Model (CIM).
+**Host/cluster Hyper-V** | Connessione in ingresso sulla porta WinRM 5985 (HTTP) o 5986 (HTTPS) per eseguire il pull dei dati relativi ai metadati e alle prestazioni per le VM Hyper-V con una sessione Common Information Model (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisiti dell'analisi delle dipendenze basata su agente
 

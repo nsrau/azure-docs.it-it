@@ -6,7 +6,7 @@
       href: v2-overview.md
     - name: Novità della documentazione
       href: whats-new-docs.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare un tenant
@@ -75,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: WebAssembly Blazor
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript - Flusso del codice di autenticazione
           href: tutorial-v2-javascript-auth-code.md
         - name: JavaScript - Flusso implicito
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: Procedure consigliate per le piattaforme di identità
       href: identity-platform-integration-checklist.md
+    - name: Accesso Single Sign-On (SSO) per dispositivi mobili
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Scenari applicativi
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: Account e profili del tenant
               href: accounts-overview.md
-            - name: Agenti di autorizzazione
-              href: authorization-agents.md
-            - name: Autenticazione negoziata
-              href: brokered-auth.md
+            - name: SSO con MSAL Android
+              href: msal-android-single-sign-on.md
             - name: Integrazione con Azure AD B2C
               href: msal-android-b2c.md
             - name: Eseguire la migrazione a MSAL.Android

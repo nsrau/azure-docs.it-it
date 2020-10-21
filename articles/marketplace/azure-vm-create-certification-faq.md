@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: ee7a7101740e88d55d77f769263ab03a86b878d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284396"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331295"
 ---
 # <a name="vm-certification-troubleshooting"></a>Risoluzione dei problemi di certificazione della macchina virtuale
 
@@ -188,11 +188,11 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
 
-|Sistema operativo|Versione|
+|Sistema operativo|Version|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|Windows Server 2012 R2|6.3.9600.18604|
+|R2 per Windows Server 2012|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|ND|
 |
@@ -209,7 +209,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 - CVE-2019-11478
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Versione|Kernel|
+|Famiglia del sistema operativo|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151|
 ||14.04 LTS|4.15.0-1049-*-Azure|
@@ -410,7 +410,7 @@ Per completare questi passaggi, è necessario preparare le risorse tecniche per 
 5. Nella scheda **configurazione tecnica** , in **Immagini VM** , selezionare **+ Aggiungi immagine macchina virtuale**.
 
 > [!NOTE]
-> È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo e attendere che raggiunga la fase di approvazione dell'editore, quindi aggiungere la successiva immagine di macchina virtuale.
+> È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo Live prima di aggiungere la successiva immagine di macchina virtuale.
 
 6. Nelle caselle visualizzate specificare una nuova versione del disco e l'immagine della macchina virtuale.
 7. Selezionare **Salva bozza**.

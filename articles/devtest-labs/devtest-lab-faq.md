@@ -3,18 +3,18 @@ title: Domande frequenti su Azure DevTest Labs | Documentazione Microsoft
 description: Questo articolo offre risposte ad alcune domande frequenti su Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144592"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328386"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Post di blog
-Il blog del team DevTest Labs è stato ritirato il 20 marzo 2019. 
+Il blog del team DevTest Labs è stato ritirato il 20 marzo 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Dove sarà possibile tenere traccia degli aggiornamenti delle funzionalità da questo momento?
 Da questo momento gli aggiornamenti delle funzionalità e i post di blog informativi verranno pubblicati nel blog di Azure e negli aggiornamenti di Azure. Questi post di blog includeranno i necessari collegamenti alla documentazione Microsoft.
@@ -22,7 +22,7 @@ Da questo momento gli aggiornamenti delle funzionalità e i post di blog informa
 Sottoscrivere il [blog di Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e gli [Aggiornamenti Azure di DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) per essere sempre aggiornati sulle nuove funzionalità di DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>Cosa accade ai post di blog esistenti?
-È in corso la migrazione dei post di blog esistenti (esclusi gli aggiornamenti sulle interruzioni) alla documentazione di [DevTest Labs](devtest-lab-overview.md). Quando il blog MSDN verrà deprecato, verrà reindirizzato alla panoramica della documentazione di DevTest Labs. Una volta reindirizzato, sarà possibile cercare l'articolo desiderato sotto il titolo "Filtra per". Non sono stati ancora migrati tutti i post, ma il completamento dell'operazione è previsto entro fine mese. 
+È in corso la migrazione dei post di blog esistenti (esclusi gli aggiornamenti sulle interruzioni) alla documentazione di [DevTest Labs](devtest-lab-overview.md). Quando il blog MSDN verrà deprecato, verrà reindirizzato alla panoramica della documentazione di DevTest Labs. Una volta reindirizzato, sarà possibile cercare l'articolo desiderato sotto il titolo "Filtra per". Non sono stati ancora migrati tutti i post, ma il completamento dell'operazione è previsto entro fine mese. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>Dove sarà possibile visualizzare gli aggiornamenti sulle interruzioni?
@@ -68,7 +68,7 @@ DevTest Labs è un servizio gratuito. La creazione di lab e la configurazione di
 ## <a name="security"></a>Sicurezza
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quali sono i diversi livelli di sicurezza in DevTest Labs?
-L'accesso sicuro è determinato dal controllo degli accessi in base al ruolo. Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definiti dal controllo degli accessi in base al ruolo.
+L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per informazioni sul funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definito da Azure RBAC.
 
 - **Autorizzazione**: un'autorizzazione è un accesso definito a un'azione specifica. Un'autorizzazione può ad esempio essere l'accesso in lettura a tutte le macchine virtuali.
 - **Ruolo**: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Un utente con il ruolo di proprietario della sottoscrizione ha ad esempio accesso a tutte le risorse all'interno di una sottoscrizione.
@@ -83,7 +83,7 @@ Nell'ambito di DevTest Labs, ci sono due tipi di ruoli che definiscono le autori
 
 Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un determinato ambito, gli vengono automaticamente concesse tali autorizzazioni per ogni ambito di livello inferiore. Se ad esempio a un utente è assegnato il ruolo di proprietario della sottoscrizione, l'utente ha accesso a tutte le risorse in una sottoscrizione. Queste risorse includono macchine virtuali, reti virtuali e lab. Il proprietario di una sottoscrizione eredita automaticamente il ruolo di proprietario del lab, ma non il contrario. Il proprietario di un lab ha accesso a un lab, che è un ambito più basso del livello della sottoscrizione. Pertanto il proprietario di un lab non può vedere le macchine virtuali, le reti virtuali o qualsiasi altra risorsa esterna al lab.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Come definisco il controllo degli accessi in base al ruolo per gli ambienti DevTest Labs al fine di garantire che l'IT possa governare mentre gli sviluppatori/i test possono svolgere il proprio lavoro?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Ricerca per categorie definire il controllo degli accessi in base al ruolo di Azure per gli ambienti DevTest Labs per assicurarsi che possa governare mentre gli sviluppatori o i test possono svolgere il proprio lavoro?
 Esiste un criterio ampio, tuttavia i dettagli dipendono dalla propria organizzazione.
 
 L'ufficio IT centrale dovrebbe essere proprietario solo degli elementi necessari e consentire ai team di progetto e di applicazioni di disporre del livello di controllo adeguato. In genere significa che l'IT centrale possiede la sottoscrizione e gestisce le funzioni IT di base come le configurazioni di rete. Il set di **proprietari** per una sottoscrizione deve essere di piccole dimensioni. Se necessario questi proprietari possono nominare proprietari aggiuntivi oppure applicare criteri a livello di sottoscrizione, ad esempio "Nessun IP pubblico".
@@ -92,7 +92,7 @@ Un sottoinsieme di utenti potrebbe richiedere l'accesso a una sottoscrizione, ad
 
 La risorsa di DevTest Labs deve appartenere a proprietari vicini al team di progetto/applicazione. Questo perché comprendono i loro requisiti in termini di computer e software necessari. Nella maggior parte delle organizzazioni, il proprietario della risorsa di DevTest Labs è in genere il responsabile del progetto/sviluppo. Questo proprietario può gestire gli utenti e i criteri all'interno dell'ambiente lab, nonché tutte le macchine virtuali nell'ambiente di DevTest Labs.
 
-I membri del team di progetto/applicazione devono essere aggiunti al ruolo **utenti di DevTest Labs**. Questi utenti possono creare macchine virtuali (in linea con i criteri a livello di sottoscrizione e lab). Possono anche gestire le proprie macchine virtuali. Non possono gestire le macchine virtuali che appartengono ad altri utenti.
+I membri del team di progetto/applicazione devono essere aggiunti al ruolo **utente DevTest Labs** . Questi utenti possono creare macchine virtuali (in linea con i criteri a livello di sottoscrizione e lab). Possono anche gestire le proprie macchine virtuali. Non possono gestire le macchine virtuali che appartengono ad altri utenti.
 
 Per altre informazioni, vedere la documentazione [Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 

@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015005"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331754"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
-Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo (RBAC)**. Per informazioni sui principi generali di RBAC per Azure, vedere [qui](../role-based-access-control/overview.md).
+Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**. [Qui](../role-based-access-control/overview.md)è possibile leggere i principi generali di controllo degli accessi in base al ruolo di Azure.
 
 I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dati inattivi.
 
-## <a name="granting-permissions-with-rbac"></a>Concessione di autorizzazioni con RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Concessione di autorizzazioni con RBAC di Azure
 
-Il controllo degli accessi in base al ruolo viene fornito ai dispositivi gemelli digitali di Azure tramite l'integrazione con Azure AD [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
+Il controllo degli accessi in base al ruolo di Azure viene fornito ai gemelli digitali di Azure tramite l'integrazione con Azure AD [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 
-È possibile utilizzare RBAC per concedere le autorizzazioni a un' *entità di sicurezza*, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
+È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un' *entità di sicurezza*, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
 
 ### <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
@@ -57,7 +57,7 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [*definizioni di ruolo*](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [*ruoli personalizzati di Azure*](../role-based-access-control/custom-roles.md).
 
 È possibile assegnare i ruoli in due modi:
-* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo con il controllo degli accessi in base al ruolo e il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
+* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
 * tramite i comandi dell'interfaccia della riga di comando per aggiungere o rimuovere un ruolo
 
 Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi gemelli di Azure per la [*connessione di una soluzione end-to-end*](tutorial-end-to-end.md).
@@ -95,4 +95,4 @@ Per risolvere questo errore, esegui una delle operazioni seguenti:
 
 * Vedere come interagire con questi concetti dal codice dell'applicazione client in [*procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md).
 
-* Scopri di più su [RBAC per Azure](../role-based-access-control/overview.md).
+* Altre informazioni su [RBAC di Azure](../role-based-access-control/overview.md).
