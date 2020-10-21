@@ -3,12 +3,12 @@ title: Uso di Apache Flink per Apache Kafka - Hub eventi di Azure | Microsoft Do
 description: Questo articolo fornisce informazioni su come connettere Apache flink a un hub eventi di Azure
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40efd15e56d0b74459aefb4d88972df293b48c26
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061649"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308430"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso di Apache Flink con Hub eventi di Azure per Apache Kafka
 Questa esercitazione illustra come connettere Apache flink a un hub eventi senza modificare i client del protocollo o eseguire i propri cluster. Per altre informazioni sul supporto di hub eventi per il protocollo consumer Apache Kafka, vedere [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
@@ -30,7 +30,7 @@ Per completare questa esercitazione, verificare di disporre dei prerequisiti seg
 
 * Leggere con attenzione l'articolo [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-* [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 1.7 +](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.
     * Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven

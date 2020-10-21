@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344783"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319784"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Report attività di accesso Azure Active Directory-anteprima
 
@@ -32,8 +32,8 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
     - **Accessi: informazioni** sul momento in cui gli utenti, le applicazioni e le risorse gestite accedono a Azure ad e accedono alle risorse.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
 - **Sicurezza** 
-    - **Accessi a rischio** : un [accesso rischioso](concept-risky-sign-ins.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
-    - **Utenti contrassegnati per il rischio** : un [utente rischioso](concept-user-at-risk.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
+    - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
+    - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
 
 Il report degli accessi classici in Azure Active Directory offre una panoramica degli accessi degli utenti interattivi. Inoltre, è ora possibile accedere a tre report di accesso aggiuntivi ora disponibili in anteprima:
 
@@ -86,7 +86,7 @@ Nel pannello report accessi è possibile spostarsi tra:
 
 - **Accessi dell'entità servizio** : accessi per app ed entità servizio che non coinvolgono alcun utente. In questi accessi l'app o il servizio fornisce una credenziale per il proprio conto per l'autenticazione o l'accesso alle risorse.
 
-- **Identità gestite per le risorse di Azure accessi** : accessi dalle risorse di Azure con segreti gestiti da Azure. Per altre informazioni, vedere [che cosa sono le identità gestite per le risorse di Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Identità gestite per le risorse di Azure accessi** : accessi dalle risorse di Azure con segreti gestiti da Azure. Per altre informazioni, vedere [che cosa sono le identità gestite per le risorse di Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Tipi di report di accessi](./media/concept-all-sign-ins/sign-ins-report-types.png)
@@ -214,7 +214,7 @@ Per semplificare il digest dei dati, vengono raggruppati gli eventi di accesso n
 - ID risorsa
 
 
-È possibile:
+è possibile:
 
 - Espandere un nodo per visualizzare i singoli elementi di un gruppo.  
 
@@ -271,7 +271,7 @@ Per semplificare il digest dei dati nei log di accesso dell'entità servizio, ve
 
 - Nome o ID risorsa
 
-È possibile:
+è possibile:
 
 - Espandere un nodo per visualizzare i singoli elementi di un gruppo.  
 

@@ -4,15 +4,15 @@ description: Informazioni sulle opzioni di configurazione client per migliorare 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802141"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277225"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 
@@ -69,28 +69,7 @@ Se si sta eseguendo il test a livelli di velocità effettiva elevati (più di 50
 
 **Criteri di connessione: usare la modalità di connessione diretta**
 
-Il modo in cui un client si connette a Azure Cosmos DB ha implicazioni importanti sulle prestazioni, specialmente per la latenza lato client osservata. Per la configurazione dei criteri di connessione client sono disponibili due impostazioni di configurazione chiave, ovvero la *modalità* di connessione e il *protocollo*di connessione.  Le due modalità disponibili sono:
-
-  * Modalità Gateway (impostazione predefinita)
-      
-    La modalità Gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata per il [Microsoft.Azure.DocUMENTDB SDK](sql-api-sdk-dotnet.md). Se l'applicazione viene eseguita all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint DNS. Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. In modo che la modalità diretta offra prestazioni migliori in quanto sono presenti meno hop di rete. Si consiglia anche la modalità di connessione del gateway quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket.
-
-    Quando si usa l'SDK in funzioni di Azure, in particolare nel [piano a consumo](../azure-functions/functions-scale.md#consumption-plan), tenere presenti i [limiti correnti per le connessioni](../azure-functions/manage-connections.md). In tal caso, la modalità gateway potrebbe essere migliore se si lavora anche con altri client basati su HTTP all'interno dell'applicazione funzioni di Azure.
-
-  * Modalità diretta
-
-    La modalità diretta supporta la connettività tramite il protocollo TCP.
-     
-Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessario assicurarsi che l'intervallo di porte compreso tra 10000 e 20000 sia aperto perché Azure Cosmos DB usa porte TCP dinamiche. Quando si usa la modalità diretta negli [endpoint privati](./how-to-configure-private-endpoints.md), è necessario aprire l'intera gamma di porte TCP, da 0 a 65535. Se queste porte non sono aperte e si tenta di usare il protocollo TCP, si riceverà un errore di 503 servizio non disponibile. La tabella seguente illustra le modalità di connettività disponibili per le varie API e le porte del servizio usate per ogni API:
-
-|Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
-|---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443) <br> La porta 10250 esegue il mapping a un'API Azure Cosmos DB predefinita per l'istanza di MongoDB senza replica geografica. Mentre le porte 10255 e 10256 sono mappate all'istanza con replica geografica.   |
-|Connessione diretta    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
-
-Azure Cosmos DB offre un modello di programmazione RESTful semplice e aperto su HTTPS. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP usa TLS per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
-
-Per il Microsoft.Azure.DocSDK umentDB, è possibile configurare la modalità di connessione durante la costruzione dell' `DocumentClient` istanza di usando il `ConnectionPolicy` parametro. Se si usa la modalità diretta, è anche possibile impostare `Protocol` utilizzando il `ConnectionPolicy` parametro.
+La modalità di connessione predefinita di .NET v2 SDK è gateway. La modalità di connessione viene configurata durante la costruzione dell' `DocumentClient` istanza di utilizzando il `ConnectionPolicy` parametro. Se si usa la modalità diretta, è necessario impostare anche `Protocol` usando il `ConnectionPolicy` parametro. Per ulteriori informazioni sulle diverse opzioni di connettività, vedere l'articolo relativo alle [modalità di connettività](sql-sdk-connection-modes.md) .
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -102,10 +81,6 @@ new ConnectionPolicy
    ConnectionProtocol = Protocol.Tcp
 });
 ```
-
-Poiché TCP è supportato solo in modalità diretta, se si usa la modalità Gateway, il protocollo HTTPS viene sempre usato per comunicare con il gateway e il `Protocol` valore in `ConnectionPolicy` viene ignorato.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Criterio di connessione Azure Cosmos DB" border="false":::
 
 **Esaurimento della porta temporanea**
 
@@ -284,4 +259,4 @@ L'addebito per le richieste, ovvero il costo di elaborazione richieste, di una d
 
 Per un'applicazione di esempio usata per valutare Azure Cosmos DB per scenari a prestazioni elevate in alcuni computer client, vedere [test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 
-Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere l'articolo relativo a [partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
+Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere l'articolo relativo a [partizionamento e ridimensionamento in Azure Cosmos DB](partitioning-overview.md).
