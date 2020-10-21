@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203050"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275547"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -176,8 +176,8 @@ Per richiedere una concessione per questi scenari, attenersi alla procedura segu
     | Campo | Selezione |
     | ----- | ----- |
     | Tipo di problema | Prerequisiti tecnici |
-    | Service | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
-    | Tipo di problema | Configurazione dell'area di lavoro, SDK e CLI |
+    | Servizio | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
+    | Tipo di problema | Configurazione e sicurezza dell'area di lavoro |
     | Sottotipo di problema | Richiesta di limite dell'endpoint privato e della zona di DNS privato |
 
 2. Nella sezione __Dettagli__ usare il campo __Description (Descrizione__ ) per specificare l'area di Azure che si vuole usare e lo scenario che si prevede di usare. Se è necessario richiedere aumenti di quota per più sottoscrizioni, elencare anche gli ID sottoscrizione in questo campo.

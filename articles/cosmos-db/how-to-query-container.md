@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261257"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276109"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 
@@ -19,7 +19,7 @@ Questo articolo illustra come eseguire una query su un contenitore (raccolta, gr
 
 ## <a name="in-partition-query"></a>Query in partizioni
 
-Quando si esegue una query sui dati dei contenitori, se per la query è stato specificato un filtro della chiave di partizione, Azure Cosmos DB ottimizza automaticamente la query. Instrada la query alle [partizioni fisiche](partition-data.md#physical-partitions) corrispondenti ai valori della chiave di partizione specificati nel filtro.
+Quando si esegue una query sui dati dei contenitori, se per la query è stato specificato un filtro della chiave di partizione, Azure Cosmos DB ottimizza automaticamente la query. Instrada la query alle [partizioni fisiche](partitioning-overview.md#physical-partitions) corrispondenti ai valori della chiave di partizione specificati nel filtro.
 
 Si consideri, ad esempio, la query seguente con un filtro di uguaglianza su `DeviceId` . Se si esegue questa query su un contenitore partizionato in `DeviceId` , questa query verrà filtrata in un'unica partizione fisica.
 
@@ -61,7 +61,7 @@ Le versioni degli SDK di Azure Cosmos DB 1.9.0 e successive supportano le opzion
 
 - **MaxBufferedItemCount**: bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
-Grazie alla capacità Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata in modo da consentire al sistema di aggiungere [partizioni fisiche](partition-data.md#physical-partitions). Tuttavia, l'addebito delle UR aumenterà in modo significativo man mano che aumenta il numero totale di partizioni fisiche.
+Grazie alla capacità Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata in modo da consentire al sistema di aggiungere [partizioni fisiche](partitioning-overview.md#physical-partitions). Tuttavia, l'addebito delle UR aumenterà in modo significativo man mano che aumenta il numero totale di partizioni fisiche.
 
 Quando si esegue una query tra partizioni, si esegue essenzialmente una query separata per ogni singola partizione fisica. Sebbene le query tra partizioni utilizzino l'indice, se disponibile, non sono ancora molto efficienti come le query nel partizionamento.
 

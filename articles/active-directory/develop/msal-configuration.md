@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854909"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275610"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
 
@@ -34,6 +34,7 @@ Questo articolo consente di comprendere le diverse impostazioni nel file di conf
 |-----------|------------|-------------|-------|
 | `client_id` | string | Sì | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | string | Sì | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Boolean | No | Valori possibili: `true` , `false` |
 | `authorities` | Elenco\<Authority> | No | Elenco delle autorità necessarie per l'app |
 | `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT` , `BROWSER` , `WEBVIEW` |
 | `http` | HttpConfiguration | No | Configurare `HttpUrlConnection` `connect_timeout` e `read_timeout` |
@@ -46,6 +47,10 @@ ID client o ID app creato al momento della registrazione dell'applicazione.
 ### <a name="redirect_uri"></a>redirect_uri
 
 URI di reindirizzamento registrato durante la registrazione dell'applicazione. Se l'URI di reindirizzamento è a un'app broker, fare riferimento a [URI di reindirizzamento per le app client pubbliche](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) per assicurarsi di usare il formato dell'URI di reindirizzamento corretto per l'app Broker.
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+Se si desidera utilizzare l'autenticazione negoziata, la `broker_redirect_uri_registered` proprietà deve essere impostata su `true` . In uno scenario di autenticazione negoziata, se l'applicazione non è nel formato corretto per comunicare con Service Broker come descritto nell' [URI di reindirizzamento per le app client pubbliche](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), l'applicazione convalida l'URI di reindirizzamento e genera un'eccezione all'avvio.
 
 ### <a name="authorities"></a>autorità
 
@@ -98,6 +103,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 > La convalida dell'autorità non può essere abilitata e disabilitata in MSAL.
 > Le autorità sono note come sviluppatore come specificato tramite configurazione o note a Microsoft tramite metadati.
 > Se MSAL riceve una richiesta di un token a un'autorità sconosciuta, un oggetto `MsalClientException` di tipo `UnknownAuthority` results.
+> L'autenticazione negoziata non funziona per Azure AD B2C.
 
 #### <a name="authority-properties"></a>Proprietà dell'autorità
 

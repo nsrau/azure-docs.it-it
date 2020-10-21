@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662168"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276953"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -46,6 +46,14 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 * Il controller di dominio usato da Azure AD deve essere scrivibile. L'uso di un controller di dominio di sola lettura (RODC) *non è supportato*e Azure ad Connect non segue alcun reindirizzamento di scrittura.
 * Uso di foreste o domini locali con "punteggiato" (il nome contiene un punto ".") I nomi NetBIOS *non sono supportati*.
 * Si consiglia di [abilitare il cestino Active Directory](how-to-connect-sync-recycle-bin.md).
+
+### <a name="powershell-execution-policy"></a>Criteri di esecuzione di PowerShell
+Azure Active Directory Connect esegue gli script di PowerShell firmati come parte dell'installazione. Verificare che i criteri di esecuzione di PowerShell consentano l'esecuzione di script.
+
+I criteri di esecuzione consigliati durante l'installazione sono "RemoteSigned".
+
+Per ulteriori informazioni sull'impostazione dei criteri di esecuzione di PowerShell, vedere [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### <a name="azure-ad-connect-server"></a>Server di Azure AD Connect
 Il server di Azure AD Connect contiene dati di identità critici. È importante che l'accesso amministrativo a questo server sia protetto correttamente. Seguire le linee guida per la [protezione dell'accesso con privilegi](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -132,14 +140,14 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
 ### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. A seconda della versione di Windows Server, eseguire le operazioni seguenti:
 
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
   * Microsoft PowerShell viene installato per impostazione predefinita, Non è richiesta alcuna azione.
   * .NET Framework 4.5.1 e versioni successive sono disponibili tramite Windows Update. Assicurarsi di aver installato gli ultimi aggiornamenti di Windows Server nel pannello di controllo.
 * Windows Server 2012

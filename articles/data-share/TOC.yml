@@ -44,10 +44,6 @@
         - name: Condividere da Esplora dati di Azure
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Monitorare
-      href: how-to-monitor.md
-    - name: Risolvere problemi
-      href: data-share-troubleshoot.md
     - name: Aggiungere set di dati
       href: how-to-add-datasets.md
     - name: Configurare i mapping dei set di dati
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Revocare una sottoscrizione di condivisione
       href: how-to-revoke-share-subscription.md
+    - name: Monitorare
+      href: how-to-monitor.md
     - name: Sicurezza
       href: security.md
     - name: Ripristino di emergenza
       href: disaster-recovery.md
+    - name: Risolvere problemi
+      href: data-share-troubleshoot.md
 - name: Informazioni di riferimento
   items:
     - name: .NET
