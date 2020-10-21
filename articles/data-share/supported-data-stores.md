@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ddd586bf9a88b1246fcf20fc19493f5003bbb530
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151738"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318587"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati in Condivisione dati di Azure
 
@@ -28,8 +28,8 @@ La tabella seguente illustra in dettaglio le origini dati supportate per la cond
 | Archiviazione BLOB di Azure |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| database SQL di Azure |Anteprima pubblica | |
-| Azure sinapsi Analytics (in precedenza Azure SQL DW) |Anteprima pubblica | |
+| Database SQL di Azure |✓ | |
+| Azure sinapsi Analytics (in precedenza Azure SQL DW) |✓ | |
 | Esplora dati di Azure | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice di supporto dell'archivio dati
@@ -43,7 +43,7 @@ Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i
 | Archiviazione BLOB di Azure | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
-| database SQL di Azure | ✓ | | ✓ | ✓ | ✓ ||
+| Database SQL di Azure | ✓ | | ✓ | ✓ | ✓ ||
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
 | Esplora dati di Azure |||||| ✓ |
 

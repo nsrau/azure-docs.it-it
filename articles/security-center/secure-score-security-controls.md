@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268265"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281292"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -57,7 +57,7 @@ Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è la pr
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
-È possibile accedere al Punteggio tramite l' [API per il Punteggio sicuro](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (attualmente in anteprima). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
+È possibile accedere al Punteggio tramite l'API per il Punteggio sicuro (attualmente in anteprima). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio, è possibile usare l' [API dei punteggi sicuri](https://docs.microsoft.com/rest/api/securitycenter/securescores) per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l' [API di controllo del Punteggio sicuro](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
 
 ![Recupero di un singolo Punteggio sicuro tramite l'API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ La tabella seguente elenca i controlli di sicurezza nel Centro sicurezza di Azur
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Limitare l'accesso non autorizzato alla rete (punteggio massimo 4)</p></strong>Gli endpoint all'interno di un'organizzazione forniscono una connessione diretta dalla rete virtuale ai servizi di Azure supportati. Le macchine virtuali in una subnet possono comunicare con tutte le risorse. Per limitare le comunicazioni verso e dalle risorse in una subnet, creare un gruppo di sicurezza di rete e associarlo alla subnet. Le organizzazioni possono limitare e proteggere da traffico non autorizzato creando regole in ingresso e in uscita.</td>
-    <td class="tg-lboi"; width=55%>- È necessario disabilitare l'inoltro IP nella macchina virtuale<br>- È necessario definire gli intervalli IP autorizzati nei servizi Kubernetes (anteprima)<br>- (DEPRECATO) È necessario limitare l'accesso ai Servizi app (anteprima)<br>- (DEPRECATO) È necessario applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS<br>- È necessario associare le macchine virtuali a un gruppo di sicurezza di rete<br>- È necessario che CORS non consenta a tutte le risorse di accedere all'app per le API dell'utente<br>- È necessario che CORS non consenta a tutte le risorse di accedere all'app per le funzioni dell'utente<br>- È necessario che CORS non consenta a ogni risorsa l'accesso all'applicazione Web<br>- È necessario disattivare il debug remoto per l'app per le API<br>- È necessario disattivare il debug remoto per l'app per le funzioni<br>- È necessario disattivare il debug remoto per l'applicazione Web<br>- È necessario limitare l'accesso per i gruppi di sicurezza di rete permissivi con macchine virtuali connesse a Internet<br>- È necessario rafforzare le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet<br>- Il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster (anteprima)<br>- I contenitori devono restare in ascolto solo sulle porte consentite (anteprima)<br>- I servizi devono essere in ascolto solo sulle porte consentite (anteprima)<br>- L'utilizzo della rete e delle porte dell'host deve essere limitato (anteprima)</td>
+    <td class="tg-lboi"; width=55%>- È necessario disabilitare l'inoltro IP nella macchina virtuale<br>- È necessario definire gli intervalli IP autorizzati nei servizi Kubernetes (anteprima)<br>- (DEPRECATO) È necessario limitare l'accesso ai Servizi app (anteprima)<br>- (DEPRECATO) È necessario applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS<br>- È necessario associare le macchine virtuali a un gruppo di sicurezza di rete<br>- È necessario che CORS non consenta a tutte le risorse di accedere all'app per le API dell'utente<br>- È necessario che CORS non consenta a tutte le risorse di accedere all'app per le funzioni dell'utente<br>- È necessario che CORS non consenta a ogni risorsa l'accesso all'applicazione Web<br>- È necessario disattivare il debug remoto per l'app per le API<br>- È necessario disattivare il debug remoto per l'app per le funzioni<br>- È necessario disattivare il debug remoto per l'applicazione Web<br>- È necessario limitare l'accesso per i gruppi di sicurezza di rete permissivi con macchine virtuali connesse a Internet<br>- È necessario rafforzare le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet<br>- Il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster (anteprima)<br>- I contenitori devono restare in ascolto solo sulle porte consentite (anteprima)<br>- I servizi devono essere in ascolto solo sulle porte consentite (anteprima)<br>- L'utilizzo della rete e delle porte dell'host deve essere limitato (anteprima)<br>- Le reti virtuali devono essere protette dal firewall di Azure (anteprima)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Applicare il controllo delle applicazioni adattivo (punteggio massimo 3)</p></strong>Il controllo delle applicazioni adattivo è una soluzione end-to-end intelligente e automatizzata che consente di controllare quali applicazioni possono essere eseguite nei computer Azure e non Azure. Consente anche di proteggere i computer dai malware.<br>Il Centro sicurezza USA Machine Learning per creare un elenco di applicazioni sicure per un gruppo di computer.<br>Questo approccio innovativo all'elenco di applicazioni approvate offre i vantaggi di sicurezza senza la complessità di gestione.<br>Il controllo delle applicazioni adattivo è particolarmente rilevante per i server sviluppati appositamente per eseguire un set specifico di applicazioni.</td>

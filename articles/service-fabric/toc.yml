@@ -108,7 +108,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Sicurezza
+    - name: Security
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -140,7 +140,7 @@
       href: service-fabric-application-scenarios.md
     - name: Architecture
       href: service-fabric-architecture.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza di Service Fabric
           href: service-fabric-best-practices-security.md
@@ -930,7 +930,7 @@
     - name: Note sulla versione
       href: release-notes.md
     - name: Codice di esempio
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: Opzioni di supporto
       href: service-fabric-support.md
     - name: Versioni di Service Fabric

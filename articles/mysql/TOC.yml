@@ -85,6 +85,8 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
+            - name: Azioni di GitHub
+              href: quickstart-mysql-github-actions.md
     - name: Esercitazioni
       items:
         - name: Progettare un database

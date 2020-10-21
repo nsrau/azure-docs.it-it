@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282861"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -39,10 +39,12 @@ Soluzioni che devono essere rimosse prima di poter scollegare l'account di autom
 - Centro sicurezza di Azure
 
 >[!IMPORTANT]
-> **Clienti di Azure Sentinel:**
+> **Clienti di Azure Sentinel**
 > - Una volta distribuito in un'area di lavoro, Azure Sentinel **non supporta al momento** il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni. 
->
->   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
+> - Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
+> 
+> **Avvisi**
+> - Tutti gli avvisi devono essere ricreati dopo lo spostamento, perché le autorizzazioni sono basate sull'ID risorsa di Azure dell'area di lavoro e vengono modificate con lo spostamento dell'area di lavoro. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminare soluzioni in portale di Azure
 Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:

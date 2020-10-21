@@ -45,7 +45,7 @@
           href: tutorial-alias-rr.md
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -79,7 +79,7 @@
           href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Domande frequenti
           href: dns-faq-private.md
-- name: Procedure
+- name: Guide pratiche
   items:
     - name: DNS pubblico
       items:
