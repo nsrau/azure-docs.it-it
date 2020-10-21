@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682009"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151793"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
 
@@ -55,7 +55,7 @@ Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azu
 - Durata: 12 mesi o 36 mesi.
 - RINormalizationRatio: disponibile in AdditionalInfo. È il rapporto in base a cui la prenotazione viene applicata al record di utilizzo. Se la flessibilità delle dimensioni dell'istanza è abilitata per la prenotazione, può essere applicata ad altre dimensioni. Il valore mostra il rapporto a cui è stata applicata la prenotazione per il record di utilizzo.
 
-[Visualizzare la definizione del campo](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[Visualizzare la definizione del campo](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottenere i dati di consumo e di utilizzo delle prenotazioni di Azure tramite l'API
 
@@ -71,7 +71,7 @@ Ecco una chiamata di esempio all'API Dettagli sull'utilizzo:
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere l'articolo [Dettagli utilizzo - Elenco](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
+Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere l'articolo [Dettagli utilizzo - Elenco](/rest/api/consumption/usagedetails/list).
 
 Le informazioni riportate nella tabella seguente sulla metrica e sul filtro possono essere utili per risolvere i problemi comuni delle prenotazioni.
 

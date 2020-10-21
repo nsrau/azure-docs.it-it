@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840439"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125970"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Centro di micro-adempimenti
 
@@ -47,7 +47,7 @@ Per creare una nuova applicazione Centro di micro-adempimenti che usa le funzion
 
 1. Se si ha una sottoscrizione di Azure, immettere la directory, la sottoscrizione di Azure e l'area. Se non si ha una sottoscrizione, è possibile abilitare la versione di valutazione gratuita di 7 giorni e completare le informazioni di contatto necessarie.  
 
-    Per altre informazioni su directory e sottoscrizioni, vedere la guida di avvio rapido [Creare un'applicazione Azure IoT Central (funzionalità di anteprima)](../preview/quick-deploy-iot-central.md).
+    Per altre informazioni su directory e sottoscrizioni, vedere la guida di avvio rapido [Creare un'applicazione Azure IoT Central (funzionalità di anteprima)](../core/quick-deploy-iot-central.md).
 
 1. Selezionare **Create** (Crea).
 
@@ -96,4 +96,4 @@ Altre informazioni su:
 > [!div class="nextstepaction"]
 > [Architettura della soluzione del centro di micro-adempimenti](./architecture-micro-fulfillment-center.md)
 * Altre informazioni sui [modelli per la vendita al dettaglio di Azure IoT Central](./overview-iot-central-retail.md)
-* Altre informazioni su [Azure IoT Central](../preview/overview-iot-central.md)
+* Altre informazioni su [Azure IoT Central](../core/overview-iot-central.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 6aa960837a3bfc7f8a04ca1f554fb10d635c2ea2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348259"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275628"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Frontdoor per un'applicazione Web globale a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
@@ -46,7 +46,7 @@ In Azure, si allocano le risorse correlate a un gruppo di risorse. È possibile 
 
 Per questo argomento di avvio rapido sono necessari due gruppi di risorse. Uno negli *Stati Uniti centrali* e il secondo negli *Stati Uniti centro-meridionali*.
 
-Come prima cosa creare con [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) un gruppo di risorse:
+Come prima cosa creare con [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) un gruppo di risorse:
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Se non si dispone già di un'app Web, usare lo script seguente per configurare d
 
 Prima di poter creare le app Web, sono necessari due piani di servizio app, uno negli *Stati Uniti centrali* e il secondo negli *Stati Uniti centro-meridionali*.
 
-Creare i piani di servizio app con [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
+Creare i piani di servizio app con [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 L'esecuzione dei comandi seguenti creerà un'app Web in ognuno dei piani di servizio app del passaggio precedente. I nomi delle app Web devono essere univoci a livello globale.
 
-Creare un'app Web con [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
+Creare un'app Web con [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Prendere nota del nome host predefinito di ogni app Web, in modo da poter defini
 
 Creare un'istanza di Frontdoor di base con le impostazioni predefinite di bilanciamento del carico, il probe di integrità e le regole di gestione eseguendo questa procedura:
 
-Creare un'istanza di Frontdoor con [az network front-door create](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
+Creare un'istanza di Frontdoor con [az network front-door create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ Aprire un Web browser e immettere il nome host ottenuto dai comandi. L'istanza d
 
 Quando le risorse create con l'istanza di Frontdoor non sono più necessarie, eliminare entrambi i gruppi di risorse. L'eliminazione del gruppo di risorse comporta anche l'eliminazione dell'istanza di Frontdoor e di tutte le risorse correlate. 
 
-Per eliminare il gruppo di risorse, usare [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Per eliminare il gruppo di risorse, usare [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
 
 ```azurecli-interactive
 az group delete \

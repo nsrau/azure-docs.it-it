@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125680"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339544"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
 In questo articolo si apprenderà come configurare la persistenza in una cache di Azure Premium per l'istanza di redis tramite il portale di Azure. Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. 
@@ -83,11 +83,11 @@ La persistenza scrive i dati Redis in un account di archiviazione di Azure di cu
 
 11. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-12. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+12. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
 13. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso. 
 
 ## <a name="persistence-faq"></a>Domande frequenti sulla persistenza
 Nell'elenco seguente sono fornite risposte a domande frequenti sulla persistenza di Cache Redis di Azure.
@@ -96,6 +96,7 @@ Nell'elenco seguente sono fornite risposte a domande frequenti sulla persistenza
 * [È possibile abilitare la persistenza AOF e RDB allo stesso tempo?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Quale modello di persistenza è consigliabile scegliere?](#which-persistence-model-should-i-choose)
 * [Cosa accade se si è passati a una dimensione diversa e viene ripristinato un backup creato prima dell'operazione di ridimensionamento?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [È possibile usare lo stesso account di archiviazione per la persistenza in due cache diverse?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### <a name="rdb-persistence"></a>Persistenza RDB
@@ -135,6 +136,9 @@ Per la persistenza sia RDB sia AOF:
 * Se si è passati a una dimensione maggiore, non ci sono conseguenze.
 * Se si è passati a una dimensione minore e l'impostazione dei [database](cache-configure.md#databases) personalizzata è superiore al [limite dei database](cache-configure.md#databases) per la nuova dimensione, i dati di questi database non vengono ripristinati. Per altre informazioni, vedere [L'impostazione databases personalizzata viene modificata durante il ridimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * Se si è passati a una dimensione minore che non è abbastanza grande per contenere tutti i dati del backup più recente, le chiavi verranno rimosse durante il processo di ripristino, in genere usando il criterio di rimozione [allkeys-lru](https://redis.io/topics/lru-cache) .
+
+### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>È possibile usare lo stesso account di archiviazione per la persistenza in due cache diverse?
+Sì, è possibile usare lo stesso account di archiviazione per la persistenza in due cache diverse
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>È possibile modificare la frequenza di backup RDB dopo avere creato la cache?
 Sì, è possibile modificare la frequenza di backup per la persistenza RDB nel pannello **persistenza dei dati** . Per istruzioni, vedere Configurare la persistenza di Redis.

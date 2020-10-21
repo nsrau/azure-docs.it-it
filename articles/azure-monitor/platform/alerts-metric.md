@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065863"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342162"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -43,17 +43,17 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 8. Se la metrica ha dimensioni, viene visualizzata una tabella delle dimensioni. Selezionare uno o più valori per ogni dimensione.
     - I valori della dimensione visualizzati sono basati sui dati delle metriche degli ultimi tre giorni.
     - Se il valore della dimensione che si sta cercando non è visualizzato, fare clic su "+" per aggiungere un valore personalizzato.
-    - È anche possibile scegliere **Seleziona\*** per qualsiasi dimensione. **Seleziona \*** ridimensiona dinamicamente la selezione a tutti i valori correnti e futuri per una dimensione.
+    - È anche possibile **Select \* *_ per una qualsiasi delle dimensioni. _*Seleziona \* *_ consente di ridimensionare dinamicamente la selezione a tutti i valori correnti e futuri di una dimensione.
 
     La regola di avviso metrica valuterà la condizione per tutte le combinazioni di valori selezionati. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](alerts-metric-overview.md).
 
-9. Selezionare il tipo di **soglia** , l' **operatore**e il **tipo di aggregazione**. In questo modo verrà determinata la logica che verrà valutata dalla regola di avviso della metrica.
+9. Selezionare il tipo, l' **operatore**e il tipo di **aggregazione**_*Threshold**. In questo modo verrà determinata la logica che verrà valutata dalla regola di avviso della metrica.
     - Se si usa una soglia **statica** , continuare a definire un **valore soglia**. Il grafico delle metriche può essere utile per determinare quale sia una soglia ragionevole.
     - Se si usa una soglia **dinamica** , continuare a definire la **sensibilità della soglia**. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti. [Altre informazioni sulle opzioni di sensibilità e i tipi di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
 
 10. Facoltativamente, perfezionare la condizione modificando la granularità e la **frequenza di valutazione dell'** **aggregazione** . 
 
-11. Fare clic su **Fine**.
+11. Fare clic su **Done**.
 
 12. Facoltativamente, aggiungere altri criteri per monitorare una regola di avviso complessa. Attualmente gli utenti possono ricevere regole di avviso con criteri di soglia dinamica come singolo criterio.
 
@@ -154,8 +154,8 @@ Per le regole di avviso delle metriche sono disponibili cmdlet di PowerShell ded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare avvisi delle metriche mediante modelli di Azure Resource Manager](./alerts-metric-create-templates.md).
-- [Comprendere il funzionamento degli avvisi delle metriche](alerts-metric-overview.md).
-- [Comprendere il funzionamento degli avvisi delle metriche con il tipo di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
+- [Creare avvisi delle metriche usando modelli di Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Informazioni sul funzionamento degli avvisi delle metriche](alerts-metric-overview.md)
+- [Informazioni sul funzionamento della metrica avvisi con soglie dinamiche](alerts-dynamic-thresholds.md)
 - [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)
-
+- [Risoluzione dei problemi negli avvisi delle metriche](alerts-troubleshoot-metric.md)

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438906"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340887"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
 Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
@@ -90,7 +90,7 @@ Gli attacchi Distributed Denial of Service (DDoS) sono notoriamente facili da es
 
 Un attacco DDoS tenta di esaurire le risorse di un'applicazione, che quindi non risulta più disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint raggiungibile tramite Internet.
 
-Per difendersi dagli attacchi DDoS, acquistare una licenza per Protezione DDoS di Azure e attenersi alle procedure consigliate per la progettazione delle applicazioni. Protezione DDoS offre diversi livelli di servizio. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Per difendersi dagli attacchi DDoS, acquistare una licenza per Protezione DDoS di Azure e attenersi alle procedure consigliate per la progettazione delle applicazioni. Protezione DDoS offre diversi livelli di servizio. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../virtual-network/ddos-protection-overview.md).
 
 Per un elenco degli avvisi di Protezione DDoS di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureddos).
 

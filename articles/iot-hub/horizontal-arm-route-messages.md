@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462667"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148917"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Avvio rapido: Distribuire un hub IoT di Azure e un account di archiviazione con un modello di Resource Manager
 
@@ -46,7 +46,7 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
 
     [![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Scaricare e decomprimere gli [esempi C# per IoT](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Scaricare e decomprimere gli [esempi C# per IoT](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Aprire una finestra di comando e passare alla cartella in cui sono stati decompressi gli esempi di C# per IoT. Trovare la cartella con il file arm-read-write.csproj. Le variabili di ambiente vengono create in questa finestra di comando. Accedere al [portale di Azure](https://portal.azure.com ) per ottenere le chiavi. Selezionare **Gruppi di risorse** e quindi il gruppo di risorse usato per questo argomento di avvio rapido.
 
@@ -134,4 +134,4 @@ Per rimuovere le risorse aggiunte per questo argomento di avvio rapido, accedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

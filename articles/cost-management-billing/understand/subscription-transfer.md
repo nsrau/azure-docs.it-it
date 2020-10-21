@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336956"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149385"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informazioni sul trasferimento della proprietà della fatturazione per una sottoscrizione di Azure
 
@@ -63,7 +63,7 @@ Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tip
 
 ## <a name="resources-transferred-with-subscriptions"></a>Risorse trasferite con le sottoscrizioni
 
-Tutte le risorse, come VM, dischi e siti Web, vengono trasferite al nuovo account. Se tuttavia una sottoscrizione viene trasferita a un account in un altro tenant di Azure AD, i [ruoli di amministratore](../manage/add-change-subscription-administrator.md) e le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) della sottoscrizione non vengono trasferiti. Inoltre, le [registrazioni di app](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e gli altri servizi specifici del tenant non vengono trasferiti insieme alla sottoscrizione.
+Tutte le risorse, come VM, dischi e siti Web, vengono trasferite al nuovo account. Se tuttavia una sottoscrizione viene trasferita a un account in un altro tenant di Azure AD, i [ruoli di amministratore](../manage/add-change-subscription-administrator.md) e le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) della sottoscrizione non vengono trasferiti. Inoltre, le [registrazioni di app](../../active-directory/develop/quickstart-register-app.md) e gli altri servizi specifici del tenant non vengono trasferiti insieme alla sottoscrizione.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>Trasferire la proprietà di un account in un paese o in un'area geografica distinta
 
@@ -99,7 +99,7 @@ Tenere presente che gli utenti con accesso alle risorse in una sottoscrizione ma
 Anche se le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) vengono rimosse durante il trasferimento, gli utenti nell'account proprietario originale potrebbero avere ancora accesso alla sottoscrizione tramite altri meccanismi di sicurezza, tra cui:
 
 * Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../../cloud-services/cloud-services-certs-create.md).
-* Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
+* Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-account-create.md).
 * Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 
 Se il destinatario deve limitare l'accesso alle risorse, deve prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornata. Accedere al [portale di Azure](https://portal.azure.com) e quindi nel menu Hub selezionare **Tutte le risorse**. Successivamente, selezionare la risorsa. Nella pagina della risorsa selezionare quindi **Impostazioni**. In questa area è possibile visualizzare e aggiornare i segreti esistenti.

@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875029"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312879"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Creare un hub di notifica di Azure con l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-L'infrastruttura Hub di notifica di Azure, analogamente a tutte le risorse di Azure, deve essere distribuita in un gruppo di risorse.  I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.  Per altre informazioni sui gruppi di risorse, vedere [Informazioni su Azure Resource Manager](/azure/azure-resource-manager/management/overview).
+L'infrastruttura Hub di notifica di Azure, analogamente a tutte le risorse di Azure, deve essere distribuita in un gruppo di risorse.  I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.  Per altre informazioni sui gruppi di risorse, vedere [Informazioni su Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Per questo argomento di avvio rapido, creare un gruppo di risorse denominato **spnhubrg** nell'area **eastus** con il comando [az group create](/cli/azure/group#az-group-create) seguente.
 

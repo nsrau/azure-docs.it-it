@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260156"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341550"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima)
+# <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima) 
 
 L'articolo illustra come usare i ruoli e il controllo di accesso per controllare le attività e accedere ai dati. Attenendosi alle istruzioni seguenti, il controllo di accesso in Azure Synapse Analytics risulta semplificato. È sufficiente aggiungere e rimuovere gli utenti in uno dei tre gruppi di sicurezza.
 
@@ -31,7 +31,7 @@ Per proteggere un'area di lavoro Synapse (anteprima) è necessario seguire uno s
   - Amministratore Apache Spark per Azure Synapse Analytics
 - Controllo di accesso per i dati in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controllo di accesso per i database di Synapse SQL e Spark
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Passaggi per proteggere un'area di lavoro Synapse
 
 Per semplificare le istruzioni, in questa documentazione vengono usati nomi standard. Sostituirli con nomi a scelta.
@@ -71,11 +71,12 @@ Identificare le informazioni seguenti relative all'archiviazione:
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSAGGIO 3: creare e configurare l'area di lavoro Synapse
 
-Nel portale di Azure, creare un'area di lavoro Synapse:
+ Nel portale di Azure, creare un'area di lavoro Synapse:
 
+- Selezionare la propria sottoscrizione
+- Selezionare il gruppo di risorse: è necessario avere accesso a un gruppo di risorse a cui è stato assegnato il ruolo di **proprietario** .
 - Assegnare all'area di lavoro il nome WS1
-- Selezionare STG1 come account di archiviazione
-- Selezionare CNT1 come contenitore in uso come "filesystem".
+- Scegliere STG1 per l'account di archiviazione. Selezionare CNT1 come contenitore in uso come "filesystem".
 - Aprire WS1 in Synapse Studio
 - Selezionare **Gestisci** > **Controllo di accesso** per assegnare i gruppi di sicurezza ai ruoli Synapse seguenti.
   - Assegnare **WS1\_WSAdmins** agli amministratori dell'area di lavoro Synapse
@@ -112,7 +113,7 @@ Sebbene sia possibile assegnare manualmente gli utenti ai ruoli Synapse, sceglie
 
 Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 
-| Numero | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
+| Number | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
 | 2 | Leggere il file parquet usando SQL su richiesta | YES | NO | YES |

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206228"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123563"
 ---
 # <a name="what-is-azure-data-box"></a>Che cos'è Azure Data Box?
 
@@ -144,7 +144,7 @@ Data Box può trasferire i dati in base all'area in cui è distribuito il serviz
 
 - **Disponibilità del servizio**: quando si usa Data Box per ordini di importazione o esportazione, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) per informazioni sulla disponibilità a livello di area. La funzionalità di esportazione in Data Box è attualmente in fase di anteprima. 
 
-    Per gli ordini di importazione, è anche possibile distribuire Data Box nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici). 
+    Per gli ordini di importazione, è anche possibile distribuire Data Box nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](../azure-government/documentation-government-welcome.md) (Informazioni su Azure per enti pubblici). 
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure in cui è disponibile il servizio.
 
@@ -154,7 +154,3 @@ Data Box può trasferire i dati in base all'area in cui è distribuito il serviz
 - Vedere i [requisiti di sistema per Data Box](data-box-system-requirements.md).
 - Comprendere i [limiti di Data Box](data-box-limits.md).
 - Distribuire rapidamente [Azure Data Box](data-box-quickstart-portal.md) nel portale di Azure.
-
-
-
-

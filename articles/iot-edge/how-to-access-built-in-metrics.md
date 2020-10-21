@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107012"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341567"
 ---
 # <a name="access-built-in-metrics"></a>Accedere alle metriche predefinite
 
@@ -27,7 +27,7 @@ Accedere alle metriche dall'host esponendo ed eseguendo il mapping della porta m
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {
@@ -50,7 +50,7 @@ Scegliere numeri di porta host diversi e univoci se si esegue il mapping degli e
 
 Le metriche contengono tag che consentono di identificare la natura della metrica raccolta. Tutte le metriche contengono i tag seguenti:
 
-| Tag | Description |
+| Tag | Descrizione |
 |-|-|
 | iothub | Hub con cui comunica il dispositivo |
 | edge_device | ID del dispositivo corrente |
@@ -62,7 +62,7 @@ I quantili specificati per l'istogramma e la metrica di riepilogo predefiniti so
 
 Il modulo **edgeHub** produce le metriche seguenti:
 
-| Nome | Dimensioni | Descrizione |
+| Name | Dimensioni | Descrizione |
 |-|-|-|
 | `edgehub_gettwin_total` | `source` (origine operazione)<br> `id` (ID modulo) | Tipo: contatore<br> Numero totale di chiamate a gettwin |
 | `edgehub_messages_received_total` | `route_output` (output del messaggio inviato)<br> `id` | Tipo: contatore<br> Numero totale di messaggi ricevuti dai client |
@@ -85,7 +85,7 @@ Il modulo **edgeHub** produce le metriche seguenti:
 
 Il modulo **edgeAgent** produce le metriche seguenti:
 
-| Nome | Dimensioni | Descrizione |
+| Name | Dimensioni | Descrizione |
 |-|-|-|
 | `edgeAgent_total_time_running_correctly_seconds` | `module_name` | Tipo: misuratore<br> La quantità di tempo durante la quale il modulo è stato specificato nella distribuzione e si trova nello stato in esecuzione |
 | `edgeAgent_total_time_expected_running_seconds` | `module_name` | Tipo: misuratore<br> Periodo di tempo durante il quale il modulo è stato specificato nella distribuzione |
