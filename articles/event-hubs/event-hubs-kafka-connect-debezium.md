@@ -5,18 +5,18 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061683"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318511"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrare il supporto di Apache Kafka Connect nell'hub eventi di Azure (anteprima) con Debezium for Change Data Capture
 
 **Change Data Capture (CDC)** è una tecnica utilizzata per tenere traccia delle modifiche a livello di riga nelle tabelle di database in risposta alle operazioni di creazione, aggiornamento ed eliminazione. [Debezium](https://debezium.io/) è una piattaforma distribuita che si basa sulle funzionalità di Change Data Capture disponibili in database diversi, ad esempio la [decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html). Fornisce un set di [connettori Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) che consentono di accedere alle modifiche a livello di riga nelle tabelle di database e di convertirle in flussi di eventi che vengono quindi inviati a [Apache Kafka](https://kafka.apache.org/).
 
-Questa esercitazione illustra come configurare un sistema basato su Change Data Capture in Azure con [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (per Kafka), [database di Azure per PostgreSQL](../postgresql/overview.md) e Debezium. Verrà usato il [connettore Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) per trasmettere le modifiche del database da PostgreSQL a Kafka in hub eventi di Azure
+Questa esercitazione illustra come configurare un sistema basato su Change Data Capture in Azure con [Hub eventi di Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (per Kafka), [database di Azure per PostgreSQL](../postgresql/overview.md) e Debezium. Verrà usato il [connettore Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) per trasmettere le modifiche del database da PostgreSQL a Kafka in hub eventi di Azure
 
 In questa esercitazione vengono completati i passaggi seguenti:
 

@@ -3,12 +3,12 @@ title: Supporto per la valutazione di Hyper-V in Azure Migrate
 description: Informazioni sul supporto per la valutazione di Hyper-V con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318178"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311321"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
@@ -46,7 +46,7 @@ Per configurare la valutazione della macchina virtuale Hyper-V, creare un proget
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Tutti i sistemi operativi possono essere valutati per la migrazione.  |
 | **Integration Services**       | Per acquisire le informazioni sul sistema operativo, è necessario che [Hyper-V Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services) sia in esecuzione in macchine virtuali valutate. |
-| **Storage** | Disco locale, DAS, JBOD, spazi di archiviazione, CSV, SMB. Queste archiviazione host Hyper-V in cui sono archiviati i dischi rigidi virtuali/VHDX sono supportate. <br/> Sono supportati i controller virtuali IDE e SCSI| 
+| **Archiviazione** | Disco locale, DAS, JBOD, spazi di archiviazione, CSV, SMB. Queste archiviazione host Hyper-V in cui sono archiviati i dischi rigidi virtuali/VHDX sono supportate. <br/> Sono supportati i controller virtuali IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 
@@ -83,4 +83,4 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Preparare la valutazione della macchina virtuale Hyper-V](tutorial-prepare-hyper-v.md)
+[Preparare la valutazione della macchina virtuale Hyper-V](./tutorial-discover-hyper-v.md)

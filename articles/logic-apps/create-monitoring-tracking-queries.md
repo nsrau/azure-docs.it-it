@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090400"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309925"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visualizzare e creare query per il monitoraggio e il rilevamento nei log di monitoraggio di Azure per app per la logica di Azure
 
-È possibile visualizzare le query sottostanti che producono i risultati dei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) e creare query che filtrano i risultati in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico. Le query usano il [linguaggio di query kusto](https://aka.ms/LogAnalyticsLanguageReference), che è possibile modificare se si desidera visualizzare risultati diversi. Per altre informazioni, vedere [query di log di monitoraggio di Azure](../azure-monitor/log-query/query-language.md).
+È possibile visualizzare le query sottostanti che producono i risultati dei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) e creare query che filtrano i risultati in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico. Le query usano il [linguaggio di query kusto](/azure/data-explorer/kusto/query/), che è possibile modificare se si desidera visualizzare risultati diversi. Per altre informazioni, vedere [query di log di monitoraggio di Azure](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +59,7 @@ Per trovare o filtrare i risultati in base a proprietà o valori specifici, è p
 
      ![Inizia con le query predefinite della soluzione "App per la logica B2B"](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * Per iniziare da una query vuota, nell'editor di query iniziare a digitare il [linguaggio di query kusto](../azure-monitor/log-query/query-language.md) per la query.
+   * Per iniziare da una query vuota, nell'editor di query iniziare a digitare il [linguaggio di query kusto](/azure/data-explorer/kusto/query/) per la query.
 
      ![Inizia con una query vuota](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

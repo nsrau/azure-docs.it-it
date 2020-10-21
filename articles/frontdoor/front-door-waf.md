@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626480"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279227"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Dimensionare rapidamente e proteggere un'applicazione Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)
 
@@ -36,10 +36,10 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) per iniziare a usare l'interfaccia della riga di comando di Azure.
+- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) per iniziare a usare l'interfaccia della riga di comando di Azure.
 
   > [!TIP] 
-  > Un modo semplice e rapido per iniziare a usare l'interfaccia della riga di comando di Azure è rappresentato da [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > Un modo semplice e rapido per iniziare a usare l'interfaccia della riga di comando di Azure è rappresentato da [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Assicurarsi che l'estensione `front-door` sia stata aggiunta all'interfaccia della riga di comando di Azure:
 
@@ -48,7 +48,7 @@ In questa esercitazione si apprenderà come:
    ```
 
 > [!NOTE] 
-> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
+> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-an-azure-front-door-resource"></a>Creare una risorsa Frontdoor di Azure
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: Nome della risorsa Frontdoor di Azure.
 
-`--resource-group`: gruppo di risorse in cui risiederà la risorsa Frontdoor di Azure. Per altre informazioni sui gruppi di risorse, vedere [Gestire i gruppi di risorse in Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group`: gruppo di risorse in cui risiederà la risorsa Frontdoor di Azure. Per altre informazioni sui gruppi di risorse, vedere [Gestire i gruppi di risorse in Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 Nella risposta ottenuta quando si esegue questo comando, cercare la chiave `hostName`. Questo valore sarà necessario in un passaggio successivo. `hostName` è il nome DNS della risorsa Frontdoor di Azure creata.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 Il nome di dominio personalizzato dell'applicazione Web è quello che i clienti usano per fare riferimento all'applicazione, ad esempio www.contoso.com. Inizialmente, questo nome di dominio personalizzato puntava al percorso in cui era in esecuzione prima dell'introduzione di Frontdoor di Azure. Dopo aver aggiunto il servizio Frontdoor di Azure e WAF davanti all'applicazione, la voce DNS corrispondente a tale dominio personalizzato deve puntare alla risorsa Frontdoor di Azure. Per apportare questa modifica, eseguire un nuovo mapping tra la voce nel server DNS e l'host `hostName` di Frontdoor di Azure annotato quando è stata creata la risorsa Frontdoor di Azure.
 
-I passaggi specifici per aggiornare i record DNS dipendono dal provider di servizi DNS. Se si usa il servizio DNS di Azure per ospitare il nome DNS, vedere la documentazione per i [passaggi per aggiornare un record DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e puntare all'host `hostName` di Frontdoor di Azure. 
+I passaggi specifici per aggiornare i record DNS dipendono dal provider di servizi DNS. Se si usa il servizio DNS di Azure per ospitare il nome DNS, vedere la documentazione per i [passaggi per aggiornare un record DNS](../dns/dns-operations-recordsets-cli.md) e puntare all'host `hostName` di Frontdoor di Azure. 
 
-Se è necessario che i clienti accedano al sito Web usando il dominio radice, ad esempio, contoso.com, occorre tenere conto di un aspetto importante. In questo caso, è necessario usare DNS di Azure e il relativo [tipo di record alias](https://docs.microsoft.com/azure/dns/dns-alias) per ospitare il nome DNS. 
+Se è necessario che i clienti accedano al sito Web usando il dominio radice, ad esempio, contoso.com, occorre tenere conto di un aspetto importante. In questo caso, è necessario usare DNS di Azure e il relativo [tipo di record alias](../dns/dns-alias.md) per ospitare il nome DNS. 
 
-È anche necessario aggiornare la configurazione di Frontdoor di Azure per [aggiungere il dominio personalizzato](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) affinché riconosca questo mapping.
+È anche necessario aggiornare la configurazione di Frontdoor di Azure per [aggiungere il dominio personalizzato](./front-door-custom-domain.md) affinché riconosca questo mapping.
 
-Se infine si usa un dominio personalizzato per raggiungere l'applicazione Web e si vuole abilitare il protocollo HTTPS, è necessario [configurare i certificati per il dominio personalizzato in Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Se infine si usa un dominio personalizzato per raggiungere l'applicazione Web e si vuole abilitare il protocollo HTTPS, è necessario [configurare i certificati per il dominio personalizzato in Frontdoor di Azure](./front-door-custom-domain-https.md). 
 
 ## <a name="lock-down-your-web-application"></a>Bloccare l'applicazione Web
 
-Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comunicare con l'applicazione Web. In questo modo, non sarà possibile aggirare la protezione di Frontdoor di Azure e accedere direttamente all'applicazione. Per eseguire questa operazione di blocco, vedere [Come si blocca l'accesso al back-end limitandolo solo a Frontdoor di Azure?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comunicare con l'applicazione Web. In questo modo, non sarà possibile aggirare la protezione di Frontdoor di Azure e accedere direttamente all'applicazione. Per eseguire questa operazione di blocco, vedere [Come si blocca l'accesso al back-end limitandolo solo a Frontdoor di Azure?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
+Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
 
 ```azurecli-interactive
   az group delete \

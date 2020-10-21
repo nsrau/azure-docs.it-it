@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f8b1129c94ecf80efb60a13a0b80b1cc1817ff3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871089"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277153"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnosticare e risolvere i problemi relativi alle eccezioni Azure Cosmos DB frequenza di richieste troppo grandi
 Un messaggio di "frequenza di richiesta troppo grande" o codice di errore 429 indica che le richieste sono soggette A limitazioni.
@@ -24,7 +24,7 @@ La sezione seguente contiene le cause e le soluzioni note per un numero eccessiv
 Controllare [Azure Cosmos DB monitoraggio](monitor-cosmos-db.md) per visualizzare il numero di 429 eccezioni.
 
 #### <a name="cause"></a>Causa:
-La velocità effettiva utilizzata (unità richiesta al secondo) ha superato la [velocità effettiva con provisioning](set-throughput.md). L'SDK ripete automaticamente le richieste in base ai criteri di ripetizione specificati. Se questo errore si verifica spesso, è consigliabile aumentare la velocità effettiva della raccolta. Controllare le metriche del portale per verificare se sono presenti errori 429. Esaminare la chiave di partizione per assicurarsi che venga generata una [distribuzione uniforme del volume di archiviazione e di richiesta](partition-data.md).
+La velocità effettiva utilizzata (unità richiesta al secondo) ha superato la [velocità effettiva con provisioning](set-throughput.md). L'SDK ripete automaticamente le richieste in base ai criteri di ripetizione specificati. Se questo errore si verifica spesso, è consigliabile aumentare la velocità effettiva della raccolta. Controllare le metriche del portale per verificare se sono presenti errori 429. Esaminare la chiave di partizione per assicurarsi che venga generata una [distribuzione uniforme del volume di archiviazione e di richiesta](partitioning-overview.md).
 
 #### <a name="solution"></a>Soluzione:
 1. Usare il [portale o l'SDK](set-throughput.md) per aumentare la velocità effettiva con provisioning.

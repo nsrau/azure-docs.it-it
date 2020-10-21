@@ -3,12 +3,12 @@ title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630492"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314786"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -42,7 +42,7 @@ L'appliance può essere distribuita come indicato di seguito:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
 
-L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. Verificare che questi [URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) siano approvati per la connessione dell'appliance ad Azure.
+L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. Verificare che questi [URL](./migrate-appliance.md#url-access) siano approvati per la connessione dell'appliance ad Azure.
 
 - Per usare Azure ExpressRoute per Azure Migrate il traffico di replica, è necessario il peering Microsoft o un peering pubblico esistente (il peering pubblico è deprecato per le nuove creazioni ER).
 - La replica su Azure ExpressRoute con (solo) il peering privato abilitato non è supportato.

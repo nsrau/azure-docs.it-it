@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024861"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311146"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configurare un nome di dominio personalizzato per l'istanza di gestione API di Azure
 
@@ -50,10 +50,10 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     Sono disponibili diversi endpoint a cui è possibile assegnare un nome di dominio personalizzato. Attualmente sono disponibili gli endpoint seguenti:
 
     - **Gateway** (il valore predefinito è: `<apim-service-name>.azure-api.net` ),
-    - **Portale** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net`),
+    - **Portale per sviluppatori (legacy)** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net` ),
+    - **Portale per sviluppatori** (il valore predefinito è: `<apim-service-name>.developer.azure-api.net` ).
     - **Gestione** (il valore predefinito è: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net` ),
-    - **Newport** (valore predefinito: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Solo l'endpoint del **gateway** è disponibile per la configurazione nel livello di consumo.

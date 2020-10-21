@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570106"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276329"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipi di conflitti e criteri di risoluzione quando si usano più aree di scrittura
 
@@ -32,7 +32,7 @@ Azure Cosmos DB offre un meccanismo flessibile basato sui criteri per risolvere 
 
 * **Ultima scrittura WINS (LWW)**: per impostazione predefinita, questo criterio di risoluzione usa una proprietà timestamp definita dal sistema. Si basa sul protocollo di sincronizzazione dell'ora dell'orologio. Se si usa l'API SQL, è possibile specificare qualsiasi altra proprietà numerica personalizzata (ad esempio, la propria nozione di un timestamp) da usare per la risoluzione dei conflitti. Una proprietà numerica personalizzata viene anche definita *percorso di risoluzione dei conflitti*. 
 
-  Se due o più elementi sono in conflitto su operazioni di inserimento o sostituzione, l'elemento con il valore massimo per il percorso di risoluzione dei conflitti diventa il vincitore. Il sistema determina il vincitore se più elementi hanno lo stesso valore numerico per il percorso di risoluzione dei conflitti. Tutte le aree convergono sicuramente in un singolo vincitore e si ritrovano con la stessa versione dell'elemento di cui si esegue il commit. Quando sono coinvolti i conflitti di eliminazione, la versione eliminata prevale sempre sui conflitti di inserimento o sostituzione. Questo risultato si verifica indipendentemente dal valore del percorso di risoluzione dei conflitti.
+  Se due o più elementi sono in conflitto su operazioni di inserimento o sostituzione, l'elemento con il valore massimo per il percorso di risoluzione dei conflitti diventa il vincitore. Il sistema determina il vincitore se più elementi hanno lo stesso valore numerico per il percorso di risoluzione dei conflitti. Tutte le aree convergeranno a un singolo vincitore e finiranno con la stessa versione dell'elemento di cui è stato eseguito il commit. Quando sono coinvolti i conflitti di eliminazione, la versione eliminata prevale sempre sui conflitti di inserimento o sostituzione. Questo risultato si verifica indipendentemente dal valore del percorso di risoluzione dei conflitti.
 
   > [!NOTE]
   > WINS Last Write è il criterio di risoluzione dei conflitti predefinito e USA `_ts` il timestamp per le API seguenti: SQL, MongoDB, Cassandra, Gremlin e Table. La proprietà numerica personalizzata è disponibile solo per l'API SQL.

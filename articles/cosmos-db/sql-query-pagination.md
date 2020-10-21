@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804198"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276091"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginazione in Azure Cosmos DB
 
@@ -21,9 +21,9 @@ In Azure Cosmos DB, le query possono avere più pagine di risultati. Questo docu
 
 A volte i risultati delle query verranno suddivisi in più pagine. I risultati di ogni pagina vengono generati da un'esecuzione di query separata. Quando non è possibile restituire i risultati della query in un'unica esecuzione, Azure Cosmos DB suddividerà automaticamente i risultati in più pagine.
 
-È possibile specificare il numero massimo di elementi restituiti da una query impostando `MaxItemCount` . `MaxItemCount`Viene specificato per ogni richiesta e garantisce che il motore di query restituisca tale numero di elementi o meno. È possibile impostare `MaxItemCount` su `-1` se non si desidera applicare un limite al numero di risultati per esecuzione di query.
+È possibile specificare il numero massimo di elementi restituiti da una query impostando `MaxItemCount` . `MaxItemCount`Viene specificato per ogni richiesta e indica al motore di query di restituire tale numero di elementi o meno. È possibile impostare `MaxItemCount` su `-1` se non si desidera applicare un limite al numero di risultati per esecuzione di query.
 
-Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. Tra queste sono incluse:
+Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. Sono inclusi:
 
 - Il contenitore è stato limitato e non sono disponibili ur per restituire altri risultati di query
 - La risposta dell'esecuzione della query è troppo grande

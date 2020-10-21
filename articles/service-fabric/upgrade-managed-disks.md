@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717524"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316150"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -25,7 +25,7 @@ La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric 
 Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primario di un cluster di esempio per l'uso di Managed disks, evitando al tempo stesso i tempi di inattività del cluster (vedere la nota riportata di seguito). Lo stato iniziale del cluster di test di esempio è costituito da un tipo di nodo di [durabilità Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), supportato da un singolo set di scalabilità con cinque nodi.
 
 > [!NOTE]
-> Le limitazioni di un servizio di bilanciamento del carico SKU Basic impediscono l'aggiunta di un set di scalabilità aggiuntivo. È consigliabile usare invece il servizio di bilanciamento del carico SKU standard. Per ulteriori informazioni, vedere [confronto tra i due SKU](/azure/load-balancer/skus).
+> Le limitazioni di un servizio di bilanciamento del carico SKU Basic impediscono l'aggiunta di un set di scalabilità aggiuntivo. È consigliabile usare invece il servizio di bilanciamento del carico SKU standard. Per ulteriori informazioni, vedere [confronto tra i due SKU](../load-balancer/skus.md).
 
 > [!CAUTION]
 > Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
@@ -205,7 +205,7 @@ Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del n
 }
 ```
 
-### <a name="variables"></a>Variabili
+### <a name="variables"></a>variables
 
 Nella sezione modello di distribuzione `variables` aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
 
@@ -371,7 +371,7 @@ Viene illustrato come:
 
 * [Rimuovere un tipo di nodo di Service Fabric](service-fabric-how-to-remove-node-type.md)
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 
 * [Esempio: aggiornare i nodi del cluster per l'uso di Azure Managed Disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 

@@ -2,13 +2,13 @@
 title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619951"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308635"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
@@ -39,12 +39,13 @@ Prima di iniziare, verificare quanto segue:
 
 Per ricevere un avviso sulla questione, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster Kubernetes abilitati per AKS e Azure Arc:
 
-|Nome| Description |Soglia predefinita |
+|Nome| Descrizione |Soglia predefinita |
 |----|-------------|------------------|
 |% CPU del contenitore media |Calcola la CPU media usata per ogni contenitore.|Quando l'utilizzo medio della CPU per ogni contenitore è maggiore del 95%.| 
 |Percentuale media memoria working set contenitore |Calcola la memoria working set media utilizzata per ogni contenitore.|Quando l'utilizzo medio working set memoria per contenitore è maggiore del 95%. |
 |Average CPU % (% media CPU) |Calcola l'utilizzo medio della CPU per nodo. |Quando l'utilizzo medio della CPU del nodo è superiore al 80% |
 |Percentuale di utilizzo medio del disco |Calcola l'utilizzo medio del disco per un nodo.|Quando l'utilizzo del disco per un nodo è superiore al 80%. |
+|% Di utilizzo medio del volume persistente |Calcola l'utilizzo fotovoltaico medio per pod. |Quando l'utilizzo fotovoltaico medio per pod è superiore al 80%.|
 |Percentuale di memoria working set media |Calcola la memoria del working set media per un nodo. |Quando la memoria del working set media per un nodo è superiore al 80%. |
 |Riavvio del numero di contenitori |Calcola il numero di contenitori di riavvio. | Quando i riavvii del contenitore sono maggiori di 0. |
 |Conteggi Pod non riusciti |Calcola se un pod è in stato di errore.|Quando un numero di pod in stato di errore è maggiore di 0. |
@@ -75,6 +76,8 @@ Le metriche basate sugli avvisi seguenti hanno caratteristiche di comportamento 
 
 * le metriche *cpuExceededPercentage*, *memoryRssExceededPercentage*e *memoryWorkingSetExceededPercentage* vengono inviate quando i valori della CPU, della memoria RSS e del working set della memoria superano la soglia configurata (la soglia predefinita è 95%). Queste soglie sono esclusive della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. È possibile eseguire l'override della configurazione relativa alle impostazioni di raccolta per le soglie di utilizzo delle risorse del contenitore nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap.
 
+* la metrica *pvUsageExceededPercentage* viene inviata quando la percentuale di utilizzo del volume persistente supera la soglia configurata (la soglia predefinita è 60%). Questa soglia è esclusiva della soglia della condizione di avviso specificata per la regola di avviso corrispondente. Ciò significa che se si vuole raccogliere queste metriche e analizzarle da [Esplora metriche](../platform/metrics-getting-started.md), è consigliabile configurare la soglia su un valore inferiore a quello della soglia di avviso. La configurazione correlata alle impostazioni di raccolta per le soglie di utilizzo dei volumi permanenti può essere sostituita nel file ConfigMaps nella sezione `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Vedere la sezione [configurare le metriche per gli avvisi ConfigMaps](#configure-alertable-metrics-in-configmaps) per informazioni dettagliate sulla configurazione del file di configurazione di ConfigMap. La raccolta di metriche del volume permanente con attestazioni nello spazio dei nomi *Kube-System* è esclusa per impostazione predefinita. Per abilitare la raccolta in questo spazio dei nomi, usare la sezione `[metric_collection_settings.collect_kube_system_pv_metrics]` nel file ConfigMap. Per informazioni dettagliate, vedere [impostazioni della raccolta metrica](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
+
 ## <a name="metrics-collected"></a>Metriche raccolte
 
 Le metriche seguenti sono abilitate e raccolte, se non diversamente specificato, come parte di questa funzionalità:
@@ -97,6 +100,7 @@ Le metriche seguenti sono abilitate e raccolte, se non diversamente specificato,
 |Insights. contenitore/contenitori |cpuExceededPercentage |Percentuale di utilizzo della CPU per i contenitori che supera la soglia configurabile dall'utente (il valore predefinito è 95,0) per nome del contenitore, nome del controller, spazio dei nomi Kubernetes, nome del Pod.<br> Raccolti  |
 |Insights. contenitore/contenitori |memoryRssExceededPercentage |Percentuale di memoria RSS per i contenitori che supera la soglia configurabile dall'utente (il valore predefinito è 95,0) per nome del contenitore, nome del controller, spazio dei nomi Kubernetes, nome del Pod.|
 |Insights. contenitore/contenitori |memoryWorkingSetExceededPercentage |Percentuale working set della memoria per i contenitori che superano la soglia configurabile dall'utente (il valore predefinito è 95,0) per nome del contenitore, nome del controller, spazio dei nomi Kubernetes, nome del Pod.|
+|Insights. container/persistentvolumes |pvUsageExceededPercentage |Percentuale di utilizzo PV per i volumi permanenti che superano la soglia configurabile dall'utente (il valore predefinito è 60,0) per Nome attestazione, spazio dei nomi Kubernetes, nome del volume, nome del Pod e nome del nodo.
 
 ## <a name="enable-alert-rules"></a>Abilita regole di avviso
 
@@ -146,7 +150,7 @@ I passaggi di base sono i seguenti:
 
 3. Cercare il **modello**, quindi selezionare **distribuzione modelli**.
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 5. Sono disponibili diverse opzioni per la creazione di un modello, selezionare **Compila un modello personalizzato nell'editor**.
 
@@ -207,29 +211,40 @@ Per visualizzare gli avvisi creati per le regole abilitate, nel riquadro **avvis
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurare la metrica per gli avvisi in ConfigMaps
 
-Eseguire la procedura seguente per configurare il file di configurazione ConfigMap per eseguire l'override delle soglie di utilizzo delle risorse predefinite del contenitore. Questi passaggi sono applicabili solo alle metriche di avviso seguenti.
+Per configurare il file di configurazione ConfigMap per sostituire le soglie di utilizzo predefinite, seguire questa procedura. Questi passaggi sono applicabili solo alle metriche di avviso seguenti:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Modificare il file YAML di ConfigMap nella sezione `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. Modificare il file YAML ConfigMap nella sezione `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` o `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` .
 
-2. Per modificare la soglia *cpuExceededPercentage* al 90% e iniziare la raccolta di questa metrica quando tale soglia viene soddisfatta e superata, configurare il file ConfigMap usando l'esempio seguente.
+   - Per modificare la soglia *cpuExceededPercentage* al 90% e iniziare la raccolta della metrica quando tale soglia viene soddisfatta e superata, configurare il file ConfigMap usando l'esempio seguente:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Eseguire il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>` .
+   - Per modificare la soglia *pvUsageExceededPercentage* al 80% e iniziare la raccolta della metrica quando tale soglia viene soddisfatta e superata, configurare il file ConfigMap usando l'esempio seguente:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Eseguire il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>` .
 
     Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" created` .
+La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent. non vengono riavviati contemporaneamente. Al termine del riavvio, viene visualizzato un messaggio simile all'esempio seguente, che include il risultato: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

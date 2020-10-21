@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3990f9533aa6746011b1f070139b39ec884711c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb971cd0bd0addd3190e2a3a5f9c6740494b7fd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305853"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318953"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Esercitazione: configurare lo stack per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Prima di configurare lo stack per il provisioning utenti automatico con Azure AD
 Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in uno stack in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'interstack, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial)per lo stack. Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'interstack, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on](./airstack-tutorial.md)per lo stack. Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Per configurare il provisioning utenti automatico per lo stack in Azure AD:
 
@@ -117,7 +117,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a interstack**.
 
@@ -153,4 +153,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

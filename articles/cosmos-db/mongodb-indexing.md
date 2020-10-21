@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324409"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282377"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -324,7 +324,7 @@ Indipendentemente dal valore specificato per la proprietà indice in **backgroun
 
 Non vi è alcun effetto sulla disponibilità di lettura quando si aggiunge un nuovo indice. Quando la trasformazione dell'indice viene completata, le query utilizzeranno solo nuovi indici. Durante la trasformazione dell'indice, il motore di query continuerà a utilizzare gli indici esistenti, pertanto si osserveranno le prestazioni di lettura analoghe durante la trasformazione di indicizzazione rispetto a quanto osservato prima di avviare la modifica dell'indicizzazione. Quando si aggiungono nuovi indici, non esiste alcun rischio di risultati di query incompleti o incoerenti.
 
-Quando si rimuovono gli indici e si eseguono immediatamente query con filtri sugli indici eliminati, i risultati potrebbero essere incoerenti e incompleti fino al termine della trasformazione dell'indice. Se si rimuovono gli indici, il motore di query non garantisce risultati coerenti o completi quando le query filtrano gli indici appena rimossi. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query su di essi in modo che, in pratica, questa situazione sia improbabile.
+Quando si rimuovono gli indici e si eseguono immediatamente query con filtri sugli indici eliminati, i risultati potrebbero essere incoerenti e incompleti fino al termine della trasformazione dell'indice. Se si rimuovono gli indici, il motore di query non fornisce risultati coerenti o completi quando le query filtrano gli indici appena rimossi. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query su di essi in modo che, in pratica, questa situazione sia improbabile.
 
 > [!NOTE]
 > È possibile [tenere traccia dello stato dell'indice](#track-index-progress).

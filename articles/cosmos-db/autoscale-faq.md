@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567588"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277974"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Si supponga, ad esempio, di avere un contenitore con scalabilità automatica con
 - Ora 1: T=2: Il contenitore inizia a ricevere richieste, che utilizzano 1000 UR in 1 secondo. È anche presente l'equivalente di 200 UR di operazioni TTL che devono essere eseguite. Le UR/s fatturabili sono comunque 1000. Indipendentemente da quando vengono eseguite, le operazioni TTL non influiscono sulla logica di ridimensionamento della scalabilità automatica.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Qual è il mapping tra il numero massimo di UR/s e le partizioni fisiche?
-Quando si seleziona per la prima volta il numero massimo di UR/s, Azure Cosmos DB effettua il provisioning del numero massimo di UR/s / 10.000 UR/s = numero di partizioni fisiche. Ogni [partizione fisica](partition-data.md#physical-partitions) può supportare fino a 10.000 UR/s e 50 GB di spazio di archiviazione. Man mano che le dimensioni dello spazio di archiviazione aumentano, Azure Cosmos DB suddivide automaticamente le partizioni per aggiungere partizioni fisiche e gestire l'aumento dello spazio di archiviazione, oppure aumenta il numero massimo di UR/s se lo spazio di archiviazione [supera il limite associato](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Quando si seleziona per la prima volta il numero massimo di UR/s, Azure Cosmos DB effettua il provisioning del numero massimo di UR/s / 10.000 UR/s = numero di partizioni fisiche. Ogni [partizione fisica](partitioning-overview.md#physical-partitions) può supportare fino a 10.000 UR/s e 50 GB di spazio di archiviazione. Man mano che le dimensioni dello spazio di archiviazione aumentano, Azure Cosmos DB suddivide automaticamente le partizioni per aggiungere partizioni fisiche e gestire l'aumento dello spazio di archiviazione, oppure aumenta il numero massimo di UR/s se lo spazio di archiviazione [supera il limite associato](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 Il numero massimo di UR/s del database o del contenitore viene diviso uniformemente tra tutte le partizioni fisiche. Quindi la velocità effettiva totale a cui una singola partizione fisica può essere ridimensionata corrisponde al numero massimo di UR/s del database o del contenitore / numero delle partizioni fisiche. 
 
@@ -147,5 +147,5 @@ Se ad esempio si seleziona l'opzione di velocità effettiva massima di 20.000 UR
 
 * Informazioni su come [abilitare la scalabilità automatica in un database o in un contenitore di Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
 * Informazioni sui [vantaggi della velocità effettiva con provisioning con scalabilità automatica](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Altre informazioni sulle [partizioni logiche e fisiche](partition-data.md).
+* Altre informazioni sulle [partizioni logiche e fisiche](partitioning-overview.md).
                         

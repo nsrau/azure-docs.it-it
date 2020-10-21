@@ -3,12 +3,12 @@ title: Valutazioni delle VM di Azure in Azure Migrate server Assessment
 description: Informazioni sulle valutazioni in Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275524"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319323"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
 
@@ -54,7 +54,7 @@ Se si sta distribuendo un'appliance Azure Migrate per individuare i server local
 
 Quando l'appliance inizia l'individuazione del computer, è possibile raccogliere i computer da valutare in un gruppo ed eseguire una valutazione per il gruppo con tipo di valutazione **VM di Azure**.
 
-Per provare questa procedura, seguire le esercitazioni per [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)o [server fisici](tutorial-prepare-physical.md) .
+Per provare questa procedura, seguire le esercitazioni per [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md)o [server fisici](./tutorial-discover-physical.md) .
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Ricerca per categorie valutare con i dati importati?
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. |
 Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Pronto per Azure.
 Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.| Pronto per Azure.
 Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Pronto per Azure.
-Windows Server 2003 e Windows Server 2003 R2 | Questi sistemi operativi hanno superato le date di fine del supporto e necessitano di un [contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto in Azure. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
+Windows Server 2003 e Windows Server 2003 R2 | Questi sistemi operativi hanno superato le date di fine del supporto e necessitano di un [contratto di supporto personalizzato (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) per il supporto in Azure. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Questi sistemi operativi hanno superato le date di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 7, Windows 8 e Windows 10 | Azure fornisce il supporto solo per una [sottoscrizione di Visual Studio.](../virtual-machines/windows/client-images.md) | Pronto per Azure in modo condizionale.
 Windows 10 Pro | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Pronto per Azure in modo condizionale.
@@ -297,6 +297,6 @@ I costi vengono visualizzati nella valuta specificata nelle impostazioni di valu
 
 [Rivedere](best-practices-assessment.md) le procedure consigliate per la creazione di valutazioni. 
 
-- Informazioni sull'esecuzione di valutazioni per le [macchine virtuali VMware](tutorial-prepare-vmware.md), le [VM Hyper-V](tutorial-prepare-hyper-v.md)e i [server fisici](tutorial-prepare-physical.md).
-- Informazioni sulla valutazione dei server [importati con un file CSV](tutorial-assess-import.md).
+- Informazioni sull'esecuzione di valutazioni per le [macchine virtuali VMware](./tutorial-discover-vmware.md), le [VM Hyper-V](./tutorial-discover-hyper-v.md)e i [server fisici](./tutorial-discover-physical.md).
+- Informazioni sulla valutazione dei server [importati con un file CSV](./tutorial-discover-import.md).
 - Informazioni sulla configurazione della [visualizzazione delle dipendenze](concepts-dependency-visualization.md).

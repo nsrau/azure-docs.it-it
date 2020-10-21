@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568098"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282304"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -57,6 +57,7 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Filippino|  `fil`   |
 |Finlandese|   `fi`    |
 |Francese|    `fr`    |
+|Francese (Canada)|   `fr-ca` |
 |Tedesco|    `de`    |
 |Greco| `el`    |
 |Gujarati|  `gu`    |
@@ -364,6 +365,7 @@ Converte la voce in testo in modo da tradurla nella lingua del testo desiderata.
 |Inglese|
 |Finlandese|
 |Francese|
+|Francese (Canada)|
 |Tedesco|
 |Gujarati|
 |Hindi|
@@ -401,6 +403,7 @@ Converte il testo in sintesi vocale. Il riconoscimento vocale viene usato per ag
 |Inglese|
 |Finlandese|
 |Francese|
+|Francese (Canada)|
 |Tedesco|
 |Greco|
 |Ebraico|
