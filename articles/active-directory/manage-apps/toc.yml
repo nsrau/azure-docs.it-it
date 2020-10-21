@@ -99,7 +99,7 @@
           href: application-proxy-connectors.md
         - name: Gruppi di connettori
           href: application-proxy-connector-groups.md
-        - name: Sicurezza
+        - name: Security
           href: application-proxy-security.md
         - name: Topologia di rete
           href: application-proxy-network-topology.md
@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Eseguire il debug dell'accesso Single Sign-On basato su SAML
+          href: debug-saml-sso-issues.md
         - name: Risolvere i problemi di accesso degli utenti
           items:
             - name: Richiesta di consenso imprevista

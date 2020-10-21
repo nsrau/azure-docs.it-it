@@ -3,12 +3,12 @@ title: Impostare l'ambito per l'individuazione di macchine virtuali VMware con A
 description: Viene descritto come impostare l'ambito di individuazione per la valutazione e la migrazione di macchine virtuali VMware con Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919727"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314039"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Impostare l'ambito di individuazione per le macchine virtuali VMware
 
@@ -21,7 +21,7 @@ Quando si configura il dispositivo, si connette a server vCenter e avvia l'indiv
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Se non è stato configurato un account utente vCenter che Azure Migrate USA per l'individuazione, effettuare questa operazione ora per la [valutazione](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) o la [migrazione senza agenti](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Se non è stato configurato un account utente vCenter che Azure Migrate USA per l'individuazione, effettuare questa operazione ora per la [valutazione](./tutorial-discover-vmware.md#prepare-vmware) o la [migrazione senza agenti](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Assegnare autorizzazioni e ruoli

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168376"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277988"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -327,7 +327,7 @@ Questa stored procedure accetta l'ID del post e il corpo del nuovo commento come
 - sostituisce il post
 - aggiunge il nuovo commento
 
-Dal momento che le stored procedure vengono eseguite come transazioni atomiche, il valore del `commentCount` e il numero effettivo di commenti saranno sempre sincronizzati.
+Poiché le stored procedure vengono eseguite come transazioni atomiche, il valore di `commentCount` e il numero effettivo di commenti resteranno sempre sincronizzati.
 
 Ovviamente si chiama una stored procedure simile quando si aggiungono nuovi Mi piace per incrementare il `likeCount`.
 
@@ -586,6 +586,6 @@ Il feed di modifiche usato per distribuire gli aggiornamenti negli altri conteni
 
 Dopo questa introduzione pratica alla modellazione di dati e al partizionamento, consultare gli articoli seguenti per rivedere i concetti che sono stati trattati:
 
-- [Usare database, contenitori ed elementi](databases-containers-items.md)
+- [Usare database, contenitori ed elementi](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partizionamento in Azure Cosmos DB)
 - [Feed delle modifiche in Azure Cosmos DB](change-feed.md)

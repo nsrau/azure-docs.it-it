@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73663179"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327638"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
 
@@ -47,7 +47,7 @@ Passaggi necessari per il superamento del test:
 * Replica Hyper-V usa la cache in memoria autonoma per ridurre il sovraccarico di IOPS per la traccia. Archivia scritture nel disco VHDX in memoria e le scarica nel file di log prima dell'invio del log al sito di ripristino del log. Lo scaricamento del disco avviene anche se le scritture raggiungono un limite predeterminato.
 * Il grafico seguente mostra il sovraccarico di IOPS nello stato stazionario per la replica. Si può notare che il sovraccarico di operazioni di I/O al secondo dovuto alla replica è pari al 5% circa, quindi abbastanza basso.
 
-  ![Risultati sito primario](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Grafico che mostra il sovraccarico di IOPS dello stato stabile per la replica.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Replica Hyper-V usa la memoria nel server primario per ottimizzare le prestazioni del disco. Come illustrato nel grafico seguente, il sovraccarico della memoria in tutti i server del cluster primario è marginale. Il sovraccarico della memoria mostrato è la percentuale di memoria usata dalla replica rispetto alla memoria totale installata sul server Hyper-V.
 
@@ -55,20 +55,20 @@ Replica Hyper-V usa la memoria nel server primario per ottimizzare le prestazion
 
 Replica Hyper-V ha un sovraccarico di CPU minimo. Come illustrato nel grafico, il sovraccarico della replica è tra il 2 e il 3%.
 
-![Risultati sito primario](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Il grafico che mostra l'overhead della replica è compreso nell'intervallo del 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Prestazioni del server secondario
 
 Replica Hyper-V usa una piccola quantità di memoria nel server di ripristino per ottimizzare il numero di operazioni di archiviazione. Il grafico riepiloga l'utilizzo della memoria nel server di ripristino. Il sovraccarico della memoria mostrato è la percentuale di memoria usata dalla replica rispetto alla memoria totale installata sul server Hyper-V.
 
-![Risultati sito secondario](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Grafico che riepiloga l'utilizzo della memoria nel server di ripristino.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 La quantità di operazioni di I/O nel sito di ripristino è una funzione del numero di operazioni di scrittura nel sito primario. Ora verranno esaminate le operazioni di I/O totali sul sito di ripristino rispetto alle operazioni di I/O totali e le operazioni di scrittura nel sito primario. I grafici mostrano che il totale di IOPS nel sito di ripristino è
 
 * Circa 1,5 volte la scrittura di IOPS sul database primario.
 * Circa il 37% del totale di IOPS nel sito primario.
 
-![Risultati sito secondario](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Grafico che mostra un confronto tra IOPS nei siti primari e secondari.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Risultati sito secondario](./media/hyper-v-vmm-performance-results/IC744918.png)
 
@@ -90,7 +90,7 @@ Il grafico seguente mostra la velocità effettiva della macchine virtuali con ca
 
 ![Risultati effetti replica ](./media/hyper-v-vmm-performance-results/IC744921.png)
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si adatta bene con un sovraccarico minimo per un cluster di grandi dimensioni. Site Recovery consente di eseguire in modo semplice distribuzione, replica, gestione e monitoraggio. Replica Hyper-V fornisce l'infrastruttura necessaria per la corretta scalabilità della replica. 
 

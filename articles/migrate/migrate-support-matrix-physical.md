@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico in Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660349"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319294"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -74,4 +74,4 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Preparare la valutazione del server fisico](tutorial-prepare-physical.md).
+[Preparare la valutazione del server fisico](./tutorial-discover-physical.md).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089514"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277805"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 
@@ -271,7 +271,7 @@ Non vi è alcun effetto sulla disponibilità di scrittura durante le trasformazi
 
 Non vi è alcun effetto sulla disponibilità di lettura quando si aggiunge un nuovo indice. Quando la trasformazione dell'indice viene completata, le query utilizzeranno solo nuovi indici. Durante la trasformazione dell'indice, il motore di query continuerà a utilizzare gli indici esistenti, pertanto si osserveranno le prestazioni di lettura analoghe durante la trasformazione di indicizzazione rispetto a quanto osservato prima di avviare la modifica dell'indicizzazione. Quando si aggiungono nuovi indici, non esiste alcun rischio di risultati di query incompleti o incoerenti.
 
-Quando si rimuovono gli indici e si eseguono immediatamente query che filtrano gli indici eliminati, non esiste una garanzia di risultati della query coerenti o completi. Se si rimuovono più indici e si esegue questa operazione in un'unica modifica dei criteri di indicizzazione, il motore di query garantisce risultati coerenti e completi durante la trasformazione dell'indice. Tuttavia, se si rimuovono gli indici tramite più modifiche ai criteri di indicizzazione, il motore di query non garantisce risultati coerenti o completi fino al completamento di tutte le trasformazioni degli indici. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query che utilizzano questi indici, pertanto, in pratica, questa situazione è improbabile.
+Quando si rimuovono gli indici e si eseguono immediatamente query che filtrano gli indici eliminati, non esiste una garanzia di risultati della query coerenti o completi. Se si rimuovono più indici e si esegue questa operazione in un'unica modifica dei criteri di indicizzazione, il motore di query fornisce risultati coerenti e completi durante la trasformazione dell'indice. Tuttavia, se si rimuovono gli indici tramite più modifiche ai criteri di indicizzazione, il motore di query non fornirà risultati coerenti o completi fino al completamento di tutte le trasformazioni degli indici. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query che utilizzano questi indici, pertanto, in pratica, questa situazione è improbabile.
 
 > [!NOTE]
 > Laddove possibile, provare sempre a raggruppare più modifiche di indicizzazione in un'unica modifica dei criteri di indicizzazione

@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053627"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314662"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "88053627"
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Questo mapping funziona solo per i sottodomini (ad esempio, `www.contoso.com` ). Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio `contoso.com` ,), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché il passaggio a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
+> Questo mapping funziona solo per i sottodomini (ad esempio, `www.contoso.com` ). Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio `contoso.com` ,), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché si sta andando a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
 
 <a id="enable-http"></a>
 

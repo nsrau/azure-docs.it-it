@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421459"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275765"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -167,7 +167,7 @@ Per aggiungere una condizione per l'attestazione:
 3. Selezionare il gruppo o i gruppi a cui l'utente deve appartenere. È possibile selezionare fino a 50 gruppi univoci in tutte le attestazioni per una determinata applicazione. 
 4. Selezionare l'opzione di **Origine** da cui l'attestazione recupererà il valore. È possibile selezionare un attributo utente nell'elenco a discesa degli attributi di origine oppure applicare una trasformazione all'attributo utente prima di crearlo come attestazione.
 
-L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. 
+L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. L'ultimo valore che corrisponde all'espressione verrà generato nell'attestazione.
 
 Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Considerata la configurazione seguente per l'applicazione Fabrikam, quando Britta tenta di accedere a Fabrikam, Microsoft Identity Platform valuterà le condizioni come segue.
 
