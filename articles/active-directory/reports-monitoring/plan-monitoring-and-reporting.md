@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331200"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311230"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -73,7 +73,7 @@ In questo progetto si definiranno i destinatari che utilizzeranno e monitorerann
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
+Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 
@@ -102,7 +102,7 @@ La creazione di report e il monitoraggio vengono usati per soddisfare i requisit
 |Area |Descrizione |
 |-|-|
 |Conservazione| **Conservazione dei log di più di 30 giorni**. A causa dei requisiti legali o aziendali, è necessario archiviare i log di controllo e i log di accesso di Azure AD più di 30 giorni. |
-|Analisi| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
+|Analytics| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
 | Operational Insights| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Informazioni dettagliate sulla sicurezza| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Integrazione nei sistemi SIEM      | **Integrazione Siem**. La necessità di integrare e trasmettere in flusso Azure AD log di accesso e i log di controllo ai sistemi SIEM esistenti. |
@@ -133,7 +133,7 @@ Vedere come [installare e usare le viste di analisi dei log per i log attività 
 
 Il routing dei log a un hub eventi di Azure consente l'integrazione con gli strumenti SIEM di terze parti. Questa integrazione consente di combinare i dati di log attività di Azure AD con altri dati gestiti dallo strumento per informazioni di sicurezza e gestione degli eventi, per fornire informazioni dettagliate più estese per il proprio ambiente. 
 
-Informazioni su come [trasmettere i log a un hub eventi](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Informazioni su come [trasmettere i log a un hub eventi](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Pianificare operazioni e sicurezza per la creazione di report e il monitoraggio di Azure AD
 

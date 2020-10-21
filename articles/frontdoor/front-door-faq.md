@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282295"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331584"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -161,6 +161,10 @@ Informazioni su tutti i [timeout e i limiti](../azure-resource-manager/managemen
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Quanto tempo è necessario per rendere effettive le regole dopo essere state aggiunte al motore delle regole della porta anteriore?
 
 La configurazione del motore regole richiede circa 10-15 minuti per completare un aggiornamento. È possibile fare in modo che la regola abbia effetto non appena l'aggiornamento viene completato. 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>È possibile configurare la rete CDN di Azure dietro il profilo della porta anteriore o viceversa?
+
+La rete CDN di Azure e la rete CDN di Azure non possono essere configurate insieme perché entrambi i servizi usano gli stessi siti di Azure Edge per rispondere alle richieste. 
 
 ## <a name="performance"></a>Prestazioni
 

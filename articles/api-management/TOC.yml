@@ -160,6 +160,8 @@
       items:
         - name: Informazioni sul portale per sviluppatori
           href: api-management-howto-developer-portal.md
+        - name: Eseguire la migrazione dal portale per sviluppatori deprecato a quello nuovo
+          href: developer-portal-deprecated-migration.md
         - name: Eseguire l'autenticazione con Azure AD
           href: api-management-howto-aad.md
         - name: Eseguire l'autenticazione con Azure AD B2C
@@ -170,13 +172,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Abilitare il supporto OAuth nella console
           href: api-management-howto-oauth2.md
-        - name: Portale legacy - personalizzare il portale
+        - name: 'Portale deprecato: personalizzare il portale'
           href: api-management-customize-styles.md
-        - name: Portale legacy - modificare pagine e layout
+        - name: 'Portale deprecato: modificare pagine e layout'
           href: api-management-modify-content-layout.md
-        - name: Portale legacy - personalizzare i modelli
+        - name: 'Portale deprecato: personalizzare con i modelli'
           href: api-management-developer-portal-templates.md
-    - name: Modelli del portale legacy
+    - name: Modelli del portale deprecato
       items:
         - name: Informazioni di riferimento sul modello di dati
           href: api-management-template-data-model-reference.md

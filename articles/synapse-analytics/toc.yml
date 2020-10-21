@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Creare un'area di lavoro di Synapse con l'interfaccia della riga di comando di Azure
       href: quickstart-create-workspace-cli.md
+    - name: Creare un'area di lavoro di Synapse con Azure PowerShell
+      href: quickstart-create-workspace-powershell.md
     - name: Eseguire la distribuzione con un modello
       href: quickstart-deployment-template-workspaces.md
     - name: Usare Synapse Studio
@@ -388,7 +390,7 @@
           items:
             - name: Procedura guidata di assegnazione di punteggi al modello per pool SQL
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Eseguire un esperimento di regressione con Azure AutoML (punteggio in DW)
+            - name: Eseguire un esperimento di regressione con Azure AutoML
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Integrazione degli strumenti (IA, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: Connettersi a Collegamento a Synapse di Azure per Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Usare Power BI e il pool SQL serverless per analizzare Azure Cosmos DB
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Eseguire query sui dati di Azure Cosmos DB con il pool SQL serverless
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Eseguire query sull'archivio analitico di Azure Cosmos DB con Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copiare dati da Collegamento a Synapse in un pool SQL con Apache Spark
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API REST
       href: /rest/api/synapse/

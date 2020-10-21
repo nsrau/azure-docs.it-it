@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: Modello di Resource Manager
-                  href: ./samples/resource-manager-workspace.md
+            - name: Monitorare un'area di lavoro
+              href: platform/monitor-workspace.md
             - name: Eliminare e recuperare un'area di lavoro
               href: platform/delete-workspace.md
             - name: Gestire l'accesso

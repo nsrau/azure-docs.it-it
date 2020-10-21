@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282569"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331822"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 
 Dopo aver creato un contenitore o un database Azure Cosmos, è possibile aggiornare la velocità effettiva con provisioning. La velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore non è soggetta ad alcun limite.
 
-### <a name="current-provisioned-throughput"></a>Velocità effettiva con provisioning corrente
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Velocità effettiva con provisioning corrente
 
 È possibile recuperare la velocità effettiva con provisioning di un contenitore o di un database nel portale di Azure o tramite gli SDK:
 
@@ -135,6 +135,14 @@ Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte d
 * [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) in Java SDK.
 
 È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Archiviazione elevata/programma con velocità effettiva bassa
+
+Come descritto nella sezione precedente relativa alla [velocità effettiva con provisioning](#current-provisioned-throughput) , la velocità effettiva minima di cui è possibile eseguire il provisioning in un contenitore o un database dipende da diversi fattori. Uno di essi è la quantità di dati attualmente archiviati, perché Azure Cosmos DB impone una velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione.
+
+Questo può costituire un problema in situazioni in cui è necessario archiviare grandi quantità di dati, ma con requisiti di velocità effettiva bassi rispetto. Per gestire meglio questi scenari, Azure Cosmos DB ha introdotto un **programma "High storage/low throughput"** che riduce il vincolo ur/s per GB da 10 a 1 per gli account idonei.
+
+Attualmente è necessario disporre di almeno 1 contenitore o database con velocità effettiva condivisa contenente più di 1 TB di dati nell'account per essere idonei. Per partecipare al programma e valutare l'idoneità completa, è sufficiente compilare [questo sondaggio](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Il team di Azure Cosmos DB sarà quindi seguito e procederà con l'onboarding.
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 Questa tabella mostra un confronto tra il provisioning della velocità effettiva standard (manuale) in un database e in un contenitore. 

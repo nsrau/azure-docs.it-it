@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279368"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332094"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -29,7 +29,7 @@ Questo articolo illustra il processo di creazione di endpoint e route usando il 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Gruppo di risorse
+    - Resource group
 
 È possibile trovare questi dettagli nell' [portale di Azure](https://portal.azure.com) dopo aver configurato l'istanza di. Accedere al portale e cercare il nome dell'istanza nella barra di ricerca del portale.
  
@@ -72,7 +72,7 @@ Quindi, creare l'endpoint colpendo _Save_.
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#event-routes).
+A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Creare un endpoint di hub eventi
 
@@ -94,7 +94,7 @@ Quindi, creare l'endpoint colpendo _Save_.
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'hub eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#event-routes).
+A questo punto, l'hub eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Creare un endpoint del bus di servizio
 
@@ -116,7 +116,7 @@ Quindi, creare l'endpoint colpendo _Save_.
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'argomento del bus di servizio è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#event-routes).
+A questo punto, l'argomento del bus di servizio è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
 
@@ -126,7 +126,7 @@ Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario 
 
 Per istruzioni su come eseguire questa operazione con le API, vedere le [*API e*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) la versione dell'interfaccia della riga di comando di questo articolo.
 
-## <a name="event-routes"></a>Route di eventi
+## <a name="create-an-event-route"></a>Creare una route di eventi
 
 Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Queste route consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
 
@@ -135,7 +135,7 @@ Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un
 >[!NOTE]
 >Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se non si è in grado di configurare la route perché gli endpoint non sono pronti, attendere qualche minuto e riprovare.
 
-### <a name="create-an-event-route"></a>Creare una route di eventi 
+### <a name="creation-steps-with-the-azure-portal"></a>Procedura di creazione con il portale di Azure
 
 Una definizione di route dell'evento contiene gli elementi seguenti:
 * Nome della route che si vuole usare
@@ -161,7 +161,7 @@ Per abilitare la route, è necessario **aggiungere anche un filtro di route di u
 
 Al termine, fare clic sul pulsante _Salva_ per creare la route dell'evento.
 
-### <a name="filter-events"></a>Filtrare gli eventi
+## <a name="filter-events"></a>Filtrare gli eventi
 
 Come descritto in precedenza, le route includono un campo di **filtro** . Se il valore del filtro nella route è `false` , nessun evento verrà inviato all'endpoint. 
 

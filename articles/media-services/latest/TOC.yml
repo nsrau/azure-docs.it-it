@@ -67,6 +67,8 @@
       items:
         - name: Codificare e trasmettere un file remoto - REST
           href: stream-files-tutorial-with-rest.md
+        - name: Chiavi gestite dal cliente con Servizi multimediali
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: Codificare e trasmettere un file remoto - Interfaccia della riga di comando
@@ -175,6 +177,8 @@
         - name: Crittografia dinamica e distribuzione delle chiavi
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: Chiavi gestite dal cliente
+          href: concept-use-customer-managed-keys-byok.md
         - name: Progettazione di sistemi multi-DRM
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

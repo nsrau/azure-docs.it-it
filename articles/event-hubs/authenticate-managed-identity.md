@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni sull'autenticazione di un'ide
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010019"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332451"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
 Hub eventi di Azure supporta l'autenticazione Azure Active Directory (Azure AD) con [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso alle risorse di hub eventi usando Azure AD credenziali di applicazioni in esecuzione in macchine virtuali (VM) di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.
@@ -26,7 +26,7 @@ Prima di poter usare le identità gestite per le risorse di Azure per autorizzar
 - [Librerie client di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concedere le autorizzazioni a un'identità gestita in Azure AD
-Per autorizzare una richiesta al servizio Hub eventi da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo (RBAC) per tale identità gestita. Hub eventi di Azure definisce i ruoli di Azure che includono le autorizzazioni per l'invio e la lettura da Hub eventi. Quando il ruolo di Azure viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso ai dati di hub eventi nell'ambito appropriato.
+Per autorizzare una richiesta al servizio Hub eventi da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per tale identità gestita. Hub eventi di Azure definisce i ruoli di Azure che includono le autorizzazioni per l'invio e la lettura da Hub eventi. Quando il ruolo di Azure viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso ai dati di hub eventi nell'ambito appropriato.
 
 Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [eseguire l'autenticazione con Azure Active Directory per l'accesso alle risorse di hub eventi](authorize-access-azure-active-directory.md).
 
