@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145971"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282257"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. `EventRoute`Viene innanzitutto creato un oggetto e il costruttore accetta il nome di un endpoint. Questo `endpointName` campo identifica un endpoint, ad esempio un hub eventi, una griglia di eventi o un bus di servizio. Questi endpoint devono essere creati nella sottoscrizione e collegati ai dispositivi gemelli digitali di Azure usando le API del piano di controllo prima di effettuare questa chiamata di registrazione.
 
-2. L'oggetto route dell'evento dispone anche di un campo [**Filter**](./how-to-manage-routes-apis-cli.md#filter-events) , che può essere usato per limitare i tipi di eventi che seguono questa route. Un filtro di `true` Abilita la route senza filtri aggiuntivi (un filtro `false` Disabilita la route). 
+2. L'oggetto route dell'evento dispone anche di un campo [**Filter**](how-to-manage-routes-apis-cli.md#filter-events) , che può essere usato per limitare i tipi di eventi che seguono questa route. Un filtro di `true` Abilita la route senza filtri aggiuntivi (un filtro `false` Disabilita la route). 
 
 3. Questo oggetto route dell'evento viene quindi passato a `CreateEventRoute` , insieme a un nome per la route.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 È anche possibile creare route usando l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
+
 Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**. I dispositivi gemelli digitali di Azure non vengono recapitati a un evento quando viene soddisfatta **una delle condizioni seguenti** . 
 
-- L'evento non viene recapitato entro la durata (TTL)
-- Il numero di tentativi di recapitare l'evento ha superato il limite
+* L'evento non viene recapitato entro la durata (TTL)
+* Il numero di tentativi di recapitare l'evento ha superato il limite
 
-Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapitabile.  Per impostazione predefinita, ogni endpoint non attiva i messaggi **non** recapitabili. Per abilitarla, è necessario specificare un account di archiviazione per conservare gli eventi non recapitati durante la creazione dell'endpoint. Per risolvere le operazioni di recapito, viene eseguito il pull degli eventi da questo account di archiviazione.
+Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapitabile. Per impostazione predefinita, ogni endpoint non attiva i messaggi **non** recapitabili. Per abilitarla, è necessario specificare un account di archiviazione per conservare gli eventi non recapitati durante la creazione dell'endpoint. È quindi possibile effettuare il pull degli eventi da questo account di archiviazione per risolvere i recapiti.
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 Per altre informazioni sui token SAS, vedere [ *concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-Per informazioni su come configurare un messaggio non recapitabile, vedere [*How-to: Manage Endpoints and routes in Azure Digital gemells (API e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Per informazioni su come configurare un endpoint con messaggi non recapitabili, vedere [*How-to: Manage Endpoints and routes in Azure Digital gemells (API e CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipi di messaggi di evento
 

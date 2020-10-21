@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314849"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando ambiti nelle App per la logica di Azure
 
@@ -31,7 +31,7 @@ Per eseguire l'esempio in questo articolo, sono necessari questi elementi:
 
 * Un account di posta elettronica di un provider di posta elettronica supportato da App per la logica. In questo esempio viene usato Outlook.com. Se si usa un provider diverso, il flusso generale rimane invariato, ma l'interfaccia utente ha un aspetto diverso.
 
-* Una chiave di Bing Maps. Per ottenere questa chiave, vedere <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a> (Ottenere una chiave di Bing Maps).
+* Una chiave di Bing Maps. Per ottenere questa chiave, vedere <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Get a Bing Maps key</a> (Ottenere una chiave di Bing Maps).
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

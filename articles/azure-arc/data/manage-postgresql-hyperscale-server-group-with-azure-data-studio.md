@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151843"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320243"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usare Azure Data Studio per gestire il gruppo di server con iperscalabilità PostgreSQL abilitata per Azure Arc
 
@@ -28,7 +28,7 @@ Questo articolo illustra come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Installare azdata, Azure Data Studio e l'interfaccia della riga di comando di Azure](install-client-tools.md)
-- Installare in Azure Data Studio l' **interfaccia** della riga di comando di Azure e le estensioni **Azure Arc** e **PostgreSQL**
+- Installare in Azure Data Studio le **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** estensioni e **Azure Arc** e **PostgreSQL**
 - Creare il [controller di dati di Azure Arc](create-data-controller-using-azdata.md)
 - Avvia Azure Data Studio
 

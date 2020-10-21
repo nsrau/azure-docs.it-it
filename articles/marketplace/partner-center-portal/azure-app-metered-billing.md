@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320052"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280448"
 ---
 # <a name="managed-application-metered-billing"></a>Fatturazione a consumo delle applicazioni gestite 
 
@@ -117,7 +117,7 @@ Se si verifica uno dei problemi seguenti, è possibile aprire un ticket di suppo
 * Un problema che deve essere inoltrato a causa di un errore o di un bug da parte dell'utente (ad esempio, evento di utilizzo errato).
 * Eventuali altri problemi relativi alla fatturazione a consumo.
 
-Seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](./support.md) per comprendere le opzioni di supporto dell'editore e aprire il ticket di supporto con Microsoft.
+Seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](../support.md) per comprendere le opzioni di supporto dell'editore e aprire il ticket di supporto con Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

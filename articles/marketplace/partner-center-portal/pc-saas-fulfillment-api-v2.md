@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931802"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275536"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API di evasione SaaS versione 2 nel Marketplace commerciale
 
@@ -953,11 +953,11 @@ Il server di pubblicazione deve implementare un webhook nel servizio SaaS per as
 
 Per avviare il processo di sviluppo, è consigliabile creare risposte API fittizie sul lato server di pubblicazione.  Queste risposte possono essere basate sulle risposte di esempio fornite in questo documento.
 
-Quando il server di pubblicazione è pronto per il test end-to-end: 
+Quando il server di pubblicazione è pronto per il test end-to-end:
 
 * Pubblicare un'offerta SaaS in un gruppo di destinatari con anteprima limitata e mantenerla in fase di anteprima.
-* Questa offerta deve avere un piano con 0 prezzo, quindi non attivare costi di fatturazione effettivi durante i test.  Un'altra opzione consiste nell'impostare un prezzo diverso da zero e annullare tutti gli acquisti di test entro 24 ore. 
-* Assicurarsi che tutti i flussi vengano richiamati end-to-end, proprio come un cliente acquista l'offerta. 
+* Questa offerta deve avere un piano con 0 prezzo, quindi non attivare costi di fatturazione effettivi durante i test.  Un'altra opzione consiste nell'impostare un prezzo diverso da zero e annullare tutti gli acquisti di test entro 24 ore.
+* Assicurarsi che tutti i flussi vengano richiamati end-to-end, proprio come un cliente acquista l'offerta.
 * Se il partner vuole testare il flusso di acquisto e di fatturazione completo, effettuare questa operazione con l'offerta con prezzo superiore a $0.  L'acquisto verrà fatturato e verrà generata una fattura.
 
 Un flusso di acquisto può essere attivato dal portale di Azure o da siti Microsoft AppSource, a seconda della posizione in cui viene pubblicata l'offerta.
@@ -966,8 +966,7 @@ Le azioni *modifica piano*, *modifica quantità*e *Annulla sottoscrizione* sono 
 
 ## <a name="get-support"></a>Ottenere supporto
 
-Vedere [il supporto per il programma Commercial Marketplace nel centro per i partner per le](support.md) opzioni di supporto dell'editore.
-
+Vedere [il supporto per il programma Commercial Marketplace nel centro per i partner per le](../support.md) opzioni di supporto dell'editore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

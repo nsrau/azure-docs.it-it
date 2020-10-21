@@ -4,12 +4,12 @@ description: In questo articolo vengono esaminati l'esperienza di distribuzione 
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075189"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309064"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito 
 L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da intraprendere quando la valutazione dell'integrità ha esito negativo, ad esempio eseguendo un rollback automatico. Questa sezione illustra un aggiornamento monitorato per uno degli esempi di SDK che usano PowerShell. 
 
 > [!NOTE]
-> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -149,4 +149,3 @@ Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare la [se
 Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
-

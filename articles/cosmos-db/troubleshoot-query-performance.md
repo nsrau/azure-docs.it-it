@@ -4,27 +4,27 @@ description: Informazioni su come identificare, diagnosticare e risolvere i prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089990"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277166"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 
-Questo articolo illustra un approccio generale consigliato per la risoluzione dei problemi relativi alle query in Azure Cosmos DB. I passaggi descritti in questo articolo non rappresentano una soluzione completa ai potenziali problemi di query, ma offrono suggerimenti per la soluzione degli errori più comuni relativi alle prestazioni. È consigliabile usare questo articolo come punto di partenza per la soluzione dei problemi relativi a query lente o con costo elevato nell'API Core (SQL) di Azure Cosmos DB. È inoltre possibile usare i [log di diagnostica](cosmosdb-monitor-resource-logs.md) per identificare le query lente o che usano quantità significative di velocità effettiva.
+Questo articolo illustra un approccio generale consigliato per la risoluzione dei problemi relativi alle query in Azure Cosmos DB. I passaggi descritti in questo articolo non rappresentano una soluzione completa ai potenziali problemi di query, ma offrono suggerimenti per la soluzione degli errori più comuni relativi alle prestazioni. È consigliabile usare questo articolo come punto di partenza per la soluzione dei problemi relativi a query lente o con costo elevato nell'API Core (SQL) di Azure Cosmos DB. È inoltre possibile usare i [log di diagnostica](cosmosdb-monitor-resource-logs.md) per identificare le query lente o che usano quantità significative di velocità effettiva. Se si usa l'API di Azure Cosmos DB per MongoDB, è consigliabile usare [la guida alla risoluzione dei problemi delle query dell'API di Azure Cosmos DB per MongoDB](mongodb-troubleshoot-query.md)
 
-In generale, l'ottimizzazione delle query in Azure Cosmos DB può essere classificata in queste categorie:
+Le ottimizzazioni delle query in Azure Cosmos DB sono categorizzate in modo estensivo come segue:
 
 - Ottimizzazioni che consentono di ridurre l'addebito dell'unità richiesta (UR) della query
 - Ottimizzazioni che consentono di ridurre solo la latenza
 
-Se si riduce l'addebito UR di una query, quasi sicuramente è possibile ridurre anche la latenza.
+Se si riduce il costo delle UR di una query, in genere si diminuisce anche la latenza.
 
 Questo articolo fornisce esempi che è possibile ricreare usando il set di [dati nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -191,7 +191,7 @@ Criteri di indicizzazione aggiornati:
 
 **Addebito UR**: 2,98 UR
 
-È possibile aggiungere proprietà ai criteri di indicizzazione in qualsiasi momento, senza alcun effetto sulle prestazioni o sulla disponibilità di scrittura. Se si aggiunge una nuova proprietà all'indice, le query che usano tale proprietà usano immediatamente il nuovo indice disponibile. La query usa il nuovo indice mentre viene compilato. Pertanto, durante la ricompilazione dell'indice, i risultati delle query potrebbero risultare incoerenti. Se viene indicizzata una nuova proprietà, le query che usano solo gli indici esistenti non saranno interessate durante la ricompilazione dell'indice. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+È possibile aggiungere proprietà ai criteri di indicizzazione in qualsiasi momento, senza alcun effetto sulla disponibilità di scrittura o lettura. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Individuare le funzioni di sistema che usano l'indice
 
@@ -469,7 +469,7 @@ Di seguito è riportato l'indice composto pertinente:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Ottimizzazioni che consentono di ridurre la latenza della query
 
-In molti casi, l'addebito UR potrebbe essere accettabile quando la latenza della query è ancora troppo elevata. Le sezioni seguenti forniscono una panoramica dei suggerimenti per la riduzione della latenza delle query. Se la stessa query viene eseguita più volte nello stesso set di dati, lo stesso addebito UR viene applicato ogni volta. La latenza delle query potrebbe tuttavia variare tra le esecuzioni della query.
+In molti casi, l'addebito UR potrebbe essere accettabile quando la latenza della query è ancora troppo elevata. Le sezioni seguenti forniscono una panoramica dei suggerimenti per la riduzione della latenza delle query. Se si esegue la stessa query più volte nello stesso set di dati, in genere lo stesso addebito viene addebitato ogni volta. La latenza delle query potrebbe tuttavia variare tra le esecuzioni della query.
 
 ### <a name="improve-proximity"></a>Migliorare la prossimità
 

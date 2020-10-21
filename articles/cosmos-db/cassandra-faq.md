@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167607"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278188"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Domande frequenti sulla API Cassandra in Azure Cosmos DB
 
@@ -79,11 +79,11 @@ I log di diagnostica sono illustrati nell'articolo [Registrazione diagnostica di
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La chiave primaria corrisponde al concetto di chiave di partizione di Azure Cosmos DB?
 
-Sì, la chiave di partizione viene usata per inserire l'entità nella posizione corretta. In Azure Cosmos DB viene usato per trovare la partizione logica corretta archiviata in una partizione fisica. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md). Il punto di vista essenziale è che una partizione logica non deve superare il limite di 20 GB.
+Sì, la chiave di partizione viene usata per inserire l'entità nella posizione corretta. In Azure Cosmos DB viene usato per trovare la partizione logica corretta archiviata in una partizione fisica. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partitioning-overview.md). Il punto di vista essenziale è che una partizione logica non deve superare il limite di 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Cosa accade quando si riceve una notifica che la partizione è piena?
 
-Azure Cosmos DB è un sistema basato su contratto di servizio (SLA). Offre scalabilità illimitata, con garanzie di latenza, velocità effettiva, disponibilità e coerenza. Questa archiviazione illimitata è basata sulla scalabilità orizzontale orizzontale dei dati, usando il partizionamento come concetto chiave. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
+Azure Cosmos DB è un sistema basato su contratto di servizio (SLA). Offre scalabilità illimitata, con garanzie di latenza, velocità effettiva, disponibilità e coerenza. Questa archiviazione illimitata è basata sulla scalabilità orizzontale orizzontale dei dati, usando il partizionamento come concetto chiave. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partitioning-overview.md).
 
 È necessario rispettare il limite di 20 GB per il numero di entità o elementi per partizione logica. Per assicurare la scalabilità dell'applicazione, è consigliabile *non* creare una partizione critica archiviando tutte le informazioni in una partizione ed eseguendo query su di essa. Questo errore può essere presente solo se i dati sono sbilanciati, ovvero se si dispone di una quantità elevata di dati per una chiave di partizione (più di 20 GB). È possibile trovare la distribuzione dei dati tramite il portale di archiviazione. Per correggere l'errore, è necessario ricreare la tabella e scegliere una chiave primaria granulare (chiave di partizione), che consente una migliore distribuzione dei dati.
 
@@ -133,7 +133,7 @@ Sì, la Durata (TTL) è supportata.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Come è possibile monitorare l'infrastruttura insieme alla velocità effettiva?
 
-Azure Cosmos DB è un servizio di piattaforma che consente di incrementare la produttività, senza doversi preoccupare della gestione e del monitoraggio dell'infrastruttura. Ad esempio, non è necessario monitorare lo stato dei nodi, lo stato della replica, GC e i parametri del sistema operativo in precedenza con diversi strumenti. È sufficiente occuparsi della velocità effettiva disponibile nelle metriche del portale per verificare se la velocità effettiva è limitata e quindi aumentare o ridurre la velocità effettiva. È possibile:
+Azure Cosmos DB è un servizio di piattaforma che consente di incrementare la produttività, senza doversi preoccupare della gestione e del monitoraggio dell'infrastruttura. Ad esempio, non è necessario monitorare lo stato dei nodi, lo stato della replica, GC e i parametri del sistema operativo in precedenza con diversi strumenti. È sufficiente occuparsi della velocità effettiva disponibile nelle metriche del portale per verificare se la velocità effettiva è limitata e quindi aumentare o ridurre la velocità effettiva. è possibile:
 
 - Monitorare i [contratti](monitor-accounts.md) di contratto
 - Usare le [metriche](use-metrics.md)

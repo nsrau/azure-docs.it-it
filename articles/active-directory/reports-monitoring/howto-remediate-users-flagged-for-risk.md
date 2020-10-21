@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600501"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308951"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -60,7 +60,7 @@ Per accedere ai report sugli **utenti contrassegnati per il rischio** nell'inter
 Eseguire queste operazioni per correggere gli account interessati e proteggere l'ambiente:
 
 1.  [Convalidare le informazioni corrette](https://aka.ms/MFAValid) per la reimpostazione della password self-service e l'autenticazione a più fattori. 
-2.  [Abilitare l'autenticazione a più fattori](https://aka.ms/MFAuth) per tutti gli utenti. 
+2.  [Abilitare l'autenticazione a più fattori](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) per tutti gli utenti. 
 3.  Usare questo [script di correzione](https://aka.ms/remediate) per ogni account interessato per eseguire automaticamente i passaggi seguenti: 
 
     a. Reimpostare la password per proteggere l'account e terminare le sessioni attive.
@@ -85,8 +85,8 @@ Eseguire queste operazioni per correggere gli account interessati e proteggere l
 
 È anche opportuno:
 
-- Leggere e implementare queste [indicazioni sulla gestione delle attività anomale](https://aka.ms/fixaccount). 
-- [Abilitare la pipeline di controllo](https://aka.ms/improvesecurity) per agevolare l'analisi dell'attività nel tenant. Al termine dell'operazione, l'archivio di controllo avvia la compilazione dei log attività. A questo punto è anche possibile sfruttare [le risorse di ricerca e analisi del centro sicurezza e conformità](https://aka.ms/sccsearch). 
+- Leggere e implementare queste [indicazioni sulla gestione delle attività anomale](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Abilitare la pipeline di controllo](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) per agevolare l'analisi dell'attività nel tenant. Al termine dell'operazione, l'archivio di controllo avvia la compilazione dei log attività. A questo punto è anche possibile sfruttare [le risorse di ricerca e analisi del centro sicurezza e conformità](https://aka.ms/sccsearch). 
 - Esaminare le autorizzazioni delegate e le regole di inoltro della posta per tutte le cassette postali. Per eseguire questa attività è possibile usare questo [script di PowerShell](https://aka.ms/delegateforwardrules). 
 
 ## <a name="next-steps"></a>Passaggi successivi

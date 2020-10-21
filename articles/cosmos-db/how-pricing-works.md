@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605262"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281534"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Il modello di determinazione dei prezzi di Azure Cosmos DB semplifica la gestion
 
 - **Operazioni di database**: il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
 
-  - **Velocità effettiva con provisioning**: la [velocità effettiva con provisioning](set-throughput.md) (detta anche velocità effettiva riservata) garantisce prestazioni elevate su qualsiasi scala. È possibile specificare la velocità effettiva necessaria in [unità richiesta](request-units.md) al secondo (UR/sec) e Azure Cosmos DB dedicare le risorse necessarie per garantire la velocità effettiva configurata. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridimensionare la velocità effettiva in qualsiasi momento o usare la [scalabilità](provision-throughput-autoscale.md) automatica (anche se è necessaria una velocità effettiva minima in un database o in un contenitore per garantire i contratti di contratto). Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica.
+  - **Velocità effettiva con provisioning**: la [velocità effettiva con provisioning](set-throughput.md) (detta anche velocità effettiva riservata) fornisce prestazioni elevate su qualsiasi scala. È possibile specificare la velocità effettiva necessaria in [unità richiesta](request-units.md) al secondo (UR/sec) e Azure Cosmos DB dedicare le risorse necessarie per fornire la velocità effettiva configurata. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridimensionare la velocità effettiva in qualsiasi momento o usare la [scalabilità](provision-throughput-autoscale.md) automatica (anche se è necessaria una velocità effettiva minima in un database o in un contenitore per garantire i contratti di contratto). Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica.
 
    > [!NOTE]
    > Poiché il modello di velocità effettiva con provisioning dedica risorse al contenitore o al database, verrà addebitata la velocità effettiva di cui è stato effettuato il provisioning, anche se non vengono eseguiti carichi di lavoro.

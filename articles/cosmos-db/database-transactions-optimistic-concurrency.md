@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355384"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278726"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per gestire le modifiche simultanee ai dati. I database relazionali tradizionali, come SQL Server, consentono di scrivere la logica di business utilizzando stored procedure e/o trigger, inviarli al server per l'esecuzione direttamente nel motore di database. Con i database relazionali tradizionali, è necessario gestire due linguaggi di programmazione diversi, ovvero il linguaggio di programmazione delle applicazioni (non transazionale), ad esempio JavaScript, Python, C#, Java e così via, e il linguaggio di programmazione transazionale (ad esempio, T-SQL) eseguito in modo nativo dal database.
 
-Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito della [partizione logica](partition-data.md) di un contenitore vengono eseguite in modo transazionale all'interno del motore di database ospitato dalla replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente vengono illustrati diversi tipi di transazioni e operazioni:
+Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito della [partizione logica](partitioning-overview.md) di un contenitore vengono eseguite in modo transazionale all'interno del motore di database ospitato dalla replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente vengono illustrati diversi tipi di transazioni e operazioni:
 
 | **Operazione**  | **Tipo di operazione** | **Transazione singola o con più elementi** |
 |---------|---------|---------|
@@ -51,7 +51,7 @@ La possibilità di eseguire JavaScript direttamente nel motore di database offre
 
 Il controllo della concorrenza ottimistica consente di evitare la perdita di aggiornamenti ed eliminazioni. Operazioni simultanee in conflitto vengono sottoposte al regolare blocco pessimistico del motore di database ospitato dalla partizione logica che possiede l'elemento. Quando due operazioni simultanee tentano di aggiornare la versione più recente di un elemento all'interno di una partizione logica, una di esse avrà la precedenza e l'altra avrà esito negativo. Tuttavia, se una o due operazioni che tentano di aggiornare contemporaneamente lo stesso elemento avevano precedentemente letto un valore meno recente dell'elemento, il database non riconosce se il valore precedentemente letto da una o entrambe le operazioni in conflitto era effettivamente il valore più recente dell'elemento. Fortunatamente, questa situazione può essere rilevata con il **controllo della concorrenza ottimistica** prima di consentire alle due operazioni di immettere il limite della transazione all'interno del motore di database. Il controllo di concorrenza ottimistica protegge i dati impedendo che vengano sovrascritte le modifiche apportate da altri utenti. Impedisce anche ad altri utenti di sovrascrivere accidentalmente le proprie modifiche.
 
-Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Il database di Azure Cosmos garantisce che la versione lato client dell'elemento in fase di aggiornamento (o di eliminazione) sia la stessa versione dell'elemento nel contenitore di Azure Cosmos. In questo modo si garantisce che le scritture non vengano sovrascritta accidentalmente dalle operazioni di scrittura di altri utenti e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi sono protetti contro i famigerati problemi di "aggiornamento perso" o "eliminazione persa".
+Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Il database di Azure Cosmos garantisce che la versione lato client dell'elemento in fase di aggiornamento (o di eliminazione) sia la stessa versione dell'elemento nel contenitore di Azure Cosmos. Ciò garantisce che le Scritture siano protette da sovrascrivere accidentalmente dalle Scritture di altri e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi sono protetti contro i famigerati problemi di "aggiornamento perso" o "eliminazione persa".
 
 Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag` può essere usato con l'intestazione della richiesta fornita dal client `if-match` per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell' `if-match` intestazione corrisponde al valore di `_etag` nel server, l'elemento viene quindi aggiornato. Se il valore dell' `if-match` intestazione della richiesta non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore di precondizione HTTP 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio `_etag` valore per l'elemento. Inoltre, `_etag` può essere usato con l' `if-none-match` intestazione per determinare se è necessaria una rilettura di una risorsa.
 
@@ -61,7 +61,7 @@ Il valore dell'elemento `_etag` viene modificato ogni volta che l'elemento viene
 
 Altre informazioni sulle transazioni del database e il controllo della concorrenza ottimistica negli articoli seguenti:
 
-- [Usare database, contenitori ed elementi di Azure Cosmos](databases-containers-items.md)
+- [Usare database, contenitori ed elementi di Azure Cosmos](account-databases-containers-items.md)
 - [Livelli di coerenza](consistency-levels.md)
 - [Tipi di conflitto e criteri di risoluzione dei conflitti](conflict-resolution-policies.md)
 - [Stored procedure, trigger e funzioni definite dall'utente](stored-procedures-triggers-udfs.md)
