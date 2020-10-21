@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447929"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150085"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introduzione all'account di fatturazione del Contratto Microsoft Partner
 
@@ -29,7 +29,7 @@ Il diagramma seguente mostra la relazione tra un account di fatturazione, i prof
 
 ![Diagramma che mostra la gerarchia di fatturazione del Contratto Microsoft Partner](./media/mpa-overview/mpa-hierarchy.svg)
 
-Gli utenti con ruolo **amministratore globale** e **agenti amministratori**  nell'organizzazione possono gestire gli account di fatturazione, i profili di fatturazione e i clienti. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](https://docs.microsoft.com/partner-center/permissions-overview).
+Gli utenti con ruolo **amministratore globale** e **agenti amministratori**  nell'organizzazione possono gestire gli account di fatturazione, i profili di fatturazione e i clienti. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview).
 
 ## <a name="billing-profiles"></a>Profili di fatturazione
 
@@ -47,7 +47,7 @@ Usare un profilo di fatturazione per gestire le fatture per una valuta. Viene ge
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Abilitare i criteri per ottenere la visibilità sui costi
 
-Applicare i criteri per controllare se gli utenti nell'organizzazione dei clienti possono visualizzare e analizzare i costi in base alle tariffe con pagamento in base al consumo per l'utilizzo di Azure. Per impostazione predefinita, il criterio è disattivato e gli utenti non possono visualizzare i costi. Una volta abilitato, gli utenti che dispongono dell'accesso per il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) appropriato per una sottoscrizione possono visualizzare e analizzare i costi per la sottoscrizione.
+Applicare i criteri per controllare se gli utenti nell'organizzazione dei clienti possono visualizzare e analizzare i costi in base alle tariffe con pagamento in base al consumo per l'utilizzo di Azure. Per impostazione predefinita, il criterio è disattivato e gli utenti non possono visualizzare i costi. Una volta abilitato, gli utenti che dispongono dell'accesso per il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) appropriato per una sottoscrizione possono visualizzare e analizzare i costi per la sottoscrizione.
 
 Per attivare il criterio:
 
@@ -69,7 +69,7 @@ Per attivare il criterio:
 
 ## <a name="resellers"></a>Rivenditori
 
-I provider indiretti nel [modello a due livelli ](https://docs.microsoft.com/partner-center) del programma CSP possono selezionare un rivenditore durante la creazione delle sottoscrizioni per i clienti nel portale di Azure. Dopo la creazione, possono visualizzare l'elenco delle sottoscrizioni, filtrato in base a un rivenditore e analizzare i costi di un cliente in base ai rivenditori nell'analisi dei costi di Azure.
+I provider indiretti nel [modello a due livelli ](/partner-center) del programma CSP possono selezionare un rivenditore durante la creazione delle sottoscrizioni per i clienti nel portale di Azure. Dopo la creazione, possono visualizzare l'elenco delle sottoscrizioni, filtrato in base a un rivenditore e analizzare i costi di un cliente in base ai rivenditori nell'analisi dei costi di Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificare l'accesso a un Contratto Microsoft Partner
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azur
 Per informazioni sull'account di fatturazione, vedere gli articoli seguenti:
 
 - [Creare un'altra sottoscrizione di Azure per il Contratto Microsoft Partner](../manage/create-subscription.md)
-- Integrare i dati di fatturazione con il proprio sistema di creazione di report usando le [API di fatturazione di Azure](https://docs.microsoft.com/rest/api/billing/)
-- [Guida di avvio rapido per Gestione costi di Azure per i partner](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Integrare i dati di fatturazione con il proprio sistema di creazione di report usando le [API di fatturazione di Azure](/rest/api/billing/)
+- [Guida di avvio rapido per Gestione costi di Azure per i partner](../costs/get-started-partners.md)

@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: c31d3136ec4bcdf6da7680d41de078f8bd03d256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447106"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341347"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
 La valutazione e l'analisi degli avvisi di sicurezza possono richiedere molto tempo anche per gli analisti di sicurezza più qualificati. Per molti, è difficile capire da dove iniziare. 
 
-Il Centro sicurezza usa l' [analisi](security-center-detection-capabilities.md) per connettere le informazioni tra [avvisi di sicurezza](security-center-managing-and-responding-alerts.md)distinti. Utilizzando queste connessioni, il Centro sicurezza può fornire un'unica visualizzazione di una campagna di attacco e gli avvisi correlati per comprendere le azioni dell'utente malintenzionato e le risorse interessate.
+Il Centro sicurezza usa l' [analisi](./security-center-alerts-overview.md) per connettere le informazioni tra [avvisi di sicurezza](security-center-managing-and-responding-alerts.md)distinti. Utilizzando queste connessioni, il Centro sicurezza può fornire un'unica visualizzazione di una campagna di attacco e gli avvisi correlati per comprendere le azioni dell'utente malintenzionato e le risorse interessate.
 
 Questa pagina offre una panoramica degli eventi imprevisti nel centro sicurezza.
 

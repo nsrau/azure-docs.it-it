@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215468"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340224"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
@@ -54,6 +54,17 @@ Questo articolo illustra come configurare [la durata e la compatibilità di un t
     ![Impostazioni della proprietà di compatibilità del token nel portale di Azure](./media/configure-tokens/token-compatibility.png)
 
 5. Fare clic su **Salva**.
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornire attestazioni facoltative all'app
+
+Le attestazioni dell'applicazione sono valori restituiti all'applicazione. Aggiornare il flusso utente per includere le attestazioni desiderate.
+
+1. Selezionare **Flussi utente (criteri)** .
+1. Aprire il flusso utente creato in precedenza.
+1. Selezionare **Attestazioni dell'applicazione**.
+1. Scegliere le attestazioni e gli attributi che si desidera inviare nuovamente all'applicazione.
+1. Fare clic su **Salva**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

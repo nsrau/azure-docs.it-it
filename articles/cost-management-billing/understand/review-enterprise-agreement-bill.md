@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684661"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150070"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -436,7 +436,7 @@ Per problemi relativi a Power BI, registrare un ticket presso il [team di suppor
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Perché i tag delle risorse non vengono visualizzati nei report?
 
-I tag delle risorse vengono gestiti nel portale di Azure. È possibile contattare il team della sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com). Seguire la procedura descritta nell'articolo [Come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+I tag delle risorse vengono gestiti nel portale di Azure. È possibile contattare il team della sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com). Seguire la procedura descritta nell'articolo [Come creare una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>Perché la tariffa per le risorse cambia ogni giorno?
 

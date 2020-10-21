@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681737"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149367"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 
@@ -90,8 +90,8 @@ PublisherType | Tutti | Tipo di server di pubblicazione (valori: **Azure**, **AW
 Quantità | Tutti | Numero di unità acquistate o utilizzate.
 ReservationId | EA, Contratto del cliente Microsoft | Identificatore univoco per l'istanza di prenotazione acquistata.
 ReservationName | EA, Contratto del cliente Microsoft | Nome dell'istanza di prenotazione acquistata.
-ResourceGroup | Tutti | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
-ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa di [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceGroup | Tutti | Nome del [gruppo di risorse](../../azure-resource-manager/management/overview.md) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
+ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa di [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Tutti | Località del data center in cui viene eseguita la risorsa. Vedere Location.
 NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
 ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.

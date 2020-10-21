@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001843"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125612"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - architettura dell'app per contatori intelligenti
 
@@ -28,7 +28,7 @@ L'architettura è costituita dai componenti seguenti. Alcune soluzioni potrebber
 
 ## <a name="smart-meters-and-connectivity"></a>Contatori intelligenti e connettività 
 
-Un contatore intelligente è uno dei dispositivi più importanti tra tutte le risorse in ambito di energia. Registra e comunica i dati sul consumo di energia alle aziende di pubblica utilità per il monitoraggio e altri casi d'uso, ad esempio la fatturazione e la risposta alla domanda. In base al tipo, il contatore può connettersi a IoT Central tramite gateway o altri dispositivi o sistemi intermedi, ad esempio dispositivi perimetrali e sistemi head-end. Creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Un contatore intelligente è uno dei dispositivi più importanti tra tutte le risorse in ambito di energia. Registra e comunica i dati sul consumo di energia alle aziende di pubblica utilità per il monitoraggio e altri casi d'uso, ad esempio la fatturazione e la risposta alla domanda. In base al tipo, il contatore può connettersi a IoT Central tramite gateway o altri dispositivi o sistemi intermedi, ad esempio dispositivi perimetrali e sistemi head-end. Creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](../core/howto-build-iotc-device-bridge.md). 
 
 
 ## <a name="iot-central-platform"></a>Piattaforma IoT Central
@@ -42,4 +42,4 @@ La piattaforma IoT Central offre due opzioni di estendibilità, ovvero l'esporta
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Ora che sono state apprese le informazioni sull'architettura, [creare gratuitamente l'app per contatori intelligenti](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../index.yml)

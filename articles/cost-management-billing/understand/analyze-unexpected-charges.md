@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651905"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151222"
 ---
 # <a name="analyze-unexpected-charges"></a>Analizzare gli addebiti imprevisti
 
@@ -76,7 +76,7 @@ In genere il team responsabile di una determinata risorsa è a conoscenza delle 
 
 ### <a name="analyze-the-audit-logs-for-the-resource"></a>Analizzare i log di controllo per la risorsa
 
-Se si è autorizzati a visualizzare una risorsa, dovrebbe essere possibile accedere ai log di controllo. Esaminare i log per trovare l'utente responsabile delle ultime modifiche apportate a una risorsa. Per altre informazioni, vedere [Visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/platform/activity-log-view.md).
+Se si è autorizzati a visualizzare una risorsa, dovrebbe essere possibile accedere ai log di controllo. Esaminare i log per trovare l'utente responsabile delle ultime modifiche apportate a una risorsa. Per altre informazioni, vedere [Visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analizzare le autorizzazioni utente per l'ambito padre della risorsa
 

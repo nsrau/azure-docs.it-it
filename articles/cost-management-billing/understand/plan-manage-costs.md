@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: c8ab6f51daf18802b83508a3e1bbd5af3ee59799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336969"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150103"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Pianificare la gestione dei costi di Azure
 
@@ -24,7 +24,7 @@ Questo articolo è utile per iniziare a pianificare la gestione dei costi di Azu
 - Ottenere i costi stimati prima di aggiungere servizi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/), l'elenco prezzi di Azure o durante l'aggiunta di servizi nel portale di Azure.
 - Monitorare i costi con [budget ](../costs/tutorial-acm-create-budgets.md), [avvisi](../costs/cost-mgt-alerts-monitor-usage-spending.md) e [analisi dei costi](../costs/quick-acm-cost-analysis.md).
 - Esaminare gli addebiti in fattura confrontandoli con i [file di utilizzo dettagliato](../manage/download-azure-invoice-daily-usage-date.md).
-- Integrare i dati della fatturazione e dei costi con il proprio sistema di creazione di report usando le API per la [fatturazione](https://docs.microsoft.com/rest/api/billing/) e l'[utilizzo](https://docs.microsoft.com/rest/api/consumption/).
+- Integrare i dati della fatturazione e dei costi con il proprio sistema di creazione di report usando le API per la [fatturazione](/rest/api/billing/) e l'[utilizzo](/rest/api/consumption/).
 - Usare le risorse e gli strumenti aggiuntivi per i clienti con contratto Enterprise (EA), Cloud Solution Provider (CSP) e Azure Sponsorship.
 - Sfruttare [gratuitamente alcuni dei servizi di Azure più diffusi per 12 mesi](../manage/create-free-services.md) disponibili con l'[account Azure gratuito](https://azure.microsoft.com/free/). Oltre ai consigli elencati di seguito, vedere l'argomento su come [evitare di pagare l'account gratuito](../manage/avoid-charges-free-account.md).
 
@@ -125,7 +125,7 @@ Vedere [Ottimizzare i costi grazie agli elementi consigliati](../costs/tutorial-
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrazione con le API di fatturazione e utilizzo
 
-Usare le API di [fatturazione](https://docs.microsoft.com/rest/api/billing/) e [utilizzo](https://docs.microsoft.com/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../manage/usage-rate-card-overview.md).
+Usare le API di [fatturazione](/rest/api/billing/) e [utilizzo](/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../manage/usage-rate-card-overview.md).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Risorse aggiuntive e casi speciali
 

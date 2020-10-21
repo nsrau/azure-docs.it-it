@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441471"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341839"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -43,7 +43,7 @@ Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://a
 
 ## <a name="what-is-the-log-analytics-agent"></a>Che cos'è il Log Analytics Agent?
 
-Per monitorare vulnerabilità e minacce per la sicurezza, il Centro sicurezza di Azure dipende dall' [agente di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) , ovvero lo stesso agente usato dal servizio monitoraggio di Azure. 
+Per monitorare vulnerabilità e minacce per la sicurezza, il Centro sicurezza di Azure dipende dall' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) , ovvero lo stesso agente usato dal servizio monitoraggio di Azure. 
 
 L'agente viene talvolta definito Microsoft Monitoring Agent (o "MMA"). 
 
@@ -66,7 +66,7 @@ Le macchine virtuali IaaS Windows o Linux hanno diritto al provisioning automati
 
 - L'estensione agente di Log Analytics non è attualmente installata nella macchina virtuale.
 - La macchina virtuale è nello stato di esecuzione.
-- L'[agente di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) Linux è installato.
+- L'[agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) Linux è installato.
 - La macchina virtuale non viene usata come appliance, ad esempio web application firewall o firewall di nuova generazione.
 
 
@@ -88,7 +88,7 @@ La località dell'area di lavoro predefinita dipende dall'area di Azure:
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quali dati vengono raccolti dall'agente di Log Analytics?
 
-Per un elenco completo delle applicazioni e dei servizi monitorati dall'agente, vedere [elementi monitorati da monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+Per un elenco completo delle applicazioni e dei servizi monitorati dall'agente, vedere [elementi monitorati da monitoraggio di Azure](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose*, è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613170"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341381"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -81,7 +81,7 @@ Dopo aver creato la cache, è necessario autorizzarla a usare il servizio Key Va
 
 ## <a name="add-resource-tags-optional"></a>Aggiungere tag di risorsa (facoltativo)
 
-La pagina **Tag** consente di aggiungere [tag di risorsa](https://go.microsoft.com/fwlink/?linkid=873112) all'istanza di Cache HPC di Azure.
+La pagina **Tag** consente di aggiungere [tag di risorsa](../azure-resource-manager/management/tag-resources.md) all'istanza di Cache HPC di Azure.
 
 ## <a name="finish-creating-the-cache"></a>Completare la creazione della cache
 
@@ -196,7 +196,7 @@ Il messaggio include alcune informazioni utili, inclusi gli elementi seguenti:
 
 ## <a name="requirements"></a>Requisiti
 
-Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Se si sceglie di usare Cloud Shell, vedere [Panoramica di Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per altre informazioni.
+Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Se si sceglie di usare Cloud Shell, vedere [Panoramica di Azure Cloud Shell](../cloud-shell/overview.md) per altre informazioni.
 
 > [!IMPORTANT]
 > Mentre il modulo di PowerShell **AZ. HPCCache** è in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet. Quando questo modulo di PowerShell diventa disponibile a livello generale, sarà incluso nelle prossime versioni del modulo AZ PowerShell e sarà disponibile in modo nativo dall'interno Azure Cloud Shell.
