@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269557"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365817"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuire una workstation protetta gestita da Azure
 
@@ -35,7 +35,7 @@ Selezionare un profilo prima di distribuire la soluzione. È possibile utilizzar
 | Gestione di Intune | Sì | Sì | Sì | Sì | Sì | Sì |
 | Azure AD dispositivo registrato | Sì |  |  |  |  | |   |
 | Dispositivo-Azure AD aggiunto |   | Sì | Sì | Sì | Sì | Sì |
-| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | N/D |
+| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | ND |
 | L'hardware soddisfa gli standard di Windows 10 protetti |   | Sì | Sì | Sì | Sì | Sì |
 | Microsoft Defender ATP abilitato |   | Sì  | Sì | Sì | Sì | Sì |
 | Rimozione dei diritti di amministratore |   |   | Sì  | Sì | Sì | Sì |
@@ -51,11 +51,11 @@ Selezionare un profilo prima di distribuire la soluzione. È possibile utilizzar
 
 I concetti trattati in questa guida presuppongono che sia Microsoft 365 Enterprise E5 o uno SKU equivalente. Alcuni consigli in questa guida possono essere implementati con SKU inferiori. Per ulteriori informazioni, vedere [Microsoft 365 Enterprise Licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-Per automatizzare il provisioning delle licenze, prendere in considerazione le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per gli utenti.
+Per automatizzare il provisioning delle licenze, prendere in considerazione le [licenze basate sui gruppi](../enterprise-users/licensing-groups-assign.md) per gli utenti.
 
 ## <a name="azure-active-directory-configuration"></a>Configurazione di Azure Active Directory
 
-Azure Active Directory (Azure AD) gestisce utenti, gruppi e dispositivi per le workstation di amministratore. Abilitare i servizi di identità e le funzionalità con un [account amministratore](../users-groups-roles/directory-assign-admin-roles.md).
+Azure Active Directory (Azure AD) gestisce utenti, gruppi e dispositivi per le workstation di amministratore. Abilitare i servizi di identità e le funzionalità con un [account amministratore](../roles/permissions-reference.md).
 
 Quando si crea l'account amministratore della workstation protetto, questo viene esposto alla workstation corrente. Assicurarsi di usare un dispositivo sicuro noto per eseguire questa configurazione iniziale e tutta la configurazione globale. Per ridurre l'esposizione agli attacchi per la prima volta, è consigliabile seguire le [indicazioni per evitare infezioni da malware](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
@@ -65,19 +65,19 @@ Richiedere l'autenticazione a più fattori, almeno per gli amministratori. Veder
 
 1. Dalla portale di Azure individuare **Azure Active Directory**  >  **utenti**  >  **nuovo utente**.
 1. Creare l'amministratore del dispositivo attenendosi alla procedura descritta nell' [esercitazione creare un utente](/Intune/quickstart-create-user).
-1. Immettere:
+1. Digitare:
 
    * **Nome** : amministratore workstation sicuro
    * **Nome utente** - `secure-ws-admin@identityitpro.com`
    * **Ruolo**  -  della directory **Amministratore con limitazioni** e selezionare il ruolo di **amministratore di Intune** .
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Si creeranno quindi due gruppi: utenti workstation e dispositivi workstation.
 
 Dalla portale di Azure individuare **Azure Active Directory**  >  **gruppi**  >  **nuovo gruppo**.
 
-1. Per il gruppo utenti workstation, potrebbe essere necessario configurare le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per automatizzare il provisioning delle licenze agli utenti.
+1. Per il gruppo utenti workstation, potrebbe essere necessario configurare le [licenze basate sui gruppi](../enterprise-users/licensing-groups-assign.md) per automatizzare il provisioning delle licenze agli utenti.
 1. Per il gruppo utenti workstation, immettere:
 
    * **Tipo di gruppo** -sicurezza
@@ -86,14 +86,14 @@ Dalla portale di Azure individuare **Azure Active Directory**  >  **gruppi**  > 
 
 1. Aggiungere l'utente amministratore della workstation protetta: `secure-ws-admin@identityitpro.com`
 1. È possibile aggiungere altri utenti che gestiranno le workstation protette.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Per il gruppo dispositivi workstation, immettere:
 
    * **Tipo di gruppo** -sicurezza
    * **Nome gruppo** -workstation sicure
    * **Tipo di appartenenza** : assegnato
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="azure-ad-device-configuration"></a>Configurazione del dispositivo Azure AD
 
@@ -131,7 +131,7 @@ Questi passaggi consentono di gestire qualsiasi dispositivo con Intune. Per altr
 
 #### <a name="azure-ad-conditional-access"></a>Accesso condizionale di Azure AD
 
-Azure AD l'accesso condizionale può contribuire a limitare le attività amministrative con privilegi ai dispositivi conformi. Per eseguire l'autenticazione a più fattori per l'accesso alle applicazioni cloud sono necessari membri predefiniti del gruppo **utenti workstation protetti** . Una procedura consigliata consiste nell'escludere gli account di accesso di emergenza dal criterio. Per altre informazioni, vedere [gestire gli account di accesso di emergenza in Azure ad](../users-groups-roles/directory-emergency-access.md).
+Azure AD l'accesso condizionale può contribuire a limitare le attività amministrative con privilegi ai dispositivi conformi. Per eseguire l'autenticazione a più fattori per l'accesso alle applicazioni cloud sono necessari membri predefiniti del gruppo **utenti workstation protetti** . Una procedura consigliata consiste nell'escludere gli account di accesso di emergenza dal criterio. Per altre informazioni, vedere [gestire gli account di accesso di emergenza in Azure ad](../roles/security-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Configurazione di Intune
 
@@ -154,7 +154,7 @@ Dopo aver creato un gruppo di dispositivi, è necessario creare un profilo di di
 In Intune nel portale di Azure:
 
 1. Selezionare **registrazione del dispositivo registrazione**  >  **Windows**  >  **profili di distribuzione**  >  **Crea profilo**.
-1. Immettere:
+1. Digitare:
 
    * Nome: **profilo di distribuzione della workstation sicuro**.
    * Descrizione: **distribuzione di workstation protette**.
@@ -186,7 +186,7 @@ Questa guida consiglia di creare un nuovo anello di aggiornamento e modificare l
 Nel portale di Azure:
 
 1. Passare a **Microsoft Intune**  >  **aggiornamenti software**  >  **anelli di aggiornamento di Windows 10**.
-1. Immettere:
+1. Digitare:
 
    * Nome- **aggiornamenti della workstation gestita da Azure**
    * Canale di manutenzione- **Windows Insider-Fast**
@@ -200,7 +200,7 @@ Nel portale di Azure:
    * Promemoria riavvio attivato per Snooze (giorni)- **3**
    * Imposta la scadenza per i riavvii in sospeso (giorni)- **3**
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Nella scheda **assegnazioni** aggiungere il gruppo **workstation sicure** .
 
 Per ulteriori informazioni sui criteri di Windows Update, vedere [policy CSP-Update](/windows/client-management/mdm/policy-csp-update).
@@ -251,7 +251,7 @@ Eseguire lo script di esportazione dei dati `DeviceConfiguration_Export.ps1` di 
 
 ## <a name="additional-configurations-and-hardening-to-consider"></a>Configurazioni aggiuntive e protezione avanzata da considerare
 
-Seguendo le istruzioni riportate in questo articolo, è stata distribuita una workstation protetta. È tuttavia necessario considerare anche controlli aggiuntivi. Ad esempio:
+Seguendo le istruzioni riportate in questo articolo, è stata distribuita una workstation protetta. È tuttavia necessario considerare anche controlli aggiuntivi. Esempio:
 
 * limitare l'accesso ai browser alternativi
 * Consenti HTTP in uscita
@@ -308,7 +308,7 @@ Potrebbe essere necessario installare app di Windows a 32 bit o altre app la cui
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Accesso condizionale che consente solo alla workstation protetta di accedere portale di Azure
 
-Azure AD offre la possibilità di gestire e limitare, chi e cosa può accedere al portale di gestione cloud di Azure. Con l'abilitazione dell' [accesso condizionale](../conditional-access/overview.md) si garantisce che solo la workstation protetta possa gestire o modificare le risorse. È essenziale che durante la distribuzione di questa funzionalità si prenda in considerazione la possibilità di usare la funzionalità di [accesso di emergenza](../users-groups-roles/directory-emergency-access.md) solo per casi estremi e l'account gestito tramite criteri.
+Azure AD offre la possibilità di gestire e limitare, chi e cosa può accedere al portale di gestione cloud di Azure. Con l'abilitazione dell' [accesso condizionale](../conditional-access/overview.md) si garantisce che solo la workstation protetta possa gestire o modificare le risorse. È essenziale che durante la distribuzione di questa funzionalità si prenda in considerazione la possibilità di usare la funzionalità di [accesso di emergenza](../roles/security-emergency-access.md) solo per casi estremi e l'account gestito tramite criteri.
 
 > [!NOTE]
 > Sarà necessario creare un gruppo di utenti e includere l'utente di emergenza in grado di ignorare i criteri di accesso condizionale. Per questo esempio è presente un gruppo di sicurezza denominato **Emergency BreakGlass**
@@ -342,7 +342,7 @@ Lo script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scrip
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
    1. Selezionare **OK**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **assegnazioni**  >  **selezionare gruppi**.
    1. Aggiungere le **workstation protette**del gruppo di sicurezza.
    1. Selezionare **Salva**.
@@ -387,7 +387,7 @@ Il monitoraggio sentinella richiede la configurazione di connettori per le origi
 
 1. Nella **portale di Azure**passare ad **Azure Sentinel (anteprima)** > selezionare **Aggiungi**
 1. Nella pagina **scegliere un'area di lavoro da aggiungere ad Azure Sentinel** selezionare **Crea una nuova area di lavoro**
-1. Immettere:
+1. Digitare:
    * **Area di lavoro di log Analytics** -"monitoraggio della workstation sicura"
    * **Sottoscrizione** : selezionare la sottoscrizione attiva
    * **Gruppo di risorse** : selezionare la * * creazione di un nuovo * * > protezione RG della workstation > **OK**
@@ -429,7 +429,7 @@ Distribuire l'agente MMA con lo script di PowerShell per Intune
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
    1. Selezionare **OK**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **assegnazioni**  >  **selezionare gruppi**.
    1. Aggiungere le **workstation protette**del gruppo di sicurezza.
    1. Selezionare **Salva**.
@@ -438,7 +438,7 @@ Successivamente, è necessario configurare Log Analytics per ricevere i nuovi lo
 1. Nella **portale di Azure**passare all'area di **lavoro log Analytics** > selezionare-"monitoraggio workstation sicuro".
 1. Selezionare **Impostazioni avanzate**  >  **dati**  >  **log eventi di Windows**
 1. In **Raccogli eventi dai log eventi seguenti** 
-1. Immettere:
+1. Digitare:
    * ' Microsoft-Windows-AppLocker/EXE e DLL ' > deselezionare **le informazioni**
    * ' Microsoft-Windows-AppLocker/MSI e script ' > deselezionare **le informazioni**
    * ' Microsoft-Windows-AppLocker/Packaged App-Deployment ' > deselezionare **le informazioni**

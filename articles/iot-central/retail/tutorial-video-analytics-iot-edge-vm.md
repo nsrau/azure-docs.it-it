@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873279"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127029"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)
 
@@ -94,7 +94,7 @@ La distribuzione ha configurato i cinque moduli IoT Edge seguenti per l'esecuzio
 
 La distribuzione ha creato un ambiente IoT Edge personalizzato con i moduli necessari per Analisi video live. La distribuzione ha aggiornato il file **config.yaml** predefinito per garantire che il runtime IoT Edge usi il servizio Device provisioning in IoT per la connessione a IoT Central. La distribuzione ha anche creato un file denominato **state.json** nella cartella **/data/storage** per fornire dati di configurazione aggiuntivi ai moduli. Per altre informazioni, vedere l'esercitazione [Creare un'istanza di IoT Edge per l'analisi video (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md).
 
-Per risolvere i problemi relativi al dispositivo IoT Edge, vedere [Risolvere i problemi del dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Per risolvere i problemi relativi al dispositivo IoT Edge, vedere [Risolvere i problemi del dispositivo IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Usare il simulatore RTSP
 

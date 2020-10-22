@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757844"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370713"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
@@ -218,9 +218,6 @@ Usare le istruzioni riportate nell'articolo [Eseguire query sull'archivio analit
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Eseguire query nell'archivio analitico usando la sinapsi SQL senza server
 
 Sinapsi SQL senza server (una funzionalità di anteprima che in precedenza era denominata **SQL su richiesta**) consente di eseguire query e analizzare i dati nei contenitori Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È possibile analizzare i dati quasi in tempo reale senza compromettere le prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall'archivio analitico e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia T-SQL. Per altre informazioni, vedere l'articolo relativo all' [Archivio analitico di query tramite sinapsi SQL senza server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
-
-> [!NOTE]
-> L'uso dell'archivio analitico Azure Cosmos DB con la sinapsi SQL senza server è attualmente in anteprima gestita. Per richiedere l'accesso, contattare il [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Usare la sinapsi SQL senza server per analizzare e visualizzare i dati in Power BI
 

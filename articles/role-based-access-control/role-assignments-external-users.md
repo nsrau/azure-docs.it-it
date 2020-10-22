@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361905"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368384"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
 
@@ -183,7 +183,7 @@ Gli utenti guest hanno autorizzazioni di directory limitate. Ad esempio, gli ute
 
 ![L'utente Guest non può esplorare gli utenti in una directory](./media/role-assignments-external-users/directory-no-users.png)
 
-Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibile assegnare un ruolo della directory all'utente Guest. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibile assegnare un ruolo della directory all'utente Guest. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Assegnare il ruolo lettori directory](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Gli utenti guest hanno autorizzazioni di directory limitate. Anche se un utente 
 
 ![L'utente Guest non può esplorare le entità di sicurezza per assegnare i ruoli](./media/role-assignments-external-users/directory-no-browse.png)
 
-Se l'utente Guest conosce il nome di accesso esatto di un utente nella directory, può concedere l'accesso. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se l'utente Guest conosce il nome di accesso esatto di un utente nella directory, può concedere l'accesso. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>L'utente Guest non può registrare le applicazioni o creare entità servizio
 
-Gli utenti guest hanno autorizzazioni di directory limitate. Se un utente guest deve essere in grado di registrare le applicazioni o creare entità servizio, è possibile aggiungere l'utente Guest al ruolo di [sviluppatore dell'applicazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Gli utenti guest hanno autorizzazioni di directory limitate. Se un utente guest deve essere in grado di registrare le applicazioni o creare entità servizio, è possibile aggiungere l'utente Guest al ruolo di [sviluppatore dell'applicazione](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![L'utente Guest non può registrare le applicazioni](./media/role-assignments-external-users/directory-access-denied.png)
 

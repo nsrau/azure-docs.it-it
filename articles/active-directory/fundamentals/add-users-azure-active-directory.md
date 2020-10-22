@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321090"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370815"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -42,7 +42,7 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
    - **Nome**. Obbligatorio. Nome e cognome del nuovo utente. Ad esempio, *Mary Parker*.
 
-   - **Nome utente**. Obbligatorio. Nome utente del nuovo utente. Ad esempio: `mary@contoso.com`.
+   - **Nome utente**. Obbligatorio. Nome utente del nuovo utente. Ad esempio, `mary@contoso.com`
 
      La parte del dominio del nome utente deve usare il nome di dominio predefinito iniziale, * \<yourdomainname> onmicrosoft.com*, o un nome di dominio personalizzato, ad esempio *contoso.com*. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [aggiungere il nome di dominio personalizzato usando il portale di Azure Active Directory](add-custom-domain.md).
 
@@ -54,7 +54,7 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
 1. Copiare la password generata automaticamente specificata nella casella **password** . Sarà necessario assegnare questa password all'utente per accedere per la prima volta.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 L'utente viene creato e aggiunto all'organizzazione Azure AD.
 
@@ -103,6 +103,6 @@ Una volta aggiunti gli utenti, è possibile eseguire i processi di base seguenti
 
 - [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md)
 
-- [Utilizzare gruppi e utenti dinamici](../users-groups-roles/groups-create-rule.md)
+- [Utilizzare gruppi e utenti dinamici](../enterprise-users/groups-create-rule.md)
 
-In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio l' [aggiunta di utenti Guest da un'altra directory](../external-identities/what-is-b2b.md) o [il ripristino di un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).
+In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio l' [aggiunta di utenti Guest da un'altra directory](../external-identities/what-is-b2b.md) o [il ripristino di un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../enterprise-users/index.yml).
