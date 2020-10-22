@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92166591"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
@@ -81,7 +81,7 @@ Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio d
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -112,7 +112,7 @@ L'intestazione contiene due numeri che visualizzano un conteggio di record da qu
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -153,7 +153,7 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -185,7 +185,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -203,13 +203,13 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | Colore |Colore di sfondo dell'intestazione. |
 | **Intestazione** | |
 | Immagine |File di immagine che viene visualizzato nell'intestazione. |
-| Etichetta |Testo che viene visualizzato nell'intestazione. |
+| Label |Testo che viene visualizzato nell'intestazione. |
 | **Intestazione** |**&gt; Collegamento** |
-| Etichetta |Testo del collegamento. |
+| Label |Testo del collegamento. |
 | URL |URL del collegamento. |
 | **Elementi informazioni** | |
 | Titolo |Testo che viene visualizzato per il titolo di ogni elemento. |
-| Contenuto |Testo che viene visualizzato per ogni elemento. |
+| Content |Testo che viene visualizzato per ogni elemento. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Parte relativa a Grafico a linee, callout ed elenco
 L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
@@ -246,7 +246,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -282,7 +282,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -352,7 +352,7 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Impostazione | Descrizione |
 |:--- |:--- |
 | Abilitare le soglie |Selezionare questo collegamento per visualizzare un'icona colorata a sinistra di ogni valore. L'icona indica l'integrità del valore in relazione alle soglie specificate. |
-| Nome |Nome del valore di soglia. |
+| Name |Nome del valore di soglia. |
 | Soglia |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
 | Colore |Colore che indica il valore di soglia. |
 

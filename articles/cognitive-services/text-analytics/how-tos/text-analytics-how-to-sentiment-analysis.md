@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930289"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166931"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -36,7 +36,7 @@ Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri dispon
 | [Contenitore Docker](text-analytics-how-to-install-containers.md) basato su Linux | X  |  |
 | Opinion mining                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Punteggi ed etichettatura dei sentiment
+## <a name="sentiment-scoring-and-labeling"></a>Punteggi ed etichettatura dei sentiment
 
 Analisi del sentiment v3 applica le etichette del sentiment al testo, che vengono restituite a livello di frase e documento, con un punteggio di attendibilità per ognuna. 
 
@@ -51,7 +51,7 @@ Le etichette sono *positive*, *negative* e *neutral*. A livello di documento, pu
 
 I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Per ogni documento o ogni frase, i punteggi stimati associati alle etichette (positive, negative e neutral) raggiungono il punteggio 1.
 
-### <a name="opinion-mining"></a>Opinion mining
+## <a name="opinion-mining"></a>Opinion mining
 
 Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1-Preview.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
 

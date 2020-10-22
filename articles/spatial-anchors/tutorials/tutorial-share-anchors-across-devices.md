@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971322"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097287"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere ancoraggi nello spazio tra sessioni e dispositivi
 
@@ -86,7 +86,7 @@ Selezionare **OK**.
 
 Aprire Visual Studio Code e quindi aprire il progetto nella cartella *Sharing\SharingServiceSample*. 
 
-Per distribuire il servizio di condivisione tramite Visual Studio Code, seguire le istruzioni riportate in <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code</a>. Iniziare dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto ASP.NET come illustrato nel passaggio precedente, perché è già disponibile un progetto da distribuire e pubblicare, ovvero SharingServiceSample.
+Per distribuire il servizio di condivisione tramite Visual Studio Code, seguire le istruzioni riportate in <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code</a>. Iniziare dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto ASP.NET come illustrato nel passaggio precedente, perché è già disponibile un progetto da distribuire e pubblicare, ovvero SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ In questa esercitazione è stata distribuita un'app Web ASP.NET Core in Azure, q
 
 > [!div class="nextstepaction"]
 > [Usare Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)
-
