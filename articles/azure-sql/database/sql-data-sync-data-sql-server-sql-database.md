@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173569"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371752"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -81,7 +81,7 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 | | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | **Vantaggi** | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione <br/>-Supporto per Istanza gestita SQL di Azure |
-| **Svantaggi** | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>-    Alti costi di manutenzione |
+| **Svantaggi** | -frequenza minima di 5 minuti tra le sincronizzazioni<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>-    Alti costi di manutenzione |
 
 ## <a name="get-started"></a>Introduzione 
 
@@ -135,9 +135,9 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - Una chiave primaria non può contenere i tipi di dati seguenti: sql_variant, Binary, varbinary, image, XML.
 - Usare i tipi di dati che seguono come chiave primaria con la massima cautela, perché supportano solo la precisione al secondo: time, datetime, datetime2, datetimeoffset.
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
+- Un nome di tabella non può contenere caratteri stampabili:! " # $ % ' ( ) * + -
 - L'autenticazione Azure Active Directory non è supportata.
 - Se sono presenti tabelle con lo stesso nome ma con uno schema diverso (ad esempio, dbo. Customers e Sales. Customers), è possibile aggiungere in Sync solo una delle tabelle.
-- Un nome di tabella non può contenere caratteri con un valore ASCII minore o uguale a'-'.
 - Le colonne con tipi di dati User-Defined non sono supportate
 - Lo stato di trasferimento di server tra sottoscrizioni diverse non è supportato. 
 
@@ -150,7 +150,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio:
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.
@@ -166,7 +166,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 | Tabelle in un gruppo di sincronizzazione                                          | 500                    | Creare più gruppi di sincronizzazione |
 | Colonne in una tabella in un gruppo di sincronizzazione                              | 1000                   |                             |
 | Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
-| Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
+| Intervallo di frequenza di sincronizzazione minimo                                 | 5 minuti              |                             |
 
 > [!NOTE]
 > Se è presente un unico gruppo di sincronizzazione, questo può contenere fino a 30 endpoint. Se esistono più gruppi di sincronizzazione, il numero totale di endpoint in tutti i gruppi di sincronizzazione non può essere maggiore di 30. Se un database appartiene a più gruppi di sincronizzazione, vale come più endpoint.
