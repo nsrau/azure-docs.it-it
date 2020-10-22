@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: aa0f0878366e7afc51f066502c24c09a9981027b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9644cb51f7575df7dba757da23af33a26ae4201a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801359"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279263"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Esempi di Node.js per la gestione dei dati in Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Alcune soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comu
 
 ## <a name="database-examples"></a>Esempi di database
 
-Il file [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts) illustra come eseguire operazioni CRUD sul database. Per saperne di più sui database di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il file [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts) illustra come eseguire operazioni CRUD sul database. Per saperne di più sui database di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -61,7 +61,7 @@ Il file [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/maste
 
 ## <a name="container-examples"></a>Esempi di contenitore
 
-Il file [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement.ts) illustra come eseguire operazioni CRUD sul contenitore. Per saperne di più sulle raccolte di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il file [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement.ts) illustra come eseguire operazioni CRUD sul contenitore. Per saperne di più sulle raccolte di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -72,7 +72,7 @@ Il file [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/mast
 
 ## <a name="item-examples"></a>Esempi di elementi
 
-Il file [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) illustra come eseguire operazioni CRUD sull'elemento. Per saperne di più sui documenti di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il file [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) illustra come eseguire operazioni CRUD sull'elemento. Per saperne di più sui documenti di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |

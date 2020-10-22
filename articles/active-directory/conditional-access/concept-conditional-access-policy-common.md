@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdaaed72b85bc3c0196a8897be311efa5fb714e2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91705059"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366344"
 ---
 # <a name="common-conditional-access-policies"></a>Criteri comuni di accesso condizionale
 
@@ -28,7 +28,7 @@ Le [impostazioni predefinite](../fundamentals/concept-fundamentals-security-defa
 
 Altre informazioni sugli account di accesso di emergenza e sul motivo per cui sono importanti sono disponibili negli articoli seguenti: 
 
-* [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gestire gli account di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 * [Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Criteri tipici distribuiti dalle organizzazioni

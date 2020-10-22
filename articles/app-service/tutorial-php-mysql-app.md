@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974275"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150217"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Esercitazione: Compilare un'app PHP e MySQL nel Servizio app di Azure
 
@@ -153,7 +153,7 @@ Per arrestare PHP, digitare `Ctrl + C` nel terminale.
 
 ## <a name="create-mysql-in-azure"></a>Creare MySQL in Azure
 
-In questo passaggio viene creato un database MySQL in [Database di Azure per MySQL](/azure/mysql). Successivamente viene configurata l'applicazione PHP per la connessione al database.
+In questo passaggio viene creato un database MySQL in [Database di Azure per MySQL](../mysql/index.yml). Successivamente viene configurata l'applicazione PHP per la connessione al database.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -163,7 +163,7 @@ In questo passaggio viene creato un database MySQL in [Database di Azure per MyS
 
 In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create).
 
-Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<mysql-server-name>* , con un nome utente il segnaposto *\<admin-user>* e con una password il segnaposto *\<admin-password>* . Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure. Per informazioni dettagliate sulla selezione dello SKU del database per MySQL, vedere [Creare un database di Azure per il server MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<mysql-server-name>* , con un nome utente il segnaposto *\<admin-user>* e con una password il segnaposto *\<admin-password>* . Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure. Per informazioni dettagliate sulla selezione dello SKU del database per MySQL, vedere [Creare un database di Azure per il server MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1

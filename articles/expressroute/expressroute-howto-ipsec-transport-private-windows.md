@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92208244"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
@@ -147,7 +147,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 8. Nella pagina **Impostazioni personalizzate metodo di sicurezza** selezionare **Integrità dati con crittografia (ESP): SHA1, 3DES**. Successivamente, scegliere **OK**.
 
    [![22]][22]
-9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Chiudi**.
+9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Close**.
 
    [![23]][23]
 
@@ -158,7 +158,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 1. Per definire il tipo di traffico che deve essere crittografato, usare un **elenco di filtri IP**. Nella scheda **Gestione elenchi filtri IP** fare clic su **Aggiungi** per aggiungere un nuovo elenco di filtri IP.
 
    [![24]][24]
-2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Quindi, fare clic su **Aggiungi**.
+2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Fare quindi clic su **Aggiungi**.
 
    [![25]][25]
 3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Next**.
