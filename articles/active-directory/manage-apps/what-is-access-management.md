@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604105"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367789"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 
@@ -94,4 +94,4 @@ Come per le app aziendali, è possibile [assegnare utenti](assign-user-or-group-
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Protezione delle app con l'accesso condizionale](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Gestione di gruppi self-service/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Gestione di gruppi self-service/SSAA](../enterprise-users/groups-self-service-management.md)

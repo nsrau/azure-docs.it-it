@@ -1,15 +1,14 @@
 ---
 title: Connettere macchine virtuali ibride ad Azure dal portale di Azure
 description: Questo articolo illustra come installare l'agente e connettere i computer ad Azure usando i server abilitati per Azure Arc dal portale di Azure.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 2ba834d8c55f53792606fffe65d65794e837e9e3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101733"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370152"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -17,7 +16,7 @@ ms.locfileid: "92101733"
 
 Con questo metodo sono necessarie le autorizzazioni di amministratore sulla macchina virtuale per installare e configurare l'agente. In Linux, tramite l'account radice, e in Windows, si è membri del gruppo Administrators locale.
 
-Prima di iniziare, esaminare i [prerequisiti](agent-overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti.
+Prima di iniziare, esaminare i [prerequisiti](agent-overview.md#prerequisites) e verificare che la sottoscrizione e le risorse soddisfino i requisiti. Per informazioni sulle aree supportate e altre considerazioni correlate, vedere [aree di Azure supportate](overview.md#supported-regions).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -25,22 +24,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Lo script per automatizzare il download e l'installazione e stabilire la connessione con Azure Arc è disponibile nel portale di Azure. Per completare il processo, seguire questa procedura:
 
-1. Nel browser passare al [portale di Azure](https://aka.ms/hybridmachineportal).
+1. Nel browser passare al [portale di Azure](https://portal.azure.com).
 
 1. Nella pagina **Server-Azure Arc** selezionare **Aggiungi** in alto a sinistra.
 
 1. Nella pagina **Selezione metodo** selezionare il riquadro **Aggiungi server tramite script interattivo** e quindi selezionare **Genera script**.
 
-1. Nella pagina **Genera script** selezionare la sottoscrizione e il gruppo di risorse in cui si vuole che la macchina virtuale venga gestita in Azure. Selezionare una località di Azure in cui verranno archiviati i metadati della macchina virtuale.
-
-    >[!NOTE]
-    >I server abilitati per Azure Arc supportano solo le aree seguenti:
-    >- EastUS
-    >- Stati Uniti occidentali 2
-    >- Europa occidentale
-    >- SoutheastAsia
-    >
-    >Esaminare le considerazioni aggiuntive quando si seleziona un'area [qui](overview.md#supported-regions) nell'articolo introduttivo.
+1. Nella pagina **Genera script** selezionare la sottoscrizione e il gruppo di risorse in cui si vuole che la macchina virtuale venga gestita in Azure. Selezionare una località di Azure in cui verranno archiviati i metadati della macchina virtuale. La località può essere uguale o diversa da quella del gruppo di risorse.
 
 1. Nella pagina **prerequisiti** esaminare le informazioni e quindi fare clic su **Avanti: dettagli risorsa**.
 
@@ -84,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory di log è *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. Se il computer deve comunicare tramite un server proxy, per impostare la variabile di ambiente del server proxy, eseguire il comando seguente:
 
@@ -117,7 +107,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Passare alla cartella o alla condivisione in cui è stato copiato lo script ed eseguirlo sul server eseguendo lo script `./OnboardingScript.ps1`.
 
-Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. La directory di log è *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Installare e convalidare l'agente in Linux
 

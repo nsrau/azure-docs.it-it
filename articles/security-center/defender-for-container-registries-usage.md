@@ -1,18 +1,18 @@
 ---
 title: Come usare Azure Defender per registri contenitori
-description: Informazioni sull'uso di Azure Defender per registri contenitori per l'analisi delle immagini nei registri
+description: Informazioni sull'uso di Azure Defender per i registri di contenitori per analizzare le immagini Linux nei registri ospitati da Linux
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342077"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370543"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usare Azure Defender per registri contenitori per analizzare le vulnerabilità delle immagini
 
@@ -28,7 +28,8 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|**Azure Defender per i registri contenitori** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
-|Registri e immagini supportati:|![Sì ](./media/icons/yes-icon.png) registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.<br>![Nessun ](./media/icons/no-icon.png) Registro ACR ospitato da Windows.<br>![Nessun ](./media/icons/no-icon.png) registro ' privato '-il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Il Centro sicurezza non è attualmente in grado di connettersi o analizzare i registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure.<br>![Non ci sono ](./media/icons/no-icon.png) Immagini con minimalista, ad esempio immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.|
+|Registri e immagini supportati:|Immagini Linux nei registri ACR accessibili dalla rete Internet pubblica con accesso alla shell|
+|Registri e immagini non supportati:|Immagini di Windows<br>Registri ' privati '<br>Registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure<br>Immagini estremamente minimaliste, ad esempio immagini di [Scratch Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo|
 |Autorizzazioni e ruoli obbligatori:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](../container-registry/container-registry-roles.md)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
@@ -36,14 +37,12 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificare le vulnerabilità nelle immagini dei registri contenitori di Azure 
 
-1. Per abilitare le analisi delle vulnerabilità delle immagini archiviate nel Container Registry Azure basato su Azure Resource Manager:
+Per abilitare le analisi delle vulnerabilità delle immagini archiviate nel Container Registry Azure basato su Azure Resource Manager:
 
-    1. Abilitare **Azure Defender per i registri contenitori** per la sottoscrizione.
+1. Abilitare **Azure Defender per i registri contenitori** per la sottoscrizione. Il Centro sicurezza è ora pronto per l'analisi delle immagini nei registri.
 
-        Il Centro sicurezza è ora pronto per l'analisi delle immagini nei registri.
-
-        >[!NOTE]
-        > Questa funzionalità prevede un addebito per ogni immagine.
+    >[!NOTE]
+    > Questa funzionalità prevede un addebito per ogni immagine.
 
 1. Le analisi delle immagini vengono attivate a ogni push o importazione e se l'immagine è stata ritirata negli ultimi 30 giorni. 
 

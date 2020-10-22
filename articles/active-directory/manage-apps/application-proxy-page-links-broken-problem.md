@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1922ea9afd69366e534049f5a7a350cf39e52dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760202"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371580"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>I collegamenti nella pagina non funzionano per un'applicazione proxy di applicazione
 
@@ -37,7 +37,7 @@ Dopo aver pubblicato un'app proxy di applicazione, gli unici collegamenti che pe
     Se si modifica l'URL interno, ma non si vuole modificare la pagina di destinazione per gli utenti, modificare l'URL di pagina iniziale nell'URL interno precedentemente pubblicato. A tale scopo, passare a "Azure Active Directory"- &gt; registrazioni per l'app- &gt; selezionare la personalizzazione dell'applicazione &gt; . Nella sezione personalizzazione viene visualizzato il campo "Home page URL", che può essere modificato in modo da essere la pagina di destinazione desiderata. Se si sta ancora usando l'esperienza legacy Registrazioni app la scheda Proprietà Visualizza i dettagli dell'URL della Home page. 
     
     > [!IMPORTANT]
-    > Per apportare le modifiche sopra riportate, è necessario disporre dei diritti per modificare gli oggetti applicazione in Azure AD. L'utente deve essere assegnato al ruolo di [amministratore dell'applicazione](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) , che concede i diritti modificaion dell'applicazione in Azure ad all'utente.
+    > Per apportare le modifiche sopra riportate, è necessario disporre dei diritti per modificare gli oggetti applicazione in Azure AD. L'utente deve essere assegnato al ruolo di [amministratore dell'applicazione](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) , che concede i diritti modificaion dell'applicazione in Azure ad all'utente.
     >
 
 2.  Se le applicazioni usano nomi di dominio completi (FQDN), usare [domini personalizzati](application-proxy-configure-custom-domain.md) per pubblicare le applicazioni. Questa funzionalità permette l'uso dello stesso URL internamente ed esternamente.

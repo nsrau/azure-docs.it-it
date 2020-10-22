@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986551"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127132"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Esercitazione: Creare ed esaminare il modello di app per il monitoraggio dei contatori intelligenti 
 
@@ -108,6 +108,6 @@ Se si decide di non continuare a usare questa applicazione, seguire questa proce
 
 Per informazioni sull'architettura dell'app per contatori intelligenti, vedere 
 > [!div class="nextstepaction"]
-> [l'articolo sui concetti](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [l'articolo sui concetti](./concept-iot-central-smart-meter-app.md)
 * Creare modelli di applicazione per contatori intelligenti gratuitamente: [app per contatori intelligenti](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../index.yml)

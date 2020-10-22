@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969915"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371937"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
 I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai proprietari del gruppo. I proprietari del gruppo possono essere utenti o entità servizio e sono in grado di gestire il gruppo, inclusa l'appartenenza. Solo i proprietari del gruppo o gli amministratori di gestione dei gruppi esistenti possono assegnare i proprietari del gruppo. Non è necessario che il proprietario del gruppo sia un membro del gruppo.
@@ -63,10 +63,10 @@ Rimuovere un proprietario da un gruppo con Azure AD.
 ## <a name="next-steps"></a>Passaggi successivi
 - [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
-- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md)
+- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Usare i gruppi per assegnare l'accesso a un'app SaaS integrata](../users-groups-roles/groups-saasapps.md)
+- [Usare i gruppi per assegnare l'accesso a un'app SaaS integrata](../enterprise-users/groups-saasapps.md)
 
 - [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../enterprise-users/groups-settings-v2-cmdlets.md)

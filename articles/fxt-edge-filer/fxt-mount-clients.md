@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231353"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340513"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Esercitazione: Montare il cluster
 
@@ -20,6 +20,7 @@ Questa esercitazione descrive come montare client NFS nel cluster Azure FXT Edge
 Questa esercitazione descrive quanto segue:
 
 > [!div class="checklist"]
+>
 > * Strategie per il bilanciamento del carico dei client nell'intervallo di indirizzi IP esposti ai client
 > * Come costruire un percorso di montaggio da un indirizzo IP esposto ai client e una giunzione dello spazio dei nomi
 > * Argomenti da usare in un comando di montaggio
@@ -108,6 +109,6 @@ Per garantire un montaggio senza problemi del client, passare le impostazioni e 
 
 Dopo aver montato i client, è possibile testare il flusso di lavoro e iniziare a usare il cluster.
 
-Se è necessario spostare dati in un nuovo archiviatore di base sul cloud, è possibile sfruttare la struttura della cache usando l'inserimento di dati in parallelo. Alcune strategie vengono descritte in [Spostamento di dati in un cluster vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). Avere vFXT per Azure è un prodotto basato sul cloud che usa una tecnologia di memorizzazione nella cache molto simile ad Azure FXT Edge Filer.
+Se è necessario spostare dati in un nuovo archiviatore di base sul cloud, è possibile sfruttare la struttura della cache usando l'inserimento di dati in parallelo. Alcune strategie vengono descritte in [Spostamento di dati in un cluster vFXT](../avere-vfxt/avere-vfxt-data-ingest.md). Avere vFXT per Azure è un prodotto basato sul cloud che usa una tecnologia di memorizzazione nella cache molto simile ad Azure FXT Edge Filer.
 
 Per informazioni sulla risoluzione dei problemi hardware, vedere [Monitorare lo stato dell'hardware di Azure FXT Edge Filer](fxt-monitor.md).
