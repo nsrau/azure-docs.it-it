@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398445"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367874"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Baseline della sicurezza di Azure per i set di scalabilità di macchine virtuali
 
 La linea di base di sicurezza di Azure per i set di scalabilità di macchine virtuali contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
@@ -32,13 +32,13 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 In alternativa, se si dispone di un caso d'uso specifico per un firewall centralizzato, è possibile usare il firewall di Azure anche per soddisfare tali requisiti.
 
-* [Rete per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
+* [Rete per i set di scalabilità di macchine virtuali di Azure](./virtual-machine-scale-sets-networking.md)
 
-* [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
-* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Come distribuire e configurare il firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Come distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -48,9 +48,9 @@ In alternativa, se si dispone di un caso d'uso specifico per un firewall central
 
 **Indicazioni**: usare il Centro sicurezza di Azure per identificare e seguire le raccomandazioni sulla protezione della rete per proteggere le risorse della macchina virtuale (VM) di Azure in Azure. Abilitare i log di flusso NSG e inviare i log a un account di archiviazione per il controllo del traffico per le macchine virtuali per attività insolite.
 
-* [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -62,9 +62,9 @@ In alternativa, se si dispone di un caso d'uso specifico per un firewall central
 
 È anche possibile distribuire Web Application Firewall (WAF) di Azure davanti alle applicazioni Web critiche per un ulteriore controllo del traffico in ingresso. Abilitare l'impostazione di diagnostica per WAF e inserire i log in un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
 
-* [Rete per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
+* [Rete per i set di scalabilità di macchine virtuali di Azure](./virtual-machine-scale-sets-networking.md)
 
-* [Creare un gateway applicazione con un web application firewall tramite il portale di Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal)
+* [Creare un gateway applicazione con un web application firewall tramite il portale di Azure](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -76,15 +76,15 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 È possibile usare l'accesso just-in-time alla rete del Centro sicurezza di Azure per limitare l'esposizione delle macchine virtuali Windows agli indirizzi IP approvati per un periodo di tempo limitato. Usare inoltre la protezione avanzata della rete adattiva del Centro sicurezza di Azure per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
-* [Come configurare la protezione DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Come distribuire il firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
-* [Informazioni sul centro sicurezza di Azure Adaptive Network hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+* [Informazioni sul centro sicurezza di Azure Adaptive Network hardening](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Informazioni sul controllo di accesso di rete just-in-Time del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Informazioni sul controllo di accesso di rete just-in-Time del Centro sicurezza di Azure](../security-center/security-center-just-in-time.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -94,9 +94,9 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: è possibile registrare i log dei flussi di NSG in un account di archiviazione per generare record di flusso per le macchine virtuali di Azure. Quando si analizza un'attività anomala, è possibile abilitare Network Watcher acquisizione pacchetti in modo che il traffico di rete possa essere esaminato per attività insolite e impreviste.
 
-* [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Come abilitare Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Come abilitare Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -106,11 +106,11 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: combinando le acquisizioni di pacchetti fornite da Network Watcher e uno strumento per gli ID open source, è possibile eseguire il rilevamento delle intrusioni di rete per un'ampia gamma di minacce. Inoltre, è possibile distribuire il firewall di Azure nei segmenti della rete virtuale in base alle esigenze, con l'Intelligence per le minacce abilitata e configurata per "avviso e negazione" per il traffico di rete dannoso.
 
-* [Esegui il rilevamento delle intrusioni di rete con Network Watcher e strumenti open source](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+* [Esegui il rilevamento delle intrusioni di rete con Network Watcher e strumenti open source](../network-watcher/network-watcher-intrusion-detection-open-source-tools.md)
 
-* [Come distribuire il firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Come configurare gli avvisi con il firewall di Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Come configurare gli avvisi con il firewall di Azure](../firewall/threat-intel.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -120,13 +120,13 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: se si usa il set di scalabilità di macchine virtuali (VMSS) per ospitare applicazioni Web, è possibile distribuire applicazione Azure gateway per le applicazioni Web con HTTPS/SSL abilitato per i certificati attendibili. Con applicazione Azure gateway, è possibile indirizzare il traffico web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end come VMSS e così via.
 
-* [Come distribuire il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+* [Come distribuire il gateway applicazione](../application-gateway/quick-create-portal.md)
 
-* [Come configurare il gateway applicazione per l'uso di HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+* [Come configurare il gateway applicazione per l'uso di HTTPS](../application-gateway/create-ssl-portal.md)
 
-* [Creare un set di scalabilità che fa riferimento a un gateway applicazione](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#create-a-scale-set-that-references-an-application-gateway)
+* [Creare un set di scalabilità che fa riferimento a un gateway applicazione](./virtual-machine-scale-sets-networking.md#create-a-scale-set-that-references-an-application-gateway)
 
-* [Informazioni sul bilanciamento del carico di livello 7 con i gateway applicazione Web di Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+* [Informazioni sul bilanciamento del carico di livello 7 con i gateway applicazione Web di Azure](../application-gateway/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -136,7 +136,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: usare i tag del servizio rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure configurato per le macchine virtuali di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Se si specifica il nome del tag di servizio (ad esempio ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
-* [Comprendere e usare i tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Comprendere e usare i tag di servizio](../virtual-network/service-tags-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -146,13 +146,13 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per i set di scalabilità di macchine virtuali di Azure con criteri di Azure. È anche possibile usare i progetti di Azure per semplificare le distribuzioni di macchine virtuali di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, assegnazioni di ruolo e assegnazioni di criteri di Azure, in una singola definizione di progetto. È possibile applicare il progetto alle sottoscrizioni e abilitare la gestione delle risorse tramite il controllo delle versioni del progetto.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni sui modelli di set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start)
+* [Informazioni sui modelli di set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-mvss-start.md)
 
-* [Esempi di criteri di Azure per la rete](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
-* [Come creare un progetto di Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -162,11 +162,11 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Linee guida**: è possibile usare i tag per i gruppi di sicurezza di rete (NSG) e altre risorse correlate alla sicurezza di rete e al flusso del traffico configurati per le macchine virtuali Windows. Per le singole regole NSG, usare il campo "Description" per specificare le esigenze aziendali e/o la durata per le regole che consentono il traffico da e verso una rete.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
-* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -178,13 +178,13 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le risorse di rete correlate al set di scalabilità di macchine virtuali.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -192,15 +192,15 @@ Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
 **Linee guida**: Microsoft gestisce le origini temporali per le risorse di Azure, tuttavia, è possibile gestire le impostazioni di sincronizzazione dell'ora per le macchine virtuali.
 
-* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo Windows di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo Windows di Azure](../virtual-machines/windows/time-sync.md)
 
-* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
+* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo Linux di Azure](../virtual-machines/linux/time-sync.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -216,15 +216,15 @@ Usare il Centro sicurezza di Azure per fornire il monitoraggio del registro even
 
 Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza dalla macchina virtuale, è possibile archiviarli in un'area di lavoro di Log Analytics nel livello di raccolta dati desiderato configurato nel centro sicurezza di Azure.
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 * [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
-* [Raccolta dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Come monitorare macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Come monitorare macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -238,13 +238,13 @@ Abilitare la raccolta dei dati di diagnostica del sistema operativo guest distri
 
 Per una visibilità avanzata delle applicazioni e dei servizi supportati dal set di scalabilità di macchine virtuali di Azure, è possibile abilitare sia Monitoraggio di Azure per le macchine virtuali che Application Insights. Con Application Insights è possibile monitorare l'applicazione e acquisire i dati di telemetria, ad esempio richieste HTTP, eccezioni e così via, in modo da poter correlare i problemi tra le macchine virtuali e l'applicazione.
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Come monitorare macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Come monitorare macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
-* [Panoramica di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Panoramica di Application Insights](../azure-monitor/app/app-insights-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -256,9 +256,9 @@ Per una visibilità avanzata delle applicazioni e dei servizi supportati dal set
 
 Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza dalla macchina virtuale, è possibile archiviarli in un'area di lavoro di Log Analytics nel livello di raccolta dati desiderato configurato nel centro sicurezza di Azure.
 
-* [Raccolta dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Come monitorare macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Come monitorare macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -268,9 +268,9 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza 
 
 **Linee guida**: assicurarsi che gli account di archiviazione o le aree di lavoro di log Analytics usati per archiviare i log delle macchine virtuali dispongano del periodo di memorizzazione dei log impostato in base alle normative di conformità dell'organizzazione.
 
-* [Come monitorare macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Come monitorare macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
-* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -282,11 +282,11 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza 
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti per monitorare e controllare i log.
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -298,11 +298,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti per impostare avvisi per attività anomale.
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Come gestire gli avvisi nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -312,13 +312,13 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: è possibile usare Microsoft anti-malware per servizi cloud e macchine virtuali di Azure e configurare le macchine virtuali Windows per registrare gli eventi in un account di archiviazione di Azure. Configurare un'area di lavoro di Log Analytics per inserire gli eventi dagli account di archiviazione e creare gli avvisi laddove appropriato. Seguire le raccomandazioni nel centro sicurezza di Azure: "calcolo di &amp; app". Per le macchine virtuali Linux, sarà necessario uno strumento di terze parti per il rilevamento delle vulnerabilità anti-malware.
 
-* [Come configurare Microsoft anti-malware per servizi cloud e macchine virtuali](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Come configurare Microsoft anti-malware per servizi cloud e macchine virtuali](../security/fundamentals/antimalware.md)
 
-* [Come abilitare il monitoraggio a livello di Guest per le macchine virtuali](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+* [Come abilitare il monitoraggio a livello di Guest per le macchine virtuali](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
-* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/quick-onboard-linux-computer)
+* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../security-center/quickstart-onboard-machines.md)
 
-* [Il collegamento seguente fornisce le linee guida di sicurezza consigliate da Microsoft, che possono fungere da elenco di criteri per il software di vulnerabilità selezionato](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
+* [Il collegamento seguente fornisce le linee guida di sicurezza consigliate da Microsoft, che possono fungere da elenco di criteri per il software di vulnerabilità selezionato](../virtual-machines/linux/security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -338,11 +338,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 Per le macchine virtuali Linux, è possibile configurare manualmente la registrazione della console in base ai singoli nodi e usare syslog per archiviare i dati. Usare anche l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati syslog dalle macchine virtuali di Azure.
 
-* [Raccolta dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
-* [Origini dati Syslog in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
+* [Origini dati Syslog in Monitoraggio di Azure](../azure-monitor/platform/data-sources-syslog.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -350,15 +350,15 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
 **Indicazioni**: mentre Azure Active Directory è il metodo consigliato per amministrare l'accesso utente, le macchine virtuali di Azure possono avere account locali. Sia gli account locali che quelli di dominio devono essere rivisti e gestiti, in genere con un footprint minimo. Usare inoltre Privileged Identity Management di Azure per gli account amministrativi usati per accedere alle risorse delle macchine virtuali.
 
-* [Le informazioni per gli account locali sono disponibili all'indirizzo](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+* [Le informazioni per gli account locali sono disponibili all'indirizzo](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
-* [Informazioni su Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Informazioni su Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -376,9 +376,9 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: creare procedure operative standard per l'uso di account amministrativi dedicati che possono accedere alle macchine virtuali. Usare la gestione delle identità e dell'accesso del Centro sicurezza di Azure per monitorare il numero di account amministrativi. Gli account amministratore usati per accedere alle risorse della macchina virtuale di Azure possono anche essere gestiti da Azure Privileged Identity Management (PIM). Azure Privileged Identity Management offre diverse opzioni, ad esempio l'elevazione JIT, che richiedono Multi-Factor Authentication prima di assumere un ruolo e le opzioni di delega, in modo che le autorizzazioni siano disponibili solo per i frame temporali specifici e richiedono un responsabile approvazione.
 
-* [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-* [Informazioni su Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Informazioni su Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -388,9 +388,9 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: laddove possibile, usare SSO con Azure Active Directory anziché configurare singole credenziali autonome per servizio. Usare le raccomandazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure.
 
-* [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -400,9 +400,9 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: abilitare Azure AD MFA e seguire le raccomandazioni sulla gestione delle identità e degli accessi nel Centro sicurezza di Azure.
 
-* [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -412,9 +412,9 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: usare workstation con accesso con privilegi insieme a Multi-Factor Authentication (MFA) configurato per l'accesso e la configurazione delle risorse di Azure.
 
-* [Informazioni sulle workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -424,13 +424,13 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: usare Azure ad Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente. Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i report sul comportamento utente rischioso. Facoltativamente, il cliente può inserire gli avvisi di rilevamento dei rischi del Centro sicurezza di Azure in monitoraggio di Azure e configurare avvisi/notifiche personalizzati usando i gruppi di azioni.
 
-* [Come distribuire Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Informazioni sui rilevamenti del rischio del Centro sicurezza di Azure (attività sospetta)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Informazioni sui rilevamenti del rischio del Centro sicurezza di Azure (attività sospetta)](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](../azure-monitor/platform/action-groups.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -440,7 +440,7 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: usare Azure Active Directory i criteri di accesso condizionale e le località denominate per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o di paesi/aree geografiche.
 
-* [Come configurare le località denominate in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Come configurare le località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -450,9 +450,9 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente. È possibile usare le identità gestite per eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Key Vault, senza credenziali nel codice. Il codice in esecuzione in una macchina virtuale può usare l'identità gestita per richiedere i token di accesso per i servizi che supportano l'autenticazione Azure AD.
 
-* [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Come creare e configurare un'istanza di Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
-* [Panoramica delle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [Panoramica delle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -462,7 +462,7 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: Azure AD mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure Active Directory le verifiche di accesso alle identità per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso dell'utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo. Quando si usano macchine virtuali di Azure, è necessario esaminare i gruppi di sicurezza e gli utenti locali per assicurarsi che non siano presenti account imprevisti che potrebbero compromettere il sistema.
 
-* [Come usare le verifiche di accesso alle identità di Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -472,13 +472,13 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: configurare le impostazioni di diagnostica per Azure Active Directory per inviare i log di controllo e i log di accesso a un'area di lavoro di log Analytics. Usare inoltre monitoraggio di Azure per esaminare i log ed eseguire query sui dati di log dalle macchine virtuali di Azure.
 
-* [Informazioni sull'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-* [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
-* [Come monitorare macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Come monitorare macchine virtuali in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -488,11 +488,11 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Linee guida**: usare le funzionalità di protezione delle identità e dei rischi di Azure Active Directory per configurare risposte automatiche per le azioni sospette rilevate correlate alle risorse dell'account di archiviazione. È necessario abilitare le risposte automatiche tramite Sentinel di Azure per implementare le risposte di sicurezza dell'organizzazione.
 
-* [Come visualizzare gli accessi a rischio per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -502,7 +502,7 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: in scenari di supporto in cui Microsoft deve accedere ai dati dei clienti (ad esempio durante una richiesta di supporto), usare Customer Lockbox per le macchine virtuali di Azure per rivedere e approvare o rifiutare le richieste di accesso ai dati del cliente.
 
-* [Informazioni Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Informazioni Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -510,13 +510,13 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
 **Indicazioni**: usare i tag per semplificare il monitoraggio delle macchine virtuali di Azure che archiviano o elaborano informazioni riservate.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -526,19 +526,19 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette in un gruppo di sicurezza di rete (NSG) o da un firewall di Azure. Per le macchine virtuali che archiviano o elaborano dati sensibili, implementare i criteri e le procedure per disabilitarli quando non sono in uso.
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
-* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Come distribuire il firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Come configurare avvisi o avvisi e negare con il firewall di Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Come configurare avvisi o avvisi e negare con il firewall di Azure](../firewall/threat-intel.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -550,7 +550,7 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili alla protezione contro la perdita di dati e l'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-* [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -562,7 +562,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati durante il viaggio tra i servizi cloud e i clienti.
 
-* [Crittografia dei dati in transito nelle VM](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#in-transit-encryption-in-vms)
+* [Crittografia dei dati in transito nelle VM](../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -580,9 +580,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: uso del controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti della macchina virtuale (VM) necessari per eseguire i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel portale di Azure, usando l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
-* [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
-* [Ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
+* [Ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -600,7 +600,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: i dischi virtuali in macchine virtuali (VM) vengono crittografati a riposo usando la crittografia lato server o la crittografia dischi di Azure (ADE). Crittografia dischi di Azure sfrutta la funzionalità DM-Crypt di Linux per crittografare i dischi gestiti con chiavi gestite dal cliente all'interno della VM guest. La crittografia lato server con chiavi gestite dal cliente migliora la funzionalità Crittografia dischi di Azure poiché consente di usare qualsiasi tipo e immagine di sistema operativo per le macchine virtuali crittografando i dati nel servizio di archiviazione.
 
-* [Crittografia dischi di Azure per i set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
+* [Crittografia dischi di Azure per i set di scalabilità di macchine virtuali](./disk-encryption-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -610,9 +610,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate ai set di scalabilità di macchine virtuali e alle risorse correlate.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Registrazione di Analisi archiviazione di Azure](../storage/common/storage-analytics-logging.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -620,13 +620,13 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
 **Indicazioni**: seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle macchine virtuali di Azure. Usare la sicurezza di Azure consigliata o una soluzione di terze parti per l'esecuzione di valutazioni delle vulnerabilità per le macchine virtuali.
 
-* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -636,7 +636,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: abilitare gli aggiornamenti automatici del sistema operativo per le versioni del sistema operativo supportate o per le immagini personalizzate archiviate in una raccolta di immagini condivise.
 
-* [Aggiornamenti automatici del sistema operativo per i set di scalabilità di macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+* [Aggiornamenti automatici del sistema operativo per i set di scalabilità di macchine virtuali in Azure](./virtual-machine-scale-sets-automatic-upgrade.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -646,7 +646,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: i set di scalabilità di macchine virtuali di Azure (VMSS) possono usare gli aggiornamenti automatici delle immagini del sistema operativo. È possibile usare l'estensione DSC (Desired state Configuration) di Azure per le macchine virtuali sottostanti nella VMSS. DSC viene usato per configurare le macchine virtuali in linea, in modo che eseguano il software desiderato.
 
-* [Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-dsc)
+* [Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure](./virtual-machine-scale-sets-dsc.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -664,7 +664,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: usare le classificazioni di rischio predefinite (Punteggio sicuro) fornite dal centro sicurezza di Azure.
 
-* [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](../security-center/secure-score-security-controls.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -672,17 +672,17 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (incluse le macchine virtuali) all'interno delle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (di lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
-* [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -692,7 +692,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: applicare i tag alle risorse di Azure fornendo metadati per organizzarli in modo logico in base a una tassonomia.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -702,11 +702,11 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia dei set di scalabilità di macchine virtuali e delle risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -728,9 +728,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 Usare anche Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Questo può essere utile in ambienti con sicurezza elevata, ad esempio quelli con account di archiviazione.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -742,9 +742,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 I controlli delle applicazioni adattivi non sono attualmente disponibili per i set di scalabilità di macchine virtuali.
 
-* [Introduzione ad Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Introduzione ad Automazione di Azure](../automation/automation-intro.md)
 
-* [Come abilitare l'inventario delle macchine virtuali di Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+* [Come abilitare l'inventario delle macchine virtuali di Azure](../automation/automation-tutorial-installed-software.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -754,11 +754,11 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Linee guida**: automazione di Azure offre il controllo completo durante la distribuzione, le operazioni e la rimozione delle autorizzazioni di carichi di lavoro e risorse. È possibile utilizzare Rilevamento modifiche per identificare tutto il software installato nelle macchine virtuali. È possibile implementare un processo personalizzato o usare la configurazione dello stato di automazione di Azure per la rimozione di software non autorizzato.
 
-* [Introduzione ad Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Introduzione ad Automazione di Azure](../automation/automation-intro.md)
 
-* [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](https://docs.microsoft.com/azure/automation/change-tracking)
+* [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/change-tracking.md)
 
-* [Panoramica della configurazione dello stato di automazione di Azure](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+* [Panoramica della configurazione dello stato di automazione di Azure](../automation/automation-dsc-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -778,9 +778,9 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -790,7 +790,7 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Linee guida**: i controlli delle applicazioni adattivi non sono attualmente disponibili per i set di scalabilità di macchine virtuali. Implementare una soluzione di terze parti se non soddisfa i requisiti dell'organizzazione.
 
-* [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -800,7 +800,7 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure.
 
-* [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -810,7 +810,7 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Linee guida**: a seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure.
 
-* [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -820,19 +820,19 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Linee guida**: le applicazioni ad alto rischio distribuite nell'ambiente Azure possono essere isolate usando rete virtuale, subnet, sottoscrizioni, gruppi di gestione e così via e sufficientemente protette con un firewall di Azure, un Web Application Firewall (WAF) o un gruppo di sicurezza di rete (NSG).
 
-* [Reti virtuali e macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Reti virtuali e macchine virtuali in Azure](../virtual-machines/network-overview.md)
 
-* [Panoramica del Firewall di Azure](https://docs.microsoft.com/azure/firewall/overview)
+* [Panoramica del Firewall di Azure](../firewall/overview.md)
 
-* [Panoramica di Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Panoramica di Web Application Firewall](../web-application-firewall/overview.md)
 
-* [Panoramica della sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Panoramica della sicurezza di rete](../virtual-network/network-security-groups-overview.md)
 
-* [Panoramica di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Panoramica di rete virtuale di Azure](../virtual-network/virtual-networks-overview.md)
 
-* [Organizzare le risorse con i gruppi di gestione di Azure ](https://docs.microsoft.com/azure/governance/management-groups/overview)
+* [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/overview.md)
 
-* [Guida alle decisioni relative alle sottoscrizioni](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+* [Guida alle decisioni relative alle sottoscrizioni](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -840,15 +840,15 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
 **Linee guida**: usare criteri di Azure o il Centro sicurezza di Azure per gestire le configurazioni di sicurezza per tutte le risorse di Azure. Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per assicurarsi che le configurazioni soddisfino o superino i requisiti di sicurezza dell'azienda.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni su come scaricare il modello di macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [Informazioni su come scaricare il modello di macchina virtuale](../virtual-machines/windows/download-template.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -858,9 +858,9 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Guida**: usare la raccomandazione del Centro sicurezza di Azure [correggere le vulnerabilità nelle configurazioni di sicurezza nelle macchine virtuali] per mantenere le configurazioni di sicurezza in tutte le risorse di calcolo.
 
-* [Come monitorare le raccomandazioni del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Come monitorare le raccomandazioni del Centro sicurezza di Azure](../security-center/security-center-recommendations.md)
 
-* [Come correggere le raccomandazioni del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Come correggere le raccomandazioni del Centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -870,11 +870,11 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Linee guida**: usare modelli di Azure Resource Manager e criteri di Azure per configurare in modo sicuro le risorse di Azure associate ai set di scalabilità di macchine virtuali. Azure Resource Manager modelli sono file basati su JSON usati per distribuire una macchina virtuale insieme a risorse di Azure e il modello personalizzato deve essere mantenuto. Microsoft esegue la manutenzione sui modelli di base. Usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
 
-* [Informazioni sulla creazione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Informazioni sulla creazione di modelli di Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -892,11 +892,11 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati con la configurazione dello stato desiderato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza.
 
-* [Informazioni su come scaricare il modello di macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [Informazioni su come scaricare il modello di macchina virtuale](../virtual-machines/windows/download-template.md)
 
-* [Informazioni sulla creazione di modelli ARM](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Informazioni sulla creazione di modelli ARM](../virtual-machines/windows/ps-template.md)
 
-* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -906,9 +906,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, modelli di Azure Resource Manager, script di configurazione dello stato desiderato e così via.  Per accedere alle risorse gestite in Azure DevOps, ad esempio il codice, le compilazioni e il rilevamento del lavoro, è necessario disporre delle autorizzazioni per tali risorse specifiche. La maggior parte delle autorizzazioni viene concessa tramite i gruppi di sicurezza incorporati, come descritto in autorizzazioni e accesso. È possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrato con TFS.
 
-* [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -918,9 +918,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: se si usano immagini personalizzate, ad esempio un disco rigido virtuale, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
-* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -930,7 +930,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: sfruttare i criteri di Azure per inviare avvisi, controllare e applicare configurazioni di sistema per le macchine virtuali. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -940,7 +940,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Indicazioni**: la configurazione dello stato di automazione di Azure è un servizio di gestione della configurazione per i nodi DSC (Desired state Configuration) in qualsiasi data center cloud o locale. Consente la scalabilità tra migliaia di computer in modo rapido e facile da una posizione centrale e sicura. È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato.
 
-* [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](../automation/automation-dsc-onboarding.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -950,9 +950,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Indicazioni**: sfruttare il Centro sicurezza di Azure per eseguire analisi di base per le macchine virtuali di Azure. Altri metodi per la configurazione automatica includono l'uso della configurazione dello stato di automazione di Azure.
 
-* [Come correggere le raccomandazioni nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Come correggere le raccomandazioni nel centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
-* [Introduzione a Configurazione stato di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-dsc-getting-started)
+* [Introduzione a Configurazione stato di Automazione di Azure](../automation/automation-dsc-getting-started.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -962,7 +962,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Indicazioni**: la configurazione dello stato di automazione di Azure è un servizio di gestione della configurazione per i nodi DSC (Desired state Configuration) in qualsiasi data center cloud o locale. Consente la scalabilità tra migliaia di computer in modo rapido e facile da una posizione centrale e sicura. È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato.
 
-* [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](../automation/automation-dsc-onboarding.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -972,9 +972,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
-* [Come eseguire l'integrazione con le identità gestite di Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Come eseguire l'integrazione con le identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Come creare una Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 * [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 
@@ -988,7 +988,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure ad. Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
 
-* [Come configurare le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Come configurare le identità gestite](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1006,13 +1006,13 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usare il software antimalware gestito centralmente
 
 **Linee guida**: usare Microsoft antimalware per le macchine virtuali Windows di Azure per monitorare e difendere continuamente le risorse. Sarà necessario uno strumento di terze parti per la protezione antimalware nella macchina virtuale Linux di Azure.
 
-* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../security/fundamentals/antimalware.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1032,11 +1032,11 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 Sarà necessario uno strumento di terze parti per la protezione antimalware nella macchina virtuale Linux di Azure.
 
-* [Come distribuire Microsoft antimalware per servizi cloud e macchine virtuali di Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Come distribuire Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/fundamentals/antimalware.md)
 
-* [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+* [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
+* [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../virtual-machines/linux/security-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1044,15 +1044,15 @@ Sarà necessario uno strumento di terze parti per la protezione antimalware nell
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire il backup automatico regolare
 
 **Linee guida**: creare uno snapshot dell'istanza del set di scalabilità di macchine virtuali di Azure o del disco gestito collegato all'istanza tramite PowerShell o le API REST. È anche possibile usare automazione di Azure per eseguire gli script di backup a intervalli regolari.
 
-* [Come creare uno snapshot di un'istanza del set di scalabilità di macchine virtuali e di un disco gestito](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [Come creare uno snapshot di un'istanza del set di scalabilità di macchine virtuali e di un disco gestito](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
-* [Introduzione ad automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Introduzione ad automazione di Azure](../automation/automation-intro.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1064,13 +1064,13 @@ Sarà necessario uno strumento di terze parti per la protezione antimalware nell
 
 Abilitare backup di Azure e le macchine virtuali di Azure di destinazione (VM), nonché i periodi di conservazione e frequenza desiderati. Questo include il backup completo dello stato del sistema. Se si usa crittografia dischi di Azure, il backup delle macchine virtuali di Azure gestisce automaticamente il backup delle chiavi gestite dal cliente.
 
-* [Backup in macchine virtuali di Azure che usano la crittografia](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)
+* [Backup in macchine virtuali di Azure che usano la crittografia](../backup/backup-azure-vms-encryption.md)
 
-* [Panoramica del backup delle macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+* [Panoramica del backup delle macchine virtuali di Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Come creare uno snapshot di un'istanza del set di scalabilità di macchine virtuali e di un disco gestito](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [Come creare uno snapshot di un'istanza del set di scalabilità di macchine virtuali e di un disco gestito](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
-* [Come eseguire il backup di chiavi di Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1082,13 +1082,13 @@ Abilitare backup di Azure e le macchine virtuali di Azure di destinazione (VM), 
 
 Se si usa crittografia dischi di Azure, è possibile ripristinare i set di scalabilità di macchine virtuali con le chiavi di crittografia del disco. Quando si usa la crittografia del disco, è possibile ripristinare la macchina virtuale di Azure con le chiavi di crittografia del disco.
 
-* [Backup in macchine virtuali di Azure che usano la crittografia](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)
+* [Backup in macchine virtuali di Azure che usano la crittografia](../backup/backup-azure-vms-encryption.md)
 
-* [Ripristinare un disco e creare una macchina virtuale ripristinata in Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk)
+* [Ripristinare un disco e creare una macchina virtuale ripristinata in Azure](../backup/tutorial-restore-disk.md)
 
-* [Come ripristinare le chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Come abilitare la crittografia del disco per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
+* [Come abilitare la crittografia del disco per i set di scalabilità di macchine virtuali di Azure](./disk-encryption-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1098,9 +1098,9 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare i set di scala
 
 **Linee guida**: abilitare l'eliminazione della protezione per il disco gestito usando i blocchi. Abilitare Soft-Delete ed eliminare la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-* [Bloccare le risorse per impedire modifiche impreviste](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)
+* [Bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/management/lock-resources.md)
 
-* [Panoramica della protezione Azure Key Vault eliminazione e ripulitura soft](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+* [Panoramica della protezione Azure Key Vault eliminazione e ripulitura soft](../key-vault/general/soft-delete-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1108,7 +1108,7 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare i set di scala
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -1130,9 +1130,9 @@ Se si usa crittografia dischi di Azure, è possibile ripristinare i set di scala
 
 Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione, tramite i tag e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
-* [Avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-* [Usare tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1152,7 +1152,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
-* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1162,9 +1162,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per contribuire a individuare i rischi per le risorse di Azure. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
 
-* [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
-* [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1174,7 +1174,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Linee guida**: usare la funzionalità di automazione del flusso di lavoro nel centro sicurezza di Azure per attivare automaticamente le risposte tramite "app per la logica" negli avvisi di sicurezza e nei consigli per proteggere le risorse di Azure.
 
-* [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1182,7 +1182,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -1198,5 +1198,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

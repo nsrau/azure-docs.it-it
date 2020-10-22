@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964469"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366480"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor Authentication
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Per pianificare la strategia dei criteri di accesso condizionale, che determina quando sono necessari MFA e altri controlli, vedere [Criteri comuni di accesso condizionale](../conditional-access/concept-conditional-access-policy-common.md).
 
-È importante evitare di essere inavvertitamente bloccati fuori dal tenant di Azure AD. È possibile ridurre l'impatto di questa accidentale mancanza di accesso amministrativo [creando due o più account di accesso di emergenza nel tenant](../users-groups-roles/directory-emergency-access.md) ed escludendoli dai criteri di accesso condizionale.
+È importante evitare di essere inavvertitamente bloccati fuori dal tenant di Azure AD. È possibile ridurre l'impatto di questa accidentale mancanza di accesso amministrativo [creando due o più account di accesso di emergenza nel tenant](../roles/security-emergency-access.md) ed escludendoli dai criteri di accesso condizionale.
 
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
@@ -287,7 +287,7 @@ Se è già stata distribuita ed è in uso un'istanza di NPS, vedere [Integrare l
 
 Scegliere cosa accade quando gli utenti non registrati per MFA tentano di eseguire l'autenticazione. Usare l'impostazione del registro `REQUIRE_USER_MATCH` nel percorso del registro `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | valore | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Non impostato (equivalente a VERO) |
 

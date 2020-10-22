@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342145"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368087"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -85,7 +85,7 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se è necessari
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione da modificare.
 1. Selezionare **Rilevamento delle minacce**.
-1. Selezionare **Consenti a Windows Defender ATP di accedere ai dati personali**e selezionare **Salva**.
+1. Selezionare **Consenti a Microsoft Defender per l'endpoint di accedere ai dati**e selezionare **Salva**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender per il proprio Centro sicurezza di endpoint":::
 

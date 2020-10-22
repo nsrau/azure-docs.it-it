@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898544"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368129"
 ---
 # <a name="what-is-azure-scheduler"></a>Che cos'è l'Utilità di pianificazione di Azure?
 
@@ -25,7 +25,7 @@ ms.locfileid: "78898544"
 
 L'[Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) consente di creare [processi](../scheduler/scheduler-concepts-terms.md) eseguiti nel cloud descrivendo le azioni in modo dichiarativo. Quindi, il servizio pianifica ed esegue tali azioni automaticamente. È possibile, ad esempio, chiamare servizi quali endpoint HTTP o HTTPS all'interno e all'esterno di Azure, e inserire messaggi nelle code di Archiviazione di Azure e nelle code o negli argomenti del bus di servizio di Azure. È possibile eseguire i processi immediatamente o in un secondo momento. L’Utilità di pianificazione supporta con facilità [pianificazioni complesse e operazioni ricorrenti avanzate](../scheduler/scheduler-advanced-complexity.md). L'Utilità di pianificazione specifica quando eseguire i processi, mantiene una cronologia dei risultati dei processi che è possibile esaminare e pianifica quindi l'esecuzione dei carichi di lavoro in modo prevedibile e affidabile.
 
-Altre funzionalità di pianificazione di Azure utilizzano l'Utilità di pianificazione in background, come ad esempio [Processi Web di Azure](../app-service/webjobs-create.md), una funzionalità [app Web](https://azure.microsoft.com/services/app-service/web/) nel Servizio app di Azure. È possibile gestire la comunicazione per queste azioni usando l' [API REST dell'utilità di pianificazione](https://docs.microsoft.com/rest/api/scheduler/), che consente di gestire la comunicazione per queste azioni.
+Altre funzionalità di pianificazione di Azure utilizzano l'Utilità di pianificazione in background, come ad esempio [Processi Web di Azure](../app-service/webjobs-create.md), una funzionalità [app Web](https://azure.microsoft.com/services/app-service/web/) nel Servizio app di Azure. È possibile gestire la comunicazione per queste azioni usando l' [API REST dell'utilità di pianificazione](/rest/api/scheduler/), che consente di gestire la comunicazione per queste azioni.
 
 Ecco alcuni scenari in cui l'Utilità di pianificazione consente di:
 
@@ -37,7 +37,7 @@ Ecco alcuni scenari in cui l'Utilità di pianificazione consente di:
 
 Sebbene sia possibile usare l'Utilità di pianificazione per creare, gestire ed eseguire carichi di lavoro pianificati, l'utilità di pianificazione non ospita i carichi di lavoro né esegue il codice. Il servizio si limita a *richiamare* i servizi o il codice ospitato altrove, ad esempio in Azure, in locale o presso un altro provider. L'Utilità di pianificazione può richiamare tramite HTTP, HTTPS, una coda di archiviazione, una coda o un argomento del bus di servizio.
 
-Per creare, pianificare, gestire, aggiornare o eliminare processi e [raccolte](../scheduler/scheduler-concepts-terms.md)di processi, è possibile usare il codice, l' [API REST dell'utilità di pianificazione](https://docs.microsoft.com/rest/api/scheduler/)o i cmdlet di PowerShell per l'utilità di pianificazione di [Azure](scheduler-powershell-reference.md).
+Per creare, pianificare, gestire, aggiornare o eliminare processi e [raccolte](../scheduler/scheduler-concepts-terms.md)di processi, è possibile usare il codice, l' [API REST dell'utilità di pianificazione](/rest/api/scheduler/)o i cmdlet di PowerShell per l'utilità di pianificazione di [Azure](scheduler-powershell-reference.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

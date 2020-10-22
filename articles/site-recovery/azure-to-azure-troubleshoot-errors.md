@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397964"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368044"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Correggere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -202,7 +202,7 @@ Non è possibile stabilire una connessione per Microsoft 365 gli endpoint IP4 di
 #### <a name="fix-the-problem"></a>Risolvere il problema
 
 Azure Site Recovery l'accesso necessario agli intervalli IP Microsoft 365 per l'autenticazione.
-Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare la regola NSG basata su [tag di servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso ad AAD. Le regole NSG basate sull'indirizzo IP non sono più supportate.
+Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare la regola NSG basata su [tag di servizio Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) per consentire l'accesso ad AAD. Le regole NSG basate sull'indirizzo IP non sono più supportate.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: La configurazione di Site Recovery non è riuscita (151197)
 
@@ -475,7 +475,7 @@ Gli esempi seguenti sono righe da file GRUB in cui vengono visualizzati i nomi d
 
 Sostituire ogni nome di dispositivo con l'UUID corrispondente:
 
-1. Trovare l'UUID del dispositivo eseguendo il comando `blkid <device name>` . Ad esempio:
+1. Trovare l'UUID del dispositivo eseguendo il comando `blkid <device name>` . Esempio:
 
    ```shell
    blkid /dev/sda1

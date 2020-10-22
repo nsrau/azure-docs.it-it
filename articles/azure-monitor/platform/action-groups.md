@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104394"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367738"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -157,7 +157,7 @@ L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directo
 2. Abilitare i gruppi di azioni per l'uso dell'applicazione Azure AD.
 
     > [!NOTE]
-    > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+    > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../../active-directory/roles/permissions-reference.md#available-roles).
     
     - Modificare la chiamata a Connect-AzureAD dello script di PowerShell per usare l'ID tenant di Azure AD.
     - Modificare la variabile dello script di PowerShell $myAzureADApplicationObjectId per usare l'ID oggetto dell'applicazione Azure AD.
@@ -308,7 +308,7 @@ Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un dete
 4. Nel riquadro destro viene aperta una nuova finestra.
     1.  Seleziona origine: **tag servizio**
     1.  Tag del servizio di origine: **ActionGroup**
-    1.  Scegliere **Aggiungi**.
+    1.  Fare clic su **Aggiungi**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
 

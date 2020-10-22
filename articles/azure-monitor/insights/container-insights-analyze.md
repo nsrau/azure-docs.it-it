@@ -3,12 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994766"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368758"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -72,17 +72,17 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Healthy |100% |
 | |Avviso |90 - 99% |
 | |Critico |<90% |
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
 |**Pod di sistema**| | |
 | |Healthy |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
 | |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
 
 Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 
@@ -191,7 +191,7 @@ Le informazioni presentate quando si visualizza la scheda **nodi** sono descritt
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Nome | Nome dell'host. |
+| Name | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
@@ -234,7 +234,7 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Nome | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -271,7 +271,7 @@ Le informazioni visualizzate quando si visualizzano i contenitori sono descritte
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Nome | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -290,6 +290,10 @@ Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella 
 | ![Icona di stato Ultima esecuzione segnalata](./media/container-insights-analyze/containers-grey-icon.png) | Ultima esecuzione segnalata ma senza risposta da oltre 30 minuti|
 | ![Icona di stato Terminato](./media/container-insights-analyze/containers-terminated-icon.png) | Arresto completato o arresto non riuscito|
 | ![Icona di stato Non riuscito](./media/container-insights-analyze/containers-failed-icon.png) | Stato Non riuscito |
+
+## <a name="monitor-and-visualize-network-configurations"></a>Monitorare e visualizzare le configurazioni di rete
+Gestione criteri di rete di Azure include metriche Prometheus informative che consentono di monitorare e comprendere meglio le configurazioni di rete. Fornisce visualizzazioni predefinite in portale di Azure o Grafana Labs. Per informazioni dettagliate, vedere [monitorare e visualizzare le configurazioni di rete con NPM di Azure](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
 
 ## <a name="workbooks"></a>Workbooks
 

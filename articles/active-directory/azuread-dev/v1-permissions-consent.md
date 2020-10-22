@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117618"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366395"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -38,7 +38,7 @@ Azure AD definisce due tipi di autorizzazioni:
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 
-* Per le autorizzazioni delegate, le autorizzazioni valide dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* Per le autorizzazioni delegate, le autorizzazioni valide dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../roles/permissions-reference.md).
     Si supponga, ad esempio, che all'app sia stata concessa l'autorizzazione delegata `User.ReadWrite.All` in Microsoft Graph. Questa autorizzazione concede nominalmente all'app l'autorizzazione per leggere e aggiornare il profilo di ogni utente in un'organizzazione. Se l'utente connesso è un amministratore globale, l'app sarà in grado di aggiornare il profilo di tutti gli utenti dell'organizzazione. Se tuttavia l'utente connesso non ha un ruolo di amministratore, l'app sarà in grado di aggiornare solo il profilo dell'utente connesso. Non sarà in grado di aggiornare i profili di altri utenti nell'organizzazione, perché l'utente per conto del quale è autorizzata ad agire non dispone di tali privilegi.
 * Per le autorizzazioni dell'applicazione, le autorizzazioni valide dell'app corrispondono al livello completo di privilegi impliciti nell'autorizzazione. Un'app che ha l'autorizzazione dell'applicazione `User.ReadWrite.All` può ad esempio aggiornare il profilo di tutti gli utenti dell'organizzazione.
 
@@ -60,7 +60,7 @@ Le autorizzazioni in Azure AD hanno diverse proprietà che aiutano utenti, ammin
 | Nome proprietà | Descrizione | Esempio |
 | --- | --- | --- |
 | `ID` | Valore GUID che identifica in modo univoco l'autorizzazione. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
-| `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | true |
+| `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | True |
 | `Type` | Indica se l'autorizzazione richiede il consenso dell'utente o dell'amministratore. | Utente |
 | `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali degli utenti. |
 | `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Leggi i messaggi di un altro utente |
@@ -102,7 +102,7 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
   - `Permission` corrisponde all'azione che un utente può eseguire su tali dati
   - `Modifier` viene usato facoltativamente per descrivere le specializzazioni di un'altra autorizzazione
     
-    Ad esempio:
+    Esempio:
   - Mail.Read: consente agli utenti di leggere i messaggi di posta.
   - Mail.ReadWrite: consente agli utenti di leggere o scrivere messaggi di posta.
   - Mail.ReadWrite.All: consente a un amministratore o a un utente di accedere a tutti i messaggi di posta nell'organizzazione.

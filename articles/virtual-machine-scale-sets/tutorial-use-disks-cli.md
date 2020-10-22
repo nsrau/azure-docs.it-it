@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568319"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367925"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -76,7 +76,7 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 È possibile creare e collegare i dischi quando si crea un set di scalabilità oppure con un set di scalabilità esistente.
 
-A partire dalla versione `2019-07-01` dell'API, è possibile impostare le dimensioni del disco del sistema operativo in un set di scalabilità di macchine virtuali con la proprietà [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Dopo il provisioning, può essere necessario espandere o ripartizionare il disco per utilizzare l'intero spazio. Vedere altre informazioni sull'[espansione del disco](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+A partire dalla versione `2019-07-01` dell'API, è possibile impostare le dimensioni del disco del sistema operativo in un set di scalabilità di macchine virtuali con la proprietà [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Dopo il provisioning, può essere necessario espandere o ripartizionare il disco per utilizzare l'intero spazio. Vedere altre informazioni sull'[espansione del disco](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Collegare dischi al momento della creazione del set di scalabilità
 Creare prima di tutto un gruppo di risorse con il comando [az group create](/cli/azure/group). In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
