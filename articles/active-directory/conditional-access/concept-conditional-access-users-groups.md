@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366361"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -30,7 +30,7 @@ Questo elenco di utenti include in genere tutti gli utenti a cui è destinata un
 
 Quando si creano criteri di accesso condizionale, è possibile includere le opzioni seguenti.
 
-- Nessuno
+- nessuno
    - Nessun utente selezionato
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
@@ -46,13 +46,13 @@ Quando si creano criteri di accesso condizionale, è possibile includere le opzi
 > Se gli utenti o i gruppi sono membri di oltre 2048 gruppi, l'accesso potrebbe essere bloccato. Questo limite si applica sia all'appartenenza a gruppi diretta che al gruppo annidato.
 
 > [!WARNING]
-> I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../users-groups-roles/roles-admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../users-groups-roles/roles-create-custom.md).
+> I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../roles/admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Escludi utenti
 
 Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente o il gruppo viene escluso dal criterio, in quanto un'azione di esclusione esegue l'override di un criterio Includi nei criteri. Le esclusioni vengono comunemente usate per gli account di accesso di emergenza o break-Glass. Altre informazioni sugli account di accesso di emergenza e sul motivo per cui sono importanti sono disponibili negli articoli seguenti: 
 
-* [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gestire gli account di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 * [Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Quando si creano criteri di accesso condizionale, è possibile escludere le opzioni seguenti.

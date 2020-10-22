@@ -9,12 +9,12 @@ ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898596"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368180"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
@@ -54,11 +54,11 @@ In seguito, questo articolo descrive gli scenari in modo più dettagliato.
 
 Per creare una pianificazione di base con l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler), seguire questa procedura:
 
-1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
+1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](/rest/api/resources/providers). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
 
-1. Creare una raccolta di processi usando l'[operazione Crea o aggiorna per le raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections) nell'API REST dell'Utilità di pianificazione. 
+1. Creare una raccolta di processi usando l'[operazione Crea o aggiorna per le raccolte di processi](/rest/api/scheduler/jobcollections) nell'API REST dell'Utilità di pianificazione. 
 
-1. Creare un processo tramite l'[operazione Crea o aggiorna per i processi](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+1. Creare un processo tramite l'[operazione Crea o aggiorna per i processi](/rest/api/scheduler/jobs/createorupdate). 
 
 ## <a name="job-schema-elements"></a>Elementi dello schema di processo
 

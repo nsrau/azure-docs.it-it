@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131548"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367653"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -244,12 +244,6 @@ Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale Ã
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Se si elimina l'istanza dei dispositivi gemelli digitali di Azure, Ã¨ anche possibile eliminare la registrazione dell'app Azure AD creata nell'esercitazione end-to-end, usando questo comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Eliminare infine le cartelle di esempio del progetto scaricate nel computer locale (*Azure_Digital_Twins_end_to_end_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).

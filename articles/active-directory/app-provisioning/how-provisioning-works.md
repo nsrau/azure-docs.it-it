@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801801"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366684"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -65,15 +65,15 @@ Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle 
 
 * **Gruppi.** Con un piano di licenza Azure AD Premium è possibile usare gruppi per assegnare l'accesso a un'applicazione SaaS. Quindi, quando l'ambito del provisioning è impostato su **Sincronizza solo gli utenti e i gruppi assegnati**, il servizio di provisioning di Azure AD effettuerà il provisioning o il deprovisioning degli utenti a prescindere che siano membri o meno di un gruppo assegnato all'applicazione. Non viene effettuato il provisioning dell'oggetto gruppo, a meno che l'applicazione non supporti gli oggetti gruppo. Assicurarsi che i gruppi assegnati all'applicazione dispongano della proprietà "SecurityEnabled" impostata su "True".
 
-* **Gruppi dinamici.** Il servizio di provisioning utenti Azure AD è in grado di leggere ed effettuare il provisioning degli utenti in [gruppi dinamici](../users-groups-roles/groups-create-rule.md). Tenere presenti questi consigli e avvertenze:
+* **Gruppi dinamici.** Il servizio di provisioning utenti Azure AD è in grado di leggere ed effettuare il provisioning degli utenti in [gruppi dinamici](../enterprise-users/groups-create-rule.md). Tenere presenti questi consigli e avvertenze:
 
   * L'utilizzo di gruppi dinamici può compromettere le prestazioni del provisioning end-to-end da Azure AD alle applicazioni SaaS.
 
-  * La velocità di provisioning o deprovisioning di un utente di un gruppo dinamico in un'applicazione SaaS dipende dalla velocità con cui il gruppo dinamico riesce a valutare le modifiche all'appartenenza. Per informazioni su come controllare lo stato di elaborazione di un gruppo dinamico, vedere [Controllare lo stato di elaborazione per una regola di appartenenza](../users-groups-roles/groups-create-rule.md).
+  * La velocità di provisioning o deprovisioning di un utente di un gruppo dinamico in un'applicazione SaaS dipende dalla velocità con cui il gruppo dinamico riesce a valutare le modifiche all'appartenenza. Per informazioni su come controllare lo stato di elaborazione di un gruppo dinamico, vedere [Controllare lo stato di elaborazione per una regola di appartenenza](../enterprise-users/groups-create-rule.md).
 
   * Quando un utente perde l'appartenenza al gruppo dinamico, viene considerato come un evento di deprovisioning. Si consideri questo scenario quando si creano regole per i gruppi dinamici.
 
-* **Gruppi annidati.** Il servizio di provisioning utenti Azure AD non è in grado di leggere o di effettuare il provisioning degli utenti in gruppi annidati. Può effettuare la lettura e il provisioning solo degli utenti che sono membri immediati del gruppo assegnato in modo esplicito. Si tratta di una limitazione delle "assegnazioni basate su gruppi alle applicazioni", che ha effetto anche su Single Sign-On e viene descritta in [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](../users-groups-roles/groups-saasapps.md). Come soluzione alternativa è consigliabile assegnare in modo esplicito o [definire l'ambito](define-conditional-rules-for-provisioning-user-accounts.md) nei gruppi contenenti gli utenti di cui è necessario effettuare il provisioning.
+* **Gruppi annidati.** Il servizio di provisioning utenti Azure AD non è in grado di leggere o di effettuare il provisioning degli utenti in gruppi annidati. Può effettuare la lettura e il provisioning solo degli utenti che sono membri immediati del gruppo assegnato in modo esplicito. Si tratta di una limitazione delle "assegnazioni basate su gruppi alle applicazioni", che ha effetto anche su Single Sign-On e viene descritta in [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](../enterprise-users/groups-saasapps.md). Come soluzione alternativa è consigliabile assegnare in modo esplicito o [definire l'ambito](define-conditional-rules-for-provisioning-user-accounts.md) nei gruppi contenenti gli utenti di cui è necessario effettuare il provisioning.
 
 ### <a name="attribute-based-scoping"></a>Ambito basato sugli attributi 
 
@@ -184,12 +184,12 @@ Assicurarsi di disporre del mapping *attivo* per l'applicazione. Se si usa un'ap
 
 Negli scenari seguenti viene attivata un'operazione di disabilitazione o eliminazione: 
 * Un utente viene eliminato temporaneamente in Azure AD (inviato alla proprietà cestino/AccountEnabled impostata su false).
-    30 giorni dopo l'eliminazione in Azure AD, l'utente verrà eliminato definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente](../fundamentals/active-directory-users-restore.md), che invia una richiesta DELETE all'applicazione.
+    30 giorni dopo l'eliminazione in Azure AD, l'utente verrà eliminato definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente](../fundamentals/active-directory-users-restore.md), operazione che invia una richiesta di eliminazione all'applicazione.
 * Un utente viene eliminato o rimosso definitivamente dal Cestino in Azure AD.
 * Un utente non è assegnato a un'app.
 * Un utente passa dall'ambito all'esterno dell'ambito (non passa più un filtro di ambito).
     
-Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope.](skip-out-of-scope-deletions.md)
+Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope.](skip-out-of-scope-deletions.md)
 
 Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazione non supporta le eliminazioni software, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente dall'app.
 

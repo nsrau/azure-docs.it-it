@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367823"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [assegnazioni di ruolo](active-directory-users-assign-role-azure-portal.md) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest. Le autorizzazioni utente predefinite possono essere modificate solo nelle impostazioni utente in Azure AD.
@@ -48,19 +48,18 @@ Le autorizzazioni predefinite per gli utenti membri possono essere limitate nei 
 Autorizzazione | Spiegazione dell'impostazione
 ---------- | ------------
 Gli utenti possono registrare l'applicazione | L'impostazione di questa opzione su No impedisce agli utenti di creare registrazioni di applicazioni. La possibilità può essere quindi concessa a utenti specifici aggiungendoli al ruolo di sviluppatore di applicazioni.
-Consenti agli utenti di connettere un account aziendale o dell'Istituto di istruzione a LinkedIn | Se si imposta questa opzione su No, gli utenti non possono connettere il proprio account aziendale o dell'Istituto di istruzione con il proprio account LinkedIn. Per altre informazioni, vedere la pagina relativa al [consenso e alla condivisione di dati delle connessioni dell'account LinkedIn](../users-groups-roles/linkedin-user-consent.md).
-Possibilità di creare i gruppi di sicurezza | Impostando questa opzione su No, gli utenti non possono creare gruppi di sicurezza. Gli amministratori globali e gli amministratori utenti possono comunque creare gruppi di sicurezza. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md).
-Possibilità di creare gruppi di Microsoft 365 | Se si imposta questa opzione su No, gli utenti non possono creare gruppi Microsoft 365. L'impostazione di questa opzione su alcune consente a un set di utenti selezionato di creare Microsoft 365 gruppi. Gli amministratori globali e gli amministratori utenti potranno comunque creare Microsoft 365 gruppi. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md).
+Consenti agli utenti di connettere un account aziendale o dell'Istituto di istruzione a LinkedIn | Se si imposta questa opzione su No, gli utenti non possono connettere il proprio account aziendale o dell'Istituto di istruzione con il proprio account LinkedIn. Per altre informazioni, vedere la pagina relativa al [consenso e alla condivisione di dati delle connessioni dell'account LinkedIn](../enterprise-users/linkedin-user-consent.md).
+Possibilità di creare i gruppi di sicurezza | Impostando questa opzione su No, gli utenti non possono creare gruppi di sicurezza. Gli amministratori globali e gli amministratori utenti possono comunque creare gruppi di sicurezza. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../enterprise-users/groups-settings-cmdlets.md).
+Possibilità di creare gruppi di Microsoft 365 | Se si imposta questa opzione su No, gli utenti non possono creare gruppi Microsoft 365. L'impostazione di questa opzione su alcune consente a un set di utenti selezionato di creare Microsoft 365 gruppi. Gli amministratori globali e gli amministratori utenti potranno comunque creare Microsoft 365 gruppi. Per informazioni, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../enterprise-users/groups-settings-cmdlets.md).
 Limita l'accesso al portale di amministrazione di Azure AD | Impostando questa opzione su No, non è possibile usare il portale di amministrazione di Azure AD per leggere e gestire le risorse Azure AD. Sì, impedisce a tutti gli amministratori non di accedere ai dati Azure AD nel portale di amministrazione.<p>**Nota**: questa impostazione non limita l'accesso ai dati Azure ad tramite PowerShell o altri client, ad esempio Visual Studio. Se impostato su Sì, per concedere a un utente non amministratore specifico la possibilità di usare il portale di amministrazione di Azure ad assegnare qualsiasi ruolo amministrativo, ad esempio il ruolo dei lettori di directory.<p>Questo ruolo consente di leggere le informazioni sulla directory di base, quali utenti membri hanno per impostazione predefinita (Guest e entità servizio non).
 Possibilità di leggere altri utenti | Questa impostazione è disponibile solo in PowerShell. Impostando questo flag su $false si impedisce a tutti gli amministratori non di leggere le informazioni utente dalla directory. Questo flag non impedisce la lettura delle informazioni utente in altri servizi Microsoft come Exchange Online. Questa impostazione è destinata a circostanze speciali e l'impostazione di questo flag su $false non è consigliata.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>Limitare le autorizzazioni predefinite per gli utenti Guest
 
 Le autorizzazioni predefinite per gli utenti guest possono essere limitate nei modi seguenti:
 
->[!NOTE] 
->L'impostazione **limitazioni di accesso utente** Guest sostituite per le **autorizzazioni utenti Guest è limitata** . Per istruzioni sull'uso di questa funzionalità, vedere [limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>L'impostazione limitazioni di accesso utente Guest sostituite per le **autorizzazioni utenti Guest è limitata** . Per istruzioni sull'uso di questa funzionalità, vedere [limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Autorizzazione | Spiegazione dell'impostazione
 ---------- | ------------
@@ -143,7 +142,7 @@ Gli utenti possono eseguire le azioni seguenti nei gruppi di proprietà.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sulle restrizioni di accesso degli utenti guest, vedere [limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* Per ulteriori informazioni sulle restrizioni di accesso degli utenti guest, vedere [limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Per altre informazioni su come assegnare i ruoli di amministratore di Azure AD, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

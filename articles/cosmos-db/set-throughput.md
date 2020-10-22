@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331822"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367126"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -43,9 +43,6 @@ L'immagine seguente mostra in che modo una partizione fisica ospita una o più p
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Configurare la velocità effettiva in un database
-
-> [!NOTE]
-> Il provisioning della velocità effettiva in un database di Azure Cosmos non è attualmente possibile negli account in cui sono abilitate le [chiavi gestite dal cliente](how-to-setup-cmk.md) .
 
 Quando si effettua il provisioning della velocità effettiva in un database di Azure Cosmos, la velocità effettiva viene condivisa fra tutti i contenitori (detti contenitori di database condivisi) nel database, a meno che non sia stata specificata una velocità effettiva con provisioning in contenitori specifici nel database. La condivisione della velocità effettiva con provisioning a livello del database tra i relativi contenitori è analoga all'hosting di un database in un cluster di computer. Poiché tutti i contenitori all'interno di un database condividono le risorse disponibili in un computer, naturalmente non si ottengono prestazioni prevedibili in un contenitore specifico. Per informazioni su come configurare la velocità effettiva con provisioning in un database, vedere [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md). Per informazioni su come configurare la velocità effettiva con scalabilità automatica in un database, vedere [Effettuare il provisioning della velocità effettiva con scalabilità automatica](how-to-provision-autoscale-throughput.md).
 

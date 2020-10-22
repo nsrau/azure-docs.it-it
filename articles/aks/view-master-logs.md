@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e visualizzare i log per il nodo mas
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076386"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368452"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -37,9 +37,11 @@ I log di monitoraggio di Azure sono abilitati e gestiti nella portale di Azure. 
 
 Oltre alle voci scritte da Kubernetes, i log di controllo del progetto hanno anche voci da AKS.
 
-I log di controllo vengono registrati in due categorie, *Kube-audit-admin* e *Kube-audit*. La categoria *Kube-audit* contiene tutti i dati del log di controllo per ogni evento di controllo, inclusi *Get*, *List*, *create*, *Update*, *Delete*, *patch*e *post*.
+I log di controllo vengono registrati in tre categorie: *Kube-audit*, *Kube-audit-admin*e *Guard*.
 
-La categoria *Kube-audit-admin* è un subset della categoria *Kube-audit* log. *Kube-audit-admin* riduce significativamente il numero di log escludendo gli eventi di controllo *Get* ed *List* dal log.
+- La categoria *Kube-audit* contiene tutti i dati del log di controllo per ogni evento di controllo, inclusi *Get*, *List*, *create*, *Update*, *Delete*, *patch*e *post*.
+- La categoria *Kube-audit-admin* è un subset della categoria *Kube-audit* log. *Kube-audit-admin* riduce significativamente il numero di log escludendo gli eventi di controllo *Get* ed *List* dal log.
+- La categoria *Guard* è gestita Azure ad e controlli RBAC di Azure. Per Azure AD gestiti: token in, informazioni sull'utente. Per il controllo degli accessi in base al ruolo di Azure: verifiche di accesso.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Pianificare un pod di test nel cluster servizio Azure Kubernetes
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualizzare i log raccolti
 
-Potrebbero essere necessari alcuni minuti per abilitare e visualizzare i log di diagnostica.
+Potrebbero essere necessari fino a 10 minuti per abilitare e visualizzare i log di diagnostica.
 
 > [!NOTE]
 > Se sono necessari tutti i dati dei log di controllo per la conformità o altri scopi, raccoglierli e archiviarli in una risorsa di archiviazione economica, ad esempio l'archiviazione BLOB. Usare la categoria di log *Kube-audit-admin* per raccogliere e salvare un set significativo di dati dei log di controllo a scopo di monitoraggio e avviso.

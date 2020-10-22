@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014546"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367619"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -119,8 +119,6 @@ L'uso di Collegamento a Synapse non è consigliato se è necessario rispettare i
 * Attualmente il collegamento di Azure sinapsi per Azure Cosmos DB è supportato per l'API SQL e l'API Azure Cosmos DB per MongoDB. Non è supportata per l'API Gremlin e API Tabella. Il supporto per API Cassandra è in anteprima privata. per ulteriori informazioni, contattare il [team di collegamento di Azure sinapsi](mailto:cosmosdbsynapselink@microsoft.com).  
 
 * Attualmente, l'archivio analitico può essere abilitato solo per i nuovi contenitori. Per usare l'archivio analitico per i contenitori esistenti, migrare i dati dai contenitori esistenti ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione](cosmosdb-migrationchoices.md). È possibile abilitare il collegamento sinapsi su account Azure Cosmos DB nuovi ed esistenti.
-
-* L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL serverless è attualmente in fase di anteprima controllata. Per richiedere l'accesso, inviare tramite posta elettronica il [team di collegamento di sinapsi di Azure](mailto:cosmosdbsynapselink@microsoft.com).
 
 * Per i contenitori con l'archivio analitico attivato, il backup automatico e il ripristino dei dati nell'archivio analitico non sono supportati in questo momento. Quando il collegamento sinapsi è abilitato in un account di database, Azure Cosmos DB continuerà a eseguire automaticamente i [backup](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) dei dati nell'archivio transazionale (solo) dei contenitori all'intervallo di backup pianificato, come sempre. È importante notare che quando un contenitore con archivio analitico attivato viene ripristinato in un nuovo account, il contenitore verrà ripristinato solo con l'archivio transazionale e non è abilitato alcun archivio analitico. 
 

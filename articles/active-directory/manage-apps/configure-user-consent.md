@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819263"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368486"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -47,7 +47,7 @@ Scegliendo i criteri di consenso delle app applicabili a tutti gli utenti, è po
 
 Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
 1. In **User consent for applications** (Consenso utente per le applicazioni) selezionare l'impostazione di consenso che si intende configurare per tutti gli utenti.
 1. Per salvare le impostazioni, fare clic su **Save** (Salva).
@@ -144,7 +144,7 @@ In questo caso, verrà registrato anche un evento di controllo con una categoria
 
 1. Informazioni sul valore delle impostazioni:
 
-    | Impostazione       | Type         | Descrizione  |
+    | Impostazione       | Tipo         | Descrizione  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolean |  Flag che indica se il consenso dell'utente verrà bloccato quando viene rilevata una richiesta rischiosa. |
 
