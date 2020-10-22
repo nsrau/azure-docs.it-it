@@ -3,12 +3,12 @@ title: Aggiungere e rimuovere tipi di nodo in un cluster gestito di Service Fabr
 description: Questa esercitazione illustra come aggiungere e rimuovere tipi di nodo di un cluster gestito di Service Fabric.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 860345f5b297edaeea9d099ac392243176dfaca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51cc83b4accae5f2791ce378e30f6fa692446b1c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410225"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316201"
 ---
 # <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>Esercitazione: Aggiungere e rimuovere tipi di nodo da un cluster gestito di Service Fabric (anteprima)
 
@@ -29,7 +29,7 @@ Questa parte della serie descrive come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster gestito di Service Fabric (vedere [*Distribuire un cluster gestito*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) o versione successiva (vedere [*Installare Azure PowerShell*](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) o versione successiva (vedere [*Installare Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
 
 ## <a name="add-a-node-type-to-a-service-fabric-managed-cluster"></a>Aggiungere un tipo di nodo a un cluster gestito di Service Fabric
 

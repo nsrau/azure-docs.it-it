@@ -4,12 +4,12 @@ description: In questa esercitazione verrà distribuito un cluster gestito di Se
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410217"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316176"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Esercitazione: Distribuire un cluster gestito di Service Fabric (anteprima)
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione:
 
 * Installare [Service Fabric SDK e il modulo PowerShell](service-fabric-get-started.md).
 
-* Installare [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (o versione successiva).
+* Installare [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (o versione successiva).
 
 ## <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 
@@ -73,7 +73,7 @@ Per questo passaggio, specificare valori personalizzati per i parametri seguenti
 
 * **Nome del cluster**: immettere un nome univoco per il cluster, ad esempio *mysfcluster*.
 * **Password amministratore**: immettere una password per l'amministratore da usare per RDP nelle macchine virtuali sottostanti del cluster.
-* **Identificazione personale del certificato client**: specificare l'identificazione personale del certificato client che si vuole usare per accedere al cluster. Se non si ha un certificato, seguire la procedura riportata in [Impostare e recuperare un certificato](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) per creare un certificato autofirmato.
+* **Identificazione personale del certificato client**: specificare l'identificazione personale del certificato client che si vuole usare per accedere al cluster. Se non si ha un certificato, seguire la procedura riportata in [Impostare e recuperare un certificato](../key-vault/certificates/quick-create-portal.md) per creare un certificato autofirmato.
 * **SKU del cluster**: specificare il [tipo di cluster gestito di Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster-skus) da distribuire. I cluster dello SKU *Basic* sono destinati esclusivamente a distribuzioni di test e non consentono l'aggiunta o la rimozione di tipi di nodo.
 
 ```powershell

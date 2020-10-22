@@ -3,12 +3,12 @@ title: Aumentare il numero di istanze di un cluster gestito di Service Fabric (a
 description: Questa esercitazione illustra come aumentare il numero di istanze di un tipo di nodo di un cluster gestito di Service Fabric.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: a6777743932f3cc73db973c4d9935d4b5827700b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410209"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316132"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Esercitazione: Aumentare il numero di istanze di un cluster gestito di Service Fabric (anteprima)
 
@@ -28,7 +28,7 @@ Questa parte della serie descrive come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster gestito di Service Fabric (vedere [*Distribuire un cluster gestito*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) o versione successiva (vedere [*Installare Azure PowerShell*](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) o versione successiva (vedere [*Installare Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>Dimensionare un cluster gestito di Service Fabric
 Cambiare il numero di istanze per aumentare o diminuire il numero di nodi del tipo da dimensionare. È possibile trovare i nomi dei tipi di nodo nel modello di Azure Resource Manager della distribuzione del cluster o in Service Fabric Explorer.  
