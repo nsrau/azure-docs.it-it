@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311230"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362400"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -151,7 +151,7 @@ I ruoli seguenti possono leggere Azure AD report:
 
 * Lettore di report
 
-Altre informazioni su [Azure ad ruoli amministrativi](../users-groups-roles/directory-assign-admin-roles.md).
+Altre informazioni su [Azure ad ruoli amministrativi](../roles/permissions-reference.md).
 
 *Applicare sempre il concetto di privilegi minimi per ridurre il rischio di compromissione di un account*. Prendere in considerazione l'implementazione di [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per proteggere ulteriormente l'organizzazione.
 

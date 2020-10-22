@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145397"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366497"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -44,7 +44,7 @@ Azure AD condizioni per l'utilizzo sono disponibili le seguenti funzionalità:
 - Richiedere a dipendenti o Guest di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure Multi-Factor Authentication (multi-factor authentication).
 - Richiedere ai dipendenti di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure AD la reimpostazione della password self-service (SSPR).
 - Presentare le condizioni per l'utilizzo generali per tutti gli utenti dell'organizzazione.
-- Presentare le condizioni per l'utilizzo specifiche in base a attributi utente (ad esempio medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md)).
+- Presentare le condizioni per l'utilizzo specifiche in base a attributi utente (ad esempio medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../enterprise-users/groups-dynamic-membership.md)).
 - Presentare condizioni per l'utilizzo specifiche per l'accesso ad applicazioni a elevato utilizzo aziendale, ad esempio Salesforce.
 - Presentare le condizioni per l'utilizzo in lingue diverse.
 - Elenco che ha o non ha accettato le condizioni per l'utilizzo.
@@ -94,8 +94,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Scadenza a partire da | Frequenza | Risultato |
    | --- | --- | --- |
-   | Data odierna  | Mensilmente | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-   | Data nel futuro  | Mensilmente | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+   | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+   | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
    Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -129,7 +129,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
     I criteri di accesso condizionale personalizzati consentono condizioni di utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici. Per altre informazioni, vedere [Guida introduttiva: richiedere che le condizioni per l'utilizzo vengano accettate prima di accedere alle app Cloud](require-tou.md).
 
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 
    Se è stato selezionato un modello di accesso condizionale personalizzato, viene visualizzata una nuova schermata che consente di creare i criteri di accesso condizionale personalizzato.
 

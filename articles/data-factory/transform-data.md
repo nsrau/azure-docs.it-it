@@ -1,6 +1,6 @@
 ---
 title: Trasformare i dati
-description: Trasformare i dati o elaborare i dati in Azure Data Factory usando Hadoop, Machine Learning o Azure Data Lake Analytics.
+description: Trasformare i dati o elaborare i dati in Azure Data Factory usando Hadoop, Azure Machine Learning Studio (classico) o Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442786"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368860"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442786"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (versione classica)](transform-data-using-machine-learning.md) 
 > * [Stored procedure](transform-data-using-stored-procedure.md)
 > * [Attività U-SQL di Data Lake Analytics](transform-data-using-data-lake-analytics.md)
 > * [Notebook di databricks](transform-data-databricks-notebook.md)
@@ -70,12 +70,12 @@ L'attività HDInsight Streaming in una pipeline di Data Factory esegue i program
 ### <a name="hdinsight-spark-activity"></a>Attività HDInsight Spark
 L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale. Per conoscere i dettagli, vedere [Richiamare i programmi Spark da Azure Data Factory](transform-data-using-spark.md). 
 
-### <a name="machine-learning-activities"></a>Attività di Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Con l'[attività Esecuzione batch](transform-data-using-machine-learning.md) in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Machine Learning.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Attività Azure Machine Learning Studio (classiche)
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato Azure Machine Learning Studio (classico) per l'analisi predittiva. Utilizzando l' [attività di esecuzione batch](transform-data-using-machine-learning.md) in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web Studio (classico) per eseguire stime sui dati in batch.
 
-Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile usare l'[attività Aggiorna risorsa](update-machine-learning-models.md) per aggiornare il servizio Web con il nuovo modello con training.  
+Nel corso del tempo, è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi in studio (classico) usando nuovi set di dati di input. Al termine della ripetizione del training, si vuole aggiornare il servizio Web di assegnazione dei punteggi con il modello di apprendimento automatico di cui è stato ripetuto il training. È possibile usare l'[attività Aggiorna risorsa](update-machine-learning-models.md) per aggiornare il servizio Web con il nuovo modello con training.  
 
-Vedere [Usare le attività Machine Learning](transform-data-using-machine-learning.md) per i relativi dettagli. 
+Per informazioni dettagliate su queste attività di studio (classiche), vedere [usare le attività Azure Machine Learning Studio (classiche)](transform-data-using-machine-learning.md) . 
 
 ### <a name="stored-procedure-activity"></a>Attività stored procedure
 È possibile usare l'attività SQL Server stored procedure in una pipeline Data Factory per richiamare un stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), SQL Server database nell'azienda o in una VM di Azure. Per i dettagli, vedere l'articolo [Attività stored procedure](transform-data-using-stored-procedure.md).  

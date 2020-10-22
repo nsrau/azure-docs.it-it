@@ -3,14 +3,14 @@ title: Come creare distribuzioni di aggiornamenti per Gestione aggiornamenti di 
 description: Questo articolo descrive come pianificare le distribuzioni degli aggiornamenti e controllarne lo stato.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222740"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369701"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -54,12 +54,12 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il sistema operativo viene identificato automaticamente.
 
-5. Nell'area **Gruppi da aggiornare (anteprima)** definire una query che combini sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Usare i gruppi dinamici con Gestione aggiornamenti](configure-groups.md).
+5. Nell'area **gruppi da aggiornare** definire una query che combina sottoscrizioni, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Usare i gruppi dinamici con Gestione aggiornamenti](configure-groups.md).
 
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.
 
-6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md). È possibile includere fino a un massimo di 500 computer in una distribuzione di aggiornamenti pianificati.
+6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md). È possibile includere fino a un massimo di 1000 computer in una distribuzione di aggiornamenti pianificati.
 
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.
@@ -83,7 +83,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
 
 10. Utilizzare la **ricorrenza** per specificare se la distribuzione viene eseguita una sola volta o utilizza una pianificazione ricorrente, quindi selezionare **OK**.
 
-11. Nell'area **Pre-script e post-script (anteprima)** selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire pre-script e post-script](pre-post-scripts.md).
+11. Nell'area **pre-script + post-scripts** selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire pre-script e post-script](pre-post-scripts.md).
 
 12. Usare il campo **Finestra di manutenzione (minuti)** per specificare la quantità di tempo consentita per l'installazione di aggiornamenti. Quando si specifica una finestra di manutenzione, tenere presenti i dettagli seguenti:
 
@@ -111,7 +111,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     > [!NOTE]
     > Al termine della configurazione della pianificazione della distribuzione per un server abilitato per l'arco selezionato, selezionare **Verifica + crea**.
 
-15. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **pianificazioni di distribuzione** per visualizzare la pianificazione della distribuzione creata.
+15. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **pianificazioni di distribuzione** per visualizzare la pianificazione della distribuzione creata. Sono elencate al massimo 500 pianificazioni. Se sono presenti più di 500 pianificazioni e si vuole rivedere l'elenco completo, vedere il metodo di [configurazione dell'aggiornamento software-elencare](/rest/api/automation/softwareupdateconfigurations/list) l'API REST con la versione 2019-06-01 o successiva.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Pianificare una distribuzione di aggiornamenti a livello di codice
 

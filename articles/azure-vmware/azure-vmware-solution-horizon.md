@@ -3,19 +3,19 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078885"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369013"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
 >[!NOTE]
->Questo documento è incentrato sul prodotto VMware Horizon. Questa operazione è nota in precedenza come Horizon 7 prima che il nome del prodotto venga modificato da Horizon 7 a Horizon. Horizon è una soluzione diversa rispetto a Horizon cloud in Azure, sebbene esistano alcuni componenti condivisi. I vantaggi principali della soluzione VMware di Azure includono sia un metodo di ridimensionamento più semplice che la gestione di VMware Cloud Foundation integrata nella portale di Azure.
+>Questo documento è incentrato sul prodotto VMware Horizon, noto in precedenza come Horizon 7. Horizon è una soluzione diversa rispetto a Horizon cloud in Azure, sebbene esistano alcuni componenti condivisi. I vantaggi principali della soluzione VMware di Azure includono un metodo di ridimensionamento più semplice e l'integrazione della gestione di VMware Cloud Foundation nel portale di Azure.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)® è una piattaforma desktop e applicazioni virtuale che viene eseguita nel Data Center e fornisce una gestione semplice e centralizzata. Offre desktop e applicazioni virtuali agli utenti finali in qualsiasi dispositivo, ovunque. Horizon consente di creare ed eseguire il broker di connessioni a desktop virtuali Windows, desktop virtuali Linux, applicazioni ospitate da Desktop remoto server (RDS), desktop e computer fisici.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)®, una piattaforma per desktop e applicazioni virtuali, viene eseguita nel Data Center e fornisce una gestione semplice e centralizzata. Offre desktop virtuali e applicazioni su qualsiasi dispositivo, ovunque. Horizon consente di creare ed eseguire il broker di connessioni a desktop virtuali Windows e Linux, applicazioni ospitate da Desktop remoto server (RDS), desktop e computer fisici.
 
 In questo articolo viene illustrata la distribuzione di Horizon in una soluzione VMware di Azure. Per informazioni generali su VMware Horizon, vedere la documentazione di Horizon Production:
 
@@ -27,20 +27,20 @@ In questo articolo viene illustrata la distribuzione di Horizon in una soluzione
 
 Con l'introduzione di Horizon sulla soluzione VMware di Azure, sono ora disponibili due soluzioni VDI (Virtual Desktop Infrastructure) sulla piattaforma Azure. Il diagramma seguente riepiloga le differenze principali a livello generale.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
 
 Horizon 2006 e versioni successive nella riga di rilascio di Horizon 8 supporta la distribuzione locale e la distribuzione della soluzione VMware di Azure. Sono disponibili alcune funzionalità di Horizon supportate in locale, ma non nella soluzione VMware di Azure. Sono supportati anche altri prodotti nell'ecosistema Horizon. Per informazioni, vedere [parità di funzionalità e interoperabilità](https://kb.vmware.com/s/article/80850).
 
 ## <a name="deploy-horizon-in-a-hybrid-cloud"></a>Distribuisci Horizon in un cloud ibrido
 
-È possibile distribuire Horizon in un ambiente cloud ibrido quando si usa Horizon cloud Pod Architecture (CPA) per connettere i data center locali e i Data Center di Azure. CPA viene in genere usato per aumentare le prestazioni della distribuzione, creare un cloud ibrido e fornire ridondanza per la continuità aziendale e il ripristino di emergenza. Per una discussione approfondita sulle linee guida per la continuità aziendale di VMware Horizon, vedere [espansione degli ambienti Horizon 7 esistenti](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+È possibile distribuire Horizon in un ambiente cloud ibrido quando si usa Horizon cloud Pod Architecture (CPA) per connettere i data center locali e di Azure. CPA consente di ridimensionare la distribuzione, compilare un cloud ibrido e garantire ridondanza per la continuità aziendale e il ripristino di emergenza.  Per altre informazioni, vedere [espansione degli ambienti Horizon 7 esistenti](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >CPA non è una distribuzione estesa; ogni pod Horizon è distinto e tutti i server di connessione che appartengono a ognuno dei singoli Pod devono trovarsi in un'unica posizione ed essere eseguiti nello stesso dominio broadcast da una prospettiva di rete.
 
 Analogamente a data center locali o privati, Horizon può essere distribuito in un cloud privato della soluzione VMware di Azure. Nelle sezioni seguenti verranno illustrate le differenze principali nella distribuzione di Horizon in locale e nella soluzione VMware di Azure.
 
-Il cloud privato di Azure è concettualmente identico a quello di VMware SDDC, un termine usato in genere nella documentazione di Horizon. Nella parte restante di questo documento vengono usati i termini interscambiabili con il cloud privato di Azure e VMware SDDC.
+Il cloud privato di Azure è concettualmente identico a quello di VMware SDDC, un termine usato in genere nella documentazione di Horizon. Il resto di questo documento usa i termini interscambiabili con il cloud privato di Azure e VMware SDDC.
 
 Per la gestione delle licenze di sottoscrizione, è necessario il connettore Horizon cloud per la soluzione Azure Horizon in Azure. Il connettore cloud può essere distribuito in rete virtuale di Azure insieme ai server di connessione Horizon.
 
@@ -67,13 +67,13 @@ I clienti devono usare il ruolo di amministratore del cloud, che dispone di un s
 
 ## <a name="horizon-on-azure-vmware-solution-deployment-architecture"></a>Architettura di distribuzione della soluzione VMware di Azure Horizon
 
-Un tipico progetto di architettura Horizon usa una strategia pod e Block. Un blocco è un singolo vCenter, mentre più blocchi combinati rendono un pod. Un pod Horizon è un'unità di organizzazione determinata dai limiti di scalabilità di Horizon. Ogni pod Horizon dispone di un portale di gestione separato e pertanto una procedura di progettazione standard consiste nel ridurre al minimo il numero di Pod.
+Un tipico progetto di architettura Horizon usa una strategia pod e Block. Un blocco è un singolo vCenter, mentre più blocchi combinati rendono un pod. Un pod Horizon è un'unità di organizzazione determinata dai limiti di scalabilità di Horizon. Ogni pod Horizon dispone di un portale di gestione separato, quindi una procedura di progettazione standard consiste nel ridurre al minimo il numero di Pod.
 
 Ogni Cloud ha il proprio schema di connettività di rete. In combinazione con VMware SDDC networking/NSX Edge, la connettività di rete della soluzione VMware di Azure presenta requisiti univoci per la distribuzione di orizzonti diversi dall'ambiente locale.
 
-Ogni cloud privato di Azure/SDDC è in grado di gestire 4.000 sessioni desktop o di app, che presuppongono quanto segue:
+Ogni cloud privato di Azure e SDDC è in grado di gestire 4.000 sessioni desktop o dell'applicazione, supponendo che:
 
-* Il traffico del carico di lavoro è allineato a quello del profilo di lavoro delle attività LoginVSI.
+* Il traffico del carico di lavoro viene allineato al profilo di lavoro delle attività LoginVSI.
 
 * Viene considerato solo il traffico del protocollo, nessun dato utente.
 
@@ -82,23 +82,23 @@ Ogni cloud privato di Azure/SDDC è in grado di gestire 4.000 sessioni desktop o
 >[!NOTE]
 >Il profilo e le esigenze del carico di lavoro possono essere diversi e quindi i risultati possono variare in base al caso d'uso. I volumi di dati utente possono ridurre i limiti di scalabilità nel contesto del carico di lavoro. Ridimensionare e pianificare la distribuzione di conseguenza. Per altre informazioni, vedere le linee guida per il ridimensionamento nella sezione [dimensioni degli host della soluzione VMware di Azure per le distribuzioni Horizon](#size-azure-vmware-solution-hosts-for-horizon-deployments) .
 
-Dato il limite massimo di cloud privato/SDDC di Azure, si consiglia un'architettura di distribuzione in cui i server di connessione Horizon e VMware Unified Access Gateway (UAGs) sono in esecuzione all'interno della rete virtuale di Azure. In questo modo, ogni cloud/SDDC privato di Azure viene trasformato in un blocco. Questo, a sua volta, ottimizza la scalabilità di Horizon in esecuzione nella soluzione VMware di Azure.
+Dato il cloud privato di Azure e il limite massimo di SDDC, è consigliabile un'architettura di distribuzione in cui i server di connessione Horizon e VMware Unified Access Gateway (UAGs) siano in esecuzione all'interno della rete virtuale di Azure. Converte in modo efficace ogni cloud privato di Azure e SDDC in un blocco. A sua volta, massimizzare la scalabilità di Horizon in esecuzione nella soluzione VMware di Azure.
 
 La connessione dalla rete virtuale di Azure ai cloud privati/SDDCs di Azure deve essere configurata con ExpressRoute FastPath. Il diagramma seguente illustra una distribuzione di base di un pod.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Connettività di rete per la scalabilità di Horizon nella soluzione VMware di Azure
 
-Questa sezione illustra l'architettura di rete a un livello elevato per la scalabilità di Horizon nella soluzione VMware di Azure con alcuni esempi di distribuzione comuni. Lo stato attivo si concentra in particolare sugli elementi di rete critici.
+Questa sezione illustra l'architettura di rete a un livello elevato con alcuni esempi di distribuzione comuni per semplificare la scalabilità di Horizon nella soluzione VMware di Azure. Lo stato attivo è specifico per gli elementi di rete cruciali. 
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Soluzione VMware Single Horizon pod in Azure
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
 
-Un singolo POD Horizon è lo scenario di distribuzione più semplice. In questo esempio si decide di distribuire un solo pod Horizon nell'area Stati Uniti orientali. Poiché ogni cloud privato/SDDC è stimato per gestire il traffico di 4.000 sessioni desktop, per distribuire le dimensioni massime del pod di Horizon è possibile pianificare la distribuzione di un massimo di tre cloud privati/SDDCs.
+Un singolo POD Horizon è lo scenario di distribuzione più semplice, perché si distribuisce un solo Horizon pod nell'area Stati Uniti orientali.  Poiché ogni cloud privato e SDDC è stimato per la gestione delle sessioni Desktop 4.000, si distribuiscono le dimensioni massime del pod di Horizon.  È possibile pianificare la distribuzione di un massimo di tre cloud privati/SDDCs.
 
-Quindi, in questo esempio, in combinazione con le macchine virtuali (VM) dell'infrastruttura Horizon distribuite in rete virtuale di Azure, è possibile raggiungere le sessioni 12.000 per ogni pod Horizon in base alle esigenze di carico di lavoro e dati. La connessione tra ogni cloud privato e SDDC alla rete virtuale di Azure è ExpressRoute percorso rapido, in modo che non sia necessario il traffico est-ovest tra cloud privati.
+Con le macchine virtuali (VM) dell'infrastruttura Horizon distribuite nella rete virtuale di Azure, è possibile raggiungere le sessioni 12.000 per ogni pod Horizon. La connessione tra ogni cloud privato e SDDC alla rete virtuale di Azure è ExpressRoute percorso rapido.  Non è necessario alcun traffico East-West tra cloud privati. 
 
 I presupposti chiave per questo esempio di distribuzione di base includono quanto segue:
 
@@ -106,27 +106,27 @@ I presupposti chiave per questo esempio di distribuzione di base includono quant
 
 * Gli utenti finali si connettono ai desktop virtuali tramite Internet (rispetto alla connessione tramite un data center locale).
 
-In questo esempio di base è possibile connettere il controller di dominio di Active Directory nella rete virtuale di Azure con la Active Directory locale tramite VPN o un circuito ExpressRoute.
+Il controller di dominio di Active Directory viene connesso in rete virtuale di Azure con l'istanza locale di AD tramite VPN o circuito ExpressRoute.
 
-Una variante dell'esempio di base descritta potrebbe essere quella di supportare la connettività per le risorse locali. Potrebbe trattarsi di utenti che accedono ai desktop e generano il traffico di applicazioni desktop virtuali o la connessione a un pod di Horizon locale usando CPA.
+Una variante dell'esempio di base potrebbe essere il supporto della connettività per le risorse locali. Ad esempio, gli utenti accedono ai desktop e generano il traffico delle applicazioni desktop virtuali o si connettono a un pod di Horizon locale usando CPA.
 
-Il diagramma seguente illustra come è possibile eseguire questa operazione.Per connettere la rete aziendale alla rete virtuale di Azure, sarà necessario un ExpressRoute.Sarà anche necessario connettere la rete aziendale a ogni cloud privato/SDDCs usando Copertura globale, che consente la connettività dalla SDDC a ExpressRoute e alle risorse locali.
+Il diagramma mostra come supportare la connettività per le risorse locali. Per connettersi alla rete aziendale alla rete virtuale di Azure, è necessario un circuito ExpressRoute.  Sarà anche necessario connettere la rete aziendale a ogni cloud privato e SDDCs usando ExpressRoute Copertura globale.  Consente la connettività dal SDDC al circuito ExpressRoute e alle risorse locali. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Più baccelli Horizon nella soluzione VMware di Azure in più aree
 
-Per un altro esempio di pod di orizzonte, esaminiamo un esempio che mostra la scalabilità dell'orizzonte tra più POD.In questo esempio vengono distribuiti due pod di Horizon in due aree diverse e la relativa federazione usando CPA.La configurazione di rete è simile all'esempio precedente, con alcuni collegamenti tra aree aggiuntive. 
+Un altro scenario consiste nel ridimensionare l'orizzonte tra più baccelli.  In questo scenario si distribuiscono due pod di Horizon in due aree diverse e la si federa usando CPA. È simile alla configurazione di rete nell'esempio precedente, ma con alcuni collegamenti tra aree aggiuntive. 
 
-Sarà necessario connettere la Rete in ingresso virtuale di Azure ogni area ai cloud privati/SDDCs nell'altra area, consentendo ai server di connessione Horizon che fanno parte della Federazione CPA di connettersi a tutti i desktop gestiti.L'aggiunta di altri cloud privati/SDDCs a questa configurazione consente di eseguire il ridimensionamento a 24.000 sessioni complessive. 
+Si connetterà la Rete in ingresso virtuale di Azure ogni area ai cloud privati/SDDCs nell'altra area. Consente ai server di connessione Horizon parte della Federazione CPA di connettersi a tutti i desktop sotto la gestione. L'aggiunta di altri cloud privati/SDDCs a questa configurazione consente di eseguire il ridimensionamento a 24.000 sessioni complessive. 
 
-Anche se in questo esempio vengono illustrate più aree, si applica lo stesso principio se si desidera distribuire due pod Horizon nella stessa area. Si noti che è necessario assicurarsi che il secondo pod Horizon sia distribuito in una *rete virtuale di Azure separata*.Infine, così come si farebbe nell'esempio precedente di un singolo POD, è possibile connettere la rete aziendale e il Pod locale a questo esempio di più POD/area usando il cliente ExpressRoute e Copertura globale.
+Gli stessi principi si applicano se si distribuiscono due pod Horizon nella stessa area.  Assicurarsi di distribuire il secondo pod Horizon in una *rete virtuale di Azure separata*. Analogamente all'esempio di Pod singolo, è possibile connettere la rete aziendale e il Pod locale a questo esempio di più POD/aree usando ExpressRoute e Copertura globale. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Ridimensionare gli host della soluzione VMware di Azure per le distribuzioni Horizon 
 
-La metodologia di dimensionamento di Horizon in un host che esegue la soluzione VMware di Azure è più semplice rispetto a Horizon locale perché l'istanza dell'host della soluzione VMware di Azure è standardizzata. Il dimensionamento host accurato consente di determinare il numero di host necessari per supportare i requisiti VDI ed è fondamentale per determinare il costo per desktop.
+La metodologia di dimensionamento di Horizon in un host in esecuzione nella soluzione VMware di Azure è più semplice rispetto a Horizon in locale.  Questo perché l'host della soluzione VMware di Azure è standardizzato.  Il dimensionamento host esatto consente di determinare il numero di host necessari per supportare i requisiti VDI.  È fondamentale determinare il costo per desktop.
 
 ### <a name="azure-vmware-solution-host-instance"></a>Istanza host della soluzione VMware di Azure
 
@@ -146,7 +146,7 @@ La metodologia di dimensionamento di Horizon in un host che esegue la soluzione 
 
 ### <a name="horizon-sizing-inputs"></a>Input di ridimensionamento dell'orizzonte
 
-Per il carico di lavoro pianificato, vedere quanto segue:
+Ecco cosa è necessario raccogliere per il carico di lavoro pianificato:
 
 * Numero di desktop simultanei
 
@@ -156,13 +156,13 @@ Per il carico di lavoro pianificato, vedere quanto segue:
 
 * Spazio di archiviazione necessario per desktop
 
-In generale, le distribuzioni VDI sono vincolate alla CPU o alla RAM, in quanto questi fattori determineranno le dimensioni dell'host. Si prenda l'esempio seguente per un tipo di carico di lavoro LoginVSI Knowledge Worker, convalidato con il test delle prestazioni:
+In generale, le distribuzioni VDI sono vincolate alla CPU o alla RAM, che determinano le dimensioni dell'host. Si prenda l'esempio seguente per un tipo di carico di lavoro LoginVSI Knowledge Worker, convalidato con il test delle prestazioni:
 
 * 2.000 distribuzione desktop simultanea
 
 * 2vCPU per desktop.
 
-* 4 GB di vRAM per desktop.
+* vRAM da 4 GB per desktop.
 
 * 50 GB di spazio di archiviazione per desktop
 
@@ -173,7 +173,7 @@ Per questo esempio, il numero totale di fattori host è pari a 18, ottenendo una
 
 ## <a name="horizon-on-azure-vmware-solution-licensing"></a>Gestione delle licenze della soluzione VMware di Azure per Horizon 
 
-Sono disponibili quattro componenti per i costi complessivi per l'esecuzione di Horizon in una soluzione VMware di Azure. 
+Sono disponibili quattro componenti per i costi complessivi per l'esecuzione di Horizon in una soluzione VMware di Azure. 
 
 ### <a name="azure-vmware-solution-capacity-cost"></a>Costo della capacità della soluzione VMware di Azure
 
@@ -189,13 +189,13 @@ Esistono due licenze disponibili per l'uso con la soluzione VMware di Azure, che
 
 Se si distribuisce solo Horizon per la soluzione VMware di Azure per il futuro prevedibile, usare la licenza Horizon Subscription poiché si tratta di un costo inferiore.
 
-Se si distribuiscono entrambe le soluzioni Horizon in Azure e in locale, come nel caso di utilizzo del ripristino di emergenza, scegliere la licenza Horizon Universal Subscription. La licenza universale è un costo più elevato perché include una licenza vSphere per la distribuzione locale.
+Se distribuito in una soluzione VMware di Azure e in locale, come nel caso di utilizzo del ripristino di emergenza, scegliere la licenza Horizon Universal Subscription. Include una licenza vSphere per la distribuzione locale, quindi ha un costo superiore.
 
 Collaborare con il team di vendita VMware EUC per determinare il costo della licenza Horizon in base alle esigenze.
 
 ### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Costo delle macchine virtuali dell'infrastruttura Horizon nella rete virtuale di Azure
 
-In base all'architettura di distribuzione standard, le macchine virtuali dell'infrastruttura Horizon sono costituite da server di connessione, UAGs, responsabili del volume delle app e vengono distribuiti nella rete virtuale di Azure del cliente. Sono necessarie altre istanze native di Azure per supportare i servizi di disponibilità elevata, Microsoft SQL o Microsoft Active Directory (AD) in Azure. Di seguito è riportato un elenco di istanze di Azure basate su un esempio di distribuzione di 2.000 desktop. 
+In base all'architettura di distribuzione standard, le macchine virtuali dell'infrastruttura Horizon sono costituite da server di connessione, UAGs e responsabili del volume delle app. Vengono distribuiti nella rete virtuale di Azure del cliente. Sono necessarie altre istanze native di Azure per supportare i servizi di disponibilità elevata, Microsoft SQL o Microsoft Active Directory (AD) in Azure. La tabella elenca le istanze di Azure in base a un esempio di distribuzione di 2.000 desktop. 
 
 >[!NOTE]
 >Per essere in grado di gestire l'errore, distribuire un server più del necessario per il numero di connessioni (n + 1). Il numero minimo consigliato di istanze del server di connessione, UAG e gestione volumi app è 2 e il numero di richieste aumenterà in base alla quantità di utenti che verrà supportata dall'ambiente.  Un singolo server di connessione supporta un massimo di 4.000 sessioni, sebbene la procedura consigliata sia 2.000. Sono supportati fino a sette server di connessione per ogni pod con una raccomandazione di 12.000 sessioni attive in totale per ogni pod. Per i numeri più recenti, vedere l' [articolo della Knowledge Base VMware limiti di ridimensionamento e consigli per VMware Horizon 7](https://kb.vmware.com/s/article/2150348).
@@ -210,4 +210,4 @@ In base all'architettura di distribuzione standard, le macchine virtuali dell'in
 | Database MS-SQL                  | D4sv3          | 2       | *Opzione per l'uso del servizio SQL in Azure*     |
 | Condivisione file di Windows               | D4sv3          |         | *Facoltativo*                               |
 
-Il costo della macchina virtuale dell'infrastruttura è pari a \$ 0,36 per utente al mese per la distribuzione di 2.000 desktop nell'esempio precedente. Si noti che in questo esempio vengono usati i prezzi dell'istanza di Azure East a partire dal 2020 giugno. I prezzi possono variare in base all'area, alle opzioni selezionate e alla tempistica.
+Il costo della macchina virtuale dell'infrastruttura è pari a \$ 0,36 per utente al mese per la distribuzione di 2.000 desktop nell'esempio precedente. Questo esempio usa l'istanza di Azure Stati Uniti orientali 2020 prezzi. I prezzi possono variare in base all'area, alle opzioni selezionate e alla tempistica.
