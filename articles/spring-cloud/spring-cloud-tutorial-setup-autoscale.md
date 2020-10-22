@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905390"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091067"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Esercitazione: Configurare la scalabilità automatica per le applicazioni di microservizi
 
@@ -25,7 +25,7 @@ La scalabilità automatica è una funzionalità predefinita di Azure Spring Clou
 Per seguire queste procedure occorre:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Istanza del servizio Azure Spring Cloud distribuita. Per iniziare, seguire la [guida di avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli).
+* Istanza del servizio Azure Spring Cloud distribuita. Per iniziare, seguire la [guida di avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](./spring-cloud-quickstart.md).
 * Almeno un'applicazione già creata nell'istanza del servizio.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Passare alla pagina Scalabilità automatica nel portale di Azure
@@ -70,5 +70,5 @@ Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica della scalabilità automatica in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Scalabilità automatica con il monitoraggio dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Panoramica della scalabilità automatica in Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Scalabilità automatica con il monitoraggio dell'interfaccia della riga di comando di Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

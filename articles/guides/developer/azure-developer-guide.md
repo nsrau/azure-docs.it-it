@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327819"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372209"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -158,7 +158,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   >
   > **Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
@@ -281,7 +281,7 @@ Per creare o usare una sottoscrizione di Azure, è necessario disporre di un acc
 
 Ogni sottoscrizione di Azure ha una relazione di trust con un'istanza di Azure AD. Ciò significa che considera attendibile quella directory per l'autenticazione di utenti, servizi e dispositivi. Più sottoscrizioni possono considerare attendibile la stessa directory, ma una sottoscrizione considera attendibile una sola directory. Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Oltre a definire le singole identità di account Azure, denominate anche *utenti*, è possibile definire i *gruppi* in Azure ad. La creazione di gruppi di utenti è un modo efficace per gestire l'accesso alle risorse in una sottoscrizione tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per informazioni sulla creazione di gruppi, vedere [Creare un gruppo in Azure Active Directory (anteprima)](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). È possibile creare e gestire gruppi anche [tramite PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+Oltre a definire le singole identità di account Azure, denominate anche *utenti*, è possibile definire i *gruppi* in Azure ad. La creazione di gruppi di utenti è un metodo efficiente per la gestione dell'accesso alle risorse in una sottoscrizione tramite il controllo degli accessi in base al ruolo. Per informazioni sulla creazione di gruppi, vedere [Creare un gruppo in Azure Active Directory (anteprima)](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). È possibile creare e gestire gruppi anche [tramite PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Gestire le sottoscrizioni
 
@@ -315,7 +315,7 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 * Nel modello di Azure Resource Manager
 * Uso dell'API REST
 * Con l'interfaccia della riga di comando di Azure
-* Uso di PowerShell
+* Utilizzo di PowerShell
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../azure-resource-manager/management/tag-resources.md).
 

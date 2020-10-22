@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282861"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372277"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -40,11 +40,20 @@ Soluzioni che devono essere rimosse prima di poter scollegare l'account di autom
 
 >[!IMPORTANT]
 > **Clienti di Azure Sentinel**
-> - Una volta distribuito in un'area di lavoro, Azure Sentinel **non supporta al momento** il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni. 
-> - Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
+> - Attualmente, dopo la distribuzione di Sentinel di Azure in un'area di lavoro, lo spazio di lavoro su un altro gruppo di risorse o sottoscrizione non è supportato. 
+> - Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Si tratta di una soluzione efficace nella maggior parte dei casi, tuttavia, per ripetere l'iterazione, non è supportata e non è stata eseguita a proprio rischio.
 > 
-> **Avvisi**
-> - Tutti gli avvisi devono essere ricreati dopo lo spostamento, perché le autorizzazioni sono basate sull'ID risorsa di Azure dell'area di lavoro e vengono modificate con lo spostamento dell'area di lavoro. 
+> **Ricrea avvisi**
+> - Tutti gli avvisi devono essere ricreati dopo uno spostamento perché le autorizzazioni sono basate sull'ID risorsa di Azure dell'area di lavoro, che cambia durante lo spostamento di un'area di lavoro.
+>
+> **Aggiornare i percorsi delle risorse**
+> - Dopo lo spostamento di un'area di lavoro, è necessario rivedere e aggiornare tutte le risorse di Azure o esterne che puntano all'area di lavoro in modo che puntino al nuovo percorso di destinazione della risorsa.
+> 
+>   *Esempi:*
+>   - [Regole di avviso di monitoraggio di Azure](alerts-resource-move.md)
+>   - Applicazioni di terze parti
+>   - Scripting personalizzato
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminare soluzioni in portale di Azure
 Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:

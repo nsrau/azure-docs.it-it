@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091441"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372124"
 ---
 # <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
 
@@ -41,7 +41,7 @@ Selezionare **Guida e supporto** nel portale di Azure. È disponibile dal menu d
 
 ### <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Per creare una richiesta di supporto, è necessario essere [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o essere assegnato al ruolo di [Collaboratore richieste di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) a livello di sottoscrizione. Per creare una richiesta di supporto senza una sottoscrizione, ad esempio uno scenario di Azure Active Directory, è necessario essere un [amministratore](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per creare una richiesta di supporto, è necessario essere [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o essere assegnato al ruolo di [Collaboratore richieste di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) a livello di sottoscrizione. Per creare una richiesta di supporto senza una sottoscrizione, ad esempio uno scenario di Azure Active Directory, è necessario essere un [amministratore](../../active-directory/roles/permissions-reference.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Passare a Guida e supporto dall'intestazione globale
 

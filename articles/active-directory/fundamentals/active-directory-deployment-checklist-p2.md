@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318410"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371903"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guida alla distribuzione della funzionalità Azure Active Directory
 
@@ -43,8 +43,8 @@ In questa fase, gli amministratori abilitano le funzionalità di sicurezza di ba
 
 | Attività | Dettaglio | Licenza richiesta |
 | ---- | ------ | ---------------- |
-| [Designare più di un amministratore globale](../users-groups-roles/directory-emergency-access.md) | Assegnare almeno due account amministratore globale permanenti solo cloud da usare in caso di emergenza. Questi account non sono destinati all'uso quotidiano e devono usare password lunghe e complesse. | Azure AD Free |
-| [Dove possibile, usare ruoli amministrativi non globali](../users-groups-roles/directory-assign-admin-roles.md) | Concedere agli amministratori solo l'accesso necessario esclusivamente alle aree a cui devono accedere. Non tutti gli amministratori devono essere amministratori globali. | Azure AD Free |
+| [Designare più di un amministratore globale](../roles/security-emergency-access.md) | Assegnare almeno due account amministratore globale permanenti solo cloud da usare in caso di emergenza. Questi account non sono destinati all'uso quotidiano e devono usare password lunghe e complesse. | Azure AD Free |
+| [Dove possibile, usare ruoli amministrativi non globali](../roles/permissions-reference.md) | Concedere agli amministratori solo l'accesso necessario esclusivamente alle aree a cui devono accedere. Non tutti gli amministratori devono essere amministratori globali. | Azure AD Free |
 | [Abilitare Privileged Identity Management per il rilevamento dell'uso dei ruoli di amministratore](../privileged-identity-management/pim-getting-started.md) | Abilitare Privileged Identity Management per iniziare a tenere traccia dell'utilizzo dei ruoli amministrativi. | Azure AD Premium P2 |
 | [Roll out self-service password reset](../authentication/howto-sspr-deployment.md) (Implementare la reimpostazione della password self-service) | Ridurre le chiamate all'help desk per la reimpostazione delle password consentendo al personale di reimpostare la propria password usando criteri sotto il controllo di un amministratore. | |
 | [Creare un elenco di password vietate personalizzate specifiche dell'organizzazione](../authentication/tutorial-configure-custom-password-protection.md) | Impedire agli utenti di creare password che includono parole o frasi comuni per l'organizzazione o l'area. | |
@@ -69,7 +69,7 @@ Si procede sulla base della struttura definita nella fase 1 con l'importazione d
 | [Implementare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) | Sincronizzare gli hash delle password per consentire la replica delle modifiche delle password, il rilevamento e la correzione di password non valide e la segnalazione di credenziali perse. | Azure AD Free |
 | [Procedura: Configurare il writeback delle password](../authentication/tutorial-enable-sspr-writeback.md) | Consentire il writeback delle modifiche delle password nel cloud in un ambiente di Windows Server Active Directory locale. | Azure AD Premium P1 |
 | [Implementare Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Abilitare il monitoraggio delle statistiche di integrità della chiave per i server Azure AD Connect, i server AD FS e i controller di dominio. | Azure AD Premium P1 |
-| [Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Risparmiare tempo e lavoro con la creazione di gruppi di licenze che abilitano o disabilitano le funzionalità in base al gruppo anziché impostarle per ogni utente. | |
+| [Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Risparmiare tempo e lavoro con la creazione di gruppi di licenze che abilitano o disabilitano le funzionalità in base al gruppo anziché impostarle per ogni utente. | |
 | [Creare un piano per l'accesso degli utenti guest](../external-identities/what-is-b2b.md) | Collaborare con gli utenti guest consentendo loro di accedere alle app e ai servizi dell'organizzazione con le proprie identità aziendali, dell'istituto di istruzione o di social networking. | [Linee guida per le licenze di Azure AD B2B](../external-identities/licensing-guidance.md) |
 | [Stabilire la strategia di gestione dei dispositivi](../devices/overview.md) | Decidere cosa consente l'organizzazione riguardo ai dispositivi. Registrazione o aggiunta, BYOD (Bring Your Own Device) o dispositivi forniti dall'azienda. | |
 | [Distribuire Windows Hello for Business nell'organizzazione](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepararsi per l'autenticazione con password con Windows Hello | |
@@ -93,7 +93,7 @@ Nella fase 4 gli amministratori applicano i principi dei privilegi minimi per l'
 | ---- | ------ | ---------------- |
 | [Imporre l'uso di Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Rimuovere i ruoli amministrativi dagli account utente che devono svolgere normali attività quotidiane. Consentire agli utenti amministratori di usare il proprio ruolo dopo il completamento di un controllo di autenticazione a più fattori, l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte dei responsabili designati. | Azure AD Premium P2 |
 | [Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Collaborare con i dirigenti e i team dedicati alla sicurezza per creare criteri di verifica di accesso per controllare l'accesso amministrativo in base alle politiche dell'organizzazione. | Azure AD Premium P2 |
-| [Implementare i criteri di appartenenza a gruppi dinamica](../users-groups-roles/groups-dynamic-membership.md) | Usare i gruppi dinamici per assegnare automaticamente gli utenti ai gruppi in base agli attributi definiti dal reparto risorse umane (o altra fonte di fiducia), ad esempio reparto, posizione, area geografica e altri attributi. |  |
+| [Implementare i criteri di appartenenza a gruppi dinamica](../enterprise-users/groups-dynamic-membership.md) | Usare i gruppi dinamici per assegnare automaticamente gli utenti ai gruppi in base agli attributi definiti dal reparto risorse umane (o altra fonte di fiducia), ad esempio reparto, posizione, area geografica e altri attributi. |  |
 | [Implementare il provisioning delle applicazioni basato sui gruppi](../manage-apps/what-is-access-management.md) | Usare il provisioning di gestione dell'accesso basato sui gruppi per eseguire automaticamente il provisioning degli utenti per le applicazioni SaaS. |  |
 | [Automatizzare il provisioning e il deprovisioning degli utenti](../app-provisioning/user-provisioning.md) | Rimuovere i passaggi manuali dal ciclo di vita degli account dei dipendenti per evitare accessi non autorizzati. Sincronizzare le identità dall'origine dei dati (sistema HR) ad Azure AD. |  |
 

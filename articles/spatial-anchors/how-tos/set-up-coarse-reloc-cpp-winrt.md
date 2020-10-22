@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548289"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097372"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Come creare e individuare ancoraggi usando la rilocalizzazione grossolana in C++/WinRT
 
@@ -31,7 +31,7 @@ Gli ancoraggi nello spazio di Azure possono associare i dati dei sensori di posi
 
 Per completare questa guida, accertarsi di avere:
 
-- Conoscenze di base di C# e le <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">API di Windows Runtime</a>.
+- Conoscenze di base di C# e le <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">API di Windows Runtime</a>.
 - Letto la [Panoramica di ancoraggi nello spazio di Azure](../overview.md).
 - Completato uno degli argomenti di [avvio rapido di 5 minuti](../index.yml).
 - Lette le [procedure per creare e individuare ancoraggi](../create-locate-anchors-overview.md).
