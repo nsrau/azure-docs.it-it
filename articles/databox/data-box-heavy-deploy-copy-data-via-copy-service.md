@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77560221"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127149"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box Heavy (anteprima)
 
@@ -64,7 +64,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
     |**Account di archiviazione di destinazione**    |Selezionare nell'elenco l'account di archiviazione di destinazione in cui caricare i dati.         |
     |**Tipo di destinazione**       |Selezionare il tipo di archiviazione di destinazione dall'elenco: **BLOB in blocchi**, **BLOB di pagine** o **File di Azure**.        |
     |**Condivisione/Contenitore di destinazione**    |Immettere il nome del contenitore o della condivisione in cui caricare i dati nell'account di archiviazione di destinazione. Il nome può essere un nome di condivisione o un nome di contenitore. Ad esempio, usare `myshare` o `mycontainer`. È anche possibile immettere il nome nel formato `sharename\directory_name` o `containername\virtual_directory_name`.        |
-    |**Modello di corrispondenza file per la copia**    | È possibile immettere il modello di corrispondenza dei nomi file nei due modi seguenti:<ul><li>**Usare espressioni jolly:** nelle espressioni jolly sono supportati solo `*` e `?`. L'espressione `*.vhd`, ad esempio, corrisponde a tutti i file con estensione `.vhd`. Allo stesso modo, `*.dl?` corrisponde a tutti i file con estensione `.dl` o che iniziano con `.dl`, ad esempio `.dll`. `*foo` corrisponde a tutti i file il cui nome termina con `foo`.<br>È possibile immettere direttamente l'espressione jolly nel campo. Per impostazione predefinita, il valore immesso nel campo è considerato un'espressione jolly.</li><li>**Usare espressioni regolari:** sono supportate espressioni regolari basate su POSIX. L'espressione regolare `.*\.vhd`, ad esempio, corrisponderà a tutti i file con estensione `.vhd`. Per le espressioni regolari specificare `<pattern>` direttamente come `regex(<pattern>)`. Per altre informazioni sulle espressioni regolari, vedere [Linguaggio di espressioni regolari - Riferimento rapido](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Modello di corrispondenza file per la copia**    | È possibile immettere il modello di corrispondenza dei nomi file nei due modi seguenti:<ul><li>**Usare espressioni jolly:** nelle espressioni jolly sono supportati solo `*` e `?`. L'espressione `*.vhd`, ad esempio, corrisponde a tutti i file con estensione `.vhd`. Allo stesso modo, `*.dl?` corrisponde a tutti i file con estensione `.dl` o che iniziano con `.dl`, ad esempio `.dll`. `*foo` corrisponde a tutti i file il cui nome termina con `foo`.<br>È possibile immettere direttamente l'espressione jolly nel campo. Per impostazione predefinita, il valore immesso nel campo è considerato un'espressione jolly.</li><li>**Usare espressioni regolari:** sono supportate espressioni regolari basate su POSIX. L'espressione regolare `.*\.vhd`, ad esempio, corrisponderà a tutti i file con estensione `.vhd`. Per le espressioni regolari specificare `<pattern>` direttamente come `regex(<pattern>)`. Per altre informazioni sulle espressioni regolari, vedere [Linguaggio di espressioni regolari - Riferimento rapido](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Ottimizzazione dei file**              |Quando questa funzione è abilitata, i file di dimensioni inferiori a 1 MB vengono compressi durante l'inserimento. Questa compressione consente di velocizzare la copia dei dati per i file di piccole dimensioni. Consente anche un notevole risparmio di tempo quando il numero di file supera di gran lunga il numero di directory.        |
  
 4. Selezionare **Start**. Gli input verranno convalidati. Se la convalida ha esito positivo, il processo verrà avviato. L'avvio del processo potrebbe richiedere alcuni minuti.
@@ -147,4 +147,3 @@ Passare all'esercitazione successiva per informazioni su come riconsegnare il di
 
 > [!div class="nextstepaction"]
 > [Spedire il dispositivo Azure Data Box Heavy a Microsoft](./data-box-heavy-deploy-picked-up.md)
-

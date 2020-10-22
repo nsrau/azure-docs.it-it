@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873473"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124895"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Esercitazione: Modificare e creare i moduli del gateway Analisi video live
 
@@ -28,8 +28,8 @@ Per completare la procedura di questa esercitazione, è necessario quanto segue:
 * [Node.js](https://nodejs.org/en/download/) versione 10 o successiva
 * [Visual Studio Code](https://code.visualstudio.com/Download) con l'estensione [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) installata
 * Motore [Docker](https://www.docker.com/products/docker-desktop)
-* Un'istanza di [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) per ospitare le versioni personalizzate dei moduli.
-* Un account di [Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
+* Un'istanza di [Registro Azure Container](../../container-registry/index.yml) per ospitare le versioni personalizzate dei moduli.
+* Un account di [Servizi multimediali di Azure](../../media-services/index.yml). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
 
 ## <a name="clone-the-repository"></a>Clonare il repository
 

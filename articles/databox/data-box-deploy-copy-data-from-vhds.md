@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739868"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124014"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Esercitazione: Usare Data Box per importare dati come dischi gestiti in Azure
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare che:
 4. Aver esaminato quanto segue:
 
     - Le [dimensioni dei dischi gestiti supportate nei limiti delle dimensioni degli oggetti di Azure](data-box-limits.md#azure-object-size-limits).
-    - [Introduzione ad Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduzione ad Azure Managed Disks](../virtual-machines/managed-disks-overview.md). 
 
 5. Assicurarsi di mantenere una copia dei dati di origine fino a quando non è possibile confermare che Data Box ha trasferito i dati in Archiviazione di Azure.
 
@@ -183,4 +183,3 @@ Passare all'esercitazione successiva per informazioni su come riconsegnare Data 
 
 > [!div class="nextstepaction"]
 > [Spedire Azure Data Box a Microsoft](./data-box-deploy-picked-up.md)
-
