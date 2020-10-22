@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252987"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282551"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi .NET dell'API SQL
 
@@ -53,7 +53,7 @@ Una sottoscrizione di Azure o un account di prova gratuito di Cosmos DB
 > 
 
 ## <a name="database-examples"></a>Esempi di database
-Il metodo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) del progetto di esempio *DatabaseManagement* illustra come svolgere le attività seguenti. Per informazioni sui database di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il metodo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) del progetto di esempio *DatabaseManagement* illustra come svolgere le attività seguenti. Per informazioni sui database di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -63,7 +63,7 @@ Il metodo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blo
 | [Eliminare un database](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>Esempi di raccolta
-Il metodo [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) del progetto *CollectionManagement* di esempio illustra come eseguire queste attività. Per informazioni sulle raccolte di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il metodo [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) del progetto *CollectionManagement* di esempio illustra come eseguire queste attività. Per informazioni sulle raccolte di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -74,7 +74,7 @@ Il metodo [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Eliminare una raccolta](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Esempi di documento
-Il metodo [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) del progetto *DocumentManagement* di esempio illustra come eseguire queste attività. Per informazioni sui documenti di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](databases-containers-items.md). 
+Il metodo [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) del progetto *DocumentManagement* di esempio illustra come eseguire queste attività. Per informazioni sui documenti di Azure Cosmos prima di eseguire questi esempi, vedere [Usare database, contenitori ed elementi](account-databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |

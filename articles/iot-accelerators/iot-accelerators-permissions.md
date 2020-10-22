@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447455"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370611"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usare il sito azureiotsolutions.com per distribuire acceleratori di soluzioni
 
@@ -38,7 +38,7 @@ Prima di poter distribuire un acceleratore di soluzione, è necessario accedere 
 
 Le autorizzazioni per distribuire gli acceleratori di soluzioni, gestire gli utenti e gestire i servizi di Azure dipendono dal proprio ruolo nella directory selezionata. I ruoli di Azure AD comuni associati agli acceleratori di soluzioni includono:
 
-* **Amministratore globale**: possono essere presenti molti [amministratori globali](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per ogni tenant di Azure ad:
+* **Amministratore globale**: possono essere presenti molti [amministratori globali](../active-directory/roles/permissions-reference.md) per ogni tenant di Azure ad:
 
   * Quando si crea un tenant di Azure AD, si è per impostazione predefinita l'amministratore globale del tenant.
   * L'amministratore globale può distribuire acceleratori di soluzioni di base e standard.

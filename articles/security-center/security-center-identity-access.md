@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341263"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371070"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
@@ -56,7 +56,7 @@ Esistono alcune limitazioni per le protezioni di identità e accesso del Centro 
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-factor authentication (autenticazione a più fattori) e Azure Active Directory 
 
-Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](../active-directory/roles/permissions-reference.md).
 
 - Se si ha un'edizione Premium di AD, abilitare l'autenticazione a più fattori usando l'[accesso condizionale](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - Se si usa AD Free Edition, abilitare le **impostazioni predefinite di sicurezza** come descritto in [Azure Active Directory documentazione](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f584ba1021e9cc66454e3aebd7f51b34e72885f5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438824"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369183"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambienti di calcolo supportati da Azure Data Factory versione 1
 > [!NOTE]
@@ -26,11 +26,11 @@ Questo articolo illustra gli ambienti di calcolo che è possibile usare per elab
 
 La tabella seguente presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
-| Ambiente di calcolo                      | attività                               |
+| Ambiente di calcolo                      | Attività                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (versione classica)](#azure-machine-learning-studio-classic-linked-service) | [Attività Studio (classiche): esecuzione batch e risorsa aggiornamento](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [SQL di Azure](#azure-sql-linked-service), [analisi delle sinapsi di Azure](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Attività stored procedure](data-factory-stored-proc-activity.md) |
 
@@ -230,7 +230,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 
 * HDInsight di Azure
 * Azure Batch
-* Azure Machine Learning
+* Azure Machine Learning Studio (versione classica)
 * Azure Data Lake Analytics.
 * Database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), SQL Server
 
@@ -289,13 +289,13 @@ Se non si ha familiarità con l'uso del servizio Batch:
 }
 ```
 
-Per la proprietà **AccountName** , aggiungere **. \<region name\> ** al nome dell'account batch. Ad esempio:
+Per la proprietà **AccountName** , aggiungere **. \<region name\> ** al nome dell'account batch. Esempio:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
+Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Esempio:
 
 ```json
 "accountName": "adfteam",
@@ -311,8 +311,8 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 | poolName          | Nome del pool di VM.    | Sì      |
 | linkedServiceName | Nome del servizio collegato di archiviazione associato a questo servizio collegato Batch. Questo servizio collegato viene usato per eseguire un'installazione di appoggio dei file necessari per eseguire l'attività e archiviare i log di esecuzione dell'attività. | Sì      |
 
-## <a name="azure-machine-learning-linked-service"></a>Servizio collegato di Azure Machine Learning
-È possibile creare un servizio collegato Machine Learning per registrare un endpoint di assegnazione dei punteggi batch di Machine Learning in una data factory.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Servizio collegato Azure Machine Learning Studio (classico)
+È possibile creare un servizio collegato di Azure Machine Learning Studio (classico) per registrare un endpoint di assegnazione dei punteggi batch di studio (classico) a una data factory.
 
 ### <a name="example"></a>Esempio
 
@@ -330,9 +330,9 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà   | Descrizione                              | Obbligatoria |
+| Proprietà   | Descrizione                              | Obbligatorio |
 | ---------- | ---------------------------------------- | -------- |
-| Type       | Impostare la proprietà type su **AzureML**. | Sì      |
+| Tipo       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |
 | apiKey     | Modello dell'area di lavoro pubblicato di API.     | Sì      |
 
@@ -388,7 +388,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 #### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 Per l'autenticazione delle credenziali utente per Data Lake Analytics, specificare le proprietà seguenti:
 
-| Proprietà          | Descrizione                              | Obbligatoria |
+| Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | authorization | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
 | sessionID     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |

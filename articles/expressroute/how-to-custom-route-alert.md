@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329850"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371495"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurare avvisi personalizzati per il monitoraggio di route annunciate
 
@@ -70,7 +70,7 @@ Creare un account di automazione con le autorizzazioni di esecuzione. Per istruz
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. assegnare un ruolo all'account RunAs
 
-Per impostazione predefinita, il ruolo **collaboratore** viene assegnato all'entità servizio usata dall'account **RunAs** . È possibile fare in modo che il ruolo predefinito venga assegnato all'entità servizio oppure è possibile limitare le autorizzazioni assegnando un [ruolo](../role-based-access-control/built-in-roles.md) predefinito, ad esempio Reader, o un [ruolo personalizzato](../active-directory/users-groups-roles/roles-create-custom.md).
+Per impostazione predefinita, il ruolo **collaboratore** viene assegnato all'entità servizio usata dall'account **RunAs** . È possibile fare in modo che il ruolo predefinito venga assegnato all'entità servizio oppure è possibile limitare le autorizzazioni assegnando un [ruolo](../role-based-access-control/built-in-roles.md) predefinito, ad esempio Reader, o un [ruolo personalizzato](../active-directory/roles/custom-create.md).
 
  Usare la procedura seguente per determinare il ruolo da assegnare all'entità servizio usata dall'account RunAs:
 

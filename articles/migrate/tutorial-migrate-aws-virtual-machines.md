@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651836"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310729"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -40,7 +40,7 @@ Prima di procedere con la migrazione ad Azure, è consigliabile eseguire un'indi
 
 Configurare una valutazione nel modo seguente:
 
-1. Seguire questa [esercitazione](./tutorial-prepare-physical.md) per configurare Azure e preparare le VM AWS per la valutazione. Tenere presente quanto segue:
+1. Seguire questa [esercitazione](./tutorial-discover-physical.md) per configurare Azure e preparare le VM AWS per la valutazione. Tenere presente quanto segue:
 
     - Azure Migrate usa l'autenticazione della password durante l'individuazione delle istanze di AWS. Le istanze di AWS non supportano l'autenticazione della password per impostazione predefinita. Prima di poter individuare l'istanza, è necessario abilitare l'autenticazione della password.
         - Per i computer Windows consentire la porta 5985 (HTTP) di WinRM per permettere le chiamate WMI remote.
@@ -370,7 +370,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Per una maggiore sicurezza:
     - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità di [amministrazione JIT del Centro sicurezza di Azure](../security-center/security-center-just-in-time.md).
-    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
     - Distribuire [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md) per garantire la sicurezza dei dischi e proteggere i dati da furti e accessi non autorizzati.
     - Per altre informazioni sulla [protezione delle risorse IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), visitare il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/).
 - Per il monitoraggio e la gestione:

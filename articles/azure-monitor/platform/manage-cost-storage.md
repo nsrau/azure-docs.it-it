@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 3783c3dea67ebb9a77486d18bf80e67b85292744
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369064"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -243,7 +243,7 @@ Per iniziare, di seguito sono riportate le impostazioni consigliate per l'avviso
 - Destinazione: Selezionare la risorsa di Log Analytics
 - Criteri: 
    - Nome segnale: Ricerca log personalizzata
-   - Query di ricerca: `_LogOperation | where Detail has 'OverQuota'`
+   - Query di ricerca: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - In base a: Numero di risultati
    - Condizione: Maggiore di
    - Soglia: 0
@@ -600,9 +600,9 @@ Per segnalare se il volume di dati fatturabile inserito nelle ultime 24 ore è s
 - Per **Definire la condizione dell'avviso**, specificare l'area di lavoro Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
-   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se si vuole un diversi 
+   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se si desidera un'altra 
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
-   - **Periodo di tempo** di *1440* minuti e **frequenza di avviso** a ogni *1440* minutesto eseguiti una volta al giorno.
+   - **Periodo di tempo** di *1440* minuti e **frequenza di avviso** a ogni *1440* minuti per l'esecuzione una volta al giorno.
 - Per **Definire i dettagli dell'avviso** specificare quanto segue:
    - **Nome** del *volume di dati fatturabile superiore a 50 GB in 24 ore*
    - **Gravità** su *Avviso*

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999652"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369965"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -40,7 +40,7 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella tabella seguente:
 
 | Tipo di risorsa collegamento privato/sottorisorsa |Nome zona DNS privato | Server d'inoltro zona DNS pubblico |
-|---|---|---|---|
+|---|---|---|
 | Automazione di Azure/(Microsoft. Automation/automationAccounts)/webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Database SQL di Azure (Microsoft. SQL/Servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
 | Analisi delle sinapsi di Azure (Microsoft. SQL/Servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -77,6 +77,8 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Monitoraggio di Azure (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Servizi cognitivi (Microsoft. CognitiveServices/accounts)/account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Sincronizzazione file di Azure (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure Data Factory (Microsoft. DataFactory/Factory)/DataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure Data Factory (Microsoft. DataFactory/Factory)/portale |  privatelink.azure.com  |  azure.com  |
 
  
 ## <a name="dns-configuration-scenarios"></a>Scenari di configurazione DNS
@@ -130,38 +132,37 @@ Per i carichi di lavoro locali per la risoluzione di un nome di dominio completo
 Lo scenario seguente è adatto a una rete locale che dispone di un server di un server d'invio DNS in Azure, che a sua volta è responsabile della risoluzione di tutte le query DNS tramite un server di un server d'un server di un server di un server di un server di un server di un server di [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). 
 
 > [!NOTE]
-> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure.Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration).
+> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure. Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration).
 
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete locale
-- Rete virtuale [connessa alla rete locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
-- Server d'inoltro DNS distribuito in Azure 
-- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)   con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Server d'inoltro DNS distribuito in Azure 
+- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md) con [record di tipo a](../dns/dns-zones-records.md#record-types)
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
-Questa configurazione può essere estesa per una rete locale in cui è già presente una soluzione DNS. 
-La soluzione DNS locale deve essere configurata per l'invio del traffico DNS a DNS di Azure tramite un server d'istruzione [condizionale](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) che fa riferimento al server di distribuzione DNS distribuito in Azure.
+Questa configurazione può essere estesa per una rete locale in cui è già presente una soluzione DNS. La soluzione DNS locale deve essere configurata per l'invio del traffico DNS a DNS di Azure tramite un server d'istruzione [condizionale](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) che fa riferimento al server di distribuzione DNS distribuito in Azure.
 
 > [!NOTE]
-> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure. Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration)
+> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure. Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration)
 
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
-- Rete locale con una soluzione DNS personalizzata 
-- Rete virtuale [connessa alla rete locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rete locale con una soluzione DNS personalizzata 
+- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 - Server d'inoltro DNS distribuito in Azure
-- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)    con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
 
-Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che invia in modo condizionale il traffico DNS ad Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md).
+Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che invia in modo condizionale il traffico DNS ad Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md).
 
 > [!IMPORTANT]
-> L'invio condizionale deve essere eseguito al server d'istruzione [pubblico di zona DNS pubblico](#azure-services-dns-zone-configuration)consigliato.Ad esempio:  `database.windows.net`   invece di **privatelink**. database.Windows.NET.
+> L'invio condizionale deve essere eseguito al server d'istruzione [pubblico di zona DNS pubblico](#azure-services-dns-zone-configuration)consigliato. Ad esempio: `database.windows.net` invece di **privatelink**. database.Windows.NET.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
@@ -177,18 +178,18 @@ Questo server d'inoltre DNS è responsabile della risoluzione di tutte le query 
 > Per questa configurazione è necessaria una singola zona DNS privata. Tutte le connessioni client effettuate da reti virtuali locali e con [peering](../virtual-network/virtual-network-peering-overview.md) devono usare anche la stessa zona DNS privata.
 
 > [!NOTE]
-> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure. Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration).
+> Questo scenario usa la zona DNS privata consigliata del database SQL di Azure. Per altri servizi, è possibile modificare il modello usando il riferimento seguente: [configurazione della zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration).
 
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete locale
-- Rete virtuale [connessa alla rete locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
-- [Rete virtuale con peering](../virtual-network/virtual-network-peering-overview.md) 
+- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- [Rete virtuale con peering](../virtual-network/virtual-network-peering-overview.md) 
 - Server d'inoltro DNS distribuito in Azure
-- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)    con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
 
-Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale e una rete virtuale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
+Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale e una rete virtuale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: bf4a1feb91a1ac4b0bca0d6afdbac41a8be3aa4f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049750"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370985"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Creare un disco gestito da una versione dell'immagine
 
@@ -23,10 +23,10 @@ Se necessario, è possibile creare un disco gestito da una versione di immagine 
 
 ## <a name="cli"></a>CLI
 
-Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](/cli/azure/disk.md#az_disk_create) per creare il disco gestito. 
+Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](/cli/azure/disk#az_disk_create) per creare il disco gestito. 
 
 
-È possibile visualizzare le versioni delle immagini di un elenco usando [AZ sig Image-Version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). In questo esempio vengono cercate tutte le versioni di immagini che fanno parte della definizione dell'immagine *myImageDefinition* nella raccolta immagini di *raccolta* immagini.
+È possibile visualizzare le versioni delle immagini di un elenco usando [AZ sig Image-Version list](/cli/azure/sig/image-version#az_sig_image_version_list). In questo esempio vengono cercate tutte le versioni di immagini che fanno parte della definizione dell'immagine *myImageDefinition* nella raccolta immagini di *raccolta* immagini.
 
 ```azurecli-interactive
 az sig image-version list \

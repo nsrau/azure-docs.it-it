@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332043"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370441"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 Quando si usa NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
 
 - Per gli account di archiviazione nell'area di origine:
-    - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
+    - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/network-security-groups-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
-- Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
+- Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
 - Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
 - Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
 - Creare una regola NSG basata su tag del servizio AzureKeyVault. Questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale.
