@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258337"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363454"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Contrassegnare l'app come con autore verificato
 
@@ -42,7 +42,7 @@ Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#re
 
 1. Assicurarsi di aver eseguito l'accesso con l'autenticazione a più [fattori](../fundamentals/concept-fundamentals-mfa-get-started.md) a un account aziendale (Azure ad) autorizzato a apportare modifiche alle app che si desidera contrassegnare come server di pubblicazione verificato e nell'account MPN nel centro per i partner.
 
-    - In Azure AD questo utente deve essere membro di uno dei [ruoli](../users-groups-roles/directory-assign-admin-roles.md)seguenti: Amministratore applicazione, amministratore applicazione cloud, amministratore globale. 
+    - In Azure AD questo utente deve essere membro di uno dei [ruoli](../roles/permissions-reference.md)seguenti: Amministratore applicazione, amministratore applicazione cloud, amministratore globale. 
 
     - In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD). 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070368"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363692"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -139,13 +139,13 @@ La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica 
 
 È consigliabile che la configurazione iniziale del provisioning utenti automatico si trovi in un ambiente di test con un piccolo subset di utenti prima di ridimensionarlo a tutti gli utenti nell'ambiente di produzione. Vedere le [procedure consigliate](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) per l'esecuzione di un progetto pilota.
 
-#### <a name="best-practices-for-a-pilot"></a>Procedure consigliate per un progetto pilota  
+#### <a name="best-practices-for-a-pilot"></a>Procedure consigliate per un progetto pilota  
 
 Un progetto pilota consente di eseguire test con un piccolo gruppo prima di distribuire una funzionalità per tutti gli utenti. Assicurarsi che nell'ambito del test ogni caso di utilizzo all'interno dell'organizzazione venga testato accuratamente.
 
 Nella prima ondata, è possibile indirizzare IT, usabilità e altri utenti appropriati che possono testare e fornire commenti e suggerimenti. Usare questo feedback per sviluppare ulteriormente le comunicazioni e le istruzioni inviate agli utenti e per fornire informazioni dettagliate sui tipi di problemi che possono essere visualizzati dal personale di supporto.
 
-Ampliare l'implementazione a gruppi di utenti più grandi aumentando l'ambito dei gruppi di destinazione. Questa operazione può essere eseguita tramite [l'appartenenza dinamica ai gruppi](../users-groups-roles/groups-dynamic-membership.md)o aggiungendo manualmente utenti ai gruppi di destinazione.
+Ampliare l'implementazione a gruppi di utenti più grandi aumentando l'ambito dei gruppi di destinazione. Questa operazione può essere eseguita tramite [l'appartenenza dinamica ai gruppi](../enterprise-users/groups-dynamic-membership.md)o aggiungendo manualmente utenti ai gruppi di destinazione.
 
 ## <a name="plan-application-connections-and-administration"></a>Pianificare le connessioni e l'amministrazione delle applicazioni
 

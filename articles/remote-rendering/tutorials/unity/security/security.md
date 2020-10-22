@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650477"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207530"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 
@@ -188,11 +188,11 @@ Lo stato corrente dell'applicazione e il relativo accesso alle risorse di Azure 
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Autenticazione di Azure Active Directory (Azure AD)
 
-Con l'autenticazione di AAD sarà possibile determinare quali utenti o gruppi usano Rendering remoto di Azure in modo più controllato. Rendering remoto di Azure prevede il supporto predefinito per accettare [token di accesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) invece dell'uso di una chiave dell'account. I token di accesso possono essere paragonati a una chiave specifica dell'utente, limitata nel tempo, che sblocca solo determinate parti della risorsa specifica per cui è stata richiesta.
+Con l'autenticazione di AAD sarà possibile determinare quali utenti o gruppi usano Rendering remoto di Azure in modo più controllato. Rendering remoto di Azure prevede il supporto predefinito per accettare [token di accesso](../../../../active-directory/develop/access-tokens.md) invece dell'uso di una chiave dell'account. I token di accesso possono essere paragonati a una chiave specifica dell'utente, limitata nel tempo, che sblocca solo determinate parti della risorsa specifica per cui è stata richiesta.
 
 Lo script **RemoteRenderingCoordinator** include un delegato denominato **ARRCredentialGetter**, che contiene un metodo che restituisce un oggetto **AzureFrontendAccountInfo**, usato per configurare la gestione della sessione remota. È possibile assegnare un metodo diverso a **ARRCredentialGetter**, consentendo di usare un flusso di accesso di Azure, generando un oggetto **AzureFrontendAccountInfo** che contiene un token di accesso di Azure. Questo token di accesso sarà specifico per l'utente che effettua l'accesso.
 
-1. Seguire l'argomento [Procedura: Configurare l'autenticazione - Autenticazione per le applicazioni distribuite](../../../how-tos/authentication.md#authentication-for-deployed-applications), in particolare seguire le istruzioni riportate nella sezione [Autenticazione degli utenti di Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) nella documentazione di Ancoraggi nello spazio di Azure. Ciò comporta la registrazione di una nuova applicazione di Azure Active Directory e la configurazione dell'accesso all'istanza di Rendering remoto di Azure.
+1. Seguire l'argomento [Procedura: Configurare l'autenticazione - Autenticazione per le applicazioni distribuite](../../../how-tos/authentication.md#authentication-for-deployed-applications), in particolare seguire le istruzioni riportate nella sezione [Autenticazione degli utenti di Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) nella documentazione di Ancoraggi nello spazio di Azure. Ciò comporta la registrazione di una nuova applicazione di Azure Active Directory e la configurazione dell'accesso all'istanza di Rendering remoto di Azure.
 1. Dopo aver configurato la nuova applicazione di AAD, controllare che l'applicazione corrisponda alle immagini seguenti:
 
     **Applicazione AAD -> Autenticazione** ![Autenticazione dell'app](./media/app-authentication-public.png)
@@ -361,7 +361,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
 
 Il codice prova prima di tutto a ottenere il token in modo invisibile all'utente usando **AquireTokenSilent**. Questa operazione riuscirà se l'utente ha già eseguito l'autenticazione dell'applicazione. Se non riesce, passare a una strategia che coinvolge maggiormente l'utente.
 
-Per questo codice viene usato il [flusso di codice del dispositivo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) per ottenere un token di accesso. Questo flusso consente all'utente di accedere al suo account Azure in un computer o in un dispositivo mobile e di ricevere il token risultante nell'applicazione HoloLens.
+Per questo codice viene usato il [flusso di codice del dispositivo](../../../../active-directory/develop/v2-oauth2-device-code.md) per ottenere un token di accesso. Questo flusso consente all'utente di accedere al suo account Azure in un computer o in un dispositivo mobile e di ricevere il token risultante nell'applicazione HoloLens.
 
 La parte più importante di questa classe dal punto di vista di Rendering remoto di Azure è questa riga:
 

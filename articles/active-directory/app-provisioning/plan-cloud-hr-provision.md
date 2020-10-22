@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070385"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363658"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -81,8 +81,8 @@ Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degl
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD [amministratore di identità ibrido](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  per configurare l'agente di provisioning Azure ad Connect.
-- Azure AD ruolo di [amministratore dell'applicazione](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) per configurare l'app di provisioning nel portale di Azure
+- Azure AD [amministratore di identità ibrido](../roles/permissions-reference.md#hybrid-identity-administrator)  per configurare l'agente di provisioning Azure ad Connect.
+- Azure AD ruolo di [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator) per configurare l'app di provisioning nel portale di Azure
 - Un'istanza di test e produzione dell'app HR cloud.
 - Autorizzazioni di amministratore nell'app Cloud HR per creare un utente di integrazione del sistema e apportare modifiche ai dati dei dipendenti di test a scopo di test.
 - Per il provisioning degli utenti in Active Directory, è necessario un server che esegue Windows Server 2012 o versione successiva con .NET 4.7.1 + Runtime per ospitare l'agente di provisioning di Azure AD Connect
@@ -110,7 +110,7 @@ Nell'esempio seguente viene descritta l'architettura della soluzione di provisio
 
 #### <a name="description-of-workflow"></a>Descrizione del flusso di lavoro
 
-Nel diagramma sono indicati i passaggi principali seguenti:  
+Nel diagramma sono indicati i passaggi principali seguenti:  
 
 1. Il **team HR** esegue le transazioni nel tenant del cloud HR app.
 2. **Azure ad servizio di provisioning** esegue i cicli pianificati dal tenant dell'app HR cloud e identifica le modifiche che devono essere elaborate per la sincronizzazione con Active Directory.
