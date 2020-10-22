@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Creare un'offerta di Contenitore di Azure
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Offerta di macchine virtuali di Azure
+    - name: Offerte di macchine virtuali di Azure
       items:
         - name: Pianificare un'offerta di VM
           href: marketplace-virtual-machines.md
         - name: Creare e pubblicare un'offerta di VM
           items:
+            - name: Creare un'offerta di VM
+              href: azure-vm-create.md
+            - name: Configurare le proprietà dell'offerta di VM
+              href: azure-vm-create-properties.md
+            - name: Configurare l'inserzione dell'offerta di VM
+              href: azure-vm-create-listing.md
+            - name: Creare piani di VM
+              href: azure-vm-create-plans.md
+            - name: Aggiungere un gruppo di destinatari dell'anteprima
+              href: azure-vm-create-preview.md
             - name: Creare gli asset tecnici delle macchine virtuali
               items:
                 - name: Creare una VM da una base approvata
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Risoluzione dei problemi di certificazione delle VM
                   href: azure-vm-create-certification-faq.md
-            - name: Creare un'offerta di VM
-              href: azure-vm-create.md
-            - name: Configurare le proprietà dell'offerta di VM
-              href: azure-vm-create-properties.md
-            - name: Configurare l'inserzione dell'offerta di VM
-              href: azure-vm-create-listing.md
-            - name: Creare piani di VM
-              href: azure-vm-create-plans.md
-            - name: Aggiungere un gruppo di destinatari dell'anteprima
-              href: azure-vm-create-preview.md
     - name: Servizi di consulenza
       items:
         - name: Pianificare un'offerta di servizi di consulenza

@@ -62,8 +62,6 @@
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
-        - name: Criteri di sicurezza integrati
-          href: api-management-security-controls.md
     - name: Sottoscrizioni
       href: api-management-subscriptions.md
     - name: Versioni

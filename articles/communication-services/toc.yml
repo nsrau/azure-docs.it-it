@@ -5,7 +5,7 @@
   items:
     - name: Che cos'è l'offerta Servizi di comunicazione di Azure?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una risorsa di Servizi di comunicazione
@@ -93,7 +93,7 @@
 - name: Riferimenti
   items:
     - name: Documentazione relativa alle API REST
-      href: 'https://docs.microsoft.com/rest/api/azure/'
+      href: 'https://docs.microsoft.com/rest/api/communication/'
     - name: Chiamata della libreria (Android/Java)
       href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
     - name: Chiamata della libreria (JavaScript)

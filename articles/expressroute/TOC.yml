@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è ExpressRoute?
       href: expressroute-introduction.md
-- name: Guide rapide introduttive
+- name: Avvii rapidi
   items:
     - name: Creare un circuito ExpressRoute - Portale
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -95,6 +95,10 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Connettività tra reti
       href: cross-network-connectivity.md
+    - name: Security
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Attributi di sicurezza
       href: expressroute-security-controls.md
     - name: BFD su ExpressRoute
@@ -269,5 +273,3 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: Creare e modificare un peering pubblico
           href: about-public-peering.md
-    - name: Baseline di sicurezza
-      href: security-baseline.md

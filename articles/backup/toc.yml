@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -382,7 +382,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica
           href: security-overview.md
@@ -406,8 +406,6 @@
           href: backup-encryption.md
         - name: Crittografia con chiavi gestite dal cliente
           href: encryption-at-rest-with-cmk.md
-        - name: Criteri di sicurezza integrati
-          href: backup-security-controls.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

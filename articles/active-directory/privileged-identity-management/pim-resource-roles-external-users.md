@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88782737"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365528"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Invitare gli utenti guest e assegnare i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -67,7 +67,7 @@ Per assicurarsi di poter invitare i guest nell'organizzazione, è consigliabile 
 
 Con Privileged Identity Management è possibile invitare un Guest e renderli idonei per un ruolo di risorse di Azure.
 
-1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [privilegiato amministratore ruolo](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) o [amministratore utente](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) .
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [privilegiato amministratore ruolo](../roles/permissions-reference.md#privileged-role-administrator) o [amministratore utente](../roles/permissions-reference.md#user-administrator) .
 
 1. Aprire **Azure ad Privileged Identity Management**.
 

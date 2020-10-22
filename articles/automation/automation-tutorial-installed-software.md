@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185824"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207564"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Individuare quale software è installato nelle VM
 
@@ -151,4 +151,4 @@ In questa esercitazione è stato illustrato come visualizzare l'inventario softw
 Per altre informazioni, passare alla panoramica della funzionalità Rilevamento modifiche e inventario.
 
 > [!div class="nextstepaction"]
-> [Panoramica di Rilevamento modifiche e inventario](change-tracking.md)
+> [Panoramica di Rilevamento modifiche e inventario](change-tracking/overview.md)
