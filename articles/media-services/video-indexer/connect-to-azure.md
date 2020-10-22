@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164803"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371376"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -33,7 +33,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
 * Un dominio Azure Active Directory (Azure AD).
 
-    Se non si dispone di un dominio di Azure AD, creare il dominio nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [gestione dei nomi di dominio personalizzati nel Azure ad](../../active-directory/users-groups-roles/domains-manage.md)
+    Se non si dispone di un dominio di Azure AD, creare il dominio nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [gestione dei nomi di dominio personalizzati nel Azure ad](../../active-directory/enterprise-users/domains-manage.md)
 
 * Un utente nel dominio di Azure AD con un ruolo di **amministratore dell'applicazione** . Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 

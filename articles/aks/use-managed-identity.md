@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397046"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371461"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -30,28 +30,28 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 * Non è possibile eseguire la migrazione dei cluster AKS esistenti alle identità gestite.
 * Durante le operazioni di **aggiornamento** del cluster, l'identità gestita è temporaneamente non disponibile.
 * Lo spostamento/migrazione dei tenant di cluster abilitati per identità gestite non è supportato.
-* Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+* Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Per configurare un'eccezione, installare la [YAML di eccezione MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Riepilogo delle identità gestite
 
 AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predefiniti.
 
-| Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
+| Identità                       | Name    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato da AKS per le risorse di rete gestite, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | NA (per kubernetes v 1.15 +) | Attualmente non supportato
-| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | ND | No
 | Componente aggiuntivo | HTTPApplicationRouting | Gestisce le risorse di rete necessarie | Ruolo Reader per il gruppo di risorse nodo, ruolo Collaboratore per la zona DNS | No
 | Componente aggiuntivo | Gateway applicazione in ingresso | Gestisce le risorse di rete necessarie| Ruolo Collaboratore per il gruppo di risorse nodo | No
 | Componente aggiuntivo | omsagent | Usato per inviare metriche AKS a monitoraggio di Azure | Monitoraggio del ruolo server di pubblicazione metrica | No
 | Componente aggiuntivo | Virtual-Node (ACIConnector) | Gestisce le risorse di rete necessarie per istanze di contenitore di Azure | Ruolo Collaboratore per il gruppo di risorse nodo | No
-| Progetto OSS | AAD-Pod-identità | Consente alle applicazioni di accedere in modo sicuro alle risorse cloud con Azure Active Directory (AAD) | N/D | Passaggi per concedere l'autorizzazione in https://github.com/Azure/aad-pod-identity#role-assignment .
+| Progetto OSS | AAD-Pod-identità | Consente alle applicazioni di accedere in modo sicuro alle risorse cloud con Azure Active Directory (AAD) | ND | Passaggi per concedere l'autorizzazione in https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Creare un cluster AKS con identità gestite
 

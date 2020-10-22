@@ -1,6 +1,6 @@
 ---
 title: 'Trasformazione dei dati: processo & trasformare i dati '
-description: Informazioni su come trasformare o elaborare i dati in Azure Data Factory con Hadoop, Machine Learning o Azure Data Lake Analytics.
+description: Informazioni su come trasformare dati o elaborare dati in Azure Data Factory usando Hadoop, Azure Machine Learning Studio (classico) o Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436298"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371716"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Trasformare i dati in Azure Data Factory versione 1
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "89436298"
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
@@ -57,12 +57,12 @@ L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue 
 ## <a name="hdinsight-spark-activity"></a>Attività Spark di HDInsight
 L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale. Per conoscere i dettagli, vedere [Richiamare i programmi Spark da Azure Data Factory](data-factory-spark.md). 
 
-## <a name="machine-learning-activities"></a>Attività di Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Utilizzando l' [attività di esecuzione batch](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web Machine Learning per eseguire stime sui dati in batch.
+## <a name="azure-machine-learning-studio-classic-activities"></a>Attività Azure Machine Learning Studio (classiche)
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato Azure Machine Learning Studio (classico) per l'analisi predittiva. Utilizzando l' [attività di esecuzione batch](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web Studio (classico) per eseguire stime sui dati in batch.
 
-Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile utilizzare l' [attività Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) per aggiornare il servizio Web con il nuovo modello sottoposto a training.  
+Nel corso del tempo, è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi in studio (classico) usando nuovi set di dati di input. Al termine della ripetizione del training, si vuole aggiornare il servizio Web di assegnazione dei punteggi con il modello di apprendimento automatico di cui è stato ripetuto il training. È possibile utilizzare l' [attività Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) per aggiornare il servizio Web con il nuovo modello sottoposto a training.  
 
-Vedere [Usare le attività Machine Learning](data-factory-azure-ml-batch-execution-activity.md) per i relativi dettagli. 
+Per informazioni dettagliate su queste attività di studio (classiche), vedere [usare le attività Azure Machine Learning Studio (classiche)](data-factory-azure-ml-batch-execution-activity.md) . 
 
 ## <a name="stored-procedure-activity"></a>Attività stored procedure
 È possibile usare l'attività SQL Server stored procedure in una pipeline Data Factory per richiamare un stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), SQL Server database nell'azienda o in una VM di Azure. Per informazioni dettagliate, vedere l'articolo [attività stored procedure](data-factory-stored-proc-activity.md) .  
@@ -92,7 +92,7 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
+| [Attività Azure Machine Learning Studio (classiche): esecuzione batch e risorsa di aggiornamento](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
 | [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |

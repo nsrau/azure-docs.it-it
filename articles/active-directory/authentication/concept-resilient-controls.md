@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049571"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366565"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -120,7 +120,7 @@ Un criterio di accesso condizionale di emergenza è un **criterio di backup** ch
 * Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio nello stato solo report che richiede l'aggiunta a un dominio come controllo, come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
 * Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](./tutorial-enable-sspr.md) e [Protezione della password di Azure AD](./howto-password-ban-bad-on-premises-deploy.md) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
-* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
+* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Esempio:
   * Configurare un criterio di backup che invia l'attestazione di sessione con restrizioni a Exchange e SharePoint.
   * Se l'organizzazione usa Microsoft Cloud App Security, è consigliabile eseguire il fallback a un criterio che coinvolga MCAS, quindi che MCAS consenta l'accesso di sola lettura, ma non il caricamento.
 * Assegnare un nome ai criteri per esseri sicuri di trovarli facilmente durante un'interruzione. Includere gli elementi seguenti nel nome dei criteri:
@@ -285,7 +285,7 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 ## <a name="learn-more"></a>Altre informazioni
 
 * [Documentazione di Autenticazione di Azure AD](./howto-mfaserver-iis.md)
-* [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 * [Configurare località denominate in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](../devices/hybrid-azuread-join-plan.md)

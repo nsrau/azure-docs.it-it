@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729169"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277606"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Esercitazione: Aggiungere un dominio personalizzato alla frontdoor
 Questa esercitazione mostra come aggiungere un dominio personalizzato alla propria frontdoor. Quando si usa il servizio Frontdoor di Azure per la distribuzione dell'applicazione, un dominio personalizzato è necessario se si vuole che il nome di dominio sia visibile nella richiesta dell'utente finale. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione.
@@ -39,9 +39,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 * Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor. Per altre informazioni, vedere [Avvio rapido: Creare una frontdoor](quickstart-create-front-door.md).
 
-* Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](../app-service/manage-custom-dns-buy-domain.md).
 
-* Se si usa Azure per ospitare i [domini DNS](https://docs.microsoft.com/azure/dns/dns-overview), è necessario delegare il DNS (Domain Name System) del provider di dominio a un DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). In caso contrario, se si usa un provider di dominio per gestire il dominio DNS, continuare con [Creare un record DNS CNAME](#create-a-cname-dns-record).
+* Se si usa Azure per ospitare i [domini DNS](../dns/dns-overview.md), è necessario delegare il DNS (Domain Name System) del provider di dominio a un DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../dns/dns-delegate-domain-azure-dns.md). In caso contrario, se si usa un provider di dominio per gestire il dominio DNS, continuare con [Creare un record DNS CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Creare un record DNS CNAME

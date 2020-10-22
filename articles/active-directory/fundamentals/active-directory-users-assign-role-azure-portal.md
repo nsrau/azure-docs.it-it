@@ -13,25 +13,25 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321243"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370934"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Assegnazione di ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory
 
 In Azure Active Directory (Azure AD), se uno degli utenti necessita dell'autorizzazione per gestire le risorse Azure AD, è necessario assegnarle a un ruolo che fornisce le autorizzazioni necessarie. Per informazioni sui ruoli che gestiscono le risorse di Azure e sui ruoli che gestiscono Azure AD risorse, vedere [ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-Per ulteriori informazioni sui ruoli di Azure AD disponibili, vedere [assegnazione di ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Per aggiungere utenti, vedere [aggiungere nuovi utenti a Azure Active Directory](add-users-azure-active-directory.md).
+Per ulteriori informazioni sui ruoli di Azure AD disponibili, vedere [assegnazione di ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md). Per aggiungere utenti, vedere [aggiungere nuovi utenti a Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Assegnare ruoli
 
 Un modo comune per assegnare Azure AD ruoli a un utente è nella pagina **ruoli assegnati** per un utente. È anche possibile configurare l'idoneità utente per l'elevazione JIT in un ruolo usando Privileged Identity Management (PIM). Per ulteriori informazioni sull'utilizzo di PIM, vedere [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> Se si dispone di un piano di licenza Azure AD Premium P2 e si utilizza già PIM, tutte le attività di gestione dei ruoli vengono eseguite nell' [esperienza Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md). Questa funzionalità è attualmente limitata all'assegnazione di un solo ruolo alla volta. Attualmente non è possibile selezionare più ruoli e assegnarli contemporaneamente a un utente.
+> Se si dispone di un piano di licenza Azure AD Premium P2 e si utilizza già PIM, tutte le attività di gestione dei ruoli vengono eseguite nell' [esperienza Privileged Identity Management](../roles/manage-roles-portal.md). Questa funzionalità è attualmente limitata all'assegnazione di un solo ruolo alla volta. Attualmente non è possibile selezionare più ruoli e assegnarli contemporaneamente a un utente.
 >
 > ![Azure AD ruoli gestiti in PIM per gli utenti che usano già PIM e hanno una licenza Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -81,4 +81,4 @@ Se è necessario rimuovere l'assegnazione di ruolo da un utente, è anche possib
 
 - [Aggiungere utenti guest da un'altra directory](../external-identities/what-is-b2b.md)
 
-Altre attività di gestione degli utenti che è possibile estrarre sono disponibili nella [documentazione relativa alla gestione degli utenti Azure Active Directory](../users-groups-roles/index.yml).
+Altre attività di gestione degli utenti che è possibile estrarre sono disponibili nella [documentazione relativa alla gestione degli utenti Azure Active Directory](../enterprise-users/index.yml).

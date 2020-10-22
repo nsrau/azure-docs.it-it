@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f420f66e1db6efc6a0aa43cb88f26687839f0d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321515"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370968"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guida di riferimento per le operazioni di Azure Active Directory governance
 
@@ -49,7 +49,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 #### <a name="owner-recommended-reading"></a>Lettura consigliata dal proprietario
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>Test delle modifiche di configurazione
@@ -66,7 +66,7 @@ Sono presenti modifiche che richiedono considerazioni speciali durante i test, d
 |Implementazione di una nuova funzionalità|Se la funzionalità supporta la distribuzione a un set di utenti di destinazione, identificare gli utenti pilota e compilare. Ad esempio, la reimpostazione della password self-service e l'autenticazione a più fattori possono avere come destinazione utenti o gruppi specifici.|
 |Cutover un'applicazione da un provider di identità locale (IdP), ad esempio Active Directory, a Azure AD|Se l'applicazione supporta più configurazioni IdP, ad esempio Salesforce, configurare e testare Azure AD durante una finestra di modifica (nel caso in cui l'applicazione introduca la pagina HRD). Se l'applicazione non supporta più IDP, pianificare i test durante la finestra di controllo delle modifiche e il tempo di inattività del programma.|
 |Aggiornare le regole del gruppo dinamico|Creare un gruppo dinamico parallelo con la nuova regola. Confrontare con il risultato calcolato, ad esempio, eseguire PowerShell con la stessa condizione.<br>Se il test viene superato, scambiare le posizioni in cui è stato usato il gruppo precedente (se possibile).|
-|Esegui migrazione licenze prodotto|Fare riferimento a [modificare la licenza per un singolo utente in un gruppo con licenza in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md).|
+|Esegui migrazione licenze prodotto|Fare riferimento a [modificare la licenza per un singolo utente in un gruppo con licenza in Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Modificare AD FS regole, ad esempio autorizzazione, emissione, autenticazione a più fattori|Usare l'attestazione del gruppo per fare riferimento a subset di utenti.|
 |Modificare AD FS esperienza di autenticazione o modifiche simili a livello di farm|Creazione di una farm parallela con lo stesso nome host, implementazione delle modifiche di configurazione, test da client con file host, regole di routing NLB o routing analogo.<br>Se la piattaforma di destinazione non supporta i file host, ad esempio i dispositivi mobili, modificare il controllo.|
 
@@ -92,9 +92,9 @@ Nel corso del tempo, gli utenti possono accumulare l'accesso alle risorse man ma
 
 ### <a name="privileged-account-usage"></a>Utilizzo account con privilegi
 
-Gli hacker hanno spesso come destinazione gli account di amministratore e altri elementi di accesso con privilegi per ottenere rapidamente l'accesso a dati e sistemi sensibili.Poiché gli utenti con ruoli con privilegi tendono a accumularsi nel tempo, è importante rivedere e gestire l'accesso amministrativo a intervalli regolari e fornire l'accesso con privilegi JIT per Azure AD e le risorse di Azure.
+Gli hacker hanno spesso come destinazione gli account di amministratore e altri elementi di accesso con privilegi per ottenere rapidamente l'accesso a dati e sistemi sensibili. Poiché gli utenti con ruoli con privilegi tendono a accumularsi nel tempo, è importante rivedere e gestire l'accesso amministrativo a intervalli regolari e fornire l'accesso con privilegi JIT per Azure AD e le risorse di Azure.
 
-Se nell'organizzazione non è presente alcun processo per la gestione degli account con privilegi o se al momento sono presenti amministratori che usano i propri account utente regolari per gestire i servizi e le risorse, è consigliabile iniziare immediatamente a usare account distinti, ad esempio uno per le normali attività quotidiane; l'altro per l'accesso con privilegi e configurato con l'autenticazione a più fattori. Meglio ancora, se l'organizzazione ha una sottoscrizione Azure AD Premium P2, è necessario distribuire immediatamente [Azure ad Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). Nello stesso token è inoltre consigliabile esaminare gli account con privilegi e [assegnare i ruoli con privilegi di minore](../users-groups-roles/directory-admin-roles-secure.md) , se applicabile.
+Se nell'organizzazione non è presente alcun processo per la gestione degli account con privilegi o se al momento sono presenti amministratori che usano i propri account utente regolari per gestire i servizi e le risorse, è consigliabile iniziare immediatamente a usare account distinti, ad esempio uno per le normali attività quotidiane; l'altro per l'accesso con privilegi e configurato con l'autenticazione a più fattori. Meglio ancora, se l'organizzazione ha una sottoscrizione Azure AD Premium P2, è necessario distribuire immediatamente [Azure ad Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). Nello stesso token è inoltre consigliabile esaminare gli account con privilegi e [assegnare i ruoli con privilegi di minore](../roles/security-planning.md) , se applicabile.
 
 Un altro aspetto della gestione degli account con privilegi da implementare è la definizione delle verifiche di [accesso](../governance/access-reviews-overview.md) per tali account, sia manualmente che [automatizzati tramite PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
@@ -104,12 +104,12 @@ Un altro aspetto della gestione degli account con privilegi da implementare è l
 
 ### <a name="emergency-access-accounts"></a>Account di accesso di emergenza
 
-Le organizzazioni devono creare [account di emergenza](../users-groups-roles/directory-emergency-access.md) per prepararsi alla gestione di Azure ad per casi come le interruzioni dell'autenticazione come:
+Le organizzazioni devono creare [account di emergenza](../roles/security-emergency-access.md) per prepararsi alla gestione di Azure ad per casi come le interruzioni dell'autenticazione come:
 
 - Interruzioni dei componenti delle infrastrutture di autenticazione (AD FS, AD locale, servizio multi-factor authentication)
 - Turnover del personale amministrativo
 
-Per impedire che il tenant venga bloccato inavvertitamente perché non è possibile accedere o attivare un account utente singolo esistente come amministratore, è necessario creare due o più account di emergenza e assicurarsi che siano implementati e allineati con le procedure consigliate di [Microsoft](../users-groups-roles/directory-admin-roles-secure.md) e [le procedure per le interruzioni](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency).
+Per impedire che il tenant venga bloccato inavvertitamente perché non è possibile accedere o attivare un account utente singolo esistente come amministratore, è necessario creare due o più account di emergenza e assicurarsi che siano implementati e allineati con le procedure consigliate di [Microsoft](../roles/security-planning.md) e [le procedure per le interruzioni](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Accesso con privilegi al portale EA di Azure
 
@@ -119,7 +119,7 @@ Per chiarire, se il livello di autorizzazione del portale EA è attualmente impo
 
 #### <a name="privileged-access-recommended-reading"></a>Lettura consigliata per l'accesso con privilegi
 
-- [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>Gestione entitlement
 

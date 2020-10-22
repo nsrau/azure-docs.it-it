@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395452"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368367"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurare Copertura globale di ExpressRoute
 
@@ -105,17 +105,17 @@ Al termine dell'operazione precedente, si disporrà di connettività tra le reti
 
 Usare il comando seguente per verificare la configurazione nel circuito in cui è stata eseguita, ad esempio il circuito 1 nell'esempio precedente.
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Se si esegue semplicemente *$ckt1* in PowerShell, si vedrà *CircuitConnectionStatus* nell'output. Questo cmdlet indica se è stata stabilita la connettività, con valore "Connected", o meno, con valore "Disconnected". 
+Se si esegue semplicemente *$CKT _1* in PowerShell, viene visualizzato *CircuitConnectionStatus* nell'output. Questo cmdlet indica se è stata stabilita la connettività, con valore "Connected", o meno, con valore "Disconnected". 
 
 ## <a name="disable-connectivity"></a>Disabilitare la connettività
 
 Per disabilitare la connettività tra le reti locali, eseguire i comandi nel circuito in cui è stata eseguita la configurazione (ad esempio, il circuito 1 nell'esempio precedente).
 
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```

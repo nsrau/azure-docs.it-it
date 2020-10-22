@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398307"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368010"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -60,7 +60,7 @@ Non è possibile stabilire una connessione per Microsoft 365 gli endpoint IP4 di
 #### <a name="resolution"></a>Soluzione
 
 - Azure Site Recovery richiede l'accesso agli intervalli IP Microsoft 365 per l'autenticazione.
-- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli di indirizzi IP Microsoft 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
+- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli di indirizzi IP Microsoft 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/network-security-groups-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
 - Se vengono aggiunti nuovi indirizzi a Azure AD in futuro, è necessario creare nuove regole NSG.
 
 ### <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete

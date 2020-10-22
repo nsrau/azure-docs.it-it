@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88516623"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367687"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entità servizio di Azure Active Directory con Azure SQL
 
@@ -74,12 +74,12 @@ Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinap
     > [!NOTE]
     > È possibile assegnare l'identità del server anche usando i comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere [AZ SQL Server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) e [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
 
-2. Concedere l'autorizzazione Azure AD [**directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) all'identità del server creata o assegnata al server.
+2. Concedere l'autorizzazione Azure AD [**directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) all'identità del server creata o assegnata al server.
     - Per concedere questa autorizzazione, seguire la descrizione utilizzata per SQL Istanza gestita disponibile nell'articolo relativo al [Provisioning Azure ad amministratore (SQL istanza gestita)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance) .
     - L'utente Azure AD che concede questa autorizzazione deve far parte del ruolo amministratore **globale** Azure ad o amministratore **ruoli con privilegi** .
 
 > [!IMPORTANT]
-> I passaggi 1 e 2 devono essere eseguiti nell'ordine precedente. Prima di tutto, creare o assegnare l'identità del server, quindi concedere l'autorizzazione per i [**lettori di directory**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Se si omette uno di questi passaggi, si verificherà un errore di esecuzione durante la creazione di un oggetto Azure AD in Azure SQL per conto di un'applicazione Azure AD. Per istruzioni dettagliate su come creare un utente Azure AD per conto di un'applicazione Azure AD, vedere [esercitazione: creare Azure ad utenti che usano applicazioni Azure ad](authentication-aad-service-principal-tutorial.md).
+> I passaggi 1 e 2 devono essere eseguiti nell'ordine precedente. Prima di tutto, creare o assegnare l'identità del server, quindi concedere l'autorizzazione per i [**lettori di directory**](../../active-directory/roles/permissions-reference.md#directory-readers) . Se si omette uno di questi passaggi, si verificherà un errore di esecuzione durante la creazione di un oggetto Azure AD in Azure SQL per conto di un'applicazione Azure AD. Per istruzioni dettagliate su come creare un utente Azure AD per conto di un'applicazione Azure AD, vedere [esercitazione: creare Azure ad utenti che usano applicazioni Azure ad](authentication-aad-service-principal-tutorial.md).
 >
 > Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando la necessità di un amministratore **globale** o di **ruoli con privilegi** per concedere il ruolo dei **lettori di directory** . Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 

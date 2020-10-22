@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aa8d08dde3cf2dbfb5cb1e819ba9941aea4e387
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203705"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359017"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -58,12 +58,13 @@ Per usare le API del piano dati:
    - è possibile trovare l'origine SDK, inclusa una cartella di esempi, in GitHub: [libreria client di dispositivi digitali gemelli di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
    - per visualizzare informazioni dettagliate ed esempi di utilizzo, continuare con la sezione [.NET (C#) SDK (piano dati)](#net-c-sdk-data-plane) di questo articolo.
-* È possibile usare **JavaScript** SDK. Per utilizzare JavaScript SDK...
-   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
-   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * È possibile usare **Java** SDK. Per utilizzare Java SDK...
    - è possibile visualizzare e installare il pacchetto da Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - è possibile trovare l'origine SDK in GitHub: [libreria client di dispositivi digitali gemelli di Azure per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+* È possibile usare **JavaScript** SDK. Per utilizzare JavaScript SDK...
+   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 È anche possibile esercitare le API del piano dati interagendo con i dispositivi gemelli digitali di Azure tramite l' [interfaccia](how-to-use-cli.md)della riga di comando.
