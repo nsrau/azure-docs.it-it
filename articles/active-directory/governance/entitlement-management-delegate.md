@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979881"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362553"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -92,7 +92,7 @@ Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
-| Attività | Amministratore | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Gestione assegnazione pacchetti di Access |
+| Attività | Amministrativi | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Gestione assegnazione pacchetti di Access |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -124,20 +124,20 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 
 | Ruolo della directory di Azure AD | Ruolo di gestione dei diritti | È possibile aggiungere un gruppo di sicurezza | È possibile aggiungere Microsoft 365 gruppo | È possibile aggiungere l'app | È possibile aggiungere il sito di SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Amministratore utenti](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Amministratore di Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Amministratore Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |
-| [Amministratore del servizio Teams](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |
-| [Amministratore SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Amministratore applicazione](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
-| [Amministratore applicazione cloud](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
+| [Amministratore globale](../roles/permissions-reference.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Amministratore utenti](../roles/permissions-reference.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Amministratore di Intune](../roles/permissions-reference.md) | Proprietario Catalogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Amministratore Exchange](../roles/permissions-reference.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |
+| [Amministratore del servizio Teams](../roles/permissions-reference.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |
+| [Amministratore SharePoint](../roles/permissions-reference.md) | Proprietario Catalogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Amministratore applicazione](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
+| [Amministratore applicazione cloud](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
 
 > [!NOTE]
-> Se un utente aggiunge un gruppo di sicurezza o un gruppo di Microsoft 365, il gruppo non può essere assegnabile come ruolo. Se l'utente aggiunge un gruppo assegnabile ai ruoli quando crea il pacchetto di accesso, deve essere anche il proprietario di tale gruppo assegnabile al ruolo. Per ulteriori informazioni, fare riferimento a [creare un gruppo assegnabile ai ruoli in Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Se un utente aggiunge un gruppo di sicurezza o un gruppo di Microsoft 365, il gruppo non può essere assegnabile come ruolo. Se l'utente aggiunge un gruppo assegnabile ai ruoli quando crea il pacchetto di accesso, deve essere anche il proprietario di tale gruppo assegnabile al ruolo. Per ulteriori informazioni, fare riferimento a [creare un gruppo assegnabile ai ruoli in Azure Active Directory](../roles/groups-create-eligible.md).
 
-Per determinare il ruolo con privilegi minimi per un'attività, è anche possibile fare riferimento ai [ruoli di amministratore per attività di amministrazione in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+Per determinare il ruolo con privilegi minimi per un'attività, è anche possibile fare riferimento ai [ruoli di amministratore per attività di amministrazione in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

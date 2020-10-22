@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a38194c46fa1f5bf7a6a0683e85776abb1f93b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8458fc11f5e836e290c593d3ad4983f44e6abf6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743797"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370373"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo delle risorse di Azure in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Quando si configurano le impostazioni del ruolo delle risorse di Azure, si defin
 
 Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa procedura.
 
-1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 
 1. Aprire **Azure ad Privileged Identity Management**.
 

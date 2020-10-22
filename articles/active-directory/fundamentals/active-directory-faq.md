@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312594"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371869"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -53,7 +53,7 @@ Azure AD Servizi a pagamento come Enterprise Mobility + Security complementari a
 
 Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile assegnare loro il [ruolo predefinito](../../role-based-access-control/built-in-roles.md) appropriato. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. L'amministratore globale ha accesso a tutte le funzionalità della directory di Azure AD. In Azure AD è invece disponibile un set di ruoli di amministratore diverso per gestire la directory e le funzionalità relative alle identità. Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. L'amministratore globale ha accesso a tutte le funzionalità della directory di Azure AD. In Azure AD è invece disponibile un set di ruoli di amministratore diverso per gestire la directory e le funzionalità relative alle identità. Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../roles/permissions-reference.md).
 
 Inoltre, Azure AD Servizi a pagamento come Enterprise Mobility + Security complementari ad altri servizi Web, ad esempio Microsoft 365 e Microsoft Azure, con soluzioni complete per la gestione e la sicurezza su scala aziendale.
 

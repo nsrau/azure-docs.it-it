@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318120"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362700"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -198,7 +198,7 @@ Il ruolo amministrativo necessario per creare, gestire o leggere una verifica di
 | Pacchetto di accesso| Amministratore globale<p>Creatore del pacchetto di accesso| Solo amministratore globale |
 
 
-Per altre informazioni, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Per altre informazioni, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Chi rivedrà l'accesso alla risorsa?
 
@@ -343,7 +343,7 @@ Verificare regolarmente l'appartenenza a un gruppo, in quanto l'esclusione rappr
 
 ### <a name="review-external-users-group-memberships"></a>Verificare l'appartenenza a gruppi dell'utente esterno
 
-Per ridurre al minimo il lavoro manuale e gli eventuali errori associati, provare a usare i [gruppi dinamici](../users-groups-roles/groups-create-rule.md) per assegnare l'appartenenza ai gruppi in base agli attributi di un utente. Potrebbe essere necessario creare uno o più gruppi dinamici per utenti esterni. Lo sponsor interno può fungere da revisore per l'appartenenza al gruppo. 
+Per ridurre al minimo il lavoro manuale e gli eventuali errori associati, provare a usare i [gruppi dinamici](../enterprise-users/groups-create-rule.md) per assegnare l'appartenenza ai gruppi in base agli attributi di un utente. Potrebbe essere necessario creare uno o più gruppi dinamici per utenti esterni. Lo sponsor interno può fungere da revisore per l'appartenenza al gruppo. 
 
 Nota: gli utenti esterni rimossi da un gruppo in seguito a una verifica di accesso non vengono eliminati dal tenant. 
 
@@ -389,7 +389,7 @@ Le verifiche di accesso possono essere relative ai membri di un gruppo o agli ut
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Pianificare la revisione dei ruoli di Azure AD e delle risorse di Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse Azure ad. In questo modo, l'elenco dei ruoli con privilegi, sia in [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) che nelle [risorse di Azure](../../role-based-access-control/built-in-roles.md) è molto più piccolo e aumenta la sicurezza complessiva della directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse Azure ad. In questo modo, l'elenco dei ruoli con privilegi, sia in [Azure ad](../roles/permissions-reference.md) che nelle [risorse di Azure](../../role-based-access-control/built-in-roles.md) è molto più piccolo e aumenta la sicurezza complessiva della directory.
 
 Le verifiche di accesso consentono ai revisori di attestare se gli utenti devono ancora avere un ruolo. Proprio come le verifiche di accesso per i pacchetti Access, le recensioni per i ruoli di Azure AD e le risorse di Azure sono integrate nell'esperienza utente di amministrazione di PIM. Si consiglia di esaminare regolarmente le seguenti assegnazioni di ruolo:
 
@@ -496,7 +496,7 @@ Quando si creano nuove query di API Graph per l'automazione, è consigliabile us
 
 Le attività delle verifiche di accesso vengono registrate e disponibili dai [log di controllo Azure ad](../reports-monitoring/concept-audit-logs.md). È possibile filtrare i dati di controllo relativi alla categoria, al tipo di attività e all'intervallo di date. Ecco una query di esempio:
 
-| Category| Condizione |
+| Category| Policy |
 | - | - |
 | Tipo di attività| Creare una verifica di accesso |
 | | Aggiornamento della verifica di accesso |

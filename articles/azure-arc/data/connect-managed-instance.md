@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939195"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372362"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Connettersi ad Azure Arc Istanza gestita SQL abilitato
 
@@ -49,7 +49,7 @@ Connettersi con Azure Data Studio, SQL Server Management Studio o SQLCMD
 
 Aprire Azure Data Studio e connettersi all'istanza di con l'indirizzo IP e il numero di porta dell'endpoint esterno. Se si usa una macchina virtuale di Azure, sarà necessario l'indirizzo IP _pubblico_ , che è identificabile usando la [Nota speciale sulle distribuzioni delle macchine virtuali di Azure](#special-note-about-azure-virtual-machine-deployments).
 
-Ad esempio:
+Esempio:
 
 - Server: 52.229.9.30, 30913
 - Nome utente: SA
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Se si usa una macchina virtuale di Azure, l'indirizzo IP dell'endpoint non visualizzerà l'indirizzo IP pubblico. Per individuare l'indirizzo IP esterno, utilizzare il comando seguente:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,7 +78,7 @@ Potrebbe inoltre essere necessario esporre la porta dell'istanza di SQL tramite 
 
 Per impostare una regola, è necessario conoscere il nome del NSG, che è possibile trovare usando il comando seguente:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -86,7 +86,7 @@ Una volta ottenuto il nome del NSG, è possibile aggiungere una regola del firew
 
 Sostituire il valore del `--destination-port-ranges` parametro seguente con il numero di porta ottenuto nel `azdata sql instance list` comando F riportato sopra.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

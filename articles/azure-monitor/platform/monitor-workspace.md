@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326057"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372260"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorare l'integrità dell'area di lavoro Log Analytics in monitoraggio di Azure
 Per mantenere le prestazioni e la disponibilità dell'area di lavoro Log Analytics in monitoraggio di Azure, è necessario essere in grado di rilevare in modo proattivo tutti i problemi che si verificano. Questo articolo descrive come monitorare l'integrità dell'area di lavoro di Log Analytics usando i dati nella tabella delle [operazioni](/azure-monitor/reference/tables/operation) . Questa tabella è inclusa in ogni area di lavoro Log Analytics e contiene gli errori e gli avvisi che si verificano nell'area di lavoro. È consigliabile esaminare periodicamente questi dati e creare avvisi per ricevere notifiche proattive in caso di eventi imprevisti importanti nell'area di lavoro.
@@ -55,19 +55,19 @@ Le operazioni di inserimento sono problemi che si sono verificati durante l'inse
 |:---|:---|:---|:---|
 | Log personalizzato | Errore   | È stato raggiunto il limite di colonne per i campi personalizzati. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Log personalizzato | Errore   | Inserimento dei log personalizzati non riuscito. | |
-| Log personalizzato | Errore   | Metadata. | |
-| Data | Errore   | I dati sono stati eliminati perché la richiesta è stata creata prima del numero di giorni impostati. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadata. | Errore | Errore di configurazione rilevato. | |
+| Raccolta dati | Errore   | I dati sono stati eliminati perché la richiesta è stata creata prima del numero di giorni impostati. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Raccolta dati | Info    | È stata rilevata la configurazione del computer della raccolta.| |
 | Raccolta dati | Info    | Raccolta dati avviata a causa di un nuovo giorno. | [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Raccolta dati | Avviso | Raccolta dati arrestata a causa del raggiungimento del limite giornaliero.| [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Elaborazione dati | Errore   | Formato JSON non valido. | [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)](data-collector-api.md#request-body) | 
+| Elaborazione dati | Avviso | Il valore è stato tagliato fino alla dimensione massima consentita. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
+| Elaborazione dati | Avviso | Il valore del campo è stato tagliato come limite dimensioni raggiunto. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) | 
 | Velocità di inserimento | Info | Limite di velocità di inserimento prossimo al 70%. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Velocità di inserimento | Avviso | Limite di velocità di inserimento prossimo al limite. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Velocità di inserimento | Errore   | Limite di velocità raggiunto. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
-| Analisi JSON | Errore   | Formato JSON non valido. | [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)](data-collector-api.md#request-body) | 
-| Analisi JSON | Avviso | Il valore è stato tagliato fino alla dimensione massima consentita. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
-| Limite massimo dimensioni colonne | Avviso | Il valore del campo è stato tagliato come limite dimensioni raggiunto. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) | 
 | Archiviazione | Errore   | Non è possibile accedere all'account di archiviazione perché le credenziali utilizzate non sono valide.  |
-| Tabella   | Errore   | È stato raggiunto il limite massimo per i campi personalizzati. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -91,21 +91,32 @@ Per creare una regola di avviso per un'operazione specifica, utilizzare una quer
 
 Nell'esempio seguente viene creato un avviso quando la velocità del volume di inserimento ha raggiunto il 80% del limite.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Destinazione: selezionare l'area di lavoro Log Analytics
+- Criteri:
+  - Nome segnale: Ricerca log personalizzata
+  - Query di ricerca: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - In base a: Numero di risultati
+  - Condizione: Maggiore di
+  - Soglia: 0
+  - Periodo: 5 (minuti)
+  - Frequenza: 5 (minuti)
+- Nome regola di avviso: Soglia dei dati giornaliera raggiunta
+- Gravità: Avviso (Gravità 1)
+
 
 Nell'esempio seguente viene creato un avviso quando la raccolta dati ha raggiunto il limite giornaliero. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Destinazione: selezionare l'area di lavoro Log Analytics
+- Criteri:
+  - Nome segnale: Ricerca log personalizzata
+  - Query di ricerca: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - In base a: Numero di risultati
+  - Condizione: Maggiore di
+  - Soglia: 0
+  - Periodo: 5 (minuti)
+  - Frequenza: 5 (minuti)
+- Nome regola di avviso: Soglia dei dati giornaliera raggiunta
+- Gravità: Avviso (Gravità 1)
 
 
 

@@ -4,16 +4,16 @@ description: Creare un Registro Azure Container, configurare la replica geografi
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259527"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148385"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
 
-Un Registro Azure Container è un registro Docker privato distribuito in Azure che è possibile mantenere in una posizione di rete vicina alle distribuzioni. In questa serie di tre esercitazioni vengono fornite istruzioni su come usare la replica geografica per distribuire un'applicazione Web ASP.NET Core in esecuzione in un contenitore Linux in due istanze di [app Web per i contenitori](../app-service/containers/index.yml). Verrà descritto come in Azure l'immagine viene distribuita automaticamente in ciascuna istanza dell'app Web dal repository con replica geografica più vicina.
+Un Registro Azure Container è un registro Docker privato distribuito in Azure che è possibile mantenere in una posizione di rete vicina alle distribuzioni. In questa serie di tre esercitazioni vengono fornite istruzioni su come usare la replica geografica per distribuire un'applicazione Web ASP.NET Core in esecuzione in un contenitore Linux in due istanze di [app Web per i contenitori](../app-service/index.yml). Verrà descritto come in Azure l'immagine viene distribuita automaticamente in ciascuna istanza dell'app Web dal repository con replica geografica più vicina.
 
 In questa esercitazione, che è la prima di una serie in tre parti, viene descritto come eseguire le attività seguenti:
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892895"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088670"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Esercitazione: Distribuire Azure Spring Cloud nella rete virtuale (VNet injection)
 
@@ -27,7 +27,7 @@ La distribuzione rende possibili gli scenari seguenti:
 * Possibilità per i clienti di controllare le comunicazioni di rete in ingresso e in uscita per Azure Spring Cloud
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario registrare il provider di risorse cloud di Azure Spring Cloud `Microsoft.AppPlatform` seguendo le istruzioni riportate in [Registrare il provider di risorse nel portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) oppure eseguendo il comando az seguente dell'interfaccia della riga di comando:
+È necessario registrare il provider di risorse cloud di Azure Spring Cloud `Microsoft.AppPlatform` seguendo le istruzioni riportate in [Registrare il provider di risorse nel portale di Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oppure eseguendo il comando az seguente dell'interfaccia della riga di comando:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform

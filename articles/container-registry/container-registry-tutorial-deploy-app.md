@@ -4,12 +4,12 @@ description: Distribuire un'app Web basata su Linux a due diverse aree di Azure 
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328690"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148428"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
 
@@ -27,7 +27,7 @@ Nell'articolo successivo della serie viene aggiornata l'applicazione e quindi vi
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Distribuzione automatica nell'app Web per contenitori
 
-Registro Azure Container offre il supporto per la distribuzione di applicazioni nei contenitori direttamente in[App Web per contenitori](../app-service/containers/index.yml). In questa esercitazione viene usato il portale di Azure per distribuire l'immagine del contenitore creata nell'esercitazione precedente nei due piani di app Web ubicati in aree diverse di Azure.
+Registro Azure Container offre il supporto per la distribuzione di applicazioni nei contenitori direttamente in[App Web per contenitori](../app-service/index.yml). In questa esercitazione viene usato il portale di Azure per distribuire l'immagine del contenitore creata nell'esercitazione precedente nei due piani di app Web ubicati in aree diverse di Azure.
 
 Quando si distribuisce un'app Web da un'immagine del contenitore nel registro contenitori e si dispone di un registro contenitori con replica geografica nella stessa area, Registro Azure Container crea automaticamente un [webhook](container-registry-webhook.md) di distribuzione dell'immagine. Quando viene inserita una nuova immagine nel repository del contenitore, il webhook preleva la modifica e distribuisce automaticamente la nuova immagine del contenitore nell'app Web.
 

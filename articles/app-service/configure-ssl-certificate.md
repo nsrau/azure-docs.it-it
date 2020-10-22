@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420881"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149069"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
@@ -145,8 +145,8 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 | Resource group | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questi elementi in un secondo momento, seguendo la procedura descritta in [Assegnare criteri di accesso Key Vault](/azure/key-vault/general/assign-access-policy-portal). |
-| Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](/azure/key-vault/general/network-security) |
+| Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questi elementi in un secondo momento, seguendo la procedura descritta in [Assegnare criteri di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md). |
+| Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/general/network-security.md) |
 
 Dopo aver selezionato l'insieme di credenziali, chiudere la pagina **Repository dell'insieme di credenziali delle chiavi**. L'opzione **Passaggio 1: archiviare** dovrebbe mostrare un segno di spunta verde, a indicare che l'operazione è riuscita. Mantenere aperta la pagina per proseguire con il passaggio successivo.
 
@@ -189,7 +189,7 @@ Al termine dell'operazione, il certificato viene visualizzato nell'elenco **Cert
 Se si usa Azure Key Vault per gestire i certificati, è possibile importare un certificato PKCS12 da Key Vault nel servizio app, purché [siano soddisfatti i requisiti](#private-certificate-requirements).
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>Autorizzare il servizio app per la lettura dall'insieme di credenziali
-Per impostazione predefinita, il provider di risorse del servizio app non ha accesso a Key Vault. Per poter usare un Key Vault per la distribuzione di un certificato, è necessario [autorizzare il provider di risorse ad accedere in lettura al Key Vault](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+Per impostazione predefinita, il provider di risorse del servizio app non ha accesso a Key Vault. Per poter usare un Key Vault per la distribuzione di un certificato, è necessario [autorizzare il provider di risorse ad accedere in lettura al Key Vault](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd` è il nome dell'entità servizio del provider di risorse per il servizio app ed è lo stesso per tutte le sottoscrizioni di Azure. Per l'ambiente cloud di Azure per enti pubblici usare invece `6a02c803-dafd-4136-b4c3-5a6f318b4714` come nome dell'entità servizio del provider di risorse.
 
@@ -378,11 +378,11 @@ A questo punto è possibile eliminare il certificato del servizio app. Nel riqua
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Altre risorse
 

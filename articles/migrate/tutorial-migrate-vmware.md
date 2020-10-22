@@ -4,12 +4,12 @@ description: Informazioni su come eseguire una migrazione senza agente di macchi
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530523"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310624"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -36,8 +36,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di iniziare questa esercitazione, è necessario:
 
-1. [Completare la prima esercitazione](tutorial-prepare-vmware.md) per preparare Azure e VMware per la migrazione.
-2. È consigliabile, anche se non necessario, completare la seconda esercitazione per [valutare le macchine virtuali VMware](tutorial-assess-vmware.md) prima di eseguirne la migrazione ad Azure. 
+1. [Completare la prima esercitazione](./tutorial-discover-vmware.md) per preparare Azure e VMware per la migrazione.
+2. È consigliabile, anche se non necessario, completare la seconda esercitazione per [valutare le macchine virtuali VMware](./tutorial-assess-vmware-azure-vm.md) prima di eseguirne la migrazione ad Azure. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Aggiungere lo strumento Migrazione server di Azure Migrate
@@ -59,7 +59,7 @@ Se non è stato ancora configurato un progetto Azure Migrate, [farlo](how-to-add
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 
-Lo strumento Azure Migrate: Migrazione del server esegue un'appliance leggera per VM VMware che viene usata per l'individuazione, la valutazione e la migrazione senza agente di macchine virtuali VMware. Se è stata seguita l'[esercitazione sulla valutazione](tutorial-assess-vmware.md), l'appliance è già configurata. In caso contrario, configurarla adesso usando uno di questi metodi:
+Lo strumento Azure Migrate: Migrazione del server esegue un'appliance leggera per VM VMware che viene usata per l'individuazione, la valutazione e la migrazione senza agente di macchine virtuali VMware. Se è stata seguita l'[esercitazione sulla valutazione](./tutorial-assess-vmware-azure-vm.md), l'appliance è già configurata. In caso contrario, configurarla adesso usando uno di questi metodi:
 
 - **Modello OVA**: [Configurare](how-to-set-up-appliance-vmware.md) l'appliance in una macchina virtuale VMware usando un modello OVA scaricato.
 - **Script**: [configurare](deploy-appliance-script.md) l'appliance in una macchina virtuale VMware o in un computer fisico usando uno script di installazione di PowerShell. Questo metodo deve essere usato se non è possibile configurare una macchina virtuale con un modello OVA o se si usa Azure per enti pubblici.
@@ -210,7 +210,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Per una maggiore sicurezza:
     - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità di [amministrazione JIT del Centro sicurezza di Azure](../security-center/security-center-just-in-time.md).
-    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
     - Distribuire [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md) per garantire la sicurezza dei dischi e proteggere i dati da furti e accessi non autorizzati.
     - Per altre informazioni sulla [protezione delle risorse IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), visitare il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/).
 - Per il monitoraggio e la gestione:

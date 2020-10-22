@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783689"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362723"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -38,7 +38,7 @@ Come ulteriore esempio, è possibile che si usino [località denominate](../cond
 
 ![Località denominate nell'accesso condizionale](./media/conditional-access-exclusion/named-locations.png)
 
-Sfortunatamente, alcuni utenti potrebbero ancora avere un motivo valido per eseguire l'accesso dai paesi o dalle aree bloccate. Ad esempio, è possibile che gli utenti viaggino per lavoro e necessitino di accedere alle risorse aziendali. In questo caso, i criteri di accesso condizionale per bloccare i paesi o le aree geografiche potrebbero usare un gruppo di sicurezza cloud per gli utenti esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
+Sfortunatamente, alcuni utenti potrebbero ancora avere un motivo valido per eseguire l'accesso dai paesi o dalle aree bloccate. Ad esempio, è possibile che gli utenti viaggino per lavoro e necessitino di accedere alle risorse aziendali. In questo caso, i criteri di accesso condizionale per bloccare i paesi o le aree geografiche potrebbero usare un gruppo di sicurezza cloud per gli utenti esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../enterprise-users/groups-self-service-management.md).
 
 Un altro esempio potrebbe essere la presenza di criteri di accesso condizionale che [bloccano l'autenticazione legacy per la maggior parte degli utenti](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Tuttavia, in presenza di utenti che devono usare metodi di autenticazione legacy per accedere alle risorse tramite Office 2010 o client basati su SMTP/IMAP o POP, è possibile escludere gli utenti dai criteri che bloccano i metodi di autenticazione legacy.
 
