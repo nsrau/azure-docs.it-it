@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600798"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369778"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
 
@@ -156,7 +156,7 @@ Quando si usano i gruppi, è consigliabile assegnare utenti alle applicazioni, i
 * Basata su attributi mediante l'appartenenza dinamica ai gruppi
 * Delega ai proprietari dell'app
 
-Azure AD offre la possibilità di gestire l'accesso alle risorse usando gruppi di sicurezza e gruppi di Microsoft 365. Questi gruppi possono essere gestiti da un proprietario del gruppo che può approvare o rifiutare le richieste di appartenenza e delegare il controllo dell'appartenenza al gruppo. Noto come [gestione dei gruppi self-service](../users-groups-roles/groups-self-service-management.md), questa funzionalità consente di risparmiare tempo consentendo ai proprietari del gruppo a cui non è assegnato un ruolo amministrativo di creare e gestire gruppi senza dover affidarsi agli amministratori per gestire le richieste.
+Azure AD offre la possibilità di gestire l'accesso alle risorse usando gruppi di sicurezza e gruppi di Microsoft 365. Questi gruppi possono essere gestiti da un proprietario del gruppo che può approvare o rifiutare le richieste di appartenenza e delegare il controllo dell'appartenenza al gruppo. Noto come [gestione dei gruppi self-service](../enterprise-users/groups-self-service-management.md), questa funzionalità consente di risparmiare tempo consentendo ai proprietari del gruppo a cui non è assegnato un ruolo amministrativo di creare e gestire gruppi senza dover affidarsi agli amministratori per gestire le richieste.
 
 ## <a name="step-4---operationalize-your-insights"></a>Passaggio 4: rendere operativo informazioni dettagliate
 
@@ -172,9 +172,9 @@ I report e i log di sicurezza offrono un record elettronico delle attività sosp
 
 Quando si pensa all'approccio alle operazioni, è necessario prendere in considerazione un paio di livelli di amministrazione. Il primo livello pone il carico di amministrazione per gli amministratori globali. Usare sempre il ruolo di amministratore globale, potrebbe essere appropriato per le aziende più piccole. Tuttavia, per le organizzazioni di grandi dimensioni con help desk personale e amministratori responsabili di attività specifiche, l'assegnazione del ruolo di amministratore globale può costituire un rischio per la sicurezza, poiché fornisce a tali utenti la possibilità di gestire le attività che si trovano al di sopra e al di là di quelle che dovrebbero essere in grado di eseguire.
 
-In questo caso, è necessario prendere in considerazione il livello di amministrazione successivo. Utilizzando Azure AD, è possibile designare gli utenti finali come "amministratori limitati" che possono gestire le attività nei ruoli con privilegi di minore entità. Ad esempio, è possibile assegnare al personale help desk il ruolo di [lettore di sicurezza](../users-groups-roles/directory-assign-admin-roles.md#security-reader) per fornire loro la possibilità di gestire le funzionalità relative alla sicurezza con accesso in sola lettura. O forse è opportuno assegnare il ruolo di [amministratore dell'autenticazione](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) a singoli utenti per concedere loro la possibilità di reimpostare le credenziali non password o leggere e configurare l'integrità dei servizi di Azure.
+In questo caso, è necessario prendere in considerazione il livello di amministrazione successivo. Utilizzando Azure AD, è possibile designare gli utenti finali come "amministratori limitati" che possono gestire le attività nei ruoli con privilegi di minore entità. Ad esempio, è possibile assegnare al personale help desk il ruolo di [lettore di sicurezza](../roles/permissions-reference.md#security-reader) per fornire loro la possibilità di gestire le funzionalità relative alla sicurezza con accesso in sola lettura. O forse è opportuno assegnare il ruolo di [amministratore dell'autenticazione](../roles/permissions-reference.md#authentication-administrator) a singoli utenti per concedere loro la possibilità di reimpostare le credenziali non password o leggere e configurare l'integrità dei servizi di Azure.
 
-Per altre informazioni, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Per altre informazioni, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Monitorare i componenti ibridi (Azure AD Connect Sync, AD FS) usando Azure AD Connect Health
 
@@ -229,7 +229,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="today"></a>Oggi
 
-|Dopo aver completato l'operazione,|Item|
+|Dopo aver completato l'operazione,|Elemento|
 |:-|:-|
 ||Reimpostazione della password self-service (SSPR) pilota per un gruppo|
 ||Monitorare i componenti ibridi usando Azure AD Connect Health|
@@ -239,7 +239,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-two-weeks"></a>Prossime due settimane
 
-|Dopo aver completato l'operazione,|Item|
+|Dopo aver completato l'operazione,|Elemento|
 |:-|:-|
 ||Rendere disponibile un'app per gli utenti|
 ||Provisioning di Azure AD pilota per un'app SaaS preferita|
@@ -249,7 +249,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-month"></a>Mese prossimo
 
-|Dopo aver completato l'operazione,|Item|
+|Dopo aver completato l'operazione,|Elemento|
 |:-|:-|
 ||Monitora l'utilizzo delle app per ottenere informazioni dettagliate|
 ||Pilota sicuro per l'accesso remoto alle app|
@@ -258,7 +258,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-three-months"></a>Prossimi tre mesi
 
-|Dopo aver completato l'operazione,|Item|
+|Dopo aver completato l'operazione,|Elemento|
 |:-|:-|
 ||Abilita gestione self-service delle app|
 ||Abilitare la gestione dei gruppi self-service|

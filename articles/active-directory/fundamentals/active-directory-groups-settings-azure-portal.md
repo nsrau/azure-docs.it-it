@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9b38208526ba83e0a0e31e2e139e340a3ee511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797526"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369132"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modificare le informazioni del gruppo usando Azure Active Directory
 
@@ -53,7 +53,7 @@ Con Azure Active Directory (Azure AD) è possibile modificare le impostazioni di
     
     - **Tipo di appartenenza.** Modificare il tipo di appartenenza. Per altre informazioni sui diversi tipi di appartenenza disponibili, vedere [procedura: creare un gruppo di base e aggiungere membri tramite il portale di Azure Active Directory](active-directory-groups-create-azure-portal.md).
     
-    - **ID oggetto.** Non è possibile modificare l'ID oggetto, ma è possibile copiarlo per usarlo nei comandi di PowerShell per il gruppo. Per altre informazioni sull'uso dei cmdlet di PowerShell, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-v2-cmdlets.md).
+    - **ID oggetto.** Non è possibile modificare l'ID oggetto, ma è possibile copiarlo per usarlo nei comandi di PowerShell per il gruppo. Per altre informazioni sull'uso dei cmdlet di PowerShell, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
@@ -64,7 +64,7 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 - [Aggiungere o rimuovere membri di un gruppo](active-directory-groups-members-azure-portal.md)
 
-- [Gestire le regole dinamiche per gli utenti in un gruppo](../users-groups-roles/groups-create-rule.md)
+- [Gestire le regole dinamiche per gli utenti in un gruppo](../enterprise-users/groups-create-rule.md)
 
 - [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653580"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369948"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -41,7 +41,7 @@ Data di **inizio** e data di **fine**: date di inizio e di fine dei dati di prof
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura.
 
-## <a name="recommendations"></a>Consigli 
+## <a name="recommendations"></a>Indicazioni 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
 
 ![Raccomandazioni del report per lo scenario da Hyper-V ad Azure](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
@@ -154,7 +154,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **Disk Storage Type** (Tipo di archiviazione disco): account di archiviazione Standard o Premium usato per replicare tutte le VM corrispondenti indicate nella colonna **VMs to Place** (VM da posizionare).
 
-**Suggested Prefix** (Prefisso suggerito): prefisso di tre caratteri che può essere usato per la denominazione dell'account di archiviazione. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix** (Prefisso suggerito): prefisso di tre caratteri che può essere usato per la denominazione dell'account di archiviazione. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Account Name** (Nome account suggerito): nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
@@ -220,7 +220,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 **VM Name** (Nome macchina virtuale): nome della macchina virtuale usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (dischi rigidi virtuali) collegati alle macchine virtuali. I nomi includono i nomi host Hyper-V in cui si trovavano le macchine virtuali quando lo strumento le ha rilevate durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
+**VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](/en-in/azure/storage/common/scalability-targets-standard-account) pubblicati, possono essere uno dei seguenti:
 
 * Le dimensioni del disco sono maggiori di 4.095 GB. Archiviazione di Azure attualmente non supporta dischi dati di dimensioni superiori a 4.095 GB.
 

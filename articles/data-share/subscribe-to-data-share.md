@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489919"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216573"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -34,7 +34,7 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 
 ### <a name="receive-data-into-a-storage-account"></a>Ricevere dati in un account di archiviazione: 
 
-* Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di Archiviazione di Azure](../storage/common/storage-account-create.md). 
 * Autorizzazione per la scrittura nell'account di archiviazione, disponibile in *Microsoft.Storage/storageAccounts/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
 * Autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo Proprietario.  
 
@@ -62,7 +62,7 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Ricevere i dati in un cluster di Esplora dati di Azure: 
 
-* Un cluster di Esplora dati di Azure nello stesso data center di Azure del cluster di Esplora dati del provider di dati: Se non si è già provveduto, è possibile creare un [cluster di Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Se non si conosce il data center di Azure del cluster del provider di dati, è possibile creare il cluster in un secondo momento del processo.
+* Un cluster di Esplora dati di Azure nello stesso data center di Azure del cluster di Esplora dati del provider di dati: Se non si è già provveduto, è possibile creare un [cluster di Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal). Se non si conosce il data center di Azure del cluster del provider di dati, è possibile creare il cluster in un secondo momento del processo.
 * Autorizzazione per la scrittura nel cluster di Esplora dati di Azure, disponibile in *Microsoft.Kusto/clusters/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
 * Autorizzazione per aggiungere l'assegnazione di ruolo al cluster di Esplora dati di Azure, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo Proprietario. 
 
