@@ -14,6 +14,8 @@
   items:
     - name: Proteggere l'hub virtuale - Portale
       href: secure-cloud-network.md
+    - name: Proteggere l'hub virtuale - PowerShell
+      href: secure-cloud-network-powershell.md
     - name: Proteggere la rete virtuale dell'hub - Portale
       href: secure-hybrid-network.md
 - name: Concetti

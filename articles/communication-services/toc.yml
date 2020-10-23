@@ -5,7 +5,7 @@
   items:
     - name: Che cos'è l'offerta Servizi di comunicazione di Azure?
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una risorsa di Servizi di comunicazione
@@ -90,6 +90,8 @@
       href: samples/calling-hero-sample.md
     - name: Esempio hero di chat di gruppo
       href: samples/chat-hero-sample.md
+    - name: Esempio di chiamata Web
+      href: samples/web-calling-sample.md
 - name: Riferimenti
   items:
     - name: Documentazione relativa alle API REST
