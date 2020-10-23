@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892971"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426532"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
 
@@ -63,7 +63,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Supporto SDK** |  |  | | 
 | Supporto per R SDK                                                              | Anteprima pubblica       | YES                | YES         |
 | Supporto per Python SDK                                                         | GA                   | YES                | YES         |
-| **Sicurezza** |   | | | 
+| **Security** |   | | | 
 | Supporto della rete virtuale (VNet) per il training                                | GA                   | YES                | YES         |
 | Supporto della rete virtuale (VNet) per l'inferenza                               | GA                   | YES                | YES         |
 | Assegnazione di punteggi all'autenticazione dell'endpoint                                            | Anteprima pubblica       | YES                | YES         |
@@ -122,7 +122,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Accesso radice e SSH alle risorse di calcolo.                                          | YES | YES |  |
 | Mantenere la sicurezza dei sistemi distribuiti (istanze, endpoint e così via), inclusi Endpoint Protection, applicazione di patch e registrazione |  PARTIAL|  PARTIAL |ACI dietro VNet e endpoint privato attualmente non disponibile |                                  
 | Controllo (Disabilita/limita/limita) uso dell'integrazione di ACI/AKS                    | PARTIAL| PARTIAL |ACI dietro VNet e endpoint privato attualmente non disponibile|
-| Controllo di accesso Role-Based (RBAC)-creazioni di ruoli personalizzati                           | YES | YES |  |
+| Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)-creazioni di ruoli personalizzati                           | YES | YES |  |
 | Controllare l'accesso alle immagini del registro contenitori di Azure usate dal servizio ML (fornito/gestito da Azure e personalizzato)  |PARTIAL|  PARTIAL | ACR dietro endpoint privato e VNet non supportato in Azure per enti pubblici |
 | **Utilizzo generale del servizio Machine Learning** |  | | |
 | Possibilità di disporre di un ambiente di sviluppo per compilare un modello, eseguire il training del modello, ospitarlo come endpoint e utilizzarlo tramite un WebApp     | YES | YES |  |
@@ -176,7 +176,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Supporto SDK** |    | | |
 | Supporto per R SDK                                                              | Anteprima pubblica   | YES       | N/D        |
 | Supporto per Python SDK                                                         | GA               | YES       | N/D        |
-| **Sicurezza** |   | | |
+| **Security** |   | | |
 | Supporto della rete virtuale (VNet) per il training                                | GA               | YES       | N/D        |
 | Supporto della rete virtuale (VNet) per l'inferenza                               | GA               | YES       | N/D        |
 | Assegnazione di punteggi all'autenticazione dell'endpoint                                            | Anteprima pubblica   | YES       | N/D        |

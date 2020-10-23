@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945992"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441097"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent Data Encryption per database SQL, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Per il database SQL di Azure e la sinapsi di Azure, la protezione Transparent Da
 > Per impostazione predefinita, tutti i nuovi database creati nel database SQL vengono crittografati tramite Transparent Data Encryption gestito dal servizio. Per impostazione predefinita, i database SQL esistenti creati prima del 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non sono crittografati. Per impostazione predefinita, i database di SQL Istanza gestita esistenti creati prima del 2019 febbraio non sono crittografati. I database SQL Istanza gestita creati tramite il ripristino ereditano lo stato di crittografia dall'origine.
 
 > [!NOTE]
-> Non è possibile usare Transparent Data Encryption per crittografare il database **Master** nel database SQL di Azure e in azure SQL istanza gestita. Il database **master** contiene gli oggetti necessari a eseguire le operazioni di Transparent Data Encryption nei database utente.
+> Non è possibile usare Transparent Data Encryption per crittografare i database di sistema, ad esempio il database **Master** , nel database SQL di Azure e in azure SQL istanza gestita. Il database **master** contiene gli oggetti necessari a eseguire le operazioni di Transparent Data Encryption nei database utente.
 
 ## <a name="service-managed-transparent-data-encryption"></a>Transparent Data Encryption gestita dal servizio
 

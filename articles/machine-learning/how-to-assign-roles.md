@@ -1,7 +1,7 @@
 ---
 title: Gestire i ruoli nell'area di lavoro
 titleSuffix: Azure Machine Learning
-description: Informazioni su come accedere a un'area di lavoro di Azure Machine Learning usando il controllo degli accessi in base al ruolo (RBAC).
+description: Informazioni su come accedere a un'area di lavoro di Azure Machine Learning usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966407"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425644"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
@@ -26,7 +26,7 @@ Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machin
 
 Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogamente ad altre risorse di Azure, quando viene creata una nuova area di lavoro di Azure Machine Learning, essa presenta tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
 
-| Ruolo | Livello di accesso |
+| Role | Livello di accesso |
 | --- | --- |
 | **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare le risorse, incluse le credenziali dell' [archivio dati](how-to-access-data.md) , in un'area di lavoro. I lettori non possono creare o aggiornare tali asset. |
 | **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono, ad esempio, creare un esperimento, creare o allegare un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
@@ -34,9 +34,9 @@ Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogament
 | **Ruolo personalizzato** | Consente di personalizzare l'accesso a specifiche operazioni di controllo o piano dati all'interno di un'area di lavoro. Ad esempio, l'invio di un'esecuzione, la creazione di un calcolo, la distribuzione di un modello o la registrazione di un set di dati. |
 
 > [!IMPORTANT]
-> L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per ulteriori informazioni [, vedere funzionamento](/azure/role-based-access-control/overview#how-rbac-works)del controllo degli accessi in base al ruolo.
+> L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per altre informazioni, vedere funzionamento di [Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti per Azure](/azure/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Gestisci l'accesso all'area di lavoro
 
@@ -71,7 +71,7 @@ Azure Machine Learning azioni predefinite per molte operazioni e attività. Per 
 
 In questa tabella viene descritto l'ambito di autorizzazione che deve essere aggiunto alle azioni nel ruolo personalizzato creato per eseguire operazioni MLflow.
 
-| Operazione MLflow | Scope |
+| Operazione MLflow | Ambito |
 | --- | --- |
 | Elencare tutti gli esperimenti nell'archivio di rilevamento dell'area di lavoro, ottenere un esperimento in base all'ID, ottenere un esperimento per nome | Microsoft. MachineLearningServices/Workspaces/Experiments/Read |
 | Creare un esperimento con un nome, impostare un tag per un esperimento, ripristinare un esperimento contrassegnato per l'eliminazione| Microsoft. MachineLearningServices/Workspaces/Experiments/Write | 
@@ -432,13 +432,13 @@ Di seguito sono riportate alcune considerazioni da tenere presente quando si usa
     - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa VNet.
     - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
     
-    Per ulteriori informazioni sul controllo degli accessi in base al ruolo con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking).
+    Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere i [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking).
 
 - A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
 
-Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo con le identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. È supportato il controllo degli accessi in base al ruolo nel portale di studio?

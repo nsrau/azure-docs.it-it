@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617231"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428320"
 ---
 # <a name="what-is-azure-sql-database"></a>Che cos'è il database SQL di Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ Database SQL di Azure assicura la continuità operativa delle organizzazioni dur
 
 Il ripristino di emergenza presuppone che un evento catastrofico sia geograficamente localizzato al punto tale che sarà comunque disponibile in un'altra località distante un altro computer o un set di computer con una copia dei dati. Per ottenere questa funzionalità in SQL Server, è possibile usare Gruppi di disponibilità AlwaysOn in esecuzione in modalità asincrona. Spesso non si vuole attendere che la replica venga eseguita a tale distanza prima di eseguire il commit di una transazione, quindi è possibile che si verifichi una perdita di dati quando si eseguono failover non pianificati.
 
-I database nei livelli di servizio Premium e business critical già [prevedono funzionalità simili](high-availability-sla.md#premium-and-business-critical-service-tier-availability) per la sincronizzazione di un gruppo di disponibilità. I database nei livelli di servizio più bassi forniscono la ridondanza tramite archiviazione usando un [meccanismo diverso ma equivalente](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). La logica predefinita offre protezione dagli errori di un singolo computer. La funzionalità di replica geografica attiva offre protezione da situazioni di emergenza in cui viene distrutta un'intera area.
+I database nei livelli di servizio Premium e business critical già [prevedono funzionalità simili](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) per la sincronizzazione di un gruppo di disponibilità. I database nei livelli di servizio più bassi forniscono la ridondanza tramite archiviazione usando un [meccanismo diverso ma equivalente](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability). La logica predefinita offre protezione dagli errori di un singolo computer. La funzionalità di replica geografica attiva offre protezione da situazioni di emergenza in cui viene distrutta un'intera area.
 
 Le zone di disponibilità di Azure hanno lo scopo di offrire protezione da interruzioni del servizio, ad esempio di corrente o di rete, in un singolo edificio di data center e in una singola area. In Database SQL si inseriscono repliche diverse in zone di disponibilità diverse (in realtà proprio in edifici diversi).
 
