@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366684"
+ms.locfileid: "92424615"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -179,6 +180,8 @@ Assicurarsi di aver selezionato la casella di controllo per gli aggiornamenti.
 
 Assicurarsi di disporre del mapping *attivo* per l'applicazione. Se si usa un'applicazione dalla raccolta di app, il mapping può essere leggermente diverso. Assicurarsi di usare il mapping predefinito o predefinito per le applicazioni della raccolta.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disabilitare un utente" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Configurare l'applicazione per eliminare un utente**
 
@@ -188,7 +191,9 @@ Negli scenari seguenti viene attivata un'operazione di disabilitazione o elimina
 * Un utente viene eliminato o rimosso definitivamente dal Cestino in Azure AD.
 * Un utente non è assegnato a un'app.
 * Un utente passa dall'ambito all'esterno dell'ambito (non passa più un filtro di ambito).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Disabilitare un utente" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope.](skip-out-of-scope-deletions.md)
 
 Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazione non supporta le eliminazioni software, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente dall'app.

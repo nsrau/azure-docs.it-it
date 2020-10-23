@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102932"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424525"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
 Per offrire livelli ottimali di disponibilità per i componenti di analisi, HDInsight è stato sviluppato con un'architettura univoca per garantire la disponibilità elevata dei servizi critici. Alcuni componenti di questa architettura sono stati sviluppati da Microsoft per fornire il failover automatico. Altri componenti sono componenti Apache standard distribuiti per supportare servizi specifici. Questo articolo illustra l'architettura del modello di servizio a disponibilità elevata in HDInsight, il modo in cui HDInsight supporta il failover per i servizi a disponibilità elevata e le procedure consigliate per il ripristino da altre interruzioni del servizio.
- 
+
 > [!NOTE]
-> Comunicazione senza distorsione
->
-> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
->
+> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruttura a disponibilità elevata
 

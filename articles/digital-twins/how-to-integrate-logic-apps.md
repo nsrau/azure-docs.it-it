@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280864"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427990"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -66,7 +66,7 @@ Verificare ora che il segreto client sia visibile nella pagina _certificati & se
 
 Questo articolo usa app per la logica per aggiornare un dispositivo gemello nell'istanza di Azure Digital gemelli. Per continuare, è necessario aggiungere almeno un gemello nell'istanza. 
 
-È possibile aggiungere i dispositivi gemelli usando le [API di DigitalTwins](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per i passaggi dettagliati su come creare i dispositivi gemelli usando questi metodi, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
+È possibile aggiungere i dispositivi gemelli usando le [API di DigitalTwins](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per i passaggi dettagliati su come creare i dispositivi gemelli usando questi metodi, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
 
 È necessario l' **_ID gemello_** di un gemello nell'istanza creata.
 

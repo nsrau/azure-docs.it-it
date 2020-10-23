@@ -3,12 +3,12 @@ title: Architettura dell'appliance di Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312915"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428164"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
@@ -51,8 +51,8 @@ Durante l'installazione dell'appliance si registra l'appliance con Azure Migrate
 **Azione** | **Dettagli** | **Autorizzazioni**
 --- | --- | ---
 **Registra provider di origine** | Questi provider di risorse sono registrati nella sottoscrizione scelta durante l'installazione dell'appliance: Microsoft. OffAzure, Microsoft. migrate e Microsoft. insieme di credenziali.<br/><br/> La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. | Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
-**Creare Azure AD app-Communication** | Azure Migrate crea un'app Azure Active Directory (Azure AD) per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance e i rispettivi servizi in esecuzione in Azure.<br/><br/> Questa app non dispone dei privilegi necessari per effettuare chiamate Azure Resource Manager o l'accesso RBAC a qualsiasi risorsa. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
-**Creare app Azure AD-Key Vault** | Questa app viene creata solo per la migrazione senza agenti di macchine virtuali VMware in Azure.<br/><br/> Viene usato esclusivamente per accedere all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agenti.<br/><br/> Ha accesso RBAC nell'insieme di credenziali delle chiavi di Azure, creato nel tenant del cliente, quando l'individuazione viene avviata dall'appliance. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
+**Creare Azure AD app-Communication** | Azure Migrate crea un'app Azure Active Directory (Azure AD) per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance e i rispettivi servizi in esecuzione in Azure.<br/><br/> Questa app non ha i privilegi necessari per effettuare chiamate Azure Resource Manager o l'accesso RBAC di Azure a qualsiasi risorsa. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
+**Creare app Azure AD-Key Vault** | Questa app viene creata solo per la migrazione senza agenti di macchine virtuali VMware in Azure.<br/><br/> Viene usato esclusivamente per accedere all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agenti.<br/><br/> Ha accesso RBAC di Azure nell'insieme di credenziali delle chiavi di Azure (creato nel tenant del cliente) quando l'individuazione viene avviata dall'appliance. | È necessario disporre di [queste autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) per Azure migrate per creare l'app.
 
 
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169388"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426610"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
 
@@ -74,7 +74,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
 1. Per **tipo di autenticazione**selezionare l'autenticazione richiesta e abilitata nel database nel database SQL di Azure o in azure SQL istanza gestita:
 
-   | Authentication | Descrizione |
+   | Autenticazione | Descrizione |
    |----------------|-------------|
    | [**Azure AD integrata**](../azure-sql/database/authentication-aad-overview.md) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un'identità valida in Azure Active Directory (Azure AD) che può accedere al database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD autenticazione integrata](../azure-sql/database/authentication-aad-overview.md) |
    | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -118,7 +118,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
 1. Per **tipo di autenticazione**selezionare l'autenticazione richiesta e abilitata nel SQL Server:
 
-   | Authentication | Descrizione |
+   | Autenticazione | Descrizione |
    |----------------|-------------|
    | [**Autenticazione di Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Supporta solo il connettore SQL Server non ISE, che richiede una risorsa del gateway dati creata in precedenza in Azure per la connessione, indipendentemente dal fatto che si usi Azure multi-tenant o ISE. <p><p>-Richiede un nome utente e una password validi di Windows per confermare l'identità tramite l'account di Windows. <p>Per ulteriori informazioni, vedere [autenticazione di Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) . |
    | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
@@ -214,19 +214,16 @@ In questo esempio, l'app per la logica inizia con il [trigger di ricorrenza](../
 
 A volte, è necessario usare set di risultati di dimensioni tali che il connettore non riesce a restituire tutti i risultati contemporaneamente oppure si vuole un controllo migliore sulle dimensioni e sulla struttura dei set di risultati. Ecco alcuni modi in cui è possibile gestire set di risultati di grandi dimensioni:
 
-* Per gestire i risultati come set più piccoli, attivare la *paginazione*. Per altre informazioni, vedere [Ottenere dati in blocco, record ed elementi usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Per gestire i risultati come set più piccoli, attivare la *paginazione*. Per altre informazioni, vedere [Ottenere dati in blocco, record ed elementi usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Per altre informazioni, vedere [impaginazione SQL per il trasferimento di dati in blocco con app per la logica](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
-* Creare una stored procedure per organizzare i risultati nel modo desiderato.
+* Creare una [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) per organizzare i risultati nel modo desiderato. Il connettore SQL fornisce molte funzionalità di back-end a cui è possibile accedere usando app per la logica di Azure, in modo che sia possibile automatizzare più facilmente le attività aziendali che funzionano con le tabelle del database SQL.
 
   Se si ottengono o si inseriscono più righe, l'app per la logica può scorrere queste righe usando un [*ciclo Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) nell'ambito di questi [limiti](../logic-apps/logic-apps-limits-and-config.md). In alcuni casi, tuttavia, l'app per la logica deve interagire con set di record talmente grandi, ad esempio migliaia o milioni di righe, che si vuole ridurre al minimo i costi risultanti dalle chiamate al database.
 
-  Per organizzare i risultati nel modo desiderato, è possibile creare una [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) che viene eseguita nell'istanza di SQL e usa l'istruzione **SELECT - ORDER BY**. Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server.
+  Per organizzare i risultati nel modo desiderato, è possibile creare una stored procedure che viene eseguita nell'istanza di SQL e usa l'istruzione **SELECT - ORDER BY**. Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server. Per ulteriori informazioni, vedere [clausola SELECT-ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
-  Per altre informazioni dettagliate sulla soluzione, vedere questi articoli:
-
-  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx) (Paginazione SQL per il trasferimento di dati in bulk con App per la logica)
-
-  * [Clausola SELECT - ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > Con questo connettore, un'esecuzione stored procedure è limitata a un [limite di timeout inferiore a 2 minuti](/connectors/sql/#known-issues-and-limitations). Alcune stored procedure potrebbero richiedere più tempo rispetto a questo limite per l'elaborazione e il completamento completo, che genera un `504 TIMEOUT` errore. In realtà, alcuni processi a esecuzione prolungata vengono codificati come stored procedure in modo esplicito a questo scopo. La chiamata di queste procedure da app per la logica di Azure potrebbe creare problemi a causa di questo limite di timeout. Sebbene il connettore SQL non supporti in modo nativo una modalità asincrona, è possibile simulare questa modalità usando un trigger di completamento SQL, una query pass-through SQL nativa, una tabella di stato e processi sul lato server usando l' [agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Gestire i dati in blocco dinamici
 
@@ -253,13 +250,13 @@ Quando si chiama un stored procedure usando il connettore SQL Server, l'output r
 
 ## <a name="troubleshoot-problems"></a>Risolvere i problemi
 
-È possibile che si verifichino problemi di connessione, quindi per risolvere questi tipi di problemi, esaminare la [risoluzione degli errori di connettività per SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Ecco alcuni esempi:
+* È possibile che si verifichino problemi di connessione, quindi per risolvere questi tipi di problemi, esaminare la [risoluzione degli errori di connettività per SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Ecco alcuni esempi:
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369701"
+ms.locfileid: "92426413"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -111,7 +111,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     > [!NOTE]
     > Al termine della configurazione della pianificazione della distribuzione per un server abilitato per l'arco selezionato, selezionare **Verifica + crea**.
 
-15. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **pianificazioni di distribuzione** per visualizzare la pianificazione della distribuzione creata. Sono elencate al massimo 500 pianificazioni. Se sono presenti più di 500 pianificazioni e si vuole rivedere l'elenco completo, vedere il metodo di [configurazione dell'aggiornamento software-elencare](/rest/api/automation/softwareupdateconfigurations/list) l'API REST con la versione 2019-06-01 o successiva.
+15. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **pianificazioni di distribuzione** per visualizzare la pianificazione della distribuzione creata. Sono elencate al massimo 500 pianificazioni. Se sono presenti più di 500 pianificazioni e si vuole rivedere l'elenco completo, vedere il metodo dell'API REST per l' [elenco delle configurazioni di aggiornamento software](/rest/api/automation/softwareupdateconfigurations/list) . Specificare l'API versione 2019-06-01 o successiva.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Pianificare una distribuzione di aggiornamenti a livello di codice
 

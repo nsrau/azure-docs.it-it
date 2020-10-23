@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044072"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425691"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -72,7 +72,7 @@ firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boole
 
 Il risultato della ricerca viene restituito nella sezione `output` del risultato dell'esecuzione attività.
 
-* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)** , il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato nell'attività successiva, usare il modello di  `@{activity('LookupActivity').output.firstRow.table` .
+* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)** , il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato nell'attività successiva, usare il modello di  `@{activity('LookupActivity').output.firstRow.table}` .
 
     ```json
     {

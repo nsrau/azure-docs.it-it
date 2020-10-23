@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315830"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424055"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Baseline della sicurezza di Azure per app per la logica
 
@@ -182,7 +182,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 - Lo standard di protezione DDoS deve essere abilitato
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, il controllo degli accessi in base al ruolo e i criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -556,7 +556,7 @@ App per la logica di Azure supporta le identità gestite sia assegnate dal siste
 
 **Responsabilità**: Non applicabile
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -578,7 +578,7 @@ Per le app per la logica che richiedono l'accesso diretto alle risorse in una re
 
 Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. La selezione determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale.
 
-Inoltre, implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite Azure Active Directory il controllo degli accessi in base al ruolo.
+Inoltre, implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 - [Informazioni sui connettori per le app per la logica](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Microsoft gestisce l'infrastruttura sottostante per le app per la logica di Azur
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: è possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il controllo degli accessi in base al ruolo (RBAC) di Azure in modo da poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
+**Linee guida**: è possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in modo da poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
 
 - Collaboratore per app per la logica: consente di gestire le app per la logica, ma non di modificarne l'accesso.
 - Operatore per app per la logica: consente di leggere, abilitare e disabilitare le app per la logica, ma non di modificarle o aggiornarle.
@@ -883,7 +883,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: le risorse correlate alle app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate all'interno della propria macchina virtuale e/o della rete virtuale e sufficientemente protette con un firewall di Azure o un gruppo di sicurezza di rete.
 
-Le app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate laddove possibile tramite gruppi di risorse distinti con autorizzazioni specifiche e limiti RBAC.
+Le app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate laddove possibile tramite gruppi di risorse distinti con autorizzazioni specifiche e limiti RBAC di Azure.
 
 - [Come creare una rete virtuale](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Le app per la logica necessarie per le operazioni aziendali, ma possono comporta
 
 - [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md) 
 
-- [Come proteggere l'accesso alle app per la logica tramite RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Come proteggere l'accesso alle app per la logica tramite RBAC di Azure](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

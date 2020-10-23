@@ -3,12 +3,12 @@ title: Azure Lab Services - Guida dell'amministratore | Microsoft Docs
 description: Questa guida è rivolta agli amministratori che creano e gestiscono account lab con Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371410"
+ms.locfileid: "92425310"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab dell'istituto. Una volta configurato un account lab, gli amministratori o i docenti creano i lab per la classe contenuti nell'account lab. Questo articolo fornisce una panoramica generale delle risorse di Azure interessate e le istruzioni per crearle.
@@ -178,7 +178,7 @@ Quando gli amministratori o gli autori di lab creano un lab per la classe, posso
 
 ## <a name="manage-identity"></a>Gestire le identità
 
-Usando il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) è possibile assegnare i ruoli seguenti per concedere l'accesso agli account lab e ai lab per la classe:
+Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), è possibile assegnare i ruoli seguenti per concedere l'accesso agli account Lab e ai laboratori in aula:
 
 - **Proprietario dell'account lab**
 

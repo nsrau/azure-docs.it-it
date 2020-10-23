@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885176"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427274"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ Se non diversamente specificato, è consigliabile seguire tutte le procedure con
 
 Si prevede di continuare a aggiornare le raccomandazioni e le procedure consigliate elencate di seguito. Fornire l'input o qualsiasi correzione per questo documento usando il collegamento **feedback** nella parte inferiore di questo articolo.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure e SQL Istanza gestita supportano due tipi di autenticazione:
 
@@ -791,12 +791,14 @@ La maggior parte degli standard di sicurezza consente di gestire la disponibilit
 
 - Azure offre disponibilità elevata incorporata: [disponibilità elevata con database SQL e sql istanza gestita](high-availability-sla.md)
 
-- Il livello business critical include gruppi di failover, zone con più disponibilità, backup del log completi e differenziali e backup di ripristino temporizzato abilitati per impostazione predefinita:  
-  - [Disponibilità elevata-configurazione con ridondanza della zona](high-availability-sla.md#zone-redundant-configuration)
+- Il livello business critical include gruppi di failover, backup del log completi e differenziali e backup di ripristino temporizzato abilitati per impostazione predefinita:  
   - [Backup automatizzati](automated-backups-overview.md)
   - [Ripristinare un database usando i backup automatici del database, ripristino temporizzato](recovery-using-backups.md#point-in-time-restore)
 
-- Le funzionalità di continuità aziendale aggiuntive, ad esempio i gruppi di failover automatico in un altro Azure GEOS, possono essere configurate come descritto di seguito: [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- È possibile configurare altre funzionalità di continuità aziendale, ad esempio la configurazione con ridondanza della zona e i gruppi di failover automatico in diversi servizi di Azure. 
+    - [Configurazione con ridondanza della zona a disponibilità elevata per i livelli di servizio & business critical Premium](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [Disponibilità elevata-configurazione con ridondanza della zona per per utilizzo generico livello di servizio](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

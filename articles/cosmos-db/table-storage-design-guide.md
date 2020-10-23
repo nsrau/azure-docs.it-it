@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002177"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428058"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione delle tabelle per archiviazione tabelle di Azure: tabelle scalabili con prestazioni avanzate
 
@@ -476,7 +476,7 @@ Archivia più copie di ogni entità usando valori di `RowKey` diversi in partizi
 #### <a name="context-and-problem"></a>Contesto e problema
 Archiviazione tabelle indicizza automaticamente le entità usando i valori `PartitionKey` e `RowKey`. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente usando questi valori. Ad esempio, usando la struttura della tabella seguente, un'applicazione client può usare una query di puntamento per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID dipendente, ovvero i valori `PartitionKey`e `RowKey`. Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Immagine che mostra un'entità reparto e un'entità dipendente":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Immagine che mostra un'entità reparto e un'entità dipendente"::: 9
 
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che archiviazione tabelle non rende disponibili gli indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine `RowKey`.  
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996341"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426639"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -60,7 +60,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
       ![Copiare la stringa di connessione dello spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath`  nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
+   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath` nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
 
 ## <a name="add-service-bus-trigger"></a>Aggiungi trigger del bus di servizio
 
@@ -68,18 +68,22 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Accedere al [portale di Azure](https://portal.azure.com)e aprire l'app per la logica vuota nella finestra di progettazione dell'app per la logica.
 
-1. Nella casella di ricerca immettere "bus di servizio di Azure" come filtro. Dall'elenco trigger selezionare il trigger desiderato.
+1. Nella casella di ricerca del portale immettere `azure service bus` . Dall'elenco di trigger visualizzato selezionare il trigger desiderato.
 
    Ad esempio, per attivare l'app per la logica quando viene inviato un nuovo elemento a una coda del bus di servizio, selezionare il trigger **quando un messaggio viene ricevuto in una coda (completamento automatico)** .
 
    ![Selezionare un trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Tutti i trigger del bus di servizio sono trigger con *polling prolungato* . Questa descrizione significa che quando viene attivato il trigger, il trigger elabora tutti i messaggi e quindi attende 30 secondi che vengano visualizzati più messaggi nella sottoscrizione della coda o dell'argomento. Se non vengono visualizzati messaggi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere i messaggi finché la coda o la sottoscrizione dell'argomento non sono vuote. Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
+   Di seguito sono riportate alcune considerazioni relative all'uso di un trigger del bus di servizio:
 
-   Alcuni trigger, ad esempio **quando uno o più messaggi arrivano in un trigger di coda (completamento automatico)** , possono restituire uno o più messaggi. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificato dalla proprietà numero **massimo messaggi** del trigger.
+   * Tutti i trigger del bus di servizio sono trigger con *polling prolungato* . Questa descrizione significa che quando viene attivato il trigger, il trigger elabora tutti i messaggi e quindi attende 30 secondi che vengano visualizzati più messaggi nella sottoscrizione della coda o dell'argomento. Se non vengono visualizzati messaggi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere i messaggi finché la coda o la sottoscrizione dell'argomento non sono vuote. Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
 
-    > [!NOTE]
-    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva chiamata al bus di servizio. Questo comportamento può influire sulla progettazione dell'app per la logica. Ad esempio, evitare di modificare la concorrenza nel trigger di completamento automatico perché questa modifica potrebbe generare messaggi duplicati se l'app per la logica entra in uno stato limitato. La modifica del controllo della concorrenza crea queste condizioni: i trigger limitati vengono ignorati con il `WorkflowRunInProgress` codice, l'operazione di completamento non viene eseguita e l'esecuzione del trigger successiva si verifica dopo l'intervallo di polling. È necessario impostare la durata del blocco del bus di servizio su un valore più lungo dell'intervallo di polling. Tuttavia, nonostante questa impostazione, il messaggio potrebbe ancora non essere completato se l'app per la logica rimane in uno stato limitato all'intervallo di polling successivo.
+   * Alcuni trigger, ad esempio **quando uno o più messaggi arrivano in un trigger di coda (completamento automatico)** , possono restituire uno o più messaggi. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificato dalla proprietà numero **massimo messaggi** del trigger.
+
+     > [!NOTE]
+     > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva chiamata al bus di servizio. Questo comportamento può influire sulla progettazione dell'app per la logica. Ad esempio, evitare di modificare la concorrenza nel trigger di completamento automatico perché questa modifica potrebbe generare messaggi duplicati se l'app per la logica entra in uno stato limitato. La modifica del controllo della concorrenza crea queste condizioni: i trigger limitati vengono ignorati con il `WorkflowRunInProgress` codice, l'operazione di completamento non viene eseguita e l'esecuzione del trigger successiva si verifica dopo l'intervallo di polling. È necessario impostare la durata del blocco del bus di servizio su un valore più lungo dell'intervallo di polling. Tuttavia, nonostante questa impostazione, il messaggio potrebbe ancora non essere completato se l'app per la logica rimane in uno stato limitato all'intervallo di polling successivo.
+
+   * Se si [attiva l'impostazione di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) per un trigger del bus di servizio, il valore predefinito per la `maximumWaitingRuns` proprietà è 10. In base all'impostazione della durata del blocco dell'entità del bus di servizio e alla durata dell'esecuzione per l'istanza dell'app per la logica, questo valore predefinito potrebbe essere troppo grande e potrebbe causare un'eccezione "blocco perso". Per trovare il valore ottimale per lo scenario, avviare il test con un valore pari a 1 o 2 per la `maximumWaitingRuns` Proprietà. Per modificare il valore massimo delle esecuzioni in attesa, vedere [limite di esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Se il trigger si connette allo spazio dei nomi del bus di servizio per la prima volta, seguire questa procedura quando la finestra di progettazione dell'app per la logica richiede le informazioni di connessione.
 
@@ -113,13 +117,13 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Accedere al [portale di Azure](https://portal.azure.com)e aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
 1. Nel passaggio in cui si vuole aggiungere un'azione selezionare **nuovo passaggio**.
 
    In alternativa, per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "bus di servizio di Azure" come filtro. Nell'elenco azioni selezionare l'azione desiderata. 
+1. In **Scegliere un'azione** immettere `azure service bus` nella casella di ricerca. Dall'elenco azioni visualizzato selezionare l'azione desiderata. 
 
    Per questo esempio, selezionare l'azione **Invia messaggio** .
 
