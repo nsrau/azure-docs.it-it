@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441866"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440732"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -36,6 +36,8 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
     - [Creare un account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passaggio 1: Creare un processo di esportazione
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per creare un processo di esportazione nel portale di Azure, eseguire le operazioni seguenti.
 
@@ -100,6 +102,83 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
     - Fare clic su **OK** per completare la creazione del processo di esportazione.
 
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Usare la procedura seguente per creare un processo di esportazione nel portale di Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Creare un processo
+
+1. Usare il comando [AZ Extension Add](/cli/azure/extension#az_extension_add) per aggiungere l'estensione [AZ Import-Export](/cli/azure/ext/import-export/import-export) :
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Per ottenere un elenco dei percorsi da cui è possibile ricevere dischi, usare il comando [AZ Import-Export Location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Eseguire il comando [AZ Import-Export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) seguente per creare un processo di esportazione che usa l'account di archiviazione esistente:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
+
+   Questo processo Esporta tutti i BLOB nell'account di archiviazione. È possibile specificare un BLOB da esportare sostituendo questo valore per **--Export**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   Questo valore di parametro Esporta il BLOB denominato *logo.bmp* nel contenitore radice.
+
+   È anche possibile selezionare tutti i BLOB in un contenitore usando un prefisso. Sostituire questo valore per **--Export**:
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > Se il BLOB da esportare è in uso durante la copia dei dati, il servizio Importazione/Esportazione di Azure acquisisce uno snapshot del BLOB e copia lo snapshot.
+
+1. Usare il comando [AZ Import-Export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) per visualizzare tutti i processi per il gruppo di risorse myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Per aggiornare il processo o annullare il processo, eseguire il comando [AZ Import-Export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
+
 <!--## (Optional) Step 2: -->
 
 ## <a name="step-2-ship-the-drives"></a>Passaggio 2: Spedire le unità
@@ -142,7 +221,7 @@ A questo punto, è possibile eliminare il processo o lasciarlo. I processi vengo
 Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessarie per il processo di esportazione. Eseguire questo passaggio in un sistema Windows con una [versione supportata del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Scaricare WAImportExport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows.
-2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
+2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio `C:\WaImportExportV1`.
 3. Aprire una finestra di PowerShell o della riga di comando con privilegi amministrativi. Per passare alla directory della cartella decompressa, eseguire il comando seguente:
 
    `cd C:\WaImportExportV1`
@@ -155,7 +234,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
-    |**/LogDir**|Facoltativa. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
+    |**/LogDir**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**Ésn**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
     |**/SK**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  

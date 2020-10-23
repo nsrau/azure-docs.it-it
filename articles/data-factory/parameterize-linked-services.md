@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131395"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426975"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
 
@@ -32,16 +32,18 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Archivi dati supportati
+## <a name="supported-linked-service-types"></a>Tipi di servizi collegati supportati
 
 È possibile parametrizzare qualsiasi tipo di servizio collegato.
-Quando si crea il servizio collegato nell'interfaccia utente, Data Factory fornisce un'esperienza di parametrizzazione predefinita per i tipi di connettori seguenti. Nel pannello di creazione/modifica del servizio collegato è possibile trovare opzioni per i nuovi parametri e aggiungere contenuto dinamico.
+Quando si crea il servizio collegato nell'interfaccia utente, Data Factory fornisce un'esperienza di parametrizzazione predefinita per i seguenti tipi di servizi collegati. Nel pannello di creazione/modifica del servizio collegato è possibile trovare opzioni per i nuovi parametri e aggiungere contenuto dinamico.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (API SQL)
 - Database di Azure per MySQL
-- database SQL di Azure
+- Azure Databricks
+- Database SQL di Azure
+- Istanza gestita di SQL di Azure
 - Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 - MySQL
 - Oracle
@@ -49,7 +51,7 @@ Quando si crea il servizio collegato nell'interfaccia utente, Data Factory forni
 - HTTP generico
 - REST generico
 
-Per gli altri tipi, è possibile parametrizzare il servizio collegato modificando JSON nell'interfaccia utente:
+Per gli altri tipi di servizi collegati che non si trovano nell'elenco precedente, è possibile parametrizzare il servizio collegato modificando il codice JSON sull'interfaccia utente:
 
 - Nel pannello di creazione/modifica del servizio collegato-> espandere "avanzate" nella parte inferiore della casella di controllo > selezionare "specifica contenuto dinamico in formato JSON"-> specificare il payload JSON del servizio collegato. 
 - In alternativa, dopo aver creato un servizio collegato senza parametrizzazione, in [Hub di gestione](author-visually.md#management-hub) -> servizi collegati-> trovare il servizio collegato specifico-> fare clic su "codice" (pulsante " {} ") per modificare il JSON. 

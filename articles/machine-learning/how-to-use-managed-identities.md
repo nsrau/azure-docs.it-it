@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079658"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440451"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Usare identità gestite con Azure Machine Learning (anteprima)
 
@@ -29,7 +29,6 @@ In questo articolo si apprenderà come usare le identità gestite per:
 
  * Configurare e usare ACR per l'area di lavoro di Azure Machine Learning senza che sia necessario abilitare l'accesso utente amministratore a ACR.
  * Accedere a un ACR privato esterno all'area di lavoro, per eseguire il pull delle immagini di base per il training o l'inferenza.
- * Accedere ai set di dati per il training usando identità gestite anziché chiavi di accesso di archiviazione.
 
 > [!IMPORTANT]
 > L'uso delle identità gestite per controllare l'accesso alle risorse con Azure Machine Learning è attualmente in fase di anteprima. La funzionalità di anteprima viene fornita "così com'è", senza alcuna garanzia del supporto o del contratto di servizio. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Accedere ai dati di training
-
-Dopo aver creato un cluster di calcolo di Machine Learning con identità gestita come descritto in precedenza, è possibile usare tale identità per accedere ai dati di training senza chiavi dell'account di archiviazione. Per questo scenario, è possibile usare l'identità gestita assegnata dal sistema o dall'utente.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Concedere l'accesso a identità gestite di calcolo all'account di archiviazione
-
-[Concedere all'identità gestita un ruolo lettore](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) nell'account di archiviazione in cui vengono archiviati i dati di training.
-
-### <a name="register-data-store-with-workspace"></a>Registrare l'archivio dati con l'area di lavoro
-
-Dopo aver assegnato l'identità gestita, è possibile creare un archivio dati senza dover specificare le credenziali di archiviazione.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Inviare l'esecuzione di training
-
-Quando si invia un'esecuzione di training usando l'archivio dati, il calcolo di machine learning usa l'identità gestita per accedere ai dati.
 
 ## <a name="use-docker-images-for-inference"></a>Usare le immagini Docker per l'inferenza
 

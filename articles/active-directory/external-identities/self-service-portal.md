@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62805564f716d255f38c9312da5c5c986fba944c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441726"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Iscrizione self-service per la collaborazione B2B di Azure AD
 
@@ -24,11 +24,11 @@ I clienti possono eseguire molte operazioni con le funzionalità predefinite esp
 
 ## <a name="azure-ad-entitlement-management-for-b2b-guest-user-sign-up"></a>Gestione dei diritti Azure AD per l'iscrizione degli utenti Guest B2B
 
-In qualità di organizzazione invitante, è possibile che non si conoscano in anticipo i singoli collaboratori esterni che necessitano dell'accesso alle risorse. È necessario un modo per consentire agli utenti delle aziende partner di iscriversi con i criteri che si controllano. Se si desidera consentire agli utenti di altre organizzazioni di richiedere l'accesso e, al momento dell'approvazione, di effettuare il provisioning degli account Guest e di assegnarli a gruppi, app e siti di SharePoint Online, è possibile utilizzare [Azure ad gestione dei diritti](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+In qualità di organizzazione invitante, è possibile che non si conoscano in anticipo i singoli collaboratori esterni che necessitano dell'accesso alle risorse. È necessario un modo per consentire agli utenti delle aziende partner di iscriversi con i criteri che si controllano. Se si desidera consentire agli utenti di altre organizzazioni di richiedere l'accesso e, al momento dell'approvazione, di effettuare il provisioning degli account Guest e di assegnarli a gruppi, app e siti di SharePoint Online, è possibile utilizzare [Azure ad gestione dei diritti](../governance/entitlement-management-overview.md) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>API di invito B2B Azure Active Directory
 
-Le organizzazioni possono usare l' [API di gestione degli inviti Microsoft Graph](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) per creare le proprie esperienze di onboarding per gli utenti Guest B2B. Quando si vuole offrire l'iscrizione a un utente Guest B2B self-service, è consigliabile usare la [gestione dei diritti Azure ad](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Tuttavia, se si vuole creare una propria esperienza, è possibile usare l' [API crea invito](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) per inviare automaticamente il messaggio di invito personalizzato direttamente all'utente B2B, ad esempio. In alternativa, l'app può usare la inviteRedeemUrl restituita nella risposta di creazione per creare il proprio invito (tramite il meccanismo di comunicazione scelto) per l'utente invitato.
+Le organizzazioni possono usare l' [API di gestione degli inviti Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0) per creare le proprie esperienze di onboarding per gli utenti Guest B2B. Quando si vuole offrire l'iscrizione a un utente Guest B2B self-service, è consigliabile usare la [gestione dei diritti Azure ad](../governance/entitlement-management-overview.md). Tuttavia, se si vuole creare una propria esperienza, è possibile usare l' [API crea invito](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) per inviare automaticamente il messaggio di invito personalizzato direttamente all'utente B2B, ad esempio. In alternativa, l'app può usare la inviteRedeemUrl restituita nella risposta di creazione per creare il proprio invito (tramite il meccanismo di comunicazione scelto) per l'utente invitato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

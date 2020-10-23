@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426387"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -59,6 +59,8 @@ Quando `privateLink` è impostato su *Abilita*, vengono creati i servizi di [bil
 I bilanciamenti del carico standard non forniscono automaticamente il [NAT in uscita pubblico](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
 
 ### <a name="prepare-your-environment"></a>Preparare l'ambiente
+
+Per la creazione di successgfull di servizi di collegamento privato, è necessario disabilitare in modo esplicito [i criteri di rete per il servizio di collegamento privato](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
 
 Il diagramma seguente illustra un esempio della configurazione di rete necessaria prima di creare un cluster. In questo esempio, tutto il traffico in uscita è [forzato](../firewall/forced-tunneling.md) al firewall di Azure con UdR e le dipendenze in uscita obbligatorie devono essere "consentite" nel firewall prima di creare un cluster. Per i cluster Enterprise Security Package, la connettività di rete alle Azure Active Directory Domain Services può essere fornita dal peering VNet.
 

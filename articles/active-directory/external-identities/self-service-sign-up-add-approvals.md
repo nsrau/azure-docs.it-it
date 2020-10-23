@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441624"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
 
@@ -29,7 +29,7 @@ Questo articolo fornisce un esempio di come eseguire l'integrazione con un siste
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrare un'applicazione per il sistema di approvazione
 
-È necessario registrare il sistema di approvazione come un'applicazione nel tenant di Azure AD in modo che sia in grado di eseguire l'autenticazione con Azure AD e di disporre dell'autorizzazione per la creazione di utenti. Altre informazioni sulle [nozioni di base sull'autenticazione e sull'autorizzazione per Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+È necessario registrare il sistema di approvazione come un'applicazione nel tenant di Azure AD in modo che sia in grado di eseguire l'autenticazione con Azure AD e di disporre dell'autorizzazione per la creazione di utenti. Altre informazioni sulle [nozioni di base sull'autenticazione e sull'autorizzazione per Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
@@ -263,14 +263,14 @@ L'oggetto `userMessage` nella risposta viene visualizzato all'utente, ad esempio
 
 ## <a name="user-account-creation-after-manual-approval"></a>Creazione dell'account utente dopo l'approvazione manuale
 
-Dopo aver ottenuto l'approvazione manuale, il sistema di approvazione personalizzato crea un account [utente](https://docs.microsoft.com/graph/azuread-users-concept-overview) usando [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Il modo in cui il sistema di approvazione effettua il provisioning dell'account utente dipende dal provider di identità usato dall'utente.
+Dopo aver ottenuto l'approvazione manuale, il sistema di approvazione personalizzato crea un account [utente](/graph/azuread-users-concept-overview) usando [Microsoft Graph](/graph/use-the-api). Il modo in cui il sistema di approvazione effettua il provisioning dell'account utente dipende dal provider di identità usato dall'utente.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>Per un utente di Google o Facebook federato
 
 > [!IMPORTANT]
 > Il sistema di approvazione deve verificare in modo esplicito che `identities` `identities[0]` e `identities[0].issuer` siano presenti e che sia `identities[0].issuer` uguale a "Facebook" o "Google" per usare questo metodo.
 
-Se l'utente ha effettuato l'accesso con un account Google o Facebook, è possibile usare l' [API di creazione dell'utente](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+Se l'utente ha effettuato l'accesso con un account Google o Facebook, è possibile usare l' [API di creazione dell'utente](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
 
 1. Il sistema di approvazione USA riceve la richiesta HTTP dal flusso utente.
 
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                           | Obbligatoria | Descrizione                                                                                                                                                            |
+| Parametro                                           | Obbligatorio | Descrizione                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Sì      | Può essere generato accettando l' `email` attestazione inviata all'API, sostituendo il `@` carattere con `_` e pre-in sospeso a `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Sì      | Il valore deve essere impostato su `true`.                                                                                                                                                 |
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Per un utente Azure Active Directory federato
 
-Se un utente accede con un account di Azure Active Directory federato, è necessario usare l' [API di invito](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) per creare l'utente e, facoltativamente, l' [API di aggiornamento utente](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) per assegnare altri attributi all'utente.
+Se un utente accede con un account di Azure Active Directory federato, è necessario usare l' [API di invito](/graph/api/invitation-post?view=graph-rest-1.0) per creare l'utente e, facoltativamente, l' [API di aggiornamento utente](/graph/api/user-update?view=graph-rest-1.0) per assegnare altri attributi all'utente.
 
 1. Il sistema di approvazione riceve la richiesta HTTP dal flusso utente.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare, vedere gli [esempi di avvio rapido di funzioni di Azure](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Controllare l' [iscrizione self-service per gli utenti guest con l'esempio di approvazione manuale](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Controllare l' [iscrizione self-service per gli utenti guest con l'esempio di approvazione manuale](code-samples-self-service-sign-up.md#custom-approval-workflows).
