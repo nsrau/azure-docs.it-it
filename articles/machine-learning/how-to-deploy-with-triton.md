@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998761"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428348"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -30,7 +30,7 @@ Triton è un Framework *ottimizzato per l'inferenza*. Offre un utilizzo migliore
 > L'uso di Triton per la distribuzione da Azure Machine Learning è attualmente in fase di __Anteprima__. Le funzionalità di anteprima potrebbero non essere coperte dal supporto tecnico. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> I frammenti di codice in questo documento sono a scopo illustrativo e potrebbero non mostrare una soluzione completa. Per il codice di esempio funzionante, vedere gli [esempi end-to-end di Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> I frammenti di codice in questo documento sono a scopo illustrativo e potrebbero non mostrare una soluzione completa. Per il codice di esempio funzionante, vedere gli [esempi end-to-end di Triton in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +47,7 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Questi thread di lavoro gestiscono la pre-elaborazione, la chiamata al modello e la post-elaborazione. 
-* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio: `https://myserevice.azureml.net/score`.
+* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
 
@@ -56,7 +56,7 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Le richieste vengono inviate al **Server Triton**. 
 * Triton elabora le richieste in batch per ottimizzare l'utilizzo della GPU.
-* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio: `https://myserevice.azureml.net/score`.
+* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
 

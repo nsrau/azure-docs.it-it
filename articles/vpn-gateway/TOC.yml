@@ -8,9 +8,11 @@
   expanded: true
   items:
     - name: Creare e gestire un gateway VPN
-      href: vpn-gateway-tutorial-create-gateway-powershell.md
-    - name: Creare e gestire connessioni VPN da sito a sito
-      href: vpn-gateway-tutorial-vpnconnection-powershell.md
+      items:
+        - name: Portale di Azure
+          href: tutorial-create-gateway-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -64,7 +66,7 @@
         - name: Creare un gateway VPN basato su route
           items:
             - name: Portale di Azure
-              href: create-routebased-vpn-gateway-portal.md
+              href: tutorial-create-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
             - name: Interfaccia della riga di comando di Azure
@@ -72,7 +74,7 @@
         - name: Verificare una connessione gateway VPN
           href: vpn-gateway-verify-connection-resource-manager.md
         - name: Reimpostare un gateway VPN
-          href: vpn-gateway-resetgw-classic.md
+          href: reset-gateway.md
         - name: Eliminare un gateway VPN
           items:
             - name: Portale di Azure

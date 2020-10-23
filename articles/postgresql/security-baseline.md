@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb27868a06e133f6f90d0a7a18d218b74aafdd69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 828be8e790803e53b0434a71fb32a29a4a0c17bc
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420048"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428072"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-server singolo
 
@@ -544,7 +544,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsibilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per PostgreSQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo di Azure non influisce sulle autorizzazioni dell'utente
 
