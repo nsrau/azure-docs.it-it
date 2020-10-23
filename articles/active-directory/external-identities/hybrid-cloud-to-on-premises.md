@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107624"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441862"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -29,7 +29,7 @@ Se l'app locale usa l'autenticazione basata su SAML, è possibile renderla facil
 Sono necessarie entrambe queste operazioni:
 
 - Integrare l'app con SAML come descritto in [configurare la Single Sign-on basata su SAML](../manage-apps/configure-saml-single-sign-on.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
--  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
+-  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md). 
 
    Quando si configura l'impostazione **URL interno**, usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.
  
@@ -39,7 +39,7 @@ Sono necessarie entrambe queste operazioni:
 
 Per fornire agli utenti B2B l'accesso alle applicazioni locali protette con l'autenticazione integrata di Windows e la delega vincolata Kerberos, sono necessari i componenti seguenti:
 
-- **Autenticazione tramite Azure AD Application Proxy**. Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [Attività iniziali del proxy di applicazione e installazione del connettore](../manage-apps/application-proxy-enable.md) e [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md).
+- **Autenticazione tramite Azure AD Application Proxy**. Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [Attività iniziali del proxy di applicazione e installazione del connettore](../manage-apps/application-proxy-add-on-premises-application.md) e [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Autorizzazione tramite un oggetto utente B2B nella directory locale**. L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
 
    > [!NOTE]
@@ -64,14 +64,14 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 
 ### <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
 
-È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Esempio:
+È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio:
 
 - È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
 - Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato attraverso i criteri di gestione del ciclo di vita, l'utente locale viene anche eliminato dalla sincronizzazione MIM o tramite Azure AD Connect sincronizzazione. Per altre informazioni, vedere [gestire l'accesso guest con le verifiche di accesso Azure ad](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Creare oggetti utente guest B2B con MIM
 
-Per informazioni su come usare MIM 2016 Service Pack 1 e l'agente di gestione MIM per Microsoft Graph per creare oggetti utente guest nella directory locale, vedere [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy (Public Preview)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) (Collaborazione B2B (Business to Business) di Azure AD con Microsoft Identity Manager (MIM) 2016 SP1 con Azure Application Proxy).
+Per informazioni su come usare MIM 2016 Service Pack 1 e l'agente di gestione MIM per Microsoft Graph per creare oggetti utente guest nella directory locale, vedere [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy (Public Preview)](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) (Collaborazione B2B (Business to Business) di Azure AD con Microsoft Identity Manager (MIM) 2016 SP1 con Azure Application Proxy).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Creare oggetti utente guest B2B tramite uno script (anteprima)
 
@@ -90,4 +90,3 @@ Assicurarsi di avere le licenze CAL (Client Access License) corrette per gli ute
 - [Collaborazione B2B di Azure Active Directory per organizzazioni ibride](hybrid-organizations.md)
 
 - Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
-

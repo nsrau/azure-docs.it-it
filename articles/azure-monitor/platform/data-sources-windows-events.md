@@ -1,25 +1,28 @@
 ---
-title: Raccogliere e analizzare log eventi di Windows in Monitoraggio di Azure | Microsoft Docs
+title: Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent in monitoraggio di Azure
 description: Descrive come configurare la raccolta di log di Eventi Windows tramite il Monitoraggio di Azure e i dettagli dei record creati.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075246"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440604"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
-I log eventi di Windows rappresentano una delle più comuni [origini dati](agent-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel log eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
+# <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Raccolta delle origini dati del registro eventi di Windows con Log Analytics Agent
+I registri eventi di Windows sono una delle [origini dati](agent-data-sources.md) più comuni per log Analytics agenti nelle macchine virtuali Windows perché molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
+
+> [!IMPORTANT]
+> Questo articolo illustra la raccolta di eventi di Windows con l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Eventi Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurazione dei log eventi di Windows
-Configurare i log eventi di Windows nel [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).
+Configurare i registri eventi di Windows [nel menu dati in impostazioni avanzate](agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
 
 Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un log eventi digitando il nome del log e facendo clic su **+** .  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
 
@@ -62,7 +65,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 | Query | Descrizione |
 |:---|:---|
-| Evento |Tutti gli eventi di Windows. |
+| Event |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |
 | Event &#124; summarize count() by Source |Numero di eventi di Windows per origine. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Numero di eventi di errore di Windows per origine. |

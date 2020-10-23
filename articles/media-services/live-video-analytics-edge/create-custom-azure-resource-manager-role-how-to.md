@@ -3,12 +3,12 @@ title: Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a u
 description: Questo articolo fornisce indicazioni su come creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio per analisi video in tempo reale su IoT Edge usando l'interfaccia della riga di comando di Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526579"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425724"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio
 
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parametri
 
-|Parametri|Description| 
+|Parametri|Descrizione| 
 |---|---|
 |--Role |Nome o ID del ruolo personalizzato. In questo caso: "utente LVAEdge".|
 |--Assignee-Object-ID|ID oggetto dell'entità servizio che si utilizzerà.|
@@ -230,7 +230,7 @@ Cercare "roleDefinitionName" e verificare che il relativo valore sia impostato s
 
 Questo conferma che è stato collegato il ruolo utente personalizzato con l'entità servizio usata per l'applicazione.
 
-### <a name="test-the-service-principal-rbac"></a>Testare l'entità servizio RBAC  
+### <a name="test-the-service-principal-access-control"></a>Testare il controllo di accesso dell'entità servizio
 
 1. Accedere con l'entità servizio. Per questo motivo, sono necessarie tre informazioni per la Azure Active Directory per concedere il token di accesso appropriato che è possibile ottenere dall'output del passaggio [Crea entità servizio](#create-service-principal) :
     1. AadClientID 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124396"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460955"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -82,7 +82,7 @@ La copia del database è un'operazione asincrona, ma il database di destinazione
 
 Accedere al database master con l'account di accesso dell'amministratore del server o l'account di accesso che ha creato il database che si desidera copiare. Per la riuscita della copia del database, gli account di accesso che non sono l'amministratore del server devono essere membri del `dbmanager` ruolo. Per ulteriori informazioni sugli account di accesso e la connessione al server, vedere [Gestire gli accessi](logins-create-manage.md).
 
-Avviare la copia del database di origine con l'oggetto [create database... COME copia dell'](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) istruzione. L'esecuzione dell'istruzione T-SQL continua fino al completamento dell'operazione di copia del database.
+Avviare la copia del database di origine con l'oggetto [create database... COME copia dell'](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) istruzione. L'esecuzione dell'istruzione T-SQL continua fino al completamento dell'operazione di copia del database.
 
 > [!NOTE]
 > Se si termina l'istruzione T-SQL, l'operazione di copia del database non viene terminata. Per terminare l'operazione, eliminare il database di destinazione.
@@ -100,6 +100,21 @@ Questo comando copia Database1 in un nuovo database denominato Database2 sullo s
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>Copia in un pool elastico
+
+Accedere al database master con l'account di accesso dell'amministratore del server o l'account di accesso che ha creato il database che si desidera copiare. Affinché la copia del database abbia esito positivo, gli account di accesso che non sono l'amministratore del server devono essere membri del `dbmanager` ruolo.
+
+Questo comando copia Database1 in un nuovo database denominato Database2 in un pool elastico denominato pool1. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
+
+Database1 può essere un database singolo o in pool, ma pool1 deve essere lo stesso livello di servizio di Database1. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>Copia in un server diverso
@@ -167,7 +182,7 @@ Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse
 
 ## <a name="resolve-logins"></a>Risolvere gli account di accesso
 
-Quando il nuovo database è online nel server di destinazione, utilizzare l'istruzione [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) per modificare il mapping degli utenti dal nuovo database agli account di accesso nel server di destinazione. Per risolvere gli utenti isolati, vedere [Risolvere i problemi relativi agli utenti isolati (SQL Server)](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vedere anche [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).
+Quando il nuovo database è online nel server di destinazione, utilizzare l'istruzione [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) per modificare il mapping degli utenti dal nuovo database agli account di accesso nel server di destinazione. Per risolvere gli utenti isolati, vedere [Risolvere i problemi relativi agli utenti isolati (SQL Server)](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vedere anche [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).
 
 Tutti gli utenti nel nuovo database mantengono le autorizzazioni di cui disponevano nel database di origine. L'utente che ha avviato la copia del database diventa il proprietario del database del nuovo database. Una volta completata la copia e prima che venga eseguito nuovamente il mapping di altri utenti, solo il proprietario del database può accedere al nuovo database.
 

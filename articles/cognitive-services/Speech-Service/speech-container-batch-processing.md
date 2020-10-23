@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319079"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425789"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit di elaborazione batch per contenitori di sintesi vocale
 
@@ -75,9 +75,8 @@ Il client batch può rilevare in modo dinamico se un endpoint non è più dispon
 > [!NOTE] 
 > * In questo esempio viene usata la stessa directory ( `/my_nfs` ) per il file di configurazione e le directory di input, output e log. Per queste cartelle è possibile usare directory ospitate o montate da NFS.
 > * Eseguendo il client con `–h` , vengono elencati i parametri della riga di comando disponibili e i relativi valori predefiniti. 
+> * Il contenitore di elaborazione batch è supportato solo in Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Usare il comando Docker `run` per avviare il contenitore. Verrà avviata una shell interattiva all'interno del contenitore.
 
 ```Docker
@@ -95,17 +94,6 @@ Per eseguire il client e il contenitore batch in un singolo comando:
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Per eseguire il client e il contenitore batch in un singolo comando:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 Il client avvierà l'esecuzione. Se un file audio è già stato trascritto in un'esecuzione precedente, il client ignorerà automaticamente il file. I file vengono inviati con un nuovo tentativo se si verificano errori temporanei ed è possibile distinguere tra quali errori si vuole ritentare il client. In un errore di trascrizione, il client continuerà la trascrizione ed è possibile riprovare senza perdere lo stato di avanzamento.  
@@ -126,7 +114,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 4. I file vengono inviati agli endpoint del contenitore del passaggio 1.
 5. I log e l'output del contenitore vocale vengono restituiti alla directory di output specificata. 
 
-#### <a name="daemon"></a>[DAEMON](#tab/daemon)
+#### <a name="daemon"></a>[Daemon](#tab/daemon)
 
 > [!TIP]
 > Se contemporaneamente più file vengono aggiunti alla directory di input, è possibile migliorare le prestazioni aggiungendoli a intervalli regolari.

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102494"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426180"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
-È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinsModels**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
+È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinsModels**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
 
 Le operazioni di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli. 
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-I file di modello possono contenere più di un singolo modello. In questo caso, i modelli devono essere inseriti in una matrice JSON. Esempio:
+I file di modello possono contenere più di un singolo modello. In questo caso, i modelli devono essere inseriti in una matrice JSON. Ad esempio:
 
 ```json
 [

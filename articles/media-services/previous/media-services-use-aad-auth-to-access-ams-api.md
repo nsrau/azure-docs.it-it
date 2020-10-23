@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425908"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89262516"
 
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
-Servizi multimediali supporta [l'autenticazione basata su Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
+Servizi multimediali supporta [l'autenticazione basata su Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).  
 
 Questo documento offre una panoramica su come accedere all'API di Servizi multimediali tramite l'API REST o .NET.
 
@@ -153,7 +153,7 @@ Gli articoli seguenti contengono alcune panoramiche dei concetti di autenticazio
 
 - [Scenari di autenticazione per Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Aggiungere, aggiornare o rimuovere un'applicazione in Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

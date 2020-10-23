@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267483"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461465"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: routing ai servizi condivisi reti virtuali
 
@@ -24,15 +24,17 @@ Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul 
 
 ## <a name="design"></a><a name="design"></a>Progettazione
 
-È possibile usare una matrice di connettività per riepilogare i requisiti di questo scenario. Nella matrice ogni cella descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita dalla rete WAN virtuale:
+È possibile usare una matrice di connettività per riepilogare i requisiti di questo scenario:
 
 **Matrice di connettività**
 
 | Da             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
 |---|---|---|---|---|
-|**Reti virtuali isolato**|&#8594;|                |        X        |       X      |
-|**Reti virtuali condiviso**  |&#8594;|       X        |        X        |       X      |
-|**Rami**      |&#8594;|       X        |        X        |       X      |
+|**Reti virtuali isolato**|&#8594;|        | Connessione diretta | Connessione diretta |
+|**Reti virtuali condiviso**  |&#8594;| Connessione diretta | Connessione diretta | Connessione diretta |
+|**Rami**      |&#8594;| Connessione diretta | Connessione diretta | Connessione diretta |
+
+Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) comunica con una destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo). In questo scenario non sono presenti firewall o appliance virtuali di rete, quindi la comunicazione scorre direttamente sulla rete WAN virtuale, quindi la parola "Direct" nella tabella.
 
 Analogamente allo [scenario VNet isolato](scenario-isolate-vnets.md), questa matrice di connettività fornisce due modelli di riga diversi, che vengono convertiti in due tabelle di route (i servizi condivisi reti virtuali e i rami hanno gli stessi requisiti di connettività). Per la rete WAN virtuale è già presente una tabella di route predefinita, quindi è necessaria un'altra tabella di route personalizzata, che verrà chiamata in questo esempio **RT_SHARED** .
 
