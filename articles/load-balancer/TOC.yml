@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Proxy in uscita
       href: load-balancer-outbound-connections.md
-    - name: Reimpostazione di TCP e timeout di inattività di TCP
     - name: Regole in uscita
       href: outbound-rules.md
     - name: TCP Reset in caso di timeout di inattività

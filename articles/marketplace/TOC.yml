@@ -163,14 +163,14 @@
                   href: dynamics-365-finance-operations-functional-validation.md
             - name: Creare un'offerta Dynamics 365 Business Central
               href: partner-center-portal/create-new-business-central-offer.md
-        - name: Offerte di moduli IoT Edge
-          items:
-            - name: Pianificare un'offerta di moduli IoT Edge
-              href: iot-edge-module.md
-            - name: Creare un'offerta di moduli IoT Edge
-              href: partner-center-portal/azure-iot-edge-module-creation.md
-            - name: Preparare gli asset tecnici dei moduli IoT Edge
-              href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: Offerte di moduli IoT Edge
+      items:
+        - name: Pianificare un'offerta di moduli IoT Edge
+          href: iot-edge-module.md
+        - name: Creare un'offerta di moduli IoT Edge
+          href: partner-center-portal/azure-iot-edge-module-creation.md
+        - name: Preparare gli asset tecnici dei moduli IoT Edge
+          href: partner-center-portal/create-iot-edge-module-asset.md
     - name: Offerte di servizi gestiti
       items:
         - name: Creare un'offerta di servizi gestiti

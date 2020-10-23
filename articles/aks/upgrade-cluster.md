@@ -3,13 +3,13 @@ title: Aggiornare un cluster del servizio Azure Kubernetes
 description: Informazioni su come aggiornare un cluster di Azure Kubernetes Service (AKS) per ottenere le funzionalità più recenti e gli aggiornamenti della sicurezza.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050616"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461448"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
-Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo al cluster che esegue la versione specificata di Kubernetes, quindi controlla attentamente [e svuota][kubernetes-drain] uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Quando il nuovo nodo viene confermato come esecuzione di Pod applicazione, il nodo precedente viene eliminato. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati.
+Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo buffer (o tutti i nodi configurati in un [picco massimo](#customize-node-surge-upgrade-preview)) al cluster che esegue la versione specificata di Kubernetes. Quindi, eseguirà il [cordoning e lo svuotamento][kubernetes-drain] di uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Se si usa il sovraccarico massimo, il numero di nodi [e lo svuotamento verrà svuotato][kubernetes-drain] contemporaneamente al numero di nodi del buffer specificati. Quando il nodo precedente viene svuotato completamente, verrà ricreata l'immagine per ricevere la nuova versione e diventerà il nodo del buffer per il nodo seguente da aggiornare. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati. Al termine del processo, l'ultimo nodo svuotato verrà eliminato, mantenendo il numero di nodi agente esistente.
 
 ```azurecli-interactive
 az aks upgrade \

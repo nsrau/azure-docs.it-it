@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298998"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427067"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Ottenere una chiave di firma dai criteri esistenti
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. le API V3 non restituiscono segreti o credenziali per le operazioni **Get** o **List** . Vedere la spiegazione dettagliata qui: per altre informazioni, vedere [RBAC e account di servizi multimediali](rbac-overview.md)
+Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. le API V3 non restituiscono segreti o credenziali per le operazioni **Get** o **List** . Vedere la spiegazione dettagliata qui: per altre informazioni, vedere gli [account RBAC e servizi multimediali di Azure](rbac-overview.md)
 
 L'esempio di questo articolo mostra come usare .NET per ottenere una chiave di firma dai criteri esistenti. 
  

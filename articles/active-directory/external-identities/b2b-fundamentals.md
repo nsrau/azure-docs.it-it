@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909689"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442168"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedure consigliate per Azure Active Directory B2B
 Questo articolo contiene indicazioni e procedure consigliate per la collaborazione business-to-business (B2B) in Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la collaborazio
 | Per un'esperienza di accesso ottimale, Federazione con i provider di identità | Quando possibile, eseguire la Federazione direttamente con i provider di identità per consentire agli utenti invitati di accedere alle app e alle risorse condivise senza dover creare account Microsoft (MSAs) o account Azure AD. È possibile usare la [funzionalità di Federazione di Google](google-federation.md) per consentire agli utenti Guest B2B di accedere con i propri account Google. In alternativa, è possibile usare la [funzionalità Direct Federation (Preview)](direct-federation.md) per configurare la Federazione diretta con qualsiasi organizzazione il cui provider di identità (IDP) supporta il protocollo SAML 2,0 o WS-Fed. |
 | Usare la funzionalità di reimpostazione del codice di posta elettronica monouso (anteprima) per i guest B2B che non possono eseguire l'autenticazione in altri modi | La funzionalità di accesso monouso [(anteprima) di posta elettronica](one-time-passcode.md) esegue l'autenticazione degli utenti Guest B2B quando non è possibile eseguire l'autenticazione con altri strumenti, ad esempio Azure ad, un account Microsoft (MSA) o una Federazione Google. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere. |
 | Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso | È possibile personalizzare la pagina di accesso in modo che sia più intuitiva per gli utenti Guest B2B. Vedere come aggiungere informazioni personalizzate distintive dell' [azienda per l'accesso e le pagine del pannello di accesso](../fundamentals/customize-branding.md). |
-| Aggiungere la propria informativa sulla privacy all'esperienza di riscatto utente Guest B2B | È possibile aggiungere l'URL dell'informativa sulla privacy dell'organizzazione al primo processo di riscatto dell'invito, in modo che un utente invitato debba acconsentire alle condizioni di privacy per continuare. Vedere [procedura: aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement). |
+| Aggiungere la propria informativa sulla privacy all'esperienza di riscatto utente Guest B2B | È possibile aggiungere l'URL dell'informativa sulla privacy dell'organizzazione al primo processo di riscatto dell'invito, in modo che un utente invitato debba acconsentire alle condizioni di privacy per continuare. Vedere [procedura: aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Utilizzare la funzionalità di invito bulk (anteprima) per invitare più utenti Guest B2B nello stesso momento | Invitare più utenti guest nell'organizzazione allo stesso tempo usando la funzionalità di anteprima di invito bulk nel portale di Azure. Questa funzionalità consente di caricare un file CSV per creare utenti Guest B2B e inviare inviti in blocco. Vedere [esercitazione per l'invito bulk degli utenti B2B](tutorial-bulk-invite.md). |
 | Applicare i criteri di accesso condizionale per Multi-Factor Authentication (autenticazione a più fattori) | È consigliabile applicare i criteri di autenticazione a più fattori nelle app che si desidera condividere con gli utenti B2B partner. In questo modo, l'autenticazione a più fattori verrà applicata in modo coerente alle app nel tenant, indipendentemente dal fatto che l'organizzazione partner stia usando l'autenticazione a più fattori. Vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md). |
 | Se si applicano criteri di accesso condizionale basato su dispositivo, usare gli elenchi di esclusione per consentire l'accesso agli utenti B2B | Se nell'organizzazione sono abilitati i criteri di accesso condizionale basati su dispositivo, i dispositivi utente Guest B2B verranno bloccati perché non sono gestiti dall'organizzazione. È possibile creare elenchi di esclusione contenenti utenti partner specifici per escluderli dal criterio di accesso condizionale basato su dispositivo. Vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md). |

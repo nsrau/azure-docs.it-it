@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208006"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426459"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -121,7 +122,7 @@ Consentire l'accesso agli URL seguenti:
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
 * Consentire al connettore l'accesso in uscita a tutte le destinazioni.
-* Consentire al connettore l'accesso in uscita a tutti gli intervalli di indirizzi IP del data center di Azure. Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione. Per scaricare gli intervalli IP del Data Center di Azure più recenti, passare a [https://download.microsoft.com](https://download.microsoft.com) e cercare "Azure IP Ranges and Service Tags". Assicurarsi di selezionare il cloud pertinente. Ad esempio, gli intervalli di indirizzi IP del cloud pubblico sono disponibili con "Azure IP Ranges and Service Tags-Public Cloud". Il cloud governo per gli Stati Uniti è disponibile cercando "Azure IP Ranges and Service Tags-US governo cloud".
+* Consentire al connettore l'accesso in uscita a tutti gli intervalli di indirizzi IP del data center di Azure. Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione. Per scaricare gli intervalli IP del Data Center di Azure più recenti, passare a [https://download.microsoft.com](https://download.microsoft.com) e cercare "Azure IP Ranges and Service Tags". Assicurarsi di selezionare il cloud pertinente. Ad esempio, gli intervalli di indirizzi IP del cloud pubblico sono disponibili con "Azure IP Ranges and Service Tags-Public Cloud". Il cloud per enti pubblici degli Stati Uniti è disponibile cercando "Azure IP Ranges and Service Tags-US Government cloud".
 
 #### <a name="proxy-authentication"></a>Autenticazione proxy
 

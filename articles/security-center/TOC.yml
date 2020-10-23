@@ -131,10 +131,6 @@
           href: security-center-monitoring.md
         - name: Elenco di riferimento delle raccomandazioni
           href: recommendations-reference.md
-        - name: Proteggere le risorse di rete
-          href: security-center-network-recommendations.md
-        - name: Proteggere le identità e gli accessi
-          href: security-center-identity-access.md
         - name: Gestire le raccomandazioni per la sicurezza
           items:
             - name: Automatizzare le risposte alle raccomandazioni
@@ -142,6 +138,10 @@
               href: workflow-automation.md
             - name: Esentare una risorsa da una raccomandazione
               href: exempt-resource.md
+        - name: Proteggere le risorse di rete
+          href: security-center-network-recommendations.md
+        - name: Proteggere le identità e gli accessi
+          href: security-center-identity-access.md
     - name: Avvisi di Azure Defender
       items:
         - name: Panoramica degli avvisi di Azure Defender
@@ -170,7 +170,7 @@
         - name: Analisi delle vulnerabilità
           items:
             - name: Analizzatore integrato di vulnerabilità per i computer
-              displayName: 'qualys, vulnerability, arc'
+              displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: Analizzare le macchine virtuali con una soluzione di valutazione della vulnerabilità BYOL
               displayName: 'qualys, rapid7, vulnerability'
@@ -179,7 +179,7 @@
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Disabilitare i risultati specifici della vulnerabilità
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, rapid7'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Proteggere le porte di gestione con l'accesso JIT alle macchine virtuali
           items:
@@ -187,20 +187,24 @@
               displayName: 'jit, management'
               href: just-in-time-explained.md
             - name: Gestire l'accesso JIT
-              displayName: 'jit, management'
+              displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Usare la licenza della soluzione integrata Microsoft Defender per endpoint
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
         - name: Gestire i controlli applicazioni adattivi
+          displayName: 'aac, whitelist, allowlist, reviewgroup'
           href: security-center-adaptive-application.md
         - name: Usare il monitoraggio dell'integrità dei file
           items:
             - name: Panoramica del monitoraggio dell'integrità dei file
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring.md
             - name: Confrontare le baseline con Monitoraggio dell'integrità dei file
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
         - name: Gestire la protezione avanzata adattiva della rete
+          displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: Proteggere in modo avanzato gli host Docker
           displayName: containers

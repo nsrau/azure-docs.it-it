@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305635"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445697"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
 
@@ -99,7 +99,7 @@ Prima di configurare l'harness per il provisioning utenti automatico con Azure A
 Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti o gruppi in harness in base alle assegnazioni di utenti o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per harness seguendo le istruzioni riportate nell' [esercitazione Harness Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). È possibile configurare Single Sign-On indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per harness seguendo le istruzioni riportate nell' [esercitazione Harness Single Sign-on](./harness-tutorial.md). È possibile configurare Single Sign-On indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di harness, vedere l'articolo sulle [chiavi dell'API](https://docs.harness.io/article/smloyragsm-api-keys) harness.
