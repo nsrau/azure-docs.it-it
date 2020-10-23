@@ -1,18 +1,18 @@
 ---
-title: Authentication
+title: Autenticazione
 description: Illustra il funzionamento dell'autenticazione
 author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202719"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427459"
 ---
-# <a name="configure-authentication"></a>Configurare l'autenticazione
+# <a name="configure-authentication"></a>Configura autenticazione
 
 Il rendering remoto di Azure usa lo stesso meccanismo di autenticazione di [Azure Spatial Anchor (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Per chiamare correttamente le API REST, i client devono impostare *uno* dei seguenti elementi:
 
@@ -48,7 +48,7 @@ Le chiavi dell'account sono consigliate per la creazione rapida di prototipi, so
 
  Per altre informazioni, vedere l' [esercitazione relativa alla protezione del rendering remoto di Azure e dell'archiviazione del modello-Azure Active Directory Authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
 Per controllare il livello di accesso concesso al servizio, usare i ruoli seguenti quando si concede l'accesso in base al ruolo:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312907"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456824"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Esercitazione: Configurare Box per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate,
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Box. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app Box seguendo le istruzioni riportate nell'articolo seguente:
 
-[Assegnare un utente o gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>Assegnare utenti e gruppi
 La scheda **Box > Utenti e gruppi** nel portale di Azure consente di specificare gli utenti e i gruppi cui concedere l'accesso a Box. L'assegnazione di un utente o gruppo causa quanto segue:

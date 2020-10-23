@@ -1,21 +1,24 @@
 ---
-title: Raccogliere log personalizzati in Monitoraggio di Azure | Microsoft Docs
+title: Raccogliere log personalizzati con Log Analytics Agent in monitoraggio di Azure
 description: Monitoraggio di Azure può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati in Monitoraggio di Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269489"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461567"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere log personalizzati con Log Analytics Agent in monitoraggio di Azure
 
-L'origine dati dei log personalizzati in Monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
+L'origine dati dei log personalizzati per l'agente Log Analytics in monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
+
+> [!IMPORTANT]
+> Questo articolo illustra la raccolta di log personalizzati con l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Raccolta di log personalizzati](media/data-sources-custom-logs/overview.png)
 
@@ -54,7 +57,7 @@ La procedura guidata per i log personalizzati viene eseguita nel portale di Azur
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2: Caricare e analizzare un log di esempio
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
 Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Monitoraggio di Azure usa il delimitatore specificato per identificare ciascun record.
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.

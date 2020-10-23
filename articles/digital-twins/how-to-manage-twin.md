@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 58ee064d4946442bff70e97d56a68080333e2197
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426130"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461320"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
-Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; per lavorare con le relazioni e il [grafo gemello](concepts-twins-graph.md) nel suo complesso, vedere [*How-to: Manage The Twin Graph with Relationships*](how-to-manage-graph.md).
 
@@ -383,7 +383,16 @@ Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente,
 
 Il frammento di codice usa il [Room.jsnella](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definizione del modello da [*esercitazione: esplorare i dispositivi gemelli digitali di Azure con un'app client di esempio*](tutorial-command-line-app.md). È possibile usare questo collegamento per passare direttamente al file o scaricarlo come parte del progetto di esempio end-to-end completo [qui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
-Sostituire il segnaposto `<your-instance-hostname>` con i dettagli dell'istanza di Azure Digital gemelli ed eseguire l'esempio.
+Prima di eseguire l'esempio, eseguire le operazioni seguenti:
+1. Scaricare il file del modello, inserirlo nel progetto e sostituire il `<path-to>` segnaposto nel codice seguente per indicare al programma dove trovarlo.
+2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
+3. Aggiungere i pacchetti seguenti al progetto:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    ```
+
+Eseguire quindi l'esempio.
 
 ```csharp
 using System;
@@ -401,22 +410,29 @@ namespace minimal
     class Program
     {
 
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            //Create the Azure Digital Twins client for API calls
             string adtInstanceUrl = "https://<your-instance-hostname>";
             var credentials = new DefaultAzureCredential();
-            Console.WriteLine();
-            Console.WriteLine($"Upload a model");
-            BasicDigitalTwin twin = new BasicDigitalTwin();
-            var typeList = new List<string>();
-            string twin_Id = "myRoomId";
-            string dtdl = File.ReadAllText("Room.json");
-            typeList.Add(dtdl);
-            // Upload the model to the service
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
+
+            //Upload models
+            Console.WriteLine($"Upload a model");
+            Console.WriteLine();
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            var typeList = new List<string>();
+            typeList.Add(dtdl);
+            // Upload the model to the service
             await client.CreateModelsAsync(typeList);
+
+            //Create new digital twin
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            string twin_Id = "myRoomId";
             twin.Metadata = new DigitalTwinMetadata();
             twin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
@@ -426,7 +442,15 @@ namespace minimal
             twin.CustomProperties = props;
             await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine("Twin created successfully");
+            Console.WriteLine();
+
+            //Print twin
+            Console.WriteLine("--- Printing twin details:");
             twin = FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Update twin data
             List<object> twinData = new List<object>();
             twinData.Add(new Dictionary<string, object>() 
             {
@@ -434,10 +458,17 @@ namespace minimal
                 { "path", "/Temperature"},
                 { "value", 25.0}
             });
-
             await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-            Console.WriteLine("Updated Twin Properties");
+            Console.WriteLine("Twin properties updated");
+            Console.WriteLine();
+
+            //Print twin again
+            Console.WriteLine("--- Printing twin details (after update):");
             FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Delete twin
             await DeleteTwin(client, twin_Id);
         }
 
@@ -455,7 +486,7 @@ namespace minimal
 
             return twin;
         }
-        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        private static async Task DeleteTwin(DigitalTwinsClient client, string id)
         {
             await FindAndDeleteOutgoingRelationshipsAsync(client, id);
             await FindAndDeleteIncomingRelationshipsAsync(client, id);
@@ -463,7 +494,6 @@ namespace minimal
             {
                 await client.DeleteDigitalTwinAsync(id);
                 Console.WriteLine("Twin deleted successfully");
-                FetchAndPrintTwin(id, client);
             }
             catch (RequestFailedException exc)
             {
@@ -471,7 +501,7 @@ namespace minimal
             }
         }
 
-        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
 
@@ -493,7 +523,7 @@ namespace minimal
             }
         }
 
-       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+       private static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
 
@@ -530,7 +560,7 @@ I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della r
 
 ## <a name="view-all-digital-twins"></a>Visualizza tutti i dispositivi gemelli digitali
 
-Per visualizzare tutti i dispositivi gemelli digitali nell'istanza, usare una [query](how-to-query-graph.md). È possibile eseguire una query con le [API di query](how-to-use-apis-sdks.md) o i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando.
+Per visualizzare tutti i dispositivi gemelli digitali nell'istanza, usare una [query](how-to-query-graph.md). È possibile eseguire una query con le [API di query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando.
 
 Di seguito è riportato il corpo della query di base che restituirà un elenco di tutti i dispositivi gemelli digitali nell'istanza:
 

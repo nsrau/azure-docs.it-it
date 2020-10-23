@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424086"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440655"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -48,7 +48,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio di un'esecuzione. |
-| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Quando un'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite specificato nell' *ora corrente* dall'impostazione del flusso di lavoro, il [**periodo di memorizzazione della cronologia di esecuzione in giorni**](#change-retention). Se si modifica questa impostazione, il limite *corrente* viene sempre usato per il calcolo della conservazione, indipendentemente dal limite precedente. Quando la durata di un'esecuzione supera il limite corrente, l'esecuzione viene rimossa dalla cronologia delle esecuzioni. <p><p>Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, una durata di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni. <p><p>Per modificare il limite predefinito, ovvero 90 giorni, vedere [modificare la conservazione della cronologia di esecuzione nell'archiviazione](#change-retention). |
+| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Se l'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere [modificare il periodo di memorizzazione della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici. |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
@@ -57,11 +57,17 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="change-run-history-retention-in-storage"></a>Modificare il periodo di memorizzazione della cronologia di esecuzione nell'archiviazione
 
-Per modificare il limite predefinito per la conservazione della cronologia di esecuzione nell'archiviazione, attenersi alla seguente procedura. Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici.
+Per modificare il limite predefinito per la conservazione della cronologia di esecuzione nell'archiviazione, attenersi alla seguente procedura.
 
-> [!NOTE]
-> Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
-> Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
+* Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
+
+* Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
+
+Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, una durata di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni. 
+
+
+> [!IMPORTANT]
+> Per evitare di perdere la cronologia di esecuzione, assicurarsi che il limite di conservazione sia *sempre* maggiore della durata più lunga possibile dell'esecuzione. In caso contrario, la cronologia di esecuzione viene persa.
 
 1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica**.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acbccd09fc8bc765083fea7b3a8d6ad749003ae9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428003"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461618"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -50,7 +50,7 @@ Una volta creata l'app per le funzioni, in Visual Studio verrà eseguito l'esemp
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Scrivere una funzione di Azure con un trigger di griglia di eventi
 
-È possibile scrivere una funzione di Azure aggiungendo SDK all'app per le funzioni. L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure con [Azure Digital Twins SDK per .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+È possibile scrivere una funzione di Azure aggiungendo SDK all'app per le funzioni. L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure con [Azure Digital Twins SDK per .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
 
 Per usare l'SDK, è necessario includere nel progetto i pacchetti seguenti. È possibile installare i pacchetti usando Gestione pacchetti NuGet di Visual Studio o aggiungere i pacchetti usando `dotnet` lo strumento da riga di comando. Scegliere uno di questi metodi: 
 
