@@ -1022,6 +1022,8 @@
           href: insights/container-insights-analyze.md
         - name: Monitorare le prestazioni della GPU
           href: insights/container-insights-gpu-monitoring.md
+        - name: Monitorare la configurazione di rete
+          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: Monitorare distribuzioni e HPA (Horizontal Pod Autoscaler)
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Visualizzare i dati dinamici

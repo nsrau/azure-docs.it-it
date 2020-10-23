@@ -18,7 +18,7 @@
       href: ./learn/tutorial-enable-vm-insights.md
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
@@ -37,6 +37,8 @@
           href: onboard-service-principal.md
         - name: Connettere i computer ad Azure Arc con PowerShell DSC
           href: onboard-dsc.md
+        - name: Connettere i computer ad Azure Arc con PowerShell
+          href: onboard-powershell.md
     - name: Gestione
       items:
         - name: Gestire e usare le estensioni di macchina virtuale di Azure

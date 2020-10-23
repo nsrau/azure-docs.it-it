@@ -129,7 +129,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Passare a **Setup**.
    
-   ![Screenshot mostra l'elemento di configurazione per l'azienda.](./media/jobscience-tutorial/IC784358.png "Eseguire la configurazione")
+   ![Screenshot mostra l'elemento di configurazione per l'azienda.](./media/jobscience-tutorial/IC784358.png "Configurazione")
 
 1. Nella sezione **Administer** (Amministra) del riquadro di spostamento sinistro fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
    

@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Configurare endpoint Web
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Esportare l'app Comandi personalizzati come competenza
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Distribuire
                   items:
                     - name: Distribuzione continua con Azure DevOps

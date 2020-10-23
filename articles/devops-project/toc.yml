@@ -1,53 +1,63 @@
-- name: Documentazione di Azure DevOps
+- name: Documentazione di DevOps Starter
   href: index.yml
 - name: Panoramica
   items:
     - name: Che cos'è Azure DevOps Starter?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
-    - name: .NET
-      href: ./azure-devops-project-aspnet-core.md
-      maintainContext: true
-    - name: Node.js
-      href: ./azure-devops-project-nodejs.md
-      maintainContext: true
-    - name: Java
-      href: ./azure-devops-project-java.md
-      maintainContext: true
-    - name: Python
-      href: ./azure-devops-project-python.md
-      maintainContext: true
-    - name: PHP
-      href: ./azure-devops-project-php.md
-      maintainContext: true
-    - name: Ruby
-      href: ./azure-devops-project-ruby.md
-      maintainContext: true
-    - name: Go
-      href: ./azure-devops-project-go.md
-      maintainContext: true
+    - name: Azioni di GitHub
+      items:
+        - name: Node.js
+          href: ./devops-starter-gh-nodejs.md
+          maintainContext: true
+    - name: Azure DevOps
+      items:
+        - name: .NET
+          href: ./azure-devops-project-aspnet-core.md
+          maintainContext: true
+        - name: Node.js
+          href: ./azure-devops-project-nodejs.md
+          maintainContext: true
+        - name: Java
+          href: ./azure-devops-project-java.md
+          maintainContext: true
+        - name: Python
+          href: ./azure-devops-project-python.md
+          maintainContext: true
+        - name: PHP
+          href: ./azure-devops-project-php.md
+          maintainContext: true
+        - name: Ruby
+          href: ./azure-devops-project-ruby.md
+          maintainContext: true
+        - name: Go
+          href: ./azure-devops-project-go.md
+          maintainContext: true
 - name: Esercitazioni
   items:
-    - name: 1 - GitHub e DevOps Starter
+    - name: Eseguire la distribuzione in app Web di Azure con GitHub Actions
+      href: devops-starter-gh-web-app.md
+      maintainContext: true
+    - name: BYOC con GitHub
       href: azure-devops-project-github.md
       maintainContext: true
-    - name: 2 - Distribuire nelle macchine virtuali
+    - name: Eseguire la distribuzione nelle VM con Azure DevOps
       href: azure-devops-project-vms.md
       maintainContext: true
-    - name: 3 - Distribuire in un database SQL di Azure
+    - name: Eseguire la distribuzione in Database SQL di Azure con Azure DevOps
       href: azure-devops-project-sql-database.md
       maintainContext: true
-    - name: 4 - Distribuire nel servizio Azure Container
+    - name: Eseguire la distribuzione nel servizio Azure Kubernetes con Azure DevOps
       href: azure-devops-project-aks.md
       maintainContext: true
-    - name: 5 - Distribuire in Azure Service Fabric
+    - name: Eseguire la distribuzione in Azure Service Fabric con Azure DevOps
       href: azure-devops-project-service-fabric.md
       maintainContext: true
-    - name: 6- Distribuire in Azure Cosmos DB
+    - name: Eseguire la distribuzione in Azure Cosmos DB con Azure DevOps
       href: azure-devops-project-cosmos-db.md
       maintainContext: true
-    - name: 7 - Distribuire in Funzioni di Azure
+    - name: Eseguire la distribuzione in Funzioni di Azure con Azure DevOps
       href: azure-devops-project-functions.md
       maintainContext: true

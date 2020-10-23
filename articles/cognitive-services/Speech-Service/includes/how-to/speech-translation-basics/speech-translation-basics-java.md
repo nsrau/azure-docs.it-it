@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: b40789b64fc2a18523a06f13bfb03374f2d1a549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c4528a87a577ba98f60824936141124387d27a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376259"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471025"
 ---
 Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
 
@@ -73,7 +73,7 @@ Esistono diversi modi per inizializzare [`SpeechTranslationConfig`][config]:
 * Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
 * Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
 
-Vediamo come viene creata una classe [`SpeechTranslationConfig`][config] usando una chiave e un'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
+Vediamo come viene creata una classe [`SpeechTranslationConfig`][config] usando una chiave e un'area. Per ottenere queste credenziali, seguire questa procedura in [provare il servizio di riconoscimento vocale gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```java
 public class App {
