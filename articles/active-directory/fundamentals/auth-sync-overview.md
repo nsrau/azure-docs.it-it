@@ -1,6 +1,6 @@
 ---
 title: Panoramica del protocollo di sincronizzazione e autenticazione Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per l'integrazione di Azure AD con i protocolli di autenticazione legacy e i modelli di sincronizzazione
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,20 +13,20 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d881dc3fe3e3caa1058cf97834735910b0de1d9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ab63bc5bd2819a239741da525eebb2404a47bbf9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114495"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441199"
 ---
-# <a name="azure-active-directory-integrations-with-legacy-authentication-and-synchronization-protocols"></a>Integrazione di Azure Active Directory con protocolli di autenticazione e sincronizzazione legacy
+# <a name="azure-active-directory-integrations-with-authentication-and-synchronization-protocols"></a>Integrazione di Azure Active Directory con protocolli di autenticazione e di sincronizzazione
 
 Microsoft Azure Active Directory (Azure AD) consente l'integrazione con molti protocolli di autenticazione e sincronizzazione. Le integrazioni di autenticazione consentono di usare Azure AD e le relative funzionalità di sicurezza e gestione con modifiche minime o nulle per le applicazioni che usano metodi di autenticazione legacy. Le integrazioni di sincronizzazione consentono di sincronizzare i dati di utenti e gruppi per Azure AD e quindi le funzionalità di gestione Azure AD degli utenti. Alcuni modelli di sincronizzazione abilitano anche il provisioning automatizzato.
 
-## <a name="authentication-patterns"></a>Modelli di autenticazione
+## <a name="legacy-authentication-protocols"></a>Protocolli di autenticazione legacy
 
-La tabella seguente presenta i modelli di autenticazione e le relative funzionalità. Selezionare il nome di uno schema di autenticazione da visualizzare
+Nella tabella seguente viene illustrata l'integrazione di Azure AD di autenticazione con i protocolli di autenticazione legacy e le relative funzionalità. Selezionare il nome di un protocollo di autenticazione per vedere
 
 * Descrizione dettagliata
 
@@ -40,15 +40,16 @@ La tabella seguente presenta i modelli di autenticazione e le relative funzional
 
  
 
-| Modelli di autenticazione| Authentication| Autorizzazione| Multi-Factor Authentication| Accesso condizionale |
+| Protocollo di autenticazione| Autenticazione| Autorizzazione| Multi-Factor Authentication| Accesso condizionale |
 | - |- | - | - | - |
 | [Autenticazione basata su intestazione](auth-header-based.md)|![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione LDAP](auth-ldap.md)| ![segno di spunta](./media/authentication-patterns/check.png)| | |  |
-| [Autenticazione OAuth 2,0](auth-oauth2.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
+| [Autenticazione OAuth 2.0](auth-oauth2.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione OIDC](auth-oidc.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione SSO basata su password](auth-password-based-sso.md )| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione RADIUS]( auth-radius.md)| ![segno di spunta](./media/authentication-patterns/check.png)| | ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Servizi del Gateway Desktop remoto](auth-remote-desktop-gateway.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
+| [Secure Shell (SSH)](auth-ssh.md) |  ![segno di spunta](./media/authentication-patterns/check.png)| | ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione SAML](auth-saml.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione di Windows-delega vincolata Kerberos](auth-kcd.md)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 
@@ -56,7 +57,7 @@ La tabella seguente presenta i modelli di autenticazione e le relative funzional
  
 ## <a name="synchronization-patterns"></a>Modelli di sincronizzazione
 
-Nella tabella seguente vengono illustrati i modelli di sincronizzazione e le relative funzionalità. Selezionare il nome di un modello da visualizzare
+La tabella seguente presenta Azure AD integrazione con i modelli di sincronizzazione e le relative funzionalità. Selezionare il nome di un modello da visualizzare
 
 * Descrizione dettagliata
 

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427990"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461074"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -43,7 +43,7 @@ Per connettere un'istanza di Azure Digital Twins alle app per la logica in quest
 Prima di tutto, **configurare un'istanza di Azure Digital Twins** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
 * Dopo aver configurato l'istanza di Azure Digital gemelli, sarà necessario il **_nome host_** dell'istanza ([trovare nella portale di Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Per autenticare l'applicazione ADT Explorer, è anche necessario configurare una **registrazione dell'app**. Per configurare questa procedura, seguire le istruzioni in [*How-to: Create a app Registration*](how-to-create-app-registration.md) . 
+Per autenticare il connettore, è necessario anche configurare una **registrazione dell'app**. Per configurare questa procedura, seguire le istruzioni in [*How-to: Create a app Registration*](how-to-create-app-registration.md) . 
 * Una volta eseguita la registrazione di un'app, sono necessari l'ID dell' **_applicazione (client)_** di registrazione e l' **_ID della directory (tenant)_** ([trovare nella portale di Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Ottenere il segreto client di registrazione dell'app
@@ -66,7 +66,7 @@ Verificare ora che il segreto client sia visibile nella pagina _certificati & se
 
 Questo articolo usa app per la logica per aggiornare un dispositivo gemello nell'istanza di Azure Digital gemelli. Per continuare, è necessario aggiungere almeno un gemello nell'istanza. 
 
-È possibile aggiungere i dispositivi gemelli usando le [API di DigitalTwins](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per i passaggi dettagliati su come creare i dispositivi gemelli usando questi metodi, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
+È possibile aggiungere i dispositivi gemelli usando le [API di DigitalTwins](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per i passaggi dettagliati su come creare i dispositivi gemelli usando questi metodi, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
 
 È necessario l' **_ID gemello_** di un gemello nell'istanza creata.
 

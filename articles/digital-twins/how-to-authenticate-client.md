@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d4e150eddee947aa4ed6f88c122c0fa6d01a0bae
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204300"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460649"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -20,7 +20,7 @@ Dopo aver [configurato un'istanza di dispositivi gemelli digitali di Azure e l'a
 
 I dispositivi gemelli digitali di Azure eseguono l'autenticazione usando [Azure ad token di sicurezza basati su OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Per autenticare l'SDK, è necessario ottenere una bearer token con le autorizzazioni appropriate per i dispositivi gemelli digitali di Azure e passarla insieme alle chiamate API. 
 
-Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
+Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -3,12 +3,12 @@ title: Criteri di ripetizione dei messaggi non recapitabili-griglia di eventi di
 description: Descrive come personalizzare le opzioni di recapito degli eventi per Griglia di eventi. Impostare una destinazione per i messaggi non recapitabili e specificare il numero di tentativi di recapito.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261805"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460938"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Impostare la posizione degli eventi non recapitabili e i criteri di ripetizione
 
@@ -17,7 +17,7 @@ Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impo
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Per informazioni sul recapito dei messaggi, i tentativi e i messaggi non recapitabili, vedere l'articolo concettuale: [recapito dei messaggi di griglia di eventi e riprovare]().
+> Per informazioni sul recapito dei messaggi, i tentativi e i messaggi non recapitabili, vedere l'articolo concettuale: [recapito dei messaggi di griglia di eventi e riprovare](delivery-and-retry.md).
 
 ## <a name="set-dead-letter-location"></a>Impostare la posizione degli eventi non recapitabili
 

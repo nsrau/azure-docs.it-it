@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055937"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441109"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -36,7 +36,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - La configurazione può attualmente essere eseguita solo usando l'interfaccia della riga di comando o le richieste REST. Non è possibile usare il portale di Azure o PowerShell.
-- Le tabelle supportate sono attualmente limitate a quelle specifiche nella sezione (#supported-Tabes) riportata di seguito. Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la regola di esportazione dei dati include una tabella che non esiste, l'operazione avrà esito negativo e la tabella degli errori non * <tableName> esiste nell'area di lavoro.*
+- Le tabelle supportate sono attualmente limitate a quelle specifiche nella sezione [tabelle supportate](#supported-tables) riportata di seguito. Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace.```
 - L'area di lavoro Log Analytics può trovarsi in qualsiasi area, ad eccezione di quanto segue:
   - Svizzera settentrionale
   - Svizzera occidentale
@@ -239,7 +239,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tabelle non supportate
 Se la regola di esportazione dei dati include una tabella non supportata, la configurazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la tabella è supportata in un secondo momento, i relativi dati verranno esportati in quel momento.
 
-Se la regola di esportazione dei dati include una tabella che non esiste, l'operazione avrà esito negativo e la tabella degli errori non * <tableName> esiste nell'area di lavoro*.
+Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>Tabelle supportate
@@ -318,7 +318,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | DnsEvents | |
 | : Inventario DNS | |
 | Dynamics365Activity | |
-| Evento | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
+| Event | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |

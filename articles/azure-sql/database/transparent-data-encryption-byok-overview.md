@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602670"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441131"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Per il database SQL di Azure e l'analisi delle sinapsi di Azure, la protezione T
 > Per gli utenti che usano Transparent Data Encryption gestita dal servizio e vogliono iniziare a usare Transparent Data Encryption gestita dal cliente, i dati rimangono crittografati durante il passaggio e non si verifica alcun tempo di inattività o riesecuzione della crittografia dei file di database. Il passaggio da una chiave gestita dal servizio a una chiave gestita dal cliente richiede la riesecuzione della crittografia della chiave DEK, che è un'operazione online rapida.
 
 > [!NOTE]
-> Per fornire ai clienti di Azure SQL due livelli di crittografia dei dati inattivi, viene implementata la crittografia dell'infrastruttura (usando l'algoritmo di crittografia AES-256) con chiavi gestite dalla piattaforma. Questo offre un livello aggiuntivo di crittografia dei componenti inattivi insieme a Transparent Data Encryption con chiavi gestite dal cliente, che è già disponibile. Al momento, i clienti devono richiedere l'accesso a questa funzionalità. Se si è interessati a questa funzionalità, contattare AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> Per fornire ai clienti di Azure SQL due livelli di crittografia dei dati inattivi, viene implementata la crittografia dell'infrastruttura (usando l'algoritmo di crittografia AES-256) con chiavi gestite dalla piattaforma. Questo offre un livello aggiuntivo di crittografia dei componenti inattivi insieme a Transparent Data Encryption con chiavi gestite dal cliente, che è già disponibile. Per il database SQL di Azure e Istanza gestita, tutti i database, inclusi il database master e altri database di sistema, verranno crittografati quando si attiva la crittografia dell'infrastruttura. Al momento, i clienti devono richiedere l'accesso a questa funzionalità. Se si è interessati a questa funzionalità, contattare AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Vantaggi di Transparent Data Encryption gestita dal cliente
 

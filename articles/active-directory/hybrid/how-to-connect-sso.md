@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658354"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457992"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -64,18 +64,20 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sì\*|Sì|Sì|Sì\*\*\*|N/D
-|Windows 8.1|Sì\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows 8.1|Sì\*|Sì\*\*\*|Sì|Sì\*\*\*|N/D
 |Windows 8|Sì\*|N/D|Sì|Sì\*\*\*|N/D
 |Windows 7|Sì\*|N/D|Sì|Sì\*\*\*|N/D
 |Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Sì|Sì\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sì\*\*\*|Sì\*\*\*|Sì\*\*\*
 
 
-\*Richiede Internet Explorer versione 10 o una versione successiva
+\*Richiede Internet Explorer versione 10 o successiva.
 
-\*\*Richiede Internet Explorer versione 10 o successiva. Disabilitare la modalità protetta avanzata
+\*\*Richiede Internet Explorer versione 10 o successiva. Disabilitare la modalità protetta avanzata.
 
-\*\*\*Richiede una [configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Richiede una [configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Richiede Microsoft Edge versione 77 o successiva.
 
 >[!NOTE]
 >Per Windows 10, si consiglia di usare il [join per Azure AD](../devices/concept-azure-ad-join.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.

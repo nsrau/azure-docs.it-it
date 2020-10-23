@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340614"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441879"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -63,7 +63,7 @@ La sezione successiva del messaggio di posta elettronica contiene informazioni s
 
 ### <a name="footer-section"></a>Sezione piè di pagina
 
-Il piè di pagina contiene altre informazioni sull'invito inviato. È sempre disponibile un'opzione che consente all'invito di bloccare gli inviti futuri. Se l'organizzazione ha [impostato un'informativa sulla privacy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), viene visualizzato il collegamento all'istruzione.  In caso contrario, una nota indica che l'organizzazione non ha impostato un'informativa sulla privacy.
+Il piè di pagina contiene altre informazioni sull'invito inviato. È sempre disponibile un'opzione che consente all'invito di bloccare gli inviti futuri. Se l'organizzazione ha [impostato un'informativa sulla privacy](../fundamentals/active-directory-properties-area.md), viene visualizzato il collegamento all'istruzione.  In caso contrario, una nota indica che l'organizzazione non ha impostato un'informativa sulla privacy.
 
 ![Immagine della sezione del piè di pagina nel messaggio di posta elettronica](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ Un utente Guest può seguire questa procedura per visualizzare o esportare le or
 
 La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua.
 
-- Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se viene usata l'API di creazione dell'invito
--   Proprietà **preferredLanguage** specificata nell'[oggetto utente](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del guest
+- Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se viene usata l'API di creazione dell'invito
+-   Proprietà **preferredLanguage** specificata nell'[oggetto utente](/graph/api/resources/user?view=graph-rest-1.0) del guest
 -   **Lingua delle notifiche** impostata nelle proprietà del tenant principale dell'utente guest (solo per i tenant di Azure AD)
 -   **Lingua delle notifiche** impostata nelle proprietà del tenant della risorsa
 
