@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442066"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modello di fatturazione per Azure AD identità esterne
 
-Il prezzo delle identità esterne Azure Active Directory (Azure AD) si basa su utenti attivi mensili (MAU), ovvero sul numero di utenti univoci con attività di autenticazione in un mese di calendario. Questo modello di fatturazione si applica sia ai tenant di collaborazione utente Guest (B2B) sia a [Azure ad B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/billing)di Azure ad. MAU Billing ti aiuta a ridurre i costi offrendo un livello gratuito e prezzi flessibili e prevedibili. In questo articolo vengono fornite informazioni sulla fatturazione di MAU e sul collegamento dei tenant di Azure AD a una sottoscrizione.
+Il prezzo delle identità esterne Azure Active Directory (Azure AD) si basa su utenti attivi mensili (MAU), ovvero sul numero di utenti univoci con attività di autenticazione in un mese di calendario. Questo modello di fatturazione si applica sia ai tenant di collaborazione utente Guest (B2B) sia a [Azure ad B2C tenant](../../active-directory-b2c/billing.md)di Azure ad. MAU Billing ti aiuta a ridurre i costi offrendo un livello gratuito e prezzi flessibili e prevedibili. In questo articolo vengono fornite informazioni sulla fatturazione di MAU e sul collegamento dei tenant di Azure AD a una sottoscrizione.
 
 > [!IMPORTANT]
 > Questo articolo non contiene i dettagli relativi ai prezzi. Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,7 +45,7 @@ Il piano tariffario applicabile agli utenti Guest si basa sul piano tariffario p
 
 Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la fatturazione e l'accesso alle funzionalità appropriate. Se la directory non dispone già di una sottoscrizione a cui è possibile collegarsi, sarà possibile aggiungerne una durante questo processo.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account Azure a cui è stato assegnato almeno il ruolo [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) all'interno della sottoscrizione o un gruppo di risorse all'interno della sottoscrizione.
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account Azure a cui è stato assegnato almeno il ruolo [collaboratore](../../role-based-access-control/built-in-roles.md) all'interno della sottoscrizione o un gruppo di risorse all'interno della sottoscrizione.
 
 2. Selezionare la directory che si desidera collegare: nella barra degli strumenti portale di Azure selezionare l'icona **directory + sottoscrizione** e quindi selezionare la directory.
 

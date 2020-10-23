@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0283688ca2de4e7978da69753d08dd4763d30a75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532308"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425959"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection per database di Azure per MariaDB
 
@@ -62,5 +62,5 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di database di Azure per MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)  
+* Altre informazioni sul [Centro sicurezza di Azure](../security-center/security-center-introduction.md)
+* Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di database di Azure per MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)

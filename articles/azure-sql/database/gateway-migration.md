@@ -4,18 +4,18 @@ description: In questo articolo viene fornita una notifica agli utenti sulla mig
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004273"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427110"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ I clienti riceveranno una notifica tramite posta elettronica e in portale di Azu
 ## <a name="status-updates"></a>Aggiornamenti dello stato
 
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
-### <a name="october-2020"></a>2020 ottobre
+### <a name="october-2020"></a>Ottobre 2020
 
 Nuovi gateway SQL vengono aggiunti alle aree seguenti:
 
@@ -86,7 +86,7 @@ Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il 10 
 
 ### <a name="october-2019"></a>Ottobre 2019
 - Brasile meridionale
-- Stati Uniti Occidentali
+- Stati Uniti occidentali
 - Europa occidentale
 - Stati Uniti orientali
 - Stati Uniti centrali
@@ -108,7 +108,8 @@ La migrazione del traffico può modificare l'indirizzo IP pubblico che DNS risol
 
 - Hardcoded l'indirizzo IP per un determinato gateway nel firewall locale
 - Disporre di subnet che usano Microsoft. SQL come endpoint del servizio ma che non possono comunicare con gli indirizzi IP del gateway
-- Usare la [configurazione con ridondanza della zona](high-availability-sla.md#zone-redundant-configuration) per il database
+- Usare la [configurazione con ridondanza della zona per il livello utilizzo generico](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Usare la [configurazione con ridondanza della zona per i livelli premium & business critical](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 L'utente non avrà alcun effetto sui seguenti effetti:
  

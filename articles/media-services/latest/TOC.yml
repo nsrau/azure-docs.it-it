@@ -215,7 +215,7 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Organizzare in pagine, filtrare e ordinare entità'
           href: entities-overview.md
-        - name: Controllo degli accessi in base al ruolo
+        - name: Controllo degli accessi in base al ruolo di Azure
           href: rbac-overview.md
         - name: Codici di errore
           items:

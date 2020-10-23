@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 775b2da1b3f07897a566b6e82fa3f6b0de10bd22
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: bd6c504970d4991ee7d5c44b091a5d91c9d0a166
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428257"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461397"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92428257"
 
 Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](how-to-interpret-event-data.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita impostando innanzitutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
 
-Gli endpoint e le route possono essere gestiti con le [API EventRoutes](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Questo articolo illustra il processo di creazione di endpoint e route attraverso questi meccanismi.
+Gli endpoint e le route possono essere gestiti con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Questo articolo illustra il processo di creazione di endpoint e route attraverso questi meccanismi.
 
 Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.com). Per una versione di questo articolo che usa invece il portale, vedere [*How-to: Manage Endpoints and routes (Portal)*](how-to-manage-routes-portal.md).
 
@@ -154,7 +154,7 @@ Di seguito è riportato un esempio di messaggio non recapitabile per una notific
 
 Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
 
-Gli esempi in questa sezione usano [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
+Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
 **Prerequisito**: è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
 

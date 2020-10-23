@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29e4411a104bbcd1d6d5b3320df47a742e2ca84
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978072"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461244"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
 
@@ -46,8 +46,8 @@ Il cluster Spark HDInsight viene creato con l'installazione di Anaconda. Nel clu
 |Impostazione |Python 2.7|Python 3.5|
 |----|----|----|
 |Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Versione di Spark|Impostazione predefinita: 2.7|N/D|
-|Versione di Livio|Impostazione predefinita: 2.7|N/D|
+|Versione di Spark|Impostazione predefinita: 2.7|È possibile modificare la configurazione in 3,5|
+|Versione di Livio|Impostazione predefinita: 2.7|È possibile modificare la configurazione in 3,5|
 |Jupyter|Kernel PySpark|Kernel PySpark3|
 
 ## <a name="safely-install-external-python-packages"></a>Installare pacchetti Python esterni in modo sicuro

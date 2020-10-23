@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f2bc7082f00ca9ca2dff0500755a0839a0ccdf08
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426180"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461380"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
-È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinsModels**](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
+È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
 
 Le operazioni di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli. 
 

@@ -4,10 +4,10 @@ description: Questo articolo descrive come è possibile visualizzare e analizzar
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "92368758"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
@@ -191,7 +191,7 @@ Le informazioni presentate quando si visualizza la scheda **nodi** sono descritt
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Name | Nome dell'host. |
+| Nome | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
@@ -234,7 +234,7 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Name | Nome del controller.|
+| Nome | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -271,7 +271,7 @@ Le informazioni visualizzate quando si visualizzano i contenitori sono descritte
 
 | Colonna | Descrizione |
 |--------|-------------|
-| Name | Nome del controller.|
+| Nome | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min &nbsp; %, media &nbsp; %, cinquantesimo &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
