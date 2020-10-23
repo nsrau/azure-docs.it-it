@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400418"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428396"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -46,7 +46,7 @@ Le possibili cause sono le seguenti:
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che il computer abbia accesso in uscita a * **.azure-automation.net** sulla porta 443.
+Verificare che il computer abbia accesso in uscita a ** \* . Azure-Automation.NET** sulla porta 443.
 
 I computer che eseguono il ruolo di lavoro ibrido per runbook devono soddisfare i requisiti hardware minimi per consentire al ruolo di lavoro di ospitare questa funzionalità. I runbook e il processo in background in uso potrebbero causare un sovraccarico al sistema e provocare ritardi o timeout nei processi di runbook.
 
@@ -226,7 +226,7 @@ Nel registro eventi **Application and Services Logs\Operations Manager** viene v
 
 #### <a name="cause"></a>Causa
 
-Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a * **.azure-automation.net** sulla porta 443.
+Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a ** \* . Azure-Automation.NET** sulla porta 443.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: Impossibile installare un ruolo di lavoro ibrido per runbook
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per Runbook Windows
 
 #### <a name="issue"></a>Problema
 
@@ -313,10 +313,50 @@ Per risolvere questo problema, rimuovere la chiave del Registro di sistema segue
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per Runbook Linux
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di aggiungere un ruolo di lavoro ibrido per Runbook tramite lo script Python, viene visualizzato il messaggio seguente `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Inoltre, il tentativo di annullare la registrazione di un ruolo di lavoro ibrido per Runbook tramite lo `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Causa
+
+Questo problema può verificarsi se il computer è già registrato con un altro account di automazione, se il gruppo di lavoro ibrido di Azure è stato eliminato o se si tenta di aggiungere di nuovo il ruolo di lavoro ibrido per runbook dopo averlo rimosso da un computer.
+
+#### <a name="resolution"></a>Soluzione
+
+Per risolvere il problema:
+
+1. Rimuovere l'agente `sudo sh onboard_agent.sh --purge` .
+
+1. Eseguire i comandi seguenti:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Eseguire di nuovo l'onboarding dell'agente `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+
+1. Attendere il popolamento della cartella `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` .
+
+1. Provare a eseguire di `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` nuovo lo script Python.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottenere risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure consente di entrare in contatto con la community di Azure e quindi di ottenere risposte, assistenza e consulenza.
 * Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Supporto tecnico**.

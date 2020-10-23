@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131820"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426106"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -74,7 +74,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita
 
@@ -89,7 +89,7 @@ Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per co
 1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__.
 
 
-Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base al ruolo di Azure (RBAC). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
+Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base alle risorse di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
 
 > [!NOTE]
 > Per rendere effettive queste modifiche possono essere necessari fino a 10 minuti.
@@ -104,9 +104,9 @@ Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro 
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controllo di accesso Azure Data Lake Storage Gen2
 
-È possibile utilizzare gli elenchi di controllo di accesso (ACL) di tipo RBAC e POSIX per controllare l'accesso ai dati all'interno di una rete virtuale.
+Per controllare l'accesso ai dati all'interno di una rete virtuale, è possibile usare gli elenchi di controllo di accesso (ACL) e gli elenchi di controllo di accesso di tipo POSIX.
 
-Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Per usare il controllo degli accessi in base al ruolo di Azure, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Per usare gli ACL, è possibile assegnare l'accesso all'identità gestita dall'area di lavoro in modo analogo a qualsiasi altro principio di sicurezza. Per altre informazioni, vedere [elenchi di controllo di accesso per file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

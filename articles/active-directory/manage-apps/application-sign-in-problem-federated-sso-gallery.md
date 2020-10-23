@@ -11,12 +11,13 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.openlocfilehash: 715cbb78cc33ce2ae9b22e743abfea81afc2cb55
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108185"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427379"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso alle app configurate Single Sign-On basate su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
@@ -144,7 +145,7 @@ Quando l'applicazione è stata aggiunta come un'app non inclusa nella raccolta, 
 
 Eliminare gli URL di risposta non utilizzati configurati per l'applicazione.
 
-Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
+Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md).

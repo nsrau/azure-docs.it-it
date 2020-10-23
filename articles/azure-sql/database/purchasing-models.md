@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319453"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427030"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Scegliere tra i modelli di acquisto vCore e DTU: database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagi
 
 Un core virtuale (vCore) rappresenta una CPU logica e offre la possibilità di scegliere tra generazioni di hardware e le caratteristiche fisiche dell'hardware, ad esempio il numero di core, la memoria e le dimensioni di archiviazione. Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza del consumo di risorse individuali e un modo semplice per tradurre i requisiti del carico di lavoro locale nel cloud. Questo modello consente di scegliere risorse di calcolo, memoria e archiviazione in base alle esigenze del carico di lavoro.
 
-Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio [per utilizzo generico](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) e [business critical](high-availability-sla.md#premium-and-business-critical-service-tier-availability) per il Database SQL e SQL istanza gestita.  Per i database singoli, è anche possibile scegliere il [livello di servizio di iperscalabilità](service-tier-hyperscale.md).
+Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio [per utilizzo generico](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) e [business critical](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) per il Database SQL e SQL istanza gestita.  Per i database singoli, è anche possibile scegliere il [livello di servizio di iperscalabilità](service-tier-hyperscale.md).
 
 Il modello di acquisto basato su vCore consente di scegliere in modo indipendente le risorse di calcolo e di archiviazione, soddisfare le prestazioni locali e ottimizzare il prezzo. Nel modello di acquisto basato su vCore si paga:
 

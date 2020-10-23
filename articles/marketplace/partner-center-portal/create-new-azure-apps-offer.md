@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710720"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428206"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -188,7 +188,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
 7. Riepilogo
-8. Description
+8. Descrizione
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
@@ -328,16 +328,16 @@ Le **azioni** disponibili in **Panoramica del piano** variano a seconda dello st
 
 ### <a name="create-new-plan"></a>Crea nuovo piano
 
-***ID piano***: creare un ID piano univoco per ogni piano nell'offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto.  Usare solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Questo ID non può essere modificato dopo aver selezionato Crea.
+**_ID piano_*_: creare un ID piano univoco per ogni piano nell'offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto.  Usare solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Questo ID non può essere modificato dopo aver selezionato Crea.
 
-***Nome del piano*** : i clienti visualizzeranno questo nome per decidere quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono fare parte della stessa offerta (ad esempio, nome dell'offerta: Windows Server, piani: Windows Server 2016, Windows Server 2019).
+_*_Nome del piano_*_ : i clienti visualizzeranno questo nome per decidere quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono fare parte della stessa offerta (ad esempio, nome dell'offerta: Windows Server, piani: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configurazione del piano
 
 Questa scheda consente di impostare la configurazione generale per il tipo di piano, specificando se riutilizzare i pacchetti di un altro piano e in quali cloud deve essere disponibile il piano. Le risposte in questa scheda influiscono sui campi visualizzati in altre schede per lo stesso piano.
 
 #### <a name="plan-type"></a>Tipo di piano
-Selezionare il tipo di piano per l'offerta. Un piano **Modello di soluzione** viene gestito interamente dal cliente. Un piano **Applicazione gestita** consente agli editori di gestire l'applicazione per conto del cliente. Per informazioni dettagliate, vedere [Tipi di piani per le applicazioni Azure](#types-of-azure-application-plans).
+Selezionare il tipo di piano per l'offerta. Un piano **modello di soluzione** viene gestito interamente dal cliente. Un piano **Applicazione gestita** consente agli editori di gestire l'applicazione per conto del cliente. Per informazioni dettagliate, vedere [Tipi di piani per le applicazioni Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Riutilizzare la configurazione tecnica
 
@@ -508,7 +508,7 @@ Specificare un endpoint webhook HTTPS facoltativo per ricevere notifiche su tutt
 
 Selezionare questa opzione per specificare le azioni che i clienti possono eseguire sulle risorse gestite, oltre alle azioni "`*/read`" disponibili per impostazione predefinita.
 
-Elencare le azioni aggiuntive di cui consentire l'esecuzione al cliente, separate da punti e virgola.  Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](../../role-based-access-control/deny-assignments.md). Per informazioni sulle azioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite.
+Elencare le azioni aggiuntive di cui consentire l'esecuzione al cliente, separate da punti e virgola.  Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](../../role-based-access-control/deny-assignments.md). Per le azioni disponibili, vedere [operazioni del provider di risorse di Azure](../../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure globale/Cloud Azure per enti pubblici
 
@@ -518,7 +518,7 @@ Indicare chi deve avere accesso di gestione a questa applicazione gestita in ogn
 
 **Autorizzazioni**: aggiungere l'ID oggetto di Azure Active Directory dell'utente, del gruppo o dell'applicazione cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite. Identificare l'utente tramite l'ID entità di sicurezza, disponibile nel [pannello degli utenti di Azure Active Directory del portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Per ogni entità di sicurezza, selezionare uno dei ruoli predefiniti di Azure AD nell'elenco (Proprietario o Collaboratore). Il ruolo selezionato descrive le autorizzazioni dell'entità di sicurezza per le risorse nella sottoscrizione del cliente. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).
+Per ogni entità di sicurezza, selezionare uno dei ruoli predefiniti di Azure AD nell'elenco (Proprietario o Collaboratore). Il ruolo selezionato descrive le autorizzazioni dell'entità di sicurezza per le risorse nella sottoscrizione del cliente. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure), vedere informazioni su [RBAC di Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Benché sia possibile aggiungere fino a 100 autorizzazioni per cloud, è in genere più semplice creare un gruppo di utenti di Active Directory e specificarne l'ID in "ID entità di sicurezza". In questo modo, sarà possibile aggiungere altri utenti al gruppo di gestione dopo la distribuzione del piano e ridurre la necessità di aggiornare il piano solo per aggiungere altre autorizzazioni.

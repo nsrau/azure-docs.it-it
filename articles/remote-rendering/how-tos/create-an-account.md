@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202651"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427487"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creare un account di Rendering remoto di Azure
 
@@ -101,7 +101,7 @@ Gli altri elenchi a discesa vengono selezionati come nel primo passaggio.
 
 Se sono stati aggiunti tutti e tre i ruoli, l'account di Rendering remoto di Azure ha accesso all'account di archiviazione usando le Identità del servizio gestito assegnate dal sistema.
 > [!IMPORTANT]
-> Le assegnazioni di ruolo di Azure vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo di un massimo di 30 minuti tra il momento in cui si concede l'accesso all'account di rendering remoto e quando può essere usato per accedere all'account di archiviazione. Per informazioni dettagliate, vedere la [documentazione relativa al controllo di accesso di base dei ruoli](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
+> Le assegnazioni di ruolo di Azure vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo di un massimo di 30 minuti tra il momento in cui si concede l'accesso all'account di rendering remoto e quando può essere usato per accedere all'account di archiviazione. Per informazioni dettagliate, vedere la [documentazione sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

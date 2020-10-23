@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708714"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426677"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -22,7 +22,7 @@ Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Description|
+|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
@@ -55,28 +55,12 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 ## <a name="planned-maintenance-notification"></a>Notifica di manutenzione pianificata
 
-Le **notifiche di manutenzione pianificata** consentono di ricevere avvisi per la successiva manutenzione pianificata nel database di Azure per PostgreSQL-server singolo. Queste notifiche sono integrate con la manutenzione pianificata [dell'integrità dei servizi](../service-health/overview.md) e consentono di visualizzare tutte le operazioni di manutenzione pianificate per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai destinatari giusti per gruppi di risorse diversi, in quanto è possibile che si disponga di contatti diversi responsabili di risorse diverse. Si riceverà la notifica relativa alla manutenzione imminente di 72 ore prima dell'evento.
+Le [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) consentono di ricevere avvisi per la successiva manutenzione pianificata nel database di Azure per PostgreSQL-server singolo. Queste notifiche sono integrate con la manutenzione pianificata [dell'integrità dei servizi](../service-health/overview.md) e consentono di visualizzare tutte le operazioni di manutenzione pianificate per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai destinatari giusti per gruppi di risorse diversi, in quanto è possibile che si disponga di contatti diversi responsabili di risorse diverse. Si riceverà la notifica relativa alla manutenzione imminente di 72 ore prima dell'evento.
 
-> [!Note]
-> Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di preavviso per tutti gli eventi verrà effettuato. Tuttavia, in caso di patch di sicurezza o critiche, le notifiche potrebbero essere inviate più vicino all'evento o essere omesse.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
-
-1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
-2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
-3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
-4. Compilare i campi obbligatori. 
-5. Scegliere il **tipo di evento**, selezionare **manutenzione pianificata** o **selezionare tutto**
-6. Nei **gruppi di azioni** definire come si vuole ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
-7. Assicurarsi che Abilita regola al momento della creazione sia impostata su Sì.
-8. Selezionare **Crea regola di avviso** per completare l'avviso
-
-Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> Le notifiche di manutenzione pianificata sono attualmente disponibili in anteprima in tutte le aree **ad eccezione** degli Stati Uniti centro-occidentali
+Per altre informazioni su come configurare le notifiche, vedere il documento relativo alle [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere [come configurare gli avvisi](howto-alert-on-metric.md) per istruzioni sulla creazione di un avviso per una metrica.
-- Per altre informazioni sull'accesso alle metriche e la relativa esportazione con il portale di Azure, l'API REST o l'interfaccia della riga di comando, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Per altre informazioni su come accedere ed esportare le metriche usando il portale di Azure, l'API REST o l'interfaccia della riga di comando, vedere [Panoramica delle metriche di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - Leggere il blog Microsoft sulle [procedure consigliate per il monitoraggio del server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- Altre informazioni sulle [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) nel database di Azure per PostgreSQL-server singolo.

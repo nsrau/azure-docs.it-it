@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319428"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427011"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usare le repliche di sola lettura per l'offload dei carichi di lavoro di query di sola lettura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Come parte dell' [architettura a disponibilità elevata](high-availability-sla.md#premium-and-business-critical-service-tier-availability), ogni database singolo, database del pool elastico e istanza gestita nel livello di servizio Premium e business critical viene sottoposto automaticamente a provisioning con una replica primaria di lettura e scrittura e diverse repliche secondarie di sola lettura. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di *scalabilità in lettura* consente di eseguire l'offload dei carichi di lavoro di sola lettura usando la capacità di calcolo di una delle repliche di sola lettura, anziché eseguirli nella replica di lettura/scrittura. In questo modo, alcuni carichi di lavoro di sola lettura possono essere isolati dai carichi di lavoro di lettura/scrittura e non influiscono sulle prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Nei livelli di servizio Premium e business critical, le applicazioni possono ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
+Come parte dell' [architettura a disponibilità elevata](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), ogni database singolo, database del pool elastico e istanza gestita nel livello di servizio Premium e business critical viene sottoposto automaticamente a provisioning con una replica primaria di lettura e scrittura e diverse repliche secondarie di sola lettura. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di *scalabilità in lettura* consente di eseguire l'offload dei carichi di lavoro di sola lettura usando la capacità di calcolo di una delle repliche di sola lettura, anziché eseguirli nella replica di lettura/scrittura. In questo modo, alcuni carichi di lavoro di sola lettura possono essere isolati dai carichi di lavoro di lettura/scrittura e non influiscono sulle prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Nei livelli di servizio Premium e business critical, le applicazioni possono ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
 
 La funzionalità di *scalabilità in lettura* è disponibile anche nel livello di servizio di iperscalabilità quando viene creata almeno una replica secondaria. È possibile usare più repliche secondarie per il bilanciamento del carico dei carichi di lavoro di sola lettura che richiedono più risorse rispetto a quelle disponibili in una replica secondaria.
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124759"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426328"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
 
 > [!IMPORTANT]
-> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business critical o Premium con la [configurazione con ridondanza della zona](high-availability-sla.md#zone-redundant-configuration) per ottenere l'isolamento della zona di disponibilità.
+> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business-critical o Premium con [configurazione con ridondanza della zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) o per utilizzo generico [configurazione con ridondanza della zona](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) del livello di servizio per ottenere l'isolamento della zona
 >
 
 - **Failover pianificato**

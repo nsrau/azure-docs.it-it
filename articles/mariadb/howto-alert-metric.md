@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742843"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426119"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -27,7 +27,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST di Monitoraggio di Azure](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Creare una regola di avviso per una metrica
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare il server di Database di Azure per MariaDB da monitorare.
@@ -85,5 +85,5 @@ Dopo aver creato un avviso, è possibile selezionarlo ed eseguire queste azioni:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [configurazione dei webhook negli avvisi](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
+* Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
+* Leggere una [panoramica della raccolta di metriche](../azure-monitor/platform/data-platform.md) per verificare che il servizio sia disponibile e reattivo.

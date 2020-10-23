@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ec23252883f928cfa6c1651afbfe88e413d55571
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a2164afef3807a345819a18274eb01f2116de9fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339595"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427962"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -22,14 +22,14 @@ Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche 
 
 Questo articolo illustra il processo di creazione di endpoint e route usando il [portale di Azure](https://portal.azure.com).
 
-È anche possibile gestire endpoint e route con le [API EventRoutes](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
+È anche possibile gestire endpoint e route con le [API EventRoutes](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Resource group
+    - Gruppo di risorse
 
 È possibile trovare questi dettagli nell' [portale di Azure](https://portal.azure.com) dopo aver configurato l'istanza di. Accedere al portale e cercare il nome dell'istanza nella barra di ricerca del portale.
  

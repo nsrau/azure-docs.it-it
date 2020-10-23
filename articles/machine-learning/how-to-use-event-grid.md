@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428434"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
@@ -62,7 +62,7 @@ Questi eventi vengono pubblicati tramite Griglia di eventi di Azure. Usando il p
 
 Quando si configurano gli eventi, è possibile applicare filtri per far sì che l'attivazione avvenga solo in base a dati degli eventi specifici. Nell'esempio seguente, per gli eventi il cui stato di esecuzione è modificato, è possibile filtrare per tipo di esecuzione. L'evento viene attivato solo quando i criteri vengono soddisfatti. Per informazioni sui dati degli eventi in base ai quali è possibile applicare filtri, fare riferimento a [Schema di Griglia di eventi di Azure Machine Learning](/azure/event-grid/event-schema-machine-learning). 
 
-Le sottoscrizioni per gli eventi Azure Machine Learning sono protette dal controllo degli accessi in base al ruolo. Solo chi ha il ruolo di [collaboratore o proprietario](how-to-assign-roles.md#default-roles) di un'area di lavoro può creare, aggiornare ed eliminare le sottoscrizioni agli eventi.  È possibile applicare filtri alle sottoscrizioni di eventi durante la [creazione](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) della sottoscrizione stessa o in un secondo momento. 
+Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Solo chi ha il ruolo di [collaboratore o proprietario](how-to-assign-roles.md#default-roles) di un'area di lavoro può creare, aggiornare ed eliminare le sottoscrizioni agli eventi.  È possibile applicare filtri alle sottoscrizioni di eventi durante la [creazione](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) della sottoscrizione stessa o in un secondo momento. 
 
 
 1. Accedere al portale di Azure, selezionare una nuova sottoscrizione o una sottoscrizione esistente. 

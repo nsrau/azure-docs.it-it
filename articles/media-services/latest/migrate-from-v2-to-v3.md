@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017744"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426866"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -59,7 +59,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * L'output live è più semplice da usare rispetto all'entità Program nelle API v2. 
 * Supporto RTMP migliorato (maggiore stabilità e più supporto per i codificatori di origine).
 * Inserimento RTMPS sicuro.<br/>Quando si crea un evento live, si ottengono 4 URL di inserimento. pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS.   
-* Controllo degli accessi in base al ruolo sulle entità. 
+* Si ha il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) sulle entità. 
 
 ## <a name="known-issues"></a>Problemi noti
 

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542428"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425901"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per il server MariaDB in un'altra area usando il portale di Azure
 
@@ -21,7 +21,7 @@ Esistono diversi scenari per lo trasferimento di un database di Azure esistente 
 Per completare lo spostamento in un'altra area, è possibile usare una [replica di lettura tra aree](concepts-read-replicas.md#cross-region-replication) per database di Azure per MariaDB. A tale scopo, creare prima di tutto una replica di lettura nell'area di destinazione. Arrestare quindi la replica al server di replica di lettura per renderlo un server autonomo che accetta il traffico di lettura e scrittura. 
 
 > [!NOTE]
-> Questo articolo è incentrato sullo spostare il server in un'area diversa. Per spostare il server in un gruppo di risorse o una sottoscrizione diversa, vedere l'articolo relativo allo [spostamento](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
+> Questo articolo è incentrato sullo spostare il server in un'area diversa. Per spostare il server in un gruppo di risorse o una sottoscrizione diversa, vedere l'articolo relativo allo [spostamento](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

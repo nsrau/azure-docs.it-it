@@ -2,13 +2,13 @@
 title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079859"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425530"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -45,7 +45,7 @@ Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entit�
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
 
-- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. Ecco un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) per assegnare un'identità a un ruolo di Azure del bus di servizio: 
+- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. Ecco un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) per assegnare un'identità a un ruolo di Azure del bus di servizio: 
 
     ```azurecli
     az role assignment create \
@@ -91,6 +91,9 @@ Una volta creata l'applicazione, attenersi alla procedura seguente:
 
 Una volta abilitata questa impostazione, viene creata una nuova identità del servizio nel Azure Active Directory (Azure AD) e configurata nell'host del servizio app.
 
+> [!NOTE]
+> Quando si usa un'identità gestita, la stringa di connessione deve essere nel formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+
 A questo punto, assegnare l'identità del servizio a un ruolo nell'ambito necessario nelle risorse del bus di servizio.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Per assegnare i ruoli di Azure usando il portale di Azure
@@ -114,8 +117,10 @@ Per assegnare un ruolo a uno spazio dei nomi del bus di servizio, passare allo s
 
 Una volta assegnato il ruolo, l'applicazione Web avrà accesso alle entità del bus di servizio nell'ambito definito. 
 
-### <a name="run-the-app"></a>Eseguire l'app
 
+
+
+### <a name="run-the-app"></a>Eseguire l'app
 Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 La pagina Default.aspx è la pagina di destinazione. Il codice è disponibile nel file Default.aspx.cs. Il risultato è un'applicazione Web minima con pochi campi di immissione e con pulsanti di **invio** e **ricezione** che consentono la connessione al bus di servizio per l'invio o la ricezione di messaggi.

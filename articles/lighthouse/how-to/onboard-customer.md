@@ -3,12 +3,12 @@ title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426340"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
-Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/built-in-roles.md) ai propri utenti nel tenant.
+Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) appropriati agli utenti nel tenant.
 
 Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
 

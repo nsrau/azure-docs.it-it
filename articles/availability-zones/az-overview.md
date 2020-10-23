@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 771635baa3c49c07d0d796cf6ef3be7b870de3e1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078375"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425445"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -97,7 +97,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Azure Cosmos DB | Automazione | Azure Blueprint |
 > | Azure Data Lake Storage Gen2 | Servizi di dominio Azure Active Directory | Database di Azure per MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Modulo di protezione hardware dedicato di Azure |
-> | database SQL di Azure | Cache Redis di Azure | Azure Dev Spaces |
+> | Database SQL di Azure | Cache Redis di Azure | Azure Dev Spaces |
 > | Servizi cloud | Ricerca cognitiva di Azure | Gemelli digitali di Azure |
 > | Servizi cloud: Av2-Series | Esplora dati di Azure | Azure Lab Services |
 > | Servizi cloud: Dv2-Series | Condivisione dati di Azure | Azure NetApp Files |
@@ -170,10 +170,10 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md)
-- [Database SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
+- [Livello utilizzo generico database SQL](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Ripristino di emergenza geografico del bus di servizio](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
