@@ -3,12 +3,12 @@ title: Valutare un numero elevato di macchine virtuali VMware per la migrazione 
 description: Viene descritto come valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure usando il servizio Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171920"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314122"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
 
@@ -26,7 +26,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 
 > [!NOTE]
-> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](tutorial-prepare-vmware.md)
+> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Pianificare la valutazione
 
@@ -78,7 +78,7 @@ Preparare Azure e VMware per la valutazione del server.
 2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate.
 3. Preparare VMware per la valutazione.
 
-Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-prepare-vmware.md) .
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](./tutorial-discover-vmware.md) .
 
 
 ## <a name="create-a-project"></a>Creare un progetto
@@ -88,7 +88,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Creare un progetto Azure Migrate.
 2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Scopri di più](how-to-add-tool-first-time.md)
+[Altre informazioni](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 
@@ -96,7 +96,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Esaminare le valutazioni in preparazione per la pianificazione della migrazione.
 
 
-Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-assess-vmware.md) .
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](./tutorial-assess-vmware-azure-vm.md) .
     
 
 ## <a name="next-steps"></a>Passaggi successivi

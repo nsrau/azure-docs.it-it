@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: f114dd4d4f0a9a26a8aab1f8aeecd4d29678a8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dba6b3f2137230ebe95f1bc89156cf6b127c8f52
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896296"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428146"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MySQL
 
@@ -88,7 +88,7 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio 
 - **Amministratore di rete:** &nbsp; attivare l'endpoint.
 - **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per MySQL.
 
-*Alternativa del controllo degli accessi in base al ruolo:*
+*Alternative RBAC di Azure:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
@@ -152,7 +152,7 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

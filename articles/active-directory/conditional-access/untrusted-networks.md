@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948165"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144994"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedura: richiedere l'autenticazione a più fattori per l'accesso da reti non attendibili con accesso condizionale   
 
@@ -26,10 +26,7 @@ Questo articolo fornisce le informazioni necessarie per configurare criteri di a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente abbia familiarità con: 
-
-- [Concetti di base](overview.md) dell'accesso condizionale di Azure AD 
-- [Procedure consigliate](best-practices.md) per la configurazione dei criteri di accesso condizionale nel portale di Azure
+Questo articolo presuppone che l'utente abbia familiarità con i [concetti di base](overview.md) dell'accesso condizionale. 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -65,7 +62,7 @@ Anziché tentare di definire quali sono tutte le posizioni che non vengono consi
 
 ## <a name="policy-deployment"></a>Distribuzione dei criteri
 
-Con l'approccio descritto in questo articolo, è ora possibile configurare criteri di accesso condizionale per percorsi non attendibili. La procedura consigliata è testare i criteri prima di distribuirli nell'ambiente di produzione per assicurarsi che funzionino nel modo previsto. L'approccio ideale è usare un tenant di test per verificare se il nuovo criterio funziona nel modo previsto. Per altre informazioni, vedere [Come distribuire nuovi criteri](best-practices.md#how-should-you-deploy-a-new-policy). 
+Con l'approccio descritto in questo articolo, è ora possibile configurare criteri di accesso condizionale per percorsi non attendibili. La procedura consigliata è testare i criteri prima di distribuirli nell'ambiente di produzione per assicurarsi che funzionino nel modo previsto. L'approccio ideale è usare un tenant di test per verificare se il nuovo criterio funziona nel modo previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

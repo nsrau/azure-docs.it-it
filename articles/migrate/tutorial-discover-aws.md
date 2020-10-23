@@ -4,12 +4,12 @@ description: Informazioni su come individuare le istanze di AWS con Valutazione 
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275456"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311285"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Esercitazione: Individuare le istanze di AWS con Valutazione server
 
@@ -224,7 +224,7 @@ Configurare l'appliance per la prima volta.
    
    L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web. 
-4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](tutorial-prepare-physical.md) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
+4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-physical.md) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
 

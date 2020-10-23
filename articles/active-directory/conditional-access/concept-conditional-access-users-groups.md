@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552901"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366361"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
-Un criterio di accesso condizionale deve includere un'assegnazione utente come uno dei segnali nel processo decisionale. Gli utenti possono essere inclusi o esclusi dai criteri di accesso condizionale. 
+Un criterio di accesso condizionale deve includere un'assegnazione utente come uno dei segnali nel processo decisionale. Gli utenti possono essere inclusi o esclusi dai criteri di accesso condizionale. Azure Active Directory valuta tutti i criteri e garantisce che tutti i requisiti siano soddisfatti prima di concedere l'accesso all'utente.
 
 ![Utente come segnale nelle decisioni prese dall'accesso condizionale](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -30,7 +30,7 @@ Questo elenco di utenti include in genere tutti gli utenti a cui è destinata un
 
 Quando si creano criteri di accesso condizionale, è possibile includere le opzioni seguenti.
 
-- Nessuno
+- nessuno
    - Nessun utente selezionato
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
@@ -46,13 +46,13 @@ Quando si creano criteri di accesso condizionale, è possibile includere le opzi
 > Se gli utenti o i gruppi sono membri di oltre 2048 gruppi, l'accesso potrebbe essere bloccato. Questo limite si applica sia all'appartenenza a gruppi diretta che al gruppo annidato.
 
 > [!WARNING]
-> I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../users-groups-roles/roles-admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../users-groups-roles/roles-create-custom.md).
+> I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../roles/admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Escludi utenti
 
 Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente o il gruppo viene escluso dal criterio, in quanto un'azione di esclusione esegue l'override di un criterio Includi nei criteri. Le esclusioni vengono comunemente usate per gli account di accesso di emergenza o break-Glass. Altre informazioni sugli account di accesso di emergenza e sul motivo per cui sono importanti sono disponibili negli articoli seguenti: 
 
-* [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gestire gli account di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 * [Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Quando si creano criteri di accesso condizionale, è possibile escludere le opzioni seguenti.
@@ -73,6 +73,8 @@ Per impedire a un amministratore di bloccarsi dalla propria directory quando si 
 Per impostazione predefinita, il criterio fornirà un'opzione per escludere l'utente corrente dal criterio, ma questa impostazione predefinita può essere sostituita dall'amministratore, come illustrato nella figura seguente. 
 
 ![Avviso: non bloccarsi.](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Cosa fare se si è bloccati dal portale di Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965098"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363675"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -106,7 +106,7 @@ Per SSPR sono disponibili i metodi di autenticazione seguenti:
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* Email
+* E-mail
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -227,7 +227,7 @@ SSPR esegue l'equivalente di una reimpostazione della password avviata dall'ammi
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
 * **Utenti di un'organizzazione partner con un tenant di Azure ad esistente**: se l'organizzazione partner ha un tenant di Azure ad esistente, verranno rispettati i criteri di reimpostazione della password abilitati in tale tenant. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti Microsoft 365.
-* **Utenti che si iscrivono** all'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, è possibile reimpostare la password con l'indirizzo di posta elettronica registrato.
+* **Utenti che si iscrivono** all'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../enterprise-users/directory-self-service-signup.md) per accedere a un tenant, è possibile reimpostare la password con l'indirizzo di posta elettronica registrato.
 * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure ad](../external-identities/what-is-b2b.md) possono anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.

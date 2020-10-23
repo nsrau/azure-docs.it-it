@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425150"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331095"
 ---
 In questo passaggio si sta valutando il numero di condivisioni file di Azure necessarie. Una singola istanza di Windows Server (o cluster) può sincronizzare fino a 30 condivisioni file di Azure.
 
@@ -28,11 +28,15 @@ Se il reparto risorse umane (ad esempio) dispone di un totale di 15 condivisioni
 
 Sincronizzazione file di Azure supporta la sincronizzazione della radice di un volume in una condivisione file di Azure. Se si sincronizza la cartella radice, tutte le sottocartelle e i file passeranno alla stessa condivisione file di Azure.
 
-La sincronizzazione della radice del volume non è sempre la soluzione migliore. La sincronizzazione di più posizioni presenta vantaggi. In questo modo, ad esempio, è possibile ridurre il numero di elementi per ogni ambito di sincronizzazione. La configurazione di Sincronizzazione file di Azure con un numero inferiore di elementi non è solo vantaggioso per la sincronizzazione dei file. Un numero inferiore di elementi è utile anche per scenari simili ai seguenti:
+La sincronizzazione della radice del volume non è sempre la soluzione migliore. La sincronizzazione di più posizioni presenta vantaggi. In questo modo, ad esempio, è possibile ridurre il numero di elementi per ogni ambito di sincronizzazione. Mentre si testano condivisioni file di Azure e Sincronizzazione file di Azure con 100 milioni elementi (file e cartelle) per condivisione, una procedura consigliata consiste nel provare a lasciare il numero sotto 20 o 30 milioni in una singola condivisione. La configurazione di Sincronizzazione file di Azure con un numero inferiore di elementi non è solo vantaggioso per la sincronizzazione dei file. Un numero inferiore di elementi è utile anche per scenari simili ai seguenti:
 
-* Il ripristino sul lato cloud da uno snapshot di condivisione file di Azure può essere effettuato come backup.
+* L'analisi iniziale del contenuto cloud prima che lo spazio dei nomi possa iniziare a essere visualizzato in un server Sincronizzazione file di Azure abilitato può essere completato più velocemente.
+* Il ripristino sul lato cloud da uno snapshot di condivisione file di Azure sarà più veloce.
 * Il ripristino di emergenza di un server locale può velocizzare significativamente.
 * Le modifiche apportate direttamente in una condivisione file di Azure (all'esterno della sincronizzazione) possono essere rilevate e sincronizzate più velocemente.
+
+> [!TIP]
+> Se non si è certi del numero di file e cartelle disponibili, è possibile estrarre lo strumento TreeSize da JAM Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Un approccio strutturato a una mappa di distribuzione
 
@@ -53,14 +57,12 @@ Per prendere la decisione sul numero di condivisioni file di Azure necessarie, e
 >
 > Questo raggruppamento in una radice comune non ha alcun effetto sull'accesso ai dati. Gli ACL resteranno invariati. È necessario modificare solo i percorsi di condivisione, ad esempio le condivisioni SMB o NFS, che potrebbero essere presenti nelle cartelle del server che sono state ora modificate in una radice comune. Non sono state apportate altre modifiche.
 
-Un altro aspetto importante della Sincronizzazione file di Azure e delle prestazioni e dell'esperienza bilanciate consiste nel comprendere i fattori di scalabilità per le prestazioni di Sincronizzazione file di Azure. Ovviamente, quando i file vengono sincronizzati su Internet, i file più grandi impiegano più tempo e larghezza di banda per la sincronizzazione.
-
 > [!IMPORTANT]
 > Il vettore di scala più importante per Sincronizzazione file di Azure è il numero di elementi (file e cartelle) che devono essere sincronizzati.
 
 Sincronizzazione file di Azure supporta la sincronizzazione di un massimo di 100 milioni elementi in una singola condivisione file di Azure. Questo limite può essere superato e Mostra solo i test eseguiti regolarmente dal team Sincronizzazione file di Azure.
 
-È consigliabile evitare che il numero di elementi per ogni ambito di sincronizzazione sia basso. Questo è un fattore importante da considerare nel mapping delle cartelle alle condivisioni file di Azure.
+È consigliabile evitare che il numero di elementi per ogni ambito di sincronizzazione sia basso. Questo è un fattore importante da considerare nel mapping delle cartelle alle condivisioni file di Azure. Mentre si testano condivisioni file di Azure e Sincronizzazione file di Azure con 100 milioni elementi (file e cartelle) per condivisione, una procedura consigliata consiste nel provare a lasciare il numero sotto 20 o 30 milioni in una singola condivisione. Suddividere lo spazio dei nomi in più condivisioni se si inizia a superare questi numeri. È possibile continuare a raggruppare più condivisioni locali nella stessa condivisione file di Azure, purché si stiano approssimativamente sotto questi numeri. Questo ti fornirà spazio per la crescita.
 
 In una situazione di questo genere è possibile che un set di cartelle possa essere sincronizzato logicamente con la stessa condivisione file di Azure (usando il nuovo approccio comune della cartella radice indicato in precedenza). Tuttavia, potrebbe essere comunque preferibile riraggruppare le cartelle in modo che vengano sincronizzate con due anziché una condivisione file di Azure. È possibile usare questo approccio per tenere bilanciato il numero di file e cartelle per ogni condivisione file nel server.
 
@@ -73,7 +75,7 @@ In una situazione di questo genere è possibile che un set di cartelle possa ess
     :::column:::
         Usare una combinazione dei concetti precedenti per determinare il numero di condivisioni file di Azure necessarie e quali parti dei dati esistenti finiranno in quale condivisione file di Azure.
         
-        Creare una tabella che registra i pensieri, in modo da potervi fare riferimento nel passaggio successivo. La permanenza organizzata è importante, perché può essere facile perdere i dettagli del piano di mapping quando si effettua il provisioning di molte risorse di Azure contemporaneamente. Per semplificare la creazione di un mapping completo, è possibile scaricare un file di Microsoft Excel come modello.
+        Creare una tabella che registra le proprie opinioni, in modo da potervi fare riferimento quando necessario. La permanenza organizzata è importante, perché può essere facile perdere i dettagli del piano di mapping quando si effettua il provisioning di molte risorse di Azure contemporaneamente. Per semplificare la creazione di un mapping completo, è possibile scaricare un file di Microsoft Excel come modello.
 
 [//]: # (Il codice HTML viene visualizzato come unico modo per completare l'aggiunta di una tabella a due colonne nidificata con l'analisi dell'immagine funzionante e il testo/collegamento ipertestuale nella stessa riga.)
 

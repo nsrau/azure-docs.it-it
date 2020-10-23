@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443803"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328192"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Esportare in un file BACPAC: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -48,7 +48,7 @@ L'esportazione di un BACPAC di un database da [Azure SQL istanza gestita](../man
 
 1. Per esportare un database con il [portale di Azure](https://portal.azure.com), aprire la pagina relativa al database e fare clic su **Esporta** sulla barra degli strumenti.
 
-   ![Esportazione di un database](./media/database-export/database-export1.png)
+   ![Schermata che evidenzia il pulsante Esporta.](./media/database-export/database-export1.png)
 
 2. Specificare il nome del file BACPAC, selezionare un account di archiviazione di Azure esistente e un contenitore per l'esportazione e quindi fornire le credenziali appropriate per l'accesso al database di origine. È necessario un **account di accesso amministratore** di SQL Server anche se si è l'amministratore di Azure, perché un amministratore di Azure non equivale ad avere le autorizzazioni di amministratore nel database SQL di Azure o in azure SQL istanza gestita.
 

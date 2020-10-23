@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019393"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275547"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -47,7 +47,7 @@ In questa sezione vengono illustrati i limiti di quota predefiniti e massimi per
 + Macchine virtuali
 + Ambiente di calcolo di Azure Machine Learning
 + Pipeline di Azure Machine Learning
-+ Istanze di contenitore
++ Istanze di Container
 + Archiviazione
 
 > [!IMPORTANT]
@@ -177,12 +177,14 @@ Per richiedere una concessione per questi scenari, attenersi alla procedura segu
     | ----- | ----- |
     | Tipo di problema | Prerequisiti tecnici |
     | Servizio | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
-    | Tipo di problema | Configurazione dell'area di lavoro, SDK e CLI |
-    | Sottotipo di problema | Problemi di provisioning o gestione dell'area di lavoro |
+    | Tipo di problema | Configurazione e sicurezza dell'area di lavoro |
+    | Sottotipo di problema | Richiesta di limite dell'endpoint privato e della zona di DNS privato |
 
 2. Nella sezione __Dettagli__ usare il campo __Description (Descrizione__ ) per specificare l'area di Azure che si vuole usare e lo scenario che si prevede di usare. Se è necessario richiedere aumenti di quota per più sottoscrizioni, elencare anche gli ID sottoscrizione in questo campo.
 
 3. Selezionare __Crea__ per creare la richiesta.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot di un endpoint privato e di una richiesta di aumento della quota DNS privata":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729033"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424977"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
@@ -28,7 +28,7 @@ In generale, esistono due tipi di autenticazione che è possibile usare con Azur
 * __Interattivo__: è possibile usare l'account Azure Active Directory per l'autenticazione diretta o per ottenere un token usato per l'autenticazione. L'autenticazione interattiva viene utilizzata durante la sperimentazione e lo sviluppo iterativo. O in cui si vuole controllare l'accesso alle risorse, ad esempio un servizio Web, per ogni singolo utente.
 * __Entità servizio__: è possibile creare un account dell'entità servizio in Azure Active Directory e usarlo per autenticare o ottenere un token. Un'entità servizio viene utilizzata quando è necessario un processo automatizzato per l'autenticazione al servizio senza richiedere l'interazione dell'utente. Ad esempio, uno script di integrazione e distribuzione continua che esegue il training e il test di un modello ogni volta che viene modificato il codice di training. È anche possibile usare un'entità servizio per recuperare un token per l'autenticazione a un servizio Web, se non si vuole che l'utente finale del servizio esegua l'autenticazione. O in cui l'autenticazione dell'utente finale non viene eseguita direttamente usando Azure Active Directory.
 
-Indipendentemente dal tipo di autenticazione usato, il controllo degli accessi in base al ruolo (RBAC) viene usato per definire l'ambito del livello di accesso consentito alle risorse. Ad esempio, un account utilizzato per ottenere il token di accesso per un modello distribuito richiede solo l'accesso in lettura all'area di lavoro. Per ulteriori informazioni sul controllo degli accessi in base al ruolo, vedere [Manage Access to Azure Machine Learning Workspace](how-to-assign-roles.md).
+Indipendentemente dal tipo di autenticazione usato, il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) viene usato per definire l'ambito del livello di accesso consentito alle risorse. Ad esempio, un account utilizzato per ottenere il token di accesso per un modello distribuito richiede solo l'accesso in lettura all'area di lavoro. Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Manage Access to Azure Machine Learning Workspace](how-to-assign-roles.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

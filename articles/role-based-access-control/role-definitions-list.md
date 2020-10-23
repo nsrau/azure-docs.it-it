@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982493"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368248"
 ---
 # <a name="list-azure-role-definitions"></a>Elencare le definizioni dei ruoli di Azure
 
 Una definizione di ruolo è una raccolta di autorizzazioni che è possibile eseguire, ad esempio la lettura, la scrittura e l'eliminazione. generalmente chiamata ruolo. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) ha più [di 120 ruoli predefiniti](built-in-roles.md) oppure è possibile creare ruoli personalizzati. Questo articolo descrive come elencare i ruoli predefiniti e personalizzati che è possibile usare per concedere l'accesso alle risorse di Azure.
 
-Per visualizzare l'elenco dei ruoli di amministratore per Azure Active Directory, vedere autorizzazioni per i ruoli di [amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per visualizzare l'elenco dei ruoli di amministratore per Azure Active Directory, vedere autorizzazioni per i ruoli di [amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -344,7 +344,7 @@ Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle def
 1. All'interno dell'URI, sostituire *{scope}* con l'ambito per il quale si desidera visualizzare l'elenco delle definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -356,7 +356,7 @@ Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle def
 1. Sostituire *{Filter}* con la condizione che si vuole applicare per filtrare l'elenco di definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Filtra | Descrizione |
+    > | Filtro | Descrizione |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Elenca le definizioni dei ruoli per l'ambito specificato e per qualsiasi ambito. |
     > | `$filter=type+eq+'{type}'` | Elenca le definizioni dei ruoli del tipo specificato. Il tipo di ruolo può essere `CustomRole` o `BuiltInRole` . |
@@ -429,7 +429,7 @@ Per elencare i dettagli di un ruolo specifico, usare l'API REST per le [definizi
 1. Nell'URI sostituire *{scope}* con l'ambito per il quale si desidera elencare la definizione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |

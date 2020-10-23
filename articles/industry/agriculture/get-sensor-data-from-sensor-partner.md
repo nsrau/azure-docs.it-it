@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649160"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168529"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -178,7 +178,7 @@ Seguire questa procedura:
 1. Nella home page selezionare **sensori** dal menu per visualizzare la pagina **sensori** .
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** nella finestra di conferma.
 
-    ![Pulsante Elimina](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Screenshot che evidenzia la pagina Delete dei sensori e il pulsante Elimina.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 Un messaggio di conferma indica che il sensore è stato eliminato correttamente.
 

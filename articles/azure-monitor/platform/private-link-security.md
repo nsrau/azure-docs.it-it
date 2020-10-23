@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802226"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461431"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -41,6 +41,9 @@ L'ambito collegamento privato di Monitoraggio di Azure è una risorsa di raggrup
 ## <a name="planning-based-on-your-network"></a>Pianificazione basata sulla rete
 
 Prima di configurare le risorse AMPLS, prendere in considerazione i requisiti di isolamento rete. Valutare l'accesso delle reti virtuali all’Internet pubblico e le restrizioni di accesso di ognuna delle risorse di Monitoraggio di Azure, ovvero i componenti di Application Insights e le aree di lavoro Log Analytics.
+
+> [!NOTE]
+> Le reti hub e spoke, o qualsiasi altra topologia di reti con peering, possono configurare un collegamento privato tra VNet Hub (Main) e le risorse di monitoraggio di Azure pertinenti, anziché configurare un collegamento privato per ogni VNet. Questa operazione è particolarmente sensata se le risorse di monitoraggio di Azure usate da tali reti sono condivise. Tuttavia, se si vuole consentire a ogni VNet di accedere a un set separato di risorse di monitoraggio, creare un collegamento privato a un AMPLS dedicato per ogni rete.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Valutare quali reti virtuali devono connettersi a un collegamento privato
 
@@ -232,7 +235,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere i [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** al firewall.
+Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere i [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** al gruppo di sicurezza di rete.
 
 ### <a name="programmatic-access"></a>Accesso a livello di codice
 

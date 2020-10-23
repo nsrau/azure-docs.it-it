@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450122"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330368"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -120,9 +120,47 @@ Il modulo Execute Python script contiene codice Python di esempio che è possibi
 
     ![Mappa di input di Execute Python](media/module/python-module.png)
 
-4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso che contiene queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. È possibile caricare il set di dati nella pagina asset **set** di dati. È possibile trascinare il modulo DataSet dall'elenco **set** di dati personali nell'albero del modulo a sinistra nella pagina Creazione e modifica della finestra di progettazione. 
+4. Per includere nuovi pacchetti o codice Python, connettere il file compresso che contiene queste risorse personalizzate alla porta del **bundle di script** . In alternativa, se lo script è superiore a 16 KB, utilizzare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
 
-    Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
+    
+    1. Aggregare lo script e altre risorse personalizzate in un file zip.
+    1. Caricare il file zip come **set di dati di file** in studio. 
+    1. Trascinare il modulo set di dati dall'elenco *set* di dati nel riquadro modulo sinistro della pagina Creazione e modifica della finestra di progettazione. 
+    1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
+    
+    Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta.
+    
+    Di seguito è riportato un esempio di bundle di script, che contiene un file di script Python e un file txt:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Esempio di bundle di script](media/module/python-script-bundle.png)  
+
+    Di seguito è riportato il contenuto di `my_script.py` :
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Di seguito è riportato il codice di esempio che illustra come utilizzare i file nel bundle di script:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. Nella casella di testo **script Python** Digitare o incollare uno script Python valido.
 

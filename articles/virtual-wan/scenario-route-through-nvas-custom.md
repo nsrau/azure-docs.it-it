@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031cbb48a7e0c572866dc591d26fb1e6b6b12dba
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267500"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424720"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: instradare il traffico attraverso appliance virtuali-Custom (anteprima)
 
@@ -24,25 +24,24 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 In questo scenario verrà usata la convenzione di denominazione:
 
-* "Service VNet" per le reti virtuali in cui gli utenti hanno distribuito un appliance virtuale di rete (VNet 4 nella **Figura 1**) per controllare il traffico non Internet.
+* "Spokes" per le reti virtuali connesse all'hub virtuale (VNet 1, VNet 2 e VNet 3 nella **Figura 1**).
+* "Service VNet" per le reti virtuali in cui gli utenti hanno distribuito un appliance virtuale di rete (VNet 4 nella **Figura 1**) per controllare il traffico non Internet e possibilmente con servizi comuni accessibili da spoke.
 * "DMZ VNet" per le reti virtuali in cui gli utenti hanno distribuito un'appliance virtuale di rete da usare per controllare il traffico associato a Internet (VNet 5 nella **Figura 1**).
-* "NVA spokes" per le reti virtuali connesse a un appliance virtuale di rete VNet (VNet 1, VNet 2 e VNet 3 nella **Figura 1**).
 * "Hub" per hub WAN virtuali gestiti da Microsoft.
 
 La seguente matrice di connettività riepiloga i flussi supportati in questo scenario:
 
 **Matrice di connettività**
 
-| Da          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
-|---|---|---|---|---|---|
-| **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Statico    |
-| **Servizio VNet**| &#8594;|    X |            X |      X    |      X       |
-| **VNet DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Rami** | &#8594;|  Statico |            X |      X    |      X       |
+| Da          | Con:|*Spoke*|*Servizio VNet*|*Rami*|*Internet*|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spoke**| &#8594;| Direttamente |Direttamente | Tramite il servizio VNet |Tramite DMZ VNet |
+| **Servizio VNet**| &#8594;| Direttamente |n/d| Direttamente | |
+| **Rami** | &#8594;| Tramite il servizio VNet |Direttamente| Direttamente |  |
 
-Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Di seguito vengono descritte le diverse righe:
+Ognuna delle celle nella matrice di connettività descrive se i flussi di connettività direttamente su una rete WAN virtuale o su uno dei reti virtuali con un'appliance virtuale di rete. Di seguito vengono descritte le diverse righe:
 
-* Spoke di NVA:
+* Spoke
   * I spoke raggiungono gli altri spoke direttamente sugli hub WAN virtuali.
   * I spoke otterranno la connettività ai rami tramite una route statica che punta al servizio VNet. Non devono apprendere prefissi specifici dai rami (in caso contrario, sono più specifici ed eseguono l'override del riepilogo).
   * I spoke invieranno il traffico Internet alla rete perimetrale VNet tramite un peering VNet diretto.
@@ -51,12 +50,12 @@ Ognuna delle celle nella matrice di connettività descrive se una connessione WA
 * Il servizio VNet sarà simile a quello dei servizi condivisi VNet che devono essere raggiungibili da ogni VNet e ogni ramo.
 * Il VNet della rete perimetrale non è in realtà necessario avere connettività sulla rete WAN virtuale, poiché l'unico traffico supportato sarà il peering diretto di VNet. Tuttavia, si userà lo stesso modello di connettività per la rete perimetrale VNet per semplificare la configurazione.
 
-Quindi, la nostra matrice di connettività offre tre modelli di connettività distinti, che si traduce in tre tabelle di route. Le associazioni a reti virtuali diversi saranno le seguenti:
+La nostra matrice di connettività offre tre modelli di connettività distinti, che si traduce in tre tabelle di route. Le associazioni a reti virtuali diversi saranno le seguenti:
 
-* Spoke di NVA:
+* Spoke
   * Tabella di route associata: **RT_V2B**
   * Propagazione alle tabelle di route: **RT_V2B** e **RT_SHARED**
-* Appliance virtuale di reti virtuali (interna e Internet):
+* NVA reti virtuali (Service VNet and DMZ VNet):
   * Tabella di route associata: **RT_SHARED**
   * Propagazione alle tabelle di route: **RT_SHARED**
 * Rami

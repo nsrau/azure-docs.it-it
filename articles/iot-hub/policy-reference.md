@@ -1,22 +1,22 @@
 ---
 title: Definizioni di criteri predefiniti per l'hub IoT di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per l'hub IoT di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fae56b1f1c8f6439548f6acd51a553b873e20196
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816269"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316717"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definizioni predefinite di Criteri di Azure per l'hub IoT di Azure
 
-Per il codice di esempio dell'hub IoT che illustra come implementare gli scenari IoT comuni, vedere gli [argomenti di avvio rapido dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Sono disponibili argomenti di avvio rapido per più linguaggi di programmazione, tra cui C, Node.js e Python.
+Per il codice di esempio dell'hub IoT che illustra come implementare gli scenari IoT comuni, vedere gli [argomenti di avvio rapido dell'hub IoT](./quickstart-send-telemetry-cli.md). Sono disponibili argomenti di avvio rapido per più linguaggi di programmazione, tra cui C, Node.js e Python.
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per l'hub IoT di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 

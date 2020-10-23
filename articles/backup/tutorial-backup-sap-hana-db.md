@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254348"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173766"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -65,7 +65,7 @@ Gli endpoint privati consentono di connettersi in modo sicuro dai server all'int
 
 ### <a name="nsg-tags"></a>Tag NSG
 
-Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/security-overview.md#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/network-security-groups-overview.md#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
 1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 
@@ -75,7 +75,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
-È possibile creare in modo analogo le [regole di sicurezza in uscita NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](../virtual-network/service-tags-overview.md).
+È possibile creare in modo analogo le [regole di sicurezza in uscita NSG](../virtual-network/network-security-groups-overview.md#service-tags) per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Tag del Firewall di Azure
 

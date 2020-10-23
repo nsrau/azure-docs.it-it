@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: c44be63e4d69f6603df76147329981bd82e6e50d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1b2ddb4d5f9c6e0e927c5249ada8dc061141a00
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833845"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858286"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby
 
@@ -33,35 +33,7 @@ In questa guida di avvio rapido si userà l'API REST Viso di Azure con Ruby per 
 
 Creare un nuovo file denominato _faceDetection.rb_ e aggiungere il codice seguente. Questo codice chiama l'API Viso per un determinato URL di immagine.
 
-```ruby
-require 'net/http'
-
-# replace <My Endpoint String> in the URL below with the string from your endpoint.
-uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' +
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-})
-
-request = Net::HTTP::Post.new(uri.request_uri)
-
-# Request headers
-# Replace <Subscription Key> with your valid subscription key.
-request['Ocp-Apim-Subscription-Key'] = '<Subscription Key>'
-request['Content-Type'] = 'application/json'
-
-imageUri = "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
-request.body = "{\"url\": \"" + imageUri + "\"}"
-
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
-
-puts response.body
-```
+:::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/face/rest/detect.rb":::
 
 Sarà necessario aggiornare il valore `request['Ocp-Apim-Subscription-Key']` con la chiave di sottoscrizione e modificare la stringa `uri` in modo che contenga l'endpoint corretto.
 
@@ -78,6 +50,35 @@ ruby faceDetection.rb
 ```
 
 Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi rilevati. Il testo seguente è un esempio di risposta JSON con esito positivo.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Estrarre gli attributi del viso
+ 
+Per estrarre gli attributi del viso, usare il modello di rilevamento 1 e aggiungere il parametro di query `returnFaceAttributes`.
+
+```ruby
+uri.query = URI.encode_www_form({
+    # Request parameters
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId' => 'true'
+})
+```
+
+La risposta includerà gli attributi del viso. Ad esempio:
 
 ```json
 [

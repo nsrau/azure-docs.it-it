@@ -1,14 +1,14 @@
 ---
 title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, ad esempio per usare le colonne, elencare i tag usati e cercare la corrispondenza di risorse con espressioni regolari.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425297"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057145"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Esempi di query di Resource Graph
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Dettagli sulle query dei report di assegnazioni di Configurazione guest
 
-Visualizza il report dai dettagli del [motivo dell'assegnazione di Configurazione guest](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
-Nell'esempio seguente la query restituisce solo i risultati in cui il nome dell'assegnazione guest è `installed_application_linux` e l'output contiene la stringa `Python` per elencare tutti i computer Linux in cui è installato un pacchetto che include il nome **Python**.
-Per eseguire una query sulla conformità di tutti i computer per un'assegnazione specifica, rimuovere la seconda clausola `where`.
+Visualizza il report dai dettagli del [motivo dell'assegnazione di Configurazione guest](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Nell'esempio riportato di seguito la query restituisce solo i risultati in cui il nome dell'assegnazione guest è `installed_application_linux` e l'output contiene la stringa `Python` per elencare tutti i computer Linux in cui è installato un pacchetto che include il nome **Python**. Per eseguire una query per verificare la conformità di tutti i computer per un'assegnazione specifica, rimuovere la seconda clausola `where`.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Trovare tutti i motivi per cui un computer non è conforme alle assegnazioni di Configurazione guest
 
-Visualizza tutti [motivi dell'assegnazione di Configurazione guest](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) per un computer specifico.
-Rimuovere la prima clausola `where` per includere anche i controlli in cui il computer è conforme.
+Visualizza tutti [motivi dell'assegnazione di Configurazione guest](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) per un computer specifico. Rimuovere la prima clausola `where` per includere anche i controlli in cui il computer è conforme.
 
 ```kusto
 GuestConfigurationResources

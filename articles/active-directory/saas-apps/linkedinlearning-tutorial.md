@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: d598017c8b41dffc486bfef4b9af63c6942cef58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fde0bcdb70384e791d7337d212d7353b6ea168bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549794"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856403"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con LinkedIn Learning
 
@@ -141,19 +141,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. In **Account Center** (Centro account) fare clic su **Global Settings** (Impostazioni globali) in **Settings** (Impostazioni). Selezionare anche **Learning - Default** (Learning - Predefinito) nell'elenco a discesa.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Screenshot che mostra la sezione Global Settings in cui è possibile selezionare Default.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Fare clic su **OR Click Here to load and copy individual fields from the form** (O fare clic qui per caricare e copiare i singoli file dal modulo), copiare l'**ID entità** e l'**URL del servizio consumer di asserzione** e incollarli nella sezione **Configurazione SAML di base** nel portale di Azure.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Screenshot che mostra la sezione Single Sign-On in cui è possibile immettere i valori descritti.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Accedere alla sezione **LinkedIn Admin Settings** (Impostazioni di amministrazione LinkedIn). Caricare il file XML scaricato dal portale di Azure facendo clic sull'opzione **Upload XML file** (Carica file XML).
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Screenshot che mostra la sezione Configure the LinkedIn service provider S S O settings in cui è possibile caricare un file X M L.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Fare clic su **On** per abilitare SSO. Lo stato SSO passa da **Not Connected** (Non connesso) a **Connected** (Connesso)
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Screenshot che mostra la sezione Single Sign-On in cui è possibile abilitare l'opzione Authenticate users with S S O.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-learning-test-user"></a>Creare l'utente di test di LinkedIn Learning
 

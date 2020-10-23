@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396489"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92208244"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
 
@@ -65,7 +65,7 @@ Quando si configurano i criteri IPSec, è importante comprendere la terminologia
 
 Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
-* È necessario disporre di una configurazione funzionante di Active Directory da usare per implementare le impostazioni di Criteri di gruppo. Per altre informazioni sugli oggetti Criteri di gruppo, vedere [Group Policy Objects](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx) (Oggetti Criteri di gruppo).
+* È necessario disporre di una configurazione funzionante di Active Directory da usare per implementare le impostazioni di Criteri di gruppo. Per altre informazioni sugli oggetti Criteri di gruppo, vedere [Group Policy Objects](/previous-versions/windows/desktop/Policy/group-policy-objects) (Oggetti Criteri di gruppo).
 
 * È necessario avere un circuito ExpressRoute attivo.
   * Per informazioni sulla creazione di un circuito ExpressRoute, vedere [Creare un circuito ExpressRoute ](expressroute-howto-circuit-arm.md). 
@@ -147,7 +147,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 8. Nella pagina **Impostazioni personalizzate metodo di sicurezza** selezionare **Integrità dati con crittografia (ESP): SHA1, 3DES**. Successivamente, scegliere **OK**.
 
    [![22]][22]
-9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Chiudi**.
+9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Close**.
 
    [![23]][23]
 
@@ -158,7 +158,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 1. Per definire il tipo di traffico che deve essere crittografato, usare un **elenco di filtri IP**. Nella scheda **Gestione elenchi filtri IP** fare clic su **Aggiungi** per aggiungere un nuovo elenco di filtri IP.
 
    [![24]][24]
-2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Quindi, fare clic su **Aggiungi**.
+2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Fare quindi clic su **Aggiungi**.
 
    [![25]][25]
 3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Next**.

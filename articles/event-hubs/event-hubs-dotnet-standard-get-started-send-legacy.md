@@ -4,12 +4,12 @@ description: Questo articolo fornisce una procedura dettagliata per la creazione
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d33ebcabb728cf2fbf43b393de5eec6cb58af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8819a95364bf41c6f9837c3db31a9800968d096c
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010699"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332162"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Inviare eventi o ricevere eventi da Hub eventi di Azure usando .NET Core (Microsoft. Azure. EventHubs)
 Questa Guida introduttiva illustra come inviare eventi e ricevere eventi da un hub eventi usando la libreria .NET Core **Microsoft. Azure. EventHubs** .
@@ -362,7 +362,7 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere gli articoli seguenti:
 
-- [Esempi di controllo degli accessi in base al ruolo (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- [Esempi di controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     Questi esempi usano la libreria **Microsoft. Azure. EventHubs** precedente, ma è possibile aggiornarla facilmente usando la libreria **Azure. Messaging. EventHubs** più recente. Per spostare l'esempio da usando la libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)

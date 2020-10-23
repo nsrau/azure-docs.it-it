@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f453c074126e448eb54d432532b9064b3eb3cb35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287893"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819358"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Connettersi a Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Per eseguire analisi su larga scala in Azure Cosmos DB senza influire sulle pres
 
 ## <a name="navigate-to-synapse-studio"></a>Passare a Synapse Studio
 
-Nell'area di lavoro di Synapse selezionare **Avvia Synapse Studio**. Nella home page di Synapse Studio selezionare **Dati per aprire **Data Object Explorer** (Esplora oggetti dati).
+Nell'area di lavoro di Synapse selezionare **Avvia Synapse Studio**. Nella home page di Synapse Studio selezionare **Data** (Dati) per aprire **Data Object Explorer** (Esplora oggetti dati).
 
 ## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Connettere un database Azure Cosmos DB a un'area di lavoro di Synapse
 

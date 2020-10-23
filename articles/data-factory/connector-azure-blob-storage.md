@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948426"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148960"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -223,7 +223,7 @@ Per usare l'autenticazione basata su entità servizio, eseguire la procedura seg
     - Chiave applicazione
     - ID tenant
 
-2. Concedere all'entità servizio un'autorizzazione appropriata in Archiviazione BLOB di Azure. Per altre informazioni sui ruoli, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Concedere all'entità servizio un'autorizzazione appropriata in Archiviazione BLOB di Azure. Per altre informazioni sui ruoli, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Come origine**, in **controllo di accesso (IAM)** concedere almeno il ruolo **lettore dati BLOB di archiviazione** .
     - **Come sink**, in **controllo di accesso (IAM)** concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .
@@ -280,7 +280,7 @@ Per informazioni generali sull'autenticazione di archiviazione di Azure, vedere 
 
 1. [Recuperare data factory informazioni sull'identità gestita](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore dell'ID oggetto identità gestito generato insieme alla Factory.
 
-2. Concedere l'autorizzazione di identità gestita nell'archivio BLOB di Azure. Per altre informazioni sui ruoli, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Concedere l'autorizzazione di identità gestita nell'archivio BLOB di Azure. Per altre informazioni sui ruoli, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Come origine**, in **controllo di accesso (IAM)** concedere almeno il ruolo **lettore dati BLOB di archiviazione** .
     - **Come sink**, in **controllo di accesso (IAM)** concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .

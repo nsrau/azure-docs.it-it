@@ -3,12 +3,12 @@ title: Concetti relativi a DevTest Labs | Microsoft Docs
 description: Informazioni sui concetti di base di DevTest Labs e su come possa semplificare la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283844"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327859"
 ---
 # <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
 ## <a name="overview"></a>Panoramica
@@ -23,7 +23,7 @@ Una macchina virtuale di Azure è uno dei vari tipi di [risorse di calcolo scala
 L'articolo [Panoramica delle macchine virtuali Windows in Azure](../virtual-machines/windows/overview.md) offre informazioni sugli aspetti da tenere in considerazione prima di creare una macchina virtuale, oltre a indicazioni su come creare e gestire la macchina virtuale stessa.
 
 ## <a name="claimable-vm"></a>Macchina virtuale a disposizione degli utenti
-Una macchina virtuale di Azure a disposizione degli utenti è una macchina virtuale che può essere usata da qualsiasi utente di laboratorio che dispone delle autorizzazioni appropriate. Un amministratore di lab può preparare macchine virtuali con immagini e artefatti di base specifici e salvarle in un pool condiviso. Un utente di laboratorio può quindi richiedere una macchina virtuale nel pool quando ha l'esigenza di usarne una con la configurazione specifica.
+Una macchina virtuale di Azure a disposizione degli utenti è una macchina virtuale che può essere usata da qualsiasi utente di laboratorio che dispone delle autorizzazioni appropriate. Un amministratore di laboratorio può preparare le macchine virtuali con le immagini e gli elementi di base specifici e salvarle in un pool condiviso. Un utente di laboratorio può quindi richiedere una macchina virtuale nel pool quando ha l'esigenza di usarne una con la configurazione specifica.
 
 Una macchina virtuale a disposizione degli utenti non viene inizialmente assegnata ad alcun utente specifico, ma viene visualizzata nell'elenco di ogni utente in "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti). Se una macchina virtuale viene richiesta da un utente, viene spostata nell'area "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per altri utenti.
 
@@ -56,7 +56,7 @@ I criteri consentono di controllare i costi nel lab. Ad esempio, è possibile cr
 I limiti rappresentano un meccanismo per ridurre al minimo gli sprechi nel lab. Ad esempio, è possibile impostare un limite per limitare il numero di macchine virtuali che possono essere create per ogni utente o in un lab.
 
 ## <a name="security-levels"></a>Livelli di sicurezza
-L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito definiti dal Controllo degli accessi in base al ruolo.
+L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per comprendere il funzionamento dell'accesso, è utile comprendere le differenze tra un'autorizzazione, un ruolo e un ambito definiti da Azure RBAC.
 
 * Autorizzazione: un'autorizzazione è un accesso definito a un'azione specifica, ad esempio un accesso in lettura a tutte le macchine virtuali.
 * Ruolo: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Ad esempio, il ruolo *proprietario della sottoscrizione* ha accesso a tutte le risorse all'interno di una sottoscrizione.
@@ -71,7 +71,7 @@ Per informazioni sulla creazione di ruoli personalizzati in DevTest Labs, vedere
 
 Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un determinato ambito, gli vengono automaticamente concesse tali autorizzazioni per ogni ambito di livello inferiore incluso. Ad esempio, se un utente è assegnato al ruolo di proprietario della sottoscrizione, ha accesso a tutte le risorse in una sottoscrizione, che includono tutte le macchine virtuali, tutte le reti virtuali e tutti i lab. Il proprietario di una sottoscrizione eredita quindi automaticamente il ruolo di proprietario del lab, ma non il contrario. Il proprietario di un lab ha accesso a un lab, che è un ambito più basso del livello della sottoscrizione. Il proprietario di un lab quindi non potrà visualizzare le macchine virtuali, le reti virtuali o nessuna altra risorsa esterna al lab.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 Tutti i concetti illustrati in questo articolo possono essere configurati con i modelli di Azure Resource Manager, che consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e distribuirle ripetutamente in uno stato coerente.
 
 L'articolo [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.

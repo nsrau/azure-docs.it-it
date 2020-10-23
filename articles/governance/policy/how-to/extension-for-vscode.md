@@ -1,20 +1,20 @@
 ---
 title: Estensione Criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077933"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317622"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
-> Si applica alla versione dell'estensione criteri di Azure **0.0.21** e versioni successive
+> Si applica alla versione dell'estensione criteri di Azure **0.1.0** e versioni successive
 
-Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare gli [alias](../concepts/definition-structure.md#aliases) ed esaminare le risorse e i criteri. In primo luogo, viene descritto come installare l'estensione di criteri di Azure in Visual Studio Code. Verranno quindi illustrate le procedure per la ricerca degli alias.
+Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare gli [alias](../concepts/definition-structure.md#aliases), esaminare le risorse e i criteri, esportare oggetti e valutare le definizioni dei criteri. In primo luogo, viene descritto come installare l'estensione di criteri di Azure in Visual Studio Code. Verranno quindi illustrate le procedure per la ricerca degli alias.
 
 L'estensione di criteri di Azure per Visual Studio Code può essere installata in tutte le piattaforme supportate da Visual Studio Code. Questo supporto include Windows, Linux e macOS.
 
@@ -151,6 +151,51 @@ L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di crit
 1. Utilizzare il filtro per selezionare i criteri o da visualizzare. Il filtro funziona per _DisplayName_ per la definizione dei criteri o l'assegnazione di criteri.
 
 Quando si seleziona un criterio o un'assegnazione, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il JSON che rappresenta il criterio o l'assegnazione e tutti i relativi valori Gestione risorse proprietà. L'estensione può convalidare lo schema JSON di criteri di Azure aperto.
+
+## <a name="export-objects"></a>Esporta oggetti
+
+Gli oggetti delle sottoscrizioni possono essere esportati in un file JSON locale. Nel riquadro **risorse** o **criteri** passare il mouse su un oggetto esportabile o selezionarlo. Alla fine della riga evidenziata, selezionare l'icona Salva e selezionare una cartella in cui salvare le risorse JSON.
+
+Gli oggetti seguenti possono essere esportati localmente:
+
+- Riquadro risorse
+  - Gruppi di risorse
+  - Singole risorse (in un gruppo di risorse o in un provider di risorse)
+- Riquadro Criteri
+  - Assegnazioni di criteri
+  - Definizioni dei criteri predefiniti
+  - Definizioni dei criteri personalizzati
+  - Iniziative
+
+## <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
+
+È possibile avviare un'analisi di valutazione con l'estensione criteri di Azure per Visual Studio Code. Per avviare una valutazione, selezionare e aggiungere ciascuno degli oggetti seguenti: una risorsa, una definizione dei criteri e un'assegnazione di criteri.
+
+1. Per aggiungere ogni oggetto, trovarlo nel riquadro **risorse** o nel riquadro **criteri** e selezionare l'icona Aggiungi a una scheda Modifica. Il blocco di un oggetto lo aggiunge al riquadro di **valutazione** dell'estensione.
+1. Nel riquadro **valutazione** selezionare uno di ogni oggetto e usare l'icona Seleziona per la valutazione per contrassegnarlo come incluso nella valutazione.
+1. Nella parte superiore del riquadro **valutazione** selezionare l'icona Esegui valutazione. Verrà aperto un nuovo riquadro in Visual Studio Code con i dettagli di valutazione risultanti in formato JSON.
+
+> [!NOTE]
+> Se la definizione dei criteri selezionata è un [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), nel riquadro **valutazione** usare l'icona più per selezionare una risorsa _correlata_ per il controllo dell'esistenza.
+
+I risultati della valutazione forniscono informazioni sulla definizione dei criteri e l'assegnazione dei criteri insieme alla proprietà **policyEvaluations. evaluationResult** . L'output sarà simile all'esempio seguente:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>Disconnetti
 

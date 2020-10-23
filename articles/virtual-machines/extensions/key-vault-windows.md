@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072289"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201682"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -97,8 +97,8 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 | certificateStoreLocation  | LocalMachine o CurrentUser (maiuscole/minuscole) | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
-| msiEndpoint | http://169.254.169.254/metadata/identity | Stringa |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | Stringa |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -222,6 +222,11 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 ### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
+
+### <a name="frequently-asked-questions"></a>Domande frequenti
+
+* È previsto un limite per il numero di observedCertificates che è possibile configurare?
+  No, Key Vault estensione della macchina virtuale non ha limiti per il numero di observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

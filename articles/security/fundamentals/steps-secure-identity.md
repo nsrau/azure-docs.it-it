@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399806"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364117"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
-Chi legge questo documento è consapevole dell'importanza della sicurezza e sicuramente è già responsabile della sicurezza dell'organizzazione. Per convincere altri dell'importanza della sicurezza, invitarli a leggere l'ultimo [Microsoft Security Intelligence Report](https://go.microsoft.com/fwlink/p/?linkid=2073747).
+Chi legge questo documento è consapevole dell'importanza della sicurezza e sicuramente è già responsabile della sicurezza dell'organizzazione. Per convincere altri dell'importanza della sicurezza, invitarli a leggere l'ultimo [Microsoft Security Intelligence Report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 Questo documento consente di migliorare l'approccio alla sicurezza con le funzionalità di Azure Active Directory usando un elenco di controllo di cinque passaggi per difendere l'organizzazione da attacchi informatici.
 
@@ -135,7 +135,7 @@ Un altro impatto determinato dalla presunzione di violazione è la necessità di
 
 Abilitare Azure AD PIM, visualizzare gli utenti a cui sono assegnati ruoli amministrativi e rimuovere gli account non necessari in questi ruoli. Per gli utenti con privilegi rimanenti, spostarli da permanenti a idonei. Infine, definire criteri appropriati per verificare che possano ottenere accesso a questi ruoli con privilegi, in modo sicuro e con il controllo modifiche necessario.
 
-Nell'ambito del processo di distribuzione degli account con privilegi, seguire le [procedure consigliate per la creazione di almeno due account di emergenza](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) in modo da avere sempre accesso ad Azure AD, anche in caso di blocco.
+Nell'ambito del processo di distribuzione degli account con privilegi, seguire le [procedure consigliate per la creazione di almeno due account di emergenza](../../active-directory/roles/security-planning.md) in modo da avere sempre accesso ad Azure AD, anche in caso di blocco.
 
 ## <a name="step-3---automate-threat-response"></a>Passaggio 3 - Automatizzare la risposta alle minacce
 
@@ -193,7 +193,7 @@ La [reimpostazione self-service delle password](../../active-directory/authentic
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementare l'accesso self-service alle applicazioni e ai gruppi
 
-Azure AD offre agli amministratori non amministratori la possibilità di gestire l'accesso alle risorse, usando gruppi di sicurezza, gruppi di Microsoft 365, ruoli applicazione e cataloghi dei pacchetti di accesso.  [Gestione gruppi self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) consente a un proprietario di gruppi di gestire i propri gruppi senza che gli venga necessariamente assegnato un ruolo di amministratore. Gli utenti possono anche creare e gestire Microsoft 365 gruppi senza affidarsi agli amministratori per gestire le richieste e i gruppi non usati scadono automaticamente.  [La gestione entitlement di Azure AD](../../active-directory/governance/entitlement-management-overview.md) offre un ulteriore livello di delega e di visibilità, con flussi di lavoro di richiesta di accesso completi e scadenza automatica.  È possibile delegare agli utenti non amministratori la possibilità di configurare pacchetti di accesso propri per i gruppi, Teams, le applicazioni e i siti di SharePoint Online di cui sono proprietari, con criteri personalizzati per gli utenti che richiedono di approvare l'accesso, inclusa la configurazione dei responsabili dei dipendenti e degli sponsor dei partner commerciali come responsabili approvazione.
+Azure AD offre agli amministratori non amministratori la possibilità di gestire l'accesso alle risorse, usando gruppi di sicurezza, gruppi di Microsoft 365, ruoli applicazione e cataloghi dei pacchetti di accesso.  [Gestione gruppi self-service](../../active-directory/enterprise-users/groups-self-service-management.md) consente a un proprietario di gruppi di gestire i propri gruppi senza che gli venga necessariamente assegnato un ruolo di amministratore. Gli utenti possono anche creare e gestire Microsoft 365 gruppi senza affidarsi agli amministratori per gestire le richieste e i gruppi non usati scadono automaticamente.  [La gestione entitlement di Azure AD](../../active-directory/governance/entitlement-management-overview.md) offre un ulteriore livello di delega e di visibilità, con flussi di lavoro di richiesta di accesso completi e scadenza automatica.  È possibile delegare agli utenti non amministratori la possibilità di configurare pacchetti di accesso propri per i gruppi, Teams, le applicazioni e i siti di SharePoint Online di cui sono proprietari, con criteri personalizzati per gli utenti che richiedono di approvare l'accesso, inclusa la configurazione dei responsabili dei dipendenti e degli sponsor dei partner commerciali come responsabili approvazione.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementare verifiche di accesso di Azure AD
 

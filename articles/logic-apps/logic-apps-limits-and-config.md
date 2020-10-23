@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
-ms.openlocfilehash: 0705336056ff7c60afddd866b5c65694098a32db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744067"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440655"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -41,32 +41,37 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Durata dell'esecuzione e limiti di conservazione
+## <a name="run-duration-and-retention-history-limits"></a>Durata dell'esecuzione e limiti della cronologia di conservazione
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Durata esecuzione | 90 giorni | 366 giorni | Per calcolare la durata dell'esecuzione, si usa l'ora di inizio dell'esecuzione e il limite specificato *all'ora di inizio* dall'impostazione del flusso di lavoro [**Conservazione cronologia di esecuzione in giorni**](#change-duration). <p><p>Per modificare il limite predefinito, pari a 90 giorni, vedere [Modificare la durata dell'esecuzione](#change-duration). |
-| Conservazione esecuzioni nell'archiviazione | 90 giorni | 366 giorni | Per calcolare la conservazione dell'esecuzione, si usa l'ora di inizio dell'esecuzione e il limite specificato *all'ora corrente* dall'impostazione del flusso di lavoro [**Conservazione cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal completamento o dal timeout di un'esecuzione, per il calcolo della conservazione si usa sempre l'ora di inizio dell'esecuzione. Quando la durata di un'esecuzione supera il limite di conservazione *corrente*, l'esecuzione viene rimossa dalla cronologia delle esecuzioni. <p><p>Se si modifica questa impostazione, il limite corrente viene comunque usato per il calcolo della conservazione, indipendentemente dal limite precedente. Se, ad esempio, si riduce il limite di conservazione da 90 a 30 giorni, un'esecuzione risalente a 60 giorni prima viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 giorni a 60 giorni, un'esecuzione risalente a 20 giorni prima rimane nella cronologia delle esecuzioni per altri 40 giorni. <p><p>Per modificare il limite predefinito, pari a 90 giorni, vedere [Modificare la conservazione delle esecuzioni nell'archiviazione](#change-retention). |
+| Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio di un'esecuzione. |
+| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Se l'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere [modificare il periodo di memorizzazione della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici. |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
 
-<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Modificare la durata e la conservazione delle esecuzioni nell'archiviazione
+### <a name="change-run-history-retention-in-storage"></a>Modificare il periodo di memorizzazione della cronologia di esecuzione nell'archiviazione
 
-Per modificare il limite predefinito per la durata e la conservazione delle esecuzioni nell'archiviazione, seguire questa procedura. Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici.
+Per modificare il limite predefinito per la conservazione della cronologia di esecuzione nell'archiviazione, attenersi alla seguente procedura.
 
-> [!NOTE]
-> Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
-> Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
+* Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Nella casella di ricerca del portale trovare e selezionare **App per la logica**.
+* Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
 
-1. Selezionare e aprire l'app per la logica in Progettazione app per la logica.
+Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, una durata di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni. 
+
+
+> [!IMPORTANT]
+> Per evitare di perdere la cronologia di esecuzione, assicurarsi che il limite di conservazione sia *sempre* maggiore della durata più lunga possibile dell'esecuzione. In caso contrario, la cronologia di esecuzione viene persa.
+
+1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica**.
+
+1. Trovare e selezionare l'app per la logica. Aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
 1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro**.
 
@@ -350,6 +355,7 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 | Francia centrale | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | Francia meridionale | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Germania settentrionale | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
+| Germania centro-occidentale | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
 | Giappone orientale | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Giappone occidentale | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Corea centrale | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
@@ -413,6 +419,7 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 | Francia centrale | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239, 40.79.148.96 - 40.79.148.127 |
 | Francia meridionale | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
 | Germania settentrionale | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
+| Germania centro-occidentale | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.236.78, 51.116.158.96 - 51.116.158.127, 51.116.155.80 - 51.116.155.95 |
 | Giappone orientale | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | Giappone occidentale | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Corea centrale | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |

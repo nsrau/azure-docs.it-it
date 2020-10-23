@@ -3,12 +3,12 @@ title: Azure Service Fabric-uso di Service Fabric riferimenti all'insieme di cre
 description: Questo articolo illustra come usare il supporto KeyVaultReference di Service Fabric per i segreti dell'applicazione.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261142"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313785"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
 
@@ -18,7 +18,7 @@ Un problema comune durante la creazione di applicazioni cloud è come archiviare
 > L'uso di questa funzionalità di anteprima non è consigliato negli ambienti di produzione.
 
 > [!NOTE]
-> La funzionalità Anteprima di riferimento dell'insieme di credenziali delle chiavi supporta solo i segreti con [versione](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) . I segreti senza versione non sono supportati.
+> La funzionalità Anteprima di riferimento dell'insieme di credenziali delle chiavi supporta solo i segreti con [versione](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) . I segreti senza versione non sono supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89656999"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173654"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -22,19 +22,18 @@ ms.locfileid: "89656999"
 
 **Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
 
+## <a name="limitations"></a>Limitazioni
+
+* Non è possibile eseguire l'autenticazione in Azure Container Registry per eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un' [identità gestita](container-instances-managed-identity.md) configurata nello stesso gruppo di contenitori.
+* Al momento non è possibile effettuare il pull di immagini da [Azure container Registry](../container-registry/container-registry-vnet.md) distribuite in una rete virtuale di Azure.
+
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
 In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo di Azure (RBAC)](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
 Azure Container Registry offre [Opzioni di autenticazione](../container-registry/container-registry-authentication.md)aggiuntive.
 
-> [!NOTE]
-> Non è possibile eseguire l'autenticazione in Azure Container Registry per eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un' [identità gestita](container-instances-managed-identity.md) configurata nello stesso gruppo di contenitori.
-
-> [!NOTE]
-> Al momento non è possibile effettuare il pull di immagini da [Azure container Registry](../container-registry/container-registry-vnet.md) distribuite in una rete virtuale di Azure.
-
-Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
+Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme.
 
 ### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi
 

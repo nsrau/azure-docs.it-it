@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566501"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202345"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuiti e peering ExpressRoute
 
@@ -70,7 +70,7 @@ Ogni peering richiede sessioni BGP separati (una coppia per ogni tipo di peering
 
 ## <a name="expressroute-health"></a><a name="health"></a>Integrità di ExpressRoute
 
-La disponibilità, la connettività alle reti virtuali e l'utilizzo della larghezza di banda dei circuiti ExpressRoute possono essere monitorati usando [Monitoraggio prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+La disponibilità, la connettività alle reti virtuali e l'utilizzo della larghezza di banda dei circuiti ExpressRoute possono essere monitorati usando [Monitoraggio prestazioni di rete](../networking/network-monitoring-overview.md).
 
 Monitoraggio prestazioni rete verifica l'integrità del peering privato di Azure e del peering Microsoft. Per altre informazioni, vedere questo [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 

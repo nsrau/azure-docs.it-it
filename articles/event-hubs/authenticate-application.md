@@ -2,13 +2,13 @@
 title: Autenticare un'applicazione per accedere alle risorse di hub eventi di Azure
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566330"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359935"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi
 Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` (per i client Kafka la risorsa per la richiesta di un token è `https://<namespace>.servicebus.windows.net` ). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
@@ -16,7 +16,7 @@ Microsoft Azure offre la gestione integrata del controllo di accesso per le riso
 Quando un ruolo viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse, allo spazio dei nomi di hub eventi o a qualsiasi risorsa sottostante. Un Azure AD sicurezza può assegnare ruoli a un utente, a un gruppo, a un'entità servizio dell'applicazione o a un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
-> Una definizione di ruolo è una raccolta di autorizzazioni, Il controllo degli accessi in base al ruolo controlla il modo in cui queste autorizzazioni vengono applicate tramite l'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Per ulteriori informazioni, vedere [Understanding the different Roles](../role-based-access-control/overview.md).
+> Una definizione di ruolo è una raccolta di autorizzazioni, Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) controlla il modo in cui queste autorizzazioni vengono applicate tramite l'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Per ulteriori informazioni, vedere [Understanding the different Roles](../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Ruoli predefiniti per hub eventi di Azure
 Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso ai dati di hub eventi usando Azure AD e OAuth:
@@ -25,38 +25,10 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 - [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
 - [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso alle risorse di hub eventi.   
 
-Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#role-based-access-control).
+Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > La versione di anteprima supporta l'aggiunta di privilegi di accesso ai dati di hub eventi al ruolo proprietario o collaboratore. Tuttavia, i privilegi di accesso ai dati per il proprietario e il ruolo Collaboratore non vengono più rispettati. Se si usa il ruolo proprietario o collaboratore, passare a usare il ruolo di proprietario dei dati di hub eventi di Azure.
-
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Assegnare i ruoli di Azure usando il portale di Azure  
-Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con RBAC e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
-
-Dopo aver determinato l'ambito appropriato per un'assegnazione di ruolo, passare a tale risorsa nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
-
-> [!NOTE]
-> La procedura descritta di seguito assegna un ruolo all'hub eventi negli spazi dei nomi di hub eventi, ma è possibile seguire la stessa procedura per assegnare un ruolo con ambito a qualsiasi risorsa di hub eventi.
-
-1. Passare allo spazio dei nomi degli hub eventi nel [portale di Azure](https://portal.azure.com/).
-2. Nella pagina **Overview (panoramica** ) selezionare l'hub eventi per cui si vuole assegnare un ruolo.
-
-    ![Selezionare l'hub eventi](./media/authenticate-application/select-event-hub.png)
-1. Selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'hub eventi. 
-1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo**. 
-
-    ![Pulsante Aggiungi sulla barra degli strumenti](./media/authenticate-application/role-assignments-add-button.png)
-1. Nella pagina **Aggiungi assegnazione ruolo** eseguire le operazioni seguenti:
-    1. Selezionare il **ruolo di hub eventi** che si vuole assegnare. 
-    1. Eseguire una ricerca per individuare l' **entità di sicurezza** (utente, gruppo, entità servizio) a cui si desidera assegnare il ruolo.
-    1. Selezionare **Save (Salva** ) per salvare l'assegnazione di ruolo. 
-
-        ![Assegnare un ruolo a un utente](./media/authenticate-application/assign-role-to-user.png)
-    4. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, l'immagine seguente mostra che Azure-Users si trova nel ruolo di proprietario dei dati di hub eventi di Azure. 
-        
-        ![Utente nell'elenco](./media/authenticate-application/user-in-list.png)
-
-È possibile seguire una procedura simile per assegnare un ruolo con ambito allo spazio dei nomi di hub eventi, al gruppo di risorse o alla sottoscrizione. Dopo aver definito il ruolo e il relativo ambito, è possibile testare questo comportamento con gli esempi [in questo percorso di GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
 
 ## <a name="authenticate-from-an-application"></a>Eseguire l'autenticazione da un'applicazione
@@ -95,6 +67,30 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
     ![Segreto client](./media/authenticate-application/client-secret.png)
 
 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Assegnare i ruoli di Azure usando il portale di Azure  
+Dopo aver registrato l'applicazione, assegnare l'entità servizio dell'applicazione a un ruolo di hub eventi Azure AD descritto nella sezione [ruoli di compilazione per hub eventi di Azure](#built-in-roles-for-azure-event-hubs) . 
+
+1. Passare allo spazio dei nomi degli hub eventi nel [portale di Azure](https://portal.azure.com/).
+2. Nella pagina **Overview (panoramica** ) selezionare l'hub eventi per cui si vuole assegnare un ruolo.
+
+    ![Selezionare l'hub eventi](./media/authenticate-application/select-event-hub.png)
+1. Selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'hub eventi. 
+1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo**. 
+
+    ![Pulsante Aggiungi sulla barra degli strumenti](./media/authenticate-application/role-assignments-add-button.png)
+1. Nella pagina **Aggiungi assegnazione ruolo** eseguire le operazioni seguenti:
+    1. Selezionare il **ruolo di hub eventi** che si vuole assegnare. 
+    1. Eseguire una ricerca per individuare l' **entità di sicurezza** (utente, gruppo, entità servizio) a cui si desidera assegnare il ruolo. Selezionare l' **applicazione registrata** dall'elenco. 
+    1. Selezionare **Save (Salva** ) per salvare l'assegnazione di ruolo. 
+
+        ![Assegnare un ruolo a un utente](./media/authenticate-application/assign-role-to-user.png)
+    4. Passare alla scheda **assegnazioni di ruolo** e confermare l'assegnazione di ruolo. Ad esempio, l'immagine seguente mostra che **MyWebApp** si trova nel ruolo di **mittente dei dati di hub eventi di Azure** . 
+        
+        ![Utente nell'elenco](./media/authenticate-application/user-in-list.png)
+
+È possibile seguire una procedura simile per assegnare un ruolo con ambito allo spazio dei nomi di hub eventi, al gruppo di risorse o alla sottoscrizione. Dopo aver definito il ruolo e il relativo ambito, è possibile testare questo comportamento con gli esempi [in questo percorso di GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
+
+
 ### <a name="client-libraries-for-token-acquisition"></a>Librerie client per l'acquisizione di token  
 Dopo aver registrato l'applicazione e concesso le autorizzazioni per l'invio e la ricezione di dati nell'hub eventi di Azure, è possibile aggiungere codice all'applicazione per autenticare un'entità di sicurezza e acquisire il token OAuth 2,0. Per autenticare e acquisire il token, è possibile usare una delle librerie di [autenticazione della piattaforma di identità Microsoft](../active-directory/develop/reference-v2-libraries.md) o un'altra libreria open source che supporta OpenID o Connect 1,0. L'applicazione può quindi usare il token di accesso per autorizzare una richiesta a hub eventi di Azure.
 
@@ -109,12 +105,12 @@ Per un elenco degli scenari per i quali è supportato l'acquisizione di token, v
     Questo esempio è stato aggiornato in modo da usare la libreria **Azure. Messaging. EventHubs** più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
+- Per altre informazioni su RBAC di Azure, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)?
 - Per informazioni su come assegnare e gestire le assegnazioni di ruolo di Azure con Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST, vedere questi articoli:
-    - [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
-    - [Gestire il controllo degli accessi in base al ruolo con l'API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gestire il controllo degli accessi in base al ruolo (RBAC) con modelli di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Aggiungere assegnazioni di ruolo di Azure tramite modelli di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Vedere gli articoli correlati seguenti:
 - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi](authenticate-managed-identity.md)

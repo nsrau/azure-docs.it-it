@@ -1,25 +1,28 @@
 ---
-title: Raccogliere e analizzare i contatori delle prestazioni in Monitoraggio di Azure| Microsoft Docs
+title: Raccolta di origini dati per le prestazioni di Windows e Linux con Log Analytics Agent in monitoraggio di Azure
 description: I contatori delle prestazioni vengono raccolti da Monitoraggio di Azure per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955489"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461363"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
-I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Raccogli origini dati per le prestazioni di Windows e Linux con Log Analytics Agent
+I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure è in grado di raccogliere i contatori delle prestazioni dagli agenti Log Analytics a intervalli frequenti per l'analisi di quasi in tempo reale (NRT) oltre ad aggregare i dati sulle prestazioni per l'analisi a lungo termine e la creazione di report
+
+> [!IMPORTANT]
+> Questo articolo illustra la raccolta dei dati sulle prestazioni con l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Contatori delle prestazioni](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
-Configurare i contatori delle prestazioni nel [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).
+Configurare i contatori delle prestazioni dal [menu dati in impostazioni avanzate](agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics.
 
 Quando si configurano per la prima volta i contatori delle prestazioni di Windows o Linux per una nuova area di lavoro, è possibile creare rapidamente alcuni contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
 
@@ -156,7 +159,7 @@ Di seguito è illustrata la configurazione predefinita per le metriche delle pre
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +167,7 @@ Di seguito è illustrata la configurazione predefinita per le metriche delle pre
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>

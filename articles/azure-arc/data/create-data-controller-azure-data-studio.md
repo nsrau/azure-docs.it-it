@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273144"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310959"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Crea controller dati in Azure Data Studio
 
@@ -25,7 +25,7 @@ ms.locfileid: "91273144"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario accedere a un cluster Kubernetes e fare in modo che il file kubeconfig sia configurato in modo da puntare al cluster Kubernetes in cui si vuole eseguire la distribuzione.
-- È necessario [installare gli strumenti client](install-client-tools.md) , tra **cui Azure Data Studio** le estensioni Azure Data Studio denominate **Azure Arc** e l'interfaccia della riga di comando di **Azure Data**.
+- È necessario [installare gli strumenti client](install-client-tools.md) di, tra cui **Azure Data Studio** le estensioni Azure Data Studio denominate **Azure Arc** e **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** .
 - È necessario accedere ad Azure in Azure Data Studio.  A tale scopo, digitare CTRL + comando + MAIUSC + P per aprire la finestra del testo del comando e digitare **Azure**.  Scegliere **Azure: accedi**.   Nel pannello che viene visualizzato fare clic sull'icona + in alto a destra per aggiungere un account Azure.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>Usare la distribuzione guidata per creare il controller dati di Azure Arc

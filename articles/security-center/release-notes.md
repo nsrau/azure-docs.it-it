@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b1bd0ff28906f35ddc56afbd0287bbe29879deb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438945"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999293"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
-La sicurezza di Azure è in fase di sviluppo attivo e riceve miglioramenti su base continuativa. Per stare al passo con gli sviluppi più recenti, questa pagina fornisce informazioni sugli argomenti seguenti:
+Il Centro sicurezza è in fase di sviluppo attivo e riceve regolarmente miglioramenti. Per stare al passo con gli sviluppi più recenti, questa pagina fornisce informazioni su funzionalità nuove e deprecate, oltre che sulle correzioni dei bug.
 
-- Nuove funzionalità
-- Correzioni di bug
-- Funzionalità deprecate
+Questa pagina viene aggiornata regolarmente, quindi è consigliabile consultarla spesso. 
 
-Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarla spesso. Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
+> [!TIP]
+> Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
+
 
 
 ## <a name="september-2020"></a>Settembre 2020
@@ -387,7 +387,7 @@ Durante la distribuzione di una soluzione di valutazione delle vulnerabilità, i
 
 A partire da questo aggiornamento, il controllo è stato rimosso ed è ora possibile distribuire strumenti di valutazione delle vulnerabilità in computer Windows e Linux "personalizzati". Le immagini personalizzate sono immagini modificate a partire da impostazioni predefinite del marketplace.
 
-Anche se è ora possibile distribuire l'estensione di valutazione delle vulnerabilità integrata (con tecnologia Qualys) in molti altri computer, il supporto è disponibile solo se si usa un sistema operativo elencato in [Distribuire il rilevatore di vulnerabilità integrato nelle macchine virtuali di livello Standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-your-vms)
+Anche se è ora possibile distribuire l'estensione di valutazione delle vulnerabilità integrata (con tecnologia Qualys) in molti altri computer, il supporto è disponibile solo se si usa un sistema operativo elencato in [Distribuire il rilevatore di vulnerabilità integrato nelle macchine virtuali di livello Standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
 Altre informazioni sul [rilevatore di vulnerabilità integrato per macchine virtuali (richiede Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 

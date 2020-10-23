@@ -1,22 +1,20 @@
 ---
 title: Eseguire il debug del codice C# per Azure Data Lake processi U-SQL
 description: L'articolo illustra come eseguire il debug di un vertice con errore di U-SQL usando Strumenti Azure Data Lake per Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131872"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218018"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
-U-SQL fornisce un modello di estendibilità che usa C#. Negli script U-SQL è possibile chiamare facilmente le funzioni C# ed eseguire funzioni di analisi non supportate dal linguaggio dichiarativo simile a SQL. Per altre informazioni sull'estendibilità di U-SQL, vedere [Guida alla programmabilità di U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL fornisce un modello di estendibilità che usa C#. Negli script U-SQL è possibile chiamare facilmente le funzioni C# ed eseguire funzioni di analisi non supportate dal linguaggio dichiarativo simile a SQL. Per altre informazioni sull'estendibilità di U-SQL, vedere [Guida alla programmabilità di U-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 In pratica, qualsiasi codice può richiedere il debug, ma è difficile eseguire il debug di un processo distribuito con il codice personalizzato nel cloud con file di log limitati. [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) include una funzionalità denominata **debug del vertice con errore**, che consente di eseguire più facilmente il debug degli errori che si verificano nel codice personalizzato. Quando il processo U-SQL non riesce, il servizio mantiene lo stato di errore e lo strumento consente di scaricare l'ambiente dell'errore cloud nel computer locale per il debug. Il download locale acquisisce tutto l'ambiente cloud, inclusi eventuali dati di input e il codice utente.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 617351d5d1bdf9b6528803552e2d34766e9ab217
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371950"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132653"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
@@ -561,7 +561,7 @@ Non è possibile definire un centro di costo a livello di servizio. Se si vuole 
 
 Dopo aver creato reparti e sottoscrizioni, è possibile visualizzare i dati nel report sull'utilizzo. Queste informazioni consentono di tenere traccia dell'utilizzo e di gestire i costi e le spese a livello di reparto.
 
-È anche possibile accedere ai dati di utilizzo tramite l'API di creazione report. Per informazioni dettagliate e codice di esempio, vedere [API REST di Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+È anche possibile accedere ai dati di utilizzo tramite l'API di creazione report. Per informazioni dettagliate e codice di esempio, vedere [API REST di Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>È possibile impostare una quota di spesa e ricevere avvisi quando si avvicina il limite?
 
@@ -573,7 +573,7 @@ Per definire la quota di spesa, selezionare un reparto e quindi selezionare l'ic
 
 Se si usano i _gruppi di risorse_ e i _tag_, queste informazioni vengono rilevate a livello di servizio ed è possibile accedervi nel file di utilizzo dettagliato scaricabile (con estensione csv). Vedere il [report sull'utilizzo](https://ea.azure.com/report/downloadusage) scaricabile in Azure Enterprise Portal.
 
-È anche possibile accedere all'utilizzo tramite API. Per informazioni dettagliate e codice di esempio, vedere [API REST di Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+È anche possibile accedere all'utilizzo tramite API. Per informazioni dettagliate e codice di esempio, vedere [API REST di Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > È possibile applicare tag solo alle risorse che supportano le operazioni di Azure Resource Manager. Se è stata creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione tramite il modello di distribuzione classica, ad esempio tramite il portale classico, non è possibile applicare un tag a tale risorsa. Per supportare l'assegnazione di tag, distribuire nuovamente tali risorse tramite Resource Manager. Tutte le altre risorse supportano l'assegnazione di tag.

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570004"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320222"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Risoluzione dei problemi relativi ai gruppi di server di iperscala PostgreSQL
 Questo articolo descrive alcune tecniche che è possibile usare per risolvere i problemi del gruppo di server. Oltre a questo articolo, è consigliabile leggere come usare [Kibana](monitor-grafana-kibana.md) per eseguire ricerche nei log o usare [Grafana](monitor-grafana-kibana.md) per visualizzare le metriche relative al gruppo di server. 
@@ -26,7 +26,7 @@ Questo articolo descrive alcune tecniche che è possibile usare per risolvere i 
 azdata arc postgres server create -n postgres01 -w 2 --debug
 ```
 
-oppure
+o
 ```console
 azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
 ```
@@ -51,13 +51,13 @@ Ad esempio, è possibile risolvere i problemi relativi a un gruppo di server con
 
 ### <a name="install-tools"></a>Installare gli strumenti
 
-Installare Azure Data Studio `kubectl` e nel `azdata` computer client usato per eseguire il notebook in Azure Data Studio. A tale scopo, seguire le istruzioni disponibili in [installare gli strumenti client](install-client-tools.md)
+Installare Azure Data Studio `kubectl` e nel [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] computer client usato per eseguire il notebook in Azure Data Studio. A tale scopo, seguire le istruzioni disponibili in [installare gli strumenti client](install-client-tools.md)
 
 ### <a name="update-the-path-environment-variable"></a>Aggiornare la variabile di ambiente PATH
 
 Assicurarsi che questi strumenti possano essere richiamati da qualsiasi punto del computer client. Ad esempio, in un computer client Windows aggiornare la variabile di ambiente di sistema PATH e aggiungere la cartella in cui è stato installato kubectl.
 
-### <a name="sign-in-with-azdata"></a>Accedi con `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>Accedi con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Accedere al controller di dati Arc da questo computer client e prima di avviare Azure Data Studio. A tale scopo, eseguire un comando simile al seguente:
 

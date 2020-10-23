@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9e3aaf0747e9b28526a43d9f734084f8a75662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b67761b3c765e202505d442647b3ba034ef15a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743695"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372498"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Questo articolo descrive come creare una o più verifiche di accesso per i ruoli
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Apri verifiche di accesso
 

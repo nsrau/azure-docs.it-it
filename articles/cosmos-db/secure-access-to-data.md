@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760870"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371733"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -29,20 +29,7 @@ Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire acce
 
 ## <a name="primary-keys"></a>Chiavi primarie
 
-Le chiavi primarie forniscono l'accesso a tutte le risorse amministrative per l'account del database. Chiavi primarie:
-
-- Consentono di accedere ad account, database, utenti e autorizzazioni. 
-- Non possono essere usate per fornire l'accesso granulare a contenitori e documenti.
-- Vengono create durante la creazione di un account.
-- Possono essere rigenerate in qualsiasi momento.
-
-Ogni account è costituito da due chiavi primarie: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account.
-
-Oltre alle due chiavi primarie per l'account Cosmos DB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
-
-È possibile recuperare e rigenerare le chiavi primarie, secondarie, di sola lettura e di lettura/scrittura usando il portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#regenerate-account-key).
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL":::
+Le chiavi primarie forniscono l'accesso a tutte le risorse amministrative per l'account del database. Ogni account è costituito da due chiavi primarie: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account. Per altre informazioni sulle chiavi primarie, vedere l'articolo sulla [sicurezza del database](database-security.md#primary-keys) .
 
 ### <a name="key-rotation"></a>Rotazione delle chiavi<a id="key-rotation"></a>
 
@@ -51,10 +38,10 @@ Il processo di rotazione della chiave primaria è semplice.
 1. Passare alla portale di Azure per recuperare la chiave secondaria.
 2. Sostituire la chiave primaria con la chiave secondaria nell'applicazione. Assicurarsi che tutti i client Cosmos DB in tutte le distribuzioni vengano riavviati immediatamente e inizino a usare la chiave aggiornata.
 3. Ruotare la chiave primaria nel portale di Azure.
-4. Verificare che la nuova chiave primaria funzioni su tutte le risorse. Il processo di rotazione delle chiavi può richiedere da meno di un minuto a ore, a seconda delle dimensioni dell'account Cosmos DB.
+4. Verificare che la nuova chiave primaria funzioni su tutte le risorse. Il processo di rotazione delle chiavi può richiedere da meno di un minuto all'ora, a seconda delle dimensioni dell'account Cosmos DB.
 5. Sostituire la chiave secondaria con la nuova chiave primaria.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotazione delle chiavi primarie nell'portale di Azure-dimostrazione della sicurezza del database NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Esempio di codice per l'uso di una chiave primaria
 
@@ -102,9 +89,9 @@ Di seguito è riportato un tipico schema progettuale in cui i token delle risors
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di Cosmos DB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive ricevono un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Rotazione delle chiavi primarie nell'portale di Azure-dimostrazione della sicurezza del database NoSQL" border="false":::
 
-La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client di Cosmos DB native. Se tuttavia si usa REST, è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client Cosmos DB Native; Tuttavia, se si usa REST è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Per un esempio di servizio di livello intermedio usato per generare o negoziare i token delle risorse, vedere l'app [ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -168,7 +155,7 @@ Per aggiungere l'accesso in lettura dell'account Azure Cosmos DB al proprio acco
 4. Nella **casella assegna accesso a**selezionare **Azure ad utente, gruppo o applicazione**.
 5. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso.  È possibile eseguire ricerche nella directory in base al nome visualizzato, all'indirizzo di posta elettronica o all'identificatore dell'oggetto.
     L'applicazione, il gruppo o l'utente selezionato viene visualizzato nell'elenco dei membri selezionati.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 L'entità può ora leggere le risorse di Azure Cosmos DB.
 

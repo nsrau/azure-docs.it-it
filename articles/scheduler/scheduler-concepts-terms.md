@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878392"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368163"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
@@ -40,7 +40,7 @@ A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure e
 
 ### <a name="job-management"></a>Gestione processi
 
-Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestione delle raccolte di processi
 
-Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Ecco l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](/rest/api/scheduler/jobcollections). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gestione della cronologia dei processi
 
-Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Ecco l'indirizzo URI per questa operazione:
+Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](/rest/api/scheduler/jobs/listjobhistory). Ecco l'indirizzo URI per questa operazione:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -214,7 +214,7 @@ Qui è riportato un esempio di azione di argomento del bus di servizio:
 },
 ```
 
-Per altre informazioni sui token delle firme di accesso condiviso (SAS), vedere [Autorizzazione con firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Per altre informazioni sui token delle firme di accesso condiviso (SAS), vedere [Autorizzazione con firme di accesso condiviso](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 

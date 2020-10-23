@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 7a80fb47122d21e078cf2724b805fa56c5a73aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d45ad630d09a4909cf00b830df139057cc0fcaf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018128"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142290"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Caricare file da un dispositivo al cloud con l'hub IoT (.NET)
 
@@ -200,4 +200,4 @@ In questa esercitazione si è appreso come usare le funzionalità di caricamento
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)

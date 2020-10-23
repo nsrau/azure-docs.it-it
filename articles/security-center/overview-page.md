@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899fddf08a817126ce775733da38ffd10ab3ab23
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447683"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952115"
 ---
 # <a name="azure-security-centers-overview-page"></a>Pagina di panoramica del Centro sicurezza di Azure
 
@@ -38,7 +38,7 @@ La **barra dei menu superiore** offre:
 
 Al centro della pagina sono presenti **quattro riquadri centrali**, ognuno dei quali conduce a un dashboard dedicato contenente altri dettagli:
 - **Punteggio di sicurezza**: il Centro sicurezza valuta continuamente le risorse, le sottoscrizioni e l'intera organizzazione per rilevare problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato. [Altre informazioni](secure-score-security-controls.md)
-- **Conformità**: il Centro sicurezza offre informazioni dettagliate sul comportamento di conformità in base a valutazioni continue dell'ambiente Azure. Il Centro sicurezza analizza i fattori di rischio nell'ambiente cloud ibrido in base alle procedure di sicurezza consigliate. Queste valutazioni sono associate ai controlli di conformità di un set di standard supportato. [Altre informazioni](security-center-compliance-dashboard.md).
+- **Conformità**: il Centro sicurezza offre informazioni dettagliate sul comportamento di conformità in base a valutazioni continue dell'ambiente Azure. Il Centro sicurezza analizza i fattori di rischio nell'ambiente cloud ibrido in base alle procedure di sicurezza consigliate. Tali valutazioni sono associate ai controlli di conformità di un set di standard supportato. [Altre informazioni](security-center-compliance-dashboard.md)
 - **Azure Defender**: è la soluzione CWPP (Cloud Workload Protection Platform) integrata nel Centro sicurezza per offrire una protezione avanzata e intelligente dei carichi di lavoro di Azure e ibridi. Il riquadro mostra la copertura delle risorse connesse (per le sottoscrizioni attualmente selezionate) e gli avvisi recenti, contraddistinti da colori diversi in base al livello di gravità. [Altre informazioni](azure-defender.md)
 - **Inventario**: il riquadro mostra il numero di macchine virtuali non monitorate e un semplice barometro delle risorse monitorate dal Centro sicurezza. [Altre informazioni](asset-inventory.md)
 

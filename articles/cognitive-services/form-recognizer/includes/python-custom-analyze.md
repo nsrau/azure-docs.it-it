@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 262774233871a46cf971d95a6cf5d810adf9746a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723495"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961791"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analizzare i moduli per trovare le coppie chiave-valore e le tabelle
 
 Quindi, usare il modello appena sottoposto a training per analizzare un documento da cui estrarre le coppie chiave-valore e le tabelle. Chiamare l'API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** eseguendo il codice seguente in un nuovo script Python. Prima di eseguire lo script, apportare queste modifiche:
 
-1. Sostituire `<file path>` con il percorso del file del proprio modulo (ad esempio, C:\temp\file.pdf). Può anche essere l'URL di un file remoto. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Sostituire `<file path>` con il percorso del file del proprio modulo (ad esempio, C:\temp\file.pdf). Può anche essere l'URL di un file remoto. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip*).
 1. Sostituire `<model_id>` con l'ID modello ricevuto nella sezione precedente.
 1. Sostituire `<endpoint>` con l'endpoint ottenuto con la chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `<file type>` con il tipo di file. I tipi supportati sono `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.

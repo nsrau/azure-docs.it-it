@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 345535ae52b9a271bcee5ff7a2b651af144624f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b4d6502e49fdd30a68188a1e580a1c137984c89f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684712"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132381"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
 
@@ -32,7 +32,7 @@ Authorization: Bearer
 
 Il parametro `{subscriptionID}` è obbligatorio e identifica la sottoscrizione di destinazione.
 
-Il parametro `{billingPeriod}` è obbligatorio e specifica un [periodo di fatturazione](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) corrente.
+Il parametro `{billingPeriod}` è obbligatorio e specifica un [periodo di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) corrente.
 
 Il parametri `${startDate}` e `${endDate}` sono necessari per questo esempio, ma facoltativi per l'endpoint. Specificano l'intervallo di date come stringhe nel formato AAAA-MM-GG (esempi: `'20180501'` e `'20180615'`).
 
@@ -41,7 +41,7 @@ Gli argomenti seguenti sono obbligatori:
 |Intestazione della richiesta|Descrizione|
 |--------------------|-----------------|
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|
-|*Authorization:*|Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 ## <a name="response"></a>Risposta
 
@@ -85,7 +85,7 @@ Ogni elemento in **value** rappresenta un dettaglio relativo all'uso di un servi
 |**meterDetails** | Informazioni dettagliate sull'uso. |
 |**nextLink**| Se impostato, specifica un URL per la "pagina" dettagli successiva. Se la pagina è l'ultima, è vuoto. |
 
-Questo esempio è abbreviato; vedere [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) (Dettagli dell'elenco di utilizzo) per una descrizione completa di ogni campo di risposta.
+Questo esempio è abbreviato; vedere [List usage details](/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) (Dettagli dell'elenco di utilizzo) per una descrizione completa di ogni campo di risposta.
 
 Altri codici di stato indicano condizioni di errore. In questi casi l'oggetto risposta spiega il motivo per cui la richiesta non è riuscita.
 
@@ -101,6 +101,6 @@ Altri codici di stato indicano condizioni di errore. In questi casi l'oggetto ri
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Vedere [Panoramica della creazione di report aziendali](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Approfondire [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/) (API REST di fatturazione Enterprise)
-- [Introduzione all'API REST di Azure](https://docs.microsoft.com/rest/api/azure/)
+- Vedere [Panoramica della creazione di report aziendali](./enterprise-api.md)
+- Approfondire [Enterprise Billing REST API](/rest/api/billing/) (API REST di fatturazione Enterprise)
+- [Introduzione all'API REST di Azure](/rest/api/azure/)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096335"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370441"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -29,7 +29,7 @@ Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo sc
 
 Il diagramma seguente illustra un ambiente di Azure tipico per applicazioni in esecuzione in macchine virtuali di Azure:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagramma che illustra un tipico ambiente Azure per le applicazioni in esecuzione in macchine virtuali di Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Se si usa Azure ExpressRoute o una connessione VPN da una rete locale ad Azure, l'ambiente è il seguente:
 
@@ -41,8 +41,8 @@ Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (
 > Se si usa un proxy autenticato per controllare la connettività di rete, questo non è supportato da Site Recovery e non è possibile abilitare la replica.
 
 >[!NOTE]
-> Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
-> Azure Site Recovery gli indirizzi IP non devono essere aggiunti nella tabella di routing di Azure per controllare la connettività in uscita.
+>- Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
+>- Azure Site Recovery gli indirizzi IP non devono essere aggiunti nella tabella di routing di Azure per controllare la connettività in uscita.
 
 ## <a name="outbound-connectivity-for-urls"></a>Connettività in uscita per gli URL
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 Quando si usa NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
 
 - Per gli account di archiviazione nell'area di origine:
-    - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
+    - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/network-security-groups-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
-- Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
+- Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
 - Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
 - Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
 - Creare una regola NSG basata su tag del servizio AzureKeyVault. Questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale.

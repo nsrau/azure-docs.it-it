@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 31d26769fa3ef49684f8a2eedf6a0691316e742b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071235"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131242"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -45,15 +45,13 @@ Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Fl
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|
 
@@ -124,7 +122,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |CORS|Elemento radice.|Sì|N/D|
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
@@ -135,9 +133,9 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No|N/D|
 |header|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|L' `Access-Control-Allow-Credentials` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
 |preflight-result-max-age|L' `Access-Control-Max-Age` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
@@ -169,13 +167,13 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |jsonp|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
 

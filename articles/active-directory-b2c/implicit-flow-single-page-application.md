@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201855"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215485"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Accesso a pagina singola con il flusso implicito OAuth 2,0 in Azure Active Directory B2C
 
@@ -26,7 +26,9 @@ Molte applicazioni moderne hanno un front-end di app a singola pagina scritto pr
 - Molti server di autorizzazione e provider di identità non supportano le richieste CORS (Condivisione risorse tra le origini).
 - I reindirizzamenti del browser a pagina intera lontani dall'app possono essere invasivi per l'esperienza utente.
 
-Per supportare queste applicazioni, Azure Active Directory B2C (Azure AD B2C) usa il flusso implicito OAuth 2.0. Il flusso di concessione implicita OAuth 2.0 è descritto nella [sezione 4.2 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). Nel flusso implicito l'app riceve i token direttamente dall'endpoint di autorizzazione di Azure Active Directory (Azure AD), senza alcuno scambio tra server. Tutta la logica di autenticazione e la gestione delle sessioni vengono eseguite interamente nel client JavaScript con un reindirizzamento della pagina o una finestra popup.
+Il modo consigliato per supportare le applicazioni a pagina singola è il [flusso del codice di autorizzazione OAuth 2,0 (con PKCE)](./authorization-code-flow.md).
+
+Alcuni Framework, come [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), supportano solo il flusso di concessione implicita. In questi casi, Azure Active Directory B2C (Azure AD B2C) supporta il flusso di concessione implicita dell'autorizzazione OAuth 2,0. Il flusso di thee è descritto nella [sezione 4,2 della specifica OAuth 2,0](https://tools.ietf.org/html/rfc6749). Nel flusso implicito l'app riceve i token direttamente dall'endpoint di autorizzazione di Azure Active Directory (Azure AD), senza alcuno scambio tra server. Tutta la logica di autenticazione e la gestione delle sessioni vengono eseguite interamente nel client JavaScript con un reindirizzamento della pagina o una finestra popup.
 
 Azure AD B2C estende il flusso implicito OAuth 2.0 standard e va oltre le semplici operazioni di autorizzazione e autenticazione. Azure AD B2C introduce il [parametro di criteri](user-flow-overview.md). Con il parametro di criteri è possibile usare OAuth 2.0 per aggiungere criteri all'app, ad esempio i flussi utente di iscrizione, accesso e gestione dei profili. Nelle richieste HTTP di esempio in questo articolo viene usato **{tenant}. onmicrosoft. com** come esempio. Sostituire `{tenant}` con il nome del tenant se ne è stato creato uno ed è stato creato anche un flusso utente.
 
@@ -51,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 |inquilino| Sì | Nome del tenant di Azure AD B2C|
 |politica| Sì| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
@@ -81,7 +83,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --------- | ----------- |
 | access_token | Token di accesso richiesto dall'app. |
 | token_type | Valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. |
@@ -100,7 +102,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --------- | ----------- |
 | error | Codice utilizzato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -164,20 +166,20 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &prompt=none
 ```
 
-| Parametro | Necessaria? | Descrizione |
+| Parametro | Necessaria? | Description |
 | --- | --- | --- |
-|inquilino| Obbligatoria | Nome del tenant di Azure AD B2C|
-politica| Obbligatoria| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
-| client_id |Obbligatoria |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
+|inquilino| Obbligatorio | Nome del tenant di Azure AD B2C|
+politica| Obbligatorio| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
+| client_id |Obbligatorio |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
 | response_type |Obbligatoria |Deve includere `id_token` per l'accesso a OpenID Connect.  Può anche includere il tipo di risposta `token`. Se si usa `token` in questo momento, l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il tipo di risposta `token`, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token. |
 | redirect_uri |Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
 | ambito |Obbligatoria |Elenco di ambiti separati da spazi.  Per ottenere i token, includere tutti gli ambiti necessari per la risorsa di interesse. |
 | response_mode |Consigliato |Specifica il metodo usato per restituire il token risultante all'app. Per il flusso implicito, usare `fragment` . È possibile specificare due altre modalità, `query` e `form_post` , ma non funzionano nel flusso implicito. |
 | state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token.  Può trattarsi di una stringa di qualsiasi contenuto si voglia usare.  Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente.  Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima del verificarsi della richiesta di autenticazione, ad esempio, la pagina o la vista in cui si trovava l'utente. |
-| nonce |Obbligatoria |Valore incluso nella richiesta, generata dall'app, che viene incluso nel token ID risultante come attestazione.  L'app può quindi verificare questo valore per l'attenuazione degli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che identifica l'origine della richiesta. |
-| prompt |Obbligatoria |Per aggiornare e ottenere i token in un iframe nascosto, usare `prompt=none` per fare in modo che l'iframe non si blocchi alla pagina di accesso e risponda immediatamente. |
-| login_hint |Obbligatoria |Per aggiornare e ottenere i token in un iframe nascosto, includere il nome utente dell'utente in questo hint per distinguere tra le eventuali varie sessioni dell'utente in un determinato momento. È possibile estrarre il nome utente da un accesso precedente usando l' `preferred_username` attestazione (l' `profile` ambito è obbligatorio per poter ricevere l' `preferred_username` attestazione). |
-| domain_hint |Obbligatoria |Può essere `consumers` o `organizations`.  Per aggiornare e ottenere i token in un iframe nascosto, includere il `domain_hint` valore nella richiesta.  Estrarre l' `tid` attestazione dal token ID di un accesso precedente per determinare il valore da usare (l' `profile` ambito è necessario per ricevere l' `tid` attestazione). Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`.  In caso contrario, usare `domain_hint=organizations`. |
+| nonce |Obbligatorio |Valore incluso nella richiesta, generata dall'app, che viene incluso nel token ID risultante come attestazione.  L'app può quindi verificare questo valore per l'attenuazione degli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che identifica l'origine della richiesta. |
+| prompt |Obbligatorio |Per aggiornare e ottenere i token in un iframe nascosto, usare `prompt=none` per fare in modo che l'iframe non si blocchi alla pagina di accesso e risponda immediatamente. |
+| login_hint |Obbligatorio |Per aggiornare e ottenere i token in un iframe nascosto, includere il nome utente dell'utente in questo hint per distinguere tra le eventuali varie sessioni dell'utente in un determinato momento. È possibile estrarre il nome utente da un accesso precedente usando l' `preferred_username` attestazione (l' `profile` ambito è obbligatorio per poter ricevere l' `preferred_username` attestazione). |
+| domain_hint |Obbligatorio |Può essere `consumers` o `organizations`.  Per aggiornare e ottenere i token in un iframe nascosto, includere il `domain_hint` valore nella richiesta.  Estrarre l' `tid` attestazione dal token ID di un accesso precedente per determinare il valore da usare (l' `profile` ambito è necessario per ricevere l' `tid` attestazione). Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`.  In caso contrario, usare `domain_hint=organizations`. |
 
 Impostando il parametro `prompt=none`, la richiesta ha immediatamente esito positivo o negativo e torna all'applicazione.  Una risposta con esito positivo verrà inviata all'app all'URI di reindirizzamento indicato, usando il metodo specificato nel parametro `response_mode`.
 
@@ -193,7 +195,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | access_token |Token richiesto dall'app. |
 | token_type |Il tipo di token sarà sempre una connessione. |
@@ -210,7 +212,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errore che si verificano. È possibile usare la stringa anche per rispondere agli errori. |
 | error_description |Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -229,7 +231,7 @@ Quando si vuole disconnettersi dall'app, reindirizzare l'utente a Azure AD per d
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |

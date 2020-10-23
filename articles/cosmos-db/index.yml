@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Cosmos DB
-summary: Azure Cosmos DB è il servizio di database multimodello di Microsoft, distribuito a livello globale per applicazioni cruciali. Offre funzionalità multimaster tramite ridimensionamento automatico di unità elaborate, risorse di calcolo e di archiviazione.
+summary: Azure Cosmos DB, un database NoSQL con velocità e disponibilità elevate supportate da contratto di servizio, scalabilità automatica e istantanea e API open source per MongoDB e Cassandra.
 metadata:
   title: Azure Cosmos DB
-  description: Azure Cosmos DB è il servizio di database multimodello di Microsoft, distribuito a livello globale per applicazioni cruciali. Offre funzionalità multimaster tramite ridimensionamento automatico di unità elaborate, risorse di calcolo e di archiviazione.
+  description: Azure Cosmos DB, un database NoSQL con velocità e disponibilità elevate supportate da contratto di servizio, scalabilità automatica e istantanea e API open source per MongoDB e Cassandra.
   services: service
   ms.service: cosmos-db
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 8f2dea260472da4178173d110c33d2681520cfce
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3daa7ed6e59230fe0f6c66e01982f6021f8e1ba7
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91566721"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92278437"
 landingContent:
 - title: Informazioni su Azure Cosmos DB
   linkLists:
@@ -24,184 +24,78 @@ landingContent:
     links:
     - text: Che cos'è Azure Cosmos DB?
       url: introduction.md
-  - linkListType: concept
+  - linkListType: get-started
     links:
-    - text: Compatibilità del protocollo di collegamento con MongoDB
-      url: mongodb-feature-support-36.md
-    - text: Compatibilità del protocollo di collegamento con Apache Cassandra
-      url: cassandra-support.md
-    - text: Compatibilità del protocollo di collegamento con Tinkerpop Gremlin
-      url: gremlin-support.md
+    - text: Differenze tra NoSQL e database relazionali
+      url: relational-nosql.md
+    - text: Modello di risorsa di Azure Cosmos DB
+      url: account-databases-containers-items.md
+    - text: Distribuire i dati a livello globale
+      url: distribute-data-globally.md
+    - text: Partizionamento
+      url: partitioning-overview.md
+    - text: Velocità effettiva e unità richiesta
+      url: request-units.md
+    - text: Modellazione e partizionamento dei dati
+      url: how-to-model-partition-example.md
+    - text: Quote dei servizi
+      url: concepts-limits.md
   - linkListType: quickstart
     links:
     - text: Creare un account Azure Cosmos
       url: create-cosmosdb-resources-portal.md
-- title: Distribuzione globale
-  linkLists:
-  - linkListType: concept
+  - linkListType: video
     links:
-    - text: Panoramica
-      url: distribute-data-globally.md
-    - text: Livelli di coerenza
-      url: consistency-levels.md
-    - text: Scegliere il livello di coerenza appropriato
-      url: consistency-levels-choosing.md
-    - text: Livelli di coerenza e API
-      url: consistency-levels-across-apis.md
-    - text: Compromessi tra coerenza, disponibilità e prestazioni
-      url: consistency-levels-tradeoffs.md
-    - text: Disponibilità elevata
-      url: high-availability.md
-    - text: Tipi di conflitto e criteri di risoluzione dei conflitti
-      url: conflict-resolution-policies.md
-    - text: Informazioni sul funzionamento della distribuzione globale dei dati
-      url: global-dist-under-the-hood.md
-    - text: Presenza a livello di area
-      url: regional-presence.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurare le scritture in più aree
-      url: how-to-multi-master.md
-    - text: Configurare i livelli di coerenza
-      url: how-to-manage-consistency.md
-    - text: Implementare la sincronizzazione personalizzata
-      url: how-to-manage-conflicts.md
-    - text: Configurare i criteri di risoluzione dei conflitti
-      url: how-to-manage-conflicts.md
-- title: Partizionamento dei dati e procedure consigliate
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Panoramica
-      url: partitioning-overview.md
-    - text: Partizionamento e scalabilità orizzontale
-      url: partition-data.md
-    - text: Chiave di partizione sintetica
-      url: synthetic-partition-keys.md
-    - text: Modellazione dati
-      url: modeling-data.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creare un contenitore con una chiave di partizione grande
-      url: large-partition-keys.md
-    - text: Eseguire la migrazione a un contenitore partizionato
-      url: migrate-containers-partitioned-to-nonpartitioned.md
-- title: Creare e gestire risorse di Cosmos DB
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Cos'è un account Cosmos DB?
-      url: account-overview.md
-    - text: Database, contenitori ed elementi di Azure Cosmos
-      url: databases-containers-items.md
-    - text: Come vengono indicizzati i dati in Cosmos DB
-      url: index-overview.md
-    - text: Criteri di indicizzazione, inclusione ed esclusione di proprietà
-      url: index-policy.md
-    - text: Durata (TTL)
-      url: time-to-live.md
-    - text: Vincoli di chiave univoca
-      url: unique-keys.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creazione di un database
-      url: how-to-manage-database-account.md
-    - text: Creare un contenitore
-      url: how-to-create-container.md
-    - text: Eseguire query sui dati da un contenitore
-      url: how-to-query-container.md
-    - text: Configurare la durata (TTL) per contenitori ed elementi
-      url: how-to-time-to-live.md
-    - text: Configurare i criteri di indicizzazione
-      url: how-to-manage-indexing-policy.md
-    - text: Definire chiavi univoche
-      url: how-to-define-unique-keys.md
-    - text: Usare l'emulatore per lo sviluppo locale
-      url: local-emulator.md
-    - text: Gestire con Azure PowerShell
-      url: manage-with-powershell.md
-    - text: Gestire con l'interfaccia della riga di comando di Azure
-      url: manage-with-cli.md
-    - text: Gestire con i modelli di Resource Manager
-      url: manage-sql-with-resource-manager.md
-- title: Velocità effettiva sottoposta a provisioning
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Unità richiesta
-      url: request-units.md
-    - text: Unità elaborate a livello di database e contenitore
-      url: set-throughput.md
-  - linkListType: how-to-guide
-    links:
-    - text: Stimare le unità elaborate richieste
-      url: estimate-ru-with-capacity-planner.md
-    - text: Effettuare il provisioning della velocità effettiva in un database
-      url: how-to-provision-database-throughput.md
-    - text: Effettuare il provisioning della velocità effettiva in un contenitore
-      url: how-to-provision-container-throughput.md
-    - text: Ottenere gli addebiti delle unità richieste
-      url: find-request-unit-charge.md
-    - text: Scalare usando il timer di Funzioni di Azure
-      url: scale-on-schedule.md
-- title: Creare un'app con l'API SQL
+    - text: "Modellazione dei dati: migliorare la velocità e le prestazioni dell'applicazione"
+      url: https://www.youtube.com/watch?v=wOWa8ecFo88
+- title: Usare l'API SQL di Azure Cosmos DB
   linkLists:
   - linkListType: quickstart
     links:
-    - text: App console .NET
-      url: create-sql-api-dotnet.md
-    - text: App Java
+    - text: Gestire i dati con un'app console .NET
+      url: create-sql-api-dotnet-v4.md
+    - text: Gestire i dati con un'app Java
       url: create-sql-api-java.md
-    - text: App Node.js
-      url: create-sql-api-nodejs.md
-    - text: App Python
-      url: create-sql-api-python.md
-    - text: App Xamarin
-      url: create-sql-api-xamarin-dotnet.md
+  - linkListType: concept
+    links:
+    - text: Introduzione alle query SQL
+      url: sql-query-getting-started.md
+    - text: Che cos'è il feed di modifiche?
+      url: change-feed.md
   - linkListType: tutorial
     links:
-    - text: App Web .NET
+    - text: Creare un'app Web .NET per gestire i dati
       url: sql-api-dotnet-application.md
     - text: App Java con Async SDK
       url: sql-api-async-java-get-started.md
-    - text: Esempio di app Java con feed di modifiche
-      url: create-sql-api-java-changefeed.md
     - text: Eseguire query sui dati con le query SQL
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide
     links:
-    - text: Visualizzare i dati con Power BI
-      url: powerbi-visualize.md
+    - text: Ottimizzare le prestazioni delle query
+      url: sql-api-query-metrics.md
     - text: Definire stored procedure, trigger e funzioni definite dall'utente
       url: how-to-write-stored-procedures-triggers-udfs.md
-    - text: Eseguire stored procedure, trigger e funzioni definite dall'utente
-      url: how-to-use-stored-procedures-triggers-udfs.md
-  - linkListType: reference
-    links:
-    - text: .NET
-      url: sql-api-sdk-dotnet.md
-    - text: Java
-      url: sql-api-sdk-java.md
-    - text: JavaScript
-      url: sql-api-sdk-node.md
-    - text: REST
-      url: /rest/api/cosmos-db/
-  - linkListType: learn
-    links:
-    - text: Creare e gestire server dati dell'API SQL
-      url: /learn/modules/store-access-data-cosmos-table-api/
-- title: Creare un'app con l'API MongoDB
+- title: Usare l'API di Azure Cosmos DB per MongoDB
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'API di Azure Cosmos DB per MongoDB?
+      url: mongodb-introduction.md
   - linkListType: quickstart
     links:
-    - text: App .NET
+    - text: Gestire i dati con un'app .NET
       url: create-mongodb-dotnet.md
-    - text: App Java
-      url: create-mongodb-java.md
-    - text: App Node.js
-      url: create-mongodb-nodejs.md
-    - text: App Python
-      url: create-mongodb-flask.md
+    - text: Gestire i dati con un'app GoLang
+      url: create-mongodb-go.md
+  - linkListType: concept
+    links:
+    - text: Compatibilità del protocollo di collegamento con MongoDB
+      url: mongodb-feature-support-36.md
+    - text: Comandi dell'estensione MongoDB
+      url: mongodb-custom-commands.md
+    - text: Flussi di modifiche
+      url: mongodb-change-streams.md
   - linkListType: tutorial
     links:
     - text: Eseguire query sui dati con la shell di MongoDB
@@ -210,78 +104,62 @@ landingContent:
     links:
     - text: Gestire l'indicizzazione dei dati
       url: mongodb-indexing.md
-    - text: Impostare la durata (TTL)
-      url: mongodb-time-to-live.md
     - text: Connettersi con Robo 3T
       url: mongodb-robomongo.md
-- title: Creare un'app con l'API Gremlin
+- title: Usare l'API Gremlin di Azure Cosmos DB
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'API Gremlin di Azure Cosmos DB?
+      url: graph-introduction.md
   - linkListType: quickstart
     links:
-    - text: Usare la console Gremlin
+    - text: Gestire i dati con la console Gremlin
       url: create-graph-gremlin-console.md
-    - text: App .NET
+    - text: Gestire i dati con un'app .NET
       url: create-graph-dotnet.md
-    - text: App Java
-      url: create-graph-java.md
-    - text: App Node.js
-      url: create-graph-nodejs.md
-    - text: App Python
-      url: create-graph-python.md
-    - text: App PHP
-      url: create-graph-php.md
+  - linkListType: concept
+    links:
+    - text: Compatibilità del protocollo di collegamento con Tinkerpop Gremlin
+      url: gremlin-support.md
+    - text: Limiti del servizio API Gremlin
+      url: gremlin-limits.md
   - linkListType: how-to-guide
     links:
     - text: Modellazione di dati del grafico
       url: graph-modeling.md
-    - text: Procedure consigliate per il partizionamento dei dati del grafico
+    - text: Procedure consigliate per il partizionamento dei dati dei grafi
       url: graph-partitioning.md
     - text: Ottimizzare le query Gremlin
       url: graph-execution-profile.md
-  - linkListType: learn
-    links:
-    - text: Archiviare e accedere ai dati del grafico
-      url: /learn/modules/store-access-data-cosmos-graph-api/
-- title: Creare un'app con l'API Cassandra
+- title: Usare l'API Cassandra di Azure Cosmos DB
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'API Cassandra di Azure Cosmos DB?
+      url: cassandra-introduction.md
   - linkListType: quickstart
     links:
-    - text: .NET
-      url: create-cassandra-dotnet.md
-    - text: .NET Core
+    - text: Gestire i dati con un'app .NET Core
       url: create-cassandra-dotnet-core.md
-    - text: Java v3
-      url: create-cassandra-java.md
-    - text: Java v4
+    - text: Gestire i dati con un'app Java
       url: create-cassandra-java-v4.md
-    - text: Node.js
-      url: create-cassandra-nodejs.md
-    - text: Python
-      url: create-cassandra-python.md
+  - linkListType: concept
+    links:
+    - text: Compatibilità del protocollo di collegamento con Apache Cassandra
+      url: cassandra-support.md
+    - text: Scalabilità elastica
+      url: manage-scale-cassandra.md
+    - text: Indici secondari
+      url: cassandra-secondary-index.md
+    - text: Partizionamento
+      url: cassandra-partitioning.md
   - linkListType: how-to-guide
     links:
     - text: Connettersi all'API Cassandra da Spark
       url: cassandra-spark-generic.md
-- title: Ottimizzare prestazioni e costi
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Costo delle unità elaborate
-      url: optimize-cost-throughput.md
-    - text: Costo delle query
-      url: optimize-cost-queries.md
-    - text: Costo di archiviazione
-      url: optimize-cost-storage.md
-    - text: Costo delle operazioni di lettura e scrittura
-      url: optimize-cost-reads-writes.md
-    - text: Costo in più aree
-      url: optimize-cost-regions.md
-    - text: Prestazioni delle query
-      url: sql-api-query-metrics.md
-  - linkListType: how-to-guide
-    links:
-    - text: Ottimizzare con la modellazione dei dati
-      url: how-to-model-partition-example.md
+    - text: Supporto del feed di modifiche con predicati di query
+      url: cassandra-change-feed.md?tabs=java
 - title: Eseguire la migrazione dei dati a Cosmos DB
   linkLists:
   - linkListType: tutorial
@@ -320,3 +198,15 @@ landingContent:
     links:
     - text: Configurare Collegamento ad Azure Synapse
       url: configure-synapse-link.md
+- title: Usare l'API Tabella di Azure Cosmos DB
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Gestire i dati con un'app .NET
+      url: create-table-dotnet.md
+    - text: Gestire i dati con un'app Java
+      url: create-table-java.md
+  - linkListType: concept
+    links:
+    - text: Differenze tra l'API Tabella e Archiviazione tabelle di Azure
+      url: table-support.md

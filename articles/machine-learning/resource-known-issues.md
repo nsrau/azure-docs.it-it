@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: 365d38eedd327bb50bbbea01a6847738c482b1bd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091186"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204463"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -306,13 +306,13 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
  
 * **NameError (nome non definito), AttributeError (oggetto senza attributo)**: questa eccezione deve provenire dagli script di training. È possibile esaminare i file di log da portale di Azure per ottenere altre informazioni sul nome specifico non definito o sull'errore dell'attributo. Dall'SDK è possibile usare `run.get_details()` per esaminare il messaggio di errore. Vengono inoltre elencati tutti i file di log generati per l'esecuzione. Assicurarsi di esaminare lo script di training e correggere l'errore prima di inviare nuovamente l'esecuzione. 
 
-* **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs` . In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per semplificare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
+* **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni classificazione nel processo MPI ottiene un suo file di log dedicato in Azure ML. Tali log sono denominati `70_driver_logs`. Nel caso di training distribuito, per rendere più semplice differenziare i log, i nomi dei log sono seguiti dal suffisso `_rank`. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
 * **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
 
-    L'eliminazione permanente di singoli esperimenti o esecuzioni non è attualmente supportata. Per ulteriori informazioni sull'eliminazione delle risorse dell'area di lavoro, vedere [esportare o eliminare i dati dell'area di lavoro del servizio Machine Learning](how-to-export-delete-data.md).
+    L'eliminazione permanente di un singolo esperimento o esecuzione non è attualmente supportata. Per ulteriori informazioni sull'eliminazione delle risorse dell'area di lavoro, vedere [esportare o eliminare i dati dell'area di lavoro del servizio Machine Learning](how-to-export-delete-data.md).
 
-* **Documento metrico troppo grande**: Azure Machine Learning presenta limiti interni sulle dimensioni degli oggetti metrica che possono essere registrati contemporaneamente da un'esecuzione di training. Se si verifica un errore di "documento metrico troppo grande" durante la registrazione di una metrica con valori di elenco, provare a suddividere l'elenco in blocchi più piccoli, ad esempio:
+* **Documento metrico troppo grande**: Azure Machine Learning presenta limiti interni sulle dimensioni degli oggetti metrica che possono essere registrati contemporaneamente da un'esecuzione di training. Se si verifica un errore "Documento metrica troppo grande" durante la registrazione di una metrica con valori di elenco, provare a suddividere l'elenco in blocchi più piccoli, ad esempio:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -365,7 +365,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup ha esito negativo**: 
-    * In Windows eseguire automl_setup da un prompt Anaconda. Per installare Miniconda, fare clic [qui](https://docs.conda.io/en/latest/miniconda.html).
+    * In Windows eseguire automl_setup da un prompt Anaconda. Usare questo collegamento per [installare Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Verificare che sia installato conda 64 bit, anziché 32 bit eseguendo il `conda info` comando. `platform`Deve essere `win-64` per Windows o `osx-64` per Mac.
     * Verificare che sia installato conda 4.4.10 o versione successiva. È possibile controllare la versione con il comando `conda -V` . Se è installata una versione precedente, è possibile aggiornarla usando il comando: `conda update conda` .
     * Linux `gcc: error trying to exec 'cc1plus'`
@@ -373,14 +373,14 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       * Passare un nuovo nome come primo parametro per automl_setup per creare un nuovo ambiente conda. Visualizzare gli ambienti conda esistenti usando `conda env list` e rimuoverli con `conda env remove -n <environmentname>` .
       
 * **automl_setup_linux. sh ha esito negativo**: se automl_setup_linus. sh non riesce in Ubuntu Linux con l'errore: `unable to execute 'gcc': No such file or directory`-
-  1. Verificare che siano abilitate le porte in uscita 53 e 80. In una macchina virtuale di Azure è possibile eseguire questa operazione dal portale di Azure selezionando la macchina virtuale e facendo clic su rete.
+  1. Verificare che siano abilitate le porte in uscita 53 e 80. In una macchina virtuale di Azure è possibile eseguire questa operazione dalla portale di Azure selezionando la macchina virtuale e facendo clic su rete.
   2. Eseguire il comando `sudo apt-get update`
   3. Eseguire il comando `sudo apt-get install build-essential --fix-missing`
   4. Esegui di `automl_setup_linux.sh` nuovo
 
 * **Configuration. ipynb ha esito negativo**:
   * Per conda locale, verificare innanzitutto che automl_setup sia stato eseguito correttamente.
-  * Verificare che il subscription_id sia corretto. Trovare i subscription_id nel portale di Azure selezionando tutti i servizi e quindi sottoscrizioni. I caratteri "<" e ">" non devono essere inclusi nel valore di subscription_id. Ad esempio, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ha il formato valido.
+  * Verificare che il subscription_id sia corretto. Trovare il subscription_id nel portale di Azure selezionando tutti i servizi e quindi sottoscrizioni. I caratteri "<" e ">" non devono essere inclusi nel valore di subscription_id. Ad esempio, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ha il formato valido.
   * Assicurarsi che collaboratore o proprietario acceda alla sottoscrizione.
   * Verificare che l'area sia una delle aree supportate: `eastus2` , `eastus` , `westcentralus` , `southeastasia` , `westeurope` , `australiaeast` , `westus2` , `southcentralus` .
   * Assicurarsi di accedere all'area usando il portale di Azure.
@@ -481,6 +481,12 @@ Ad esempio, si riceverà un errore se si prova a creare o collegare una destinaz
 Il controllo degli accessi in base al ruolo di Azure può essere usato per limitare le azioni che è possibile eseguire con Azure Machine Learning. Queste restrizioni possono impedire la visualizzazione degli elementi dell'interfaccia utente in Azure Machine Learning Studio. Se ad esempio viene assegnato un ruolo che non è in grado di creare un'istanza di calcolo, l'opzione per creare un'istanza di calcolo non verrà visualizzata in studio.
 
 Per altre informazioni, vedere [Gestire utenti e ruoli](how-to-assign-roles.md).
+
+## <a name="compute-cluster-wont-resize"></a>Il cluster di calcolo non verrà ridimensionato
+
+Se il cluster di calcolo Azure Machine Learning viene bloccato in fase di ridimensionamento (0-> 0) per lo stato del nodo, il problema potrebbe essere causato da blocchi delle risorse di Azure.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552969"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850549"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con InVision
 
@@ -133,15 +133,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Team** e selezionare **Settings** (Impostazioni).
 
-    ![Configurazione di InVision](./media/invision-tutorial/config1.png)
+    ![Screenshot che mostra la scheda Team con l'opzione Settings selezionata.](./media/invision-tutorial/config1.png)
 
 1. Scorrere verso il basso fino a **Single sign-on** e quindi fare clic su **Change** (Modifica).
 
-    ![Configurazione di InVision](./media/invision-tutorial/config3.png)
+    ![Screenshot che mostra il pulsante Change per l'opzione Single sign-on.](./media/invision-tutorial/config3.png)
 
 1. Nella pagina **Single sign-on** seguire questa procedura:
 
-    ![Configurazione di InVision](./media/invision-tutorial/config4.png)
+    ![Screenshot che mostra la pagina Single sign-on in cui immettere i valori in questo passaggio.](./media/invision-tutorial/config4.png)
 
     a. Impostare **Require SSO for every member of < account name >** (Richiedi accesso SSO per ogni membro di <nome account>) su **On** (Attivato).
 
@@ -169,19 +169,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Team** e selezionare **People** (Persone).
 
-    ![Configurazione di InVision](./media/invision-tutorial/config2.png)
+    ![Screenshot che mostra la scheda Team con l'opzione People selezionata.](./media/invision-tutorial/config2.png)
 
 1. Fare clic sull'icona **+** per aggiungere un nuovo utente.
 
-    ![Configurazione di InVision](./media/invision-tutorial/user1.png)
+    ![Screenshot che mostra l'icona + per aggiungere un utente.](./media/invision-tutorial/user1.png)
 
 1. Immettere l'indirizzo di posta elettronica dell'utente e fare clic su **Next** (Avanti).
 
-    ![Configurazione di InVision](./media/invision-tutorial/user2.png)
+    ![Screenshot che mostra la finestra di dialogo Invite to in cui è possibile immettere gli indirizzi.](./media/invision-tutorial/user2.png)
 
 1. Verificare l'indirizzo di posta elettronica e quindi fare clic su **Invite** (Invita).
 
-    ![Configurazione di InVision](./media/invision-tutorial/user3.png)
+    ![Screenshot che mostra la finestra di dialogo Invite in cui è possibile selezionare Invite per continuare.](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

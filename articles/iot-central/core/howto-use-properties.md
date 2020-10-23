@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999767"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123784"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
 
@@ -152,7 +152,7 @@ Nel codice seguente viene illustrata la definizione di un tipo di proprietà del
 
 Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà di sola lettura indicano che il dispositivo segnala gli aggiornamenti del valore della proprietà all'applicazione IoT Central di Azure. L'applicazione IoT Central di Azure non può impostare il valore di una proprietà di sola lettura.
 
-Azure IoT Central USA dispositivi gemelli per sincronizzare i valori delle proprietà tra il dispositivo e l'applicazione Azure IoT Central. I valori delle proprietà del dispositivo usano le proprietà segnalate del dispositivo gemello. Per altre informazioni, vedere [dispositivi gemelli](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Azure IoT Central USA dispositivi gemelli per sincronizzare i valori delle proprietà tra il dispositivo e l'applicazione Azure IoT Central. I valori delle proprietà del dispositivo usano le proprietà segnalate del dispositivo gemello. Per altre informazioni, vedere [dispositivi gemelli](../../iot-hub/tutorial-device-twins.md).
 
 Il frammento di codice seguente da un modello di funzionalità del dispositivo Mostra la definizione di un tipo di proprietà di sola lettura:
 
@@ -250,7 +250,7 @@ Il messaggio di risposta deve includere `ac` i `av` campi e. Il campo `ad` è fa
 | `'ac': 5xx` | Errore | Si è verificato un errore imprevisto nel dispositivo durante l'elaborazione della modifica richiesta. |
 
 
-Per altre informazioni sui dispositivi gemelli, vedere [configurare i dispositivi da un servizio back-end](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Per altre informazioni sui dispositivi gemelli, vedere [configurare i dispositivi da un servizio back-end](../../iot-hub/tutorial-device-twins.md).
 
 Quando l'operatore imposta una proprietà scrivibile nell'applicazione IoT Central di Azure, l'applicazione usa una proprietà desiderata del dispositivo gemello per inviare il valore al dispositivo. Il dispositivo risponde quindi usando una proprietà segnalata del dispositivo gemello. Quando Azure IoT Central riceve il valore della proprietà segnalata, aggiorna la visualizzazione delle proprietà con lo stato **accettato**.
 

@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126757"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
 
-Questa guida illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con regole e notifiche personalizzate. Nell'esempio viene illustrato l'invio di una notifica a un operatore quando un dispositivo interrompe l'invio di dati di telemetria. La soluzione USA una query di [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) per rilevare quando un dispositivo ha interrotto l'invio della telemetria. Il processo di analisi di flusso usa [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) per inviare messaggi di posta elettronica di notifica usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Questa guida illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con regole e notifiche personalizzate. Nell'esempio viene illustrato l'invio di una notifica a un operatore quando un dispositivo interrompe l'invio di dati di telemetria. La soluzione USA una query di [analisi di flusso di Azure](../../stream-analytics/index.yml) per rilevare quando un dispositivo ha interrotto l'invio della telemetria. Il processo di analisi di flusso usa [funzioni di Azure](../../azure-functions/index.yml) per inviare messaggi di posta elettronica di notifica usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 Questa guida dettagliata illustra come estendere IoT Central oltre quello che può già fare con le regole e le azioni predefinite.
 
@@ -95,7 +95,7 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 | Piano di hosting | Piano a consumo |
 | Località | Stati Uniti orientali |
 | Stack di runtime | .NET |
-| Archiviazione | Create new |
+| Archiviazione | Creare un nuovo gruppo di risorse |
 
 ### <a name="sendgrid-account"></a>Account SendGrid
 
@@ -315,7 +315,7 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Attivato | On |
+    | Enabled | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |

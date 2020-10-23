@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84608707"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125065"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usare Azure Data Box o Azure Data Box Heavy per inviare dati al livello BLOB di archiviazione di Azure appropriato
 
@@ -29,11 +29,11 @@ Archiviazione di Azure consente tre livelli diversi per archiviare i dati nel mo
 
 Il livello di archiviazione ad accesso sporadico è per i dati a cui si accede raramente e che devono essere archiviati per almeno 30 giorni. Il costo di archiviazione per il livello ad accesso sporadico è più basso di quello del livello di archiviazione ad accesso frequente, ma gli addebiti per l'accesso ai dati sono elevati rispetto al livello ad accesso frequente.
 
-Il livello archivio di Azure è offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso più alti. Questo livello è destinato a dati che rimangono in archivio per almeno 180 giorni. Per informazioni dettagliate su ogni livello e sui modelli di prezzi, vedere [Confronto tra i livelli di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Il livello archivio di Azure è offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso più alti. Questo livello è destinato a dati che rimangono in archivio per almeno 180 giorni. Per informazioni dettagliate su ogni livello e sui modelli di prezzi, vedere [Confronto tra i livelli di archiviazione](../storage/blobs/storage-blob-storage-tiers.md).
 
 I dati del Data Box o Data Box Heavy vengono caricati in un livello di archiviazione associato all'account di archiviazione. Quando si crea un account di archiviazione, è possibile specificare il livello di accesso come accesso frequente o accesso sporadico. In base al modello di accesso del carico di lavoro e dei costi, è possibile spostare questi dati dal livello predefinito a un altro livello di archiviazione.
 
-È possibile suddividere in livelli i dati dell'archivio oggetti solo negli account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. Per scegliere il livello di archiviazione corretto per i dati, vedere le considerazioni dettagliate in [archiviazione BLOB di Azure: livelli di archiviazione Premium, ad](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)accesso frequente, ad accesso sporadico e archivio.
+È possibile suddividere in livelli i dati dell'archivio oggetti solo negli account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. Per scegliere il livello di archiviazione corretto per i dati, vedere le considerazioni dettagliate in [archiviazione BLOB di Azure: livelli di archiviazione Premium, ad](../storage/blobs/storage-blob-storage-tiers.md)accesso frequente, ad accesso sporadico e archivio.
 
 ## <a name="set-a-default-blob-tier"></a>Impostare un livello BLOB predefinito
 
@@ -41,13 +41,13 @@ Il livello BLOB predefinito viene specificato quando viene creato l'account di a
 
 Non è possibile specificare i livelli se si sta provando a creare un nuovo account durante l'ordinamento di un Data Box o Data Box Heavy. Dopo aver creato l'account, è possibile modificarlo nel portale per impostare il livello di accesso predefinito.
 
-In alternativa, è possibile creare un account di archiviazione prima con l'attributo del livello di accesso specificato. Quando si crea l'ordine di Data Box o Data Box Heavy, selezionare l'account di archiviazione esistente. Per altre informazioni su come impostare il livello BLOB predefinito durante la creazione dell'account di archiviazione, vedere [Creare un account di archiviazione nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+In alternativa, è possibile creare un account di archiviazione prima con l'attributo del livello di accesso specificato. Quando si crea l'ordine di Data Box o Data Box Heavy, selezionare l'account di archiviazione esistente. Per altre informazioni su come impostare il livello BLOB predefinito durante la creazione dell'account di archiviazione, vedere [Creare un account di archiviazione nel portale di Azure](../storage/common/storage-account-create.md?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Spostare i dati in un livello non predefinito
 
 Una volta caricati i dati dal dispositivo Data Box al livello predefinito, potrebbe essere necessario spostare i dati in un livello non predefinito. Esistono due modi per spostare i dati in un livello non predefinito.
 
-- **Gestione del ciclo di vita di archiviazione BLOB di Azure**: è possibile usare un approccio basato sui criteri per suddividere automaticamente i dati tra livelli o definirne la scadenza alla fine del ciclo di vita. Per altre informazioni, vedere [Gestione del ciclo di vita di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Gestione del ciclo di vita di archiviazione BLOB di Azure**: è possibile usare un approccio basato sui criteri per suddividere automaticamente i dati tra livelli o definirne la scadenza alla fine del ciclo di vita. Per altre informazioni, vedere [Gestione del ciclo di vita di archiviazione BLOB di Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Scripting**: è possibile usare un approccio con script tramite Azure PowerShell per abilitare l'organizzazione a livello di BLOB. È possibile chiamare l'operazione `SetBlobTier` per impostare il livello nel BLOB.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Usare Azure PowerShell per impostare il livello BLOB
@@ -116,5 +116,4 @@ I passaggi seguenti descrivono come è possibile impostare il livello BLOB su Ar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--  Informazioni su come gestire gli [scenari comuni di suddivisione in livelli dei dati con le regole dei criteri del ciclo di vita](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
-
+-  Informazioni su come gestire gli [scenari comuni di suddivisione in livelli dei dati con le regole dei criteri del ciclo di vita](../storage/blobs/storage-lifecycle-management-concepts.md#examples)

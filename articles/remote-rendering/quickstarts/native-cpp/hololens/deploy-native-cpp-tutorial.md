@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892661"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207275"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Avvio rapido: Distribuire un esempio di C++ nativo in HoloLens
 
@@ -32,7 +32,7 @@ Per ottenere l'accesso al servizio Rendering remoto di Azure, è prima di tutto 
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
+* [Visual Studio Tools per Realtà mista](/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
   * **Sviluppo per desktop con C++**
   * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * GIT [(download)](https://git-scm.com/downloads)

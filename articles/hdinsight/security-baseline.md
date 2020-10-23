@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230433"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327706"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -142,7 +142,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per le risorse di rete correlate al cluster HDInsight di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi "Microsoft. HDInsight" e "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete del cluster Azure HDInsight.
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, controlli RBAC e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controlli RBAC di Azure e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 Come visualizzare gli alias dei criteri di Azure disponibili:
 

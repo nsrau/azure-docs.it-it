@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546946"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Esercitazione: integrazione di Azure Active Directory con Kantega SSO for Bamboo
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Kantega SSO for Bamboo](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Kantega SSO for Bamboo](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 1. Passare il puntatore del mouse sulla rotellina e scegliere **Add-ons** (Componenti aggiuntivi).
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![Screenshot che mostra l'opzione Add-ons dal menu Settings.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. Nella sezione della scheda Add-ons (Componenti aggiuntivi) fare clic su **Find new add-ons** (Trova nuovi componenti aggiuntivi). Cercare **Kantega SSO for Bamboo (SAML & Kerberos)** e fare clic su **Install** (Installa) per installare il nuovo plug-in di SAML.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![Screenshot che mostra la sezione Bamboo Administration con l'opzione Kantega SSO for Bamboo selezionata.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. Viene avviata l'installazione del plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![Screenshot che mostra lo stato di avanzamento dell'installazione di Kantega S S O for Bamboo.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. Al termine dell'installazione, Fare clic su **Close**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![Screenshot che mostra il pulsante Close.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. Fare clic su **Manage**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![Screenshot che mostra il pulsante Manage.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![Screenshot che mostra la sezione User-installed add-ons con l'opzione Configure selezionata.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. Nella sezione **SAML** Selezionare **Azure Active Directory (Azure AD)** dall'elenco a discesa **Add identity provider** (Aggiungi provider di identità).
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![Screenshot che mostra la sezione Kantega Single Sign-On con Azure A D selezionato come provider di identità.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. Selezionare il livello di sottoscrizione **Basic** (Di base).
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![Screenshot che mostra la sezione Preparing Azure A D con l'opzione Basic selezionata.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. Nella sezione **App properties** (Proprietà app) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![Screenshot che mostra la sezione App properties in cui è possibile fornire le informazioni in questo passaggio.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
     a. Copiare il valore di **App ID URI** (URI ID App) e usarlo come valore di **Identificatore, URL di risposta e URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 1. Nella sezione **Metadata import** (Importazione metadati) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![Screenshot che mostra la sezione Metadata import in cui è possibile passare a un file di metadati.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. Selezionare **Metadata file on my computer** (File metadati in questo computer) e caricare il file di metadati scaricato dal portale di Azure.
 
@@ -182,7 +182,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 1. Nella sezione **Name and SSO location** (Nome e percorso SSO) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![Screenshot che mostra la sezione Name and S S O location in cui Azure A D è il nome del provider di identità.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. Aggiungere il nome del provider di identità nella casella di testo **Identity provider name** (Nome provider di identità), ad esempio Azure AD.
 
@@ -190,11 +190,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 1. Verificare il certificato di firma e fare clic su **Next** (Avanti).
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![Screenshot che mostra la sezione Signature verification.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. Nella sezione **Bamboo user accounts** (Account utente Bamboo) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![Screenshot che mostra la sezione Bamboo user accounts in cui è possibile scegliere di creare utenti.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. Selezionare **Create users in Bamboo's internal Directory if needed** (Crea utenti nella directory interna di Bamboo se necessario) e immettere il nome appropriato del gruppo per gli utenti (è possibile specificare più gruppi separati da virgola).
 
@@ -202,11 +202,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bamboo,
 
 1. Fare clic su **Fine**.
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![Screenshot che mostra la pagina di riepilogo.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. Nella sezione **Known domains for Azure AD** (Domini noti per Azure AD) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![Screenshot che mostra la sezione Known domains for Azure A D in cui è possibile eseguire questi passaggi.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. Selezionare **Known domains** (Domini noti) dal pannello sinistro della pagina.
 
@@ -275,11 +275,11 @@ Per consentire agli utenti di Azure AD di accedere a Bamboo, è necessario effet
 
 1. Passare il puntatore del mouse e fare clic su **User management** (Gestione utenti).
 
-    ![Aggiungere un dipendente](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione User Management selezionata dal menu Settings.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. Fare clic su **Users**. Nella sezione **Add User** (Aggiungi utente) eseguire questa procedura:
 
-    ![Aggiungere un dipendente](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![Screenshot che mostra il riquadro Add user in cui eseguire questi passaggi.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. Nella casella di testo **Username** (Nome utente) digitare l'indirizzo di posta elettronica di un utente, ad esempio Brittasimon@contoso.com.
 

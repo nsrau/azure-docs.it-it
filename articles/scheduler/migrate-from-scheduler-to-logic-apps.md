@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532154"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368265"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
@@ -133,7 +133,7 @@ Dopo l'invio della chiamata, la risposta dell'app per la logica viene visualizza
 
 ## <a name="cancel-a-one-time-job"></a>Annullare un processo unico
 
-In App per la logica, ogni processo unico viene eseguito come singola istanza di esecuzione dell'app per la logica. Per annullare un processo unico, è possibile usare l'operazione [Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) nell'API REST di App per la logica. Quando si invia una chiamata al trigger, specificare l'[ID di esecuzione del flusso di lavoro](#workflow-run-id).
+In App per la logica, ogni processo unico viene eseguito come singola istanza di esecuzione dell'app per la logica. Per annullare un processo unico, è possibile usare l'operazione [Cancel](/rest/api/logic/workflowruns/cancel) nell'API REST di App per la logica. Quando si invia una chiamata al trigger, specificare l'[ID di esecuzione del flusso di lavoro](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Pianificare processi ricorrenti
 
@@ -239,7 +239,7 @@ Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibi
 
 **Community**
 
-* [Pagina delle domande di Domande e risposte Microsoft relativa ad App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Pagina delle domande di Domande e risposte Microsoft relativa ad App per la logica di Azure](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Passaggi successivi

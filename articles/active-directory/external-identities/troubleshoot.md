@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354973"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441505"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -93,11 +93,11 @@ Un utente che dispone di un account Guest non può accedere e riceve il messaggi
 
 L'utente dispone di un account utente di Azure ed è un tenant virale che è stato abbandonato o non gestito. Inoltre, nel tenant non sono presenti amministratori globali o aziendali.
 
-Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a  [una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
+Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a  [una directory non gestita come amministratore in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utente guest con un tenant JIT o "virale" non può reimpostare la password
 
-Se il tenant dell'identità è un tenant JIT o virale (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
+Se il tenant dell'identità è un tenant JIT o virale (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](../users-groups-roles/domains-admin-takeover.md) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Un utente Guest non è in grado di usare il modulo AzureAD di PowerShell V1
 
@@ -105,7 +105,7 @@ A partire dal 18 novembre 2019, gli utenti guest nella directory (definiti come 
 
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>In un tenant di Azure per il governo degli Stati Uniti non è possibile invitare un utente guest di collaborazione B2B
 
-Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attualmente supportata solo tra i tenant che si trovano nel Cloud Azure per enti pubblici statunitensi e che supportano la collaborazione B2B. Se si invita un utente in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o che non supporta ancora la collaborazione B2B, si riceverà un errore. Per informazioni dettagliate e limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attualmente supportata solo tra i tenant che si trovano nel Cloud Azure per enti pubblici statunitensi e che supportano la collaborazione B2B. Se si invita un utente in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o che non supporta ancora la collaborazione B2B, si riceverà un errore. Per informazioni dettagliate e limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Viene visualizzato l'errore che Azure AD non riesce a trovare AAD-Extensions-app nel tenant
 
@@ -123,4 +123,4 @@ A questo punto l'app ripristinata verrà visualizzata nella portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ottenere assistenza per Collaborazione B2B](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)
+[Ottenere assistenza per Collaborazione B2B](../fundamentals/active-directory-troubleshooting-support-howto.md)

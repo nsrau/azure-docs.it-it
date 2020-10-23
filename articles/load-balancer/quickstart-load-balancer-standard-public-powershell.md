@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9db530c1bdff6521c945ae0c2373bb9d32b8a476
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333986"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047778"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per le macchine virtuali tramite Azure PowerShell
 
@@ -1271,8 +1271,8 @@ In questa guida di avvio rapido:
 * Sono stati configurati la regola del traffico di bilanciamento del carico e il probe di integrità.
 * È stato testato il servizio di bilanciamento del carico.
 
-Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](load-balancer-overview.md) e le [domande frequenti su Load Balancer](load-balancer-faqs.md).
-
-* Altre informazioni su [Load Balancer e zone di disponibilità](load-balancer-standard-availability-zones.md).
+Per altre informazioni su Azure Load Balancer, passare a...
+> [!div class="nextstepaction"]
+> [Informazioni su Azure Load Balancer](load-balancer-overview.md)
 
 

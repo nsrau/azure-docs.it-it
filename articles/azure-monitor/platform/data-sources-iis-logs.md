@@ -1,20 +1,23 @@
 ---
-title: Log di IIS in Monitoraggio di Azure | Microsoft Docs
+title: Raccogliere i log di IIS con Log Analytics Agent in monitoraggio di Azure
 description: Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati in Monitoraggio di Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461193"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
-Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere i log di IIS con Log Analytics Agent in monitoraggio di Azure
+Internet Information Services (IIS) archivia l'attività dell'utente nei file di log che possono essere raccolti dall'agente Log Analytics e archiviati nei [log di monitoraggio di Azure](data-platform.md).
+
+> [!IMPORTANT]
+> Questo articolo illustra la raccolta di log IIS con l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Log di IIS](media/data-sources-iis-logs/overview.png)
 
@@ -23,7 +26,7 @@ Poiché Monitoraggio di Azure raccoglie le voci dai file di log creati da IIS, �
 
 Monitoraggio di Azure supporta solo i file di log di IIS archiviati in formato W3C, mentre non supporta campi personalizzati o IIS Advanced Logging. Non raccoglie log in formato nativo NCSA o IIS.
 
-Configurare i log di IIS in Monitoraggio di Azure dal [menu Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).  Non occorre selezionare nessuna impostazione oltre a **Raccogli i file di log IIS in formato W3C**.
+Configurare i log di IIS in monitoraggio di Azure dal [menu impostazioni avanzate](agent-data-sources.md#configuring-data-sources) per l'agente log Analytics.  Non occorre selezionare nessuna impostazione oltre a **Raccogli i file di log IIS in formato W3C**.
 
 
 ## <a name="data-collection"></a>Raccolta dati

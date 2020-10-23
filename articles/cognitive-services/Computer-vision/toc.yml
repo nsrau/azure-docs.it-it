@@ -7,7 +7,7 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Uso della libreria client
       href: quickstarts-sdk/client-library.md
@@ -197,6 +197,8 @@
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
     - name: Esempi
       items:
         - name: Esplorare un'app di elaborazione delle immagini
@@ -211,10 +213,6 @@
       href: language-support.md
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilità a livello di area

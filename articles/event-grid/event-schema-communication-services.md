@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare i servizi di comunicazione di A
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344692"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145820"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Servizi di comunicazione di Azure come origine di griglia di eventi
 
@@ -23,7 +23,7 @@ Questo articolo fornisce le proprietà e lo schema per gli eventi di servizi di 
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
-Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. 
+Griglia di eventi usa le [sottoscrizioni di eventi](./concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. 
 
 Servizi di comunicazione di Azure genera i tipi di evento seguenti:
 
@@ -45,7 +45,7 @@ Servizi di comunicazione di Azure genera i tipi di evento seguenti:
 
 ## <a name="event-subjects"></a>Oggetti dell'evento
 
-Il campo `subject` di tutti gli eventi di Servizi di comunicazione identifica l'utente, il numero di telefono o l'entità di destinazione dell'evento. I prefissi comuni vengono usati per consentire le semplici operazioni illustrate in [Filtro di Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-filtering).
+Il campo `subject` di tutti gli eventi di Servizi di comunicazione identifica l'utente, il numero di telefono o l'entità di destinazione dell'evento. I prefissi comuni vengono usati per consentire le semplici operazioni illustrate in [Filtro di Griglia di eventi](./event-filtering.md).
 
 | Prefisso dell'oggetto                              | Entità del servizio di comunicazione |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Questa sezione contiene un esempio che illustra l'aspetto dei dati per ogni even
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](https://docs.microsoft.com/azure/event-grid/overview)
-* Per un'introduzione ai concetti relativi a Griglia di eventi di Azure, vedere [Concetti in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/concepts)
-* Per un'introduzione agli argomenti di sistema di Griglia di eventi di Azure, vedere [Argomenti di sistema in Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](./overview.md)
+* Per un'introduzione ai concetti relativi a Griglia di eventi di Azure, vedere [Concetti in Griglia di eventi](./concepts.md)
+* Per un'introduzione agli argomenti di sistema di Griglia di eventi di Azure, vedere [Argomenti di sistema in Griglia di eventi di Azure](./system-topics.md)

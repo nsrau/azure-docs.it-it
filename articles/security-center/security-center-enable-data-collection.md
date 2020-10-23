@@ -6,34 +6,39 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447268"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341584"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce alla sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso.
 
-La raccolta dei dati è fondamentale per ottenere visibilità sugli aggiornamenti mancanti, le impostazioni di sicurezza del sistema operativo non configurate correttamente, lo stato della protezione degli endpoint e la protezione dell'integrità e dalle minacce. 
+La raccolta dei dati è fondamentale per ottenere visibilità sugli aggiornamenti mancanti, le impostazioni di sicurezza del sistema operativo non configurate correttamente, lo stato della protezione degli endpoint e la protezione dell'integrità e dalle minacce. La raccolta dei dati è necessaria solo per le risorse di calcolo (macchine virtuali, set di scalabilità di macchine virtuali, contenitori IaaS e computer non di Azure). È possibile usufruire dei vantaggi del Centro sicurezza di Azure anche se non si esegue il provisioning di agenti. La sicurezza sarà tuttavia limitata e le funzionalità sopra elencate non saranno supportate.  
 
-Questo articolo descrive come installare un agente di Log Analytics e impostare un'area di lavoro Log Analytics in cui archiviare i dati raccolti. Entrambe le operazioni sono necessarie per consentire la raccolta dei dati. 
+Questo articolo descrive come installare un agente di Log Analytics e impostare un'area di lavoro Log Analytics in cui archiviare i dati raccolti. Entrambe le operazioni sono necessarie per consentire la raccolta dei dati. L'archiviazione dei dati in Log Analytics, indipendentemente dal fatto che si usi un'area di lavoro nuova o esistente, può comportare costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> - La raccolta dei dati è necessaria solo per le risorse di calcolo (macchine virtuali, set di scalabilità di macchine virtuali, contenitori IaaS e computer non Azure). È possibile usufruire dei vantaggi del Centro sicurezza di Azure anche se non si esegue il provisioning di agenti. La sicurezza sarà tuttavia limitata e le funzionalità sopra elencate non saranno supportate.  
-> - Per l'elenco delle piattaforme supportate, vedere [Supported platforms in Azure Security Center](security-center-os-coverage.md) (Piattaforme supportate nel Centro sicurezza di Azure).
-> - L'archiviazione dei dati in Log Analytics, indipendentemente dal fatto che si usi un'area di lavoro nuova o esistente, può comportare costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+> [!TIP]
+> Per l'elenco delle piattaforme supportate, vedere [Supported platforms in Azure Security Center](security-center-os-coverage.md) (Piattaforme supportate nel Centro sicurezza di Azure).
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Abilitare il provisioning automatico dell'agente di Log Analytics <a name="auto-provision-mma"></a>
+
+> [!NOTE]
+> Utenti di Azure Sentinel: si noti che la raccolta di eventi di sicurezza nel contesto di una singola area di lavoro può essere configurata nel Centro sicurezza di Azure o in Azure Sentinel, ma non in entrambi. Se si prevede di aggiungere Azure Sentinel a un'area di lavoro che riceve già gli avvisi di Azure Defender dal Centro sicurezza di Azure ed è impostata per la raccolta di eventi di sicurezza, sono disponibili due opzioni:
+> - Lasciare la raccolta di eventi di sicurezza nel Centro sicurezza di Azure così com'è. Sarà possibile eseguire query e analizzare questi eventi in Azure Sentinel oltre che in Azure Defender. Non sarà tuttavia possibile monitorare lo stato di connettività del connettore o cambiarne la configurazione in Azure Sentinel. Se queste operazioni sono importanti, considerare la seconda opzione.
+>
+> - [Disabilitare la raccolta di eventi di sicurezza](#data-collection-tier) nel Centro sicurezza di Azure e solo a quel punto aggiungere il connettore degli eventi di sicurezza in Azure Sentinel. Come per la prima opzione, sarà possibile eseguire query e analizzare gli eventi sia in Azure Sentinel che in Azure Defender/Centro sicurezza di Azure, ma ora sarà possibile monitorare lo stato di connettività del connettore o cambiarne la configurazione in Azure Sentinel (e solo in Azure Sentinel).
+
 
 Per raccogliere i dati dai computer, è consigliabile avere installato l'agente di Log Analytics. L'installazione dell'agente può essere eseguita automaticamente (scelta consigliata) o manualmente. Per impostazione predefinita, il provisioning automatico è disattivato.
 
 Dopo aver attivato il provisioning automatico, il Centro sicurezza distribuisce l'agente di Log Analytics in tutte le macchine virtuali di Azure supportate e nelle nuove macchine create. È consigliabile eseguire il provisioning automatico, ma è possibile installare l'agente manualmente, se necessario (vedere [Installazione manuale dell'agente di Log Analytics](#manual-agent)).
 
-
+Una volta distribuito l'agente nei computer, il Centro sicurezza può offrire altri suggerimenti correlati allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
 
 Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
@@ -44,20 +49,9 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Abilitare il provisioning automatico dell'agente di Log Analytics":::
 
->[!TIP]
-> Se è necessario eseguire il provisioning di un'area di lavoro, l'installazione dell'agente potrebbe richiedere fino a 25 minuti.
+    >[!TIP]
+    > Se è necessario eseguire il provisioning di un'area di lavoro, l'installazione dell'agente potrebbe richiedere fino a 25 minuti.
 
-Una volta distribuito l'agente nei computer, il Centro sicurezza può offrire altri suggerimenti correlati allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
-
->[!NOTE]
-> Se si imposta il provisioning automatico su **No**, l'agente di Log Analytics non viene rimosso dalle macchine virtuali di Azure in cui ne è già stato effettuato il provisioning. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
-
->[!NOTE]
-> - Per istruzioni su come effettuare il provisioning di un'installazione pre-esistente, vedere [Provisioning automatico nel caso di installazione di un agente preesistente](#preexisting).
-> - Per istruzioni sul provisioning manuale, vedere [Installare l'estensione dell'agente di Log Analytics manualmente](#manual-agent).
-> - Per istruzioni su come disattivare il provisioning automatico, vedere [Disattivare il provisioning automatico](#offprovisioning).
-> - Per istruzioni su come caricare il Centro sicurezza usando PowerShell, vedere [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md) (Automatizzare l'onboarding del Centro sicurezza di Azure usando PowerShell).
->
 
 ## <a name="workspace-configuration"></a>Configurazione dell'area di lavoro
 I dati raccolti dal Centro sicurezza vengono archiviati nell'area di lavoro Log Analytics. È possibile archiviare i dati raccolti dalle macchine virtuali di Azure nelle aree di lavoro create dal Centro sicurezza o in un'area di lavoro esistente creata dall'utente. 
@@ -139,7 +133,7 @@ Per selezionare l'area di lavoro Log Analytics esistente:
 
 
 ## <a name="cross-subscription-workspace-selection"></a>Selezione di un'area di lavoro tra sottoscrizioni
-Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili tutte le aree di lavoro di tutte le sottoscrizioni. La selezione di un'area di lavoro tra sottoscrizioni consente di raccogliere i dati da macchine virtuali in esecuzione in sottoscrizioni diverse e di archiviarli nell'area di lavoro scelta. Questa selezione è utile se si usa un'area di lavoro centralizzata all'interno dell'organizzazione e si vuole usarla per la raccolta di dati sulla sicurezza. Per altre informazioni su come gestire le aree di lavoro, vedere [Gestire l'accesso alle aree di lavoro](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili tutte le aree di lavoro di tutte le sottoscrizioni. La selezione di un'area di lavoro tra sottoscrizioni consente di raccogliere i dati da macchine virtuali in esecuzione in sottoscrizioni diverse e di archiviarli nell'area di lavoro scelta. Questa selezione è utile se si usa un'area di lavoro centralizzata all'interno dell'organizzazione e si vuole usarla per la raccolta di dati sulla sicurezza. Per altre informazioni su come gestire le aree di lavoro, vedere [Gestire l'accesso alle aree di lavoro](../azure-monitor/platform/manage-access.md).
 
 
 
@@ -147,20 +141,16 @@ Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili
 La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà effetto soltanto sull'archiviazione degli eventi di sicurezza nell'area di lavoro Log Analytics. L'agente di Log Analytics continuerà a raccogliere e analizzare gli eventi di sicurezza necessari ai fini della protezione dalle minacce del Centro sicurezza di Azure, indipendentemente dal livello scelto per l'archiviazione degli eventi di sicurezza nell'area di lavoro Log Analytics (se presente). La scelta di archiviare gli eventi di sicurezza nell'area di lavoro consentirà l'esecuzione di operazioni di analisi, ricerca e controllo di tali eventi nell'area di lavoro. 
 > [!NOTE]
 > L'archiviazione di dati in Log Analytics può comportare costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 
+È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 - **Nessuno**: disabilita l'archiviazione degli eventi di sicurezza. Si tratta dell'impostazione predefinita.
 - **Minimi**: un insieme più piccolo di eventi per i clienti che desiderano ridurre al minimo il volume di eventi.
 - **Comuni**: si tratta di un insieme di eventi che soddisfa la maggior parte dei clienti e consente loro di avere un audit trail completo.
 - **Tutti gli eventi**: per i clienti che vogliono assicurarsi che tutti gli eventi vengano archiviati.
 
+Questi set di eventi di sicurezza sono disponibili solo con Azure Defender. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
 
-> [!NOTE]
-> Questi set di eventi di sicurezza sono disponibili solo con Azure Defender. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
 Questi insiemi sono stati progettati per soddisfare gli scenari tipici. Assicurarsi di valutare quale di questi si adatti alle proprie esigenze prima di implementarlo.
->
->
 
 Per determinare gli eventi che apparterranno all'insieme di eventi **Comuni** e **Minimi** abbiamo collaborato con i clienti e usato gli standard del settore per conoscere la frequenza non filtrata di ogni evento e il loro uso. In questo processo sono state usate le linee guida seguenti:
 
@@ -184,9 +174,9 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Se si usa l'oggetto Criteri di gruppo, è consigliabile abilitare i criteri di controllo della creazione del processo dell'evento 4688 e il campo *CommandLine* all'interno dell'evento 4688. Per altre informazioni sulla creazione del processo dell'evento 4688, vedere le [domande frequenti](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled) del Centro sicurezza. Per altre informazioni su questi criteri di controllo, vedere [Suggerimenti per i criteri di controllo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Se si usa l'oggetto Criteri di gruppo, è consigliabile abilitare i criteri di controllo della creazione del processo dell'evento 4688 e il campo *CommandLine* all'interno dell'evento 4688. Per altre informazioni sulla creazione del processo dell'evento 4688, vedere le [domande frequenti](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled) del Centro sicurezza. Per altre informazioni su questi criteri di controllo, vedere [Suggerimenti per i criteri di controllo](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Per abilitare la raccolta dei dati per i [controlli applicazione adattivi](security-center-adaptive-application.md), Centro sicurezza consente di configurare criteri AppLocker locali in modalità di controllo per consentire tutte le applicazioni. In questo modo AppLocker genererà eventi che vengono poi raccolti e sfruttati dal Centro sicurezza. È importante notare che questi criteri non saranno configurati nei computer in cui è già configurato un criterio AppLocker. 
-> - Per raccogliere l'[ID evento 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156) della piattaforma filtri Windows, è necessario abilitare [Controlla Connessione a Piattaforma filtro Windows](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Connessione a Piattaforma filtro" /Success:Enable)
+> - Per raccogliere l'[ID evento 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156) della piattaforma filtri Windows, è necessario abilitare [Controlla Connessione a Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Connessione a Piattaforma filtro" /Success:Enable)
 >
 
 Per scegliere i criteri di filtraggio:
@@ -214,7 +204,7 @@ Il Centro sicurezza installerà l'estensione dell'agente di Log Analytics in mod
 
 - È presente un'estensione di macchina virtuale preesistente<br>
     - Quando l'agente di monitoraggio viene installato come estensione, la configurazione dell'estensione consente il reporting a una sola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivierà i dati di sicurezza dalla macchina virtuale nell'area di lavoro già connessa, a condizione che vi sia installata la soluzione "security" o "securityFree". Durante questo processo, il Centro sicurezza può aggiornare l'estensione all'ultima versione.  
-    - Per vedere a quale area di lavoro l'estensione esistente invia i dati, eseguire il test per [convalidare la connettività con il Centro sicurezza di Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). In alternativa, è possibile aprire le aree di lavoro Log Analytics, selezionare un'area di lavoro, selezionare la macchina virtuale ed esaminare la connessione dell'agente di Log Analytics. 
+    - Per vedere a quale area di lavoro l'estensione esistente invia i dati, eseguire il test per [convalidare la connettività con il Centro sicurezza di Azure](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). In alternativa, è possibile aprire le aree di lavoro Log Analytics, selezionare un'area di lavoro, selezionare la macchina virtuale ed esaminare la connessione dell'agente di Log Analytics. 
     - Se si dispone di un ambiente in cui l'agente di Log Analytics è installato in workstation client e invia report a un'area di lavoro Log Analytics esistente, esaminare l'elenco di [sistemi operativi supportati dal Centro sicurezza di Azure](security-center-os-coverage.md) per assicurarsi che il sistema operativo in uso sia supportato. Per altre informazioni, vedere [Clienti di Log Analytics esistenti](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Disattivare il provisioning automatico<a name="offprovisioning"></a>
@@ -264,9 +254,8 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 
 1. Per distribuire gli agenti in nuove VM con un modello di Resource Manager, installare l'agente di Log Analytics:
 
-   a.  [Installare l'agente di Log Analytics per Windows](../virtual-machines/extensions/oms-windows.md)
-    
-   b.  [Installare l'agente di Log Analytics per Linux](../virtual-machines/extensions/oms-linux.md)
+   - [Installare l'agente di Log Analytics per Windows](../virtual-machines/extensions/oms-windows.md)
+   - [Installare l'agente di Log Analytics per Linux](../virtual-machines/extensions/oms-linux.md)
 
 1. Per distribuire le estensioni in macchine virtuali esistenti, seguire le istruzioni riportate in [Raccogliere dati sulle macchine virtuali di Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
@@ -276,9 +265,8 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 
 1. Per usare PowerShell per distribuire l'estensione, seguire le istruzioni della documentazione relativa alle macchine virtuali:
 
-    - [Per macchine Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-
-    - [Per computer Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Per macchine Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [Per computer Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 
@@ -302,8 +290,8 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato il funzionamento della raccolta dati e del provisioning automatico nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere le pagine seguenti:
 
-* [Domande frequenti sul Centro sicurezza di Azure](faq-general.md): domande frequenti sull'uso del servizio.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Domande frequenti sul Centro sicurezza di Azure](faq-general.md): domande frequenti sull'uso del servizio.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 
 
 

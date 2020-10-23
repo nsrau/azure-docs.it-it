@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447086"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362502"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -109,7 +109,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 - Se si desidera che gli utenti esterni siano in grado di accedere al sito di SharePoint Online e alle risorse associate a un gruppo Microsoft 365, assicurarsi di attivare la condivisione esterna di SharePoint Online. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Per informazioni su come impostare i criteri Guest per Microsoft 365 gruppi a livello di directory in PowerShell, vedere [esempio: configurare i criteri Guest per i gruppi a livello di directory](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Per informazioni su come impostare i criteri Guest per Microsoft 365 gruppi a livello di directory in PowerShell, vedere [esempio: configurare i criteri Guest per i gruppi a livello di directory](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Esaminare le impostazioni di condivisione dei team
 

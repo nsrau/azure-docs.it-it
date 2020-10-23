@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050200"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367806"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ In questa sezione viene fornita una verifica a scopo di pianificazione delle par
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Ruoli che possono essere gestiti da PIM
 
-**Azure ad ruoli** sono tutti in Azure Active Directory, ad esempio amministratore globale, amministratore di Exchange e amministratore della sicurezza. Altre informazioni sui ruoli e sulle relative funzionalità sono disponibili in [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Per informazioni su come determinare i ruoli da assegnare agli amministratori, vedere [Ruoli con privilegi minimi per attività](../users-groups-roles/roles-delegate-by-task.md).
+**Azure ad ruoli** sono tutti in Azure Active Directory, ad esempio amministratore globale, amministratore di Exchange e amministratore della sicurezza. Altre informazioni sui ruoli e sulle relative funzionalità sono disponibili in [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../roles/permissions-reference.md). Per informazioni su come determinare i ruoli da assegnare agli amministratori, vedere [Ruoli con privilegi minimi per attività](../roles/delegate-by-task.md).
 
 I **ruoli di Azure** sono ruoli collegati a una risorsa di Azure, un gruppo di risorse, una sottoscrizione o un gruppo di gestione. È possibile usare PIM per fornire l'accesso JIT ai ruoli predefiniti di Azure come proprietario, amministratore accesso utenti e collaboratore e anche ai [ruoli personalizzati](../../role-based-access-control/custom-roles.md). Per altre informazioni sui ruoli di Azure, vedere [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
 
@@ -78,7 +78,7 @@ La sezione seguente consente di identificare tutte le parti interessate coinvolt
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Nome | Ruolo | Azione |
+| Name | Ruolo | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità responsabile della definizione di come allineare questa modifica all'infrastruttura di gestione delle identità di base dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -88,7 +88,7 @@ La sezione seguente consente di identificare tutte le parti interessate coinvolt
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Stakeholder: Privileged Identity Management per i ruoli di Azure
 
-| Nome | Ruolo | Azione |
+| Name | Ruolo | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -111,7 +111,7 @@ Per Azure AD ruoli, è comune per le organizzazioni assegnare il ruolo di ammini
 
 Attenersi alla procedura seguente per implementare il principio dei privilegi minimi per i ruoli del Azure AD.
 
-1. Comprendere le caratteristiche specifiche dei ruoli leggendo le informazioni sui [ruoli di amministratore disponibili in Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). È inoltre utile fare riferimento al documento sui [ruoli di amministratore per attività di identità in Azure AD](../users-groups-roles/roles-delegate-by-task.md), che presenta il ruolo con privilegi minimi da usare per ogni attività specifica.
+1. Comprendere le caratteristiche specifiche dei ruoli leggendo le informazioni sui [ruoli di amministratore disponibili in Azure AD](../roles/permissions-reference.md#available-roles). È inoltre utile fare riferimento al documento sui [ruoli di amministratore per attività di identità in Azure AD](../roles/delegate-by-task.md), che presenta il ruolo con privilegi minimi da usare per ogni attività specifica.
 
 1. Visualizzare l'elenco degli utenti che dispongono di ruoli con privilegi all'interno dell'organizzazione. È possibile usare l' [individuazione Privileged Identity Management e le informazioni dettagliate (anteprima)](pim-security-wizard.md) per ridurre l'esposizione.
 
@@ -200,11 +200,11 @@ Se assegnare un ruolo a un gruppo anziché a singoli utenti è una decisione str
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Molti utenti sono assegnati a un ruolo
 
-Tenere traccia degli utenti assegnati a un ruolo e gestire le relative assegnazioni in base al momento in cui sono necessarie, quando vengono eseguite manualmente. Per assegnare un gruppo a un ruolo, [creare innanzitutto un gruppo assegnabile di ruolo](../users-groups-roles/roles-groups-create-eligible.md) e quindi assegnare il gruppo come idoneo per un ruolo. Questa azione sottopone a tutti gli utenti del gruppo lo stesso processo di attivazione dei singoli utenti idonei a elevare il ruolo. I membri del gruppo attivano le assegnazioni al gruppo singolarmente utilizzando la richiesta di attivazione Privileged Identity Management e il processo di approvazione. Il gruppo non è attivato, bensì solo l'appartenenza al gruppo dell'utente.
+Tenere traccia degli utenti assegnati a un ruolo e gestire le relative assegnazioni in base al momento in cui sono necessarie, quando vengono eseguite manualmente. Per assegnare un gruppo a un ruolo, [creare innanzitutto un gruppo assegnabile di ruolo](../roles/groups-create-eligible.md) e quindi assegnare il gruppo come idoneo per un ruolo. Questa azione sottopone a tutti gli utenti del gruppo lo stesso processo di attivazione dei singoli utenti idonei a elevare il ruolo. I membri del gruppo attivano le assegnazioni al gruppo singolarmente utilizzando la richiesta di attivazione Privileged Identity Management e il processo di approvazione. Il gruppo non è attivato, bensì solo l'appartenenza al gruppo dell'utente.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Si desidera delegare l'assegnazione del ruolo
 
-Un proprietario del gruppo può gestire l'appartenenza a un gruppo. Per Azure AD gruppi assegnabili al ruolo, solo l'amministratore del ruolo con privilegi, l'amministratore globale e i proprietari del gruppo possono gestire l'appartenenza al gruppo. Aggiungendo nuovi membri al gruppo, il membro ottiene l'accesso ai ruoli a cui il gruppo viene assegnato se l'assegnazione è idonea o attiva. Usare i proprietari del gruppo per delegare la gestione dell'appartenenza al gruppo per un ruolo assegnato in modo da ridurre la gamma di privilegi necessari. Per ulteriori informazioni sull'assegnazione di un proprietario a un gruppo durante la creazione del gruppo, vedere [creare un gruppo assegnabile al ruolo in Azure ad](../users-groups-roles/roles-groups-create-eligible.md).
+Un proprietario del gruppo può gestire l'appartenenza a un gruppo. Per Azure AD gruppi assegnabili al ruolo, solo l'amministratore del ruolo con privilegi, l'amministratore globale e i proprietari del gruppo possono gestire l'appartenenza al gruppo. Aggiungendo nuovi membri al gruppo, il membro ottiene l'accesso ai ruoli a cui il gruppo viene assegnato se l'assegnazione è idonea o attiva. Usare i proprietari del gruppo per delegare la gestione dell'appartenenza al gruppo per un ruolo assegnato in modo da ridurre la gamma di privilegi necessari. Per ulteriori informazioni sull'assegnazione di un proprietario a un gruppo durante la creazione del gruppo, vedere [creare un gruppo assegnabile al ruolo in Azure ad](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > : heavy_check_mark: **Microsoft consiglia** di importare Azure ad gruppi assegnabili al ruolo gestiti da Privileged Identity Management. Quando un gruppo assegnabile al ruolo viene portato sotto la gestione da PIM, viene chiamato gruppo di accesso con privilegi. Usare PIM per richiedere ai proprietari del gruppo di attivare l'assegnazione del ruolo di proprietario prima di poter gestire l'appartenenza al gruppo. Per ulteriori informazioni sull'attivazione di gruppi in gestione PIM, vedere la pagina relativa all'introduzione [ai gruppi di accesso con privilegi (anteprima) in Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ Un proprietario del gruppo può gestire l'appartenenza a un gruppo. Per Azure AD
 Una volta deciso l'elenco dei ruoli da gestire con Privileged Identity Management, è necessario decidere quali utenti devono ottenere il ruolo idoneo rispetto al ruolo attivo permanente. I ruoli attivi in modo permanente sono i normali ruoli assegnati tramite Azure Active Directory e le risorse di Azure, mentre i ruoli idonei possono essere assegnati solo in Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft consiglia** di disporre di zero assegnazioni attive in modo permanente sia per i ruoli di Azure ad che per i ruoli di Azure, ad eccezione dei [due account di accesso di emergenza break-Glass](../users-groups-roles/directory-emergency-access.md)consigliati, che devono avere il ruolo di amministratore globale permanente.
+> : heavy_check_mark: **Microsoft consiglia** di disporre di zero assegnazioni attive in modo permanente sia per i ruoli di Azure ad che per i ruoli di Azure, ad eccezione dei [due account di accesso di emergenza break-Glass](../roles/security-emergency-access.md)consigliati, che devono avere il ruolo di amministratore globale permanente.
 
 Anche se è consigliabile una configurazione senza amministratori permanenti, talvolta le organizzazioni possono avere difficoltà a implementare immediatamente una configurazione di questo tipo. Ecco alcuni aspetti da considerare nel prendere questa decisione:
 
@@ -233,16 +233,16 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-roles"></a>Impostazioni Privileged Identity Management per i ruoli di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | n/d | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 

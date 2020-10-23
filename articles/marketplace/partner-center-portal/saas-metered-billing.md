@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378602"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279181"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Fatturazione a consumo per SaaS tramite il servizio di misurazione del Marketplace commerciale
 
@@ -153,7 +153,7 @@ Se si verifica uno dei problemi seguenti, è possibile aprire un ticket di suppo
 - Un problema che deve essere inoltrato a causa di un errore o di un bug da parte dell'utente (ad esempio, evento di utilizzo errato).
 - Eventuali altri problemi relativi alla fatturazione a consumo.
 
-Per comprendere le opzioni di supporto dell'editore e aprire un ticket di supporto con Microsoft, seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](./support.md).
+Per comprendere le opzioni di supporto dell'editore e aprire un ticket di supporto con Microsoft, seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](../support.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

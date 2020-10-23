@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103629"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Introduzione all'uso di Azure Data Lake Storage Gen1 con l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "85985790"
 
 Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account di Azure Data Lake Storage Gen1 ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Panoramica di data Lake storage Gen1](data-lake-store-overview.md).
 
-L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Panoramica dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls).
+L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Panoramica dell'interfaccia della riga di comando di Azure](/cli/azure). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Storage Gen1](/cli/azure/dls).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -34,11 +34,11 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Interfaccia della riga di comando di Azure**: vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per istruzioni.
+* **Interfaccia della riga di comando di Azure**: vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) per istruzioni.
 
 ## <a name="authentication"></a>Authentication
 
-Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui si accede come utente finale. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Ci sono tuttavia altri approcci oltre all'autenticazione con Data Lake Storage Gen1, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
+Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui si accede come utente finale. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Ci sono tuttavia altri approcci oltre all'autenticazione con Data Lake Storage Gen1, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure

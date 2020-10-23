@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323078"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109188"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiare dati tra Data Lake Storage Gen1 e il database SQL di Azure con Sqoop
 
@@ -31,7 +31,7 @@ Per eseguire le procedure descritte è necessario:
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come creare l'account, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Questo articolo presuppone un cluster HDInsight Linux con accesso a Data Lake Storage Gen1.
-* **Database SQL di Azure**. Per istruzioni su come creare un database nel database SQL di Azure, vedere [creare un database nel database SQL di Azure](../sql-database/sql-database-get-started.md)
+* **Database SQL di Azure**. Per istruzioni su come creare un database nel database SQL di Azure, vedere [creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md)
 
 ## <a name="create-sample-tables-in-the-database"></a>Creare tabelle di esempio nel database
 
@@ -156,7 +156,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Considerazioni sulle prestazioni per l'uso di Sqoop
 
-Per informazioni sulle prestazioni che consentono di ottimizzare il processo del Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il [post di Blog sulle prestazioni di Sqoop](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
+Per informazioni sulle prestazioni che consentono di ottimizzare il processo del Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il [post di Blog sulle prestazioni di Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

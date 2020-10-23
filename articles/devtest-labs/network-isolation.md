@@ -3,12 +3,12 @@ title: Isolamento rete in Azure DevTest Labs
 description: Informazioni sull'isolamento rete in Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875771"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149152"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolamento rete in DevTest Labs
 
@@ -57,7 +57,7 @@ Vedere anche gli articoli seguenti:
  
    > [!div class="mx-imgBorder"]
    > ![Test di contoso](./media/network-isolation/contoso-test.png)
-1. Nell'account di archiviazione passare a firewall e reti virtuali e assicurarsi che la casella di controllo "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione" sia selezionata. Poiché [DevTest Labs è un servizio Microsoft attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), questa opzione consentirà al Lab di funzionare normalmente in modalità di isolamento rete. 
+1. Nell'account di archiviazione passare a firewall e reti virtuali e assicurarsi che la casella di controllo "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione" sia selezionata. Poiché [DevTest Labs è un servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services), questa opzione consentirà al Lab di funzionare normalmente in modalità di isolamento rete. 
 
    > [!div class="mx-imgBorder"]
    > ![Firewall di Contoso Lab](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ Con questa operazione, archiviazione di Azure consentirà le connessioni in ingr
 
 È anche possibile scegliere di automatizzare questi passaggi per configurare questa impostazione per più Lab. 
 
-[Altre informazioni sulla gestione delle regole di accesso alla rete predefinite per archiviazione di Azure con PowerShell e CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[Altre informazioni sulla gestione delle regole di accesso alla rete predefinite per archiviazione di Azure con PowerShell e CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Aspetti da ricordare quando si usa un Lab in modalità di isolamento rete
 
@@ -82,7 +82,7 @@ Con questa operazione, archiviazione di Azure consentirà le connessioni in ingr
 
 All'interno di un Lab con isolamento rete, per azioni come il caricamento di un disco rigido virtuale nell'account di archiviazione del Lab per la creazione di immagini personalizzate da, il proprietario del Lab dovrà abilitare in modo esplicito l'accesso all'account di archiviazione da un endpoint consentito. A tale scopo, è possibile creare una macchina virtuale e accedere in modo sicuro all'account di archiviazione del Lab dalla macchina virtuale. 
 
-[Altre informazioni sull'accesso privato a un account di archiviazione da una macchina virtuale](../private-link/create-private-endpoint-storage-portal.md)
+[Altre informazioni sull'accesso privato a un account di archiviazione da una macchina virtuale](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>Esportazione dei dati di utilizzo dal Lab 
 

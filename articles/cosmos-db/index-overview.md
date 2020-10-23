@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35d81d0076c4b29a8b1399331aa0254178720931
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068388"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277809"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB - Panoramica
 
-Azure Cosmos DB è un database senza schema che consente di eseguire l'iterazione sull'applicazione senza dover gestire schemi o indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente ogni proprietà per tutti gli elementi nel [contenitore](databases-containers-items.md#azure-cosmos-containers) senza dover definire schemi né configurare indici secondari.
+Azure Cosmos DB è un database senza schema che consente di eseguire l'iterazione sull'applicazione senza dover gestire schemi o indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente ogni proprietà per tutti gli elementi nel [contenitore](account-databases-containers-items.md#azure-cosmos-containers) senza dover definire schemi né configurare indici secondari.
 
 Lo scopo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e come usa gli indici per migliorare le prestazioni delle query. È consigliabile leggere questa sezione prima di esplorare come personalizzare i [criteri di indicizzazione](index-policy.md).
 

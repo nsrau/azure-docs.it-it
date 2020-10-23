@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519782"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Esercitazione: Integrazione di Azure Active Directory con LaunchDarkly
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di LaunchDarkly](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://app.launchdarkly.com`
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di LaunchDarkly](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -135,19 +135,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 2. Selezionare **Account Settings** (Impostazioni account) nel pannello di spostamento a sinistra.
 
-    ![Configurazione di LaunchDarkly](./media/launchdarkly-tutorial/configure1.png)
+    ![Screenshot che mostra la voce Account Settings selezionata in Production.](./media/launchdarkly-tutorial/configure1.png)
 
 3. Fare clic sulla scheda **Security** (Sicurezza).
 
-    ![Configurazione di LaunchDarkly](./media/launchdarkly-tutorial/configure2.png)
+    ![Screenshot che mostra la scheda Security in Account settings.](./media/launchdarkly-tutorial/configure2.png)
 
 4. Fare clic su **ENABLE SSO** (ABILITA SSO) e quindi su **EDIT SAML CONFIGURATION** (MODIFICA CONFIGURAZIONE SAML).
 
-    ![Configurazione di LaunchDarkly](./media/launchdarkly-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina Single Sign-On in cui è possibile scegliere ENABLE S S O e EDIT SAML CONFIGURATION.](./media/launchdarkly-tutorial/configure3.png)
 
 5. Nella sezione **Edit your SAML configuration** (Modifica la configurazione SAML) seguire questa procedura:
 
-    ![Configurazione di LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
+    ![Screenshot che mostra la sezione Edit your SAML configuration in cui è possibile apportare le modifiche descritte qui.](./media/launchdarkly-tutorial/configure4.png)
 
     a. Copiare l'**URL del servizio consumer di SAML** dell'istanza in uso e incollarlo nella casella di testo URL di risposta della sezione **URL e dominio LaunchDarkly** del portale di Azure.
 

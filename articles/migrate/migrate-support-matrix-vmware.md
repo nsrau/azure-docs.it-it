@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315803"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -40,7 +40,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **VM VMware** | Tutti i sistemi operativi possono essere valutati per la migrazione. 
-**Storage** | Sono supportati i dischi collegati a SCSI, i controller basati su IDE e SATA.
+**Archiviazione** | Sono supportati i dischi collegati a SCSI, i controller basati su IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
@@ -117,4 +117,4 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Rivedere](best-practices-assessment.md) le procedure consigliate per la creazione di valutazioni.
-- [Preparare la valutazione VMware](tutorial-prepare-vmware.md).
+- [Preparare la valutazione VMware](./tutorial-discover-vmware.md).

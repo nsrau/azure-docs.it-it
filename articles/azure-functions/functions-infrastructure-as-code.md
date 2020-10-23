@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107726"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -28,8 +28,8 @@ Una distribuzione di funzioni di Azure è in genere costituita da queste risorse
 
 | Risorsa                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Un'app per le funzioni                                                                     | Obbligatoria    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatoria    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Un'app per le funzioni                                                                     | Necessario    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Necessario    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |
 | [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -516,7 +516,7 @@ Le app Linux devono includere anche una `linuxFxVersion` Proprietà in `siteConf
 }
 ```
 
-Se si [distribuisce un'immagine del contenitore personalizzata](./functions-create-function-linux-custom-image.md), è necessario specificarla con `linuxFxVersion` e includere la configurazione che consente il pull dell'immagine, come in [app Web per contenitori](../app-service/containers/index.yml). Impostare anche `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su `false` , perché il contenuto dell'app viene fornito nel contenitore stesso:
+Se si [distribuisce un'immagine del contenitore personalizzata](./functions-create-function-linux-custom-image.md), è necessario specificarla con `linuxFxVersion` e includere la configurazione che consente il pull dell'immagine, come in [app Web per contenitori](../app-service/index.yml). Impostare anche `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su `false` , perché il contenuto dell'app viene fornito nel contenitore stesso:
 
 ```json
 {

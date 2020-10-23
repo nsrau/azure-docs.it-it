@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893357"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203195"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuire un contenitore personalizzato nel servizio app usando le azioni di GitHub
 
@@ -33,7 +33,7 @@ Per un flusso di lavoro del contenitore del servizio app Azure, il file è costi
 - Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Un account GitHub. Se non si ha un accesso, iscriversi [gratuitamente](https://github.com/join).  
 - Un registro contenitori funzionante e un'app di servizio app Azure per i contenitori. Questo esempio USA Container Registry di Azure. 
-    - [Informazioni su come creare un'applicazione Node.js in contenitori con Docker, eseguire il push dell'immagine del contenitore in un registro e quindi distribuire l'immagine nel servizio app Azure](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [Informazioni su come creare un'applicazione Node.js in contenitori con Docker, eseguire il push dell'immagine del contenitore in un registro e quindi distribuire l'immagine nel servizio app Azure](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## <a name="generate-deployment-credentials"></a>Genera credenziali di distribuzione
 
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Eseguire la distribuzione in un contenitore del servizio app
 
-Per distribuire l'immagine in un contenitore personalizzato nel servizio app, usare l' `azure/webapps-deploy@v2` azione. Questa azione ha cinque parametri:
+Per distribuire l'immagine in un contenitore personalizzato nel servizio app, usare l' `azure/webapps-deploy@v2` azione. Questa azione ha sette parametri:
 
 | **Parametro**  | **Spiegazione**  |
 |---------|---------|
 | **app-name** | (Obbligatorio) Nome dell'app del servizio app | 
-| **publish-profile** | (Facoltativo) Contenuto del file del profilo di pubblicazione con segreti Distribuzione Web |
-| **images** | Nome/i completo delle immagini del contenitore. Ad esempio,' myregistry.azurecr.io/nginx:latest ' o ' Python: 3.7.2-Alpine/'. Per scenari a più contenitori è possibile specificare più nomi di immagini del contenitore (separati da più righe) |
+| **publish-profile** | Opzionale Si applica alle app Web (Windows e Linux) e ai contenitori di app Web (Linux). Scenario a più contenitori non supportato. Contenuto del file del profilo di pubblicazione ( \* con estensione publishsettings) con distribuzione Web segreti | 
 | **slot-name** | (Facoltativo) Immettere uno slot esistente diverso dallo slot di produzione |
-| **file di configurazione** | Opzionale Percorso del file di Docker-Compose |
+| **package** | Opzionale Si applica solo all'app Web: percorso del pacchetto o della cartella. \*zip, \* War, \* jar o cartella da distribuire |
+| **images** | Necessaria Si applica solo ai contenitori di app Web: specificare il nome o le immagini del contenitore completo. Ad esempio,' myregistry.azurecr.io/nginx:latest ' o ' Python: 3.7.2-Alpine/'. Per un'app multi-contenitore è possibile specificare più nomi di immagini del contenitore (separati da più righe) |
+| **file di configurazione** | Opzionale Si applica solo ai contenitori di app Web: percorso del file di Docker-Compose. Deve essere un percorso completo o relativo alla directory di lavoro predefinita. Obbligatorio per le app a più contenitori. |
+| **comando startup** | Opzionale Immettere il comando di avvio. Per es. esecuzione DotNet o DotNet filename.dll |
 
 # <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/publish-profile)
 

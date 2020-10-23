@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371730"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116779"
 ---
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -71,7 +71,7 @@ L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un 
 | Dimensioni in byte per schema | 1 MB |   
 | Numero di proprietà per gruppo di schemi | 1024 |
 | Dimensioni in byte per la chiave del gruppo di proprietà | 256 | 
-| Dimensioni in byte per la chiave del gruppo di proprietà | 1024 | 
+| Dimensioni in byte per valore della proprietà gruppo | 1024 | 
 
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limiti diversi per i livelli **standard** e **dedicato** 

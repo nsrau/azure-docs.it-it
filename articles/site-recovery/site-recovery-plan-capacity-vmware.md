@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135449"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368027"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -20,7 +20,7 @@ Consultare questo articolo per pianificare la capacità e la scalabilità durant
 
 ## <a name="how-do-i-start-capacity-planning"></a>Come si inizia per pianificare la capacità?
 
-Per conoscere i requisiti dell'infrastruttura per Azure Site Recovery, raccogliere informazioni sull'ambiente di replica eseguendo [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) per la replica VMware. Per altre informazioni, consultare [Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure](site-recovery-deployment-planner.md). 
+Per conoscere i requisiti dell'infrastruttura per Azure Site Recovery, raccogliere informazioni sull'ambiente di replica eseguendo [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) per la replica VMware. Per altre informazioni, consultare [Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure](site-recovery-deployment-planner.md). 
 
 Site Recovery Deployment Planner fornisce un report con informazioni complete sulle macchine virtuali compatibili e non, i dischi per ogni macchina virtuale e la varianza di dati per ogni disco. Lo strumento riepiloga anche i requisiti della larghezza di banda di rete per soddisfare l'RPO di destinazione e l'infrastruttura di Azure necessaria per la corretta esecuzione della replica e del failover del test.
 
@@ -92,7 +92,7 @@ Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-plan
 
     ![Screenshot della finestra di dialogo Proprietà di Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-È anche possibile usare il cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) per impostare la limitazione. Ecco un esempio:
+È anche possibile usare il cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) per impostare la limitazione. Di seguito è riportato un esempio:
 
 ```azurepowershell-interactive
 $mon = [System.DayOfWeek]::Monday

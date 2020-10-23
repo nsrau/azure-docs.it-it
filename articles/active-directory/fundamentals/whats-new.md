@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773506"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362757"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -84,7 +84,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
  
 Quando gli amministratori IT o gli utenti finali leggono le chiavi di ripristino di BitLocker a cui hanno accesso, Azure Active Directory ora genera un log di controllo che acquisisce chi ha eseguito l'accesso alla chiave di ripristino. Lo stesso controllo fornisce i dettagli del dispositivo a cui è stata associata la chiave BitLocker.
 
-Gli utenti finali possono [accedere alle chiavi di ripristino tramite il mio account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). Gli amministratori IT possono accedere alle chiavi di ripristino tramite l' [API della chiave di ripristino di BitLocker in beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) o tramite il portale di Azure ad. Per altre informazioni, vedere [visualizzare o copiare le chiavi BitLocker nel portale di Azure ad](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+Gli utenti finali possono [accedere alle chiavi di ripristino tramite il mio account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). Gli amministratori IT possono accedere alle chiavi di ripristino tramite l' [API della chiave di ripristino di BitLocker in beta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) o tramite il portale di Azure ad. Per altre informazioni, vedere [visualizzare o copiare le chiavi BitLocker nel portale di Azure ad](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -94,7 +94,7 @@ Gli utenti finali possono [accedere alle chiavi di ripristino tramite il mio acc
 **Categoria di servizio:** RBAC  
 **Funzionalità del prodotto:** Controllo di accesso
  
-Gli utenti con il ruolo di [amministratore dei dispositivi team](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) possono gestire i [dispositivi certificati](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) dai team dall'interfaccia di amministrazione dei team. 
+Gli utenti con il ruolo di [amministratore dei dispositivi team](../roles/permissions-reference.md#teams-devices-administrator) possono gestire i [dispositivi certificati](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) dai team dall'interfaccia di amministrazione dei team. 
 
 Questo ruolo consente all'utente di visualizzare tutti i dispositivi a colpo d'occhio, con la possibilità di cercare e filtrare i dispositivi. L'utente può anche controllare i dettagli di ogni dispositivo, inclusi l'account connesso e la marca e il modello del dispositivo. L'utente può modificare le impostazioni del dispositivo e aggiornare le versioni del software. Questo ruolo non concede le autorizzazioni per controllare l'attività dei team e la qualità della chiamata del dispositivo.
  
@@ -146,7 +146,7 @@ Il portale Azure AD è stato aggiornato per semplificare la ricerca degli utenti
 - Nuove funzionalità di ordinamento per proprietà quali nome, nome dell'entità utente e data di eliminazione.
 - Un nuovo numero totale di utenti che viene aggiornato con qualsiasi ricerca o filtro.
 
-Per ulteriori informazioni, vedere la pagina relativa ai miglioramenti apportati [alla gestione degli utenti (anteprima) in Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
+Per ulteriori informazioni, vedere la pagina relativa ai miglioramenti apportati [alla gestione degli utenti (anteprima) in Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
 
@@ -255,7 +255,7 @@ In questa versione di anteprima i clienti possono passare dall'esperienza esiste
 
 Sono state aggiornate le autorizzazioni a livello di directory per gli utenti guest. Queste autorizzazioni consentono agli amministratori di richiedere ulteriori restrizioni e controlli per l'accesso utente Guest esterno. Gli amministratori possono ora aggiungere ulteriori restrizioni per l'accesso degli utenti esterni ai profili e alle informazioni di appartenenza. Con questa funzionalità di anteprima pubblica, i clienti possono gestire l'accesso degli utenti esterni su larga scala offuscando le appartenenze ai gruppi, inclusa la limitazione degli utenti guest nella visualizzazione delle appartenenze ai gruppi in cui si trovano.
 
-Per altre informazioni, vedere autorizzazioni di [accesso Guest limitate](../users-groups-roles/users-restrict-guest-permissions.md) e [autorizzazioni predefinite per gli utenti](./users-default-permissions.md).
+Per altre informazioni, vedere autorizzazioni di [accesso Guest limitate](../enterprise-users/users-restrict-guest-permissions.md) e [autorizzazioni predefinite per gli utenti](./users-default-permissions.md).
  
 ---
 
@@ -358,7 +358,7 @@ In precedenza, i provider di connessione Open ID personalizzati potevano essere 
 **Categoria di servizio:** Ruoli di Azure AD  
 **Funzionalità del prodotto:** Controllo di accesso
 
-È ora possibile assegnare Azure AD ruoli predefiniti ai gruppi cloud con questa nuova funzionalità. Ad esempio, è possibile assegnare il ruolo di amministratore di SharePoint a Contoso_SharePoint_Admins gruppo. È anche possibile usare PIM per rendere il gruppo un membro idoneo del ruolo, anziché concedere l'accesso permanente. Per informazioni su come configurare questa funzionalità, vedere [usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../users-groups-roles/roles-groups-concept.md).
+È ora possibile assegnare Azure AD ruoli predefiniti ai gruppi cloud con questa nuova funzionalità. Ad esempio, è possibile assegnare il ruolo di amministratore di SharePoint a Contoso_SharePoint_Admins gruppo. È anche possibile usare PIM per rendere il gruppo un membro idoneo del ruolo, anziché concedere l'accesso permanente. Per informazioni su come configurare questa funzionalità, vedere [usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../roles/groups-concept.md).
  
 ---
 
@@ -368,7 +368,7 @@ In precedenza, i provider di connessione Open ID personalizzati potevano essere 
 **Categoria di servizio:** Ruoli di Azure AD  
 **Funzionalità del prodotto:** Controllo di accesso
  
-Gli utenti nel ruolo di leader aziendale di Insights possono accedere a un set di dashboard e informazioni dettagliate tramite l' [applicazione M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Questo include l'accesso completo a tutti i dashboard e le funzionalità di esplorazione dei dati e delle informazioni fornite. Tuttavia, gli utenti con questo ruolo non hanno accesso alle impostazioni di configurazione del prodotto, che è responsabilità del ruolo di amministratore di Insights. Per ulteriori informazioni su questo ruolo, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-business-leader)
+Gli utenti nel ruolo di leader aziendale di Insights possono accedere a un set di dashboard e informazioni dettagliate tramite l' [applicazione M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Questo include l'accesso completo a tutti i dashboard e le funzionalità di esplorazione dei dati e delle informazioni fornite. Tuttavia, gli utenti con questo ruolo non hanno accesso alle impostazioni di configurazione del prodotto, che è responsabilità del ruolo di amministratore di Insights. Per ulteriori informazioni su questo ruolo, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md#insights-business-leader)
  
 ---
 
@@ -378,7 +378,7 @@ Gli utenti nel ruolo di leader aziendale di Insights possono accedere a un set d
 **Categoria di servizio:** Ruoli di Azure AD  
 **Funzionalità del prodotto:** Controllo di accesso
  
-Gli utenti nel ruolo di amministratore di Insights possono accedere al set completo di funzionalità amministrative nell' [applicazione M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Un utente con questo ruolo può leggere le informazioni della directory, monitorare l'integrità dei servizi, i ticket di supporto file e accedere agli aspetti delle impostazioni dell'amministratore di Insights. Per ulteriori informazioni su questo ruolo, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-administrator)
+Gli utenti nel ruolo di amministratore di Insights possono accedere al set completo di funzionalità amministrative nell' [applicazione M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Un utente con questo ruolo può leggere le informazioni della directory, monitorare l'integrità dei servizi, i ticket di supporto file e accedere agli aspetti delle impostazioni dell'amministratore di Insights. Per ulteriori informazioni su questo ruolo, vedere [autorizzazioni per i ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md#insights-administrator)
  
 --- 
 
@@ -412,7 +412,7 @@ In precedenza, solo l'amministratore globale poteva gestire la [proprietà di es
  
 Con la versione GA della condizione delle app client nell'accesso condizionale, i nuovi criteri vengono ora applicati per impostazione predefinita a tutte le applicazioni client. Sono inclusi i client di autenticazione legacy. I criteri esistenti rimarranno invariati, ma l'interruttore *configura sì/no* verrà rimosso dai criteri esistenti per individuare facilmente le app client a cui vengono applicati i criteri. 
 
-Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](https://aka.ms/caclientapps)
+Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md)
  
 ---
 
@@ -528,7 +528,7 @@ Per ulteriori informazioni sui flussi degli utenti, vedere la pagina relativa [a
  
 Nel luglio 2020 abbiamo aggiunto le seguenti 55 nuove applicazioni nella raccolta di app con supporto federativo:
 
-[Clap Your Hands](http://www.rmit.com.ar/), [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect](https://app.templafy.com/), [PeterConnects receptionist](https://msteams.peterconnects.com/), [AlohaCloud](https://appfusions.alohacloud.com/auth), [Control Tower](https://bpm.tnxcorp.com/sso/microsoft), [COCOOM](https://start.cocoom.com/), [Coins costruzioni cloud](https://sso.coinsconstructioncloud.com/#login/), [Medxnote mt](https://task.teamsmain.medx.im/authorization), [Reflekt](https://reflekt.konsolute.com/login), [rever](https://app.reverscore.net/access), [MyCompanyArchive](https://login.mycompanyarchive.com/) [, GREMINDERS,](https://app.greminders.com/o365-oauth) [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US),  [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [DataSite](../saas-apps/datasite-tutorial.md), [Blogin](../saas-apps/blogin-tutorial.md) [, IntSights, kpifire](../saas-apps/intsights-tutorial.md) [,](../saas-apps/kpifire-tutorial.md) [TextLine](../saas-apps/textline-tutorial.md), [Cloud Academy-SSO](../saas-apps/cloud-academy-sso-tutorial.md), [community Spark](../saas-apps/community-spark-tutorial.md), [chat](../saas-apps/chatwork-tutorial.md), [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud Control](../saas-apps/c3m-cloud-control-tutorial.md), [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Single Sign-on di hub dati Michigan, in](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md) [uscita](../saas-apps/egress-tutorial.md), [SendSafely](../saas-apps/sendsafely-tutorial.md), [Eletive](https://app.eletive.com/), [right-hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [verme](../saas-apps/verme-tutorial.md), [lenses.io](../saas-apps/lensesio-tutorial.md), [momenta](../saas-apps/momenta-tutorial.md), [Rise](https://app.uprise.co/sign-in), [Q](https://q.moduleq.com/login), [CloudCords](../saas-apps/cloudcords-tutorial.md), addicate [bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector](https://www.strata.io/identity-fabric/), [Smartschool (School Management System)](https://smart-schoolapp.com/frmLoginForm), [Zepto-Intelligent cronometraggio](https://user.zepto-ai.com/signin), [studi.ly](https://studi.ly/), [Trackplan](http://www.trackplanfm.com/), [Skedda](../saas-apps/skedda-tutorial.md), [WhosOnLocation](../saas-apps/whos-on-location-tutorial.md), [Coggle](../saas-apps/coggle-tutorial.md), [KEMP LoadMaster](https://kemptechnologies.com/cloud-load-balancer/), [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-tutorial.md)
+[Clap Your Hands](http://www.rmit.com.ar/), [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect](https://app.templafy.com/), [PeterConnects receptionist](https://msteams.peterconnects.com/), [AlohaCloud](https://appfusions.alohacloud.com/auth), [Control Tower](https://bpm.tnxcorp.com/sso/microsoft), [COCOOM](https://start.cocoom.com/), [Coins costruzioni cloud](https://sso.coinsconstructioncloud.com/#login/), [Medxnote mt](https://task.teamsmain.medx.im/authorization), [Reflekt](https://reflekt.konsolute.com/login), [rever](https://app.reverscore.net/access), [MyCompanyArchive](https://login.mycompanyarchive.com/) [, GREMINDERS,](https://app.greminders.com/o365-oauth) [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US),  [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [DataSite](../saas-apps/datasite-tutorial.md), [Blogin](../saas-apps/blogin-tutorial.md) [, IntSights, kpifire](../saas-apps/intsights-tutorial.md) [,](../saas-apps/kpifire-tutorial.md) [TextLine](../saas-apps/textline-tutorial.md), [Cloud Academy-SSO](../saas-apps/cloud-academy-sso-tutorial.md), [community Spark](../saas-apps/community-spark-tutorial.md), [chat](../saas-apps/chatwork-tutorial.md), [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud Control](../saas-apps/c3m-cloud-control-tutorial.md), [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Single Sign-on di hub dati Michigan, in](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md) [uscita](../saas-apps/egress-tutorial.md), [SendSafely](../saas-apps/sendsafely-tutorial.md), [Eletive](https://app.eletive.com/), [right-hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [verme](../saas-apps/verme-tutorial.md), [lenses.io](../saas-apps/lensesio-tutorial.md), [momenta](../saas-apps/momenta-tutorial.md), [Rise](https://app.uprise.co/sign-in), [Q](https://q.moduleq.com/login), [CloudCords](../saas-apps/cloudcords-tutorial.md), addicate [bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector](https://www.strata.io/identity-fabric/), [Smartschool (School Management System)](https://smartschoolz.com/login), [Zepto-Intelligent cronometraggio](https://user.zepto-ai.com/signin), [studi.ly](https://studi.ly/), [Trackplan](http://www.trackplanfm.com/), [Skedda](../saas-apps/skedda-tutorial.md), [WhosOnLocation](../saas-apps/whos-on-location-tutorial.md), [Coggle](../saas-apps/coggle-tutorial.md), [KEMP LoadMaster](https://kemptechnologies.com/cloud-load-balancer/), [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-tutorial.md)
 
 È anche possibile trovare la documentazione di tutte le applicazioni da qui https://aka.ms/AppsTutorial
 
@@ -554,7 +554,7 @@ Per altre informazioni su come migliorare la sicurezza dell'organizzazione usand
 **Categoria di servizio:** Ruoli di Azure AD  
 **Funzionalità del prodotto:** Controllo di accesso
  
-È ora possibile visualizzare le assegnazioni di ruolo in tutti gli ambiti per un ruolo nella scheda "ruoli e amministratori" del portale di Azure AD. È anche possibile scaricare le assegnazioni di ruolo per ogni ruolo in un file CSV. Per istruzioni sulla visualizzazione e l'aggiunta di assegnazioni di ruolo, vedere [visualizzare e assegnare ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md).
+È ora possibile visualizzare le assegnazioni di ruolo in tutti gli ambiti per un ruolo nella scheda "ruoli e amministratori" del portale di Azure AD. È anche possibile scaricare le assegnazioni di ruolo per ogni ruolo in un file CSV. Per istruzioni sulla visualizzazione e l'aggiunta di assegnazioni di ruolo, vedere [visualizzare e assegnare ruoli di amministratore in Azure Active Directory](../roles/manage-roles-portal.md).
  
 ---
 
@@ -703,7 +703,7 @@ Le API Microsoft Graph riskyUsers e riskDetections sono ora disponibili a livell
 
 È ora possibile creare etichette di riservatezza e usare le impostazioni delle etichette per applicare i criteri a gruppi di Microsoft 365, inclusi i criteri di accesso utente esterno (pubblico o privato). È possibile creare un'etichetta con l'informativa sulla privacy come privata e i criteri di accesso utente esterno per non consentire l'aggiunta di utenti guest. Quando un utente applica questa etichetta a un gruppo, il gruppo sarà privato e nessun utente Guest potrà essere aggiunto al gruppo. 
 
-Le etichette di riservatezza sono importanti per proteggere i dati cruciali per l'azienda e consentono di gestire i gruppi su larga scala, in modo conforme e sicuro. Per informazioni sull'uso delle etichette di riservatezza, vedere [assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory (anteprima)](../users-groups-roles/groups-assign-sensitivity-labels.md).
+Le etichette di riservatezza sono importanti per proteggere i dati cruciali per l'azienda e consentono di gestire i gruppi su larga scala, in modo conforme e sicuro. Per informazioni sull'uso delle etichette di riservatezza, vedere [assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory (anteprima)](../enterprise-users/groups-assign-sensitivity-labels.md).
  
 ---
 
@@ -805,7 +805,7 @@ Le notifiche tramite posta elettronica verranno inviate dall'indirizzo seguente:
 **Funzionalità del prodotto:** Autenticazione utente
  
 
-Attualmente, gli utenti che si trovano in domini federati in Azure AD, ma che non sono sincronizzati nel tenant, non possono accedere ai team. A partire dalla fine di giugno, questa nuova funzionalità consentirà di eseguire questa operazione estendendo la funzionalità di iscrizione verificata tramite posta elettronica esistente. Ciò consentirà agli utenti che possono accedere a un IdP federato, ma che non dispongono ancora di un oggetto utente in Azure ID, di creare automaticamente un oggetto utente e di essere autenticato per i team. Il relativo oggetto utente sarà contrassegnato come "iscrizione self-service". Si tratta di un'estensione della funzionalità esistente per eseguire l'iscrizione automatica verificata tramite posta elettronica che gli utenti nei domini gestiti possono eseguire e possono essere controllati con lo stesso flag. Questa modifica verrà completata durante i due mesi seguenti. Per informazioni sugli aggiornamenti della documentazione, vedere [qui](../users-groups-roles/directory-self-service-signup.md).
+Attualmente, gli utenti che si trovano in domini federati in Azure AD, ma che non sono sincronizzati nel tenant, non possono accedere ai team. A partire dalla fine di giugno, questa nuova funzionalità consentirà di eseguire questa operazione estendendo la funzionalità di iscrizione verificata tramite posta elettronica esistente. Ciò consentirà agli utenti che possono accedere a un IdP federato, ma che non dispongono ancora di un oggetto utente in Azure ID, di creare automaticamente un oggetto utente e di essere autenticato per i team. Il relativo oggetto utente sarà contrassegnato come "iscrizione self-service". Si tratta di un'estensione della funzionalità esistente per eseguire l'iscrizione automatica verificata tramite posta elettronica che gli utenti nei domini gestiti possono eseguire e possono essere controllati con lo stesso flag. Questa modifica verrà completata durante i due mesi seguenti. Per informazioni sugli aggiornamenti della documentazione, vedere [qui](../enterprise-users/directory-self-service-signup.md).
  
 ---
 
@@ -853,7 +853,7 @@ Se il token di accesso SAML originale usava un formato diverso per NameID (ad es
 **Categoria di servizio:** Provisioning di Azure AD cloud  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Gli amministratori IT possono iniziare a usare il nuovo ruolo "amministratore ibrido" come ruolo con privilegi minimi per la configurazione del provisioning cloud ADConnect di Azure. Con questo nuovo ruolo, non è più necessario usare il ruolo di amministratore globale per configurare e configurare il provisioning del cloud. [Altre informazioni](../users-groups-roles/roles-delegate-by-task.md#connect)
+Gli amministratori IT possono iniziare a usare il nuovo ruolo "amministratore ibrido" come ruolo con privilegi minimi per la configurazione del provisioning cloud ADConnect di Azure. Con questo nuovo ruolo, non è più necessario usare il ruolo di amministratore globale per configurare e configurare il provisioning del cloud. [Altre informazioni](../roles/delegate-by-task.md#connect)
  
 ---
 
@@ -978,7 +978,7 @@ Le attestazioni di gruppo rilasciate in un token possono ora essere limitate sol
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-È stata migliorata l'app di provisioning del writeback dei giorni lavorativi per supportare il writeback del numero di telefono dell'ufficio e degli attributi dei numeri cellulari. Oltre alla posta elettronica e al nome utente, ora è possibile configurare l'app per il provisioning writeback dei giorni lavorativi in modo da Azure AD alla giornata lavorativa. Per altri dettagli su come configurare il writeback dei numeri di telefono, vedere l'esercitazione sull'app [writeback del giorno lavorativo](https://aka.ms/WorkdayWriteback) . 
+È stata migliorata l'app di provisioning del writeback dei giorni lavorativi per supportare il writeback del numero di telefono dell'ufficio e degli attributi dei numeri cellulari. Oltre alla posta elettronica e al nome utente, ora è possibile configurare l'app per il provisioning writeback dei giorni lavorativi in modo da Azure AD alla giornata lavorativa. Per altri dettagli su come configurare il writeback dei numeri di telefono, vedere l'esercitazione sull'app [writeback del giorno lavorativo](../saas-apps/workday-writeback-tutorial.md) . 
 
 ---
 
@@ -1025,7 +1025,7 @@ La nuova esperienza Mostra tutte le registrazioni di app B2C e Azure AD le regis
 
 L'esperienza Azure AD B2C Registrazioni app si basa sull'esperienza di [registrazione delle app](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) generale per Azure ad tenant, ma è adattata per Azure ad B2C. L'esperienza "applicazioni" Legacy sarà deprecata in futuro.
 
-Per ulteriori informazioni, visitare [la nuova esperienza di registrazione delle app per Azure ad B2C](https://aka.ms/b2cappregtraining).
+Per ulteriori informazioni, visitare [la nuova esperienza di registrazione delle app per Azure ad B2C](../../active-directory-b2c/app-registrations-training-guide.md).
 
 ---
 
@@ -1051,7 +1051,7 @@ L'esperienza di registrazione combinata per Multi-Factor Authentication (multi-f
 
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-La valutazione dell'accesso continuo è una nuova funzionalità di sicurezza che consente di applicare in tempo quasi reale i criteri alle relying party che utilizzano Azure AD token di accesso quando si verificano eventi in Azure AD, ad esempio l'eliminazione di account utente. Questa funzionalità è stata implementata per prima per i team e i client Outlook. Per ulteriori informazioni, leggere il [Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) e la  [documentazione](./concept-fundamentals-continuous-access-evaluation.md).
+La valutazione dell'accesso continuo è una nuova funzionalità di sicurezza che consente di applicare in tempo quasi reale i criteri alle relying party che utilizzano Azure AD token di accesso quando si verificano eventi in Azure AD, ad esempio l'eliminazione di account utente. Questa funzionalità è stata implementata per prima per i team e i client Outlook. Per ulteriori informazioni, leggere il [Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) e la  [documentazione](../conditional-access/concept-continuous-access-evaluation.md).
 
 ---
 
@@ -1127,7 +1127,7 @@ Nel 2020 aprile sono state aggiunte le 31 nuove app con supporto federativo per 
 
 [App SincroPool](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT Procurement Suite](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO per JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), dashboard di [Meraki](../saas-apps/meraki-dashboard-tutorial.md), [Microsoft 365 Mover](https://app.mover.io/login), [speaker Engage](https://speakerengage.com/login.php), [onestamente](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/), [AlertMedia, gr8](../saas-apps/alertmedia-tutorial.md) [people](../saas-apps/gr8-people-tutorial.md), [Pending](../saas-apps/pendo-tutorial.md), [HighGround](../saas-apps/highground-tutorial.md), [Harmony](../saas-apps/harmony-tutorial.md), [orari Solutions](../saas-apps/timetabling-solutions-tutorial.md), il [fatto che fai clic su](../saas-apps/synchronet-click-tutorial.md)Empower, potenzia, [rafforza](https://www.made-in-office.com/en/) [cloud](../saas-apps/fortes-change-cloud-tutorial.md), [tornasole](../saas-apps/litmus-tutorial.md), [GroupTalk](https://recorder.grouptalk.com/), [Frontify](../saas-apps/frontify-tutorial.md), [MongoDB cloud](../saas-apps/mongodb-cloud-tutorial.md), [TickitLMS Learn](../saas-apps/tickitlms-learn-tutorial.md), [Coco](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [Nitro Productivity Suite](../saas-apps/nitro-productivity-suite-tutorial.md) , [Trend Micro Web Security (TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial)
 
-Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](https://aka.ms/appstutorial). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](https://aka.ms/azureadapprequest).
+Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ---
 
@@ -1211,7 +1211,7 @@ Usando le unità amministrative, un amministratore centrale può:
 - Assegnare un ruolo con autorizzazioni amministrative solo Azure AD utenti in un'unità amministrativa
 - Popola le unità amministrative con utenti e gruppi in base alle esigenze
 
-Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azure Active Directory (anteprima)](https://aka.ms/AdminUnitsDocs).
+Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azure Active Directory (anteprima)](../users-groups-roles/directory-administrative-units.md).
 
 ---
 
@@ -1225,7 +1225,7 @@ Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azur
 
 **Amministratore della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
 
-**Tecnico della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../users-groups-roles/directory-assign-admin-roles.md#printer-administrator)
+**Tecnico della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -1237,7 +1237,7 @@ Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azur
 
 **Funzionalità del prodotto:** Controllo di accesso
 
-Gli utenti con questo ruolo possono abilitare, configurare e gestire i servizi e le impostazioni relative all'abilitazione dell'identità ibrida in Azure AD. Questo ruolo concede la possibilità di configurare Azure AD a uno dei tre metodi di autenticazione supportati&#8212;la sincronizzazione dell'hash delle password (pH), l'autenticazione pass-through (PTA) o la Federazione (AD FS o provider federativo di terze parti) &#8212;e di distribuire l'infrastruttura locale correlata per abilitarli. L'infrastruttura locale include il provisioning e gli agenti PTA. Questo ruolo concede la possibilità di abilitare l'accesso Single Sign-On facile (S-SSO) per consentire l'autenticazione semplice nei dispositivi non Windows 10 o nei computer non Windows Server 2016. Inoltre, questo ruolo concede la possibilità di visualizzare i log di accesso e di accedere a integrità e analisi per il monitoraggio e la risoluzione dei problemi. [Altre informazioni.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+Gli utenti con questo ruolo possono abilitare, configurare e gestire i servizi e le impostazioni relative all'abilitazione dell'identità ibrida in Azure AD. Questo ruolo concede la possibilità di configurare Azure AD a uno dei tre metodi di autenticazione supportati&#8212;la sincronizzazione dell'hash delle password (pH), l'autenticazione pass-through (PTA) o la Federazione (AD FS o provider federativo di terze parti) &#8212;e di distribuire l'infrastruttura locale correlata per abilitarli. L'infrastruttura locale include il provisioning e gli agenti PTA. Questo ruolo concede la possibilità di abilitare l'accesso Single Sign-On facile (S-SSO) per consentire l'autenticazione semplice nei dispositivi non Windows 10 o nei computer non Windows Server 2016. Inoltre, questo ruolo concede la possibilità di visualizzare i log di accesso e di accedere a integrità e analisi per il monitoraggio e la risoluzione dei problemi. [Altre informazioni.](../roles/permissions-reference.md#hybrid-identity-administrator)
 
 ---
 
@@ -1249,7 +1249,7 @@ Gli utenti con questo ruolo possono abilitare, configurare e gestire i servizi e
 
 **Funzionalità del prodotto:** Controllo di accesso
 
-Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'architettura perimetrale di rete di Microsoft basate sui dati di telemetria di rete delle proprie sedi utente. Prestazioni di rete per Microsoft 365 si basa su un'attenta architettura perimetrale della rete del cliente aziendale, che in genere è specifica della posizione utente. Questo ruolo consente di modificare le posizioni utente individuate e la configurazione dei parametri di rete per tali posizioni per ottenere misurazioni di telemetria e raccomandazioni di progettazione migliori. [Altre informazioni.](../users-groups-roles/directory-assign-admin-roles.md#network-administrator)
+Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'architettura perimetrale di rete di Microsoft basate sui dati di telemetria di rete delle proprie sedi utente. Prestazioni di rete per Microsoft 365 si basa su un'attenta architettura perimetrale della rete del cliente aziendale, che in genere è specifica della posizione utente. Questo ruolo consente di modificare le posizioni utente individuate e la configurazione dei parametri di rete per tali posizioni per ottenere misurazioni di telemetria e raccomandazioni di progettazione migliori. [Altre informazioni.](../roles/permissions-reference.md#network-administrator)
 
 ---
 
@@ -1267,10 +1267,10 @@ Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'ar
 
 Per ulteriori informazioni, vedere gli argomenti seguenti:
 
-- [Creare utenti](../users-groups-roles/users-bulk-add.md) o [invitare utenti Guest](../external-identities/tutorial-bulk-invite.md)
-- [Eliminare utenti](../users-groups-roles/users-bulk-delete.md) o [ripristinare utenti eliminati](../users-groups-roles/users-bulk-restore.md)
-- [Scarica l'elenco di utenti](../users-groups-roles/users-bulk-download.md) o [Scarica l'elenco di gruppi](../users-groups-roles/groups-bulk-download.md)
-- [Aggiungere (importare) membri](../users-groups-roles/groups-bulk-import-members.md) o [rimuovere membri](../users-groups-roles/groups-bulk-remove-members.md) o [scaricare un elenco di membri](../users-groups-roles/groups-bulk-download-members.md) per un gruppo
+- [Creare utenti](../enterprise-users/users-bulk-add.md) o [invitare utenti Guest](../external-identities/tutorial-bulk-invite.md)
+- [Eliminare utenti](../enterprise-users/users-bulk-delete.md) o [ripristinare utenti eliminati](../enterprise-users/users-bulk-restore.md)
+- [Scarica l'elenco di utenti](../enterprise-users/users-bulk-download.md) o [Scarica l'elenco di gruppi](../enterprise-users/groups-bulk-download.md)
+- [Aggiungere (importare) membri](../enterprise-users/groups-bulk-import-members.md) o [rimuovere membri](../enterprise-users/groups-bulk-remove-members.md) o [scaricare un elenco di membri](../enterprise-users/groups-bulk-download-members.md) per un gruppo
 
 ---
 
@@ -1282,7 +1282,7 @@ Per ulteriori informazioni, vedere gli argomenti seguenti:
 
 **Funzionalità del prodotto:**
 
-Il personale Abilita i Manager prima riga, ad esempio un responsabile del negozio, per garantire che i membri del personale siano in grado di accedere ai propri account Azure AD. Anziché affidarsi a un helpdesk centrale, le organizzazioni possono delegare attività comuni, come la reimpostazione delle password o la modifica dei numeri di telefono, a un prima riga Manager. Con il personale, un utente che non può accedere al proprio account può ottenere di nuovo l'accesso con pochi clic, senza richiedere supporto tecnico o personale IT. Per altre informazioni, vedere [gestire gli utenti con personale (anteprima)](https://aka.ms/MyStaffAdminDocs) e [delegare la gestione degli utenti con il personale (anteprima)](https://aka.ms/MyStaffUserDocs).
+Il personale Abilita i Manager prima riga, ad esempio un responsabile del negozio, per garantire che i membri del personale siano in grado di accedere ai propri account Azure AD. Anziché affidarsi a un helpdesk centrale, le organizzazioni possono delegare attività comuni, come la reimpostazione delle password o la modifica dei numeri di telefono, a un prima riga Manager. Con il personale, un utente che non può accedere al proprio account può ottenere di nuovo l'accesso con pochi clic, senza richiedere supporto tecnico o personale IT. Per altre informazioni, vedere [gestire gli utenti con personale (anteprima)](../users-groups-roles/my-staff-configure.md) e [delegare la gestione degli utenti con il personale (anteprima)](../user-help/my-staff-team-manager.md).
 
 ---
 
@@ -1350,7 +1350,7 @@ L'esperienza di provisioning è stata aggiornata per creare una vista di gestion
 
 Azure Active Directory (Azure AD) ora fornisce i mezzi per convalidare le regole dinamiche del gruppo. Nella scheda **Convalida regole** è possibile convalidare la regola dinamica rispetto ai membri del gruppo di esempio per confermare che la regola funziona come previsto. Quando si creano o si aggiornano le regole dinamiche del gruppo, gli amministratori desiderano sapere se un utente o un dispositivo sarà membro del gruppo. Questo consente di valutare se un utente o un dispositivo soddisfano i criteri di regola e gli aiuti per la risoluzione dei problemi quando l'appartenenza non è prevista.
 
-Per altre informazioni, vedere [convalida di una regola di appartenenza a un gruppo dinamico (anteprima)](../users-groups-roles/groups-dynamic-rule-validation.md).
+Per altre informazioni, vedere [convalida di una regola di appartenenza a un gruppo dinamico (anteprima)](../enterprise-users/groups-dynamic-rule-validation.md).
 
 ---
 

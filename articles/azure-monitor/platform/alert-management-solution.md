@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322398"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108406"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
 ![Icona di Alert Management](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Monitoraggio di Azure supporta ora funzionalità avanzate per [la gestione degli avvisi su larga scala](https://aka.ms/azure-alerts-overview), inclusi quelli generati da [strumenti di monitoraggio come System Center Operations Manager, Zabbix o Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Monitoraggio di Azure supporta ora funzionalità avanzate per [la gestione degli avvisi su larga scala](./alerts-overview.md), inclusi quelli generati da [strumenti di monitoraggio come System Center Operations Manager, Zabbix o Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 >  
 
 
@@ -45,7 +45,7 @@ Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, 
 ### <a name="agents"></a>Agenti
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supporto | Descrizione |
+| Origine connessa | Supporto | Description |
 |:--- |:--- |:--- |
 | [Agenti di Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
@@ -120,4 +120,3 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l'articolo [Avvisi in Log Analytics](./alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.
-

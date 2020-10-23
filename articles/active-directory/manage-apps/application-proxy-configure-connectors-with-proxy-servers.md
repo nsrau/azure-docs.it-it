@@ -1,6 +1,6 @@
 ---
-title: Usare server proxy locali esistenti e Azure AD | Documentazione Microsoft
-description: Tratta l'uso di server proxy locali esistenti.
+title: Usare server proxy locali esistenti e Azure Active Directory
+description: Illustra come usare server proxy locali esistenti con Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208006"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -114,15 +113,15 @@ Consentire l'accesso agli URL seguenti:
 | URL | Uso |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Il connettore usa questi URL per verificare i certificati |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Il connettore usa questi URL per verificare i certificati. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS.
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
 * Consentire al connettore l'accesso in uscita a tutte le destinazioni.
-* Consentire al connettore l'accesso in uscita a tutti gli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com//download/details.aspx?id=41653). Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione.
+* Consentire al connettore l'accesso in uscita a tutti gli intervalli di indirizzi IP del data center di Azure. Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione. Per scaricare gli intervalli IP del Data Center di Azure più recenti, passare a [https://download.microsoft.com](https://download.microsoft.com) e cercare "Azure IP Ranges and Service Tags". Assicurarsi di selezionare il cloud pertinente. Ad esempio, gli intervalli di indirizzi IP del cloud pubblico sono disponibili con "Azure IP Ranges and Service Tags-Public Cloud". Il cloud governo per gli Stati Uniti è disponibile cercando "Azure IP Ranges and Service Tags-US governo cloud".
 
 #### <a name="proxy-authentication"></a>Autenticazione proxy
 

@@ -7,7 +7,7 @@
       href: what-is-luis.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Compilare app di dominio predefinite
       href: luis-get-started-create-app.md
@@ -402,6 +402,8 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
     - name: Esempi di codice
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: Disponibilità a livello di area
@@ -425,10 +427,6 @@
     - name: Configurare reti virtuali
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/LUIS'
-    - name: UserVoice
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: Ricerca
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blog

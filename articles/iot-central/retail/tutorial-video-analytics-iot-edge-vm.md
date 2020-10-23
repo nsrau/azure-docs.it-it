@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526392"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127029"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)
 
@@ -34,7 +34,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, completare l'esercitazione precedente [Creare un'applicazione di analisi video in Azure IoT Central](./tutorial-video-analytics-create-app.md).
+Prima di iniziare, completare l'esercitazione precedente [Creare un'applicazione Analisi video - rilevamento movimento e oggetti in Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) o [Creare un'applicazione Analisi video - rilevamento movimento e oggetti in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
 
 È anche necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile crearne una gratuitamente nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
@@ -94,7 +94,7 @@ La distribuzione ha configurato i cinque moduli IoT Edge seguenti per l'esecuzio
 
 La distribuzione ha creato un ambiente IoT Edge personalizzato con i moduli necessari per Analisi video live. La distribuzione ha aggiornato il file **config.yaml** predefinito per garantire che il runtime IoT Edge usi il servizio Device provisioning in IoT per la connessione a IoT Central. La distribuzione ha anche creato un file denominato **state.json** nella cartella **/data/storage** per fornire dati di configurazione aggiuntivi ai moduli. Per altre informazioni, vedere l'esercitazione [Creare un'istanza di IoT Edge per l'analisi video (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md).
 
-Per risolvere i problemi relativi al dispositivo IoT Edge, vedere [Risolvere i problemi del dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Per risolvere i problemi relativi al dispositivo IoT Edge, vedere [Risolvere i problemi del dispositivo IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Usare il simulatore RTSP
 

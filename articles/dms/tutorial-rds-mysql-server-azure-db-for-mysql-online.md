@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: eseguire la migrazione di Servizi Desktop remoto MySQL online al database di Azure per MySQL'
+title: 'Esercitazione: Eseguire la migrazione online di RDS MySQL a Database di Azure per MySQL'
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da RDS MySQL in Database di Azure per MySQL con il Servizio Migrazione del database di Azure.
 services: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 916d5ee49838c1e8564b24432b9d5876ed619ab5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8948bdeb2f8b82fbabacdbbb73c7b43741c75df
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291402"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938441"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di Servizi Desktop remoto MySQL a Database di Azure per MySQL online con il Servizio Migrazione del database
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Monitorare la migrazione.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/database-migration/) del servizio migrazione del database di Azure.
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/database-migration/) di Servizio Migrazione del database di Azure.
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -56,8 +56,8 @@ Per completare questa esercitazione, è necessario:
 
 * Scaricare e installare il [database di esempio MySQL **Employees**](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Creare un'istanza di [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
-* Assicurarsi che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione in ingresso seguenti per il servizio migrazione del database di Azure: 443, 53, 9354, 445 e 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
+* Assicurarsi che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in ingresso per il Servizio Migrazione del database di Azure: 443, 53, 9354, 445 e 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurare [Windows Firewall](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (o il firewall Linux) per consentire l'accesso al motore di database. Per il server MySQL consentire la connettività della porta 3306.
 
 > [!NOTE]
@@ -72,6 +72,10 @@ Per completare questa esercitazione, è necessario:
     * binlog_checksum = NONE
 3. Salvare il nuovo gruppo di parametri.
 4. Associare il nuovo gruppo di parametri all'istanza di RDS MySQL. Potrebbe essere necessario riavviare il computer.
+5. Quando il gruppo di parametri è pronto, connettersi all'istanza di MySQL e [impostare il periodo di conservazione dei log binari](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html#mysql_rds_set_configuration-usage-notes.binlog-retention-hours) almeno su 5 giorni.
+```
+call mysql.rds_set_configuration('binlog retention hours', 120);
+```
 
 ## <a name="migrate-the-schema"></a>Migrazione dello schema
 
@@ -124,8 +128,8 @@ Per completare questa esercitazione, è necessario:
 4. Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query per eliminare la chiave esterna.
 
 > [!NOTE]
-> Azure DMS non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga corrispondente nella tabella figlio quando una riga viene eliminata o aggiornata nella tabella padre. Per ulteriori informazioni, vedere la sezione azioni referenziali dell'articolo [vincoli di chiave esterna](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)nella documentazione di MySQL.
-> Per il servizio DMS di Azure è necessario eliminare i vincoli di chiave esterna nel server di database di destinazione durante il caricamento iniziale dei dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un [dump e un ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) . 
+> Il Servizio Migrazione del database di Azure non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga nella tabella figlio quando viene eliminata o aggiornata una riga corrispondente nella tabella padre. Per altre informazioni, vedere la sezione Azioni referenziali dell'articolo [Vincoli FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) nella documentazione di MySQL.
+> Il Servizio Migrazione del database di Azure richiede di eliminare i vincoli di chiave esterna nel database di destinazione durante il caricamento iniziale di dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un'operazione di [dump e ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore). 
 
 5. Se nei dati sono presenti trigger (di inserimento o di aggiornamento), prima di replicare i dati dall'origine nel database di destinazione verrà applicata l'integrità dei dati. È consigliabile disabilitare i trigger in tutte le tabelle *del database di destinazione* durante la migrazione e quindi riabilitarli al termine della migrazione.
 
@@ -168,11 +172,11 @@ Per completare questa esercitazione, è necessario:
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce il servizio migrazione del database di Azure con accesso all'istanza di MySQL di origine e l'istanza di database di Azure per MySQL di destinazione.
+    La rete virtuale consente al Servizio Migrazione del database di Azure di accedere all'istanza di MySQL di origine e all'istanza di Database di Azure per MySQL di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](https://aka.ms/DMSVnet).
 
-6. Selezionare un piano tariffario. per questa migrazione online, assicurarsi di selezionare il piano tariffario Premium: 4vCores.
+6. Selezionare un piano tariffario. Per questa migrazione online assicurarsi di selezionare il piano tariffario Premium: 4 vCore.
 
     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
@@ -190,9 +194,9 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      ![Individuare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-instance-search.png)
 
-3. Selezionare + **nuovo progetto di migrazione**.
+3. Selezionare **+ Nuovo progetto di migrazione**.
 4. Nella schermata **Nuovo progetto di migrazione** specificare il nome del progetto, nella casella di testo **Tipo del server di origine** selezionare **MySQL** e quindi nella casella di testo **Tipo del server di destinazione** selezionare **AzureDbForMySQL**.
-5. Nella sezione **scegliere il tipo di attività** selezionare **migrazione dei dati online**.
+5. Nella sezione **Scegli il tipo di attività** selezionare **Migrazione dei dati online**.
 
     > [!IMPORTANT]
     > Assicurarsi di selezionare **Migrazione dei dati online**; le migrazioni offline non sono supportate per questo scenario.
@@ -235,7 +239,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 * Selezionare **Esegui migrazione**.
 
-    Viene visualizzata la finestra attività di migrazione e viene **inizializzato**lo **stato** dell'attività.
+    Verrà visualizzata la finestra dell'attività di migrazione con il campo **Stato** dell'attività impostato su **Inizializzazione in corso**.
 
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
@@ -253,7 +257,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="perform-migration-cutover"></a>Eseguire il cutover della migrazione
 
-Al termine del caricamento completo iniziale, i database vengono contrassegnati **come pronti per la cutover**.
+Al termine del caricamento completo iniziale, i database vengono contrassegnati con **Pronto per il cutover**.
 
 1. Quando si è pronti per completare la migrazione del database, selezionare **Avvia cutover**.
 

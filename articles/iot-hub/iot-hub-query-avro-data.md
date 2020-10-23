@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92145802"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Eseguire query sui dati di Avro con Azure Data Lake Analytics
 
@@ -171,7 +171,7 @@ In questa sezione viene eseguita una query sui dati di Avro e l'esportazione in 
 
 In questa esercitazione si è appreso come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT ai servizi di Azure.
 
-Per avere degli esempi di soluzioni end-to-end che usano l'hub IoT, vedere la[documentazione degli acceleratori di soluzioni IoT di Azure](/azure/iot-accelerators).
+Per avere degli esempi di soluzioni end-to-end che usano l'hub IoT, vedere la[documentazione degli acceleratori di soluzioni IoT di Azure](../iot-accelerators/index.yml).
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
 

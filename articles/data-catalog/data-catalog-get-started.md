@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88118791"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152002"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Guida introduttiva: Creare un'istanza di Azure Data Catalog
 
@@ -24,7 +24,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!Note]
-> A causa dei requisiti di sicurezza di Azure, Azure Data Catalog applica Transport Layer Security (TLS) 1.2. TLS 1.0 e TLS 1.1 sono stati disabilitati. Se il computer non è stato aggiornato per TLS 1.2, è possibile che si verifichino errori durante l'esecuzione dello strumento di registrazione. Vedere [Abilitare Transport Layer Security (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) per aggiornare il computer per TLS 1.2.
+> A causa dei requisiti di sicurezza di Azure, Azure Data Catalog applica Transport Layer Security (TLS) 1.2. TLS 1.0 e TLS 1.1 sono stati disabilitati. Se il computer non è stato aggiornato per TLS 1.2, è possibile che si verifichino errori durante l'esecuzione dello strumento di registrazione. Vedere [Abilitare Transport Layer Security (1.2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) per aggiornare il computer per TLS 1.2.
 
 Per iniziare è necessario:
 

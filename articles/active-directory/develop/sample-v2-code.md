@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773893"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327655"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice per Microsoft Identity Platform (endpoint versione 2.0)
 
@@ -27,9 +27,6 @@ ms.locfileid: "91773893"
 - Richiedere un token di accesso per accedere a un'API Web protetta.
 
 Questo articolo descrive brevemente gli esempi per l'endpoint Microsoft Identity Platform e fornisce i relativi collegamenti. Questi esempi descrivono la procedura da seguire e riportano frammenti di codice che è possibile usare nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili argomenti dettagliati contenenti informazioni sui requisiti e le procedure di installazione e configurazione. I commenti presenti nel codice facilitano la comprensione delle sezioni critiche.
-
-> [!NOTE]
-> Per gli esempi della versione 1.0, vedere [Esempi di codice di Azure AD (endpoint versione 1.0)](../azuread-dev/sample-v1-code.md).
 
 Per conoscere lo scenario di base di ogni tipo di esempio, vedere [Tipi di app per l'endpoint Microsoft Identity Platform](v2-app-types.md).
 
@@ -142,5 +139,4 @@ Per informazioni su [esempi](https://github.com/microsoftgraph/msgraph-community
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Guida per gli sviluppatori di Azure Active Directory (versione 1.0)](../azuread-dev/v1-overview.md)
-- [Concetti e riferimenti relativi all'API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Concetti e riferimenti relativi all'API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

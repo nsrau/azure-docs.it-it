@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: fa7a954c9855f12e09f95bbf53730d5e5a789c71
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 8c4e600e012268337a5e6c63d5b3ce4f532ccec0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756791"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970929"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
-- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
+- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip*) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
 
 > [!NOTE]
 > Questo argomento di avvio rapido usa documenti remoti accessibili tramite URL. Per usare invece file locali, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).

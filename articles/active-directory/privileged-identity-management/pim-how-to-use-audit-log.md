@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530120"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370832"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management
 
@@ -29,7 +29,7 @@ ms.locfileid: "91530120"
 
 A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Management viene aggiornata a una nuova versione che corrisponde alle esperienze per i ruoli delle risorse di Azure. In questo modo vengono create funzionalità aggiuntive e le [modifiche apportate all'API esistente](azure-ad-roles-features.md#api-changes). Mentre è in corso il rollback della nuova versione, le procedure descritte in questo articolo dipendono dalla versione di Privileged Identity Management attualmente disponibile. Attenersi alla procedura descritta in questa sezione per determinare la versione di Privileged Identity Management. Quando si conosce la versione di Privileged Identity Management, è possibile selezionare le procedure descritte in questo articolo corrispondenti a tale versione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Aprire **Azure ad Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
     [![Screenshot che mostra la pagina "ruoli Azure AD-cronologia di controllo dei ruoli della directory".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selezionare la scheda per la versione")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
@@ -74,7 +74,7 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi alla seguente procedura.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     | --- | --- |
     | Tempo | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
-    | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
+    | Action | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Member | Utente che sta attivando o assegnata a un ruolo. |
     | Ruolo | Ruolo assegnato o attivato dall'utente. |
     | Motivo | Testo immesso nel campo motivo durante l'attivazione. |

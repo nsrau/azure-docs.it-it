@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057740"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102494"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-I file di modello possono contenere più di un singolo modello. In questo caso, i modelli devono essere inseriti in una matrice JSON. Ad esempio:
+I file di modello possono contenere più di un singolo modello. In questo caso, i modelli devono essere inseriti in una matrice JSON. Esempio:
 
 ```json
 [
@@ -174,10 +174,7 @@ Al contrario, se si desidera apportare modifiche a un modello, ad esempio `displ
 
 #### <a name="model-versioning"></a>Gestione della versione dei modelli
 
-Per creare una nuova versione di un modello esistente, iniziare con il DTDL del modello originale. Aggiornare i campi che si desidera modificare.
-
->[!NOTE]
->Durante l'anteprima, l'avanzamento di una versione del modello consente solo di aggiungere nuovi campi, non rimuovere quelli esistenti. Per rimuovere i campi, è sufficiente [creare un nuovo modello](#create-models).
+Per creare una nuova versione di un modello esistente, iniziare con il DTDL del modello originale. Aggiornare, aggiungere o rimuovere i campi che si desidera modificare.
 
 Contrassegnare quindi come versione più recente del modello aggiornando il `id` campo del modello. L'ultima sezione dell'ID modello, dopo `;` , rappresenta il numero del modello. Per indicare che questa è ora una versione più aggiornata di questo modello, incrementare il numero alla fine del `id` valore con un numero maggiore del numero di versione corrente.
 

@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076675"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165486"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
 
@@ -53,7 +53,7 @@ Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del serv
 
 Impostare l'opzione **Ridimensiona di** su **regole per la pianificazione e le prestazioni**.
 
-![Impostazioni di scalabilità dei servizi cloud con profilo e regola](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Screenshot che mostra l'opzione relativa alle regole relative alle pianificazioni e alle prestazioni.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Un profilo esistente.
 2. Aggiungere una regola per il profilo padre.

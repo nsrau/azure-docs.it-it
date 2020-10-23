@@ -229,6 +229,8 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
+    - name: Panoramica di Riconoscimento finalità
+      href: intent-recognition.md
     - name: Guida di avvio rapido sul riconoscimento delle finalità
       href: quickstarts/intent-recognition.md
     - name: Guide pratiche
@@ -343,7 +345,7 @@
               items:
                 - name: Che cos'è la conversazione per più dispositivi?
                   href: multi-device-conversation.md
-            - name: Avvio rapido
+            - name: Guida introduttiva
               items:
                 - name: Avviare a una conversazione e parteciparvi
                   href: quickstarts/multi-device-conversation.md
@@ -433,7 +435,7 @@
           items:
             - name: Che cos'è Direct Line Speech?
               href: direct-line-speech.md
-            - name: Avvi rapidi
+            - name: Avvii rapidi
               items:
                 - name: Creare un assistente vocale personalizzato
                   href: quickstarts/voice-assistants.md
@@ -558,7 +560,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md
@@ -578,9 +580,8 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: Risorse
   items:
-    - name: Supporto
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: Opzioni di supporto tecnico e assistenza
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentazione di Swagger
       href: swagger-documentation.md
     - name: Cloud sovrani

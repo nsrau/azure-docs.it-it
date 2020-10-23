@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Gestione dei costi e fatturazione?
       href: cost-management-billing-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Avviare l'analisi dei costi
@@ -313,7 +313,7 @@
             - name: Istanze di grandi dimensioni di SAP HANA
               href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
             - name: Database SQL
-              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+              href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: Macchine virtuali
@@ -365,9 +365,9 @@
 - name: Informazioni di riferimento
   items:
     - name: API REST di Gestione costi di Azure
-      href: 'https://docs.microsoft.com/rest/api/cost-management'
+      href: /rest/api/cost-management
     - name: API REST per l'utilizzo di Azure
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.consumption/budgets
     - name: Esempi di API REST di Gestione costi
@@ -377,19 +377,19 @@
     - name: Panoramica dell'API di fatturazione di Azure
       href: manage/usage-rate-card-overview.md
     - name: API REST di fatturazione di Azure
-      href: 'https://docs.microsoft.com/rest/api/billing'
+      href: /rest/api/billing
     - name: Panoramica dell'API per l'utilizzo di Azure
       href: manage/consumption-api-overview.md
     - name: API REST per l'utilizzo di Azure
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: API REST RateCard
-      href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
+      href: /previous-versions/azure/reference/mt219005(v=azure.100)
     - name: API REST di utilizzo
-      href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
+      href: /previous-versions/azure/reference/mt219003(v=azure.100)
     - name: Panoramica della creazione di report aziendali
       href: manage/enterprise-api.md
     - name: API REST di creazione di report aziendali
-      href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+      href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: Prenotazioni
       items:
         - name: API REST per le prenotazioni
@@ -438,7 +438,7 @@
       items:
         - name: Che cos'è Cloudyn?
           href: cloudyn/overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Visualizzare i dati di costo
           href: cloudyn/quick-register-azure-sub.md
@@ -493,4 +493,4 @@
         - name: Domande frequenti su Cloudyn
           href: cloudyn/cost-mgt-faq.md
         - name: Contattare il supporto di Cloudyn
-          href: 'https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request'
+          href: ./costs/open-support-request.md

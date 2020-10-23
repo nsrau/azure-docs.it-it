@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Servizi cognitivi
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Funzione di conversione
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/translator/index

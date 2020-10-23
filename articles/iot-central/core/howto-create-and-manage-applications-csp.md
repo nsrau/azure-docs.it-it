@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653350"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123114"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creare e gestire un'applicazione IoT Central di Azure dal portale CSP
 
@@ -63,7 +63,7 @@ Poiché Azure IoT Central dispone del contesto da cui l'utente proviene per gest
 
 Un tenant di Azure Active Directory contiene le identità degli utenti, le credenziali e altre informazioni sull'organizzazione. Più sottoscrizioni di Azure possono essere associate a un singolo tenant di Azure Active Directory.
 
-Per altre informazioni, vedere [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Per altre informazioni, vedere [Azure Active Directory](../../active-directory/index.yml).
 
 ## <a name="azure-subscription"></a>Sottoscrizione di Azure
 
@@ -71,7 +71,7 @@ Una sottoscrizione di Azure consente di creare istanze dei servizi di Azure. Azu
 
 Se non si ha una sottoscrizione di Azure, è possibile crearne una nel centro per i partner Microsoft. Dopo aver creato la sottoscrizione di Azure, passare alla pagina **Create Application** (Crea applicazione). Selezionare la sottoscrizione nella casella di riepilogo a discesa **Azure Subscription** (Sottoscrizione di Azure).
 
-Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="location"></a>Location
 

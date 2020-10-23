@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552799"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Esercitazione: Integrazione di Azure Active Directory con ITRP
 
@@ -94,7 +94,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
 3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
-    ![Icona Modifica](common/edit-urls.png)
+    ![Screenshot che mostra la pagina Configura l'accesso Single Sign-On con SAML con l'icona di modifica selezionata.](common/edit-urls.png)
 
 4. Nella finestra di dialogo **Configurazione SAML di base** seguire questa procedura.
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
 5. Nella sezione **Certificato di firma SAML**  selezionare l'icona **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML**:
 
-    ![Icona Modifica](common/edit-certificate.png)
+    ![Screenshot che mostra la pagina Certificato di firma SAML con l'icona di modifica selezionata.](common/edit-certificate.png)
 
 6. Nella finestra di dialogo **Certificato di firma SAML** copiare il valore **Identificazione personale** e salvarlo:
 
@@ -143,9 +143,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
 1. Nella sezione di configurazione per **Single Sign-On** seguire questa procedura.
 
-    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775572.png "Sezione Single Sign-On")
+    ![Screenshot che mostra la sezione Single Sign-On con l'icona di abilitazione selezionata.](./media/itrp-tutorial/ic775572.png "Sezione Single Sign-On")
 
-    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775573.png "Sezione Single Sign-On")
+    ![Screenshot che mostra la sezione Single Sign-On in cui è possibile aggiungere le informazioni descritte in questo passaggio.](./media/itrp-tutorial/ic775573.png "Sezione Single Sign-On")
 
     1. Selezionare **Enabled**.
 

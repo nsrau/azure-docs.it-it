@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482800"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164568"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure (portale di Azure-Preview)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Usare portale di Azure per configurare un gruppo di disponibilità (anteprima) per SQL Server nella macchina virtuale di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo articolo descrive come usare la [portale di Azure](https://portal.azure.com) per configurare un gruppo di disponibilità per SQL Server in macchine virtuali di Azure. 
 
 Usare il portale di Azure per creare un nuovo cluster o caricare un cluster esistente, quindi creare il gruppo di disponibilità, il listener e il servizio di bilanciamento del carico interno. 
 
-   > [!NOTE]
-   > Questa funzionalità è attualmente in fase di anteprima e viene distribuita, quindi, se l'area desiderata non è disponibile, riprovare più tardi. 
+Questa funzionalità è attualmente in anteprima. 
+
+Sebbene questo articolo usi il portale di Azure per configurare l'ambiente del gruppo di disponibilità, è anche possibile usare [PowerShell o l'interfaccia della](availability-group-az-commandline-configure.md)riga di comando di Azure, i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md)o [manualmente](availability-group-manually-configure-tutorial.md) . 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -80,7 +81,7 @@ Se non si dispone già di un cluster esistente, crearlo utilizzando la portale d
 
 Se si dispone già di un cluster configurato nell'ambiente SQL Server VM, è possibile caricarlo dal portale di Azure.
 
-A questo scopo, attenersi alla procedura seguente:
+A tale scopo, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
@@ -97,7 +98,7 @@ A questo scopo, attenersi alla procedura seguente:
 
 ## <a name="create-availability-group"></a>Creare un gruppo di disponibilità
 
-Dopo la creazione o l'onboarding del cluster, creare il gruppo di disponibilità usando il portale di Azure. A questo scopo, attenersi alla procedura seguente:
+Dopo la creazione o l'onboarding del cluster, creare il gruppo di disponibilità usando il portale di Azure. A tale scopo, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
@@ -177,7 +178,7 @@ Per aggiungere altre macchine virtuali SQL Server al cluster, seguire questa pro
 
 ## <a name="remove-cluster"></a>Rimuovi cluster
 
-Rimuovere tutte le macchine virtuali SQL Server dal cluster per eliminarle, quindi rimuovere i metadati del cluster dal provider di risorse della macchina virtuale SQL. A tale scopo, è possibile usare la versione più recente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o PowerShell. 
+Rimuovere tutte le macchine virtuali SQL Server dal cluster per eliminarle, quindi rimuovere i metadati del cluster dal provider di risorse della macchina virtuale SQL. A tale scopo, è possibile usare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o PowerShell. 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

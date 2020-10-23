@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272791"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342400"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
@@ -109,7 +109,7 @@ Ogni nodo vFXT sarà identico. Ciò significa che se si crea un cluster a tre no
 
 La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. 4 TB per nodo è la dimensione della cache consigliata per i nodi Standard_E32s_v3.
 
-Per altre informazioni su queste macchine virtuali, vedere la documentazione Microsoft Azure: [dimensioni delle macchine virtuali con ottimizzazione](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) per la memoria
+Per altre informazioni su queste macchine virtuali, vedere la documentazione Microsoft Azure: [dimensioni delle macchine virtuali con ottimizzazione](../virtual-machines/sizes-memory.md) per la memoria
 
 ## <a name="account-quota"></a>Quota account
 

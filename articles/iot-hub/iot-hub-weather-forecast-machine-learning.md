@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777157"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145766"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsioni meteorologiche che usano i dati del sensore dell'hub Internet in Azure Machine Learning Studio (versione classica)
 
@@ -46,7 +46,7 @@ Si apprenderà come usare Azure Machine Learning Studio (classico) per le previs
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Un account di [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net/).
-- È preferibile un account di [archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), un account per **utilizzo generico V2** , ma anche qualsiasi account di archiviazione di Azure che supporta l'archiviazione BLOB di Azure.
+- È preferibile un account di [archiviazione di Azure](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), un account per **utilizzo generico V2** , ma anche qualsiasi account di archiviazione di Azure che supporta l'archiviazione BLOB di Azure.
 
 > [!Note]
 > Questo articolo USA analisi di flusso di Azure e molti altri servizi a pagamento. Sono stati addebitati costi aggiuntivi in analisi di flusso di Azure quando i dati devono essere trasferiti tra le aree di Azure. Per questo motivo, è opportuno assicurarsi che il gruppo di risorse, l'hub di Internet e l'account di archiviazione di Azure, oltre all'area di lavoro Machine Learning Studio (classica) e al processo di analisi di flusso di Azure aggiunto più avanti in questa esercitazione, si trovino tutti nella stessa area di Azure. È possibile controllare il supporto a livello di area per Azure Machine Learning Studio (classico) e altri servizi di Azure nella [pagina disponibilità del prodotto Azure in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).

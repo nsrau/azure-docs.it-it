@@ -1,21 +1,18 @@
 ---
 title: Eseguire script U-SQL di Azure Data Lake nel computer locale
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio per eseguire i processi U-SQL sul computer locale.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 24f1156fa4a97adb500033034bc7396fd1badbeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125735"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219684"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Eseguire script U-SQL nel computer locale
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766669"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371495"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurare avvisi personalizzati per il monitoraggio di route annunciate
 
@@ -42,7 +42,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * Si ha familiarità con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md).
 
-* Si ha familiarità con l'uso di Azure PowerShell. Azure PowerShell è necessario per raccogliere i prefissi di rete nel gateway ExpressRoute. Per ulteriori informazioni su Azure PowerShell in generale, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* Si ha familiarità con l'uso di Azure PowerShell. Azure PowerShell è necessario per raccogliere i prefissi di rete nel gateway ExpressRoute. Per ulteriori informazioni su Azure PowerShell in generale, vedere la [documentazione di Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Note e limitazioni
 
@@ -58,7 +58,7 @@ Quando si crea un account di automazione nella portale di Azure, viene creato au
 
 * Consente di creare un account dell'entità servizio per l'applicazione in Azure AD.
 
-* Assegna il ruolo Collaboratore (RBAC) nella sottoscrizione di Azure in uso. Questo ruolo gestisce le risorse Azure Resource Manager usando manuali operativi.
+* Assegna il ruolo Collaboratore (RBAC di Azure) nella sottoscrizione di Azure in uso. Questo ruolo gestisce le risorse Azure Resource Manager usando manuali operativi.
 
 Per creare un account di automazione, è necessario disporre di privilegi e autorizzazioni. Per informazioni, vedere [autorizzazioni necessarie per creare un account di automazione](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
@@ -70,7 +70,7 @@ Creare un account di automazione con le autorizzazioni di esecuzione. Per istruz
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. assegnare un ruolo all'account RunAs
 
-Per impostazione predefinita, il ruolo **collaboratore** viene assegnato all'entità servizio usata dall'account **RunAs** . È possibile fare in modo che il ruolo predefinito venga assegnato all'entità servizio oppure è possibile limitare le autorizzazioni assegnando un [ruolo](../role-based-access-control/built-in-roles.md) predefinito, ad esempio Reader, o un [ruolo personalizzato](../active-directory/users-groups-roles/roles-create-custom.md).
+Per impostazione predefinita, il ruolo **collaboratore** viene assegnato all'entità servizio usata dall'account **RunAs** . È possibile fare in modo che il ruolo predefinito venga assegnato all'entità servizio oppure è possibile limitare le autorizzazioni assegnando un [ruolo](../role-based-access-control/built-in-roles.md) predefinito, ad esempio Reader, o un [ruolo personalizzato](../active-directory/roles/custom-create.md).
 
  Usare la procedura seguente per determinare il ruolo da assegnare all'entità servizio usata dall'account RunAs:
 
@@ -257,7 +257,7 @@ Quando si esegue lo script di PowerShell, viene raccolto un elenco di valori:
 
 * Messaggio di avviso, per una descrizione dettagliata dello stato (OK, avviso, avviso)
 
-Lo script di PowerShell converte le informazioni raccolte in un output JSON. Runbook usa il cmdlet di PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  come flusso di output per comunicare le informazioni al client.
+Lo script di PowerShell converte le informazioni raccolte in un output JSON. Runbook usa il cmdlet di PowerShell [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  come flusso di output per comunicare le informazioni al client.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. convalidare il Runbook
 

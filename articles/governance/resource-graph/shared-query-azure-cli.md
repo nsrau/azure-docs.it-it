@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare una query condivisa con l'interfaccia della riga di comando di Azure"
 description: Questa guida di avvio rapido illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure e creare una query condivisa.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667657"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057196"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Avvio rapido: Creare una query condivisa di Resource Graph usando l'interfaccia della riga di comando di Azure
 

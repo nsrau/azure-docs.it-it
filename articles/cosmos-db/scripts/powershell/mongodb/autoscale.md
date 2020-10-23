@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4f41f940b26adfe66745dca447294102e65607a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446de7ca48148bd8d9066e4862a23393850d5281
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505081"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279378"
 ---
 # <a name="create-a-database-and-collection-with-autoscale-for-azure-cosmos-db---mongodb-api"></a>Creare un database e una raccolta con scalabilità automatica per Azure Cosmos DB: API MongoDB
 
@@ -50,5 +50,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/).
-
-Altri esempi di script PowerShell di Azure Cosmos DB sono disponibili in [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md) (Script di PowerShell per Azure Cosmos DB).

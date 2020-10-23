@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936997"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171944"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integrazione Azure Active Directory gestita da AKS
 
@@ -32,7 +32,7 @@ L'integrazione Azure Active Directory gestita da AKS è disponibile nelle aree p
 ## <a name="limitations"></a>Limitazioni 
 
 * L'integrazione di Azure AD gestiti da AKS non può essere disabilitata
-* i cluster non abilitati per RBAC non sono supportati per l'integrazione AD pubblici gestita da AKS
+* i cluster non abilitati per RBAC non sono supportati per l'integrazione di Azure AD gestiti da AKS
 * La modifica del tenant di Azure AD associato all'integrazione Azure AD gestita da AKS non è supportata
 
 ## <a name="prerequisites"></a>Prerequisiti

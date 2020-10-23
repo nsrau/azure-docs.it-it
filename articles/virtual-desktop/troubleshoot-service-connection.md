@@ -3,15 +3,15 @@ title: Risoluzione dei problemi di connessione del servizio Desktop virtuale Win
 description: Come risolvere i problemi durante la configurazione delle connessioni ai servizi in un ambiente tenant di desktop virtuali Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089905"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108950"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connessioni del servizio Desktop virtuale Windows
 
@@ -45,6 +45,13 @@ Un utente può avviare i client Desktop remoto ed è in grado di eseguire l'aute
 Questo errore viene in genere visualizzato dopo che un utente ha spostato la sottoscrizione da un tenant Azure AD a un altro. Di conseguenza, il servizio perde la traccia delle assegnazioni degli utenti, dal momento che sono ancora legate alla vecchia Azure AD tenant.
 
 Per risolvere il problema, è sufficiente riassegnare gli utenti ai gruppi di app.
+
+Questo problema può verificarsi anche se un provider CSP ha creato la sottoscrizione e quindi trasferita al cliente. Per risolvere il problema, ripetere la registrazione del provider di risorse.
+
+1. Accedere al portale di Azure.
+2. Passare a **sottoscrizione**, quindi selezionare la sottoscrizione.
+3. Nel menu sul lato sinistro della pagina selezionare **provider di risorse**.
+4. Trovare e selezionare **Microsoft. DesktopVirtualization**, quindi selezionare **Re-Register**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272500"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164245"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Dopo aver annullato la registrazione dal provider di risorse, è possibile disin
 
 In ogni macchina virtuale aprire la porta Windows Firewall TCP utilizzata da SQL Server. Per impostazione predefinita, si tratta della porta 1433. Tuttavia, è possibile modificare la porta SQL Server in una distribuzione di macchine virtuali di Azure, quindi aprire la porta usata da SQL Server nell'ambiente in uso. Questa porta viene aperta automaticamente in SQL Server immagini distribuite da Azure Marketplace. 
 
-Se si usa un servizio di [bilanciamento del carico](hadr-vnn-azure-load-balancer-configure.md), è necessario aprire anche la porta utilizzata dal probe di integrità. Per impostazione predefinita, si tratta della porta 59999. Tuttavia, può trattarsi di qualsiasi porta TCP specificata al momento della creazione del servizio di bilanciamento del carico. 
+Se si usa un servizio di [bilanciamento del carico](failover-cluster-instance-vnn-azure-load-balancer-configure.md), è necessario aprire anche la porta utilizzata dal probe di integrità. Per impostazione predefinita, si tratta della porta 59999. Tuttavia, può trattarsi di qualsiasi porta TCP specificata al momento della creazione del servizio di bilanciamento del carico. 
 
 In questa tabella vengono illustrate in dettaglio le porte che potrebbero essere necessarie per aprire, a seconda della configurazione dell'istanza del cluster di failover: 
 
    | Scopo | Porta | Note
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. </br> </br> **Utilizzato da**: tutte le configurazioni dell'istanza FCI. |
-   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da**: FCI con Load Balancer. |
+   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da**: FCI con Load Balancer. |
    | Condivisione file | UDP 445 | Porta utilizzata dal servizio Condivisione file. </br> </br> **Usato da**: FCI con la condivisione file Premium. |
 
 ## <a name="join-the-domain"></a>Accedere al dominio

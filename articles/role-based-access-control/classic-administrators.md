@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076438"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370628"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -62,7 +62,7 @@ Per ulteriori informazioni su come aggiungere un utente guest alla directory, ve
 
 ### <a name="differences-for-guest-users"></a>Differenze per gli utenti Guest
 
-Gli utenti guest a cui è stato assegnato il ruolo di coamministratore potrebbero notare alcune differenze rispetto agli utenti membri con ruolo di coamministratore. Si consideri lo scenario seguente:
+Gli utenti guest a cui è stato assegnato il ruolo di coamministratore potrebbero notare alcune differenze rispetto agli utenti membri con ruolo di coamministratore. Considerare lo scenario seguente:
 
 - Un utente con un account Azure AD (aziendale o dell'Istituto di istruzione) è un amministratore del servizio per una sottoscrizione di Azure.
 - L'utente B ha un account Microsoft.
@@ -71,9 +71,9 @@ Gli utenti guest a cui è stato assegnato il ruolo di coamministratore potrebber
 
 Ci si aspetta che l'utente B possa gestire tutto. Il motivo di questa differenza è che l'account Microsoft viene aggiunto alla sottoscrizione come utente guest invece di utente membro. Gli utenti guest hanno diverse autorizzazioni predefinite in Azure AD rispetto agli utenti membri. Ad esempio, gli utenti membri possono leggere gli altri utenti di Azure AD mentre gli utenti guest non possono farlo. Gli utenti membri possono registrare nuove entità servizio in Azure AD mentre gli utenti guest non possono farlo.
 
-Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di Azure AD specifici necessari all'utente Guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md). Per altre informazioni sulla concessione dell'accesso per gli utenti guest, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure](role-assignments-external-users.md).
+Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di Azure AD specifici necessari all'utente Guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/roles/permissions-reference.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/roles/permissions-reference.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md). Per altre informazioni sulla concessione dell'accesso per gli utenti guest, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure](role-assignments-external-users.md).
 
-Si noti che i [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md) sono diversi da quelli del [Azure ad](../active-directory/users-groups-roles/directory-assign-admin-roles.md). I ruoli predefiniti non concedono l'accesso ad Azure AD. Per altre informazioni, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Si noti che i [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md) sono diversi da quelli del [Azure ad](../active-directory/roles/permissions-reference.md). I ruoli predefiniti non concedono l'accesso ad Azure AD. Per altre informazioni, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 

@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq2
+ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804367"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427653"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
 
@@ -30,7 +31,7 @@ I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio l
 
 Seguire questa procedura per gestire il consenso del proprietario del gruppo alle app che accedono ai dati di gruppo:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator).
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
 3. In **Group owner consent for apps accessing data** (Consenso del proprietario del gruppo per le app che accedono ai dati) selezionare l'opzione che si vuole abilitare.
 4. Per salvare le impostazioni, fare clic su **Save** (Salva).
@@ -73,7 +74,7 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 1. Esaminare i valori delle impostazioni. Sono disponibili due valori delle impostazioni che definiscono gli utenti che possono consentire a un'app di accedere ai dati del gruppo:
 
-    | Impostazione       | Type         | Descrizione  |
+    | Impostazione       | Tipo         | Descrizione  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolean | Flag che indica se i proprietari dei gruppi possono concedere autorizzazioni specifiche del gruppo. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ è impostato su "True" e questo valore è impostato sull'ID oggetto di un gruppo, i membri del gruppo identificato saranno autorizzati a concedere autorizzazioni specifiche ai gruppi di cui sono proprietari. |

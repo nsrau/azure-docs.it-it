@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827538"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371206"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -56,7 +56,7 @@ Un runtime di integrazione di Azure può:
 
 - Eseguire flussi di dati in Azure 
 - Eseguire l'attività di copia tra archivi dati cloud
-- Inviare le seguenti attività di trasformazione nella rete pubblica: databricks Notebook/Jar/Python attività, attività hive di HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, attività Machine Learning esecuzione batch, attività Machine Learning aggiornamento risorse, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata .NET, attività Web, attività ricerca e attività Ottieni metadati.
+- Inviare le seguenti attività di trasformazione nella rete pubblica: attività di databricks Notebook/Jar/Python, attività hive HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, attività di esecuzione batch Azure Machine Learning Studio (classica), attività di esecuzione batch Azure Machine Learning Studio (classica), attività stored procedure, attività di ricerca di risorse di SQL, attività data Lake Analytics personalizzata di .NET, attività Web, attività di ricerca e attività per ottenere metadati.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente di rete del runtime di integrazione di Azure
 
@@ -79,7 +79,7 @@ Per informazioni sulla creazione e la configurazione di un Azure IR, vedere [How
 Un runtime di integrazione self-hosted è in grado di eseguire queste operazioni:
 
 - Eseguire attività di copia tra gli archivi dati cloud e un archivio dati in una rete privata.
-- Invio delle seguenti attività di trasformazione sulle risorse di calcolo in locale o nella rete virtuale di Azure: attività hive HDInsight (BYOC-Bring your own cluster), attività Pig HDInsight (BYOC), attività HDInsight MapReduce (BYOC), attività HDInsight Spark (BYOC), attività di streaming HDInsight (BYOC), attività di esecuzione batch Machine Learning, attività Machine Learning aggiornamento risorse, attività stored procedure, attività U-SQL, attività personalizzata (esecuzione in Azure batch) Data Lake Analytics , Attività Lookup e ottenere l'attività dei metadati.
+- Invio delle seguenti attività di trasformazione sulle risorse di calcolo in locale o nella rete virtuale di Azure: attività hive HDInsight (BYOC-Bring your own cluster), attività Pig HDInsight (BYOC), attività HDInsight MapReduce (BYOC), attività HDInsight Spark (BYOC), attività di streaming HDInsight (BYOC), attività di esecuzione batch Azure Machine Learning Studio (classica), attività di esecuzione batch di Azure Machine Learning Studio (classica), attività stored procedure, Data Lake Analytics attività U-SQL , Attività personalizzata (in esecuzione in Azure Batch), attività di ricerca e attività Ottieni metadati.
 
 > [!NOTE] 
 > Usare il runtime di integrazione self-hosted per supportare gli archivi dati che richiedono un driver Bring Your Own, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

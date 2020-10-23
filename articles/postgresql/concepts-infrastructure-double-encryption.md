@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537906"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123355"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per PostgreSQL
 
@@ -20,7 +20,7 @@ Database di Azure per PostgreSQL usa la [crittografia di archiviazione dei dati]
 La crittografia doppia dell'infrastruttura aggiunge un secondo livello di crittografia usando le chiavi gestite dal servizio. Usa il modulo crittografico convalidato FIPS 140-2, ma con un algoritmo di crittografia diverso. Questo offre un livello di protezione aggiuntivo per i dati inattivi. La chiave usata nella crittografia a doppia infrastruttura viene anche gestita dal servizio database di Azure per PostgreSQL. La crittografia doppia dell'infrastruttura non è abilitata per impostazione predefinita, poiché il livello di crittografia aggiuntivo può avere un effetto sulle prestazioni.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL supporta i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria".
+> Questa funzionalità è supportata solo per i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria" nel database di Azure per PostgreSQL.
 
 La crittografia a livello di infrastruttura offre il vantaggio di essere implementata a livello più vicino al dispositivo di archiviazione o ai cavi di rete. Database di Azure per PostgreSQL implementa i due livelli di crittografia usando le chiavi gestite dal servizio. Sebbene sia ancora tecnicamente al livello del servizio, è molto vicino all'hardware che archivia i dati inattivi. Facoltativamente, è comunque possibile abilitare la crittografia dei dati inattivi usando la [chiave gestita dal cliente](concepts-data-encryption-postgresql.md) per il server PostgreSQL sottoposta a provisioning.  
 

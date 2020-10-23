@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555934"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949996"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Datadog
 
@@ -141,6 +141,22 @@ In questa sezione viene creato un utente di nome B.Simon in Datadog. Collaborare
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di Datadog nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Datadog per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Abilitare tutti gli utenti del tenant a eseguire l'autenticazione con l'app
+
+In questa sezione si abilitano tutti gli utenti all'interno del tenant di accedere a Datadog se un unico utente ha un account sul lato Datadog.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Datadog**.
+1. Nella pagina di panoramica dell'app, in **Gestisci**, selezionare **Proprietà**.
+
+    ![Collegamento "Proprietà"](common/properties.png)
+
+1. Per l'opzione **Assegnazione utenti obbligatoria** selezionare **No**.
+
+    ![Assegnazione utenti non obbligatoria](common/user-assignment-not-required.png)
+
+1. Selezionare **Salva**.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

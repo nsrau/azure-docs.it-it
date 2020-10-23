@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527813"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122416"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitare l'eliminazione accidentale di condivisioni file di Azure
 
@@ -37,7 +37,7 @@ L'eliminazione temporanea per le condivisioni file di Azure (anteprima) è dispo
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Abilitazione o disabilitazione dell'eliminazione temporanea
 
-L'eliminazione temporanea per le condivisioni file è abilitata a livello di account di archiviazione. per questo motivo, le impostazioni di eliminazione temporanea si applicano a tutte le condivisioni file in un account di archiviazione. È possibile abilitare o disabilitare l'eliminazione temporanea in qualsiasi momento. Quando si crea un nuovo account di archiviazione, l'eliminazione temporanea per le condivisioni file è disabilitata per impostazione predefinita. L'eliminazione temporanea è disabilitata per impostazione predefinita anche per gli account di archiviazione esistenti. Se è stato configurato il [backup della condivisione file](../../backup/azure-file-share-backup-overview.md) di Azure per una condivisione file di Azure, l'eliminazione temporanea per le condivisioni file di Azure verrà abilitata automaticamente nell'account di archiviazione della condivisione.
+L'eliminazione temporanea per le condivisioni file è abilitata a livello di account di archiviazione. per questo motivo, le impostazioni di eliminazione temporanea si applicano a tutte le condivisioni file in un account di archiviazione. È possibile abilitare o disabilitare l'eliminazione temporanea in qualsiasi momento. Quando si crea un nuovo account di archiviazione, l'eliminazione temporanea per le condivisioni file è disabilitata per impostazione predefinita, mentre la funzionalità è in anteprima pubblica. Quando l'eliminazione temporanea diventa disponibile a livello generale, verrà abilitata per impostazione predefinita. Per impostazione predefinita, l'eliminazione temporanea rimarrà disabilitata per gli account di archiviazione esistenti. Se è stato configurato il [backup della condivisione file](../../backup/azure-file-share-backup-overview.md) di Azure per una condivisione file di Azure, l'eliminazione temporanea per le condivisioni file di Azure verrà abilitata automaticamente nell'account di archiviazione della condivisione.
 
 Se si abilita l'eliminazione temporanea per le condivisioni file, si eliminano alcune condivisioni file e quindi si disabilita l'eliminazione temporanea, è comunque possibile accedere a tali condivisioni file e recuperarle, a condizione che siano state salvate quando l'eliminazione temporanea era abilitata. Quando si abilita l'eliminazione temporanea, è anche necessario configurare il periodo di conservazione.
 

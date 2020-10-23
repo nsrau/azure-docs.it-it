@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 1f8f7c4ea051ff583b3e8f88e0331642cdf9f19a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291541"
+ms.locfileid: "91893782"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione online di PostgreSQL al database di Azure per PostgreSQL con il Servizio Migrazione del database tramite il portale di Azure
 
@@ -281,7 +281,7 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 
     ![Schermata Completa cutover](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. Quando lo stato della migrazione del database è **Completato**, connettere le applicazioni alla nuova istanza di destinazione di Database di Azure per PostgreSQL.
+3. Quando lo stato della migrazione del database è **Completato**, [ricreare le sequenze](https://wiki.postgresql.org/wiki/Fixing_Sequences) (se applicabile) e connettere le applicazioni alla nuova istanza di destinazione di Database di Azure per PostgreSQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

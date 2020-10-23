@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533549"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359612"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in Privileged Identity Management
 
@@ -29,7 +29,7 @@ Privileged Identity Management (PIM) genera avvisi in caso di attività sospette
 
 A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Management viene aggiornata a una nuova versione che corrisponde alle esperienze per i ruoli delle risorse di Azure. In questo modo vengono create funzionalità aggiuntive e le [modifiche apportate all'API esistente](azure-ad-roles-features.md#api-changes). Mentre è in corso il rollback della nuova versione, le procedure descritte in questo articolo dipendono dalla versione di Privileged Identity Management attualmente disponibile. Attenersi alla procedura descritta in questa sezione per determinare la versione di Privileged Identity Management. Quando si conosce la versione di Privileged Identity Management, è possibile selezionare le procedure descritte in questo articolo corrispondenti a tale versione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Aprire **Azure ad Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
   [![Selezionare Azure AD Privileged Identity Management >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -87,7 +87,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 | **Come risolvere il problema?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare periodicamente gli account con ruoli con privilegi usando le verifiche di [accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |
-| **Procedure consigliate** | Gli account di accesso condiviso, di servizio e di emergenza che eseguono l'autenticazione con una password e sono assegnati a ruoli amministrativi con privilegi elevati, ad esempio l'amministratore globale o l'amministratore della sicurezza, devono ruotare le password nei casi seguenti:<ul><li>Dopo un evento imprevisto per la sicurezza che comporta l'uso improprio o la violazione dei diritti di accesso amministrativo</li><li>Dopo la modifica dei privilegi di un utente in seguito alla quale l'utente non è più amministratore (ad esempio, dopo che un dipendente che era amministratore lascia il team IT o l'organizzazione)</li><li>A intervalli regolari (ad esempio, trimestralmente o annualmente), anche se non si è verificata alcuna violazione nota o modifica del personale IT</li></ul>Poiché più utenti hanno accesso alle credenziali di questi account, le credenziali devono essere ruotate per garantire che le persone che hanno lasciato i propri ruoli non possano più accedere all'account. [Altre informazioni sulla protezione degli account](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Procedure consigliate** | Gli account di accesso condiviso, di servizio e di emergenza che eseguono l'autenticazione con una password e sono assegnati a ruoli amministrativi con privilegi elevati, ad esempio l'amministratore globale o l'amministratore della sicurezza, devono ruotare le password nei casi seguenti:<ul><li>Dopo un evento imprevisto per la sicurezza che comporta l'uso improprio o la violazione dei diritti di accesso amministrativo</li><li>Dopo la modifica dei privilegi di un utente in seguito alla quale l'utente non è più amministratore (ad esempio, dopo che un dipendente che era amministratore lascia il team IT o l'organizzazione)</li><li>A intervalli regolari (ad esempio, trimestralmente o annualmente), anche se non si è verificata alcuna violazione nota o modifica del personale IT</li></ul>Poiché più utenti hanno accesso alle credenziali di questi account, le credenziali devono essere ruotate per garantire che le persone che hanno lasciato i propri ruoli non possano più accedere all'account. [Altre informazioni sulla protezione degli account](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>I ruoli vengono assegnati all'esterno di Privileged Identity Management
 
@@ -186,7 +186,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 | **Come risolvere il problema?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare periodicamente gli account con ruoli con privilegi usando le verifiche di [accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |
-| **Procedure consigliate** | Gli account di accesso condiviso, di servizio e di emergenza che eseguono l'autenticazione con una password e sono assegnati a ruoli amministrativi con privilegi elevati, ad esempio l'amministratore globale o l'amministratore della sicurezza, devono ruotare le password nei casi seguenti:<ul><li>Dopo un evento imprevisto per la sicurezza che comporta l'uso improprio o la violazione dei diritti di accesso amministrativo</li><li>Dopo la modifica dei privilegi di un utente in seguito alla quale l'utente non è più amministratore (ad esempio, dopo che un dipendente che era amministratore lascia il team IT o l'organizzazione)</li><li>A intervalli regolari (ad esempio, trimestralmente o annualmente), anche se non si è verificata alcuna violazione nota o modifica del personale IT</li></ul>Poiché più utenti hanno accesso alle credenziali di questi account, le credenziali devono essere ruotate per garantire che le persone che hanno lasciato i propri ruoli non possano più accedere all'account. [Scopri di più](https://aka.ms/breakglass) |
+| **Procedure consigliate** | Gli account di accesso condiviso, di servizio e di emergenza che eseguono l'autenticazione con una password e sono assegnati a ruoli amministrativi con privilegi elevati, ad esempio l'amministratore globale o l'amministratore della sicurezza, devono ruotare le password nei casi seguenti:<ul><li>Dopo un evento imprevisto per la sicurezza che comporta l'uso improprio o la violazione dei diritti di accesso amministrativo</li><li>Dopo la modifica dei privilegi di un utente in seguito alla quale l'utente non è più amministratore (ad esempio, dopo che un dipendente che era amministratore lascia il team IT o l'organizzazione)</li><li>A intervalli regolari (ad esempio, trimestralmente o annualmente), anche se non si è verificata alcuna violazione nota o modifica del personale IT</li></ul>Poiché più utenti hanno accesso alle credenziali di questi account, le credenziali devono essere ruotate per garantire che le persone che hanno lasciato i propri ruoli non possano più accedere all'account. [Scopri di più](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>I ruoli vengono assegnati all'esterno di Privileged Identity Management
 

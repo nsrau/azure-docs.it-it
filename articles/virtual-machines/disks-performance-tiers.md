@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939018"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359680"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
@@ -52,9 +52,9 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 ## <a name="restrictions"></a>Restrizioni
 
 - Questa funzionalità è attualmente supportata solo per le unità SSD Premium.
-- Prima di poter modificare il livello del disco, è necessario scollegare il disco da una macchina virtuale in esecuzione.
+- È necessario deallocare la VM o scollegare il disco da una macchina virtuale in esecuzione prima di poter modificare il livello del disco.
 - L'uso dei livelli di prestazioni P60, p70 e P80 è limitato ai dischi di 4.096 GiB o versione successiva.
-- Il livello di prestazioni di un disco può essere modificato solo una volta ogni 24 ore.
+- Il downgrade del livello di prestazioni di un disco può essere eseguito solo una volta ogni 24 ore.
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 

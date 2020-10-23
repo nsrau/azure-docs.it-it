@@ -3,12 +3,12 @@ title: Per iniziare, creare un Lab Azure Lab Services all'interno di Team
 description: Scopri come iniziare a creare un Lab Azure Lab Services all'interno di un team.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092138"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217083"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Introduzione e creazione di un Lab di Lab Services nei team
 
@@ -24,6 +24,9 @@ Di seguito è riportato il flusso di lavoro tipico quando si usa Azure Lab Servi
 1. Un [creatore di account Lab aggiunge altri utenti](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) al ruolo **Lab Creator** . Ad esempio, l'autore/amministratore dell'account lab aggiunge docenti al ruolo di **Autore del laboratorio** in modo che possano creare lab per le classi.
 1. Quindi, i docenti creano Labs, pre-configura la macchina virtuale del modello e pubblica il Lab per eseguire il provisioning delle macchine virtuali a tutti gli utenti del team.
 1. Dopo la pubblicazione del Lab, una macchina virtuale viene assegnata a tutti gli utenti nell'elenco di appartenenza al team nel primo accesso per Azure Lab Services, facendo clic sulla scheda contenente **Azure Lab Services** app all'interno di Team (SSO) o accedendo al [sito Web Labs](https://labs.azure.com). Gli utenti possono quindi usare la macchina virtuale per svolgere le attività e i compiti.
+
+> [!IMPORTANT]
+> Azure Lab Services può essere usato all'interno di team solo se gli account Lab vengono creati nello stesso tenant dei team.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Aggiungere Azure Lab Services app come scheda a un team
 
@@ -60,7 +63,7 @@ Quando viene creato un Lab all'interno dei team, l'elenco degli utenti del Lab v
 
 [Gestire gli elenchi utenti di Lab Services nei team](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 Vedere anche gli articoli seguenti:
 

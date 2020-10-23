@@ -1,18 +1,18 @@
 ---
 title: Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
-description: Questo articolo descrive come funziona il backup automatico, il ripristino dei dati su richiesta, come configurare l'intervallo di backup e la conservazione in Azure Cosmos DB.
+description: Questo articolo descrive come funziona il backup automatico, il ripristino dei dati su richiesta, come configurare l'intervallo di backup e la conservazione, come contattare il supporto per un ripristino dei dati in Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 08/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803875"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279489"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -34,15 +34,7 @@ Con Azure Cosmos DB, non solo i dati ma anche i relativi backup sono altamente r
 
 * I backup vengono eseguiti senza effetti sulle prestazioni o la disponibilità dell'applicazione. Azure Cosmos DB esegue il backup dei dati in background senza utilizzare velocità effettiva di cui è stato effettuato il provisioning aggiuntiva (UR) o senza influire sulle prestazioni e la disponibilità del database.
 
-## <a name="options-to-manage-your-own-backups"></a>Opzioni per la gestione dei backup
-
-Con gli account API SQL di Azure Cosmos DB è anche possibile gestire backup propri adottando uno degli approcci seguenti:
-
-* Usare [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) per spostare periodicamente i dati in una risorsa di archiviazione di propria scelta.
-
-* Usare Azure Cosmos DB [feed di modifiche](change-feed.md) per leggere i dati periodicamente per i backup completi o per le modifiche incrementali e archiviarli nella propria risorsa di archiviazione.
-
-## <a name="modify-the-backup-interval-and-retention-period"></a>Modificare l'intervallo di backup e il periodo di memorizzazione
+## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modificare l'intervallo di backup e il periodo di memorizzazione
 
 Azure Cosmos DB esegue automaticamente un backup completo dei dati ogni 4 ore e in qualsiasi momento, vengono archiviati i due backup più recenti. Questa configurazione è l'opzione predefinita e viene offerta senza costi aggiuntivi. È possibile modificare l'intervallo di backup e il periodo di memorizzazione predefiniti durante la creazione dell'account Azure Cosmos o dopo la creazione dell'account. La configurazione del backup è impostata a livello di account Azure Cosmos e deve essere eseguita in ogni account. Dopo aver configurato le opzioni di backup per un account, questo viene applicato a tutti i contenitori all'interno dell'account. Al momento è possibile modificare le opzioni di backup solo dal portale di Azure.
 
@@ -65,7 +57,32 @@ Se si configurano le opzioni di backup durante la creazione dell'account, è pos
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure" border="true":::
 
-## <a name="restore-data-from-an-online-backup"></a>Ripristinare i dati da un backup online
+## <a name="request-data-restore-from-a-backup"></a>Richiedere il ripristino dei dati da un backup
+
+Se si elimina accidentalmente il database o un contenitore, è possibile [archiviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [chiamare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup online automatici. Il supporto tecnico di Azure è disponibile solo per i piani selezionati, ad esempio **standard**, **Developer**e piani superiori a quelli previsti. Il supporto di Azure non è disponibile con il piano **Basic**. Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
+
+Per il ripristino di uno snapshot specifico del backup, Azure Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
+Prima di richiedere un ripristino, è necessario avere a disposizione i dettagli seguenti:
+
+* ID della sottoscrizione.
+
+* A seconda del modo in cui i dati sono stati accidentalmente eliminati o modificati, prepararsi per avere a disposizione ulteriori informazioni. Si consiglia di procurarsi le informazioni richieste in anticipo, per ridurre al minimo lo scambio di comunicazioni che potrebbe essere deleterio nei casi in cui la tempestività è cruciale.
+
+* Se viene eliminato l'intero account Azure Cosmos DB, è necessario specificare il nome dell'account eliminato. Se si crea un altro account con lo stesso nome dell'account eliminato, condividerlo con il team di supporto perché ciò permette di determinare l'account corretto da scegliere. È consigliabile archiviare ticket di supporto diversi per ogni account eliminato, perché riduce al minimo la confusione per lo stato di ripristino.
+
+* Se vengono eliminati uno o più database, è necessario comunicare l'account Azure Cosmos, nonché i nomi dei database di Azure Cosmos e specificare se esiste un nuovo database con lo stesso nome.
+
+* Se vengono eliminati uno o più contenitori, è necessario comunicare il nome dell'account Azure Cosmos, i nomi dei database e i nomi dei contenitori. Specificare inoltre se esiste un contenitore con lo stesso nome.
+
+* Se i dati sono stati eliminati o danneggiati per errore, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro 8 ore, in modo che il team di Azure Cosmos DB possa aiutare a ripristinare i dati dai backup. **Prima di creare una richiesta di supporto per il ripristino dei dati, assicurarsi di [aumentare la conservazione del backup](#configure-backup-interval-retention) per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore da questo evento.** In questo modo il team di supporto di Azure Cosmos DB avrà tempo sufficiente per ripristinare l'account.
+
+Oltre al nome dell'account Azure Cosmos, ai nomi dei database e ai nomi dei contenitori, è necessario specificare il punto nel tempo in cui è possibile ripristinare i dati. È importante essere il più precisi possibile per consentire a Microsoft di determinare i backup disponibili migliori nell'intervallo di tempo specificato. **È anche importante specificare l'ora in formato UTC.**
+
+Lo screenshot seguente illustra come creare una richiesta di supporto per un contenitore (raccolta/grafo/tabella) per ripristinare i dati tramite il portale di Azure. Specificare ulteriori dettagli, come tipo di dati, scopo del ripristino e ora di eliminazione dei dati per consentire a Microsoft di definire più facilmente la priorità della richiesta.
+
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure":::
+
+## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Considerazioni per il ripristino dei dati da un backup
 
 I dati possono essere eliminati o modificati accidentalmente in uno dei seguenti scenari:  
 
@@ -85,38 +102,48 @@ Quando si elimina accidentalmente un account Azure Cosmos, è possibile ripristi
 
 Quando si elimina accidentalmente un database di Azure Cosmos, è possibile ripristinare l'intero database o un subset dei contenitori all'interno del database. È anche possibile selezionare contenitori specifici tra database e ripristinarli in un nuovo account Azure Cosmos.
 
-Quando si elimina o si modifica accidentalmente uno o più elementi all'interno di un contenitore (caso di danneggiamento dei dati), è necessario specificare l'ora in cui eseguire il ripristino. Il tempo è importante in caso di danneggiamento dei dati. Poiché il contenitore è attivo, il backup è ancora in esecuzione, pertanto se si attende il superamento del periodo di memorizzazione (il valore predefinito è otto ore), i backup verranno sovrascritti. **Per evitare la sovrascrittura del backup, aumentare la conservazione del backup per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore dal danneggiamento dei dati.**
+Quando si elimina o si modifica accidentalmente uno o più elementi all'interno di un contenitore (caso di danneggiamento dei dati), è necessario specificare l'ora in cui eseguire il ripristino. Il tempo è importante in caso di danneggiamento dei dati. Poiché il contenitore è attivo, il backup è ancora in esecuzione, pertanto se si attende il superamento del periodo di memorizzazione (il valore predefinito è otto ore), i backup verranno sovrascritti. Per evitare la sovrascrittura del backup, aumentare la conservazione del backup per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore dal danneggiamento dei dati.
 
 Se i dati sono stati eliminati o danneggiati per errore, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro 8 ore, in modo che il team di Azure Cosmos DB possa aiutare a ripristinare i dati dai backup. In questo modo il team di supporto di Azure Cosmos DB avrà tempo sufficiente per ripristinare l'account.
 
 > [!NOTE]
 > Dopo aver ripristinato i dati, non tutte le funzionalità o le impostazioni di origine vengono trasferite nell'account ripristinato. Le impostazioni seguenti non vengono trasferite al nuovo account:
-
 > * Elenchi di controllo di accesso di VNET
 > * Stored procedure, trigger e funzioni definite dall'utente
 > * Impostazioni per più aree  
 
 Se si effettua il provisioning della velocità effettiva a livello di database, in questo caso il processo di backup e ripristino viene eseguito a livello dell'intero database e non a livello dei singoli contenitori. In questi casi, non è possibile selezionare un subset di contenitori da ripristinare.
 
-## <a name="migrate-data-to-the-original-account"></a>Migrare i dati all'account originale
+## <a name="options-to-manage-your-own-backups"></a>Opzioni per la gestione dei backup
 
-L'obiettivo principale del ripristino dei dati è ripristinare i dati eliminati o modificati accidentalmente. Pertanto, è consigliabile esaminare prima di tutto il contenuto dei dati ripristinati per assicurarsi che siano quelli previsti. In seguito è possibile eseguire la migrazione dei dati all'account primario. Sebbene sia possibile usare l'account ripristinato come nuovo account attivo, non è un'opzione consigliata se si dispone di carichi di lavoro di produzione.  
+Con gli account API SQL di Azure Cosmos DB è anche possibile gestire backup propri adottando uno degli approcci seguenti:
 
-Di seguito sono indicati i vari modi disponibili per eseguire la migrazione dei dati nell'account Azure Cosmos originale:
+* Usare [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) per spostare periodicamente i dati in una risorsa di archiviazione di propria scelta.
+
+* Usare Azure Cosmos DB [feed di modifiche](change-feed.md) per leggere i dati periodicamente per i backup completi o per le modifiche incrementali e archiviarli nella propria risorsa di archiviazione.
+
+## <a name="post-restore-actions"></a>Azioni successive al ripristino
+
+L'obiettivo principale del ripristino dei dati è ripristinare i dati eliminati o modificati accidentalmente. Pertanto, è consigliabile esaminare prima di tutto il contenuto dei dati ripristinati per assicurarsi che siano quelli previsti. Se tutto sembra corretto, è possibile eseguire la migrazione dei dati all'account primario. Sebbene sia possibile usare l'account ripristinato come nuovo account attivo, non è un'opzione consigliata se si dispone di carichi di lavoro di produzione. 
+
+Dopo aver ripristinato i dati, si riceverà una notifica riguardante il nome del nuovo account (in genere nel formato `<original-name>-restored1`) e l'ora del ripristino dell'account. L'account ripristinato avrà la stessa velocità effettiva di cui è stato effettuato il provisioning, gli stessi criteri di indicizzazione e sarà incluso nella stessa area dell'account originale. Un utente che è l'amministratore della sottoscrizione o un coamministratore può visualizzare l'account ripristinato.
+
+### <a name="migrate-data-to-the-original-account"></a>Migrare i dati all'account originale
+
+Di seguito sono riportati diversi modi per eseguire la migrazione dei dati all'account originale:
 
 * Usare l' [utilità di migrazione dati Azure Cosmos DB](import-data.md).
 * Usare il [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 * Usare il [feed delle modifiche](change-feed.md) in Azure Cosmos DB.
 * È possibile scrivere codice personalizzato.
 
-Assicurarsi di eliminare gli account ripristinati non appena è stata eseguita la migrazione dei dati, perché saranno addebitati addebiti continui.
+Si consiglia di eliminare il contenitore o il database immediatamente dopo la migrazione dei dati. Se non si eliminano i database o i contenitori ripristinati, questi elementi genereranno costi per unità richieste, archiviazione e dati in uscita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto è possibile consultare informazioni su come ripristinare i dati da un account Azure Cosmos o su come eseguire la migrazione dei dati in un account Azure Cosmos
 
 * Per creare una richiesta di ripristino, contattare il supporto tecnico di Azure e [aprire un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [Come ripristinare i dati di Azure Cosmos DB da un backup](how-to-backup-and-restore.md)
 * [Usare un feed di modifiche di Cosmos DB](change-feed.md) per spostare i dati in Azure Cosmos DB.
 * [Usare Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) per spostare i dati in Azure Cosmos DB.
 

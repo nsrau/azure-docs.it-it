@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395163"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331550"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
 Questo articolo offre una panoramica di cosa si intende per spostamento di un circuito Azure ExpressRoute dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -85,7 +85,7 @@ Questa sezione descrive le attività supportate per i circuiti ExpressRoute:
 Questa sezione descrive le attività non supportate per i circuiti ExpressRoute:
 
 * Gestione del ciclo di vita di un circuito ExpressRoute dal modello di distribuzione classica.
-* Supporto del Controllo degli accessi in base al ruolo per il modello di distribuzione classica. Non è possibile eseguire il Controllo degli accessi in base al ruolo per un circuito nel modello di distribuzione classica. Qualsiasi amministratore o coamministratore della sottoscrizione può collegare o scollegare le reti virtuali dal circuito.
+* Supporto del controllo degli accessi in base al ruolo di Azure per il modello di distribuzione classica. Non è possibile eseguire controlli RBAC di Azure in un circuito nel modello di distribuzione classica. Qualsiasi amministratore o coamministratore della sottoscrizione può collegare o scollegare le reti virtuali dal circuito.
 
 ## <a name="configuration"></a>Configurazione
 Vedere le istruzioni riportate nell'articolo [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-howto-move-arm.md).

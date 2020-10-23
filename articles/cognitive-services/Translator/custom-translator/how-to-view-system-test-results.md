@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509686"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220857"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -70,12 +70,12 @@ Per richiedere una distribuzione:
 
 2. Per un modello correttamente sottoposto a training è disponibile il pulsante "Deploy" (Distribuisci), se non è ancora stato distribuito.
 
-    ![Distribuire il modello](media/how-to/how-to-deploy-model.png)
+    ![Schermata che evidenzia il pulsante Distribuisci per la distribuzione di un modello.](media/how-to/how-to-deploy-model.png)
 
 3.  Fare clic su Deploy (Distribuisci).
 4.  Selezionare **Deployed** (Distribuito) per le aree in cui si vuole distribuire il modello e fare clic su Salva. È possibile selezionare **Deployed** (Distribuito) per più aree.
 
-    ![Distribuire il modello](media/how-to/how-to-deploy-model-regions.png)
+    ![Screenshot che mostra dove è possibile distribuire o annullare la distribuzione di un modello.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
@@ -90,7 +90,7 @@ Per aggiornare le impostazioni di distribuzione:
 
 2. Per un modello distribuito correttamente, è mostrato il pulsante **Update** (Aggiorna).
 
-    ![Distribuire il modello](media/how-to/how-to-update-undeploy-model.png)
+    ![Schermata che evidenzia il pulsante Aggiorna per aggiornare le impostazioni di distribuzione.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selezionare **Aggiorna**.
 4.  Selezionare **Deployed** (Distribuito) o **Undeployed** (Non distribuito) per le aree in cui si vuole che il modello sia distribuito o non distribuito e fare clic su **Salva**.

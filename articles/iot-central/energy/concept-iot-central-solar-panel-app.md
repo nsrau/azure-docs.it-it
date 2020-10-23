@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316035"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127507"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - Architettura dell'app per pannelli solari
 
@@ -29,7 +29,7 @@ L'architettura è costituita dai componenti seguenti. Alcune applicazioni potreb
 
 ## <a name="solar-panels-and-connectivity"></a>Pannelli solari e connettività 
 
-I pannelli solari rappresentano una delle fonti più significative di energia rinnovabile. A seconda del tipo e dell'installazione, è possibile connettere il pannello solare tramite gateway o tramite altri dispositivi intermedi e sistemi proprietari. Potrebbe essere necessario creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+I pannelli solari rappresentano una delle fonti più significative di energia rinnovabile. A seconda del tipo e dell'installazione, è possibile connettere il pannello solare tramite gateway o tramite altri dispositivi intermedi e sistemi proprietari. Potrebbe essere necessario creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](../core/howto-build-iotc-device-bridge.md). 
 
 
 
@@ -43,4 +43,4 @@ La piattaforma IoT Central offre due opzioni di estendibilità, ovvero l'esporta
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Dopo aver appreso le nozioni di base sull'architettura, è possibile [creare un'app per pannelli solari gratuitamente](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../index.yml)

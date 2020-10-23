@@ -2,13 +2,13 @@
 title: Sicurezza di rete per hub eventi di Azure
 description: Questo articolo descrive come configurare l'accesso da endpoint privati
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767787"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331312"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sicurezza di rete per hub eventi di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con hub eventi di Azure: 
@@ -22,7 +22,7 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con h
 ## <a name="service-tags"></a>Tag di servizio
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **EventHub**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **EventHub**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 | Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -72,8 +72,8 @@ Il [servizio di collegamento privato di Azure](../private-link/private-link-over
 
 Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
-> [!NOTE]
-> Questa funzionalità è supportata solo con il livello **dedicato**. Per altre informazioni sul livello dedicato, vedere [Panoramica di Hub eventi Dedicato](event-hubs-dedicated-overview.md). 
+> [!IMPORTANT]
+> Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
 
 Per altre informazioni, vedere [come configurare gli endpoint privati per un hub eventi](private-link-service.md)
 

@@ -3,17 +3,17 @@ title: Diagnosticare e risolvere i problemi relativi alla disponibilità di Azur
 description: Informazioni sul comportamento di disponibilità di Azure Cosmos SDK quando si opera in ambienti con più aree.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743965"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319371"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticare e risolvere i problemi relativi alla disponibilità di Azure Cosmos SDK in ambienti multiarea
 
@@ -34,7 +34,7 @@ Quando si imposta la preferenza a livello di area, il client si connetterà a un
 | Singola area di scrittura | Area preferita | Area primaria  |
 | Più aree di scrittura | Area preferita | Area preferita  |
 
-Se non si imposta un'area preferita:
+Se **non si imposta un'area preferita**, l'impostazione predefinita del client SDK è l'area primaria:
 
 |Tipo di account |Letture |Scritture |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Se non si imposta un'area preferita:
 > [!NOTE]
 > L'area primaria si riferisce alla prima area nell' [elenco delle aree dell'account Azure Cosmos](distribute-data-globally.md)
 
-Quando si verifica uno degli scenari seguenti, il client che usa Azure Cosmos SDK espone i log e include le informazioni sui tentativi come parte delle **informazioni di diagnostica dell'operazione**:
+In circostanze normali, il client SDK si connetterà all'area preferita (se è impostata una preferenza a livello di area) o all'area primaria (se non è impostata alcuna preferenza) e le operazioni saranno limitate a tale area, a meno che non si verifichi uno degli scenari seguenti.
+
+In questi casi, il client che usa Azure Cosmos SDK espone i log e include le informazioni di ripetizione dei tentativi come parte delle **informazioni di diagnostica dell'operazione**:
 
 * Proprietà *RequestDiagnosticsString* sulle risposte in .NET v2 SDK.
 * Proprietà di *diagnostica* sulle risposte e sulle eccezioni in .NET V3 SDK.
@@ -66,7 +68,7 @@ Se si rimuove un'area e successivamente la si aggiunge di nuovo all'account, se 
 
 Se si configura il client in modo che si connetta preferibilmente a un'area che non è presente nell'account Azure Cosmos, l'area preferita viene ignorata. Se si aggiunge tale area in un secondo momento, il client lo rileverà e passerà definitivamente a tale area.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Failover dell'area di scrittura in un singolo account di area di scrittura
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Eseguire il failover dell'area di scrittura in un singolo account di area di scrittura
 
 Se si avvia un failover dell'area di scrittura corrente, la richiesta di scrittura successiva avrà esito negativo con una risposta back-end nota. Quando viene rilevata questa risposta, il client esegue una query sull'account per apprendere la nuova area di scrittura e procede per ritentare l'operazione corrente e indirizzare definitivamente tutte le operazioni di scrittura future alla nuova area.
 
@@ -76,7 +78,7 @@ Se l'account è un'area di scrittura singola e l'interruzione a livello di area 
 
 ## <a name="session-consistency-guarantees"></a>Garanzie di coerenza della sessione
 
-Quando si usa la [coerenza di sessione](consistency-levels.md#guarantees-associated-with-consistency-levels), il client deve garantire che possa leggere le proprie scritture. In una singola area di scrittura gli account in cui la preferenza dell'area di lettura è diversa dall'area di scrittura, è possibile che si verifichino casi in cui l'utente emette una scrittura e durante un'operazione di lettura da un'area locale, l'area locale non ha ancora ricevuto la replica dei dati (velocità di vincolo leggero). In questi casi, l'SDK rileva l'errore specifico nell'operazione di lettura e ritenta la lettura nell'area dell'hub per garantire la coerenza della sessione.
+Quando si usa la [coerenza di sessione](consistency-levels.md#guarantees-associated-with-consistency-levels), il client deve garantire che possa leggere le proprie scritture. In una singola area di scrittura gli account in cui la preferenza dell'area di lettura è diversa dall'area di scrittura, è possibile che si verifichino casi in cui l'utente emette una scrittura e durante un'operazione di lettura da un'area locale, l'area locale non ha ancora ricevuto la replica dei dati (velocità di vincolo leggero). In questi casi, l'SDK rileva l'errore specifico nell'operazione di lettura e ritenta la lettura nell'area primaria per garantire la coerenza della sessione.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemi di connettività temporanei sul protocollo TCP
 

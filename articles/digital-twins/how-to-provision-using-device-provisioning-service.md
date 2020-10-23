@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047235"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368435"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -69,7 +69,7 @@ Quando viene effettuato il provisioning di un nuovo dispositivo usando il serviz
 
 Creare un'istanza del servizio Device provisioning, che verrà usata per eseguire il provisioning dei dispositivi. È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: configurare il servizio Device provisioning in hub Internet con l'portale di Azure*](../iot-dps/quick-setup-auto-provision.md).
 
-Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
+Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -79,7 +79,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 Si creerà quindi una funzione attivata da una richiesta HTTP all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata.
 
-Questa funzione verrà usata dal servizio Device provisioning in un criterio di [allocazione personalizzato](../iot-dps/how-to-use-custom-allocation-policies.md) che esegue il provisioning di un nuovo dispositivo. Per altre informazioni sull'uso di richieste HTTP con funzioni di Azure, vedere [*trigger di richiesta HTTP di Azure per funzioni di Azure*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+Questa funzione verrà usata dal servizio Device provisioning in un criterio di [allocazione personalizzato](../iot-dps/how-to-use-custom-allocation-policies.md) per eseguire il provisioning di un nuovo dispositivo. Per altre informazioni sull'uso di richieste HTTP con funzioni di Azure, vedere [*trigger di richiesta HTTP di Azure per funzioni di Azure*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 All'interno del progetto di app per le funzioni, aggiungere una nuova funzione. Aggiungere anche un nuovo pacchetto NuGet al progetto: `Microsoft.Azure.Devices.Provisioning.Service` .
 
@@ -447,7 +447,7 @@ Salvare il progetto, quindi pubblicare di nuovo l'app per le funzioni. Per istru
 
 A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata e all'hub eventi. Se è stata usata l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)), la prima impostazione sarà già configurata.
 
-Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
+Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -480,7 +480,7 @@ Per attivare il processo di ritiro, è necessario eliminare manualmente il dispo
 
 Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)è stato creato un dispositivo nell'hub Internet e un dispositivo gemello digitale corrispondente. 
 
-A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
+A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
 
 Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali di Azure. 
 
@@ -497,7 +497,7 @@ Si noterà che il gemello del dispositivo non è più disponibile nell'istanza d
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle.
 
-Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
+Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
@@ -505,12 +505,6 @@ Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale �
 ```azurecli
 az group delete --name <your-resource-group>
 ```
-<!-- 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-``` -->
 
 Eliminare quindi la cartella di esempio del progetto scaricata dal computer locale.
 

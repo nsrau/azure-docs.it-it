@@ -1,18 +1,16 @@
 ---
 title: Guida alla programmabilità di U-SQL per Azure Data Lake
 description: Informazioni sul set di servizi di Azure Data Lake Analytics che consente di creare una piattaforma Big Data basata sul cloud.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0e914b5f36d58ec3aab24099c8b3787f0cf648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288948"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215451"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -121,7 +119,7 @@ Nel codice seguente viene illustrato come referenziare un assembly:
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Consultare la [le istruzioni di registrazione assembly](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) che descrivono nel dettaglio questo argomento.
+Consultare la [le istruzioni di registrazione assembly](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog) che descrivono nel dettaglio questo argomento.
 
 
 ### <a name="use-assembly-versioning"></a>Usare il controllo delle versioni degli assembly

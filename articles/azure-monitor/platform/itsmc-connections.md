@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9db20fd357a50a92384b3c3f483f8d75b67b3e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058768"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427356"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -44,7 +44,8 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 > [!NOTE]
 > 
-> Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
+> - Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
+> - Per usare i modelli personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
@@ -213,6 +214,8 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > 3. Fare clic su Revoke Access (Revoca accesso ), quindi su Revoke (Revoca).
 
 - Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
+> [!NOTE]
+> CONNETTORE supporta solo l'app utente ufficiale per l'integrazione di Microsoft Log Analytics che viene scaricata da ServiceNow Store. CONNETTORE non supportano l'inserimento di codice nel lato ServiceNow o l'applicazione che non fa parte della soluzione ServiceNow ufficiale. 
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**

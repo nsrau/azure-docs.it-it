@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777790"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367126"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -34,9 +34,9 @@ La velocità effettiva di cui viene effettuato il provisioning per un contenitor
 
 Se il carico di lavoro in esecuzione in una partizione logica consuma più della velocità effettiva allocata alla partizione fisica sottostante, è possibile che le operazioni vengano limitate. Ciò che è noto come _partizione a caldo_ si verifica quando una partizione logica ha più richieste in modo sproporzionato rispetto ad altri valori della chiave di partizione.
 
-Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva di cui è stato effettuato il provisioning per l'intero contenitore o ripetere le operazioni. È anche necessario assicurarsi di scegliere una chiave di partizione che distribuisca equamente il volume di archiviazione e di richiesta. Per ulteriori informazioni sul partizionamento, vedere [partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md).
+Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva di cui è stato effettuato il provisioning per l'intero contenitore o ripetere le operazioni. È anche necessario assicurarsi di scegliere una chiave di partizione che distribuisca equamente il volume di archiviazione e di richiesta. Per ulteriori informazioni sul partizionamento, vedere [partizionamento e scalabilità orizzontale in Azure Cosmos DB](partitioning-overview.md).
 
-È consigliabile configurare la velocità effettiva al livello di granularità del contenitore per ottenere prestazioni garantite per il contenitore.
+Si consiglia di configurare la velocità effettiva in corrispondenza della granularità del contenitore quando si desiderano prestazioni prevedibili per il contenitore.
 
 L'immagine seguente mostra in che modo una partizione fisica ospita una o più partizioni logiche di un contenitore:
 
@@ -44,12 +44,9 @@ L'immagine seguente mostra in che modo una partizione fisica ospita una o più p
 
 ## <a name="set-throughput-on-a-database"></a>Configurare la velocità effettiva in un database
 
-> [!NOTE]
-> Il provisioning della velocità effettiva in un database di Azure Cosmos non è attualmente possibile negli account in cui sono abilitate le [chiavi gestite dal cliente](how-to-setup-cmk.md) .
-
 Quando si effettua il provisioning della velocità effettiva in un database di Azure Cosmos, la velocità effettiva viene condivisa fra tutti i contenitori (detti contenitori di database condivisi) nel database, a meno che non sia stata specificata una velocità effettiva con provisioning in contenitori specifici nel database. La condivisione della velocità effettiva con provisioning a livello del database tra i relativi contenitori è analoga all'hosting di un database in un cluster di computer. Poiché tutti i contenitori all'interno di un database condividono le risorse disponibili in un computer, naturalmente non si ottengono prestazioni prevedibili in un contenitore specifico. Per informazioni su come configurare la velocità effettiva con provisioning in un database, vedere [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md). Per informazioni su come configurare la velocità effettiva con scalabilità automatica in un database, vedere [Effettuare il provisioning della velocità effettiva con scalabilità automatica](how-to-provision-autoscale-throughput.md).
 
-L'impostazione della velocità effettiva per un database di Azure Cosmos garantisce di ricevere sempre la velocità effettiva di cui è stato effettuato il provisioning per tale database. Dato che tutti i contenitori all'interno del database condividono la velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB non garantisce alcuna velocità effettiva prevedibile per un determinato contenitore nel database. La porzione della velocità effettiva che può essere ricevuta da uno specifico contenitore dipende dai fattori seguenti:
+Dato che tutti i contenitori all'interno del database condividono la velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB non garantisce alcuna velocità effettiva prevedibile per un determinato contenitore nel database. La porzione della velocità effettiva che può essere ricevuta da uno specifico contenitore dipende dai fattori seguenti:
 
 * Numero di contenitori.
 * Scelta delle chiavi di partizione per vari contenitori.
@@ -63,9 +60,9 @@ Di seguito sono riportati alcuni esempi in cui è preferibile effettuare il prov
 
 * La condivisione della velocità effettiva con provisioning di un database in un set di contenitori è utile quando si esegue la migrazione in Azure Cosmos DB di un database NoSQL, come MongoDB o Cassandra, ospitato in un cluster di macchine virtuali o in server fisici locali. Si può paragonare la velocità effettiva con provisioning configurata nel database di Azure Cosmos a un equivalente logico (ma più conveniente e flessibile) della capacità di calcolo del cluster MongoDB o Cassandra.  
 
-Tutti i contenitori creati all'interno di un database con velocità effettiva con provisioning devono essere creati con una [chiave di partizione](partition-data.md). In uno specifico momento, la velocità effettiva allocata a un contenitore all'interno di un database viene distribuita fra tutte le partizioni logiche di tale contenitore. In presenza di contenitori che condividono la velocità effettiva con provisioning configurata in un database, non è possibile applicare in modo selettivo la velocità effettiva a un contenitore o una partizione logica specifica. 
+Tutti i contenitori creati all'interno di un database con velocità effettiva con provisioning devono essere creati con una [chiave di partizione](partitioning-overview.md). In uno specifico momento, la velocità effettiva allocata a un contenitore all'interno di un database viene distribuita fra tutte le partizioni logiche di tale contenitore. In presenza di contenitori che condividono la velocità effettiva con provisioning configurata in un database, non è possibile applicare in modo selettivo la velocità effettiva a un contenitore o una partizione logica specifica. 
 
-Se il carico di lavoro in una partizione logica utilizza un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero database o ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
+Se il carico di lavoro in una partizione logica utilizza un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero database o ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partitioning-overview.md).
 
 I contenitori in un database con velocità effettiva condivisa condividono tale velocità (UR) allocata nel database. È possibile avere fino a quattro contenitori con minimo 400 UR nel database. Con la velocità effettiva con provisioning standard (manuale) ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 UR al secondo aggiuntive. Ad esempio, se si dispone di un database con velocità effettiva condivisa e otto contenitori, il numero minimo di UR nel database sarà di 800. Con la velocità effettiva con provisioning automatico, è possibile avere fino a 25 contenitori in un database con scalabilità automatica max 4000 ur/s (con scalabilità compresa tra 400 e 4000 ur/sec).
 
@@ -82,7 +79,7 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva sia nel database che nel contenitore. L'esempio seguente illustra come effettuare il provisioning della velocità effettiva standard (manuale) in un database di Azure Cosmos e in un contenitore:
 
 * È possibile creare un database di Azure Cosmos denominato *Z* con una velocità effettiva con provisioning standard (manuale) pari a *"K"* UR. 
-* Creare quindi cinque contenitori denominati *A*, *B*, *C*, *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. Si noti che è possibile configurare la velocità effettiva condivisa e dedicata solo durante la creazione del database e del contenitore. 
+* Creare quindi cinque contenitori denominati *A*, *B*, *C*, *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore":::
 
@@ -94,22 +91,55 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Aggiornare la velocità effettiva in un database o in un contenitore
 
-Dopo aver creato un contenitore o un database Azure Cosmos, è possibile aggiornare la velocità effettiva con provisioning. La velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore non è soggetta ad alcun limite. 
+Dopo aver creato un contenitore o un database Azure Cosmos, è possibile aggiornare la velocità effettiva con provisioning. La velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore non è soggetta ad alcun limite.
 
-Per stimare la [velocità effettiva minima di provisioning](concepts-limits.md#storage-and-database-operations) di un database o di un contenitore, trovare il numero massimo di:
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Velocità effettiva con provisioning corrente
+
+È possibile recuperare la velocità effettiva con provisioning di un contenitore o di un database nel portale di Azure o tramite gli SDK:
+
+* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
+* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
+
+La risposta di questi metodi contiene anche la [velocità effettiva minima di provisioning](concepts-limits.md#storage-and-database-operations) per il contenitore o il database:
+
+* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) in .NET SDK.
+* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
+
+Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. Ma in genere è il massimo:
 
 * 400 UR/sec 
 * Archiviazione corrente in GB * 10 UR/sec
 * Unità richiesta/sec più alta con provisioning nel database o nel contenitore/100
 * Numero di contenitori * 100 ur/sec (solo database con velocità effettiva condivisa)
 
-Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa.
+### <a name="changing-the-provisioned-throughput"></a>Modifica della velocità effettiva con provisioning
 
-È possibile recuperare la velocità effettiva minima di un contenitore o di un database a livello di codice usando gli SDK oppure visualizzare il valore nel portale di Azure. Quando si usa .NET SDK, il [contenitore. ](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) Il metodo ReplaceThroughputAsync consente di ridimensionare il valore della velocità effettiva con provisioning. Quando si usa Java SDK, il metodo [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) consente di ridimensionare il valore della velocità effettiva con provisioning.
+È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o di un database tramite la portale di Azure o tramite gli SDK:
 
-Quando si usa .NET SDK, il metodo [container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) consente di recuperare la velocità effettiva minima di un contenitore o di un database. 
+* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
+* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
 
-È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o di un database in qualsiasi momento. Un'operazione di ridimensionamento per aumentare la velocità effettiva può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. È possibile controllare lo stato dell'operazione di ridimensionamento nel portale di Azure oppure a livello di codice usando gli SDK. Se si usa .NET SDK, è possibile ottenere lo stato dell'operazione di ridimensionamento usando il metodo `Container.ReadThroughputAsync`.
+Se si **riduce la velocità effettiva con provisioning**, sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
+
+Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte dei casi l'operazione è immediata. Esistono tuttavia casi in cui l'operazione può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. In questo caso, un tentativo di modificare la velocità effettiva con provisioning durante l'esecuzione di questa operazione produrrà una risposta HTTP 423 con un messaggio di errore che informa che è in corso un'altra operazione di ridimensionamento.
+
+> [!NOTE]
+> Se si prevede un carico di lavoro di inserimento molto grande che richiede un notevole aumento della velocità effettiva con provisioning, tenere presente che l'operazione di ridimensionamento non ha un contratto di servizio e, come indicato nel paragrafo precedente, può richiedere molto tempo quando l'incremento è elevato. È possibile pianificare in anticipo e avviare il ridimensionamento prima che il carico di lavoro venga avviato e usare i metodi seguenti per verificare lo stato di avanzamento.
+
+È possibile controllare a livello di codice lo stato di avanzamento della scalabilità leggendo la [velocità effettiva con provisioning corrente](#current-provisioned-throughput) e usando:
+
+* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) in .NET SDK.
+* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) in Java SDK.
+
+È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Archiviazione elevata/programma con velocità effettiva bassa
+
+Come descritto nella sezione precedente relativa alla [velocità effettiva con provisioning](#current-provisioned-throughput) , la velocità effettiva minima di cui è possibile eseguire il provisioning in un contenitore o un database dipende da diversi fattori. Uno di essi è la quantità di dati attualmente archiviati, perché Azure Cosmos DB impone una velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione.
+
+Questo può costituire un problema in situazioni in cui è necessario archiviare grandi quantità di dati, ma con requisiti di velocità effettiva bassi rispetto. Per gestire meglio questi scenari, Azure Cosmos DB ha introdotto un **programma "High storage/low throughput"** che riduce il vincolo ur/s per GB da 10 a 1 per gli account idonei.
+
+Attualmente è necessario disporre di almeno 1 contenitore o database con velocità effettiva condivisa contenente più di 1 TB di dati nell'account per essere idonei. Per partecipare al programma e valutare l'idoneità completa, è sufficiente compilare [questo sondaggio](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Il team di Azure Cosmos DB sarà quindi seguito e procederà con l'onboarding.
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 Questa tabella mostra un confronto tra il provisioning della velocità effettiva standard (manuale) in un database e in un contenitore. 
@@ -126,7 +156,7 @@ Questa tabella mostra un confronto tra il provisioning della velocità effettiva
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
+* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partitioning-overview.md)
 * Informazioni su come [effettuare il provisioning della velocità effettiva standard (manuale) per un contenitore in Azure Cosmos](how-to-provision-container-throughput.md).
 * Informazioni su come [effettuare il provisioning della velocità effettiva standard (manuale) per un database di Azure Cosmos](how-to-provision-database-throughput.md).
 * Informazioni su come [effettuare il provisioning della velocità effettiva con scalabilità automatica in un database o un contenitore di Azure Cosmos](how-to-provision-autoscale-throughput.md).

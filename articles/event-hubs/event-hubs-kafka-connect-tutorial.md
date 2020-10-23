@@ -3,12 +3,12 @@ title: Integrare Apache Kafka Connect - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come usare Kafka Connect con hub eventi di Azure per Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061666"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369540"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrare il supporto di Apache Kafka Connect in Hub eventi di Azure (anteprima)
 Man mano che aumentano i volumi di inserimento per le esigenze aziendali, aumentano di pari passo i requisiti di inserimento per i vari sink e le varie origini esterne. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornisce un framework che consente di connettere e importare/esportare dati da/a qualsiasi sistema esterno come MySQL, HDFS e il file system tramite un cluster Kafka. Questa esercitazione illustra l'uso di Kafka Connect Framework con hub eventi.
@@ -90,6 +90,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Sostituire `{YOUR.EVENTHUBS.CONNECTION.STRING}` con la stringa di connessione per lo spazio dei nomi di Hub eventi. Per istruzioni su come ottenere la stringa di connessione, vedere [ottenere una stringa di connessione di hub eventi](event-hubs-get-connection-string.md). Ecco una configurazione di esempio: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## <a name="run-kafka-connect"></a>Eseguire Kafka Connect
 

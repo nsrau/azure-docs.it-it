@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408370"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150997"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Guida introduttiva: Creare una chat room con ASP.NET e il Servizio SignalR
 
-Il Servizio Azure SignalR si basa su [SignalR per ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), che **non** è compatibile al 100% con ASP.NET SignalR. Il Servizio Azure SignalR ha reimplementato il protocollo dati ASP.NET SignalR sulla base delle tecnologie ASP.NET Core più recenti. Quando si usa il Servizio Azure SignalR per ASP.NET SignalR, alcune funzionalità di ASP.NET SignalR non sono più supportate. Ad esempio, Azure SignalR non esegue la riproduzione dei messaggi quando si riconnette il client. Anche il trasporto Forever Frame e JSONP non sono supportati. Per il funzionamento dell'applicazione ASP.NET SignalR con il Servizio SignalR sono necessarie alcune modifiche del codice e la versione corretta delle librerie dipendenti.
+Il Servizio Azure SignalR si basa su [SignalR per ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), che **non** è compatibile al 100% con ASP.NET SignalR. Il Servizio Azure SignalR ha reimplementato il protocollo dati ASP.NET SignalR sulla base delle tecnologie ASP.NET Core più recenti. Quando si usa il Servizio Azure SignalR per ASP.NET SignalR, alcune funzionalità di ASP.NET SignalR non sono più supportate. Ad esempio, Azure SignalR non esegue la riproduzione dei messaggi quando si riconnette il client. Anche il trasporto Forever Frame e JSONP non sono supportati. Per il funzionamento dell'applicazione ASP.NET SignalR con il Servizio SignalR sono necessarie alcune modifiche del codice e la versione corretta delle librerie dipendenti.
 
-Vedere il [documento sulle differenze tra le versioni](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) per un elenco completo delle funzionalità ASP.NET SignalR e ASP.NET Core SignalR messe a confronto.
+Vedere il [documento sulle differenze tra le versioni](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) per un elenco completo delle funzionalità ASP.NET SignalR e ASP.NET Core SignalR messe a confronto.
 
 In questo argomento di avvio rapido verranno fornite informazioni su come iniziare a usare ASP.NET e il Servizio Azure SignalR per un'[applicazione Chat Room](./signalr-quickstart-dotnet-core.md) simile.
 

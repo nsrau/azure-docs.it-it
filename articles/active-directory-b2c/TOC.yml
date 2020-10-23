@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -101,8 +101,10 @@
   items:
     - name: Integrazione di app
       items:
-        - name: Registrare un'applicazione
+        - name: Registrare un'applicazione Web
           href: tutorial-register-applications.md
+        - name: Registrare un'applicazione a pagina singola
+          href: tutorial-register-spa.md
         - name: Registrare un provider di servizi SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
@@ -180,7 +182,7 @@
           href: basic-age-gating.md
         - name: Definire attributi personalizzati
           href: user-flow-custom-attributes.md
-        - name: Connettori API
+        - name: Connettori API (anteprima)
           items:
             - name: Panoramica
               href: api-connectors-overview.md

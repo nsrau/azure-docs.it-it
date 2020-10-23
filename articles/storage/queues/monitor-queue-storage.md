@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711448"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425496"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitoraggio dell'archiviazione code di Azure
 
@@ -46,7 +46,7 @@ Archiviazione code di Azure raccoglie gli stessi tipi di dati di monitoraggio de
 
 Vedere informazioni di [riferimento sui dati di monitoraggio dell'archiviazione code di Azure](monitor-queue-storage-reference.md) per informazioni dettagliate sulle metriche di metrica e log create dall'archiviazione code di Azure.
 
-Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) (Eseguire la migrazione ad Azure Resource Manager).
+Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](/azure/virtual-machines/windows/migration-classic-resource-manager-overview) (Eseguire la migrazione ad Azure Resource Manager).
 
 Se si vuole, è possibile continuare a usare le metriche e i log della versione classica. In realtà, le metriche e i log della versione classica sono disponibili in parallelo con le metriche e i log di Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche e ai log legacy da parte di Archiviazione di Azure.
 
@@ -56,7 +56,7 @@ Le metriche della piattaforma e il log attività vengono raccolti automaticament
 
 Per creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
 
-Per visualizzare un modello di Azure Resource Manager che crea un'impostazione di diagnostica, vedere [impostazione di diagnostica per archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Per visualizzare un modello di Azure Resource Manager che crea un'impostazione di diagnostica, vedere [impostazione di diagnostica per archiviazione di Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Quando si crea un'impostazione di diagnostica, scegliere il tipo di archiviazione per il quale abilitare i log, ad esempio BLOB, coda, tabella o file. Per l'archiviazione code, scegliere **coda**. 
 
@@ -89,7 +89,7 @@ Le metriche per l'archiviazione code di Azure sono disponibili in questi spazi d
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-Per un elenco di tutte le metriche di supporto di monitoraggio di Azure, che includono l'archiviazione code di Azure, vedere [metriche supportate di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)di Azure.
+Per un elenco di tutte le metriche di supporto di monitoraggio di Azure, che includono l'archiviazione code di Azure, vedere [metriche supportate di monitoraggio](/azure/azure-monitor/platform/metrics-supported)di Azure.
 
 
 ### <a name="accessing-metrics"></a>Accesso alle metriche
@@ -101,7 +101,7 @@ Per un elenco di tutte le metriche di supporto di monitoraggio di Azure, che inc
 
 #### <a name="list-the-metric-definition"></a>Elenco della definizione di metrica
 
-È possibile elencare la definizione della metrica dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition).
+È possibile elencare la definizione della metrica dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
 In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa dell'intero account di archiviazione o l'ID risorsa del servizio di archiviazione di Accodamento.  Gli ID delle risorse si trovano nella **pagina delle proprietà** del proprio account di archiviazione nel portale di Azure.
 
@@ -112,7 +112,7 @@ In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa del
 
 #### <a name="reading-metric-values"></a>Lettura dei valori delle metriche
 
-È possibile leggere i valori delle metriche a livello di account dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric).
+È possibile leggere i valori delle metriche a livello di account dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il cmdlet [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -123,7 +123,7 @@ In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa del
 
 #### <a name="list-the-account-level-metric-definition"></a>Elenco della definizione di metrica a livello di account
 
-È possibile elencare la definizione della metrica dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+È possibile elencare la definizione della metrica dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il comando [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
  
 In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa dell'intero account di archiviazione o l'ID risorsa del servizio di archiviazione di Accodamento. Gli ID delle risorse si trovano nella **pagina delle proprietà** del proprio account di archiviazione nel portale di Azure.
 
@@ -133,7 +133,7 @@ In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa del
 
 #### <a name="read-account-level-metric-values"></a>Lettura dei valori di metrica a livello di account
 
-È possibile leggere i valori delle metriche dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list).
+È possibile leggere i valori delle metriche dell'account di archiviazione o del servizio di archiviazione di Accodamento. Usare il comando [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -330,19 +330,19 @@ I log inviati a un hub eventi non vengono archiviati come file, ma è possibile 
 
 ![Log di controllo](media/monitor-queue-storage/event-hub-log.png)
 
-È possibile accedere e leggere i dati di log inviati all'hub eventi usando le informazioni di sicurezza e gli strumenti di monitoraggio e gestione degli eventi. Per altre informazioni, vedere [Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+È possibile accedere e leggere i dati di log inviati all'hub eventi usando le informazioni di sicurezza e gli strumenti di monitoraggio e gestione degli eventi. Per altre informazioni, vedere [Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Accesso ai log in un'area di lavoro Log Analytics
 
 È possibile accedere ai log inviati a un'area di lavoro Log Analytics usando le query di log di Monitoraggio di Azure.
 
-Per altre informazioni, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Per altre informazioni, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-portal).
 
 I dati vengono archiviati nella tabella **StorageQueueLogs** .  
 
 #### <a name="sample-kusto-queries"></a>Query Kusto di esempio
 
-Di seguito sono riportate alcune query che è possibile immettere nella barra di **Ricerca log** per semplificare il monitoraggio dell'archiviazione di Accodamento. Queste query usano il [nuovo linguaggio](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Di seguito sono riportate alcune query che è possibile immettere nella barra di **Ricerca log** per semplificare il monitoraggio dell'archiviazione di Accodamento. Queste query usano il [nuovo linguaggio](/azure/azure-monitor/log-query/log-query-overview).
 
 > [!IMPORTANT]
 > Quando si seleziona **log** dal menu del gruppo di risorse dell'account di archiviazione, log Analytics viene aperto con l'ambito della query impostato sul gruppo di risorse corrente. Ciò significa che le query di log includeranno solo i dati del gruppo di risorse. Se si vuole eseguire una query che includa dati da altre risorse o dati di altri servizi di Azure, selezionare **registri** dal menu **monitoraggio di Azure** . Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](/azure/azure-monitor/log-query/scope/).

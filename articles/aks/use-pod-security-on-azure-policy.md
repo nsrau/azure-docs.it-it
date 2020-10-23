@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073462"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368469"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteggere i pod con Criteri di Azure
 
@@ -63,7 +63,7 @@ Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Az
 - Non è possibile abilitare entrambi i criteri di sicurezza del servizio contenitore di Azure [(anteprima)](use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. 
 - Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_, _Gatekeeper-System_e _AKS-periscopio_.
 
-### <a name="recommendations"></a>Consigli
+### <a name="recommendations"></a>Indicazioni
 
 Di seguito sono riportate indicazioni generali per l'uso del componente aggiuntivo criteri di Azure:
 
@@ -76,7 +76,7 @@ La raccomandazione seguente si applica solo ad AKS e al componente aggiuntivo cr
 
 - Usare il pool di nodi `CriticalAddonsOnly` di sistema con Tain per pianificare i pod Gatekeeper. Per ulteriori informazioni, vedere [utilizzo dei pool di nodi di sistema](use-system-pools.md#system-and-user-node-pools).
 - Proteggere il traffico in uscita dai cluster AKS. Per altre informazioni, vedere [controllare il traffico in uscita per i nodi del cluster](limit-egress-traffic.md).
-- Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Per configurare un'eccezione, installare la [YAML di eccezione MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 Il componente aggiuntivo criteri di Azure richiede che le risorse di CPU e memoria funzionino. Questi requisiti aumentano con l'aumentare delle dimensioni di un cluster. Per indicazioni generali sull'uso del componente aggiuntivo criteri di Azure, vedere Suggerimenti per i [criteri di Azure][policy-recommendations] .
@@ -330,7 +330,7 @@ Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [prote
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://azure.github.io/aad-pod-identity/docs/configure/application_exception
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md

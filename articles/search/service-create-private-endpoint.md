@@ -1,19 +1,19 @@
 ---
 title: Creare un endpoint privato per una connessione protetta
 titleSuffix: Azure Cognitive Search
-description: Configurare un endpoint privato in una rete virtuale per una connessione sicura a un servizio ricerca cognitiva di Azure
+description: Configurare un endpoint privato in una rete virtuale per una connessione sicura a un servizio ricerca cognitiva di Azure.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935756"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280402"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -47,7 +47,7 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
     | Sottoscrizione | Selezionare la propria sottoscrizione|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
     | Nome | Immettere *MyVirtualNetwork* |
-    | Region | Selezionare l'area geografica desiderata |
+    | Area | Selezionare l'area geografica desiderata |
     |||
 
 1. Lasciare le impostazioni predefinite per le altre impostazioni. Fare clic su **Verifica + crea** e quindi su **Crea**
@@ -152,10 +152,16 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
     | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**.|
     ||
 
+   > [!NOTE]
+   > Gli indirizzi IPv4 possono essere espressi in formato [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Ricordarsi di evitare l'intervallo IP riservato per la rete privata, come descritto in [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
-
 
 ## <a name="connect-to-the-vm"></a>Connettersi alla VM
 
@@ -181,7 +187,6 @@ Scaricare e connettersi alla macchina virtuale *myVm* come segue:
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
-
 
 ## <a name="test-connections"></a>Testare le connessioni
 

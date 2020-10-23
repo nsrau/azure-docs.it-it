@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85131968"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151061"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Log delle risorse per il servizio Azure SignalR
 
@@ -20,8 +20,8 @@ Questa esercitazione illustra i log delle risorse per il servizio Azure SignalR,
 ## <a name="prerequisites"></a>Prerequisiti
 Per abilitare i log delle risorse, è necessario un punto in cui archiviare i dati di log. Questa esercitazione Usa archiviazione di Azure e Log Analytics.
 
-* [Archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md) : mantiene i log delle risorse per il controllo dei criteri, l'analisi statica o il backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) : strumento di ricerca e analisi dei log flessibile che consente di analizzare i log non elaborati generati da una risorsa di Azure.
+* [Archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) : mantiene i log delle risorse per il controllo dei criteri, l'analisi statica o il backup.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) : strumento di ricerca e analisi dei log flessibile che consente di analizzare i log non elaborati generati da una risorsa di Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurare i log delle risorse per un servizio Azure SignalR
 

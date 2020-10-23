@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91fd974c730037907258cb4a670f6fa836bfda6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962452"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144871"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
-Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
+Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](./overview.md). 
 
 ## <a name="colocation"></a><a name="colocation"></a>Colocation
 Quando le risorse di Azure che costituiscono una soluzione, ad esempio un'app Web e un database, si trovano in aree diverse, possono verificarsi le situazioni seguenti:

@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030702"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142244"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funzionalità di richiesta dei dati del cliente per i dispositivi dell'hub Azure
 
@@ -49,4 +49,4 @@ Gli amministratori tenant possono usare copia e incolla all'interno del riquadro
 
 ## <a name="links-to-additional-documentation"></a>Collegamenti a documentazione aggiuntiva
 
-La documentazione completa per le API del servizio Hub IoT di Azure si trova in [IoT Hub Service APIs](https://docs.microsoft.com/rest/api/iothub/service/configuration) (API del servizio Hub IoT).
+La documentazione completa per le API del servizio Hub IoT di Azure si trova in [IoT Hub Service APIs](/rest/api/iothub/service/configuration) (API del servizio Hub IoT).

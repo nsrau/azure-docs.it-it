@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849057ab1ccde2e0771f0c1cd52ea399ffe4cea7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964690"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166633"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configurare e abilitare gli utenti per l'autenticazione basata su SMS usando Azure Active Directory (anteprima)
 
@@ -96,13 +96,17 @@ Una volta impostato, il numero di telefono per l'accesso tramite SMS può quindi
 1. Cercare e selezionare **Azure Active Directory**.
 1. Dal menu di spostamento sul lato sinistro della finestra di Azure Active Directory selezionare **Utenti**.
 1. Selezionare l'utente abilitato per l'autenticazione basata su SMS nella sezione precedente, ad esempio *Contoso User*, quindi selezionare **Metodi di autenticazione**.
-1. Immettere il numero di telefono dell'utente, incluso il prefisso internazionale, ad esempio *+ 1 xxxxxxxxx*. Il portale di Azure verifica che il numero di telefono sia nel formato corretto.
+1. Selezionare **+ Aggiungi metodo di autenticazione**, quindi nel menu a discesa *Scegli metodo* scegliere numero di **telefono**.
 
-    ![Impostare un numero di telefono per un utente nel portale di Azure da usare con l'autenticazione basata su SMS](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    Immettere il numero di telefono dell'utente, incluso il prefisso internazionale, ad esempio *+ 1 xxxxxxxxx*. Il portale di Azure verifica che il numero di telefono sia nel formato corretto.
+
+    Quindi, dal menu a discesa *tipo telefono* selezionare *mobile*, *mobile alternativo*o *altro* in base alle esigenze.
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Impostare un numero di telefono per un utente nel portale di Azure da usare con l'autenticazione basata su SMS":::
 
     Il numero di telefono deve essere univoco nel tenant. Se si tenta di usare lo stesso numero di telefono per più utenti, viene visualizzato un messaggio di errore.
 
-1. Per applicare il numero di telefono a un account utente, selezionare **Salva**.
+1. Per applicare il numero di telefono a un account utente, selezionare **Aggiungi**.
 
 Una volta effettuato il provisioning, viene visualizzato un segno di spunta per *SMS Sign-in enabled* (Acceso tramite SMS abilitato).
 

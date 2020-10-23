@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
-ms.openlocfilehash: 667ca4701ed8e781a2270b42802bab31e6e9c8ee
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096233"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107998"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -304,7 +304,7 @@ Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contene
 > [!NOTE]
 > Log Analytics le query possono essere salvate in diversi archivi a seconda dello scenario utilizzato. Le query rimangono crittografate con la chiave Microsoft (MMK) negli scenari seguenti indipendentemente dalla configurazione di CMK: cartelle di lavoro in monitoraggio di Azure, dashboard di Azure, app per la logica di Azure, Azure Notebooks e automazione manuali operativi.
 
-Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'area di lavoro, il servizio carica le query *salvate* e di *log-alerts* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/encryption-customer-managed-keys.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
+Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'area di lavoro, il servizio carica le query *salvate* e di *log-alerts* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/customer-managed-keys-overview.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
 
 **Considerazioni prima di impostare CMK per le query**
 * È necessario disporre delle autorizzazioni di scrittura per l'area di lavoro e l'account di archiviazione
@@ -374,7 +374,7 @@ Archivio dati consente di approvare o rifiutare la richiesta del tecnico Microso
 
 In monitoraggio di Azure questo controllo sui dati nelle aree di lavoro collegate al cluster Log Analytics dedicato. Il controllo dell'archivio protetto si applica ai dati archiviati in un Log Analytics cluster dedicato, dove viene mantenuto isolato negli account di archiviazione del cluster nella sottoscrizione protetta da file protetto.  
 
-Altre informazioni su [Customer Lockbox per Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
 ## <a name="cmk-management"></a>Gestione CMK
 

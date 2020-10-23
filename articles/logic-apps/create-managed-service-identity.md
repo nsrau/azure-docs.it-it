@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565928"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371478"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
@@ -35,7 +35,7 @@ Questo articolo illustra come configurare entrambi i tipi di identità gestite p
 
 * Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). È necessario che l'identità gestita e la risorsa di destinazione di Azure a cui accedere usino la stessa sottoscrizione di Azure.
 
-* Per concedere a un'identità gestita l'accesso a una risorsa di Azure, è necessario aggiungere un ruolo alla risorsa di destinazione per l'identità. Per aggiungere ruoli, sono necessarie le [autorizzazioni di amministratore di Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) che possono assegnare i ruoli alle identità nel tenant di Azure AD corrispondente.
+* Per concedere a un'identità gestita l'accesso a una risorsa di Azure, è necessario aggiungere un ruolo alla risorsa di destinazione per l'identità. Per aggiungere ruoli, sono necessarie le [autorizzazioni di amministratore di Azure AD](../active-directory/roles/permissions-reference.md) che possono assegnare i ruoli alle identità nel tenant di Azure AD corrispondente.
 
 * La risorsa di destinazione di Azure a cui si vuole accedere. In questa risorsa si aggiungerà un ruolo per l'identità gestita che consente all'app per la logica di autenticare l'accesso alla risorsa di destinazione.
 
@@ -301,7 +301,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
    ![Selezionare "Aggiungi" > "Aggiungi un'assegnazione di ruolo"](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
-   > Se l'opzione **Aggiungi un'assegnazione di ruolo** è disabilitata, è probabile che non si abbiano le autorizzazioni. Per altre informazioni sulle autorizzazioni che consentono di gestire i ruoli per le risorse, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Se l'opzione **Aggiungi un'assegnazione di ruolo** è disabilitata, è probabile che non si abbiano le autorizzazioni. Per altre informazioni sulle autorizzazioni che consentono di gestire i ruoli per le risorse, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. In **Aggiungi un'assegnazione di ruolo** selezionare un **Ruolo** che offra all'identità l'accesso necessario alla risorsa di destinazione.
 
@@ -462,7 +462,7 @@ Nel portale di Azure rimuovere prima di tutto l'accesso dell'identità alla [ris
 1. Nell'elenco dei ruoli selezionare le identità gestite che si vuole rimuovere. Nella barra degli strumenti selezionare **Rimuovi**.
 
    > [!TIP]
-   > Se l'opzione **Rimuovi** è disabilitata, è probabile che non si abbiano le autorizzazioni. Per altre informazioni sulle autorizzazioni che consentono di gestire i ruoli per le risorse, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Se l'opzione **Rimuovi** è disabilitata, è probabile che non si abbiano le autorizzazioni. Per altre informazioni sulle autorizzazioni che consentono di gestire i ruoli per le risorse, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 L'identità gestita viene ora rimossa e non ha più accesso alla risorsa di destinazione.
 

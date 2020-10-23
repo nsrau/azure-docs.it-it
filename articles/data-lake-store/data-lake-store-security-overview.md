@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92146297"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ L'autenticazione è il processo con il quale l'identità di un utente viene veri
 Ogni sottoscrizione Azure può essere associata a un'istanza di Azure Active Directory. Solo gli utenti e le identità del servizio definite nel servizio Azure Active Directory possono accedere all'account di Data Lake Storage Gen1 usando il portale di Azure, gli strumenti da riga di comando o le applicazioni client create dall'organizzazione con Data Lake Storage Gen1 SDK. I vantaggi principali dell'uso di Azure Active Directory come meccanismo di controllo di accesso centralizzato sono:
 
 * Gestione semplificata del ciclo di vita dell'identità. L'identità di un utente o un servizio (un'identità dell'entità servizio) può essere creata e revocata in modo rapido semplicemente eliminando o disabilitando l'account nella directory.
-* Autenticazione a più fattori [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) offre un livello di sicurezza aggiuntivo per l'accesso degli utenti e le transazioni.
+* Autenticazione a più fattori [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) offre un livello di sicurezza aggiuntivo per l'accesso degli utenti e le transazioni.
 * Autenticazione da qualsiasi client usando un protocollo aperto standard, ad esempio OAuth oppure OpenID.
 * Federazione con provider di identità cloud e servizi di directory dell'organizzazione.
 
@@ -42,7 +42,7 @@ Dopo che Azure Active Directory ha autenticato un utente in modo che possa acced
 * [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per la gestione degli account
 * POSIX ACL per l'accesso ai dati nell'archivio
 
-### <a name="rbac-for-account-management"></a>Controllo degli accessi in base al ruolo per la gestione degli account
+### <a name="azure-rbac-for-account-management"></a>RBAC di Azure per la gestione degli account
 
 Quattro ruoli di base vengono definiti per Data Lake Storage Gen1 per impostazione predefinita. I ruoli permettono di eseguire diverse operazioni su un account Data Lake Storage Gen1 tramite il portale di Azure, i cmdlet di PowerShell e le API REST. I ruoli Proprietario e Collaboratore possono eseguire un'ampia gamma di funzioni di amministrazione sull'account. È possibile assegnare il ruolo Lettore agli utenti limitati alla sola visualizzazione dei dati di gestione degli account.
 
@@ -52,7 +52,7 @@ Si noti che anche se per la gestione degli account vengono assegnati i ruoli, al
 
 | Ruoli | Diritti di gestione | Diritti di accesso ai dati | Spiegazione |
 | --- | --- | --- | --- |
-| Nessun ruolo assegnato |Nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
+| Nessun ruolo assegnato |nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
 | Proprietario |Tutti |Tutti |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
 | Reader |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
 | Autore di contributi |Tutti tranne quelli di aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Collaboratore può gestire alcuni aspetti di un account, ad esempio le distribuzioni e la creazione e la gestione di avvisi, ma non prevede la possibilità di aggiungere o rimuovere ruoli. |

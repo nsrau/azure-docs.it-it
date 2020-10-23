@@ -1,30 +1,30 @@
 ---
-title: Aggiornare il valore di UR/s per un database e un contenitore dell'API SQL (Core) per Azure Cosmos DB
-description: Aggiornare il valore di UR/s per un database e un contenitore dell'API SQL (Core) per Azure Cosmos DB
+title: Script dell'interfaccia della riga di comando di Azure per le operazioni di velocità effettiva (UR/s) per le risorse dell'API Core (SQL) di Azure Cosmos DB
+description: Script dell'interfaccia della riga di comando di Azure per le operazioni di velocità effettiva (UR/s) per le risorse dell'API Core (SQL) di Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 23b18d903bfd4e9d723524924e6c31db45c14d62
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 5ad1e40f12609e708a2bb818175146967b7dccf2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429896"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839470"
 ---
-# <a name="update-rus-for-a-sql-core-api-database-and-container-for-azure-cosmos-db-using-azure-cli"></a>Aggiornare il valore di UR/s per un database e un contenitore dell'API SQL (Core) per Azure Cosmos DB tramite l'interfaccia della riga di comando di Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operazioni di velocità effettiva (UR/s) con l'interfaccia della riga di comando di Azure per un database o contenitore per l'API Core (SQL) di Azure Cosmos DB
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.9.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script crea un database dell'API SQL (Core) con unità elaborate condivise e un contenitore dell'API SQL (Core) con unità elaborate dedicate, quindi aggiorna le unità elaborate per il database e il contenitore.
+Questo script crea un database dell'API Core (SQL) con velocità effettiva condivisa e un contenitore dell'API Core (SQL) con velocità effettiva dedicata, quindi aggiorna la velocità effettiva per il database e il contenitore. Lo script esegue quindi la migrazione dalla velocità effettiva standard alla velocità effettiva con scalabilità automatica e, al termine della migrazione, legge il valore della velocità effettiva con scalabilità automatica.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Throughput operations for a SQL database and container.")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -42,10 +42,12 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un account Azure Cosmos DB. |
-| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Crea un database SQL (Core) di Azure Cosmos. |
-| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Crea un contenitore SQL (Core) di Azure Cosmos. |
-| [az cosmosdb sql database throughput update](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Aggiorna il valore di UR/s per un database SQL (Core) di Azure Cosmos. |
-| [az cosmosdb sql container throughput update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Aggiorna il valore di UR/s per un contenitore SQL (Core) di Azure Cosmos. |
+| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Crea un database Core (SQL) di Azure Cosmos. |
+| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Crea un contenitore Core (SQL) di Azure Cosmos. |
+| [az cosmosdb sql database throughput update](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Aggiorna la velocità effettiva per un database Core (SQL) di Azure Cosmos. |
+| [az cosmosdb sql container throughput update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Aggiorna la velocità effettiva per un contenitore Core (SQL) di Azure Cosmos DB. |
+| [az cosmosdb sql database throughput migrate](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-migrate) | Esegue la migrazione della velocità effettiva per un database Core (SQL) di Azure Cosmos. |
+| [az cosmosdb sql container throughput migrate](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-migrate) | Esegue la migrazione della velocità effettiva per un contenitore Core (SQL) di Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

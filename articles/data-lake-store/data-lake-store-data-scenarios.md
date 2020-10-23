@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441052"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109256"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
 
@@ -48,9 +48,9 @@ Rappresenta i dati che possono essere generati da varie origini, ad esempio appl
 
 Di seguito sono elencati gli strumenti che è possibile usare:
 
-* [Analisi di flusso di Azure](../stream-analytics/stream-analytics-data-lake-output.md): gli eventi inseriti in Hub eventi possono essere scritti in Azure Data Lake Storage Gen1 usando un output di Azure Data Lake Storage Gen1.
+* [Analisi di flusso di Azure](../stream-analytics/stream-analytics-define-outputs.md): gli eventi inseriti in Hub eventi possono essere scritti in Azure Data Lake Storage Gen1 usando un output di Azure Data Lake Storage Gen1.
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md): è possibile scrivere i dati direttamente in Data Lake Storage Gen1 dal cluster Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md): è possibile ricevere eventi da Hub eventi e scriverli in Data Lake Storage Gen1 usando [.NET SDK di Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md): è possibile ricevere eventi da Hub eventi e scriverli in Data Lake Storage Gen1 usando [.NET SDK di Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Dati relazionali
 È inoltre possibile recuperare i dati dai database relazionali. I database relazionali raccolgono nel tempo elevate quantità di dati che possono fornire informazioni significative se elaborate tramite una pipeline Big Data. Per spostare tali dati in Data Lake Storage Gen1, è possibile usare gli strumenti seguenti.
@@ -131,4 +131,4 @@ In questi casi, è possibile usare le opzioni seguenti:
 ![Visualizzare i dati in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Storage Gen1")
 
 * È possibile iniziare usando [Azure Data Factory per spostare i dati da data Lake storage Gen1 ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
-* Successivamente, è possibile [integrare Power bi con Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare una rappresentazione visiva dei dati.
+* Successivamente, è possibile [integrare Power bi con Azure sinapsi Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) per creare una rappresentazione visiva dei dati.

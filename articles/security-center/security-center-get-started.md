@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447167"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946016"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Avvio rapido: Configurazione del Centro sicurezza di Azure
 
@@ -33,7 +33,7 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 Per abilitare Azure Defender in una sottoscrizione, è necessario avere il ruolo di proprietario della sottoscrizione, collaboratore della sottoscrizione o amministratore della sicurezza.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Aprire il Centro sicurezza per la prima volta
+## <a name="enable-security-center-on-your-azure-subscription"></a>Abilitare Centro sicurezza nella sottoscrizione di Azure
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ Dopo pochi minuti dal primo avvio del Centro di sicurezza, è possibile visualiz
 
 Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi seguenti per abilitare Azure Defender e installare l'agente di Log Analytics.
 
+> [!TIP]
+> Per abilitare Centro sicurezza in tutte le sottoscrizioni in un gruppo di gestione, vedere [Abilitare Centro sicurezza in più sottoscrizioni di Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Abilitare Azure Defender
 

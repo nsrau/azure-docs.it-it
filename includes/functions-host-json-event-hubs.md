@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f3a58d3a7470867ab23249bbd645289e010ad89
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791633"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223148"
 ---
 ### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
@@ -31,7 +31,7 @@ ms.locfileid: "81791633"
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |maxBatchSize|10|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
-|prefetchCount|300|Il conteggio predefinito di pre-recupero usato dall'elemento `EventProcessorHost` sottostante.|
+|prefetchCount|300|Il conteggio predefinito di pre-recupero usato dall'elemento `EventProcessorHost` sottostante. Il valore minimo consentito è 10.|
 |batchCheckpointFrequency|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.|
 
 > [!NOTE]
@@ -57,4 +57,3 @@ ms.locfileid: "81791633"
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni di Azure 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](../articles/azure-functions/functions-host-json-v1.md).
-

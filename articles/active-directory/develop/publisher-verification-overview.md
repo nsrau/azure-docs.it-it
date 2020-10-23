@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258150"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363420"
 ---
 # <a name="publisher-verification"></a>Verifica dell'autore
 
@@ -49,7 +49,7 @@ Esistono alcuni prerequisiti per la verifica dell'autore, alcuni dei quali saran
 
 -  L'utente che esegue la verifica deve essere autorizzato ad apportare modifiche sia alla registrazione dell'app in Azure AD che all'account MPN in Partner Center. 
 
-    -  In Azure AD l'utente deve essere membro di uno dei seguenti [ruoli](../users-groups-roles/directory-assign-admin-roles.md): amministratore dell'applicazione, amministratore dell'applicazione cloud o amministratore globale. 
+    -  In Azure AD l'utente deve essere membro di uno dei seguenti [ruoli](../roles/permissions-reference.md): amministratore dell'applicazione, amministratore dell'applicazione cloud o amministratore globale. 
 
     -  In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD).
     

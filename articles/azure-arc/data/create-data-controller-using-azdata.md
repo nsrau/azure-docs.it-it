@@ -1,6 +1,6 @@
 ---
-title: Creare un controller dati usando l'interfaccia della riga di comando di Azure Data (azdata)
-description: Creare un controller di dati di Azure Arc in un cluster Kubernetes multinodo tipico che è già stato creato con l'interfaccia della riga di comando di Azure Data CLI (azdata).
+title: Creazione di un controller di dati tramite [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+description: Creare un controller di dati di Azure Arc in un cluster Kubernetes multinodo tipico che è già stato creato usando [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761686"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310930"
 ---
-# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando l'interfaccia della riga di comando di Azure Data (azdata)
+# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,9 +24,9 @@ ms.locfileid: "91761686"
 
 Vedere l'argomento [creare il controller dati di Azure Arc](create-data-controller.md) per informazioni generali.
 
-Per creare il controller di dati di Azure ARC usando l'interfaccia della riga di comando di Azure Data, è necessario installare l'interfaccia della riga di comando di Azure Data.
+Per creare il controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] è necessario che sia [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installato.
 
-   [Installare l'interfaccia della riga di comando di Azure Data](install-client-tools.md)
+   [Installare il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 Indipendentemente dalla piattaforma di destinazione scelta, sarà necessario impostare le variabili di ambiente seguenti prima della creazione dell'utente amministratore del controller di dati. È possibile fornire queste credenziali ad altre persone che devono disporre dell'accesso come amministratore al controller dati in base alle esigenze.
 

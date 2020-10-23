@@ -3,12 +3,12 @@ title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recov
 description: Per ottenere risposte alle domande comuni sul ripristino di emergenza di macchine virtuali VMware locali in Azure, usare Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89054972"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359799"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -46,7 +46,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 Sì, i clienti di Microsoft Software Assurance possono usare il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="what-access-to-vmware-servers-does-site-recovery-need"></a>Quale accesso ai server VMware Site Recovery necessario?
 
@@ -75,7 +75,7 @@ Site Recovery è certificata per ISO 27001:2013 e 27018, HIPAA e DPA. È in fase
 
 Utilizzare il [calcolatore dei prezzi](https://aka.ms/asr_pricing_calculator) per stimare i costi durante l'utilizzo di Site Recovery.
 
-Per una stima dettagliata dei costi, eseguire lo strumento di pianificazione della distribuzione per [VMware](https://aka.ms/siterecovery_deployment_planner) e utilizzare il [report di stima dei costi](https://aka.ms/asr_DP_costreport).
+Per una stima dettagliata dei costi, eseguire lo strumento di pianificazione della distribuzione per [VMware](./site-recovery-deployment-planner.md) e utilizzare il [report di stima dei costi](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Esiste una differenza di costi tra la replica in archiviazione o direttamente nei dischi gestiti?
 
@@ -114,7 +114,7 @@ Site Recovery replica le VM VMware locali e i server fisici in dischi gestiti in
 
 No. A partire da marzo 2019, nella portale di Azure, è possibile eseguire la replica solo in Azure Managed Disks.
 
-La replica di nuove macchine virtuali in un account di archiviazione è disponibile solo tramite PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o l'API REST (versione 2018-01-10 o 2016-08-10). [Informazioni su come](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) configurare la replica usando i comandi di PowerShell.
+La replica di nuove macchine virtuali in un account di archiviazione è disponibile solo tramite PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o l'API REST (versione 2018-01-10 o 2016-08-10). [Informazioni su come](./vmware-azure-disaster-recovery-powershell.md) configurare la replica usando i comandi di PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quali sono i vantaggi della replica nei dischi gestiti?
 
@@ -190,7 +190,7 @@ Site Recovery genera punti di ripristino coerenti con l'arresto anomalo del sist
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Cosa devo fare?
 
-Site Recovery segue il modello di supporto N-4. [Altre](https://aka.ms/asr_support_statement) informazioni su come eseguire l'aggiornamento da versioni molto obsolete.
+Site Recovery segue il modello di supporto N-4. [Altre](./service-updates-how-to.md#support-statement-for-azure-site-recovery) informazioni su come eseguire l'aggiornamento da versioni molto obsolete.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Dove è possibile trovare le note sulla versione e gli aggiornamenti cumulativi per Azure Site Recovery?
 
@@ -198,11 +198,11 @@ Site Recovery segue il modello di supporto N-4. [Altre](https://aka.ms/asr_suppo
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Dove è possibile trovare informazioni sull'aggiornamento per il ripristino di emergenza in Azure?
 
-Informazioni [sull'aggiornamento di](https://aka.ms/asr_vmware_upgrades).
+Informazioni [sull'aggiornamento di](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>È necessario riavviare I computer di origine per ogni aggiornamento?
 
-Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Altre informazioni](https://aka.ms/asr_vmware_upgrades)
+Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Altre informazioni](./service-updates-how-to.md#reboot-after-mobility-service-upgrade)
 
 ## <a name="configuration-server"></a>Server di configurazione
 
@@ -246,7 +246,7 @@ Sebbene sia possibile, è necessario che la macchina virtuale di Azure che esegu
 
 - È possibile trovare le informazioni più recenti sull'aggiornamento nella [pagina aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 - È possibile scaricare la versione più recente dal portale. In alternativa, è possibile scaricare la versione più recente del server di configurazione direttamente dall' [area download Microsoft](https://aka.ms/asrconfigurationserver).
-- Se la versione in uso è superiore a quattro versioni precedenti alla versione corrente, vedere l' [istruzione di supporto](https://aka.ms/asr_support_statement) per informazioni aggiuntive sull'aggiornamento.
+- Se la versione in uso è superiore a quattro versioni precedenti alla versione corrente, vedere l' [istruzione di supporto](./service-updates-how-to.md#support-statement-for-azure-site-recovery) per informazioni aggiuntive sull'aggiornamento.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>È necessario eseguire il backup del server di configurazione?
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045638"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221265"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Eseguire test locali delle query di Analisi di flusso con Visual Studio
 
@@ -30,7 +30,7 @@ Nel progetto di Analisi di flusso di Azure fare doppio clic su **Script.asaql** 
 
 Per convalidare la query rispetto ai dati statici locali, fare clic con il pulsante destro del mouse sull'input e scegliere **Aggiungi input locale**.
    
-![Add local input (Aggiungi input locale)](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Screenshot che evidenzia l'opzione del menu Aggiungi input locale.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 Nella finestra popup selezionare i dati di esempio dal percorso locale e fare clic su **Salva**.
    

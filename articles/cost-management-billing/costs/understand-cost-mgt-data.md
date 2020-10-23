@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683182"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132313"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -110,7 +110,7 @@ Gestione costi di Azure riceve i tag come parte di ogni record di utilizzo invia
 
 - I tag devono essere applicati direttamente alle risorse e non vengono ereditati in modo implicito dal gruppo di risorse padre.
 - I tag di risorsa sono supportati solo per le risorse distribuite in gruppi di risorse.
-- Alcune risorse distribuite potrebbero non supportare i tag o non includere i tag nei dati di utilizzo. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md).
+- Alcune risorse distribuite potrebbero non supportare i tag o non includere i tag nei dati di utilizzo. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/management/tag-support.md).
 - I tag di risorsa vengono inclusi solo nei dati di utilizzo quando il tag viene applicato. I tag non vengono applicati ai dati cronologici.
 - I tag di risorsa sono disponibili in Gestione costi solo dopo l'aggiornamento dei dati. Vedere [Aggiornamenti e conservazione dei dati relativi a costi e utilizzo](#cost-and-usage-data-updates-and-retention).
 - I tag di risorsa sono disponibili in Gestione costi solo quando la risorsa è attiva o in esecuzione e produce record di utilizzo, quindi non quando una macchina virtuale viene deallocata, ad esempio.
@@ -121,7 +121,7 @@ Se non si trova un tag specifico in gestione costi, considerare quanto segue:
 
 - Il tag è stato applicato direttamente alla risorsa?
 - Il tag è stato applicato più di 24 ore fa? Vedere [Aggiornamenti e conservazione dei dati relativi a costi e utilizzo](#cost-and-usage-data-updates-and-retention)
-- Il tipo di risorsa supporta i tag? I tipi di risorse seguenti non supportano i tag nei dati di utilizzo a partire dal 1° dicembre 2019. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md) per l'elenco completo dei tag supportati.
+- Il tipo di risorsa supporta i tag? I tipi di risorse seguenti non supportano i tag nei dati di utilizzo a partire dal 1° dicembre 2019. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/management/tag-support.md) per l'elenco completo dei tag supportati.
     - Directory di Azure Active Directory B2C
     - Azure Bastion
     - Firewall di Azure
@@ -185,4 +185,4 @@ I dati cronologici per le offerte basate su crediti e con pagamento anticipato p
 
 ## <a name="see-also"></a>Vedere anche
 
-- Se non è stata ancora completata la prima guida introduttiva di Gestione costi, esaminarla in [Avviare l’analisi dei costi](../../cost-management/quick-acm-cost-analysis.md).
+- Se non è stata ancora completata la prima guida introduttiva di Gestione costi, esaminarla in [Avviare l’analisi dei costi](./quick-acm-cost-analysis.md).

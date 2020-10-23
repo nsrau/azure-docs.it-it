@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto SWIFT CSP-CSCF v2020
 description: Procedura di distribuzione per l'esempio di progetto SWIFT CSP-CSCF V2020, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: b65dc9cdd601f9fd2d7972b74435702a00244e8e
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 973cd0076ae03fd32db5fc9be262b2c5300fdf16
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612725"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949412"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Distribuire l'esempio di progetto SWIFT CSP-CSCF v2020
 
@@ -93,7 +93,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Anteprima\]: Verifica controlli SWIFT CSP-CSCF v2020 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Anteprima\]: Verifica controlli SWIFT CSP-CSCF v2020 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili nelle [categorie dei log risorse di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Anteprima\]: Verifica controlli SWIFT CSP-CSCF v2020 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|ID delle aree di lavoro connesse|Un elenco di ID di aree di lavoro separati da punto e virgola a cui deve essere connesso l'agente di Log Analytics|
 |\[Anteprima\]: Verifica controlli SWIFT CSP-CSCF v2020 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows|Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. ad esempio Administrator; utente1; utente2|
 |\[Anteprima\]: Verifica controlli SWIFT CSP-CSCF v2020 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Nome di dominio completo|Il nome di dominio completo (FQDN) a cui è necessario aggiungere le VM Windows|

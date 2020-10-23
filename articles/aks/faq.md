@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070555"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372379"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -193,11 +193,18 @@ Anche se il servizio Azure Kubernetes include meccanismi di resilienza per tolle
 
 ## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
 
-No. Il servizio Azure Kubernetes è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare componenti personalizzati e così via, sfruttare le API e i meccanismi di Kubernetes. Ad esempio, usare DaemonSet per installare i componenti necessari.
+No, AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare componenti personalizzati e così via, sfruttare le API e i meccanismi di Kubernetes. Ad esempio, usare DaemonSet per installare i componenti necessari.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS archivia i dati dei clienti al di fuori dell'area del cluster?
 
 La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
+
+## <a name="are-aks-images-required-to-run-as-root"></a>Le immagini AKS sono necessarie per l'esecuzione come radice?
+
+Ad eccezione delle due immagini seguenti, le immagini AKS non devono essere eseguite come radice:
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
 <!-- LINKS - internal -->
 

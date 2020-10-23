@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951571"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424259"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -164,7 +164,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 
 ### <a name="user-access-requirements"></a>Requisiti di accesso utente
 
-L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) di Azure:
+L'account deve essere un membro di uno dei seguenti [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Modello di distribuzione   | Ruolo                   |
 |---------          |---------               |

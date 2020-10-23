@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601309"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370951"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
 
@@ -49,7 +49,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 #### <a name="owners-recommended-reading"></a>Lettura dei proprietari consigliata
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Gestione ibrida
@@ -91,7 +91,7 @@ Alcuni servizi di gestione delle identità e degli accessi richiedono agenti loc
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lettura consigliata dagli agenti locali
 
 - [Risolvere i problemi del Proxy applicazione](../manage-apps/application-proxy-troubleshoot.md)
-- [Risoluzione dei problemi relativi alla reimpostazione della password self-service - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Risoluzione dei problemi relativi alla reimpostazione della password self-service - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Comprendere i connettori del proxy applicazione di Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: risolvere i problemi di autenticazione pass-through](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Risolvere i problemi relativi ai codici di errore per l'estensione NPS di Azure](../authentication/howto-mfa-nps-extension-errors.md)
@@ -154,7 +154,7 @@ Vedere la tabella seguente per informazioni sul tipo di notifiche inviate e su d
 
 ### <a name="ad-fs-lockdown"></a>Blocco AD FS
 
-Organizzazioni, che configurano le applicazioni per l'autenticazione diretta per Azure AD trarre vantaggio da [Azure ad il blocco intelligente](../authentication/concept-sspr-howitworks.md). Se si usa AD FS in Windows Server 2012 R2, implementare la [protezione ad FS blocco della Extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se si usa AD FS in Windows Server 2016 o versione successiva, implementare il [blocco Smart Extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Come minimo, è consigliabile abilitare il blocco Extranet in modo che contenga il rischio di attacchi di forza bruta contro le Active Directory locali. Tuttavia, se si dispone di AD FS in Windows 2016 o versione successiva, è necessario abilitare anche il blocco intelligente Extranet per attenuare gli attacchi di spray per le [password](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
+Le organizzazioni che configurano applicazioni per l'autenticazione diretta con Azure AD usufruiscono del [blocco intelligente di Azure AD](../authentication/concept-sspr-howitworks.md). Se si usa AD FS in Windows Server 2012 R2, implementare la [protezione ad FS blocco della Extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se si usa AD FS in Windows Server 2016 o versione successiva, implementare il [blocco Smart Extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Come minimo, è consigliabile abilitare il blocco Extranet in modo che contenga il rischio di attacchi di forza bruta contro le Active Directory locali. Tuttavia, se si dispone di AD FS in Windows 2016 o versione successiva, è necessario abilitare anche il blocco intelligente Extranet per attenuare gli attacchi di spray per le [password](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
 Se AD FS viene usato solo per Azure AD Federazione, sono disponibili alcuni endpoint che possono essere disattivati per ridurre al minimo la superficie di attacco. Se ad esempio AD FS viene usato solo per Azure AD, è necessario disabilitare WS-Trust endpoint diversi dagli endpoint abilitati per **usernamemixed** e **windowstransport**.
 
@@ -166,9 +166,9 @@ Il Active Directory modello di livello amministrativo è stato progettato per pr
 
 Il [modello a livelli](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) è costituito da tre livelli e include solo account amministrativi, non account utente standard.
 
-- **Livello 0**   -Controllo diretto delle identità aziendali nell'ambiente. Il livello 0 include account, gruppi e altre risorse che detengono il controllo amministrativo diretto o indiretto della foresta, dei domini o dei controller di dominio di Active Directory e tutte le risorse in esso contenuti. Il livello di riservatezza di tutte le risorse di livello 0 è equivalente in quanto tutte controllano le altre in modo efficace.
-- **Livello 1**   -Controllo di server e applicazioni aziendali. Le risorse di livello 1 includono i sistemi operativi del server, i servizi cloud e le applicazioni aziendali. Gli account amministratore di livello 1 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato su queste risorse. Un ruolo di esempio comune sono gli amministratori del server che gestiscono questi sistemi operativi con la possibilità di influenzare tutti i servizi aziendali.
-- **Livello 2**   -Controllo delle workstation e dei dispositivi degli utenti. Gli account amministratore di livello 2 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato sulle workstation e sui dispositivi degli utenti. Gli esempi includono l'Help Desk e gli amministratori di supporto del computer, in quanto possono avere un impatto sull'integrità della maggior parte dei dati utente.
+- **Livello 0**: controllo diretto dell'identità dell'organizzazione nell'ambiente. Il livello 0 include account, gruppi e altre risorse che detengono il controllo amministrativo diretto o indiretto della foresta, dei domini o dei controller di dominio di Active Directory e tutte le risorse in esso contenuti. Il livello di riservatezza di tutte le risorse di livello 0 è equivalente in quanto tutte controllano le altre in modo efficace.
+- **Livello 1**: controllo dei server aziendali e delle applicazioni. Le risorse di livello 1 includono i sistemi operativi del server, i servizi cloud e le applicazioni aziendali. Gli account amministratore di livello 1 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato su queste risorse. Un ruolo di esempio comune sono gli amministratori del server che gestiscono questi sistemi operativi con la possibilità di influenzare tutti i servizi aziendali.
+- **Livello 2**: controllo delle workstation e dei dispositivi degli utenti. Gli account amministratore di livello 2 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato sulle workstation e sui dispositivi degli utenti. Gli esempi includono l'Help Desk e gli amministratori di supporto del computer, in quanto possono avere un impatto sull'integrità della maggior parte dei dati utente.
 
 Bloccare l'accesso ai componenti di identità locali, ad esempio Azure AD Connect, AD FS e i servizi SQL allo stesso modo di quanto avviene per i controller di dominio.
 

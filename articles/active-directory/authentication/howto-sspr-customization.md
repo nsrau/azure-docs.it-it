@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abca66dbe80cecec2320256d8a736408de20b64f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968294"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363709"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizzare l'esperienza utente per la reimpostazione della password self-service Azure Active Directory
 
@@ -50,7 +50,7 @@ Il messaggio di posta elettronica di contatto predefinito viene inviato ai desti
 
 In tutti i casi, viene inviata una notifica a un massimo di 100 destinatari totali.
 
-Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Disabilitare i messaggi di posta elettronica "Contatta l'amministratore"
 

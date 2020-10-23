@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387729"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102052"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ La figura seguente illustra il flusso utente consigliato:
 
 ![Diagramma di flusso che mostra il flusso utente di accettazione consigliato](./media/manage-user-access/user-flow.png)
 
-Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in base all'elemento DateTime in un'attestazione:
+Di seguito è riportato un esempio di un consenso basato sulla data per l'utilizzo in un'attestazione. Se l' `extension_termsOfUseConsentDateTime` attestazione è precedente a `2025-01-15T00:00:00` , forzare una nuova accettazione controllando l' `termsOfUseConsentRequired` attestazione booleana e visualizzando una schermata autocertificata. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in
 </ClaimsTransformations>
 ```
 
-Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in base all'elemento Version in un'attestazione:
+Di seguito è riportato un esempio di un consenso basato sulla versione per l'utilizzo in un'attestazione. Se l' `extension_termsOfUseConsentVersion` attestazione non è uguale a `V1` , forzare una nuova accettazione controllando l' `termsOfUseConsentRequired` attestazione booleana e visualizzando una schermata autocertificata.
 
 ```xml
 <ClaimsTransformations>

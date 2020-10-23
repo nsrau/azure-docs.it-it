@@ -3,16 +3,17 @@ title: Baseline della sicurezza di Azure per Azure Machine Learning
 description: La linea di base di sicurezza Azure Machine Learning fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461020"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426302"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -302,13 +303,13 @@ Azure Machine Learning offre un supporto variabile tra le diverse risorse di cal
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: è possibile usare la scheda Gestione identità e accesso per una risorsa nel portale di Azure per configurare il controllo degli accessi in base al ruolo e mantenere l'inventario sulle risorse Azure Machine Learning. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. È possibile utilizzare ruoli predefiniti o ruoli personalizzati per singoli utenti e gruppi.
+**Linee guida**: è possibile usare la scheda Gestione identità e accesso per una risorsa nel portale di Azure per configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e mantenere l'inventario sulle risorse Azure Machine Learning. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. È possibile utilizzare ruoli predefiniti o ruoli personalizzati per singoli utenti e gruppi.
 
-Azure Machine Learning fornisce il controllo degli accessi in base al ruolo predefinito per scenari di gestione comuni in Azure Machine Learning. Un utente che dispone di un profilo in Azure Active Directory (Azure AD) può assegnare questi ruoli RBAC a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso a risorse e operazioni su Azure Machine Learning risorse.
+Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione comuni in Azure Machine Learning. Un utente che dispone di un profilo in Azure Active Directory (Azure AD) può assegnare questi ruoli a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso a risorse e operazioni su Azure Machine Learning risorse.
 
 È anche possibile usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Informazioni sul controllo degli accessi in base al ruolo in Azure Machine Learning](how-to-assign-roles.md)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure in Azure Machine Learning](how-to-assign-roles.md)
 
 - [Come ottenere un ruolo della directory in Azure Active Directory con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -720,7 +721,7 @@ Rimuovere le risorse di Azure quando non sono più necessarie.
 
 - [Come usare il monitoraggio dell'integrità dei file](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../automation/change-tracking.md)
+- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../automation/change-tracking/overview.md)
 
 - [Come abilitare l'inventario delle macchine virtuali di Azure](../automation/automation-tutorial-installed-software.md)
 
@@ -901,13 +902,13 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare il controllo degli accessi in base al ruolo di Azure (RBAC) per garantire che solo gli utenti autorizzati possano accedere alle immagini personalizzate. Usare una raccolta di immagini condivise di Azure è possibile condividere le immagini a utenti diversi, entità servizio o gruppi di Azure AD all'interno dell'organizzazione. Archiviare le immagini del contenitore in Azure Container Registry e usare il controllo degli accessi in base al ruolo per garantire l'accesso solo agli utenti autorizzati
+**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini personalizzate. Usare una raccolta di immagini condivise di Azure è possibile condividere le immagini a utenti diversi, entità servizio o gruppi di Azure AD all'interno dell'organizzazione. Archiviare le immagini del contenitore in Azure Container Registry e usare il controllo degli accessi in base al ruolo di Azure
 
-- [Informazioni sul RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Comprendere il RBAC per Container Registry](../container-registry/container-registry-roles.md)
+- [Informazioni su RBAC di Azure per Container Registry](../container-registry/container-registry-roles.md)
 
-- [Come configurare RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Panoramica sulla raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1087,7 +1088,7 @@ Azure Machine Learning offre un supporto variabile tra le diverse risorse di cal
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: per il backup in locale, la crittografia dei componenti inattivi viene fornita usando la passphrase fornita durante il backup in Azure. Usare il controllo degli accessi in base al ruolo per proteggere i backup e le chiavi gestite dal cliente. 
+**Linee guida**: per il backup in locale, la crittografia dei componenti inattivi viene fornita usando la passphrase fornita durante il backup in Azure. Usare il controllo degli accessi in base al ruolo di Azure per proteggere i backup e le chiavi gestite dal cliente. 
 
 Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB.
  

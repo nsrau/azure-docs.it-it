@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092525"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340530"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
@@ -58,7 +58,7 @@ Autorizzazioni di accesso a Key Vault:
 
 * L'utente che crea la cache HPC di Azure deve avere le autorizzazioni equivalenti al [ruolo Key Vault collaboratore](../role-based-access-control/built-in-roles.md#key-vault-contributor). Le stesse autorizzazioni sono necessarie per configurare e gestire Azure Key Vault.
 
-  Per ulteriori informazioni, vedere [accesso sicuro a un insieme di](../key-vault/key-vault-secure-your-key-vault.md) credenziali delle chiavi.
+  Per ulteriori informazioni, vedere [accesso sicuro a un insieme di](../key-vault/general/secure-your-key-vault.md) credenziali delle chiavi.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. configurare Azure Key Vault
 
@@ -66,7 +66,7 @@ Autorizzazioni di accesso a Key Vault:
 
 Al momento della creazione della cache è necessario specificare un insieme di credenziali, una chiave e una versione della chiave da usare per la crittografia della cache.
 
-Per informazioni dettagliate, leggere la [documentazione Azure Key Vault](../key-vault/key-vault-overview.md) .
+Per informazioni dettagliate, leggere la [documentazione Azure Key Vault](../key-vault/general/overview.md) .
 
 > [!NOTE]
 > Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Assicurarsi che l'area scelta [supporti la funzionalità chiavi gestite dal cliente](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ L'utente che crea la cache deve disporre dei privilegi equivalenti al [ruolo di 
 
 1. Dopo aver selezionato un insieme di credenziali, selezionare la chiave singola dalle opzioni disponibili oppure creare una nuova chiave. La chiave deve essere una chiave RSA a 2048 bit.
 
-1. Consente di specificare la versione per la chiave selezionata. Per ulteriori informazioni sul controllo delle versioni, vedere la [documentazione Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Consente di specificare la versione per la chiave selezionata. Per ulteriori informazioni sul controllo delle versioni, vedere la [documentazione Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Continuare con le altre specifiche e creare la cache come descritto in [creare una cache HPC di Azure](hpc-cache-create.md).
 

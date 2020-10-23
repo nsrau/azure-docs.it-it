@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906889"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088602"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Usare Circuit Breaker Dashboard con Azure Spring Cloud
 
@@ -42,7 +42,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>Effettuare il provisioning dell'istanza di Azure Spring Cloud
-Seguire la procedura [Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli).
+Seguire la procedura [Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud).
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Distribuire le applicazioni in Azure Spring Cloud
 Queste app non usano il **server di configurazione**, pertanto non è necessario configurare il **server di configurazione** per Azure Spring Cloud.  Creare e distribuire le applicazioni nel modo seguente:
@@ -82,6 +82,6 @@ I flussi di metriche Hystrix sono accessibili anche da `test-endpoint`. Come ser
 Come app Web, il dashboard di Hystrix dovrebbe funzionare su `test-endpoint`. Se non funziona correttamente, i motivi possono essere due: l'uso di `test-endpoint` può aver cambiato l'URL di base da `/ to /<APP-NAME>/<DEPLOYMENT-NAME>` oppure l'app Web potrebbe usare un percorso assoluto per una risorsa statica. Per consentire il funzionamento su `test-endpoint`, potrebbe essere necessario modificare manualmente <base> nei file front-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
-* [Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Effettuare il provisioning di un'istanza del servizio nell'interfaccia della riga di comando di Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 ::: zone-end

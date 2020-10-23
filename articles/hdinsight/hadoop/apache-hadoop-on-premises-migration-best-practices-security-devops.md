@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751289"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329424"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
 
@@ -46,7 +46,7 @@ Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dom
     |---|---|
     |Nome di dominio|nome di dominio associato ad Azure Active Directory Domain Services.|
     |Nome utente di dominio|account del servizio nel dominio gestito dal controller di dominio di Azure Active Directory Domain Services creato nella sezione precedente, ad esempio: `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.|
-    |Password di dominio|password dell'account del servizio.|
+    |Password del dominio|password dell'account del servizio.|
     |Unità organizzativa|nome distinto dell'unità organizzativa (OU) che si desidera usare con il cluster HDInsight, ad esempio: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa OU non esiste, il cluster HDInsight tenta di creare l'unità organizzativa usando i privilegi dell'account del servizio.|
     |URL LDAPS|ad esempio, `ldaps://contoso.onmicrosoft.com:636` .|
     |Accedi al gruppo utenti|gruppi di sicurezza i cui utenti si vogliono sincronizzare con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Prima di creare il cluster ESP, è necessario che i gruppi siano presenti nella directory.|
@@ -69,7 +69,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 **Autenticazione e autorizzazione per l'accesso ai dati**
     - Creare un cluster HDInsight aggiunto al dominio usando Azure Active Directory Domain Services (Enterprise Security Package).
-    - Usare Ambari per fornire l'accesso basato sui ruoli alle risorse del cluster per gli utenti di Active Directory.
+    - Usare Ambari per fornire l'accesso in base al ruolo alle risorse cluster per gli utenti di Active Directory.
     - Usare Apache Ranger per impostare i criteri di controllo di accesso per Hive a livello di tabella/colonna/riga.
     - L'accesso SSH al cluster può essere limitato al solo amministratore.
 

@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c31897e5dc50815d692be83af5d03ffe58c216c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368537"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurare le impostazioni del gruppo di accesso con privilegi (anteprima) in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Le impostazioni del ruolo sono le impostazioni predefinite applicate alle assegn
 
 Seguire questa procedura per aprire le impostazioni per un ruolo del gruppo di accesso con privilegi di Azure.
 
-1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 
 1. Aprire **Azure ad Privileged Identity Management**.
 

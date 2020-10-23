@@ -107,28 +107,36 @@
               href: partner-center-portal/create-azure-container-offer.md
     - name: Offerte di macchine virtuali di Azure
       items:
-        - name: Pianificare un'offerta di macchina virtuale
+        - name: Pianificare un'offerta di VM
           href: marketplace-virtual-machines.md
-        - name: Creare e pubblicare un'offerta di macchina virtuale
+        - name: Creare e pubblicare un'offerta di VM
           items:
-            - name: Creare un'offerta per macchine virtuali di Azure
-              href: partner-center-portal/azure-vm-create-offer.md
-            - name: Creare l'asset tecnico delle macchine virtuali di Azure
+            - name: Creare un'offerta di VM
+              href: azure-vm-create.md
+            - name: Configurare le proprietà dell'offerta di VM
+              href: azure-vm-create-properties.md
+            - name: Configurare l'inserzione dell'offerta di VM
+              href: azure-vm-create-listing.md
+            - name: Creare piani di VM
+              href: azure-vm-create-plans.md
+            - name: Aggiungere un gruppo di destinatari dell'anteprima
+              href: azure-vm-create-preview.md
+            - name: Creare gli asset tecnici delle macchine virtuali
               items:
-                - name: Problemi di certificazione delle macchine virtuali
-                  href: partner-center-portal/vm-certification-issues-solutions.md
-                - name: Creare un asset tecnico per macchine virtuali di Azure
-                  href: partner-center-portal/create-azure-vm-technical-asset.md
-                - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure
-                  href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testare una macchina virtuale distribuita da disco rigido virtuale
-                  href: partner-center-portal/azure-vm-image-certification.md
-                - name: URI della firma di accesso condiviso
-                  items:
-                    - name: Ottenere l'URI di firma di accesso condiviso
-                      href: partner-center-portal/get-sas-uri.md
-                    - name: Domande frequenti sull'URI della firma di accesso condiviso
-                      href: partner-center-portal/common-sas-uri-issues.md
+                - name: Creare una VM da una base approvata
+                  href: azure-vm-create-using-approved-base.md
+                - name: Creare una VM con un'immagine personalizzata
+                  href: azure-vm-create-using-own-image.md
+                - name: Testare l'immagine di una VM
+                  href: azure-vm-image-test.md
+                - name: Ottenere l'URI di firma di accesso condiviso
+                  href: azure-vm-get-sas-uri.md
+                - name: Messaggi di errore per la firma di accesso condiviso
+                  href: azure-vm-sas-failure-messages.md
+                - name: Domande frequenti sulla creazione di VM
+                  href: azure-vm-create-faq.md
+                - name: Risoluzione dei problemi di certificazione delle VM
+                  href: azure-vm-create-certification-faq.md
     - name: Servizi di consulenza
       items:
         - name: Pianificare un'offerta di servizi di consulenza
@@ -329,7 +337,7 @@
     - name: Orario di ufficio per il reparto tecnico e pubblicazione
       href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opzioni di supporto del Centro per i partner
-      href: partner-center-portal/support.md
+      href: support.md
     - name: Annunci del Centro per i partner
       href: /partner-center/announcements
     - name: Community dei Partner Microsoft

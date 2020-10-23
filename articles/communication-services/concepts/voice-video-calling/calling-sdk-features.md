@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665192"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977868"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -34,7 +34,8 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 |                   | Inserire una chiamata di gruppo con più di due utenti (fino a 350 utenti)                                                       | ✔️   | ✔️            | ✔️ 
 |                   | Alzare di livello una chiamata uno-a-uno con due utenti in una chiamata di gruppo con più di due utenti                                 | ✔️   | ✔️            | ✔️ 
 |                   | Partecipare a una chiamata di gruppo dopo che è stata avviata                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Invitare un altro utente VoIP a partecipare a una chiamata di gruppo in corso                                                       | ✔️   | ✔️            | ✔️ 
+|                   | Invitare un altro utente VoIP a partecipare a una chiamata di gruppo in corso                                                       | ✔️   | ✔️            | ✔️
+|                   | Attivare/Disattivare il video                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️           

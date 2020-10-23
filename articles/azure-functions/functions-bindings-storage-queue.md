@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8f3985bc9a726735ebc0af0a3d3422f4fca54a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108865"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Trigger e associazioni di archiviazione code di Azure per la Panoramica di funzioni di Azure
 
 Funzioni di Azure può essere eseguito quando vengono creati nuovi messaggi di archiviazione code di Azure e possono scrivere messaggi di Accodamento all'interno di una funzione.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Eseguire una funzione come modifiche ai dati di archiviazione di Accodamento | [Trigger](./functions-bindings-storage-queue-trigger.md) |
 | Scrivi messaggi di archiviazione code |[Binding di output](./functions-bindings-storage-queue-output.md) |
@@ -37,7 +37,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x

@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: 65e44acd1fe6ecb389f81cbd0ed88d1c161dfcdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b721a9b8d8bdff3f3aaf05f15857c00347e7abb4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397866"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202379"
 ---
-# <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale ExpressRoute
+# <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale per ExpressRoute
 
 Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è prima di tutto necessario creare un gateway di rete virtuale. Un gateway di rete virtuale svolge due finalità: le route IP di Exchange tra le reti e il traffico di rete instradato. Questo articolo illustra i tipi di gateway, gli SKU del gateway e le prestazioni stimate in base allo SKU. Questo articolo illustra anche ExpressRoute [FastPath](#fastpath), una funzionalità che consente al traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
 
@@ -88,8 +88,8 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 
 | **Classico** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[PowerShell](/powershell/module/az.network#networking) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

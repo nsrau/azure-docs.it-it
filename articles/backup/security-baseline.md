@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093362"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174119"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -436,7 +436,7 @@ Documentazione di supporto:
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](../governance/management-groups/create.md)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -612,7 +612,7 @@ Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse ch
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](../governance/management-groups/create.md)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -818,9 +818,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Come eseguire l'autenticazione a Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 
-* [Come assegnare un criterio di accesso Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -868,7 +868,7 @@ Usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi d
 
 - [Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/fundamentals/antimalware.md)
 
-- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](../security-center/threat-protection.md)
+- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -924,7 +924,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 **Linee guida**: per il backup in locale, la crittografia dei componenti inattivi viene fornita usando la passphrase fornita durante il backup in Azure. Per le macchine virtuali di Azure, i dati inattivi sono crittografati usando la crittografia del servizio di archiviazione. È possibile abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

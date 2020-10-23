@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291487"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319917"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure
 
@@ -81,13 +81,12 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **Database di Azure per MySQL** | MySQL | ✔ | GA |
 |   | Servizi Desktop remoto MySQL | ✔ | GA |
 | **DATABASE di Azure per PostgreSQL-server singolo** | PostgreSQL | ✔ | GA |
-|   | DATABASE di Azure per PostgreSQL-server singolo * | ✔ | GA |
+|   | DATABASE di Azure per PostgreSQL-server singolo | ✔ | GA |
 |   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima pubblica |
 | **Azure DB per PostgreSQL-iperscalabilità (CITUS)** | PostgreSQL | ✔ | GA |
 |   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 
-* Supportato per PostgreSQL versione 10 e successive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

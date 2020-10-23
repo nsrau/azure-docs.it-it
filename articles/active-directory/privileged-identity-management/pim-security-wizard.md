@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534438"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372430"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (anteprima) for Azure AD Roles (in precedenza procedura guidata sicurezza)
 
@@ -29,7 +29,7 @@ Se si inizia con Privileged Identity Management (PIM) nell'organizzazione Azure 
 
 Prima che l'organizzazione inizi a usare Privileged Identity Management, tutte le assegnazioni di ruolo sono permanenti. Gli utenti sono sempre nei loro ruoli assegnati anche quando non sono necessari i loro privilegi. Discovery and Insights (anteprima), che sostituisce la procedura guidata di sicurezza precedente, Visualizza un elenco di ruoli con privilegi e il numero di utenti attualmente presenti in tali ruoli. È possibile elencare le assegnazioni per un ruolo per ottenere ulteriori informazioni sugli utenti assegnati se uno o più di essi non hanno familiarità.
 
-: heavy_check_mark: **Microsoft consiglia** di gestire due account break Glass che vengono assegnati in modo permanente al ruolo di amministratore globale. Assicurarsi che questi account non richiedano lo stesso meccanismo di autenticazione a più fattori dei normali account amministrativi per l'accesso, come descritto in [gestire gli account di accesso di emergenza in Azure ad](../users-groups-roles/directory-emergency-access.md).
+: heavy_check_mark: **Microsoft consiglia** di gestire due account break Glass che vengono assegnati in modo permanente al ruolo di amministratore globale. Assicurarsi che questi account non richiedano lo stesso meccanismo di autenticazione a più fattori dei normali account amministrativi per l'accesso, come descritto in [gestire gli account di accesso di emergenza in Azure ad](../roles/security-emergency-access.md).
 
 Tenere inoltre permanenti le assegnazioni di ruolo se un utente ha un account Microsoft (in altre parole, un account usato per accedere a servizi Microsoft come Skype o Outlook.com). Se è richiesta l'autenticazione a più fattori per un utente con account Microsoft per attivare un'assegnazione di ruolo, l'utente verrà bloccato.
 

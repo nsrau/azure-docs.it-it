@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371882"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132568"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
@@ -84,7 +84,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-    Usare il comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) per elencare tutti gli account di registrazione a cui si ha accesso. Selezionare **Prova** per aprire [Azure Cloud Shell](https://shell.azure.com/). Per incollare il codice, fare clic con il pulsante destro del mouse nelle finestre della shell e quindi selezionare **Incolla**.
+    Usare il comando [az billing enrollment-account list](/cli/azure/billing) per elencare tutti gli account di registrazione a cui si ha accesso. Selezionare **Prova** per aprire [Azure Cloud Shell](https://shell.azure.com/). Per incollare il codice, fare clic con il pulsante destro del mouse nelle finestre della shell e quindi selezionare **Incolla**.
 
     ```azurecli-interactive
     az billing enrollment-account list

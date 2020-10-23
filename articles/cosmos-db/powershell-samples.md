@@ -4,14 +4,14 @@ description: Ottenere gli esempi di Azure PowerShell per eseguire attività comu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505015"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842972"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Esempi di Azure PowerShell per Azure Cosmos DB
 
@@ -37,8 +37,7 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Creare un contenitore con una chiave di partizione grande](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un contenitore con una chiave di partizione grande. |
 |[Creare un contenitore senza criterio di indicizzazione](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creare un contenitore Azure Cosmos con il criterio di indicizzazione disattivato.|
 |[Elencare o ottenere database o contenitori](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere database o contenitori. |
-|[Misurare la velocità effettiva](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere la velocità effettiva per un database o un contenitore. |
-|[Aggiornare la velocità effettiva](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare la velocità effettiva per un database o un contenitore. |
+|[Operazioni di velocità effettiva](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o un contenitore, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||
 
@@ -49,8 +48,7 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Creare un account, un keyspace e una tabella](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un keyspace e una tabella Azure Cosmos DB. |
 |[Creare un account, un keyspace e una tabella con scalabilità automatica](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un keyspace e una tabella con scalabilità automatica Azure Cosmos. |
 |[Elencare o ottenere keyspace o tabelle](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere keyspace o tabelle. |
-|[Misurare la velocità effettiva](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere la velocità effettiva per un keyspace o una tabella. |
-|[Aggiornare la velocità effettiva](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare la velocità effettiva per un keyspace o una tabella. |
+|[Operazioni di velocità effettiva](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un keyspace o una tabella, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||
 
@@ -61,8 +59,7 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Creare un account, un database e una raccolta](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un database e una raccolta Azure Cosmos DB. |
 |[Creare un account, un database e una raccolta con scalabilità automatica](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un database e una raccolta con scalabilità automatica Azure Cosmos. |
 |[Elencare o ottenere database o raccolte](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere un database o una raccolta. |
-|[Misurare la velocità effettiva](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere la velocità effettiva per un database o una raccolta. |
-|[Aggiornare la velocità effettiva](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare la velocità effettiva per un database o una raccolta. |
+|[Operazioni di velocità effettiva](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o una raccolta, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||
 
@@ -73,8 +70,7 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Creare un account, un database e un grafo](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un database e un grafo Azure Cosmos DB. |
 |[Creare un account, un database e un grafo con scalabilità automatica](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un database e un grafo con scalabilità automatica Azure Cosmos. |
 |[Elencare o ottenere database o grafi](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere un database o un grafo. |
-|[Misurare la velocità effettiva](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere la velocità effettiva per un database o un grafo. |
-|[Aggiornare la velocità effettiva](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare la velocità effettiva per un database o un grafo. |
+|[Operazioni di velocità effettiva](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o un grafo, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||
 
@@ -85,7 +81,6 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Creare un account e una tabella](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account e una tabella Azure Cosmos DB. |
 |[Creare un account e una tabella con scalabilità automatica](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account e una tabella con scalabilità automatica Azure Cosmos. |
 |[Elencare o ottenere tabelle](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere tabelle. |
-|[Misurare la velocità effettiva](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere la velocità effettiva per una tabella. |
-|[Aggiornare la velocità effettiva](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare la velocità effettiva per una tabella. |
+|[Operazioni di velocità effettiva](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per una tabella, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||

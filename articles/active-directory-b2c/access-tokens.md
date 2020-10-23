@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115536"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309024"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Richiedere un token di accesso in Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ Nell'esempio seguente vengono illustrati gli ambiti codificati in un URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se si richiedono più ambiti rispetto a quelli concessi per l'applicazione client, la chiamata ha esito positivo se viene concessa almeno un'autorizzazione. L'attestazione **scp** del token di accesso risultante viene popolata con solo le autorizzazioni concesse. Lo standard OpenID Connect consente di specificare valori speciali diversi per l'ambito. Gli ambiti seguenti rappresentano l'autorizzazione per accedere al profilo dell'utente:
+Se si richiedono più ambiti rispetto a quelli concessi per l'applicazione client, la chiamata ha esito positivo se viene concessa almeno un'autorizzazione. L'attestazione **scp** del token di accesso risultante viene popolata con solo le autorizzazioni concesse. 
+
+### <a name="openid-connect-scopes"></a>Ambiti di OpenID Connect
+
+Lo standard OpenID Connect consente di specificare valori speciali diversi per l'ambito. Gli ambiti seguenti rappresentano l'autorizzazione per accedere al profilo dell'utente:
 
 - **openid** - Richiede un token ID.
 - **offline_access** - Richiede un token di aggiornamento mediante i [flussi del codice di autorizzazione](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** : l'uso dell'ID client come ambito indica che l'app necessita di un token di accesso che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.
 
 Se il parametro **response_type** in una richiesta `/authorize` include `token`, il parametro **ambito** deve includere almeno un ambito delle risorse diverso da `openid` e `offline_access` che verrà concesso. In caso contrario, la richiesta `/authorize` ha esito negativo.
 

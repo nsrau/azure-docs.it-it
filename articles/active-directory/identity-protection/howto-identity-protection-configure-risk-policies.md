@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337450"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367466"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
 
@@ -45,7 +45,7 @@ La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri 
 
 ## <a name="exclusions"></a>Esclusioni
 
-Tutti i criteri consentono di escludere gli utenti, ad esempio gli [account di accesso di emergenza o gli account amministratore critici](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
+Tutti i criteri consentono di escludere gli utenti, ad esempio gli [account di accesso di emergenza o gli account amministratore critici](../roles/security-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
 
 I [percorsi di rete](../conditional-access/location-condition.md) attendibili configurati vengono usati da Identity Protection in alcuni rilevamenti dei rischi per ridurre i falsi positivi.
 

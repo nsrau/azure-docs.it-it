@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456727"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167883"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
 
@@ -73,7 +73,7 @@ La procedura seguente illustra come visualizzare il contenuto di una condivision
 
 1. Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
     
-    ![Contenuto della condivisione file](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Screenshot del riquadro principale per una condivisione file in Storage Explorer che mostra il contenuto della condivisione.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Eliminare una condivisione file
 
@@ -191,7 +191,7 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
 1.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
 
-    ![Contenuto della condivisione file](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Screenshot del riquadro principale per la condivisione file myazurefileshare in Storage Explorer, che mostra il contenuto della condivisione con la prima cartella selezionata.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
 

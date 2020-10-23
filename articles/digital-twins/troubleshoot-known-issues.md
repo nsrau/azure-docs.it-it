@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047642"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311660"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -19,7 +19,7 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"errore client 400: richiesta non valida" nella Cloud Shell
 
-I comandi in Cloud Shell possono avere esito negativo a intermittenza con l'errore "400 errore del client: richiesta non valida per l'URL: http://localhost:50342/oauth2/token " seguita dall'analisi dello stack completo.
+I comandi in Cloud Shell in esecuzione a *https://shell.azure.com* possono avere esito negativo a intermittenza con l'errore "400 errore del client: richiesta non valida per l'URL: http://localhost:50342/oauth2/token ", seguita da analisi dello stack completo.
 
 Per i dispositivi gemelli digitali di Azure in particolare, questo influisca sui gruppi di comandi seguenti:
 * `az dt route`
@@ -30,7 +30,11 @@ Per i dispositivi gemelli digitali di Azure in particolare, questo influisca sui
 
 Per risolvere il problema, eseguire nuovamente il `az login` comando in cloud Shell e completare i passaggi di accesso successivi. Successivamente, dovrebbe essere possibile eseguire di nuovo il comando.
 
-Una soluzione alternativa consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer in modo da poter eseguire localmente i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
+In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure e completare il lavoro Cloud Shell da questa posizione:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione della portale di Azure con l'icona ' Cloud Shell ' evidenziata e la Cloud Shell visualizzata nella parte inferiore della finestra del portale":::
+
+Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 
 ### <a name="possible-causes"></a>Possibili cause
 

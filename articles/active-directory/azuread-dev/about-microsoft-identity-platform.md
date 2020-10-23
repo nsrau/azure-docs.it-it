@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88117771"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055461"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evoluzione di Microsoft Identity Platform
 
-Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori di Azure Active Directory (Azure AD). Consente agli sviluppatori di creare applicazioni che supportano l'accesso per gli utenti e il recupero di token per chiamare API come Microsoft Graph o API create dagli sviluppatori. Include un servizio di autenticazione, librerie open source, la configurazione e la registrazione delle applicazioni (attraverso un portale per sviluppatori e l'API dell'applicazione), una documentazione esaustiva, esempi di avvio rapido, esempi di codice, esercitazioni, guide pratiche e altri contenuti per gli sviluppatori. Microsoft Identity Platform supporta protocolli standard di settore come OAuth 2.0 e OpenID Connect.
+[Microsoft Identity Platform](../develop/index.yml) è un'evoluzione della piattaforma Azure Active Directory (Azure AD) per sviluppatori. Consente agli sviluppatori di creare applicazioni che supportano l'accesso per gli utenti e il recupero di token per chiamare API come Microsoft Graph o API create dagli sviluppatori. Include un servizio di autenticazione, librerie open source, la configurazione e la registrazione delle applicazioni (attraverso un portale per sviluppatori e l'API dell'applicazione), una documentazione esaustiva, esempi di avvio rapido, esempi di codice, esercitazioni, guide pratiche e altri contenuti per gli sviluppatori. Microsoft Identity Platform supporta protocolli standard di settore come OAuth 2.0 e OpenID Connect.
 
 Molti sviluppatori in precedenza usavano la piattaforma Azure AD v1.0 per l'autenticazione degli account aziendali e degli istituti di istruzione (con il provisioning effettuato da Azure AD) richiedendo i token all'endpoint di Azure AD v1.0, usando Azure AD Authentication Library (ADAL), il portale di Azure per la registrazione e la configurazione delle applicazioni, e l'API Microsoft Graph per la configurazione delle applicazioni a livello di codice.
 
@@ -49,7 +49,7 @@ L'esperienza **[Registrazioni app](https://go.microsoft.com/fwlink/?linkid=20839
 
 Per l'integrazione con Azure AD B2C (per l'autenticazione di identità locali o di social networking), sarà necessario registrare l'applicazione in un tenant Azure AD B2C. Anche questa esperienza è inclusa nel portale di Azure.
 
-Usare l'[API dell'applicazione](/graph/api/resources/application?view=graph-rest-1.0) per configurare a livello di codice le applicazioni integrate con Microsoft Identity Platform per l'autenticazione di qualsiasi identità Microsoft.
+Usare l'[API dell'applicazione](/graph/api/resources/application) per configurare a livello di codice le applicazioni integrate con Microsoft Identity Platform per l'autenticazione di qualsiasi identità Microsoft.
 
 ### <a name="msal-libraries"></a>Librerie MSAL
 
@@ -57,15 +57,10 @@ Usare l'[API dell'applicazione](/graph/api/resources/application?view=graph-rest
 
 È anche possibile usare le librerie MSAL per integrare l'applicazione con Azure AD B2C.
 
-Le librerie sul lato server per la creazione di app Web e API Web sono disponibili a livello generale: [ASP.NET](/aspnet/overview) e [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>Endpoint di Microsoft Identity Platform
 
-L'endpoint di Microsoft Identity Platform (v2.0) ora ha la certificazione OIDC. Funziona con le librerie MSAL (Microsoft Authentication Library) o con qualsiasi altra libreria conforme agli standard. Implementa ambiti leggibili in conformità agli standard del settore.
+L'endpoint di Microsoft Identity Platform (v2.0) ha la certificazione OIDC. Funziona con le librerie MSAL (Microsoft Authentication Library) o con qualsiasi altra libreria conforme agli standard. Implementa ambiti leggibili in conformità agli standard del settore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su v1.0 e v2.0.
-
-* Panoramica di [Microsoft Identity Platform (v2.0)](../develop/v2-overview.md)
-* Panoramica di [Azure Active Directory per sviluppatori (v1.0)](v1-overview.md)
+Leggere altre informazioni nella [documentazione di Microsoft Identity Platform](../develop/index.yml).

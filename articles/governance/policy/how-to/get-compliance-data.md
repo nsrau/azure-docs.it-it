@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873626"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320431"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -157,16 +157,21 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Analisi della valutazione su richiesta-Visual Studio Code
+
+L'estensione di criteri di Azure per Visual Studio Code è in grado di eseguire un'analisi di valutazione per una risorsa specifica. Questa analisi è un processo sincrono, a differenza dei metodi Azure PowerShell e REST.
+Per informazioni dettagliate e procedure, vedere [la pagina relativa alla valutazione su richiesta con l'estensione vs code](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
 
 In un'assegnazione, una risorsa **non è conforme** se non segue le regole di criteri o di iniziativa e non è _esente_. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Novità o aggiornamento | Audit, modify, AuditIfNotExist | True | Non conforme |
-| Novità o aggiornamento | Audit, modify, AuditIfNotExist | False | Conforme |
-| Exists | Deny, audit, Append, modify, DeployIfNotExist, AuditIfNotExist | True | Non conforme |
-| Exists | Deny, audit, Append, modify, DeployIfNotExist, AuditIfNotExist | False | Conforme |
+| Novità o aggiornamento | Audit, Modify, AuditIfNotExist | True  | Non conforme |
+| Novità o aggiornamento | Audit, Modify, AuditIfNotExist | False | Conforme |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True  | Non conforme |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Conforme |
 
 > [!NOTE]
 > Per gli effetti DeployIfNotExist e AuditIfNotExist è necessario che l'istruzione IF sia TRUE e che la condizione di esistenza sia FALSE per non essere conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.

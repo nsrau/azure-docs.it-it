@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544044"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940906"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Moxtra
 
@@ -156,11 +156,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nella barra degli strumenti a sinistra, fare clic su**Admin Console > SAML Single Sign-On** (Console di amministrazione > Single Sign-On SAML), quindi su **New** (Nuovo).
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Screenshot che mostra la pagina SAML Single Sign-On con l'opzione per creare un nuovo SAML Single Sign-On.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Nella pagina **SAML** seguire questa procedura:
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Screenshot che mostra la pagina SAML in cui è possibile immettere i valori descritti.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione, ad esempio *SAML*. 
   
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente di nome B.Simon in Moxtra.
 
 1. Nella barra degli strumenti a sinistra, fare clic su**Admin Console > Gestione utente** e quindi su **Aggiungi utente**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Screenshot che mostra la pagina User Management con l'opzione Add User selezionata.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. Nella finestra di dialogo **Aggiungi utente** seguire questa procedura:
   

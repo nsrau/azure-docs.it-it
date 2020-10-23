@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420655"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048271"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Esercitazione: Creare e gestire un gateway VPN usando PowerShell
 
@@ -28,7 +28,7 @@ Il diagramma seguente mostra la rete virtuale e il gateway VPN creati nell'ambit
 
 ![Rete virtuale e gateway VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Utilizzo di Azure Cloud Shell e Azure PowerShell
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ In questa esercitazione sono state illustrate le operazioni di base di creazione
 > * Ridimensionare un gateway VPN
 > * Reimpostare un gateway VPN
 
-Passare alle esercitazioni seguenti per informazioni sulle connessioni da sito a sito, da rete virtuale a rete virtuale e da punto a sito.
+Procedere quindi con l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> * [Creare connessioni da sito a sito](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Creare connessioni da rete virtuale a rete virtuale](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Creare connessioni da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Creare una connessione](vpn-gateway-tutorial-vpnconnection-powershell.md)

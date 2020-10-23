@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sull'accesso condizionale
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Richiedere l'accettazione delle condizioni per l'utilizzo
       href: require-tou.md
@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: Controlli della frequenza degli accessi e della persistenza del browser
       href: howto-conditional-access-session-lifetime.md
-    - name: Procedure consigliate
-      href: best-practices.md
     - name: Risoluzione dei problemi
       items:
         - name: Risolvere i problemi di accesso

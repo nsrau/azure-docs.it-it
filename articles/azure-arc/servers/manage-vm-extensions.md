@@ -3,12 +3,12 @@ title: Gestione delle estensioni VM con i server abilitati per Azure Arc
 description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
 ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59772022672781e926e439e9740f8e8a02c8b4d3
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329075"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108117"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc
 
@@ -36,7 +36,7 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 
 In questa versione sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
-|Estensione |Sistema operativo |Publisher |Informazioni aggiuntive |
+|Estensione |Sistema operativo |Editore |Informazioni aggiuntive |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Estensione DSC di Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
@@ -93,7 +93,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate dai server abilitati per Arc, è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
@@ -722,4 +722,4 @@ La rimozione di una o più estensioni da un server abilitato per Arc può essere
 
 * Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
 
-* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).

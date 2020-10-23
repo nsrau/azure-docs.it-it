@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324727"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148335"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Panoramica della gestione dei dispositivi con l'hub IoT
 
@@ -78,7 +78,7 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
   
     *Ulteriori informazioni*:
     * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
-    * [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md)
+    * [Configurare e monitorare i dispositivi IoT su larga scala](./iot-hub-automatic-device-management.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitoraggio**: vengono monitorati l'integrità complessiva della raccolta di dispositivi e lo stato delle operazioni in corso per segnalare agli operatori i problemi che potrebbero richiedere la loro attenzione.  Applicare il dispositivo gemello per consentire ai dispositivi di creare report in tempo reale sulle condizioni operative e sullo stato delle operazioni di aggiornamento. Creare report avanzati sui dashboard per mostrare i problemi più immediati mediante le query su dispositivo gemello.
@@ -86,7 +86,7 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
     *Ulteriori informazioni*: 
     * [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
     * [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md)
-    * [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md)
+    * [Configurare e monitorare i dispositivi IoT su larga scala](./iot-hub-automatic-device-management.md)
     * [Procedure consigliate per la configurazione di dispositivi in una soluzione IoT](iot-hub-configuration-best-practices.md)
 
 * **Ritira**: sostituire o rimuovere le autorizzazioni dei dispositivi dopo un errore, un ciclo di aggiornamento o alla fine della durata del servizio.  Usare il dispositivo gemello per mantenere le informazioni sul dispositivo se il dispositivo fisico viene sostituito o archiviato in caso di ritiro. Usare il registro di identità dell'hub IoT per revocare in modo sicuro le credenziali e le identità del dispositivo.

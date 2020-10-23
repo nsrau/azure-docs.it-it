@@ -9,7 +9,7 @@
     - name: Novità
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Uso dell'SDK
       href: sdk-learning-loop.md
@@ -109,6 +109,8 @@
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: Risoluzione dei problemi
       href: troubleshooting.md
     - name: Disponibilità a livello di area
@@ -121,7 +123,3 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Prezzi
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/personalizer'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/921562-personalizer'

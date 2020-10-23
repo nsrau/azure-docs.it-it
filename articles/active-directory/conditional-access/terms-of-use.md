@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085910"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366497"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -44,7 +44,7 @@ Azure AD condizioni per l'utilizzo sono disponibili le seguenti funzionalità:
 - Richiedere a dipendenti o Guest di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure Multi-Factor Authentication (multi-factor authentication).
 - Richiedere ai dipendenti di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure AD la reimpostazione della password self-service (SSPR).
 - Presentare le condizioni per l'utilizzo generali per tutti gli utenti dell'organizzazione.
-- Presentare le condizioni per l'utilizzo specifiche in base a attributi utente (ad esempio medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md)).
+- Presentare le condizioni per l'utilizzo specifiche in base a attributi utente (ad esempio medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../enterprise-users/groups-dynamic-membership.md)).
 - Presentare condizioni per l'utilizzo specifiche per l'accesso ad applicazioni a elevato utilizzo aziendale, ad esempio Salesforce.
 - Presentare le condizioni per l'utilizzo in lingue diverse.
 - Elenco che ha o non ha accettato le condizioni per l'utilizzo.
@@ -94,8 +94,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Scadenza a partire da | Frequenza | Risultato |
    | --- | --- | --- |
-   | Data odierna  | Mensilmente | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-   | Data nel futuro  | Mensilmente | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+   | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+   | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
    Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -253,7 +253,7 @@ L'impostazione **Richiedi agli utenti di acconsentire su ogni dispositivo** cons
 Ecco un elenco dei software e delle piattaforme supportate.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Altro |
+> |  | iOS | Telefoni | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
 > | **Microsoft Edge** | Sì | Sì | Sì |  |
@@ -392,4 +392,3 @@ R: Condizioni per l'utilizzo utilizza gli endpoint seguenti per l'autenticazione
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)

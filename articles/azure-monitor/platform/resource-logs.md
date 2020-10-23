@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800501"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143917"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
@@ -27,7 +27,7 @@ Vedere [creare le impostazioni di diagnostica per inviare le metriche e i log de
 - Usare query di log per eseguire analisi complesse e ottenere informazioni approfondite sui dati del log.
 - Usare gli avvisi del log con una logica di avviso complessa.
 
-[Creare un'impostazione di diagnostica](diagnostic-settings.md) per inviare i log delle risorse a un'area di lavoro log Analytics. Questi dati vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](../log-query/logs-structure.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
+[Creare un'impostazione di diagnostica](diagnostic-settings.md) per inviare i log delle risorse a un'area di lavoro log Analytics. Questi dati vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](./data-platform-logs.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
 
 - Diagnostica di Azure: tutti i dati scritti sono nella tabella _AzureDiagnostics_ .
 - Specifica della risorsa: i dati vengono scritti in una singola tabella per ogni categoria della risorsa.
@@ -43,7 +43,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Category     | Una  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Category | Una | B | C |
+    | Provider di risorse | Category | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | Z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |

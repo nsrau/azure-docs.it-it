@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978493"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167339"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
 
@@ -201,6 +201,9 @@ I nomi host e gli indirizzi IP per lo scenario presentato sono:
 
 SAP ASC, SAP SCS e la nuova ERS2 SAP, usano il nome host virtuale e gli indirizzi IP virtuali. In Azure è necessario un servizio di [bilanciamento del carico](../../../load-balancer/load-balancer-overview.md) per usare un indirizzo IP virtuale. Si consiglia vivamente di usare [Load Balancer standard](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
+> [!IMPORTANT]
+> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.    
+
 
 Nell'elenco seguente viene illustrata la configurazione del servizio di bilanciamento del carico (A) SCS/ERS. La configurazione di SAP ASC e ERS2 in è stata eseguita nello stesso servizio di bilanciamento del carico di Azure.  
 
@@ -261,7 +264,7 @@ Azure Load Balancer possibile chiudere le connessioni, se le connessioni sono in
 - KeepAliveTime
 - KeepAliveInterval
 
-| Path| Nome variabile | Tipo di variabile  | valore | Documentazione |
+| Path| Nome variabile | Tipo di variabile  | Valore | Documentazione |
 | --- | --- | --- |---| ---|
 | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (decimale) |120000 |[KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (decimale) |120000 |[KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |

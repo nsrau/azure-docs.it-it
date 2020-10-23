@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629727"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425104"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -42,12 +42,12 @@ Questo articolo illustra come proteggere le risorse di calcolo di training segue
 
 + Una rete virtuale e una subnet esistenti da usare con le risorse di calcolo.
 
-+ Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nei controlli degli accessi in base al ruolo (RBAC) di Azure:
++ Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nel controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
     - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa di rete virtuale.
     - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
 
-    Per ulteriori informazioni sul controllo degli accessi in base al ruolo con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking)
+    Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Cluster di elaborazione e istanze di calcolo 

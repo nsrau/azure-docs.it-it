@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439556"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331924"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Panoramica di Azure FarmBeats (anteprima)
 
@@ -43,7 +43,7 @@ Datahub è progettato come piattaforma API estendibile. Collaboriamo con molti p
 
 Azure FarmBeats Accelerator è un'applicazione Web di esempio basata su Datahub. Accelerator avvia rapidamente l'interfaccia utente e lo sviluppo del modello. Azure FarmBeats Accelerator usa le API di Azure FarmBeats. Visualizza i dati dei sensori inseriti come grafici e gli output del modello come mappe. È possibile ad esempio usare l'acceleratore per creare rapidamente un'azienda agricola e ottenere con facilità una mappa dell'indice di vegetazione o una mappa di posizionamento dei sensori.
 
-## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
 Un amministratore può definire le regole di accesso per Azure FarmBeats usando uno dei ruoli predefiniti. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire. Esistono due tipi di ruoli in Azure FarmBeats, per gli utenti e per i partner.
 

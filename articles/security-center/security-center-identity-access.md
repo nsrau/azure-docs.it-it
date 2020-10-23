@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946222"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371070"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
@@ -30,7 +30,7 @@ Monitorando le attività e le impostazioni di configurazione relative all'identi
 
 Il Centro sicurezza di Azure dispone di due controlli di sicurezza dedicati per garantire che i requisiti di sicurezza e identità dell'organizzazione siano soddisfatti: 
 
- - **Gestire l'accesso e le autorizzazioni** : si consiglia di adottare il [modello di accesso con privilegi minimi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e di garantire agli utenti solo l'accesso necessario per svolgere i propri processi. Questo controllo include anche suggerimenti per l'implementazione del [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md) per controllare l'accesso alle risorse.
+ - **Gestire l'accesso e le autorizzazioni** : si consiglia di adottare il [modello di accesso con privilegi minimi](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e di garantire agli utenti solo l'accesso necessario per svolgere i propri processi. Questo controllo include anche suggerimenti per l'implementazione del [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md) per controllare l'accesso alle risorse.
  
  - **Abilitare** l' [autenticazione a più fattori con l'](https://www.microsoft.com/security/business/identity/mfa) autenticazione a più fattori abilitata, gli account sono più sicuri e gli utenti possono ancora eseguire l'autenticazione a quasi tutte le applicazioni con Single Sign-on.
 
@@ -56,7 +56,7 @@ Esistono alcune limitazioni per le protezioni di identità e accesso del Centro 
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-factor authentication (autenticazione a più fattori) e Azure Active Directory 
 
-Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](../active-directory/roles/permissions-reference.md).
 
 - Se si ha un'edizione Premium di AD, abilitare l'autenticazione a più fattori usando l'[accesso condizionale](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - Se si usa AD Free Edition, abilitare le **impostazioni predefinite di sicurezza** come descritto in [Azure Active Directory documentazione](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
@@ -84,7 +84,7 @@ Per visualizzare gli account in cui non è abilitata l'autenticazione a più fat
     > Gli account vengono visualizzati come ID oggetto anziché come nomi di account per proteggere la privacy dei titolari dell'account.
 
 > [!TIP]
-> In alternativa, è possibile usare le valutazioni dei metodi dell'API REST del Centro sicurezza [: Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> In alternativa, è possibile usare le valutazioni dei metodi dell'API REST del Centro sicurezza [: Get](/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

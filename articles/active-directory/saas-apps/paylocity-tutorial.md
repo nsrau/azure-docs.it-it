@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543653"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995958"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Paylocity
 
@@ -106,7 +106,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Modifica icona**.
 
-    ![Modifica del certificato di firma SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Screenshot che mostra la sezione "Certificato di firma SAML"con l'azione "Download" per "XML metadati federazione" selezionata.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Selezionare **Opzione di firma** come **Firma asserzione e risposta SAML** e fare clic su **Salva**.
 

@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook Windows in Automazione 
 description: Questo articolo descrive come distribuire un ruolo di lavoro ibrido per Runbook che può essere usato per eseguire manuali operativi in computer basati su Windows nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a03d14fa272f5f86af1caf0ce9537bbb186d13cc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660513"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204519"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -28,7 +28,7 @@ Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoragg
 
 Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
 
-Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](update-management/update-mgmt-overview.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
+Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](update-management/update-mgmt-overview.md) o [rilevamento modifiche e l'inventario](change-tracking/overview.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
 
 > [!NOTE]
 > Quando si Abilita Gestione aggiornamenti o Rilevamento modifiche e la funzionalità di inventario, automazione di Azure supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](how-to/region-mappings.md). Prima di abilitare una delle funzionalità, vedere le informazioni [sui prezzi di Azure](https://azure.microsoft.com/pricing/details/automation/) per automazione di Azure.
@@ -175,7 +175,7 @@ Heartbeat
 
 Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record di heartbeat all'area di lavoro assegnata. Per completare l'installazione e la configurazione dell'agente, eseguire queste operazioni.
 
-1. Abilitare la funzionalità per aggiungere il computer agente. Per Gestione aggiornamenti e le macchine virtuali di Azure, vedere [abilitare Gestione aggiornamenti da un account di automazione](update-management/update-mgmt-enable-automation-account.md), [abilitare Gestione aggiornamenti esplorando il portale di Azure](update-management/update-mgmt-enable-portal.md), [abilitare Gestione aggiornamenti da un Runbook](update-management/update-mgmt-enable-runbook.md)o [abilitare Gestione aggiornamenti da una macchina virtuale di Azure](update-management/update-mgmt-enable-vm.md). Per Rilevamento modifiche e le macchine virtuali di Azure, vedere [abilitare le VM di Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)e per le macchine virtuali non di Azure vedere [abilitare i computer nell'area di lavoro](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Abilitare la funzionalità per aggiungere il computer agente. Per Gestione aggiornamenti e le macchine virtuali di Azure, vedere [abilitare Gestione aggiornamenti da un account di automazione](update-management/update-mgmt-enable-automation-account.md), [abilitare Gestione aggiornamenti esplorando il portale di Azure](update-management/update-mgmt-enable-portal.md), [abilitare Gestione aggiornamenti da un Runbook](update-management/update-mgmt-enable-runbook.md)o [abilitare Gestione aggiornamenti da una macchina virtuale di Azure](update-management/update-mgmt-enable-vm.md). Per Rilevamento modifiche e le macchine virtuali di Azure, vedere [abilitare le VM di Azure](change-tracking/enable-from-automation-account.md#enable-azure-vms)e per le macchine virtuali non di Azure vedere [abilitare i computer nell'area di lavoro](change-tracking/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 2. Per confermare la versione del ruolo di lavoro ibrido per Runbook, individuare `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e prendere nota della sottocartella **Version** .
 
@@ -214,7 +214,7 @@ I runbook possono usare tutte le attività e i cmdlet definiti nei moduli instal
 
 Poiché lo scopo principale del ruolo di lavoro ibrido per runbook è quello di gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse, particolarmente il modulo `PowerShellGet`. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente `PSModulePath`, in modo che il ruolo di lavoro ibrido possa importarli automaticamente. Per altre informazioni, vedere [Installare moduli in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente `PSModulePath`, in modo che il ruolo di lavoro ibrido possa importarli automaticamente. Per altre informazioni, vedere [Installare moduli in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Rimuovere il ruolo di lavoro ibrido per Runbook da un computer Windows locale
 

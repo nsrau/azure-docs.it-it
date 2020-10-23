@@ -2,13 +2,13 @@
 title: Configurare monitoraggio di Azure per la raccolta dati degli agenti di contenitori | Microsoft Docs
 description: Questo articolo descrive come configurare l'agente di monitoraggio di Azure per i contenitori per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994605"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320401"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per Monitoraggio di Azure per i contenitori
 
@@ -29,7 +29,7 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 ### <a name="data-collection-settings"></a>Impostazioni di raccolta dati
 
-Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
+Nella tabella seguente vengono descritte le impostazioni che è possibile configurare per controllare la raccolta dei dati:
 
 | Chiave | Tipo di dati | Valore | Descrizione |
 |--|--|--|--|
@@ -43,16 +43,24 @@ Di seguito sono riportate le impostazioni che possono essere configurate per con
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true o false | Questa impostazione controlla l'arricchimento dei log del contenitore per popolare i valori delle proprietà Name e image<br> per ogni record di log scritto nella tabella ContainerLog per tutti i log del contenitore nel cluster.<br> Il valore predefinito è `enabled = false` quando non è specificato in ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Questa impostazione consente la raccolta di eventi Kube di tutti i tipi.<br> Per impostazione predefinita, gli eventi KUBE con tipo *Normal* non vengono raccolti. Quando questa impostazione è impostata su `true` , gli eventi *normali* non vengono più filtrati e vengono raccolti tutti gli eventi.<br> Per impostazione predefinita, il parametro è impostato su `false`. |
 
+### <a name="metric-collection-settings"></a>Impostazioni della raccolta metrica
+
+La tabella seguente descrive le impostazioni che è possibile configurare per controllare la raccolta delle metriche:
+
+| Chiave | Tipo di dati | Valore | Descrizione |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true o false | Questa impostazione consente di raccogliere le metriche di utilizzo del volume permanente (PV) nello spazio dei nomi Kube-System. Per impostazione predefinita, le metriche di utilizzo per i volumi permanenti con attestazioni del volume permanenti nello spazio dei nomi Kube-System non vengono raccolte. Quando questa impostazione è impostata su `true` , vengono raccolte le metriche di utilizzo PV per tutti gli spazi dei nomi. Per impostazione predefinita, il parametro è impostato su `false`. |
+
 ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
 
 ## <a name="configure-and-deploy-configmaps"></a>Configurare e distribuire ConfigMaps
 
 Per configurare e distribuire il file di configurazione ConfigMap nel cluster, seguire questa procedura.
 
-1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il modello ConfigMap YAML file e salvarlo come container-AZM-MS-agentconfig. yaml. 
+1. Scaricare il [modello CONFIGMAP YAML file](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) e salvarlo come container-AZM-MS-agentconfig. yaml. 
 
-   >[!NOTE]
-   >Questo passaggio non è necessario quando si lavora con Azure Red Hat OpenShift poiché il modello ConfigMap esiste già nel cluster.
+   > [!NOTE]
+   > Questo passaggio non è necessario quando si lavora con Azure Red Hat OpenShift perché il modello ConfigMap esiste già nel cluster.
 
 2. Modificare il file YAML ConfigMap con le personalizzazioni per raccogliere le variabili di stdout, stderr e/o di ambiente. Se si sta modificando il file YAML di ConfigMap per Azure Red Hat OpenShift, eseguire prima il comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` per aprire il file in un editor di testo.
 

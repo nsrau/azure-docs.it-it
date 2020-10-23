@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287829"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127012"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
 
@@ -33,7 +33,7 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 
 | Category              | Descrizione |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | [Contatta](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | ✓ |
 | **Supporto dell'API di Azure Cosmos DB** | Tipo di API Azure Cosmos DB supportato | SQL/MongoDB | SQL/MongoDB |
 | **Object**  |Oggetti, ad esempio una tabella che è possibile creare, che puntano direttamente al contenitore Azure Cosmos DB| Dataframe, vista, tabella | Visualizzazione |
 | **Lettura**    | Tipo di contenitore di Azure Cosmos DB che è possibile leggere | OLTP/HTAP | HTAP  |

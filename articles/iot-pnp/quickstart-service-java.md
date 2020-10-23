@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761329"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046486"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Avvio rapido: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione (Java)
 
@@ -27,7 +27,7 @@ Plug and Play IoT semplifica l'Internet delle cose consentendo di interagire con
 
 Per completare questa guida di avvio rapido in Windows, installare il software seguente nell'ambiente Windows locale:
 
-* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) selezionare **Java 8** nella sezione **Supporto a lungo termine**.
+* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) selezionare **Java 8** nella sezione **Supporto a lungo termine**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Clonare il repository dell'SDK con il codice di esempio
@@ -76,7 +76,7 @@ In [Configurare l'ambiente per le esercitazioni e le guide di avvio rapido di Pl
 In questa guida di avvio rapido si userà una soluzione IoT di esempio scritta in Java per interagire con il dispositivo di esempio appena configurato.
 
 > [!NOTE]
-> In questo esempio viene usato lo spazio dei nomi **com.microsoft.azure.sdk.iot.service.*;** dal **client del servizio hub IoT**. Per altre informazioni su come recuperare l'ID modello, vedere la [Guida per sviluppatori](concepts-developer-guide-service.md).
+> In questo esempio viene usato lo spazio dei nomi **com.microsoft.azure.sdk.iot.service** dal **client del servizio hub IoT**. Per altre informazioni sulle API, tra cui l'API gemelli digitali, vedere la [guida per sviluppatori di servizi](concepts-developer-guide-service.md).
 
 1. Aprire un'altra finestra del terminale da usare come terminale del **servizio**.
 
@@ -88,7 +88,7 @@ In questa guida di avvio rapido si userà una soluzione IoT di esempio scritta i
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>Ottenere il gemello digitale
+### <a name="get-device-twin"></a>Recuperare il dispositivo gemello
 
 Il frammento di codice seguente mostra come recuperare il dispositivo gemello nel servizio:
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>Aggiornare un gemello digitale
+### <a name="update-a-device-twin"></a>Aggiornare un dispositivo gemello
 
-Questo frammento di codice mostra come usare una *patch* per aggiornare le proprietà tramite il gemello digitale:
+Questo frammento di codice mostra come usare una *patch* per aggiornare le proprietà tramite il dispositivo gemello:
 
 ```java
 String propertyName = "targetTemperature";

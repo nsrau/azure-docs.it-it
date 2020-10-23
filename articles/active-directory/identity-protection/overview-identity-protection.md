@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265273"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996526"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -113,6 +113,8 @@ Gli amministratori dell'accesso condizionale possono anche creare criteri che te
 | Notifiche | Avvisi relativi a utenti a rischio rilevati  | No | No |Sì |
 | Notifiche | Digest settimanale| No | No | Sì | 
 | | Criteri di registrazione MFA | No | No | Sì |
+
+Altre informazioni su questi report avanzati sono reperibili nell'articolo [Procedura: Analizzare i rischi](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

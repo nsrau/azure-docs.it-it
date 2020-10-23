@@ -7,12 +7,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato, ges
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715975"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205337"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -35,7 +35,7 @@ La gestione della configurazione in Automazione di Azure consente di accedere a 
 
 ### <a name="change-tracking-and-inventory"></a>Rilevamento modifiche e inventario
 
-Rilevamento modifiche e inventario combina le funzioni di rilevamento delle modifiche e di inventario per consentire di tenere traccia delle modifiche apportate all'infrastruttura di macchine virtuali e server. Il servizio supporta il rilevamento delle modifiche tra servizi, daemon, software, registro di sistema e file nell'ambiente in uso per la diagnosi delle modifiche indesiderate e la generazione di avvisi. Il supporto dell'inventario consente di eseguire query sulle risorse nel guest per ottenere la visibilità delle applicazioni installate e di altri elementi di configurazione. Per informazioni dettagliate su questa funzionalità, vedere [Rilevamento modifiche e inventario](change-tracking.md).
+Rilevamento modifiche e inventario combina le funzioni di rilevamento delle modifiche e di inventario per consentire di tenere traccia delle modifiche apportate all'infrastruttura di macchine virtuali e server. Il servizio supporta il rilevamento delle modifiche tra servizi, daemon, software, registro di sistema e file nell'ambiente in uso per la diagnosi delle modifiche indesiderate e la generazione di avvisi. Il supporto dell'inventario consente di eseguire query sulle risorse nel guest per ottenere la visibilità delle applicazioni installate e di altri elementi di configurazione. Per informazioni dettagliate su questa funzionalità, vedere [Rilevamento modifiche e inventario](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>State Configuration di Automazione di Azure
 

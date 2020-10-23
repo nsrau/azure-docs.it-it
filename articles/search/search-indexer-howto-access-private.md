@@ -1,70 +1,79 @@
 ---
-title: Indicizzatori che accedono a risorse protette tramite endpoint privati
+title: Connessioni dell'indicizzatore tramite un endpoint privato
 titleSuffix: Azure Cognitive Search
-description: Guida che descrive la configurazione di endpoint privati per gli indicizzatori per la comunicazione con risorse protette
+description: Configurare le connessioni dell'indicizzatore per accedere al contenuto da altre risorse di Azure protette tramite un endpoint privato.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 9ffd7d2513e87f818001d7ccf96212a4dbef7ac2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950143"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340054"
 ---
-# <a name="accessing-secure-resources-via-private-endpoints"></a>Accesso a risorse protette tramite endpoint privati
+# <a name="make-indexer-connections-through-a-private-endpoint"></a>Creare connessioni dell'indicizzatore tramite un endpoint privato
 
-Le risorse di Azure, ad esempio gli account di archiviazione usati come origini dati, possono essere configurate in modo che possano essere accessibili solo da un elenco specifico di reti virtuali. Possono inoltre essere configurati per impedire l'accesso "Public Network".
-I clienti possono richiedere ad Azure ricerca cognitiva di creare una connessione a un [endpoint privato](../private-link/private-endpoint-overview.md) (in uscita) per accedere in modo sicuro ai dati da tali origini dati tramite gli indicizzatori.
+Molte risorse di Azure, ad esempio gli account di archiviazione di Azure, possono essere configurate in modo da accettare le connessioni da un elenco di reti virtuali e rifiutare le connessioni esterne che provengono da una rete pubblica. Se si usa un indicizzatore per indicizzare i dati in Azure ricerca cognitiva e l'origine dati si trova in una rete privata, è possibile creare una [connessione all'endpoint privato](../private-link/private-endpoint-overview.md) in uscita per raggiungere i dati.
+
+Questo metodo di connessione dell'indicizzatore è soggetto ai due requisiti seguenti:
+
++ La risorsa di Azure che fornisce contenuto o codice deve essere registrata in precedenza con il [servizio di collegamento privato di Azure](https://azure.microsoft.com/services/private-link/).
+
++ Il servizio Azure ricerca cognitiva deve trovarsi nel livello Basic o superiore. La funzionalità non è disponibile nel livello gratuito. Inoltre, se l'indicizzatore ha un numero di competenze, il livello deve essere standard 2 (S2) o superiore. Per altre informazioni, vedere [limiti del servizio](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>API di gestione delle risorse di collegamento privato condivise
 
-Gli endpoint privati creati da Azure ricerca cognitiva su richiesta del cliente per accedere alle risorse "sicure" sono denominate *risorse di collegamento privato condivise*. Il cliente sta "condividendo" l'accesso a una risorsa, ad esempio un account di archiviazione, che è stato caricato nel [servizio di collegamento privato di Azure](https://azure.microsoft.com/services/private-link/).
+Gli endpoint privati delle risorse protette create tramite le API di Azure ricerca cognitiva vengono definiti risorse di *collegamento privato condiviso*. Questo perché si sta "condividendo" l'accesso a una risorsa, ad esempio un account di archiviazione, che è stato integrato con il [servizio di collegamento privato di Azure](https://azure.microsoft.com/services/private-link/).
 
-Azure ricerca cognitiva offre tramite l'API di gestione di ricerca, la possibilità di [creare o aggiornare le risorse di collegamento privato condivise](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Questa API verrà usata insieme ad altre API di gestione *delle risorse di collegamento privato condivise* per configurare l'accesso a una risorsa sicura da un indicizzatore ricerca cognitiva di Azure.
+Tramite l'API REST di gestione, Azure ricerca cognitiva fornisce un'operazione [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) che è possibile usare per configurare l'accesso da un indicizzatore di Azure ricerca cognitiva.
 
-È possibile creare connessioni di endpoint privati ad alcune risorse solo tramite la versione di anteprima dell'API di gestione di ricerca ( `2020-08-01-Preview` ), indicata con il tag "Preview" nella tabella seguente. Le risorse senza tag "Preview" possono essere create tramite l'API di anteprima e l'API GA ( `2020-08-01` )
+È possibile creare connessioni di endpoint privati ad alcune risorse solo usando la versione di anteprima dell'API di gestione di ricerca (versione *2020-08-01-Preview* o successiva), che è designata come *Anteprima* nella tabella seguente. Le risorse senza una designazione di *Anteprima* possono essere create con la versione di anteprima o API disponibile a livello generale (*2020-08-01* o versione successiva).
 
-Di seguito è riportato l'elenco delle risorse di Azure a cui è possibile creare endpoint privati in uscita da Azure ricerca cognitiva. `groupId` nella tabella seguente è necessario usare esattamente (con distinzione tra maiuscole e minuscole) nell'API per creare una risorsa di collegamento privato condivisa.
+La tabella seguente elenca le risorse di Azure per le quali è possibile creare endpoint privati in uscita da Azure ricerca cognitiva. Per creare una risorsa di collegamento privato condiviso, immettere i valori **ID del gruppo** esattamente come sono scritti nell'API. con l'esatta distinzione tra maiuscole e minuscole.
 
 | Risorsa di Azure | ID gruppo |
 | --- | --- |
 | Archiviazione di Azure-BLOB (o) ADLS gen 2 | `blob`|
 | Archiviazione di Azure-tabelle | `table`|
 | API Azure Cosmos DB-SQL | `Sql`|
-| Database SQL di Azure | `sqlServer`|
+| database SQL di Azure | `sqlServer`|
 | Database di Azure per MySQL (anteprima) | `mysqlServer`|
 | Insieme di credenziali chiave di Azure | `vault` |
 | Funzioni di Azure (anteprima) | `sites` |
 
-L'elenco delle risorse di Azure per cui sono supportate le connessioni agli endpoint privati in uscita può essere sottoposto anche a query tramite l' [API di elenco supportata](/rest/api/searchmanagement/privatelinkresources/listsupported).
+È anche possibile eseguire una query sulle risorse di Azure per le quali le connessioni agli endpoint privati in uscita sono supportate usando l' [elenco delle API supportate](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-Ai fini di questa guida, viene usata una combinazione di [ARMClient](https://github.com/projectkudu/ARMClient) e [postazione](https://www.postman.com/) per illustrare le chiamate all'API REST.
-
-> [!NOTE]
-> In questa guida si presuppone che il nome del servizio di ricerca sia __Contoso-Search__ esistente nel gruppo di risorse __Contoso__ di una sottoscrizione con ID sottoscrizione __00000000-0000-0000-0000-000000000000__. L'ID risorsa di questo servizio di ricerca sarà `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
-
-Il resto della guida illustra come è possibile configurare il servizio __Contoso-Search__ in modo che gli indicizzatori possano accedere ai dati dall'account di archiviazione protetto `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
-
-## <a name="securing-your-storage-account"></a>Protezione dell'account di archiviazione
-
-Configurare l'account di archiviazione per [consentire l'accesso solo da subnet specifiche](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Tramite il portale di Azure, se si seleziona questa opzione e si lascia il set vuoto, significa che non è consentito alcun traffico da alcuna rete virtuale.
-
-   ![Accesso alla rete virtuale](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Accesso alla rete virtuale")
+Nella parte restante di questo articolo viene usata una combinazione di API [ARMClient](https://github.com/projectkudu/ARMClient) e [postazione](https://www.postman.com/) per illustrare le chiamate all'API REST.
 
 > [!NOTE]
-> L' [approccio di servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services) può essere usato per ignorare le restrizioni di rete virtuale o IP in un account di archiviazione di questo tipo e può consentire al servizio di ricerca di accedere ai dati nell'account di archiviazione, come descritto nella [Guida alle procedure](search-indexer-howto-access-trusted-service-exception.md). Tuttavia, quando si usa questo approccio, la comunicazione tra ricerca cognitiva di Azure e l'account di archiviazione avviene tramite l'indirizzo IP pubblico dell'account di archiviazione, tramite la rete dorsale Microsoft sicura.
+> Gli esempi in questo articolo si basano sui presupposti seguenti:
+> * Il nome del servizio di ricerca è _Contoso-Search_, che esiste nel gruppo di risorse _Contoso_ di una sottoscrizione con ID sottoscrizione _00000000-0000-0000-0000-000000000000_. 
+> * L'ID risorsa di questo servizio di ricerca è _/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/Providers/Microsoft.search/searchServices/contoso-Search_.
 
-## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Passaggio 1: creare una risorsa di collegamento privato condiviso nell'account di archiviazione
+Il resto degli esempi Mostra come è possibile configurare il servizio _Contoso-Search_ in modo che gli indicizzatori possano accedere ai dati dall'account di archiviazione protetto _/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/Providers/Microsoft.storage/storageAccounts/contoso-storage_.
 
-Eseguire la chiamata API seguente per richiedere ricerca cognitiva di Azure per creare una connessione all'endpoint privato in uscita all'account di archiviazione
+## <a name="secure-your-storage-account"></a>Proteggere l'account di archiviazione
+
+Configurare l'account di archiviazione per [consentire l'accesso solo da subnet specifiche](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Nel portale di Azure, se si seleziona questa opzione e si lascia vuoto il set, significa che non è consentito alcun traffico dalle reti virtuali.
+
+   ![Screenshot del riquadro "firewall e reti virtuali", che mostra l'opzione per consentire l'accesso alle reti selezionate. ](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
+
+> [!NOTE]
+> È possibile usare l' [approccio di servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services) per ignorare le restrizioni di rete virtuale o IP in un account di archiviazione. È anche possibile abilitare il servizio di ricerca per accedere ai dati nell'account di archiviazione. A tale scopo, vedere [indicizzatore accesso ad archiviazione di Azure con l'eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md). 
+>
+> Tuttavia, quando si usa questo approccio, la comunicazione tra ricerca cognitiva di Azure e l'account di archiviazione avviene tramite l'indirizzo IP pubblico dell'account di archiviazione, tramite la rete dorsale Microsoft sicura.
+
+### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Passaggio 1: creare una risorsa di collegamento privato condiviso nell'account di archiviazione
+
+Per richiedere ad Azure ricerca cognitiva di creare una connessione all'endpoint privato in uscita con l'account di archiviazione, effettuare la chiamata API seguente: 
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
-Il contenuto del `create-pe.json` file (che rappresenta il corpo della richiesta all'API) è il seguente:
+Il contenuto del *create-pe.jsnel* file, che rappresenta il corpo della richiesta all'API, è il seguente:
 
 ```json
 {
@@ -77,18 +86,19 @@ Il contenuto del `create-pe.json` file (che rappresenta il corpo della richiesta
 }
 ```
 
-`202 Accepted`Viene restituita una risposta in seguito alla riuscita. il processo di creazione di un endpoint privato in uscita è un'operazione a esecuzione prolungata (asincrona). Comporta la distribuzione delle risorse seguenti:
+`202 Accepted`Viene restituita una risposta in seguito all'esito positivo. Il processo di creazione di un endpoint privato in uscita è un'operazione con esecuzione prolungata (asincrona). Comporta la distribuzione delle risorse seguenti:
 
-1. Un endpoint privato allocato con un indirizzo IP privato in uno `"Pending"` stato. L'indirizzo IP privato viene ottenuto dallo spazio degli indirizzi allocato alla rete virtuale dell'ambiente di esecuzione dell'indicizzatore privato specifico del servizio di ricerca. Dopo l'approvazione dell'endpoint privato, qualsiasi comunicazione da Azure ricerca cognitiva all'account di archiviazione ha origine dall'indirizzo IP privato e da un canale di collegamento privato protetto.
-2. Zona DNS privata per il tipo di risorsa, in base a `groupId` . In questo modo, qualsiasi ricerca DNS per la risorsa privata utilizzerà l'indirizzo IP associato all'endpoint privato.
+* Un endpoint privato, allocato con un indirizzo IP privato in uno `"Pending"` stato. L'indirizzo IP privato viene ottenuto dallo spazio degli indirizzi allocato alla rete virtuale dell'ambiente di esecuzione per l'indicizzatore privato specifico del servizio di ricerca. Dopo l'approvazione dell'endpoint privato, qualsiasi comunicazione da Azure ricerca cognitiva all'account di archiviazione ha origine dall'indirizzo IP privato e da un canale di collegamento privato protetto.
+
+* Zona DNS privata per il tipo di risorsa, in base a `groupId` . Distribuendo questa risorsa, si garantisce che qualsiasi ricerca DNS per la risorsa privata utilizzerà l'indirizzo IP associato all'endpoint privato.
 
 Assicurarsi di specificare il corretto `groupId` per il tipo di risorsa per cui si sta creando l'endpoint privato. Eventuali mancate corrispondenze comporteranno un messaggio di risposta non riuscito.
 
-Come tutte le operazioni asincrone di Azure, la `PUT` chiamata restituisce un `Azure-AsyncOperation` valore di intestazione che sarà simile al seguente:
+Come in tutte le operazioni asincrone di Azure, la `PUT` chiamata restituisce un `Azure-AsyncOperation` valore di intestazione simile al seguente:
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-È possibile eseguire il polling di questo URI periodicamente per ottenere lo stato dell'operazione. Prima di procedere, è consigliabile attendere finché lo stato dell'operazione relativa alla risorsa di collegamento privato condiviso non raggiunge uno stato terminale (ovvero `succeeded` ).
+È possibile eseguire periodicamente il polling di questo URI per ottenere lo stato dell'operazione. Prima di procedere, è consigliabile attendere che lo stato dell'operazione della risorsa collegamento privato condiviso abbia raggiunto uno stato terminale, ovvero che lo stato dell'operazione sia *succeeded*.
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -98,30 +108,32 @@ Come tutte le operazioni asincrone di Azure, la `PUT` chiamata restituisce un `A
 }
 ```
 
-## <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Passaggio 2a: approvare la connessione all'endpoint privato per l'account di archiviazione
+### <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Passaggio 2a: approvare la connessione all'endpoint privato per l'account di archiviazione
 
 > [!NOTE]
-> Questa sezione USA portale di Azure per esaminare il flusso di approvazione di un endpoint privato per l'archiviazione. È anche possibile usare l' [API REST](/rest/api/storagerp/privateendpointconnections) disponibile tramite il provider di risorse di archiviazione (RP).
+> In questa sezione si usa il portale di Azure per esaminare il flusso di approvazione di un endpoint privato per l'archiviazione. In alternativa, è possibile usare l' [API REST](/rest/api/storagerp/privateendpointconnections) disponibile tramite il provider di risorse di archiviazione.
 >
-> Altri provider, ad esempio CosmosDB, Azure SQL Server e così via, offrono anche API RP simili per gestire le connessioni agli endpoint privati.
+> Altri provider, ad esempio Azure Cosmos DB o Azure SQL Server, offrono API del provider di risorse di archiviazione simili per la gestione delle connessioni agli endpoint privati.
 
-Passare alla scheda "**connessioni a endpoint privati**" dell'account di archiviazione in portale di Azure. Deve essere presente una richiesta per una connessione all'endpoint privato, con il messaggio di richiesta della chiamata API precedente (dopo che l'operazione asincrona ha __avuto esito positivo__).
+1. Nella portale di Azure selezionare la scheda **connessioni endpoint privato** dell'account di archiviazione. Una volta completata l'operazione asincrona, deve essere richiesta una connessione all'endpoint privato con il messaggio di richiesta della chiamata API precedente.
 
-   ![Approvazione dell'endpoint privato](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png "Approvazione dell'endpoint privato")
+   ![Screenshot del portale di Azure, che mostra il riquadro "connessioni a endpoint privati".](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-Selezionare l'endpoint privato creato da Azure ricerca cognitiva (usare la colonna "endpoint privato" per identificare la connessione all'endpoint privato con il nome specificato nell'API precedente) e scegliere "approva", con un messaggio appropriato (il messaggio non è significativo). Verificare che la connessione all'endpoint privato venga visualizzata nel modo seguente (è possibile da 1-2 minuti per aggiornare lo stato nel portale)
+1. Selezionare l'endpoint privato creato da Azure ricerca cognitiva. Nella colonna **endpoint privato** identificare la connessione all'endpoint privato in base al nome specificato nell'API precedente, selezionare **approva**, quindi immettere un messaggio appropriato. Il contenuto del messaggio non è significativo. 
 
-![Approvato endpoint privato](media\search-indexer-howto-secure-access\storage-privateendpoint-after-approval.png "Approvato endpoint privato")
+   Assicurarsi che la connessione all'endpoint privato venga visualizzata come illustrato nello screenshot seguente. Potrebbero essere necessari da uno a due minuti per aggiornare lo stato nel portale.
 
-Una volta approvata la richiesta di connessione all'endpoint privato, significa che il traffico è *in grado* di scorrere l'endpoint privato. Dopo che l'endpoint privato è stato approvato, Azure ricerca cognitiva creerà i mapping della zona DNS necessari nella zona DNS creata.
+   ![Screenshot del portale di Azure, che mostra uno stato "approvato" nel riquadro "connessioni a endpoint privati".](media\search-indexer-howto-secure-access\storage-privateendpoint-after-approval.png)
 
-## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Passaggio 2b: eseguire una query sullo stato della risorsa collegamento privato condiviso
+Una volta approvata la *richiesta di connessione* all'endpoint privato, il traffico può propagarsi attraverso l'endpoint privato. Dopo l'approvazione dell'endpoint privato, Azure ricerca cognitiva crea i mapping della zona DNS necessari nella zona DNS creata per l'endpoint.
 
- Per confermare che la risorsa di collegamento privato condiviso è stata aggiornata dopo l'approvazione, ottenerne lo stato tramite l' [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Passaggio 2b: eseguire una query sullo stato della risorsa collegamento privato condiviso
+
+Per confermare che la risorsa di collegamento privato condiviso è stata aggiornata dopo l'approvazione, ottenerne lo stato tramite l' [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
-Se la proprietà `properties.provisioningState` della risorsa è `Succeeded` e `properties.status` è `Approved` , significa che la risorsa collegamento privato condiviso è funzionante e gli indicizzatori possono essere configurati per la comunicazione tramite l'endpoint privato.
+Se la proprietà `properties.provisioningState` della risorsa è `Succeeded` e `properties.status` è `Approved` , significa che la risorsa collegamento privato condiviso è funzionante e l'indicizzatore può essere configurato per comunicare tramite l'endpoint privato.
 
 ```json
 {
@@ -138,31 +150,38 @@ Se la proprietà `properties.provisioningState` della risorsa è `Succeeded` e `
 
 ```
 
-## <a name="step-3-configure-indexer-to-run-in-the-private-environment"></a>Passaggio 3: configurare l'indicizzatore per l'esecuzione nell'ambiente privato
+### <a name="step-3-configure-the-indexer-to-run-in-the-private-environment"></a>Passaggio 3: configurare l'indicizzatore per l'esecuzione nell'ambiente privato
 
 > [!NOTE]
-> Questo passaggio può essere eseguito anche prima che la connessione all'endpoint privato venga approvata. Fino a quando non viene approvata la connessione all'endpoint privato, qualsiasi indicizzatore che tenti di comunicare con una risorsa protetta, ad esempio l'account di archiviazione, finirà in uno stato di errore temporaneo. Non sarà possibile creare nuovi indicizzatori. Non appena viene approvata la connessione all'endpoint privato, gli indicizzatori saranno in grado di accedere all'account di archiviazione privato.
+> È possibile eseguire questo passaggio prima che la connessione all'endpoint privato venga approvata. Fino a quando non viene approvata la connessione all'endpoint privato, qualsiasi indicizzatore che tenti di comunicare con una risorsa protetta, ad esempio l'account di archiviazione, finirà in uno stato di errore temporaneo. Non sarà possibile creare nuovi indicizzatori. Non appena viene approvata la connessione all'endpoint privato, gli indicizzatori possono accedere all'account di archiviazione privato.
 
-1. [Creare un'origine dati](/rest/api/searchservice/create-data-source) che punti all'account di archiviazione protetto e un contenitore appropriato nell'account di archiviazione. Di seguito viene illustrata la richiesta eseguita tramite il post.
-![Crea origine dati](media\search-indexer-howto-secure-access\create-ds.png "Creazione di origini dati")
+1. [Creare un'origine dati](/rest/api/searchservice/create-data-source) che punti all'account di archiviazione protetto e un contenitore appropriato nell'account di archiviazione. La schermata seguente mostra la richiesta in post.
 
-2. Analogamente, [creare un indice](/rest/api/searchservice/create-index) e, facoltativamente, [creare un skillt](/rest/api/searchservice/create-skillset) usando l'API REST.
+   ![Screenshot che illustra la creazione di un'origine dati nell'interfaccia utente di un post.](media\search-indexer-howto-secure-access\create-ds.png )
 
-3. [Creare un indicizzatore](/rest/api/searchservice/create-indexer) che punti all'origine dei dati, all'indice e alle competenze create in precedenza. Inoltre, forzare l'esecuzione dell'indicizzatore nell'ambiente di esecuzione privato, impostando la proprietà di configurazione dell'indicizzatore `executionEnvironment` su `"Private"` .
-![Creare un indicizzatore](media\search-indexer-howto-secure-access\create-idr.png "Creazione dell'indicizzatore")
+1. Analogamente, [creare un indice](/rest/api/searchservice/create-index) e, facoltativamente, [creare un skillt](/rest/api/searchservice/create-skillset) usando l'API REST.
 
-L'indicizzatore deve essere creato correttamente e deve essere in corso l'indicizzazione del contenuto dell'account di archiviazione tramite la connessione all'endpoint privato. Lo stato dell'indicizzatore può essere monitorato tramite l' [API dello stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status).
+1. [Creare un indicizzatore](/rest/api/searchservice/create-indexer) che punti all'origine dati, all'indice e alle competenze create nel passaggio precedente. Inoltre, forzare l'esecuzione dell'indicizzatore nell'ambiente di esecuzione privata impostando la `executionEnvironment` proprietà di configurazione dell'indicizzatore su `private` .
+
+   ![Screenshot che illustra la creazione di un indicizzatore nell'interfaccia utente di un utente.](media\search-indexer-howto-secure-access\create-idr.png)
+
+   Dopo che l'indicizzatore è stato creato correttamente, deve iniziare a indicizzare il contenuto dall'account di archiviazione tramite la connessione all'endpoint privato. È possibile monitorare lo stato dell'indicizzatore usando l' [API dello stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
-> Se sono già presenti indicizzatori, è possibile aggiornarli semplicemente tramite l' [API put](/rest/api/searchservice/create-indexer) per impostare `executionEnvironment` su `"Private"` .
+> Se sono già presenti indicizzatori, è possibile aggiornarli tramite l' [API put](/rest/api/searchservice/create-indexer) impostando `executionEnvironment` su `private` .
 
-## <a name="troubleshooting-issues"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-- Quando si crea un indicizzatore, se la creazione ha esito negativo con un messaggio di errore simile a "le credenziali dell'origine dati non sono valide", significa che la connessione all'endpoint privato non è stata *approvata* o non è funzionante.
-Ottenere lo stato della risorsa di collegamento privato condiviso usando l' [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get). Se è stato *approvato* , controllare la `properties.provisioningState` della risorsa. In tal caso `Incomplete` , significa che alcune delle dipendenze sottostanti per la risorsa non sono state sottoposte a provisioning: eseguire `PUT` nuovamente la richiesta per "ricreare" la risorsa di collegamento privata condivisa che dovrebbe risolvere il problema. Potrebbe essere necessaria una nuova approvazione: controllare lo stato della risorsa ancora una volta per verificarlo.
-- Se l'indicizzatore viene creato senza impostarne `executionEnvironment` , la creazione dell'indicizzatore potrebbe avere esito positivo, ma la cronologia di esecuzione indicherà che l'esecuzione dell'indicizzatore non è riuscita. È necessario [aggiornare l'indicizzatore](/rest/api/searchservice/update-indexer) per specificare l'ambiente di esecuzione.
-- Se l'indicizzatore viene creato senza impostare `executionEnvironment` e viene eseguito correttamente, significa che Azure ricerca cognitiva ha deciso che il relativo ambiente di esecuzione è l'ambiente "privato" specifico del servizio di ricerca. Tuttavia, questa modifica può variare in base a diversi fattori, ad esempio le risorse utilizzate dall'indicizzatore, il carico sul servizio di ricerca e così via, e può avere esito negativo in un secondo momento. si consiglia vivamente di impostare il `executionEnvironment` come `"Private"` per assicurarsi che non si verifichino errori in futuro.
-- Le [quote e i limiti](search-limits-quotas-capacity.md) determinano il numero di risorse di collegamento privato condivise che possono essere create e dipendono dallo SKU del servizio di ricerca.
+- Se la creazione dell'indicizzatore ha esito negativo con un messaggio di errore simile a "le credenziali dell'origine dati non sono valide", significa che lo stato della connessione all'endpoint privato non è ancora *approvato* o che la connessione non è funzionante. Per risolvere il problema: 
+  * Ottenere lo stato della risorsa di collegamento privato condiviso usando l' [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get). Se lo stato è *approvato*, controllare l'oggetto `properties.provisioningState` della risorsa. Se lo stato è `Incomplete` , ciò significa che non è stato possibile configurare alcune dipendenze sottostanti per la risorsa. La `PUT` rigenerazione della richiesta per ricreare la risorsa di collegamento privato condiviso dovrebbe risolvere il problema. Potrebbe essere necessaria una riapprovazione. Controllare nuovamente lo stato della risorsa per verificare che il problema sia stato risolto.
+
+- Se si crea l'indicizzatore senza impostare la relativa `executionEnvironment` proprietà, la creazione potrebbe avere esito positivo, ma la cronologia di esecuzione indicherà che l'esecuzione dell'indicizzatore non è riuscita. Per risolvere il problema:
+   * [Aggiornare l'indicizzatore](/rest/api/searchservice/update-indexer) per specificare l'ambiente di esecuzione.
+
+- Se è stato creato l'indicizzatore senza impostare la `executionEnvironment` proprietà e l'esecuzione è stata completata, significa che Azure ricerca cognitiva ha deciso che l'ambiente di esecuzione è l'ambiente *privato* specifico del servizio di ricerca. Questo può cambiare, a seconda delle risorse utilizzate dall'indicizzatore, del carico sul servizio di ricerca e di altri fattori e può avere esito negativo in un secondo momento. Per risolvere il problema:
+  * Si consiglia vivamente di impostare la `executionEnvironment` proprietà su `private` per assicurarsi che non abbia esito negativo in futuro.
+
+Le [quote e i limiti](search-limits-quotas-capacity.md) determinano il numero di risorse di collegamento privato condivise che possono essere create e dipendono dallo SKU del servizio di ricerca.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

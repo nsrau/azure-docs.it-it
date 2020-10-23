@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: storage
 author: tamram
@@ -9,15 +9,15 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 39b61c78cbd0333183c80234256d6041a109d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68249928"
 ---
-Un ID di risorsa Azure AD indica i destinatari per i quali è possibile usare un token emesso per fornire l'accesso a una risorsa di Azure. Nel caso di archiviazione di Azure, l'ID risorsa può essere specifico per un singolo account di archiviazione o può essere applicato a qualsiasi account di archiviazione. La tabella seguente descrive i valori che è possibile fornire per l'ID risorsa:
+Un ID della risorsa di Azure AD indica i destinatari per i quali è possibile usare un token emesso per consentire l'accesso a una risorsa di Azure. Nel caso di Archiviazione di Azure, l'ID della risorsa può essere specifico di un singolo account di archiviazione o essere valido per qualsiasi account di archiviazione. La tabella seguente descrive i valori che è possibile specificare per l'ID della risorsa:
 
-|ID risorsa  |Descrizione  |
+|ID risorsa  |Description  |
 |---------|---------|
-|`https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net`    | Endpoint del servizio per un determinato account di archiviazione. Usare questo valore per acquisire un token per l'autorizzazione delle richieste solo per l'account di archiviazione di Azure e per il servizio specifici. Sostituire il valore tra parentesi quadre con il nome dell'account di archiviazione.      |
-|`https://storage.azure.com/`     | Usare per acquisire un token per autorizzare le richieste a qualsiasi account di archiviazione di Azure.        |
+|`https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net`    | Endpoint servizio per un determinato account di archiviazione. Usare questo valore per acquisire un token per autorizzare le richieste solo all'account di archiviazione di Azure e al servizio specifici. Sostituire il valore racchiuso tra parentesi quadre con il nome del proprio account di archiviazione.      |
+|`https://storage.azure.com/`     | Usare questo valore per acquisire un token per autorizzare le richieste a qualsiasi account di archiviazione di Azure.        |

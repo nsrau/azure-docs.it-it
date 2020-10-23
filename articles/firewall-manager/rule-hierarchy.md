@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893723"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331737"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Usare i criteri del firewall di Azure per definire una gerarchia di regole
 
@@ -21,7 +21,7 @@ Gli amministratori della sicurezza devono gestire i firewall e garantire la conf
 Criteri del firewall di Azure consente di definire una gerarchia di regole e di applicare la conformità:
 
 - Fornisce una struttura gerarchica per sovrapporre un criterio di base centrale a un criterio del team di applicazioni figlio. Il criterio di base ha una priorità più alta e viene eseguito prima del criterio figlio.
-- Usare una definizione personalizzata di controllo degli accessi in base al ruolo per evitare la rimozione accidentale dei criteri di base e fornire l'accesso selettivo ai gruppi di raccolta regole all'interno di una sottoscrizione o di un gruppo di risorse 
+- Usare una definizione di ruolo personalizzata di Azure per evitare la rimozione accidentale dei criteri di base e fornire l'accesso selettivo ai gruppi di raccolta regole all'interno di una sottoscrizione o di un 
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
@@ -153,7 +153,7 @@ Ripetere questa procedura per gli altri criteri del firewall.
 
 ### <a name="summary"></a>Riepilogo
 
-Il criterio firewall con controllo degli accessi in base al ruolo ora fornisce l'accesso selettivo ai gruppi di raccolta regole
+Criteri firewall con ruoli personalizzati ora fornisce accesso selettivo ai gruppi di raccolta regole dei criteri firewall.
 
 Gli utenti non hanno le autorizzazioni per:
 - Eliminare i criteri firewall o firewall di Azure.

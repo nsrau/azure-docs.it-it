@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070582"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127336"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -309,7 +309,7 @@ Per gli stati _C_ ed _E_ del flusso, i conteggi di byte e pacchetti sono contegg
 
 Usare il collegamento pertinente riportato di seguito per le guide sull'abilitazione dei log di flusso.
 
-- [Portale di Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Azure portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 - [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
@@ -317,7 +317,7 @@ Usare il collegamento pertinente riportato di seguito per le guide sull'abilitaz
 
 ## <a name="updating-parameters"></a>Aggiornamento dei parametri
 
-**Portale di Azure**
+**Azure portal**
 
 Nella portale di Azure passare alla sezione log di flusso NSG in Network Watcher. Fare quindi clic sul nome del NSG. Verrà impostato il riquadro impostazioni per il log dei flussi. Modificare i parametri desiderati e fare clic su **Salva** per distribuire le modifiche.
 
@@ -360,6 +360,10 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Problemi con le regole TCP in ingresso definite dall'utente**: i [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, a causa delle limitazioni correnti della piattaforma, le regole definite dall'utente che interessano i flussi TCP in ingresso vengono implementate in modo senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non fatali. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e i pacchetti riportati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai numeri effettivi. Un flag di consenso esplicito che corregge questi problemi è pianificato per essere disponibile entro il 2020 dicembre più recente. Nel frattempo, i clienti che hanno riscontrato problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite supporto tecnico, generare una richiesta di supporto in Network Watcher > log di flusso NSG.  
 
 **Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
+
+**Servizi non compatibili**: a causa delle limitazioni correnti della piattaforma, un piccolo set di servizi di Azure non è supportato dai log dei flussi di NSG. L'elenco corrente dei servizi incompatibili è
+- [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/)
+- [App per la logica](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Procedure consigliate
 

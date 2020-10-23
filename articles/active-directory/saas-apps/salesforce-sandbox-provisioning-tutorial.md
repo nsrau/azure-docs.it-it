@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273314"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101784"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce Sandbox per il provisioning utenti automatico
 
@@ -73,15 +73,15 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 1. Per ottenere il token di sicurezza di Salesforce Sandbox, aprire una nuova scheda e accedere allo stesso account amministratore di Salesforce Sandbox. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-     ![Abilita provisioning utenti automatico](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
+     ![Screenshot Visualizza il collegamento impostazioni selezionato.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
 1. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Abilita provisioning utenti automatico](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
+    ![Screenshot Visualizza Reimposta il token di sicurezza selezionato da informazioni personali.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
 
 1. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Abilita provisioning utenti automatico](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
+    ![Screenshot mostra la pagina token di sicurezza Rest, con testo esplicativo e l'opzione per reimpostare il token di sicurezza](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
 
 1. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce Sandbox.com contenente il nuovo token di sicurezza.
 

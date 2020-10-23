@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni e delle limitazioni di sup
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946349"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174053"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -41,7 +41,7 @@ ms.locfileid: "91946349"
 * Sono supportati tutti i tipi di backup (completo/differenziale/log) e i modelli di recupero (semplice/completo/con registrazione minima delle operazioni bulk).
 * Per i database di sola **lettura** sono supportati i tipi di backup completo completi e di sola copia.
 * La compressione SQL nativa è supportata se l'utente è abilitato in modo esplicito nel criterio di backup. Backup di Azure esegue l'override delle impostazioni predefinite a livello di istanza con la clausola COMPRESSION/NO_COMPRESSION, a seconda del valore di questo controllo impostato dall'utente.
-* Il backup del database abilitato per Transparent Data Encryption è supportato. Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). È disponibile la compressione dei backup per i database abilitati per Transparent Data Encryption per SQL Server 2016 e versioni successive, ma con una dimensione di trasferimento inferiore, come illustrato [qui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* Il backup del database abilitato per Transparent Data Encryption è supportato. Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). È disponibile la compressione dei backup per i database abilitati per Transparent Data Encryption per SQL Server 2016 e versioni successive, ma con una dimensione di trasferimento inferiore, come illustrato [qui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
 * SQL Server **istanza del cluster di failover (FCI)** non è supportata.
 * L'uso di più soluzioni di backup per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità SQL always on può causare un errore di backup. Evitare di eseguire questa operazione. Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori.
@@ -62,7 +62,7 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Principale
+Completo | Principale
 Differenziale | Principale
 File di log |  Principale
 Completo solo copia |  Principale
@@ -71,7 +71,7 @@ Completo solo copia |  Principale
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Principale
+Completo | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
@@ -80,7 +80,7 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Principale
+Completo | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
@@ -89,7 +89,7 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Principale
+Completo | Principale
 Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari

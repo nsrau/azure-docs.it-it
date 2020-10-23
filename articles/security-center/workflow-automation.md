@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712290"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344033"
 ---
-# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creare risposte automatiche agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creare risposte automatiche agli avvisi e ai consigli con l'automazione dei flussi di lavoro
 
 Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder di rilievo, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare quante più procedure possibili. L'automazione riduce i costi. Consente inoltre di migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
 
-Questo articolo descrive la funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure. Questa funzionalità può attivare app per la logica su avvisi di sicurezza e raccomandazioni. Ad esempio, potrebbe essere necessario che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando si verifica un avviso. Si apprenderà anche come creare app per la logica usando app per la [logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Questo articolo descrive la funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure. Questa funzionalità può attivare app per la logica su avvisi di sicurezza e raccomandazioni. Ad esempio, potrebbe essere necessario che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando si verifica un avviso. Si apprenderà anche come creare app per la logica usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > Se in precedenza è stata usata la visualizzazione PlayBook (anteprima) nella barra laterale, si troveranno le stesse funzionalità insieme alla funzionalità espansa nella pagina nuova automazione del flusso di lavoro.
@@ -32,7 +32,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|Livello gratuito|
-|Autorizzazioni e ruoli obbligatori:|**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
+|Autorizzazioni e ruoli obbligatori:|**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](../role-based-access-control/built-in-roles.md#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](../role-based-access-control/built-in-roles.md#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
@@ -101,9 +101,9 @@ In questo articolo si è appreso come creare app per la logica, automatizzare l'
 
 Per materiale correlato, vedere: 
 
-- [Il modulo Microsoft Learn su come usare l'automazione dei flussi di lavoro per automatizzare una risposta di sicurezza](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [Il modulo Microsoft Learn su come usare l'automazione dei flussi di lavoro per automatizzare una risposta di sicurezza](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md)
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
-- [Informazioni su App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Connettori per le app per la logica](https://docs.microsoft.com/connectors/)
+- [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+- [Connettori per le app per la logica](/connectors/)
 - [Schemi dei tipi di dati di automazione del flusso di lavoro](https://aka.ms/ASCAutomationSchemas)

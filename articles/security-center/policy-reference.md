@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Centro sicurezza di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Centro sicurezza di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0c445dc882c40724c20c773b3a5e191fb06970a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823145"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340904"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 
@@ -52,5 +52,5 @@ Questo articolo ha illustrato le definizioni dei criteri di sicurezza di criteri
 - [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](./security-center-planning-and-operations-guide.md): informazioni su come pianificare e comprendere le considerazioni di progettazione nel centro sicurezza di Azure.
 - [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](./security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 - [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](./security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](./security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
+- [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](./security-center-partner-integration.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
 - [Criteri di Azure](../governance/policy/overview.md): informazioni su come controllare e gestire le risorse di Azure.

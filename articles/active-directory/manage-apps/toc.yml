@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: Informazioni sull'accesso Single Sign-On (SSO)
       href: what-is-single-sign-on.md
+    - name: Novità della documentazione
+      href: whats-new-docs.md
 - name: Avvii rapidi
   expanded: true
   items:
@@ -61,6 +63,8 @@
           href: plan-sso-deployment.md
         - name: Opzioni di accesso Single Sign-On
           href: sso-options.md
+        - name: SSO basato su OIDC
+          href: configure-oidc-single-sign-on.md
         - name: SSO basato su SAML
           href: configure-saml-single-sign-on.md
         - name: SSO basato su password
@@ -97,7 +101,7 @@
           href: application-proxy-connectors.md
         - name: Gruppi di connettori
           href: application-proxy-connector-groups.md
-        - name: Sicurezza
+        - name: Security
           href: application-proxy-security.md
         - name: Topologia di rete
           href: application-proxy-network-topology.md
@@ -218,6 +222,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Eseguire il debug dell'accesso Single Sign-On basato su SAML
+          href: debug-saml-sso-issues.md
         - name: Risolvere i problemi di accesso degli utenti
           items:
             - name: Richiesta di consenso imprevista
@@ -230,12 +236,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problema durante l'accesso a un'app Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema con accesso Single Sign-On federato - App non della raccolta
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problema con accesso Single Sign-On federato - App della raccolta
+            - name: Problema relativo all'accesso Single Sign-On
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema con app sviluppata in modo personalizzato
-              href: application-sign-in-problem-custom-dev.md
         - name: Risolvere i problemi relativi alle app locali
           items:
             - name: Risoluzione dei problemi del proxy dell'applicazione

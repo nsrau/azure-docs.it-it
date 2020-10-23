@@ -6,29 +6,30 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ce7ffc66e0b6164b2e4ca9725b3f26403292a4a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80754684"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220772"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Esercitazione: Configurare le impostazioni di rete del cluster
 
-Prima di usare un nuovo cluster Azure FXT Edge Filer, è consigliabile controllare e personalizzare diverse impostazioni di rete per il flusso di lavoro. 
+Prima di usare un nuovo cluster Azure FXT Edge Filer, è consigliabile controllare e personalizzare diverse impostazioni di rete per il flusso di lavoro.
 
-Questa esercitazione presenta le impostazioni di rete che può essere necessario modificare per un nuovo cluster. 
+Questa esercitazione presenta le impostazioni di rete che può essere necessario modificare per un nuovo cluster.
 
-Si acquisiranno le nozioni seguenti: 
+Si acquisiranno le nozioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Impostazioni di rete che può essere necessario aggiornare dopo la creazione di un cluster
-> * Casi di utilizzo di Azure FXT Edge Filer in cui è necessario un server Active Directory o un server DNS 
+> * Casi di utilizzo di Azure FXT Edge Filer in cui è necessario un server Active Directory o un server DNS
 > * Come configurare il sistema DNS round robin (RRDNS) per bilanciare automaticamente il carico delle richieste client al cluster FXT
 
 La quantità di tempo necessaria per completare questi passaggi dipende dal numero di modifiche di configurazione necessarie nel sistema:
 
-* Se è necessario solo leggere l'esercitazione e controllare alcune impostazioni, sono necessari 10-15 minuti. 
+* Se è necessario solo leggere l'esercitazione e controllare alcune impostazioni, sono necessari 10-15 minuti.
 * Se è necessario configurare il sistema DNS round robin, questa attività può richiedere un'ora o più.
 
 ## <a name="adjust-network-settings"></a>Modificare le impostazioni di rete
@@ -78,20 +79,20 @@ Se è necessario caricare certificati nel cluster, usare la pagina delle imposta
 
 Per crittografare le comunicazioni relative alla gestione del cluster, usare la pagina delle impostazioni **Cluster** > **General Setup** (Configurazione generale) per selezionare il certificato da usare per il protocollo TLS di amministrazione.
 
-> [!Note] 
-> Le chiavi di accesso dei servizi cloud vengono archiviate usando la pagina di configurazione **Cloud Credentials** (Credenziali cloud). La sezione [Aggiungere un archiviatore di base](fxt-add-storage.md#add-a-core-filer) precedente mostra un esempio. Per informazioni dettagliate, vedere la sezione [Credenziali cloud](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) della guida alla configurazione del cluster. 
+> [!Note]
+> Le chiavi di accesso dei servizi cloud vengono archiviate usando la pagina di configurazione **Cloud Credentials** (Credenziali cloud). La sezione [Aggiungere un archiviatore di base](fxt-add-storage.md#add-a-core-filer) precedente mostra un esempio. Per informazioni dettagliate, vedere la sezione [Credenziali cloud](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) della guida alla configurazione del cluster.
 
 ## <a name="configure-dns-for-load-balancing"></a>Configurare DNS per il bilanciamento del carico
 
-Questa sezione descrive le operazioni di base per configurare un sistema DNS round robin (RRDNS) per la distribuzione del carico dei client tra tutti gli indirizzi IP esposti ai client nel cluster FXT Edge Filer. 
+Questa sezione descrive le operazioni di base per configurare un sistema DNS round robin (RRDNS) per la distribuzione del carico dei client tra tutti gli indirizzi IP esposti ai client nel cluster FXT Edge Filer.
 
 ### <a name="decide-whether-or-not-to-use-dns"></a>Scegliere se usare o meno DNS
 
-Il bilanciamento del carico è sempre consigliabile, ma non sempre è necessario usare DNS. Ad esempio, con alcuni tipi di flussi di lavoro client può essere più logico usare uno script per assegnare gli indirizzi IP del cluster in modo uniforme tra i client quando si monta il cluster. Alcuni metodi vengono descritti in [Montare il cluster](fxt-mount-clients.md). 
+Il bilanciamento del carico è sempre consigliabile, ma non sempre è necessario usare DNS. Ad esempio, con alcuni tipi di flussi di lavoro client può essere più logico usare uno script per assegnare gli indirizzi IP del cluster in modo uniforme tra i client quando si monta il cluster. Alcuni metodi vengono descritti in [Montare il cluster](fxt-mount-clients.md).
 
-Per decidere se usare o meno un server DNS, tenere a mente quanto segue: 
+Per decidere se usare o meno un server DNS, tenere a mente quanto segue:
 
-* Se il sistema è accessibile solo da parte di client NFS, DNS non è necessario. È possibile specificare tutti gli indirizzi di rete usando indirizzi IP numerici. 
+* Se il sistema è accessibile solo da parte di client NFS, DNS non è necessario. È possibile specificare tutti gli indirizzi di rete usando indirizzi IP numerici.
 
 * Se il sistema supporta l'accesso SMB (CIFS), il DNS è necessario, perché è necessario specificare un dominio DNS per il server Active Directory.
 
@@ -110,7 +111,7 @@ A sinistra è visualizzato un vserver cluster, al centro e a destra compaiono gl
 
 Ogni indirizzo IP lato client deve avere un nome univoco riservato all'uso interno da parte del cluster. In questo diagramma, gli indirizzi IP client sono denominati vs1-client-IP-* per maggiore chiarezza, ma nell'ambiente di produzione è consigliabile usare qualcosa di più conciso, ad esempio client*.
 
-I client montano il cluster usando il nome vserver come argomento server. 
+I client montano il cluster usando il nome vserver come argomento server.
 
 Modificare il file ``named.conf`` del server DNS per impostare un ordine ciclico per le query al vserver. Questa opzione assicura che tutti i valori disponibili siano alternati ciclicamente. Aggiungere un'istruzione simile alla seguente:
 
@@ -136,7 +137,7 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-### <a name="enable-dns-in-the-cluster"></a>Abilitare DNS nel cluster 
+### <a name="enable-dns-in-the-cluster"></a>Abilitare DNS nel cluster
 
 Specificare il server DNS usato dal cluster nella pagina delle impostazioni **Cluster** > **Administrative Network** (Rete amministrativa). Le impostazioni in questa pagina includono:
 
@@ -148,8 +149,8 @@ Per altre informazioni, vedere [Impostazioni DNS](<https://azure.github.io/Avere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo è l'ultimo passaggio di configurazione di base per il cluster Azure FXT Edge Filer. 
+Questo è l'ultimo passaggio di configurazione di base per il cluster Azure FXT Edge Filer.
 
 * Per informazioni sui LED di sistema e su altri indicatori, vedere [Monitorare lo stato dell'hardware](fxt-monitor.md).
-* Per altre informazioni sul montaggio del cluster FXT Edge Filer nei client, vedere [Montare il cluster](fxt-mount-clients.md). 
-* Per altre informazioni sull'uso e sulla gestione di un cluster FXT Edge Filer, vedere la [guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Per altre informazioni sul montaggio del cluster FXT Edge Filer nei client, vedere [Montare il cluster](fxt-mount-clients.md).
+* Per altre informazioni sull'uso e sulla gestione di un cluster FXT Edge Filer, vedere la [guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html).

@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707901"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365511"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell per i ruoli di Azure AD in Privileged Identity Management
 
@@ -54,7 +54,7 @@ Questo articolo contiene le istruzioni per l'uso di cmdlet PowerShell in Azure A
     ![Individuare l'ID dell'organizzazione nelle proprietà dell'organizzazione di Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) , vedere. Tuttavia, è necessario sostituire "azureResources" nel parametro providerID con "aadRoles". Sarà anche necessario ricordare di usare l'ID tenant per l'organizzazione Azure AD come parametro resourceId.
+> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) , vedere. Tuttavia, è necessario sostituire "azureResources" nel parametro providerID con "aadRoles". Sarà anche necessario ricordare di usare l'ID tenant per l'organizzazione Azure AD come parametro resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recupero delle definizioni dei ruoli
 
@@ -162,4 +162,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Assegnare un ruolo personalizzato di Azure AD](azure-ad-custom-roles-assign.md)
 - [Rimuovere o aggiornare un'assegnazione di ruolo personalizzato di Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurare un'assegnazione di ruolo personalizzato di Azure AD](azure-ad-custom-roles-configure.md)
-- [Definizioni dei ruoli in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definizioni dei ruoli in Azure AD](../roles/permissions-reference.md)

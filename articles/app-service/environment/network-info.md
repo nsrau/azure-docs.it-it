@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875734"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150247"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -53,7 +53,7 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 Per il funzionamento dell'ambiente del servizio app, l'ambiente del servizio app richiede che siano aperte le porte seguenti:
 
-| Uso | Da | To |
+| Uso | Da | A |
 |-----|------|----|
 | Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
@@ -241,7 +241,7 @@ Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL 
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop

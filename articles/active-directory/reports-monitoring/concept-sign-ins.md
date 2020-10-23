@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812829"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319764"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -31,7 +31,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
-    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
+    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -143,7 +143,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticazione moderna|Description|
+|Nome|Autenticazione moderna|Descrizione|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
@@ -195,7 +195,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Download](./media/concept-sign-ins/71.png "Download")
+![Scaricare](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -264,7 +264,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562010"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371172"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
@@ -56,7 +56,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
+[Attività Azure Machine Learning Studio (classiche): esecuzione batch e risorsa di aggiornamento](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -112,7 +112,7 @@ name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguit
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
 parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
-Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Numero | No 
+Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Number | No 
 annotations | Elenco di tag associati alla pipeline | Array | No
 
 ## <a name="activity-json"></a>Attività JSON
@@ -146,7 +146,7 @@ Tag | Descrizione | Obbligatoria
 name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura ( \_ )</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Sì</li></ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-flow-activities). | Sì
-linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight, l'attività di assegnazione di punteggio Batch di Azure Machine Learning e l'attività stored procedure. <br/><br/>No per tutto il resto
+linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per attività HDInsight, attività di assegnazione di punteggi batch Azure Machine Learning Studio (classica), attività stored procedure. <br/><br/>No per tutto il resto
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
 Criterio | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include un comportamento di timeout e ripetizione dei tentativi. Se non è specificato, vengono utilizzati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
 dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No

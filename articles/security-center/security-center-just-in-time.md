@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440722"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342383"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con accesso just-in-Time
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con l'accesso JIT
 
 Bloccare il traffico in ingresso alle macchine virtuali di Azure con la funzionalità di accesso JIT (just-in-Time) del Centro sicurezza di Azure (VM). In questo modo si riduce l'esposizione agli attacchi offrendo un facile accesso quando è necessario connettersi a una macchina virtuale.
 
@@ -35,7 +35,7 @@ Questa pagina illustra come includere JIT nel programma di sicurezza. Si apprend
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
-|Macchine virtuali supportate:|![Sì ](./media/icons/yes-icon.png) macchine virtuali distribuite tramite Azure Resource Manager.<br>![Non sono state ](./media/icons/no-icon.png) distribuite VM con i modelli di distribuzione classica. [Altre informazioni su questi modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).<br>![Nessuna macchina ](./media/icons/no-icon.png) virtuale protetta da firewall di Azure controllata da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Macchine virtuali supportate:|![Sì ](./media/icons/yes-icon.png) macchine virtuali distribuite tramite Azure Resource Manager.<br>![Non sono state ](./media/icons/no-icon.png) distribuite VM con i modelli di distribuzione classica. [Altre informazioni su questi modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).<br>![Nessuna macchina ](./media/icons/no-icon.png) virtuale protetta da firewall di Azure controllata da [gestione firewall di Azure](../firewall-manager/overview.md)|
 |Autorizzazioni e ruoli obbligatori:|I ruoli **Reader** e **SecurityReader** possono visualizzare lo stato e i parametri JIT.<br>Per creare ruoli personalizzati che possono funzionare con JIT, vedere [quali sono le autorizzazioni necessarie per configurare e usare JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Per creare un ruolo con privilegi minimi per gli utenti che devono richiedere l'accesso JIT a una macchina virtuale e non eseguire altre operazioni JIT, usare lo [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) delle pagine della community di GitHub del Centro sicurezza.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
@@ -164,7 +164,7 @@ Per modificare le regole JIT esistenti per una macchina virtuale:
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
-### <a name="enable-jit-on-your-vms-using-powershell"></a>Abilitare JIT nelle VM tramite PowerShell
+### <a name="enable-jit-on-your-vms-using-powershell"></a>Abilitare JIT nelle macchine virtuali usando PowerShell
 
 Per abilitare l'accesso just-in-time alle macchine virtuali da PowerShell, usare il cmdlet di PowerShell ufficiale del Centro sicurezza di Azure `Set-AzJitNetworkAccessPolicy` .
 
@@ -215,7 +215,7 @@ I comandi di PowerShell seguenti creano questa configurazione JIT:
 
 È possibile usare la funzionalità di accesso JIT alle macchine virtuali tramite l'API Centro sicurezza di Azure. Usare questa API per ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. 
 
-Per altre informazioni, vedere [criteri di accesso alla rete JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Per altre informazioni, vedere [criteri di accesso alla rete JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -290,7 +290,7 @@ Per richiedere l'accesso da macchine virtuali di Azure:
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
-### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Richiedere l'accesso a una macchina virtuale abilitata per JIT usando PowerShell
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Richiedere accesso a una macchina virtuale abilitata per JIT usando PowerShell
 
 Nell'esempio seguente, è possibile visualizzare una richiesta di accesso JIT alla macchina virtuale per una macchina virtuale specifica in cui si richiede l'apertura della porta 22 per un indirizzo IP specifico e per un determinato periodo di tempo:
 
@@ -319,7 +319,7 @@ Eseguire questo comando in PowerShell:
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Per altre informazioni, vedere la [documentazione del cmdlet di PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Per altre informazioni, vedere la [documentazione del cmdlet di PowerShell](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Per altre informazioni, vedere la [documentazione del cmdlet di PowerShell](http
 
 È possibile usare la funzionalità di accesso JIT alle macchine virtuali tramite l'API Centro sicurezza di Azure. Usare questa API per ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. 
 
-Per altre informazioni, vedere [criteri di accesso alla rete JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Per altre informazioni, vedere [criteri di accesso alla rete JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 

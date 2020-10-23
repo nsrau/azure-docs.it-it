@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549892"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858099"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con KnowledgeOwl
 
@@ -167,11 +167,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Settings** (Impostazioni) e quindi selezionare **Security** (Sicurezza).
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Security selezionata nel menu Settings.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Scorrere verso il basso fino a **SAML SSO Integration** (Integrazione SSO SAML) e seguire questa procedura:
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+    ![Screenshot che mostra la pagina SAML SSO Integration in cui è possibile apportare le modifiche descritte qui.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. Selezionare **Enable SAML SSO** (Abilita SSO SAML).
 
@@ -189,7 +189,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     h. Fare clic su **Map SAML Attributes** (Esegui il mapping degli attributi SAML) per eseguire il mapping degli attributi e seguire questa procedura:
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina Map SAML Attributes in cui è possibile apportare le modifiche descritte qui.](./media/knowledgeowl-tutorial/configure3.png)
 
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` nella casella di testo **SSO ID** (ID SSO)
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` nella casella di testo **Username/Email** (Nome utente/indirizzo di posta elettronica).
@@ -199,7 +199,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     i. Fare clic su **Save** nella parte inferiore della pagina.
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+    ![Screenshot che mostra il pulsante Save.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Creare un utente di test di KnowledgeOwl
 

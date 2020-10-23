@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/19/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439745"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275746"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -240,7 +240,7 @@ Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0**
 
 ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
-Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO basato su password, selezionare **SSO con password** come illustrato.
+Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO basato su password, selezionare **password SSO (UserName & password)** , come illustrato.
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652364"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147460"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -129,5 +129,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
     - [Risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../../azure-sql/database/reserved-capacity-overview.md)
     - [Risorse di Cache di Azure per Redis con capacità riservata di Cache di Azure per Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Altre informazioni sulle prenotazioni per i piani software:
-    - [Piani software Red Hat da prenotazioni di Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Piani software Red Hat da prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
     - [Piani software SUSE da prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)

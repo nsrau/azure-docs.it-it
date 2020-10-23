@@ -4,12 +4,12 @@ description: Questo articolo illustra le domande generali più frequenti su Azur
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950494"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369438"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -71,7 +71,7 @@ Vedere i dettagli sui [prezzi di Site Recovery](https://azure.microsoft.com/pric
 
 È possibile usare la funzione [Calcolatore dei prezzi](https://aka.ms/asr_pricing_calculator) per stimare i costi quando si usa Site Recovery.
 
-Per una stima dettagliata dei costi, eseguire lo strumento Piano di distribuzione per [VMware](https://aka.ms/siterecovery_deployment_planner) o [Hyper-V](https://aka.ms/asr-deployment-planner) e usare il [report di stima dei costi](https://aka.ms/asr_DP_costreport).
+Per una stima dettagliata dei costi, eseguire lo strumento Piano di distribuzione per [VMware](./site-recovery-deployment-planner.md) o [Hyper-V](https://aka.ms/asr-deployment-planner) e usare il [report di stima dei costi](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>I dischi gestiti vengono ora usati per la replica di server fisici e macchine virtuali VMware. Vengono addebitati costi aggiuntivi per l'account di archiviazione della cache con i dischi gestiti?

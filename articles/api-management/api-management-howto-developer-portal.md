@@ -1,7 +1,7 @@
 ---
-title: Panoramica del portale per sviluppatori di gestione API di Azure
+title: Panoramica del portale per sviluppatori in gestione API di Azure
 titleSuffix: Azure API Management
-description: Informazioni sul portale per sviluppatori in gestione API. Il portale per sviluppatori è il punto in cui gli utenti possono trovare le API.
+description: 'Informazioni sul portale per sviluppatori in gestione API: un sito Web personalizzabile, in cui i consumer di API possono esplorare le API.'
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -11,61 +11,46 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715464"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317814"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di Gestione API
+# <a name="overview-of-the-developer-portal"></a>Panoramica del portale per sviluppatori
 
 Il portale per sviluppatori è un sito Web completamente personalizzabile e completamente personalizzabile con la documentazione delle API. Si tratta del punto in cui i consumer di API possono individuare le API, informazioni su come usarle, richiedere l'accesso e provarle.
 
-Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gestite del portale per sviluppatori in gestione API. Viene inoltre illustrata l'architettura e vengono fornite le risposte alle domande più frequenti.
+Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gestite del portale per sviluppatori in gestione API. Vengono inoltre fornite le risposte alle domande più frequenti.
 
 ![Portale per sviluppatori di Gestione API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-> [!NOTE]
-> <a name="migrate-from-legacy"></a> Il nuovo portale per sviluppatori non è compatibile con il portale per sviluppatori Legacy e la migrazione automatica non è possibile. È necessario ricreare manualmente il contenuto (pagine, testo, file multimediali) e personalizzare l'aspetto del nuovo portale. Per istruzioni, vedere [l'esercitazione sul portale per sviluppatori](api-management-howto-developer-portal-customize.md) .
+## <a name="migration-from-the-legacy-portal"></a>Migrazione dal portale legacy
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versioni gestite e self-hosted
+> [!IMPORTANT]
+> Il portale per sviluppatori Legacy è ora deprecato e riceverà solo gli aggiornamenti della sicurezza. È possibile continuare a usarlo, come al solito, fino al ritiro entro il 2023 ottobre, quando verrà rimosso da tutti i servizi di gestione API.
 
-È possibile creare il portale per sviluppatori in due modi:
+La migrazione al nuovo portale per sviluppatori è descritta nell' [articolo della documentazione dedicata](developer-portal-deprecated-migration.md).
 
-- **Versione gestita** : modifica e personalizzazione del portale, integrato nell'istanza di gestione API, accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net` . Per informazioni su come accedere e personalizzare il portale gestito, vedere [questo articolo della documentazione](api-management-howto-developer-portal-customize.md) .
-- **Versione self-hosted** : tramite la distribuzione e l'hosting automatico del portale all'esterno di un'istanza di gestione API. Questo approccio consente di modificare la codebase del portale ed estendere la funzionalità di base fornita, ad esempio implementare widget personalizzati per l'integrazione con sistemi di terze parti. In questo scenario si è il gestore del portale e si è responsabili dell'aggiornamento del portale alla versione più recente. Per informazioni dettagliate e istruzioni, vedere il [repository GitHub con il codice sorgente del portale][1] e [l'esercitazione sull'implementazione di un widget][3]. L' [esercitazione per la versione gestita](api-management-howto-developer-portal-customize.md) scorre il pannello amministrativo del portale, che è comune per le versioni gestite e indipendenti.
+## <a name="customization-and-styling"></a>Personalizzazione e stile
 
-## <a name="portal-architectural-concepts"></a>Concetti relativi all'architettura del portale
+Il portale per sviluppatori può essere personalizzato e in stile tramite l'editor visivo incorporato, con trascinamento della selezione. Per ulteriori informazioni, vedere [questa esercitazione](api-management-howto-developer-portal-customize.md) .
 
-I componenti del portale possono essere divisi logicamente in due categorie: *codice* e *contenuto*.
+## <a name="extensibility"></a><a name="managed-vs-self-hosted"></a> Estendibilità
 
-Il *codice* viene mantenuto nel [repository GitHub][1] e include:
+Il servizio gestione API include un portale per sviluppatori integrato, sempre aggiornato e **gestito** . È possibile accedervi dall'interfaccia portale di Azure.
 
-- Widget, che rappresentano elementi visivi e combinano HTML, JavaScript, funzionalità di stile, impostazioni e mapping del contenuto. Gli esempi sono un'immagine, un paragrafo di testo, un modulo, un elenco di API e così via.
-- Definizione dello stile, che specifica il modo in cui i widget possono essere con stile
-- Motore, che genera pagine Web statiche dal contenuto del portale ed è scritto in JavaScript
-- Editor visivo, che consente la personalizzazione e la creazione in browser
+Se è necessario estenderlo con la logica personalizzata, che non è supportata in modo predefinito, è possibile modificarne la codebase. La codebase del portale è [disponibile in un repository GitHub][1]. Ad esempio, è possibile implementare un nuovo widget, che si integra con un sistema di supporto di terze parti. Quando si implementano nuove funzionalità, è possibile scegliere una delle opzioni seguenti:
 
-Il *contenuto* è suddiviso in due sottocategorie: contenuto del *portale* e *contenuto di gestione API*.
+- **Ospitare autonomamente** il portale risultante all'esterno del servizio gestione API. Quando si esegue l'hosting automatico del portale, si diventa il suo maintainer e si è responsabili degli aggiornamenti. L'assistenza del supporto tecnico di Azure è limitata solo alla configurazione di base dei portali self-hosted, come descritto nella [sezione wiki del repository][2].
+- Aprire una richiesta pull per il team di gestione API per unire nuove funzionalità alla codebase del portale **gestito** .
 
-Il *contenuto del portale* è specifico del portale e include:
-
-- Pagine, ad esempio pagina di destinazione, esercitazioni sulle API, post di Blog
-- Immagini multimediali, animazioni e altro contenuto basato su file
-- Layout: modelli, che corrispondono a un URL e definiscono la modalità di visualizzazione delle pagine
-- Stili-valori per le definizioni di stile, ad esempio tipi di carattere, colori e bordi
-- Impostazioni-configurazione, ad esempio favicon, metadati del sito Web
-
-Il *contenuto del portale*, ad eccezione dei supporti, è espresso come documenti JSON.
-
-Il *contenuto di gestione API* include entità quali API, operazioni, prodotti e sottoscrizioni.
-
-Il portale è basato su un fork adattato del [Framework Paperbits](https://paperbits.io/). La funzionalità Paperbits originale è stata estesa per fornire widget specifici di gestione API (ad esempio, un elenco di API, un elenco di prodotti) e un connettore al servizio gestione API per il salvataggio e il recupero del contenuto.
+Per informazioni dettagliate sull'estendibilità e istruzioni, vedere il [repository GitHub][1] e [le esercitazioni sull'implementazione di un widget][3]. L' [esercitazione per la personalizzazione del portale gestito](api-management-howto-developer-portal-customize.md) illustra il pannello amministrativo del portale, che è comune per le versioni **gestite** e **self-hosted** .
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a> Domande frequenti
 
@@ -77,7 +62,7 @@ Quando è stata avviata per la prima volta la versione di anteprima del portale 
 
 Se il portale è stato personalizzato in modo significativo in base alla versione di anteprima del contenuto, è possibile continuare a usarlo così com'è e posizionare manualmente i nuovi widget nelle pagine del portale. In caso contrario, è consigliabile sostituire il contenuto del portale con il nuovo contenuto predefinito.
 
-Per reimpostare il contenuto in un portale gestito, fare clic su **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione**.
+Per reimpostare il contenuto in un portale gestito, selezionare **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione**.
 
 ![Reimposta contenuto portale](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -85,21 +70,11 @@ Se si usa la versione self-hosted, eseguire `scripts.v2/cleanup.bat` gli `script
 
 Se si accede per la prima volta al portale dopo l'annuncio relativo alla disponibilità generale nel 2019 novembre, il nuovo contenuto predefinito dovrebbe essere già disponibile e non è necessaria alcuna azione aggiuntiva.
 
-### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Il portale ha tutte le funzionalità del portale legacy?
-
-Il portale per sviluppatori non supporta più *le applicazioni*, i *problemi*e l'integrazione diretta con Facebook, Microsoft, Twitter e Google come provider di identità. è invece possibile usare Azure ad B2C.
-
-### <a name="has-the-legacy-portal-been-deprecated"></a>Il portale legacy è stato deprecato?
-
-I portali legacy per sviluppatori e Publisher sono ora funzionalità *legacy* , che riceveranno solo gli aggiornamenti della sicurezza. Le nuove funzionalità verranno implementate solo nel nuovo portale per sviluppatori.
-
-La deprecazione dei portali legacy verrà annunciata separatamente. In caso di domande, problemi o commenti, è possibile generarli [in un problema dedicato di GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
-
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>La funzionalità richiesta non è supportata nel portale
 
-È possibile aprire una [richiesta di funzionalità](https://aka.ms/apimwish) o [implementare manualmente la funzionalità mancante][3]. Se si implementa la funzionalità autonomamente, è possibile ospitare il portale per sviluppatori o aprire una richiesta pull in GitHub per includere le modifiche nella versione gestita.
+È possibile aprire una richiesta di funzionalità nel [repository GitHub][1] o [implementare manualmente la funzionalità mancante][3]. Per ulteriori informazioni, vedere la sezione **Extensibility** precedente.
 
-### <a name="how-can-i-automate-portal-deployments"></a>Come è possibile automatizzare le distribuzioni del portale?
+### <a name="how-can-i-automate-portal-deployments"></a><a id="automate"></a> Come è possibile automatizzare le distribuzioni del portale?
 
 È possibile accedere a livello di codice e gestire il contenuto del portale per sviluppatori tramite l'API REST, indipendentemente dal fatto che si usi una versione gestita o self-hosted.
 
@@ -127,7 +102,7 @@ Nella maggior parte dei casi-no.
 
 Se il servizio gestione API si trova in una VNet interna, il portale per sviluppatori è accessibile solo dall'interno della rete. Il nome host dell'endpoint di gestione deve essere risolto nell'indirizzo VIP interno del servizio dal computer usato per accedere all'interfaccia amministrativa del portale. Assicurarsi che l'endpoint di gestione sia registrato nel DNS. In caso di errata configurazione, verrà visualizzato un errore: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
-Se il servizio gestione API si trova in un VNet interno e si accede tramite il gateway applicazione da Internet, assicurarsi di abilitare la connettività al portale per sviluppatori e agli endpoint di gestione di gestione API.
+Se il servizio gestione API si trova in un VNet interno e si accede tramite il gateway applicazione da Internet, assicurarsi di abilitare la connettività al portale per sviluppatori e agli endpoint di gestione di gestione API. Potrebbe essere necessario disabilitare le regole del Web Application Firewall. Per altri dettagli, vedere [questo articolo della documentazione](api-management-howto-integrate-internal-vnet-appgateway.md) .
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Ho assegnato un dominio personalizzato di gestione API e il portale pubblicato non funziona
 
@@ -135,7 +110,7 @@ Dopo aver aggiornato il dominio, per rendere effettive le modifiche è necessari
 
 ### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>È stato aggiunto un provider di identità e non è possibile visualizzarlo nel portale
 
-Dopo aver configurato un provider di identità (ad esempio, AAD, AAD B2C), è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish) per rendere effettive le modifiche.
+Dopo aver configurato un provider di identità (ad esempio Azure AD, Azure AD B2C), è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish) per rendere effettive le modifiche. Assicurarsi che le pagine del portale per sviluppatori includano il widget OAuth Buttons.
 
 ### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>Ho configurato la delega e il portale non lo usa
 
@@ -143,7 +118,7 @@ Dopo aver configurato la delega, è necessario [ripubblicare il portale](api-man
 
 ### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Le altre modifiche di configurazione di gestione API non sono state propagate nel portale per sviluppatori
 
-Per la maggior parte delle modifiche di configurazione, ad esempio VNet, accesso e termini del prodotto, è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish).
+Per la maggior parte delle modifiche di configurazione, ad esempio VNet, accesso, termini del prodotto, è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish).
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Viene ricevuto un errore CORS quando si usa la console interattiva
 
@@ -157,9 +132,9 @@ Applicare automaticamente i criteri di CORS facendo clic sul pulsante **Abilita 
 
 È anche possibile abilitare CORS manualmente.
 
-1. Fare clic su **applica manualmente** il collegamento a livello globale per visualizzare il codice dei criteri generato.
+1. Selezionare il collegamento applica manualmente il codice a **livello globale** per visualizzare il codice dei criteri generato.
 2. Passare a **tutte le API** nella sezione **API** del servizio gestione API nel portale di Azure.
-3. Fare clic sull' **</>** icona nella sezione **elaborazione in ingresso** .
+3. Selezionare l' **</>** icona nella sezione **elaborazione in ingresso** .
 4. Inserire i criteri nella **<inbound>** sezione del file XML. Verificare che il **<origin>** valore corrisponda al dominio del portale per sviluppatori.
 
 > [!NOTE]
@@ -169,6 +144,10 @@ Applicare automaticamente i criteri di CORS facendo clic sul pulsante **Abilita 
 > Il browser rilascia automaticamente una richiesta HTTP OPTIONS, che non contiene un'intestazione con la chiave di sottoscrizione. A causa della chiave di sottoscrizione mancante, gestione API non può associare la chiamata OPTIONS a un prodotto, quindi non può applicare i criteri CORS.
 >
 > Come soluzione alternativa è possibile passare la chiave della sottoscrizione in un parametro di query.
+
+> [!NOTE]
+> 
+> Viene eseguito un solo criterio CORS. Se sono stati specificati più criteri CORS, ad esempio a livello di API e a livello di tutte le API, la console interattiva potrebbe non funzionare come previsto.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quali autorizzazioni sono necessarie per modificare il portale per sviluppatori?
 

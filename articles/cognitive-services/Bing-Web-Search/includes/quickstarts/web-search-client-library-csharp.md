@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f8f7c41e4d18909ec4f483a0e37d83b4d05e79d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88931089"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217594"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione C#. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
@@ -54,6 +54,7 @@ using System.Collections.Generic;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
 using System.Linq;
+using System.Threading.Tasks;
 ```
 
 ## <a name="create-project-scaffolding"></a>Creare lo scaffolding di progetto
@@ -79,7 +80,7 @@ Nelle sezioni seguenti si compilerà l'applicazione di esempio all'interno di qu
 Il codice seguente crea la query di ricerca.
 
 ```csharp
-public static async void WebResults(WebSearchClient client)
+public static async Task WebResults(WebSearchClient client)
 {
     try
     {
@@ -206,11 +207,11 @@ else
 In questa applicazione il metodo main include codice che crea un'istanza del client, convalida `subscriptionKey` e chiama `WebResults`. Immettere una chiave di sottoscrizione valida per l'account di Azure prima di continuare.
 
 ```csharp
-static void Main(string[] args)
+static async Task Main(string[] args)
 {
     var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
-    WebResults(client);
+    await WebResults(client);
 
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
@@ -236,7 +237,7 @@ In questo esempio vengono usati i parametri `count` e `offset` per limitare il n
 1. Aggiungere il codice seguente al progetto console:
 
     ```csharp
-    public static async void WebResultsWithCountAndOffset(WebSearchClient client)
+    public static async Task WebResultsWithCountAndOffset(WebSearchClient client)
     {
         try
         {
@@ -273,13 +274,13 @@ In questo esempio vengono usati i parametri `count` e `offset` per limitare il n
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
 
     ```csharp
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
-        WebResults(client);
+        await WebResults(client);
         // Search with count and offset...
-        WebResultsWithCountAndOffset(client);  
+        await WebResultsWithCountAndOffset(client);  
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
@@ -295,7 +296,7 @@ In questo esempio viene usato il parametro `response_filter` per filtrare i risu
 1. Aggiungere il codice seguente al progetto console:
 
     ```csharp
-    public static async void WebSearchWithResponseFilter(WebSearchClient client)
+    public static async Task WebSearchWithResponseFilter(WebSearchClient client)
     {
         try
         {
@@ -334,15 +335,15 @@ In questo esempio viene usato il parametro `response_filter` per filtrare i risu
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
 
     ```csharp
-    static void Main(string[] args)
+    static Task Main(string[] args)
     {
         var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
-        WebResults(client);
+        await WebResults(client);
         // Search with count and offset...
-        WebResultsWithCountAndOffset(client);  
+        await WebResultsWithCountAndOffset(client);  
         // Search with news filter...
-        WebSearchWithResponseFilter(client);
+        await WebSearchWithResponseFilter(client);
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
@@ -358,7 +359,7 @@ In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_se
 1. Aggiungere il codice seguente al progetto console:
 
     ```csharp
-    public static async void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchClient client)
+    public static async Task WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchClient client)
     {
         try
         {
@@ -396,17 +397,17 @@ In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_se
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
 
     ```csharp
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
-        WebResults(client);
+        await WebResults(client);
         // Search with count and offset...
-        WebResultsWithCountAndOffset(client);  
+        await WebResultsWithCountAndOffset(client);  
         // Search with news filter...
-        WebSearchWithResponseFilter(client);
+        await WebSearchWithResponseFilter(client);
         // Search with answer count, promote, and safe search
-        WebSearchWithAnswerCountPromoteAndSafeSearch(client);
+        await WebSearchWithAnswerCountPromoteAndSafeSearch(client);
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();

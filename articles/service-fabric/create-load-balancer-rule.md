@@ -3,12 +3,12 @@ title: Creare una regola di Azure Load Balancer per un cluster
 description: Configurare un'istanza di Azure Load Balancer per aprire le porte per un cluster di Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259036"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319893"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Aprire le porte per un cluster di Service Fabric
 
@@ -60,7 +60,7 @@ Il comando dell'interfaccia della riga di comando di Azure include alcuni parame
 
 
 >[!NOTE]
->Per altre informazioni in merito, vedere l'articolo su come [creare un servizio di bilanciamento del carico con l'interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
+>Per altre informazioni in merito, vedere l'articolo su come [creare un servizio di bilanciamento del carico con l'interfaccia della riga di comando di Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Nel comando `New-AzLoadBalancerRuleConfig`, `-FrontendPort` rappresenta la porta esposta dal servizio di bilanciamento del carico per le connessioni esterne, mentre `-BackendPort` rappresenta la porta su cui è in ascolto l'app di Service Fabric.
 
 >[!NOTE]
->Per altre informazioni in merito, vedere l'articolo su come [creare un servizio di bilanciamento del carico con PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+>Per altre informazioni in merito, vedere l'articolo su come [creare un servizio di bilanciamento del carico con PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992883"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168274"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -187,7 +187,9 @@ Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'inte
 - **Questa operazione richiede più tempo del previsto**. Questo messaggio indica che la registrazione richiede più di 2 minuti. Si tratta di un'operazione insolita, ma non implica necessariamente un errore. È possibile passare alle **sottoscrizioni | Provider di risorse** per verificare lo stato di registrazione del provider di risorse **Microsoft. ChangeAnalysis** . È possibile provare a usare l'interfaccia utente per annullare la registrazione, ripetere la registrazione o aggiornare per verificare se è utile. Se il problema persiste, contattare il changeanalysishelp@microsoft.com supporto tecnico.
     ![Risoluzione dei problemi di registrazione RP troppo lungo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Screenshot dello strumento diagnostica e Risolvi i problemi per una macchina virtuale con strumenti di risoluzione dei problemi selezionati.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Screenshot del riquadro per lo strumento analizza la risoluzione dei problemi delle modifiche recenti per una macchina virtuale.](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

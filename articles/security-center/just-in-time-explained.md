@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449010"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340020"
 ---
-# <a name="understanding-just-in-time-jit-vm-access"></a>Informazioni sull'accesso alla VM JIT (just-in-Time)
+# <a name="understanding-just-in-time-jit-vm-access"></a>Informazioni sull'accesso JIT alle macchine virtuali
 
 Questa pagina illustra i principi alla base della funzionalità di accesso alla macchina virtuale JIT (just-in-Time) del Centro sicurezza di Azure e la logica alla base di questa raccomandazione.
 
@@ -40,14 +40,14 @@ Per risolvere questo problema, il Centro sicurezza di Azure offre JIT. Con JIT, 
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Funzionamento di JIT con i gruppi di sicurezza di rete e il firewall di Azure
 
-Quando si Abilita l'accesso just-in-time alle macchine virtuali, è possibile selezionare le porte nella macchina virtuale in cui verrà bloccato il traffico in ingresso. Il Centro sicurezza garantisce che esistano le regole "nega tutto il traffico in ingresso" per le porte selezionate nel [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) e [le regole del firewall di Azure](https://docs.microsoft.com/azure/firewall/rule-processing). Queste regole limitano l'accesso alle porte di gestione delle macchine virtuali di Azure e le difendono dagli attacchi. 
+Quando si Abilita l'accesso just-in-time alle macchine virtuali, è possibile selezionare le porte nella macchina virtuale in cui verrà bloccato il traffico in ingresso. Il Centro sicurezza garantisce che esistano le regole "nega tutto il traffico in ingresso" per le porte selezionate nel [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) e [le regole del firewall di Azure](../firewall/rule-processing.md). Queste regole limitano l'accesso alle porte di gestione delle macchine virtuali di Azure e le difendono dagli attacchi. 
 
 Se sono già presenti altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, le nuove regole hanno la priorità più alta in NSG e nel firewall di Azure.
 
-Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza verifica che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per tale macchina virtuale. Se la richiesta viene approvata, il Centro sicurezza Configura gruppi e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate dall'indirizzo IP (o intervallo) pertinente per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni già stabilite non vengono interrotte.
+Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza verifica che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) per tale macchina virtuale. Se la richiesta viene approvata, il Centro sicurezza Configura gruppi e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate dall'indirizzo IP (o intervallo) pertinente per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni già stabilite non vengono interrotte.
 
 > [!NOTE]
-> JIT non supporta le macchine virtuali protette dai firewall di Azure controllati da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview).
+> JIT non supporta le macchine virtuali protette dai firewall di Azure controllati da [gestione firewall di Azure](../firewall-manager/overview.md).
 
 
 

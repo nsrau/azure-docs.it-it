@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317022"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167951"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,8 +45,6 @@ La tabella seguente elenca le opzioni del quorum disponibili nell'ordine consigl
 ||[Disco di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness)  |[Condivisione file di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Sistema operativo supportato**| Tutti |Windows Server 2016+| Tutti|
-
-
 
 
 ### <a name="disk-witness"></a>Disco di controllo
@@ -84,26 +82,27 @@ Per iniziare, vedere [configurare una condivisione file](/windows-server/failove
 
 ## <a name="connectivity"></a>Connettività
 
-In un ambiente di rete locale tradizionale, un'istanza del cluster di failover di SQL Server sembra essere una singola istanza di SQL Server in esecuzione in un singolo computer. Poiché viene eseguito il failover dell'istanza del cluster di failover dal nodo al nodo, il nome della rete virtuale (VNN) per l'istanza fornisce un punto di connessione unificato e consente alle applicazioni di connettersi all'istanza di SQL Server senza sapere quale nodo è attualmente attivo. Quando si verifica un failover, il nome della rete virtuale viene registrato nel nuovo nodo attivo dopo l'avvio. Questo processo è trasparente per il client o l'applicazione che si connette a SQL Server e questo riduce al minimo i tempi di inattività del client o dell'applicazione durante un errore. 
+In un ambiente di rete locale tradizionale, un'istanza del cluster di failover di SQL Server sembra essere una singola istanza di SQL Server in esecuzione in un singolo computer. Poiché viene eseguito il failover dell'istanza del cluster di failover dal nodo al nodo, il nome della rete virtuale (VNN) per l'istanza fornisce un punto di connessione unificato e consente alle applicazioni di connettersi all'istanza di SQL Server senza sapere quale nodo è attualmente attivo. Quando si verifica un failover, il nome della rete virtuale viene registrato nel nuovo nodo attivo dopo l'avvio. Questo processo è trasparente per il client o l'applicazione che si connette a SQL Server e questo riduce al minimo i tempi di inattività del client o dell'applicazione durante un errore. Analogamente, il listener del gruppo di disponibilità utilizza un VNN per instradare il traffico alla replica appropriata. 
 
-Usare un VNN con Azure Load Balancer o un nome di rete distribuito (DNN) per instradare il traffico verso VNN dell'istanza del cluster di failover con SQL Server in macchine virtuali di Azure. La funzionalità DNN è attualmente disponibile solo per SQL Server 2019 CU2 e versioni successive in una macchina virtuale Windows Server 2016 (o versioni successive). 
+Usare un VNN con Azure Load Balancer o un nome di rete distribuito (DNN) per instradare il traffico verso VNN dell'istanza del cluster di failover con SQL Server in macchine virtuali di Azure o per sostituire il listener VNN esistente in un gruppo di disponibilità. 
+
 
 Nella tabella seguente viene confrontata la supportabilità della connessione HADR: 
 
 | |**VNN (Virtual Network Name)**  |**DNN (Distributed Network Name)**  |
 |---------|---------|---------|
-|**Versione minima del sistema operativo**| Tutti | Tutti |
-|**Versione minima di SQL Server** |Tutti |SQL Server 2019 CU2|
-|**Soluzione HADR supportata** | Istanza del cluster di failover <br/> gruppo di disponibilità | Istanza del cluster di failover|
+|**Versione minima del sistema operativo**| Tutti | Windows Server 2016 |
+|**Versione minima di SQL Server** |Tutti |SQL Server 2019 CU2 (per FCI)<br/> SQL Server 2019 CU8 (per AG)|
+|**Soluzione HADR supportata** | Istanza del cluster di failover <br/> gruppo di disponibilità | Istanza del cluster di failover <br/> gruppo di disponibilità|
 
 
 ### <a name="virtual-network-name-vnn"></a>VNN (Virtual Network Name)
 
-Poiché il punto di accesso IP virtuale funziona in modo diverso in Azure, è necessario configurare [Azure Load Balancer](../../../load-balancer/index.yml) per instradare il traffico all'indirizzo IP dei nodi dell'istanza del cluster di failover. In macchine virtuali di Azure, un servizio di bilanciamento del carico include l'indirizzo IP per il VNN su cui si basano le risorse del SQL Server cluster. Il servizio di bilanciamento del carico distribuisce i flussi in ingresso che arrivano al front-end e quindi instrada il traffico alle istanze definite dal pool back-end. Il flusso del traffico viene configurato usando le regole di bilanciamento del carico e i probe di integrità. Con SQL Server FCI, le istanze del pool back-end sono le macchine virtuali di Azure in esecuzione SQL Server. 
+Poiché il punto di accesso IP virtuale funziona in modo diverso in Azure, è necessario configurare [Azure Load Balancer](../../../load-balancer/index.yml) per instradare il traffico all'indirizzo IP dei nodi FCI o del listener del gruppo di disponibilità. In macchine virtuali di Azure, un servizio di bilanciamento del carico include l'indirizzo IP per il VNN su cui si basano le risorse del SQL Server cluster. Il servizio di bilanciamento del carico distribuisce i flussi in ingresso che arrivano al front-end e quindi instrada il traffico alle istanze definite dal pool back-end. Il flusso del traffico viene configurato usando le regole di bilanciamento del carico e i probe di integrità. Con SQL Server FCI, le istanze del pool back-end sono le macchine virtuali di Azure in esecuzione SQL Server. 
 
 Si verifica un lieve ritardo di failover quando si usa il servizio di bilanciamento del carico, perché il probe di integrità esegue controlli attivi ogni 10 secondi per impostazione predefinita. 
 
-Per iniziare, informazioni su come [configurare Azure Load Balancer per un'istanza FCI](hadr-vnn-azure-load-balancer-configure.md). 
+Per iniziare, informazioni su come configurare Azure Load Balancer per l' [istanza del cluster di failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [gruppo di disponibilità](availability-group-vnn-azure-load-balancer-configure.md)
 
 **Sistemi operativi supportati**: Tutti   
 **Versione di SQL supportata**: Tutti   
@@ -112,22 +111,22 @@ Per iniziare, informazioni su come [configurare Azure Load Balancer per un'istan
 
 ### <a name="distributed-network-name-dnn"></a>DNN (Distributed Network Name)
 
-Il nome di rete distribuita è una nuova funzionalità di Azure per SQL Server 2019 CU2. DNN fornisce un modo alternativo per SQL Server client di connettersi all'istanza del cluster di failover di SQL Server senza usare un servizio di bilanciamento del carico. 
+Il nome di rete distribuita è una nuova funzionalità di Azure per SQL Server 2019. DNN fornisce un modo alternativo per SQL Server client di connettersi all'istanza del cluster di failover di SQL Server o al gruppo di disponibilità senza usare un servizio di bilanciamento del carico. 
 
-Quando viene creata una risorsa DNN, il cluster associa il nome DNS agli indirizzi IP di tutti i nodi del cluster. Il client SQL tenterà di connettersi a ogni indirizzo IP in questo elenco per individuare il nodo in cui è attualmente in esecuzione l'istanza del cluster di failover. È possibile accelerare questo processo specificando `MultiSubnetFailover=True` nella stringa di connessione. Questa impostazione indica al provider di provare tutti gli indirizzi IP in parallelo, in modo che il client possa connettersi immediatamente all'istanza FCI. 
+Quando viene creata una risorsa DNN, il cluster associa il nome DNS agli indirizzi IP di tutti i nodi del cluster. Il client SQL tenterà di connettersi a ogni indirizzo IP in questo elenco per individuare la risorsa a cui connettersi.  È possibile accelerare questo processo specificando `MultiSubnetFailover=True` nella stringa di connessione. Questa impostazione indica al provider di provare tutti gli indirizzi IP in parallelo, in modo che il client possa connettersi immediatamente all'istanza FCI o al listener. 
 
 Quando possibile, è consigliabile usare un nome di rete distribuita su un servizio di bilanciamento del carico perché: 
 - La soluzione end-to-end è più affidabile perché non è più necessario gestire la risorsa di bilanciamento del carico. 
 - L'eliminazione dei probe del servizio di bilanciamento del carico riduce al minimo la durata del failover. 
-- Il DNN semplifica il provisioning e la gestione dell'istanza del cluster di failover con SQL Server nelle VM di Azure. 
+- Il DNN semplifica il provisioning e la gestione del listener del gruppo di disponibilità o dell'istanza del cluster di failover con SQL Server nelle VM di Azure. 
 
-La maggior parte delle funzionalità SQL Server funziona in modo trasparente con FCI. In questi casi, è possibile sostituire semplicemente il nome DNS VNN esistente con il nome DNS DNN o impostare il valore DNN con il nome DNS VNN esistente. Tuttavia, alcuni componenti lato server richiedono un alias di rete che esegue il mapping del nome VNN al nome DNN. Casi specifici possono richiedere l'uso esplicito del nome DNS DNN, ad esempio quando si definiscono determinati URL in una configurazione lato server. 
+La maggior parte delle funzionalità SQL Server funziona in modo trasparente con il cluster di failover e i gruppi di disponibilità quando si usa DNN, ma esistono alcune funzionalità che possono richiedere particolare attenzione. Per altre informazioni, vedere interoperabilità [FCI e DNN](failover-cluster-instance-dnn-interoperability.md) e [interoperabilità AG e DNN](availability-group-dnn-interoperability.md) . 
 
-Per iniziare, informazioni su come [configurare una risorsa DNN per un'istanza FCI](hadr-distributed-network-name-dnn-configure.md). 
+Per iniziare, informazioni su come configurare una risorsa nome di rete distribuita per [un'istanza del cluster di failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [gruppo di disponibilità](availability-group-distributed-network-name-dnn-listener-configure.md)
 
 **Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
-**Versione SQL supportata**: SQL Server 2019 e versioni successive   
-**Soluzione HADR supportata**: solo istanza del cluster di failover
+**Versione SQL supportata**: SQL Server 2019 Cu2 (FCI) e SQL Server 2019 CU8 (AG)   
+**Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità   
 
 
 ## <a name="limitations"></a>Limitazioni
@@ -146,5 +145,5 @@ Nelle macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver determinato le procedure consigliate appropriate per la soluzione, iniziare preparando la [macchina virtuale SQL Server per l'istanza](failover-cluster-instance-prepare-vm.md)del cluster di failover. È anche possibile creare il gruppo di disponibilità usando l' [interfaccia](availability-group-az-cli-configure.md)della riga di comando di Azure o i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md). 
+Dopo aver determinato le procedure consigliate appropriate per la soluzione, iniziare preparando la [macchina virtuale SQL Server per l'istanza FCI](failover-cluster-instance-prepare-vm.md) o creando il gruppo di disponibilità usando il [portale di Azure](availability-group-azure-portal-configure.md), l'interfaccia della riga di comando di [Azure/PowerShell](availability-group-az-cli-configure.md)o i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md). 
 

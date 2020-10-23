@@ -1,18 +1,18 @@
 ---
-title: Ruoli e autorizzazioni di Azure
+title: Ruoli e autorizzazioni del registro di sistema
 description: Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e la gestione delle identità e degli accessi (IAM) per fornire autorizzazioni specifiche per le risorse in un registro contenitori di Azure.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661385"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207955"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
-Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefiniti](../role-based-access-control/built-in-roles.md) che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un registro. È inoltre possibile definire [ruoli personalizzati](#custom-roles) con le autorizzazioni con granularità fine per un registro di sistema per operazioni diverse.
+Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefiniti](../role-based-access-control/built-in-roles.md) che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un registro, ad esempio per eseguire il pull o il push delle immagini del contenitore. È inoltre possibile definire [ruoli personalizzati](#custom-roles) con le autorizzazioni con granularità fine per un registro di sistema per operazioni diverse.
 
 | Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager) | [Creare/eliminaliminare registro di sistema](#create-and-delete-registry) | [Immagine di push](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Eliminare i dati di immagini](#delete-image-data) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,13 +24,19 @@ Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefin
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Assegnare ruoli
+
+Vedere i [passaggi per aggiungere un'assegnazione di ruolo](../role-based-access-control/role-assignments-steps.md) per i passaggi di alto livello per aggiungere un'assegnazione di ruolo a un utente, a un gruppo, a un'entità servizio o a un'identità gestita esistente. È possibile usare la portale di Azure, l'interfaccia della riga di comando di Azure o altri strumenti di Azure.
+
+Quando si crea un'entità servizio, si configurano anche l'accesso e le autorizzazioni per le risorse di Azure, ad esempio un registro contenitori. Per uno script di esempio che usa l'interfaccia della riga di comando di Azure, vedere [autenticazione container Registry di Azure con entità servizio](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Distinguere gli utenti e i servizi
 
 Ogni volta che vengono applicate le autorizzazioni, una procedura consigliata è quella di fornire il set più limitato di autorizzazioni a una persona, o a un servizio, per svolgere un compito. I set di autorizzazioni seguenti rappresentano un set di funzionalità che può essere usato da persone e servizi headless.
 
 ### <a name="cicd-solutions"></a>Soluzioni CI/CD
 
-Quando si automatizzano i comandi `docker build` dalle soluzioni CI/CD, sono necessarie le funzionalità `docker push`. Per questi scenari di servizio headless, è consigliabile assegnare il ruolo **AcrPush**. Questo ruolo, a differenza del ruolo più ampio **Collaboratore**, impedisce all'account di eseguire altre operazioni del registro di sistema o l'accesso ad Azure Resource Manager.
+Quando si automatizzano i comandi `docker build` dalle soluzioni CI/CD, sono necessarie le funzionalità `docker push`. Per questi scenari di servizio, si consiglia di assegnare il ruolo **AcrPush** . Questo ruolo, a differenza del ruolo più ampio **Collaboratore**, impedisce all'account di eseguire altre operazioni del registro di sistema o l'accesso ad Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Nodi dell'host del contenitore
 

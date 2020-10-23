@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 115ff1b59ecbe3f4fdb089c2bd61da955fba3984
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957179"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104547"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Associazioni di griglia di eventi di Azure per funzioni di Azure
 
@@ -23,7 +23,7 @@ I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno
 
 Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di griglia di eventi. vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md). Attualmente, non è possibile usare un trigger di griglia di eventi per un'app funzioni di Azure quando l'evento viene recapitato nello [schema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). È necessario usare invece un trigger HTTP.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Eseguire una funzione quando viene inviato un evento di griglia di eventi | [Trigger](./functions-bindings-event-grid-trigger.md) |
 | Invia un evento di griglia di eventi |[Binding di output](./functions-bindings-event-grid-output.md) |
@@ -45,7 +45,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x

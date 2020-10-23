@@ -6,12 +6,12 @@ manager: gaggupta
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
-ms.openlocfilehash: 51f45b5c0b8a2729f64eb376e06875719474cbfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359867"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Monitoraggio degli schemi di varianza nelle macchine virtuali
 
@@ -21,7 +21,7 @@ Questo articolo fornisce una panoramica dei vari strumenti che è possibile usar
 
 Se il computer è ospitato in Azure e usa un disco gestito o non gestito per l'archiviazione, è possibile tenere traccia delle prestazioni tenendo traccia della metrica del disco. In questo modo è possibile monitorare attentamente e fare in modo che la selezione del disco sia adatta al modello di utilizzo dell'applicazione. È anche possibile usarlo per creare avvisi, diagnosi e automazione della compilazione. [Altre informazioni](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-Una volta protetti i computer con Azure Site Recovery, è possibile monitorare i computer usando i log di monitoraggio di Azure e Log Analytics. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
+Una volta protetti i computer con Azure Site Recovery, è possibile monitorare i computer usando i log di monitoraggio di Azure e Log Analytics. [Altre informazioni](./monitor-log-analytics.md)
 
 Sono disponibili anche alcuni strumenti specifici del sistema operativo che è possibile usare.
 
@@ -62,7 +62,7 @@ Una volta identificate le applicazioni che hanno causato una varianza elevata ne
 
     ![Passaggio 3 di performance monitor](./media/monitoring-high-churn/perfmon-step3.png)
 
-Altre informazioni su performance monitor sono disponibili [qui](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
+Altre informazioni su performance monitor sono disponibili [qui](/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
 
 ## <a name="for-linux-machines"></a>Per macchine Linux
 

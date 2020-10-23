@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589301"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165768"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -23,7 +23,7 @@ Sono disponibili altre opzioni di configurazione globali nel file [host.json](fu
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Chiave di strumentazione per Application Insights. Usare solo uno di `APPINSIGHTS_INSTRUMENTATIONKEY` o `APPLICATIONINSIGHTS_CONNECTION_STRING` . Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md). 
+Chiave di strumentazione per Application Insights. Usare solo uno di `APPINSIGHTS_INSTRUMENTATIONKEY` o `APPLICATIONINSIGHTS_CONNECTION_STRING` . Quando Application Insights viene eseguito in un cloud sovrano, usare `APPLICATIONINSIGHTS_CONNECTION_STRING` . Per altre informazioni, vedere [How to configure Monitoring for Azure Functions](configure-monitoring.md). 
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -31,7 +31,12 @@ Chiave di strumentazione per Application Insights. Usare solo uno di `APPINSIGHT
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Stringa di connessione per Application Insights. Usare `APPLICATIONINSIGHTS_CONNECTION_STRING` anziché `APPINSIGHTS_INSTRUMENTATIONKEY` quando l'app per le funzioni richiede la personalizzazione aggiuntiva supportata tramite la stringa di connessione. Per altre informazioni, vedere [stringhe di connessione](../azure-monitor/app/sdk-connection-string.md). 
+Stringa di connessione per Application Insights. Usare `APPLICATIONINSIGHTS_CONNECTION_STRING` anziché `APPINSIGHTS_INSTRUMENTATIONKEY` nei casi seguenti:
+
++ Quando l'app per le funzioni richiede la personalizzazione aggiuntiva supportata tramite la stringa di connessione. 
++ Quando l'istanza di Application Insights viene eseguita in un cloud sovrano, che richiede un endpoint personalizzato.
+
+Per altre informazioni, vedere [stringhe di connessione](../azure-monitor/app/sdk-connection-string.md). 
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -43,8 +48,8 @@ Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano 
 
 |Chiave|Valore|Descrizione|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Rappresenta il valore predefinito. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|True|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -52,7 +57,7 @@ Questa impostazione determina se i caratteri `%2F` vengono decodificati come bar
 
 |Chiave|Valore|Descrizione|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|True|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |
 
 Si consideri, ad esempio, il proxies.jssu file per un'app per le funzioni nel `myfunction.com` dominio.
@@ -98,7 +103,7 @@ Stringa di connessione dell’account di archiviazione facoltativo per l'archivi
 
 |Chiave|Valore di esempio|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|True|
 
 Quando questa impostazione dell’app viene omessa o impostata su `false`, una pagina simile all'esempio seguente viene visualizzata in risposta all'URL `<functionappname>.azurewebsites.net`.
 
@@ -110,7 +115,7 @@ Quando questa impostazione dell’app viene omessa o impostata su `false`, una p
 
 |Chiave|Valore di esempio|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|True|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -171,7 +176,7 @@ Richiede che [la \_ \_ versione dell'estensione funzioni](functions-app-settings
 
 |Chiave|Valore di esempio|
 |---|------------|
-|Modalità di compatibilità di funzioni \_ v2 \_ \_|true|
+|Modalità di compatibilità di funzioni \_ v2 \_ \_|True|
 
 ## <a name="functions_worker_process_count"></a>\_numero di \_ processi di lavoro di funzioni \_
 
@@ -204,7 +209,7 @@ Per altre informazioni, vedere [dipendenze personalizzate](functions-reference-p
 
 _Questa impostazione è attualmente disponibile in anteprima._  
 
-Questa impostazione controlla la registrazione dal controller di scalabilità di funzioni di Azure. Per altre informazioni, vedere [ridimensionare i log del controller](functions-monitoring.md#scale-controller-logs-preview).
+Questa impostazione controlla la registrazione dal controller di scalabilità di funzioni di Azure. Per altre informazioni, vedere [ridimensionare i log del controller](functions-monitoring.md#scale-controller-logs).
 
 |Chiave|Valore di esempio|
 |-|-|

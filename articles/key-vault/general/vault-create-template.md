@@ -1,6 +1,6 @@
 ---
-title: Guida di Azure-creare un insieme di credenziali delle chiavi di Azure e un criterio di accesso all'insieme di credenziali usando Azure Resource Manager modello | Microsoft Docs
-description: Illustra come creare insiemi di credenziali delle chiavi di Azure e criteri di accesso all'insieme di credenziali usando Azure Resource Manager modello.
+title: Creare un insieme di credenziali delle chiavi di Azure e un criterio di accesso all'insieme di credenziali usando il modello ARM
+description: Questo articolo illustra come creare insiemi di credenziali delle chiavi di Azure e criteri di accesso all'insieme di credenziali usando un modello di Azure Resource Manager.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,29 +10,29 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804396"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282315"
 ---
-# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Come creare criteri di accesso a Azure Key Vault e insieme di credenziali usando un modello di Gestione risorse
+# <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e i criteri di accesso all'insieme di credenziali usando un modello di Gestione risorse
 
-[Azure Key Vault](../general/overview.md) è un servizio cloud che offre un archivio sicuro per i segreti, ad esempio le chiavi, le password, i certificati e così via. Questa guida è incentrata sul processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un insieme di credenziali delle chiavi.
+[Azure Key Vault](../general/overview.md) è un servizio cloud che fornisce un archivio sicuro per segreti quali chiavi, password e certificati. Questo articolo descrive il processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un insieme di credenziali delle chiavi.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questo articolo:
+Per seguire la procedura descritta in questo articolo:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 
-## <a name="create-key-vault-resource-manager-template"></a>Creare Key Vault modello di Gestione risorse
+## <a name="create-a-key-vault-resource-manager-template"></a>Creare un modello di Gestione risorse Key Vault
 
-Il modello seguente mostra un metodo di base per creare Key Vault. Alcuni valori sono specificati all'interno del modello.
+Il modello seguente mostra un metodo di base per creare un insieme di credenziali delle chiavi. Alcuni valori vengono specificati nel modello.
 
 ```json
 {
@@ -87,11 +87,11 @@ Il modello seguente mostra un metodo di base per creare Key Vault. Alcuni valori
 Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> Se il modello viene ridistribuito, eseguirà l'override dei criteri di accesso esistenti nell'insieme di credenziali delle chiavi. È consigliabile popolare `accessPolicies` la proprietà con i criteri di accesso esistenti per evitare di perdere l'accesso a Key Vault. 
+> Se viene ridistribuito un modello, eventuali criteri di accesso esistenti nell'insieme di credenziali delle chiavi verranno sostituiti. Si consiglia di popolare la `accessPolicies` proprietà con i criteri di accesso esistenti per evitare di perdere l'accesso all'insieme di credenziali delle chiavi. 
 
-## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Aggiungere i criteri di accesso al modello di Gestione risorse Key Vault
+## <a name="add-an-access-policy-to-a-key-vault-resource-manager-template"></a>Aggiungere un criterio di accesso a un modello di Gestione risorse Key Vault
 
-È possibile distribuire i criteri di accesso all'insieme di credenziali delle chiavi esistente senza ridistribuire l'intero modello di Key Vault. Il modello seguente mostra un metodo di base per creare criteri di accesso.
+È possibile distribuire i criteri di accesso a un insieme di credenziali delle chiavi esistente senza ridistribuire l'intero modello di Key Vault. Il modello seguente mostra un metodo di base per creare i criteri di accesso:
 
 ```json
 {
@@ -162,21 +162,21 @@ Per altre informazioni sulle impostazioni del modello di Key Vault, vedere infor
 ```
 Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## <a name="other-available-key-vault-resource-manager-templates"></a>Altri modelli di Key Vault Gestione risorse disponibili
+## <a name="more-key-vault-resource-manager-templates"></a>Altri modelli di Key Vault Gestione risorse
 
 Per gli oggetti Key Vault sono disponibili altri modelli di Gestione risorse:
 
 | Segreti | Chiavi | Certificati |
 |--|--|--|
-|[Guida introduttiva](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Riferimento](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+|<ul><li>[Guida introduttiva](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Riferimento](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
 
-Altri modelli di Key Vault disponibili qui: [Key Vault gestione risorse Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Qui è possibile trovare altri modelli di Key Vault: [Key Vault gestione risorse Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
-È possibile usare la portale di Azure per distribuire i modelli sopra indicati usando l'opzione ' Crea modello personalizzato nell'Editor ' nella Guida seguente: [distribuire le risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione **Compila un modello personalizzato nell'editor** , come descritto qui: [distribuire le risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
-È anche possibile salvare i modelli sopra indicati nei file e usare i comandi seguenti:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment create](/cli/azure/group/deployment#az-group-deployment-create):
+È anche possibile salvare i modelli precedenti in file e usare questi comandi:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -188,7 +188,7 @@ az group deployment create --resource-group ExampleGroup --template-file key-vau
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare a usare le guide introduttive e le esercitazioni successive, è possibile lasciare invariate le risorse. Quando le risorse non sono più necessarie, eliminare il gruppo di risorse, che elimina l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse usando l'interfaccia della riga di comando di Azure o Azure PowerShell, seguire questa procedura.
+Se si prevede di continuare a usare le guide introduttive e le esercitazioni successive, è possibile lasciare invariate le risorse. Quando le risorse non sono più necessarie, eliminare il gruppo di risorse. Se si elimina il gruppo, verranno eliminati anche l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse usando l'interfaccia della riga di comando di Azure o Azure PowerShell, completare i passaggi seguenti:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -211,9 +211,9 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="resources"></a>Risorse
 
-- Leggere una [panoramica di Azure Key Vault](../general/overview.md)
-- Vedere altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)
+- Leggi una [Panoramica del Azure Key Vault](../general/overview.md).
+- Altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Esaminare [Azure Key Vault procedure consigliate](../general/best-practices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

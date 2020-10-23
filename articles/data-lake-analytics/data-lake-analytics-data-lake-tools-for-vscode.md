@@ -1,18 +1,16 @@
 ---
 title: Usare gli Strumenti Azure Data Lake per Visual Studio Code
 description: Informazioni su come usare gli Strumenti Azure Data Lake per Visual Studio Code per creare, testare ed eseguire gli script U-SQL.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87126483"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221248"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usare gli Strumenti Azure Data Lake per Visual Studio Code
 
@@ -20,7 +18,7 @@ In questo articolo si apprenderà come usare gli Strumenti Azure Data Lake per V
 
 [![Lettore video: strumenti di Azure Data Lake per VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli strumenti Azure Data Lake per VS Code supportano Windows, Linux e MacOS.L'esecuzione e il debug locali di U-SQL funzionano solo in Windows.
 
@@ -146,7 +144,7 @@ Azure Data Lake Tools supporta più codici personalizzati. Per istruzioni, veder
 
 ## <a name="work-with-assemblies"></a>Usare gli assembly
 
-Per informazioni sullo sviluppo di assembly, vedere [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Sviluppare assembly U-SQL per i processi di Azure Data Lake Analytics).
+Per informazioni sullo sviluppo di assembly, vedere [Develop U-SQL assemblies for Azure Data Lake Analytics jobs]() (Sviluppare assembly U-SQL per i processi di Azure Data Lake Analytics).
 
 È possibile usare Strumenti Data Lake per registrare gli assembly di codice personalizzato nel catalogo di Data Lake Analytics.
 
@@ -223,7 +221,7 @@ La funzionalità di esecuzione locale e debug locale funziona solo in ambienti W
 
 Per istruzioni sull'esecuzione e il debug locali, vedere [Esecuzione locale e debug locale di U-SQL con Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 Prima di compilare ed eseguire gli script U-SQL in Data Lake Analytics, è necessario connettersi al proprio account di Azure.
 

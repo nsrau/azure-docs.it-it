@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273042"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372294"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creare il controller di dati di Azure Arc
 
@@ -39,7 +39,7 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 > * La versione minima supportata di Kubernetes è la v 1.14.
 > * Vedere i [requisiti di connettività](connectivity.md) per comprendere la connettività necessaria tra l'ambiente e Azure.
 > * Per informazioni dettagliate su come configurare l'archiviazione permanente, vedere la [Guida alla configurazione dell'archiviazione](storage-configuration.md) .
-> * Se si usa il servizio Azure Kubernetes, le dimensioni della VM del nodo di lavoro del cluster devono essere almeno **Standard_D8s_v3** e usare **dischi Premium.** 
+> * Se si usa il servizio Azure Kubernetes, le dimensioni della VM del nodo di lavoro del cluster devono essere almeno **Standard_D8s_v3** e usare **dischi Premium.** Il cluster non deve essere esteso a più zone di disponibilità. 
 > * Se si usa un'altra distribuzione o servizio Kubernetes, è necessario assicurarsi di avere una dimensione minima del nodo di 8 GB di RAM e 4 core e una capacità totale di 32 GB di RAM disponibile in tutti i nodi Kubernetes. Ad esempio, è possibile avere 1 nodo a 32 GB di RAM e 4 core oppure avere 2 nodi con 16 GB di RAM e 4 core ciascuno.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Sono disponibili più opzioni per la creazione del controller di dati di Azure A
 > **Si desidera fare semplicemente una prova?**  
 > Inizia rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
 > 
-- [Creare un controller di dati con l'interfaccia della riga di comando di Azure Data (azdata)](create-data-controller-using-azdata.md)
+- [Creare un controller di dati con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Creare un controller dati con Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Creare un controller dati dal portale di Azure tramite un notebook di Jupyter in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Creare un controller di dati con strumenti Kubernetes, ad esempio kubectl o OC](create-data-controller-using-kubernetes-native-tools.md)

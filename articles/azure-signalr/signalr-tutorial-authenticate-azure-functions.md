@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327619"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150909"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Esercitazione: Autenticazione del servizio Azure SignalR con Funzioni di Azure
 
@@ -356,13 +356,13 @@ Un account di archiviazione di Azure è richiesto da un'app per le funzioni in e
 
 ### <a name="configure-function-app-for-authentication"></a>Configurare l'app per le funzioni per l'autenticazione
 
-Finora, l'app di chat ha funzionato in modo anonimo. In Azure si userà [Autenticazione servizio app](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) per autenticare l'utente. L'ID utente o il nome utente dell'utente autenticato può essere passato all'associazione *SignalRConnectionInfo* per generare informazioni di connessione autenticate come utente.
+Finora, l'app di chat ha funzionato in modo anonimo. In Azure si userà [Autenticazione servizio app](../app-service/overview-authentication-authorization.md) per autenticare l'utente. L'ID utente o il nome utente dell'utente autenticato può essere passato all'associazione *SignalRConnectionInfo* per generare informazioni di connessione autenticate come utente.
 
 Quando si invia un messaggio, l'app può decidere se inviarlo a tutti i client connessi o solo ai client che sono stati autenticati per un determinato utente.
 
 1. In VS Code aprire **negotiate/function.json**.
 
-1. Inserire un'[espressione di associazione](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) nella proprietà *userId* dell'associazione *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Questa operazione imposta il valore sul nome utente dell'utente autenticato. L'aspetto dell'attributo dovrebbe essere simile al seguente.
+1. Inserire un'[espressione di associazione](../azure-functions/functions-triggers-bindings.md) nella proprietà *userId* dell'associazione *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Questa operazione imposta il valore sul nome utente dell'utente autenticato. L'aspetto dell'attributo dovrebbe essere simile al seguente.
 
     ```json
     {
@@ -431,11 +431,11 @@ Autenticazione servizio app supporta l'autenticazione con Azure Active Directory
 
 1. Seguire la documentazione per il proprio provider di accesso per completare la configurazione.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Account Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Account Microsoft](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>Aggiornare l'app Web
 
@@ -517,4 +517,3 @@ In questa esercitazione si è appreso come usare Funzioni di Azure con il serviz
 > [Creare app in tempo reale con Funzioni di Azure](signalr-concept-azure-functions.md)
 
 [Problemi? Segnalarli](https://aka.ms/asrs/qsauth).
-

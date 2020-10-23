@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2d7c1c0245649fdb7eed1033a953b8cc3933626
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909569"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442117"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitazioni di Collaborazione B2B di Azure AD
 Collaborazione B2B di Azure Active Directory (Azure AD) è soggetta alle limitazioni descritte in questo articolo.
@@ -28,13 +28,13 @@ Con B2B di Azure AD è possibile imporre l'autenticazione a più fattori dell'or
 Nei flussi di Collaborazione B2B gli utenti vengono aggiunti alla directory e aggiornati in modo dinamico durante il riscatto dell'invito, l'assegnazione di app e così via. Le operazioni di aggiornamento e scrittura vengono eseguite generalmente in un'istanza della directory e devono essere replicate in tutte le istanze. La replica viene completata quando tutte le istanze sono state aggiornate. In alcuni casi, quando un oggetto viene scritto o aggiornato in un'istanza e la chiamata per il recupero dell'oggetto viene effettuata a un'altra istanza, è possibile che si verifichino latenze della replica. In tal caso, aggiornare o riprovare. Se si sta scrivendo un'app usando l'API, è consigliabile riprovare, interrompendo temporaneamente, per risolvere il problema.
 
 ## <a name="azure-ad-directories"></a>Directory di Azure AD
-Azure AD B2B è soggetta ai limiti del servizio directory di Azure AD. Per informazioni dettagliate sul numero di directory che un utente può creare e il numero di directory a cui un utente o un utente guest può appartenere, vedere [Restrizioni e limiti del servizio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+Azure AD B2B è soggetta ai limiti del servizio directory di Azure AD. Per informazioni dettagliate sul numero di directory che un utente può creare e il numero di directory a cui un utente o un utente guest può appartenere, vedere [Restrizioni e limiti del servizio Azure AD](../users-groups-roles/directory-service-limits-restrictions.md).
 
 ## <a name="national-clouds"></a>Cloud nazionali
-I [cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) sono istanze fisicamente isolate di Azure. La collaborazione B2B non è supportata nei limiti del cloud nazionale. Ad esempio, se il tenant di Azure si trova in un cloud globale pubblico, non è possibile invitare un utente il cui account si trova in un cloud nazionale. Per collaborare con l'utente, richiedere un altro indirizzo di posta elettronica o creare un account utente membro nella directory.
+I [cloud nazionali](../develop/authentication-national-cloud.md) sono istanze fisicamente isolate di Azure. La collaborazione B2B non è supportata nei limiti del cloud nazionale. Ad esempio, se il tenant di Azure si trova in un cloud globale pubblico, non è possibile invitare un utente il cui account si trova in un cloud nazionale. Per collaborare con l'utente, richiedere un altro indirizzo di posta elettronica o creare un account utente membro nella directory.
 
 ## <a name="azure-us-government-clouds"></a>Cloud del governo degli Stati Uniti di Azure
-Nel cloud del governo degli Stati Uniti di Azure è supportata la collaborazione B2B tra i tenant che si trovano all'interno del cloud di Azure per il governo degli Stati Uniti e che supportano la collaborazione B2B. I tenant di Azure per enti pubblici statunitensi che supportano la collaborazione B2B possono anche collaborare con gli utenti di Social Networking usando gli account Microsoft o Google. Se si invita un utente al di fuori di questi gruppi, ad esempio se l'utente si trova in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o non supporta ancora la collaborazione B2B, l'invito non riuscirà o l'utente non sarà in grado di riscattare l'invito. Per informazioni dettagliate su altre limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Nel cloud del governo degli Stati Uniti di Azure è supportata la collaborazione B2B tra i tenant che si trovano all'interno del cloud di Azure per il governo degli Stati Uniti e che supportano la collaborazione B2B. I tenant di Azure per enti pubblici statunitensi che supportano la collaborazione B2B possono anche collaborare con gli utenti di Social Networking usando gli account Microsoft o Google. Se si invita un utente al di fuori di questi gruppi, ad esempio se l'utente si trova in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o non supporta ancora la collaborazione B2B, l'invito non riuscirà o l'utente non sarà in grado di riscattare l'invito. Per informazioni dettagliate su altre limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Come è possibile stabilire se la collaborazione B2B è disponibile nel tenant di Azure per il governo degli Stati Uniti?
 Per sapere se il tenant cloud del governo degli Stati Uniti di Azure supporta la collaborazione B2B, seguire questa procedura:

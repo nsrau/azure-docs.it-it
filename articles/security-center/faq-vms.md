@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436003"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342213"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Domande frequenti sulle macchine virtuali
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quali tipi di macchine virtuali sono supportati?
 
-Il monitoraggio e le indicazioni sono disponibili per le macchine virtuali create usando i [modelli di distribuzione classica e Resource Manager](../azure-classic-rm.md).
+Il monitoraggio e le indicazioni sono disponibili per le macchine virtuali create usando i [modelli di distribuzione classica e Resource Manager](/azure/security-center/./azure-resource-manager/management/deployment-models).
 
 Per l'elenco delle piattaforme supportate vedere [Supported platforms in Azure Security Center](security-center-os-coverage.md) (Piattaforme supportate nel Centro sicurezza di Azure).
 
@@ -51,7 +51,7 @@ Di seguito sono riportati i tempi di latenza per le analisi delle vulnerabilità
 In genere, il Centro sicurezza esegue l'analisi dei nuovi dati ogni ora e aggiorna le indicazioni di conseguenza. 
 
 > [!NOTE]
-> Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Analytics. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
+> Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Analytics. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](./security-center-enable-data-collection.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"

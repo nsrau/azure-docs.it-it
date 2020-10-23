@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018970"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282059"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lettura del feed di modifiche in Azure Cosmos DB
 
@@ -39,7 +39,7 @@ L'adozione di un modello push costituisce il modo più semplice per leggere dal 
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
-Funzioni di Azure è l'opzione più semplice se si sta iniziando a usare il feed di modifiche. Grazie alla sua semplicità d'uso, è comunque l'opzione consigliata nella maggior parte dei casi in cui è necessario elaborare il feed di modifiche. Quando si crea un trigger di Funzioni di Azure per Azure Cosmos DB, si seleziona il contenitore da connettere per attivare Funzioni di Azure quando viene apportata una modifica al contenitore. Poiché Funzioni di Azure usa il processore dei feed di modifiche in background, viene automaticamente parallelizzata l'elaborazione delle modifiche tra le [partizioni](partition-data.md) del contenitore.
+Funzioni di Azure è l'opzione più semplice se si sta iniziando a usare il feed di modifiche. Grazie alla sua semplicità d'uso, è comunque l'opzione consigliata nella maggior parte dei casi in cui è necessario elaborare il feed di modifiche. Quando si crea un trigger di Funzioni di Azure per Azure Cosmos DB, si seleziona il contenitore da connettere per attivare Funzioni di Azure quando viene apportata una modifica al contenitore. Poiché Funzioni di Azure usa il processore dei feed di modifiche in background, viene automaticamente parallelizzata l'elaborazione delle modifiche tra le [partizioni](partitioning-overview.md) del contenitore.
 
 Sviluppare un'applicazione con Funzioni di Azure è più semplice e talvolta più veloce della distribuzione in autonomia di un processore di feed di modifiche. I trigger possono essere creati usando il portale di Funzioni di Azure o a livello di codice usando gli SDK. Visual Studio e VS Code forniscono il supporto per scrivere le funzioni di Azure ed è anche possibile usare l'interfaccia della riga di comando di Funzioni di Azure per lo sviluppo multipiattaforma. È possibile scrivere il codice ed eseguire il debug dal desktop e quindi distribuire la funzione con un solo clic. Per altre informazioni, vedere gli articoli [Elaborazione di database serverless con Funzioni di Azure](serverless-computing-database.md) e [Feed di modifiche con Funzioni di Azure](change-feed-functions.md).
 

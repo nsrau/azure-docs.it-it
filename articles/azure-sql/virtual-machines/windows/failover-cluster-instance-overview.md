@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272515"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165238"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +140,7 @@ Per le soluzioni di replica dei dati e archiviazione condivisa dei partner Micro
 
 ## <a name="connectivity"></a>Connettività
 
-Le istanze del cluster di failover con SQL Server in macchine virtuali di Azure usano [DNN (Distributed Network Name)](hadr-distributed-network-name-dnn-configure.md) o [VNN (Virtual Network Name) con Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) per instradare il traffico all'istanza di SQL Server, indipendentemente dal nodo attualmente proprietario delle risorse del cluster. Quando si usano determinate funzionalità e DNN con un'istanza del cluster di failover di SQL Server è necessario fare altre considerazioni. Per altre informazioni, vedere [Interoperabilità di DNN con l'istanza del cluster di failover di SQL Server](failover-cluster-instance-dnn-interoperability.md). 
+Le istanze del cluster di failover con SQL Server in macchine virtuali di Azure usano [DNN (Distributed Network Name)](failover-cluster-instance-distributed-network-name-dnn-configure.md) o [VNN (Virtual Network Name) con Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) per instradare il traffico all'istanza di SQL Server, indipendentemente dal nodo attualmente proprietario delle risorse del cluster. Quando si usano determinate funzionalità e DNN con un'istanza del cluster di failover di SQL Server è necessario fare altre considerazioni. Per altre informazioni, vedere [Interoperabilità di DNN con l'istanza del cluster di failover di SQL Server](failover-cluster-instance-dnn-interoperability.md). 
 
 Per altre informazioni sulle opzioni di connettività del cluster, vedere [Instradare connessioni a disponibilità elevata e ripristino di emergenza a SQL Server in macchine virtuali di Azure](hadr-cluster-best-practices.md#connectivity). 
 

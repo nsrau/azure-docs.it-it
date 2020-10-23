@@ -8,12 +8,13 @@ ms.author: viviali
 ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: 6499c9c29d10a2056b0af5499b68b5edd67d82cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80158419"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427837"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creare il bridge di dispositivi IoT Central per connettere altri cloud IoT a IoT Central
 
@@ -26,7 +27,7 @@ Il bridge di dispositivi IoT Central è una soluzione open source in GitHub. È 
 -    App per le funzioni di Azure
 -    Account di archiviazione di Azure
 -    Piano a consumo
--    Insieme di credenziali chiave di Azure
+-    Azure Key Vault
 
 L'app per le funzioni è la parte critica del Bridge del dispositivo. Riceve le richieste HTTP POST da altre piattaforme IoT o da qualsiasi piattaforma personalizzata tramite un'integrazione webhook semplice. Sono disponibili esempi che illustrano come connettersi ai cloud Sigfox, Particle e TTN. È possibile estendere facilmente questa soluzione per la connessione al cloud IoT personalizzato se la piattaforma può inviare richieste HTTP POST all'app per le funzioni.
 L'app per le funzioni trasforma i dati in un formato accettato da IoT Central e li inoltra tramite le API DPS.

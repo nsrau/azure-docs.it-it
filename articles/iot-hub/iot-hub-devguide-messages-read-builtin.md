@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327702"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147686"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -72,12 +72,12 @@ Gli SDK che è possibile usare per connettersi all'endpoint compatibile con l'hu
 
 Le integrazioni del prodotto che è possibile usare per connettersi all'endpoint compatibile con l'hub eventi predefinito che l'hub IoT espone includono:
 
-* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/). Vedere [Elaborazione dei dati dall'hub IoT con Funzioni di Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/). Vedere [Trasmettere dati come input in Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Vedere [Aggiungere un'origine evento di un hub IoT in un ambiente Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Funzioni di Azure](../azure-functions/index.yml). Vedere [Elaborazione dei dati dall'hub IoT con Funzioni di Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Analisi di flusso di Azure](../stream-analytics/index.yml). Vedere [Trasmettere dati come input in Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](../time-series-insights/index.yml). Vedere [Aggiungere un'origine evento di un hub IoT in un ambiente Time Series Insights](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Spout di Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). È possibile visualizzare il [codice sorgente dello spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) su GitHub.
-* [Integrazione Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Integrazione Apache Spark](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
+* [Azure Databricks](/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

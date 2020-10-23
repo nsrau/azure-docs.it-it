@@ -4,19 +4,19 @@ description: Usare un dispositivo Azure IoT Edge per creare un gateway trasparen
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/12/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048407"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147853"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
@@ -31,8 +31,8 @@ Questo articolo fornisce istruzioni dettagliate per la configurazione di un disp
 Ci sono tre passaggi generali per configurare correttamente una connessione gateway trasparente. Questo articolo illustra il primo passaggio:
 
 1. **Configurare il dispositivo gateway come server in modo che i dispositivi downstream possano connettersi in modo sicuro. Configurare il gateway per ricevere messaggi dai dispositivi downstream e instradarli alla destinazione corretta.**
-2. Creare un'identità del dispositivo downstream in modo che sia in grado di eseguire l'autenticazione con l'hub Internet. Configurare il dispositivo downstream per l'invio di messaggi tramite il dispositivo gateway. Per altre informazioni, vedere [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
-3. Connettere il dispositivo downstream al dispositivo gateway e iniziare a inviare messaggi. Per altre informazioni, vedere [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md).
+2. Creare un'identità del dispositivo downstream in modo che sia in grado di eseguire l'autenticazione con l'hub Internet. Configurare il dispositivo downstream per l'invio di messaggi tramite il dispositivo gateway. Per informazioni su questi passaggi, vedere [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
+3. Connettere il dispositivo downstream al dispositivo gateway e iniziare a inviare messaggi. Per informazioni su questi passaggi, vedere [connettere un dispositivo downstream a un gateway Azure IOT Edge](how-to-connect-downstream-device.md).
 
 Perché un dispositivo funga da gateway, deve connettersi in modo sicuro ai dispositivi downstream. Azure IoT Edge permette di usare un'infrastruttura a chiave pubblica (PKI) per configurare connessioni sicure tra dispositivi. In questo caso, un dispositivo downstream è in grado di connettersi a un dispositivo IoT Edge che funge da gateway trasparente. Per garantire una ragionevole sicurezza, il dispositivo downstream deve confermare l'identità del dispositivo gateway. Questa verifica dell'identità impedisce ai dispositivi di connettersi a gateway potenzialmente dannosi.
 
@@ -48,6 +48,8 @@ I passaggi seguenti illustrano il processo di creazione dei certificati e di ins
 ## <a name="prerequisites"></a>Prerequisiti
 
 Un dispositivo Linux o Windows con IoT Edge installato.
+
+Se non si dispone di un dispositivo pronto, è possibile crearne uno in una macchina virtuale di Azure. Seguire la procedura descritta in [distribuire il primo modulo di IOT Edge in un dispositivo Linux virtuale](quickstart-linux.md) per creare un hub Internet delle cose, creare una macchina virtuale e configurare l'IOT Edge Runtime. 
 
 ## <a name="set-up-the-device-ca-certificate"></a>Configurare il certificato della CA del dispositivo
 
@@ -68,24 +70,27 @@ Preparare i file seguenti:
 
 Per gli scenari di produzione, è necessario generare questi file con la propria autorità di certificazione. Per gli scenari di sviluppo e test, è possibile usare i certificati demo.
 
-1. Se si usano i certificati demo, usare la procedura seguente per creare i file:
-   1. [Creare il certificato CA radice](how-to-create-test-certificates.md#create-root-ca-certificate). Al termine di queste istruzioni, sarà presente un file di certificato CA radice:
-      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. Se si usano i certificati demo, seguire le istruzioni riportate in [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md) per creare i file. In questa pagina è necessario eseguire i passaggi seguenti:
 
-   2. [Creare IOT Edge certificato CA del dispositivo](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). Al termine di queste istruzioni, saranno disponibili due file, un certificato CA del dispositivo e la relativa chiave privata:
+   1. Per iniziare, configurare gli script per la generazione di certificati nel dispositivo.
+   2. Creare un certificato CA radice. Al termine di queste istruzioni, sarà presente un file di certificato CA radice:
+      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+   3. Creare IoT Edge certificati della CA del dispositivo. Al termine di queste istruzioni, si disporrà di un certificato della CA del dispositivo e della relativa chiave privata:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` e
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Se questi file sono stati creati in un altro computer, copiarli sul dispositivo IoT Edge.
+2. Se i certificati sono stati creati in un altro computer, copiarli sul dispositivo IoT Edge.
 
 3. Nel dispositivo IoT Edge aprire il file di configurazione del daemon di sicurezza.
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. Trovare la sezione **Certificates** del file e fornire gli URI dei file ai tre file come valori per le proprietà seguenti:
+4. Trovare la sezione delle **impostazioni del certificato** del file. Rimuovere il commento dalle quattro righe che iniziano con i **certificati:** e fornire gli URI dei file ai tre file come valori per le proprietà seguenti:
    * **device_ca_cert**: certificato CA del dispositivo
    * **device_ca_pk**: chiave privata della CA del dispositivo
    * **trusted_ca_certs**: certificato CA radice
+
+   Verificare che non siano presenti spazi vuoti precedenti nella riga **Certificates:** e che le altre righe siano rientrate da due spazi.
 
 5. Salvare e chiudere il file.
 
@@ -146,14 +151,6 @@ Per il funzionamento di uno scenario del gateway, è necessario che almeno uno d
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="enable-extended-offline-operation"></a>Abilita operazione offline estesa
-
-A partire dalla [versione 1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) del runtime di IOT Edge, è possibile configurare il dispositivo gateway e i dispositivi downstream che vi si connettono per l'operazione offline estesa.
-
-Con questa funzionalità, i moduli locali o i dispositivi downstream possono eseguire nuovamente l'autenticazione con il dispositivo IoT Edge in base alle esigenze e comunicare tra loro usando messaggi e metodi anche quando sono disconnessi dall'hub. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
-
-Per abilitare le funzionalità estese offline, è necessario stabilire una relazione padre-figlio tra un dispositivo gateway IoT Edge e i dispositivi downstream a cui si connetterà. Questi passaggi sono illustrati in modo più dettagliato nel prossimo articolo di questa serie, [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

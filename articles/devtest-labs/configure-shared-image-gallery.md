@@ -3,12 +3,12 @@ title: Configurare una raccolta di immagini condivise in Azure DevTest Labs | Mi
 description: Informazioni su come configurare una raccolta di immagini condivise in Azure DevTest Labs, che consente agli utenti di accedere alle immagini da un percorso condiviso durante la creazione di risorse Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271040"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327978"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
 DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md) . Consente agli utenti del Lab di accedere alle immagini da un percorso condiviso durante la creazione di risorse Lab. Consente inoltre di creare strutture e organizzazioni per le immagini di macchina virtuale gestite in modo personalizzato. La funzionalità raccolta immagini condivise supporta:
@@ -16,7 +16,7 @@ DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virt
 - Replica globale gestita delle immagini
 - Controllo delle versioni e raggruppamento di immagini per una gestione più semplice
 - Rendere le immagini a disponibilità elevata con account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. Le ZRS offrono una migliore resilienza nei confronti degli errori di zona.
-- Condivisione tra sottoscrizioni e anche tra tenant, usando il controllo degli accessi in base al ruolo (RBAC).
+- Condivisione tra le sottoscrizioni e anche tra i tenant usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 Per ulteriori informazioni, vedere la [documentazione relativa alla raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md). 
  

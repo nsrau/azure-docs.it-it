@@ -3,12 +3,12 @@ title: 'Esercitazione: Elenco di controllo di pianificazione della rete'
 description: Informazioni sui prerequisiti della rete e dettagli relativi ai requisiti per la connettività e le porte di rete per la soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576678"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948205"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Elenco di controllo di pianificazione della rete per la soluzione Azure VMware 
 
@@ -36,6 +36,9 @@ La rete logica del cloud privato include NSX-T con il provisioning effettuato. V
 Il cloud privato di AVS è connesso alla rete virtuale di Azure tramite una connessione ExpressRoute di Azure. Questa connessione ad ampia larghezza di banda e a bassa latenza consente di accedere ai servizi in esecuzione nella sottoscrizione di Azure dall'ambiente cloud privato. Il routing è basato su BGP (Border Gateway Protocol), ne viene eseguito automaticamente il provisioning ed è abilitato per impostazione predefinita per ogni distribuzione di cloud privato. 
 
 I cloud privati di AVS richiedono almeno un blocco di indirizzi di rete `/22` CIDR per le subnet, come illustrato di seguito. Questa rete integra le reti locali disponibili. Il blocco di indirizzi non deve sovrapporsi ai blocchi di indirizzi usati in altre reti virtuali presenti nella sottoscrizione e nelle reti locali. All'interno di questo blocco di indirizzi, le reti di gestione, provisioning e vMotion vengono automaticamente sottoposte a provisioning.
+
+>[!NOTE]
+>Gli intervalli consentiti per il blocco di indirizzi sono inclusi negli spazi indirizzi privati RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), ad eccezione di 172.17.0.0/16.
 
 Esempio di blocco di indirizzi di rete `/22` CIDR: `10.10.0.0/22`
 

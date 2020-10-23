@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure. È anche possibile usare il ripristino tra aree per ripristinare i database in un'area secondaria.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985435"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172166"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -30,7 +30,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 - È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure.
 - Il server di destinazione deve essere registrato nello stesso insieme di credenziali dell'origine.
 - Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- È necessario ripristinare i database abilitati per [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
+- È necessario ripristinare i database abilitati per [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
 - Prima di ripristinare il database "Master", avviare l'istanza di SQL Server in modalità utente singolo usando l'opzione di avvio **-m AzureWorkloadBackup**.
   - Il valore per **-m** è il nome del client.
   - La connessione può essere aperta solo dal nome client specificato.
@@ -150,7 +150,7 @@ Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire l
     ![Apri il calendario](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Dopo aver selezionato una data, il grafico della sequenza temporale indica i punti di recupero disponibili in un intervallo continuo.
-1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Quindi scegliere **OK**.
+1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Selezionare **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Ripristinare uno specifico punto di ripristino
 

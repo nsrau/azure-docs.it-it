@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614656"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427501"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Linea di base sicurezza di Azure per il collegamento privato di Azure
 
@@ -268,7 +268,7 @@ Inserire i dati in Sentinel di Azure per un'analisi più approfondita.
 
 Limitare il livello di accesso alle risorse di Azure con le applicazioni e gli ambienti aziendali in base ai requisiti aziendali. 
 
-Controllare l'accesso alle risorse di Azure tramite Azure Active Directory il controllo degli accessi in base al ruolo.
+Controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 - [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ Seguire le raccomandazioni del Centro sicurezza per la crittografia dei dati ina
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 **Indicazioni**: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 

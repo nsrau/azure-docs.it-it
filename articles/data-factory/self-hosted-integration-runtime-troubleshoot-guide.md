@@ -2,17 +2,17 @@
 title: Risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory
 description: Informazioni su come risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
-ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.author: lle
+ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069476"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427227"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -615,6 +615,40 @@ Nell'esempio seguente viene illustrato l'aspetto di uno scenario valido.
 
     ![Flusso di lavoro TCP 4 handshake](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Ricezione di un messaggio di posta elettronica per aggiornare la configurazione di rete per consentire la comunicazione con nuovi indirizzi IP
+
+#### <a name="email-notification-from-microsoft"></a>Notifica tramite posta elettronica da Microsoft
+
+È possibile ricevere una notifica di posta elettronica di seguito, che consiglia di aggiornare la configurazione di rete per consentire la comunicazione con i nuovi indirizzi IP per Azure Data Factory entro l'8 novembre 2020:
+
+   ![Notifica tramite posta elettronica](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Come determinare se si è interessati da questa notifica
+
+Questa notifica influisca sugli scenari seguenti:
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Scenario 1: comunicazione in uscita da Integration Runtime self-hosted in esecuzione in locale dietro il firewall aziendale
+Come determinare se si è interessati:
+- L'utente non ha alcun effetto se si definiscono regole del firewall basate sui nomi FQDN usando l'approccio descritto in questo documento: [configurazione del firewall e configurazione dell'elenco Consenti per l'indirizzo IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Tuttavia, se si è in modo esplicito nell'elenco elementi consentiti degli indirizzi IP in uscita nel firewall aziendale.
+
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare la configurazione di rete in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scenario 2: comunicazione in uscita da Integration Runtime self-hosted in esecuzione in una macchina virtuale di Azure all'interno della rete virtuale di Azure gestita dal cliente
+Come determinare se si è interessati:
+- Verificare la presenza di regole NSG in uscita nella rete privata che contiene Integration Runtime indipendenti. Se non sono presenti restrizioni in uscita, non vi è alcun effetto.
+- Se sono presenti restrizioni per le regole in uscita, controllare se si usa o meno il tag di servizio. Se si usa il tag di servizio, non è necessario modificare o aggiungere nulla perché i nuovi intervalli IP sono sotto il tag del servizio esistente. 
+ ![Verifica destinazione](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- Tuttavia, se si desidera aggiungere in modo esplicito gli indirizzi IP in uscita nell'impostazione delle regole di NSG nella rete virtuale di Azure, si è interessati.
+
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenario 3: comunicazione in uscita da SSIS Integration Runtime nella rete virtuale di Azure gestita dal cliente
+- Verificare la presenza di regole NSG in uscita nella rete privata che contiene Integration Runtime SSIS. Se non sono presenti restrizioni in uscita, non vi è alcun effetto.
+- Se sono presenti restrizioni per le regole in uscita, controllare se si usa o meno il tag di servizio. Se si usa il tag di servizio, non è necessario modificare o aggiungere nulla perché i nuovi intervalli IP sono sotto il tag del servizio esistente.
+- Tuttavia, se si è in modo esplicito l'elenco degli elementi consentiti nell'elenco di indirizzi IP in uscita nell'impostazione delle regole NSG nella rete virtuale di Azure.
+
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="self-hosted-ir-sharing"></a>Condivisione del runtime di integrazione self-hosted
 

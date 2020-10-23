@@ -3,12 +3,12 @@ title: Creazione e utilizzo di file di risorse
 description: Informazioni su come creare file di risorse di Batch da varie origini di input. Questo articolo illustra alcuni metodi comuni per creare tali file e inserirli in una macchina virtuale.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230943"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109290"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Un'alternativa alla generazione di un URL SAS consiste nell'abilitare l'accesso in lettura pubblico anonimo per un contenitore e i relativi BLOB in Archiviazione BLOB di Azure. Ciò permette di concedere l'accesso in sola lettura a queste risorse senza condividere la chiave dell'account e senza richiedere una firma di accesso condiviso (SAS). L'accesso in lettura pubblico è in genere usato per scenari in cui si vuole che BLOB specifici siano sempre disponibili per l'accesso in lettura anonimo. Se questo scenario è adatto alla soluzione, vedere l'articolo relativo all'[accesso anonimo ai BLOB](../storage/blobs/storage-manage-access-to-resources.md) per altre informazioni sulla gestione dell'accesso ai dati BLOB.
+Un'alternativa alla generazione di un URL SAS consiste nell'abilitare l'accesso in lettura pubblico anonimo per un contenitore e i relativi BLOB in Archiviazione BLOB di Azure. Ciò permette di concedere l'accesso in sola lettura a queste risorse senza condividere la chiave dell'account e senza richiedere una firma di accesso condiviso (SAS). L'accesso in lettura pubblico è in genere usato per scenari in cui si vuole che BLOB specifici siano sempre disponibili per l'accesso in lettura anonimo. Se questo scenario è adatto alla soluzione, vedere l'articolo relativo all'[accesso anonimo ai BLOB](../storage/blobs/anonymous-read-access-configure.md) per altre informazioni sulla gestione dell'accesso ai dati BLOB.
 
 ### <a name="storage-container-name"></a>Nome contenitore di archiviazione
 

@@ -4,12 +4,12 @@ description: Informazioni su come creare un'app per la logica che sfrutta lo sch
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eb96248f68923da5ff5223f57fac1bffaf4ed04
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322092"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108882"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare lo schema di avviso comune con le app per la logica
 
@@ -17,7 +17,7 @@ Questo articolo illustra come creare un'app per la logica che sfrutta lo schema 
 
 ## <a name="overview"></a>Panoramica
 
-Lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) fornisce uno schema JSON standardizzato ed estendibile in tutti i diversi tipi di avviso. Lo schema di avviso comune è particolarmente utile quando viene usato a livello di codice, tramite webhook, manuali operativi e app per la logica. Questo articolo illustra come è possibile creare una singola app per la logica per gestire tutti gli avvisi. Gli stessi principi possono essere applicati ad altri metodi a livello di codice. L'app per la logica descritta in questo articolo crea variabili ben definite per i [campi ' Essential '](alerts-common-schema-definitions.md#essentials)e descrive anche come è possibile gestire la logica specifica del [tipo di avviso](alerts-common-schema-definitions.md#alert-context) .
+Lo [schema di avviso comune](./alerts-common-schema.md) fornisce uno schema JSON standardizzato ed estendibile in tutti i diversi tipi di avviso. Lo schema di avviso comune è particolarmente utile quando viene usato a livello di codice, tramite webhook, manuali operativi e app per la logica. Questo articolo illustra come è possibile creare una singola app per la logica per gestire tutti gli avvisi. Gli stessi principi possono essere applicati ad altri metodi a livello di codice. L'app per la logica descritta in questo articolo crea variabili ben definite per i [campi ' Essential '](alerts-common-schema-definitions.md#essentials)e descrive anche come è possibile gestire la logica specifica del [tipo di avviso](alerts-common-schema-definitions.md#alert-context) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti 
@@ -138,5 +138,4 @@ In questo articolo si presuppone che il lettore abbia familiarità con
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni sui gruppi di azioni](./action-groups.md).
-* [Altre informazioni sullo schema di avviso comune](https://aka.ms/commonAlertSchemaDocs).
-
+* [Altre informazioni sullo schema di avviso comune](./alerts-common-schema.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79246110"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424714"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. Fare clic con il pulsante destro del mouse sul server DNS e scegliere **nuova zona**. 
   
-    ![Nuova zona](media/DNS01.png)
+    ![Schermata che evidenzia l'opzione del menu nuova zona.](media/DNS01.png)
 2. Selezionare **zona Stub** e fare clic su **Avanti**.
 
-    ![Nuova zona](media/DNS02.png)
+    ![Screenshot che evidenzia l'opzione zona stub.](media/DNS02.png)
 3. Selezionare l'opzione appropriata in base all'ambiente in uso e fare clic su **Avanti**.
 
-    ![Nuova zona](media/DNS03.png)
+    ![Screenshot che mostra le opzioni di replica dei dati della zona.](media/DNS03.png)
 4. Selezionare **zona di ricerca diretta** e fare clic su **Avanti**.
 
-    ![Nuova zona](media/DNS01.png)
+    ![Screenshot che evidenzia l'opzione per la zona di ricerca diretta.](media/DNS01.png)
 5. Immettere il nome della zona e fare clic su **Avanti**.
 
-    ![Nuova zona](media/DNS05.png)
+    ![Screenshot che mostra dove immettere il nome della zona.](media/DNS05.png)
 6. Immettere gli indirizzi IP dei server DNS per il cloud privato ottenuti dal portale di CloudSimple.
 
     ![Nuova zona](media/DNS06.png)

@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798075"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277470"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi nel portale App personali
 
-È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
+È possibile usare l'account aziendale o dell'Istituto di istruzione con il portale delle **app personali** basato sul Web per visualizzare e avviare molte delle app basate sul cloud dell'organizzazione, per aggiornare alcune delle informazioni sul profilo e sull'account, per visualizzare le informazioni sui **gruppi** e per eseguire verifiche di **accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -44,13 +44,11 @@ Se l'amministratore ha concesso l'autorizzazione a visualizzare il riquadro **Gr
 
     Viene visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
-    ![Pagina App nel portale App personali](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Pagina App nel portale App personali](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Selezionare il riquadro **Gruppi** per visualizzare le informazioni relative al gruppo.
+3. Trascinare il menu **app personali** e selezionare **gruppi personali** per visualizzare le informazioni relative al gruppo.
 
-    ![Pagina Gruppi con gruppi di proprietà e di cui si fa parte](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. A seconda delle autorizzazioni, è possibile usare la pagina **Gruppi** per:
+4. A seconda delle autorizzazioni, è possibile utilizzare la pagina **gruppi personali** per:
 
     - **Esaminare i gruppi di cui si è proprietari.** Visualizzare informazioni sui gruppi di cui si è proprietari nell'organizzazione all'interno dell'area **Gruppi di cui si è proprietari**. Se si seleziona il nome di un gruppo specifico, vengono forniti altri dettagli sul gruppo, tra cui il tipo di gruppo, il numero di membri, i criteri di partecipazione e l'elenco dei membri attivi.
 

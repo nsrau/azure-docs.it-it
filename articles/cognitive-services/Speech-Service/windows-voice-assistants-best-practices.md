@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293643"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165146"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Esperienze di assistente progettazione per Windows 10
 
@@ -69,8 +69,8 @@ Anche se gli Stati cambiano rapidamente, è opportuno considerare la possibilit�
 
 Quando l'app Assistant ha lo stato attivo, la finalità del cliente è chiaramente interagire con l'app, quindi tutte le esperienze di attivazione vocale devono essere gestite dalla visualizzazione principale dell'app. Questa vista può essere ridimensionata dal cliente. Per semplificare la spiegazione delle interazioni della shell degli assistenti, nella parte restante di questo documento viene usato l'esempio concreto di assistente di servizi finanziari denominato contoso. In questo e nei diagrammi successivi, ciò che il cliente dice verrà visualizzato nelle bolle di riconoscimento vocale dei cartoni a sinistra con le risposte degli assistenti nelle bolle dei cartoni a destra.
 
-**Visualizzazione in-app. Stato iniziale quando viene avviata l'attivazione vocale:** 
- ![ screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Visualizzazione in-app. Stato iniziale all'avvio dell'attivazione vocale:** 
+ ![ screenshot che mostra l'app Contoso Finance Assistant aperta nell'area di disegno predefinita. Una bolla vocale a destra del fumetto indica "contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Visualizzazione in-app. Al termine dell'attivazione vocale, viene avviata l'esperienza di ascolto:** ![ screenshot dell'Assistente vocale in Windows mentre l'Assistente vocale è in ascolto](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ Per consentire ai clienti di accedere in modo più semplice alla prossima volta 
 - Se l'app è &quot; in uso &quot; , può continuare con il blocco. &quot;in uso &quot; costituisce qualsiasi input o output. Ad esempio, quando si esegue il flusso di musica o video, l'app può continuare sopra il blocco. &quot;In &quot; e in altri passaggi della finestra di dialogo multigiro è consentito il blocco dell'app.
 - I **Dettagli di implementazione sulla chiusura dell'applicazione** sono disponibili [nella Guida all'implementazione del blocco precedente](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Screenshot che mostra la visualizzazione blocco precedente dell'app Contoso Finance Assistant.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot dell'Assistente vocale in Windows prima dell'attivazione](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Screenshot di un desktop che mostra la schermata di blocco di Windows.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Considerazioni sulla sicurezza della privacy &amp; sopra il blocco
 

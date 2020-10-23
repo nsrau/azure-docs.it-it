@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192804"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101648"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ ms.locfileid: "88192804"
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Un cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Esecuzione di un cluster Storm in Data Lake Storage Gen1**. Per altre informazioni, vedere [Storm in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Esecuzione di un cluster Storm in Data Lake Storage Gen1**. Per altre informazioni, vedere [Storm in HDInsight](../hdinsight/storm/apache-storm-overview.md).
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1](./data-lake-store-performance-tuning-guidance.md).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ottimizzare il parallelismo della topologia
 
@@ -130,6 +130,6 @@ Per verificare la presenza di limitazioni, abilitare la registrazione di debug s
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In [questo Blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)è possibile fare riferimento a un'ulteriore ottimizzazione delle prestazioni per Storm.
+In [questo Blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)è possibile fare riferimento a un'ulteriore ottimizzazione delle prestazioni per Storm.
 
 Per un esempio aggiuntivo da eseguire, vedere [questo in GitHub](https://github.com/hdinsight/storm-performance-automation).

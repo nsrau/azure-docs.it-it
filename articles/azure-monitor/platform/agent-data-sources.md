@@ -1,25 +1,28 @@
 ---
-title: Configurare le origini dati degli agenti in Monitoraggio di Azure | Microsoft Docs
+title: Origini dati di Log Analytics Agent in monitoraggio di Azure
 description: Le origini dati definiscono i dati di log che Monitoraggio di Azure raccoglie da agenti e altre origini connesse.  Questo articolo descrive come Monitoraggio di Azure usa le origini dati, illustra i dettagli su come configurarle e fornisce un riepilogo delle diverse origini dati disponibili.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073688"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460802"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Origini dati degli agenti in Monitoraggio di Azure
-I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle origini dati configurate.  I dati degli agenti vengono archiviati come [dati di log](data-platform-logs.md) con un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Origini dati di Log Analytics Agent in monitoraggio di Azure
+I dati raccolti da monitoraggio di Azure dalle macchine virtuali con l'agente di [log Analytics](log-analytics-agent.md) vengono definiti dalle origini dati configurate nell' [area di lavoro log Analytics](data-platform-logs.md).   Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
+
+> [!IMPORTANT]
+> Questo articolo illustra le origini dati per l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Raccolta dati di log](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Riepilogo delle origini dati
-Nella tabella seguente sono elencate le origini dati degli agenti attualmente disponibili in Monitoraggio di Azure.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta. 
+Nella tabella seguente sono elencate le origini dati di Agent attualmente disponibili con l'agente di Log Analytics.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta. 
 
 
 | Origine dati | Piattaforma | Agente di log Analytics | Agente Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
@@ -34,14 +37,12 @@ Nella tabella seguente sono elencate le origini dati degli agenti attualmente di
 
 
 ## <a name="configuring-data-sources"></a>Configurazione delle origini dati
-Configurare le origini dati nel menu **Dati** in **Impostazioni avanzate** per l'area di lavoro.  Qualsiasi configurazione viene recapitata a tutte le origini connesse nell'area di lavoro.  Attualmente non è possibile escludere gli agenti da questa configurazione.
+Per configurare le origini dati per gli agenti Log Analytics, accedere al menu **log Analytics aree di lavoro** del portale di Azure e selezionare un'area di lavoro. Fare clic su **Impostazioni avanzate** e quindi su **dati**. Selezionare l'origine dati che si desidera configurare. È possibile seguire i collegamenti nella tabella precedente per la documentazione per ogni origine dati e per informazioni dettagliate sulla relativa configurazione.
+
+Qualsiasi configurazione viene recapitata a tutti gli agenti connessi all'area di lavoro.  Non è possibile escludere gli agenti connessi da questa configurazione.
 
 ![Configurare gli eventi di Windows](media/agent-data-sources/configure-events.png)
 
-1. Nel portale di Azure selezionare **Aree di lavoro di Log Analytics** > area di lavoro personale > **Impostazioni avanzate**.
-2. Selezionare **i dati**.
-3. Fare clic sull'origine dati che si desidera configurare.
-4. Per informazioni dettagliate relative alla configurazione, seguire il collegamento alla documentazione per ogni origine dati nella tabella precedente.
 
 
 ## <a name="data-collection"></a>Raccolta dati

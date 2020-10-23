@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087964ab64c94d5dfe223ce4e47355784003b627
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371185"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173337"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -26,7 +26,7 @@ Protezione DDoS di Azure, insieme alle procedure consigliate di progettazione de
 
 Protezione DDoS Standard è semplice da abilitare e non richiede alcuna modifica alle applicazioni. I criteri di protezione sono ottimizzati tramite il monitoraggio del traffico dedicato e algoritmi di Machine Learning. I criteri vengono applicati agli indirizzi IP pubblici associati alle risorse distribuite nelle reti virtuali, ad esempio le istanze di Azure Load Balancer, del gateway applicazione di Azure e di Azure Service Fabric, ma questa protezione non si applica agli ambienti del servizio app.La telemetria in tempo reale è disponibile tramite le viste di Monitoraggio di Azure durante un attacco e come informazione cronologica. Sono disponibili funzionalità complete di analisi della mitigazione degli attacchi tramite le impostazioni di diagnostica. È possibile aggiungere protezioni a livello dell'applicazione tramite il [web application firewall del gateway applicazione di Azure](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o installando un firewall di terze parti da Microsoft Azure Marketplace. La protezione viene fornita per gli [indirizzi IP pubblici](virtual-network-public-ip-address.md) di Azure IPv4 e IPv6.
 
-![Protezione DDoS Basic vs standard](./media/ddos-protection-overview/ddoscomparison.png)
+![Protezione DDoS Basic vs standard](./media/ddos-protection-overview/ddosfeatures.png)
 
 Protezione DDoS di Azure non archivia i dati dei clienti.
 
@@ -41,8 +41,6 @@ Protezione DDoS Standard consente di mitigare i seguenti tipi di attacchi:
 Protezione DDoS Standard protegge le risorse in una rete virtuale, inclusi gli indirizzi IP pubblici associati alle macchine virtuali, i bilanciamenti del carico e i gateway applicazione. Una volta abbinato il gateway applicazione web application firewall o una web application firewall di terze parti distribuita in una rete virtuale con un indirizzo IP pubblico, protezione DDoS standard può fornire funzionalità di mitigazione complete di livello 3 a livello 7.
 
 ## <a name="ddos-protection-standard-features"></a>Funzionalità di Protezione DDoS Standard
-
-![Funzionalità DDoS](./media/ddos-protection-overview/ddosfeatures.png)
 
 Le funzionalità di Protezione DDoS Standard includono:
 

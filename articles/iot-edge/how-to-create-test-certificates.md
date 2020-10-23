@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84430668"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147875"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creare certificati demo per testare le funzionalità del dispositivo IoT Edge
 
@@ -32,9 +32,9 @@ Seguire questa procedura per creare i certificati demo per testare lo scenario d
 1. [Configurare gli script](#set-up-scripts) per la generazione di certificati nel dispositivo.
 2. [Creare il certificato CA radice](#create-root-ca-certificate) usato per firmare tutti gli altri certificati per lo scenario.
 3. Generare i certificati necessari per lo scenario che si desidera testare:
-   * [Creare IOT Edge certificati di identità del dispositivo](#create-iot-edge-device-identity-certificates) per testare il provisioning automatico con il servizio Device provisioning in hub Internet.
-   * [Creare certificati della CA del dispositivo IOT Edge](#create-iot-edge-device-ca-certificates) per testare scenari di produzione o scenari di gateway.
-   * [Creare certificati downstream](#create-downstream-device-certificates) per i dispositivi per testare l'autenticazione dei dispositivi downstream nell'hub Internet in uno scenario di gateway.
+   * [Creare IOT Edge certificati di identità del dispositivo](#create-iot-edge-device-identity-certificates) per il provisioning automatico con il servizio Device provisioning in hub Internet.
+   * [Creare certificati della CA del dispositivo IOT Edge](#create-iot-edge-device-ca-certificates) per IOT Edge dispositivi in scenari gateway.
+   * [Creare certificati di dispositivo downstream](#create-downstream-device-certificates) per l'autenticazione di dispositivi downstream in uno scenario di gateway.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,7 +53,7 @@ Per creare certificati demo in un dispositivo Windows, è necessario installare 
 #### <a name="install-openssl"></a>Installare OpenSSL
 
 Installare OpenSSL per Windows nel computer usato per generare i certificati.
-Se è già installato OpenSSL nel dispositivo Windows, è possibile ignorare questo passaggio, ma assicurarsi che openssl.exe sia disponibile nella variabile di ambiente PATH.
+Se è già installato OpenSSL nel dispositivo Windows, assicurarsi che openssl.exe sia disponibile nella variabile di ambiente PATH.
 
 Sono disponibili diversi modi per installare OpenSSL, incluse le opzioni seguenti:
 
@@ -183,7 +183,7 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Creare certificati di identità del dispositivo IoT Edge
 
-I certificati di identità dei dispositivi vengono usati per effettuare il provisioning di dispositivi IoT Edge tramite il [servizio Device provisioning in hub Azure](../iot-dps/index.yml).
+I certificati di identità dei dispositivi vengono usati per effettuare il provisioning di dispositivi IoT Edge tramite il servizio Device provisioning in hub Azure.
 
 I certificati di identità del dispositivo vengono inseriti nella sezione **provisioning** del file config. YAML sul dispositivo IOT Edge.
 
@@ -247,8 +247,6 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 Il nome passato al comando **New-CACertsEdgeDevice** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
-Lo script consente di evitare eventuali problemi aggiungendo una stringa ". ca" al nome del certificato per evitare il conflitto di nomi nel caso in cui un utente consenta di configurare IoT Edge con lo stesso nome in entrambe le posizioni.
-Tuttavia, è buona norma evitare di usare lo stesso nome.
 
 ### <a name="linux"></a>Linux
 
@@ -266,8 +264,6 @@ Tuttavia, è buona norma evitare di usare lo stesso nome.
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
 Il nome passato al comando **create_edge_device_certificate** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
-Lo script consente di evitare eventuali problemi aggiungendo una stringa ". ca" al nome del certificato per evitare il conflitto di nomi nel caso in cui un utente consenta di configurare IoT Edge con lo stesso nome in entrambe le posizioni.
-Tuttavia, è buona norma evitare di usare lo stesso nome.
 
 ## <a name="create-downstream-device-certificates"></a>Creare certificati downstream per i dispositivi
 

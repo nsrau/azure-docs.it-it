@@ -245,6 +245,12 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP
       href: sap-proximity-placement-scenarios.md
+- name: Piattaforma di business intelligence SAP BusinessObjects in Azure
+  items:
+    - name: Guida alla pianificazione e all'implementazione della piattaforma di business intelligence SAP BusinessObjects in Azure
+      href: businessobjects-deployment-guide.md
+    - name: Guida alla distribuzione della piattaforma di business intelligence SAP BusinessObjects per Linux in Azure
+      href: businessobjects-deployment-guide-linux.md
 - name: Integrare Azure AD con applicazioni SAP
   items:
     - name: Eseguire il provisioning di utenti da SAP SuccessFactors ad Active Directory

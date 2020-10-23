@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658802"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366854"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Eseguire la replica di computer locali usando endpoint privati
 
@@ -123,7 +123,7 @@ Se si crea l'endpoint privato e si è anche il proprietario dell'insieme di cred
 > [!NOTE]
 > Gli endpoint privati per l'archiviazione possono essere creati solo negli account di archiviazione per utilizzo generico V2. Per informazioni sui prezzi, vedere [prezzi dei BLOB di pagine di Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-Seguire le [istruzioni per la creazione di un'archiviazione privata](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) per creare un account di archiviazione con un endpoint privato. Assicurarsi di selezionare **Sì** in **integrazione con la zona DNS privata**. Selezionare una zona DNS esistente o crearne una nuova.
+Seguire le [istruzioni per la creazione di un'archiviazione privata](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) per creare un account di archiviazione con un endpoint privato. Assicurarsi di selezionare **Sì** in **integrazione con la zona DNS privata**. Selezionare una zona DNS esistente o crearne una nuova.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>Concedere le autorizzazioni necessarie all'insieme di credenziali
 

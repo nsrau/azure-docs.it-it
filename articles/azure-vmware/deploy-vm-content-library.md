@@ -3,12 +3,12 @@ title: Creare una raccolta contenuto per distribuire macchine virtuali in una so
 description: Creare una raccolta contenuto per distribuire una macchina virtuale in un cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575810"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461686"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creare una raccolta contenuto per distribuire macchine virtuali in una soluzione VMware di Azure
 
@@ -92,7 +92,7 @@ Ora che la raccolta contenuto è stata creata, è possibile aggiungere un'immagi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si prevede di usare Hybrid Cloud Extension (HCX) per eseguire la migrazione dei carichi di lavoro delle macchine virtuali nel cloud privato, usare la procedura [Installare HCX per la soluzione Azure VMware](tutorial-deploy-vmware-hcx.md).
+Se si prevede di usare VMware HCX per eseguire la migrazione dei carichi di lavoro delle macchine virtuali nel cloud privato, usare la procedura di [distribuzione e configurazione di HCX VMware](tutorial-deploy-vmware-hcx.md) .
 
 <!-- LINKS - external-->
 

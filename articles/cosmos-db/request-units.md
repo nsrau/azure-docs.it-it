@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88604834"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282050"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -38,42 +38,50 @@ Il tipo di account Azure Cosmos usato determina il modo in cui viene addebitato 
 
 Mentre si stima il numero di ur utilizzate dal carico di lavoro, considerare i fattori seguenti:
 
-* **Dimensioni degli elementi**: con l'aumentare delle dimensioni di un elemento, aumenta anche il numero di UR utilizzate per la lettura o la scrittura dell'elemento.
+- **Dimensioni degli elementi**: con l'aumentare delle dimensioni di un elemento, aumenta anche il numero di UR utilizzate per la lettura o la scrittura dell'elemento.
 
-* **Indicizzazione degli elementi**: Per impostazione predefinita, ogni elemento viene automaticamente indicizzato. Se si sceglie di non indicizzare alcuni degli elementi in un contenitore, viene utilizzato un numero inferiore di UR.
+- **Indicizzazione degli elementi**: Per impostazione predefinita, ogni elemento viene automaticamente indicizzato. Se si sceglie di non indicizzare alcuni degli elementi in un contenitore, viene utilizzato un numero inferiore di UR.
 
-* **Numero di proprietà degli elementi**: supponendo che sia applicata l'indicizzazione predefinita a tutte le proprietà, il numero di UR utilizzate per scrivere un elemento aumenta proporzionalmente al numero delle proprietà dell'elemento.
+- **Numero di proprietà degli elementi**: supponendo che sia applicata l'indicizzazione predefinita a tutte le proprietà, il numero di UR utilizzate per scrivere un elemento aumenta proporzionalmente al numero delle proprietà dell'elemento.
 
-* **Proprietà indicizzate**: I criteri di indicizzazione in ogni contenitore determinano le proprietà che vengono indicizzate per impostazione predefinita. Per ridurre il consumo di UR per le operazioni di scrittura, limitare il numero di proprietà indicizzate.
+- **Proprietà indicizzate**: I criteri di indicizzazione in ogni contenitore determinano le proprietà che vengono indicizzate per impostazione predefinita. Per ridurre il consumo di UR per le operazioni di scrittura, limitare il numero di proprietà indicizzate.
 
-* **Coerenza dei dati**: i livelli di coerenza con obsolescenza forte e limitata utilizzano circa due volte più ur durante l'esecuzione di operazioni di lettura rispetto a quelle di altri livelli di coerenza rilassati.
+- **Coerenza dei dati**: i livelli di coerenza con obsolescenza forte e limitata utilizzano circa due volte più ur durante l'esecuzione di operazioni di lettura rispetto a quelle di altri livelli di coerenza rilassati.
 
-* **Tipo di letture**: il costo delle letture di punti è notevolmente inferiore rispetto alle query.
+- **Tipo di letture**: il costo delle letture di punti è notevolmente inferiore rispetto alle query.
 
-* **Modelli di query**: la complessità di una query influisce sulla quantità di UR utilizzate per un'operazione. I fattori che influiscono sul costo delle operazioni di query sono: 
-    
-    - Il numero di risultati della query
-    - Il numero di predicati
-    - La natura dei predicati
-    - Il numero di funzioni definite dall'utente
-    - Le dimensioni dei dati di origine
-    - Le dimensioni del set di risultati
-    - Proiezioni
+- **Modelli di query**: la complessità di una query influisce sulla quantità di UR utilizzate per un'operazione. I fattori che influiscono sul costo delle operazioni di query sono: 
 
-  Azure Cosmos DB assicura che la stessa query sugli stessi dati costi sempre lo stesso numero di UR per esecuzioni ripetute.
+  - Il numero di risultati della query
+  - Il numero di predicati
+  - La natura dei predicati
+  - Il numero di funzioni definite dall'utente
+  - Le dimensioni dei dati di origine
+  - Le dimensioni del set di risultati
+  - Proiezioni
 
-* **Utilizzo di script**: come per le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni eseguite. Durante lo sviluppo dell'applicazione, controllare l'[intestazione per l'addebito delle richieste](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) per comprendere meglio quanta capacità in termini di UR viene utilizzata da ogni operazione.
+  La stessa query sugli stessi dati costerà sempre lo stesso numero di ur sulle esecuzioni ripetute.
+
+- **Utilizzo di script**: come per le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni eseguite. Durante lo sviluppo dell'applicazione, controllare l'[intestazione per l'addebito delle richieste](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) per comprendere meglio quanta capacità in termini di UR viene utilizzata da ogni operazione.
+
+## <a name="request-units-and-multiple-regions"></a>Unità richiesta e più aree
+
+Se si esegue il provisioning delle UR ' *r '* in un contenitore Cosmos (o database), Cosmos DB garantisce che le UR *' r '* siano disponibili in *ogni* area associata all'account Cosmos. Non è possibile assegnare in modo selettivo le UR a un'area specifica. Il provisioning delle UR con provisioning in un contenitore Cosmos (o database) viene effettuato in tutte le aree associate all'account Cosmos.
+
+Supponendo che un contenitore Cosmos sia configurato con le UR *' R '* e che ci siano aree *' n'* associate all'account Cosmos, le UR totali disponibili a livello globale nel contenitore = *R* x *N*.
+
+La scelta del [modello di coerenza](consistency-levels.md) influisca anche sulla velocità effettiva. È possibile ottenere circa 2x velocità effettiva di lettura per i livelli di coerenza più flessibili (ad esempio, *sessione*, *prefisso coerente* e coerenza *finale* ) rispetto ai livelli di coerenza più avanzati (ad *esempio,* decadimento ristretto *o coerenza* assoluta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su come [effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos](set-throughput.md).
-* Scopri di più [su Azure Cosmos DB senza server](serverless.md).
-* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
-* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
-* [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
-* [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
-* Informazioni su come [trovare l'addebito delle unità richiesta per un'operazione](find-request-unit-charge.md).
-* Informazioni su come [ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md).
-* Informazioni su come [ottimizzare i costi di lettura e scrittura in Azure Cosmos DB](optimize-cost-reads-writes.md).
-* Informazioni su come [ottimizzare i costi delle query in Azure Cosmos DB](optimize-cost-queries.md).
-* Informazioni su come [usare le metriche per monitorare la velocità effettiva](use-metrics.md).
+- Altre informazioni su come [effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos](set-throughput.md).
+- Scopri di più [su Azure Cosmos DB senza server](serverless.md).
+- [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
+- [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+- [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
+- [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
+- Informazioni su come [trovare l'addebito delle unità richiesta per un'operazione](find-request-unit-charge.md).
+- Informazioni su come [ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md).
+- Informazioni su come [ottimizzare i costi di lettura e scrittura in Azure Cosmos DB](optimize-cost-reads-writes.md).
+- Informazioni su come [ottimizzare i costi delle query in Azure Cosmos DB](optimize-cost-queries.md).
+- Informazioni su come [usare le metriche per monitorare la velocità effettiva](use-metrics.md).

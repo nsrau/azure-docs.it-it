@@ -2,13 +2,13 @@
 title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c35c8e041e47f02d53c680b5812b10d25d75a67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527344"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425711"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -22,14 +22,24 @@ Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la vers
 
 **Aggiornamento** |  **Installazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Site Recovery** | **Agente di Servizi di ripristino**
 --- | --- | --- | --- | --- | ---
+[Rollup 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Rollup 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Computer HyperV-2.0.9183.0 <br> Computer VMware-2.0.9177.0
-[Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 
 
 [Altre](service-updates-how-to.md) informazioni sull'installazione e il supporto degli aggiornamenti.
+
+
+### <a name="update-rollup-51"></a>Aggiornamento cumulativo 51
+
+L' [aggiornamento cumulativo 51](https://support.microsoft.com/help/4590304/update-rollup-51-for-azure-site-recovery) fornisce gli aggiornamenti seguenti:
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider, come descritto in dettaglio nell'aggiornamento cumulativo.
+**Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo, incluso il nuovo supporto Linux per il servizio Mobility.
 
 ## <a name="update-september-2020"></a>Aggiornamento (settembre 2020)
 

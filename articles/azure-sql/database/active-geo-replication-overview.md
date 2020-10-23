@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445058"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426328"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
 
 > [!IMPORTANT]
-> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business critical o Premium con la [configurazione con ridondanza della zona](high-availability-sla.md#zone-redundant-configuration) per ottenere l'isolamento della zona di disponibilità.
+> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business-critical o Premium con [configurazione con ridondanza della zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) o per utilizzo generico [configurazione con ridondanza della zona](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) del livello di servizio per ottenere l'isolamento della zona
 >
 
 - **Failover pianificato**
@@ -132,7 +132,7 @@ Per impostazione predefinita, la ridondanza dell'archiviazione di backup del dat
 > La velocità del log delle transazioni nel database primario può essere limitata per motivi non correlati a dimensioni di calcolo inferiori in un database secondario. Questo tipo di limitazione può verificarsi anche se il database secondario ha una dimensione di calcolo uguale o superiore a quella del database primario. Per informazioni dettagliate, inclusi i tipi di attesa per diversi tipi di limitazione della frequenza dei log, vedere [gestione della frequenza dei log delle transazioni](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La ridondanza dell'archivio di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sud-orientale. Nell'anteprima, se il database di origine viene creato con ridondanza del backup con ridondanza locale o con ridondanza della zona, la creazione di un database secondario in un'area di Azure diversa non sarà supportata. 
+> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile a livello generale solo nell'area di Azure Asia sudorientale. Quando il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, non è supportata la creazione di un database secondario in un'area di Azure diversa. 
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](purchasing-models.md).
 

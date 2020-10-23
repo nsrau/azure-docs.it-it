@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89050506"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150970"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida di avvio rapido: Trasmettere messaggi in tempo reale dall'app console
 
@@ -64,7 +64,7 @@ Questo esempio è un'app console che illustra l'uso del servizio Azure SignalR. 
 
 ### <a name="build-the-executable-file"></a>Creare il file eseguibile
 
-Viene usato macOS osx.10.13-x64 come esempio. È possibile trovare i [riferimenti](https://docs.microsoft.com/dotnet/core/rid-catalog) sulla compilazione in altre piattaforme.
+Viene usato macOS osx.10.13-x64 come esempio. È possibile trovare i [riferimenti](/dotnet/core/rid-catalog) sulla compilazione in altre piattaforme.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/

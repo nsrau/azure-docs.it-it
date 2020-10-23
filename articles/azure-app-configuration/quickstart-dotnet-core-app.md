@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767749"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075791"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida di avvio rapido: Creare un'app .NET Core con Configurazione app
 
@@ -40,7 +40,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="create-a-net-core-console-app"></a>Creare un'app console .NET Core
 
-In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/) per creare un nuovo progetto di app console .NET Core. Il vantaggio di usare l'interfaccia della riga di comando di .NET Core rispetto a Visual Studio è che è disponibile nelle piattaforme Windows, macOS e Linux.  In alternativa, usare gli strumenti preinstallati disponibili in [Azure Cloud Shell](https://shell.azure.com).
+In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/) per creare un nuovo progetto di app console .NET Core. Il vantaggio di usare l'interfaccia della riga di comando di .NET Core rispetto a Visual Studio è che è disponibile nelle piattaforme Windows, macOS e Linux.  In alternativa, usare gli strumenti preinstallati disponibili in [Azure Cloud Shell](https://shell.azure.com).
 
 1. Creare una nuova cartella per il progetto.
 
@@ -124,7 +124,7 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per informazioni su come configurare l'app .NET Core per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
+In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Core con il [provider di Configurazione app](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). Per informazioni su come configurare l'app .NET Core per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Abilitare la configurazione dinamica](./enable-dynamic-configuration-dotnet-core.md)

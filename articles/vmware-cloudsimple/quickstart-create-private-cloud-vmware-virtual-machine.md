@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140854"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427774"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creazione di macchine virtuali VMware nel cloud privato
 
@@ -58,37 +58,37 @@ Per accedere a vCenter, iniziare dal portale di CloudSimple. Nella Home page, in
 1. In vCenter fare clic sull'icona **host e cluster** .
 
 2. Fare clic con il pulsante destro del mouse su **carico di lavoro** e selezionare **nuova macchina virtuale**
-    ![Nuova macchina virtuale](media/vcvm01.png)
+    ![Screenshot che evidenzia la nuova opzione di menu della macchina virtuale.](media/vcvm01.png)
 
 3. Selezionare **Crea nuova macchina virtuale** e fare clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm02.png)
+    ![Screenshot che evidenzia l'opzione Crea nuova macchina virtuale.](media/vcvm02.png)
 
 4. Assegnare un nome al computer, selezionare il percorso della macchina **virtuale del carico di lavoro** e fare clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm03.png)
+    ![Screenshot che evidenzia l'opzione VM del carico di lavoro.](media/vcvm03.png)
 
 5. Selezionare la risorsa di calcolo del **carico di lavoro** e fare clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm04.png)
+    ![Screenshot che evidenzia la risorsa di calcolo del carico di lavoro.](media/vcvm04.png)
 
 6. Selezionare **vsanDatastore** e fare clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm05.png)
+    ![Screenshot che evidenzia l'opzione vsanDatastore.](media/vcvm05.png)
 
 7. Mantieni la selezione di compatibilità predefinita ESXi 6,5 e fai clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm06.png)
+    ![Screenshot che mostra l'opzione di compatibilità ESXi 6,5 selezionata.](media/vcvm06.png)
 
 8. Selezionare il sistema operativo guest dell'ISO per la macchina virtuale che si sta creando e fare clic su **Avanti**.
-    ![Nuova macchina virtuale](media/vcvm07.png)
+    ![Screenshot che illustra come selezionare il sistema operativo guese dell'ISO per la macchina virtuale.](media/vcvm07.png)
 
 9. Selezionare disco rigido e opzioni di rete. Per la nuova unità CD/DVD selezionare **archivio dati file ISO**.  Se si vuole consentire il traffico dall'indirizzo IP pubblico alla macchina virtuale, selezionare la rete come **VM-1**.
-    ![Nuova macchina virtuale](media/vcvm08.png)
+    ![Screenshot che evidenzia la posizione in cui si seleziona il file ISO dell'archivio dati.](media/vcvm08.png)
 
 10. Verrà visualizzata una finestra di selezione. Selezionare il file caricato in precedenza nella cartella ISO e modelli e fare clic su **OK**.
     ![Nuova macchina virtuale](media/vcvm10.png)
 
 11. Verificare le impostazioni e fare clic su **OK** per creare la macchina virtuale.
-    ![Nuova macchina virtuale](media/vcvm11.png)
+    ![Screenshot che mostra la posizione in cui vengono esaminate le impostazioni.](media/vcvm11.png)
 
 La VM viene ora aggiunta alle risorse di calcolo del carico di lavoro ed è pronta per l'uso. 
-![Nuova macchina virtuale](media/vcvm12.png)
+![Screenshot che mostra la macchina virtuale aggiunta alle risorse di calcolo del carico di lavoro.](media/vcvm12.png)
 
 Il programma di installazione di base è ora completo. È possibile iniziare a usare il cloud privato in modo analogo a come si usa l'infrastruttura della macchina virtuale locale.
 
@@ -139,7 +139,7 @@ Le pagine di rete nel portale di CloudSimple consentono di specificare la config
 5. Se lo si desidera, utilizzare il dispositivo di scorrimento per modificare il timeout di inattività.
 6. Immettere l'indirizzo IP locale per cui si vuole assegnare un indirizzo IP pubblico.
 7. Se lo si desidera, immettere un nome DNS associato.
-8. Fare clic su **Fine**.
+8. Fare clic su **Done**.
 
     ![IP pubblico](media/quick-create-pc-public-ip.png)
 

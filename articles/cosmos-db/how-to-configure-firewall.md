@@ -4,17 +4,27 @@ description: Informazioni su come configurare i criteri di controllo di accesso 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814179"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279747"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
+
+Per proteggere i dati archiviati nell'account, Azure Cosmos DB supporta un modello di autorizzazione basato su segreto che utilizza una Message Authentication Code avanzata basata su hash (HMAC). Azure Cosmos DB supporta anche i controlli di accesso IP per il supporto del firewall in ingresso. Questo modello è simile alle regole del firewall di un sistema di database tradizionale e offre un livello aggiuntivo di sicurezza per l'account. Con i firewall è possibile configurare un account Azure Cosmos in modo che sia accessibile solo da un set di computer e/o servizi cloud approvato. Per l'accesso ai dati archiviati nel database Azure Cosmos da questi set di computer e servizi approvati, è comunque necessario che il chiamante presenti un token di autorizzazione valido.
+
+## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a>Controllo di accesso IP
+
+Per impostazione predefinita, un account Azure Cosmos è accessibile da Internet purché la richiesta sia accompagnata da un token di autorizzazione valido. Per configurare il controllo di accesso IP basato su criteri, l'utente deve fornire il set di indirizzi IP o di intervalli di indirizzi IP in formato CIDR (Classless Inter-Domain Routing), in modo che venga incluso come elenco di IP client consentiti per l'accesso a un determinato account Azure Cosmos. Se viene applicata questa configurazione, tutte le richieste provenienti da computer non inclusi in questo elenco ricevono una risposta 403 (Accesso negato). Quando si usa il firewall IP, è consigliabile consentire al portale di Azure di accedere all'account. In questo modo, infatti, è possibile usare Esplora dati e recuperare le metriche relative all'account visualizzate nel portale di Azure. Quando si usa Esplora dati, oltre a consentire portale di Azure di accedere all'account, è necessario aggiornare anche le impostazioni del firewall per aggiungere l'indirizzo IP corrente alle regole del firewall. Si noti che le modifiche al firewall potrebbero richiedere fino a 15 minuti per la propagazione.
+
+È possibile combinare il firewall basato su IP con il controllo dell'accesso basato su subnet e rete virtuale, in modo da limitare l'accesso a qualsiasi origine che abbia un indirizzo IP pubblico e/o da una subnet specifica all'interno della rete virtuale. Per altre informazioni sull'uso del controllo dell'accesso basato su subnet e rete virtuale, vedere [Accedere a risorse di Azure Cosmos DB da reti virtuali](vnet-service-endpoint.md).
+
+Per riepilogare, è sempre necessario un token di autorizzazione per accedere a un account Azure Cosmos. Se il firewall IP e gli elenchi di controllo di accesso della rete virtuale non sono configurati, è possibile accedere all'account Azure Cosmos con il token di autorizzazione. Dopo aver configurato il firewall IP e/o gli elenchi di controllo di accesso della rete virtuale nell'account Azure Cosmos, solo le richieste provenienti dalle origini specificate (e con il token di autorizzazione) ottengono risposte valide. 
 
 È possibile proteggere i dati archiviati nell'account Azure Cosmos db tramite i firewall IP. Azure Cosmos DB supporta i controlli di accesso IP per il supporto del firewall in ingresso. È possibile impostare un firewall IP per l'account Azure Cosmos DB in uno dei modi seguenti:
 
@@ -37,7 +47,7 @@ Quando il controllo dell'accesso IP è attivato, il portale di Azure offre la po
 
 Quando si abilitano i criteri di controllo di accesso IP a livello di codice, è necessario aggiungere l'indirizzo IP per il portale di Azure alla proprietà **ipRangeFilter** per mantenere l'accesso. Gli indirizzi IP del portale sono i seguenti:
 
-|Region|Indirizzo IP|
+|Area|Indirizzo IP|
 |------|----------|
 |Germania|51.4.229.218|
 |Cina|139.217.8.252|
@@ -225,5 +235,5 @@ La creazione o l'aggiornamento di un account Azure Cosmos con un elenco di indir
 
 Per configurare un endpoint servizio di rete virtuale per l'account Azure Cosmos DB, vedere gli articoli seguenti:
 
-* [Controllo di accesso di rete virtuale e subnet per l'account Azure Cosmos DB](vnet-service-endpoint.md)
+* [Controllo di accesso di rete virtuale e subnet per l'account Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
 * [Configurare l'accesso basato su rete virtuale e subnet per l'account di Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)

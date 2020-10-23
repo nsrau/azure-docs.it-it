@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213262"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147316"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Come viene applicato lo sconto della prenotazione ad Azure Cache for Redis
 
-Dopo avere acquistato capacità riservata per Azure Cache for Redis, lo sconto viene automaticamente applicato alle istanze della cache che corrispondono agli attributi e alla quantità della prenotazione. La prenotazione copre solo i costi di calcolo di Azure Cache for Redis. Per l'archiviazione e la rete vengono addebitate le tariffe normali. La capacità riservata è disponibile solo per le cache del [livello Premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
+Dopo avere acquistato capacità riservata per Azure Cache for Redis, lo sconto viene automaticamente applicato alle istanze della cache che corrispondono agli attributi e alla quantità della prenotazione. La prenotazione copre solo i costi di calcolo di Azure Cache for Redis. Per l'archiviazione e la rete vengono addebitate le tariffe normali. La capacità riservata è disponibile solo per le cache del [livello Premium](//azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -30,7 +30,7 @@ Lo sconto sulla capacità riservata di Azure Cache for Redis viene applicato all
 
 Gli esempi seguenti mostrano come viene applicato lo sconto per la capacità riservata di Azure Cache for Redis a seconda del numero di cache acquistate e dei tempi di esecuzione.
 
-* **Esempio 1**: Si acquista una capacità riservata di Azure Cache for Redis per una cache di 6 GB. Se si esegue una cache di 13 GB che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 7 GB di Azure Cache for Redis per l'utilizzo di risorse delle calcolo e si ottiene lo sconto della prenotazione per un'ora di utilizzo di risorse di calcolo della cache di 6 GB.
+**Esempio 1**: Si acquista una capacità riservata di Azure Cache for Redis per una cache di 6 GB. Se si esegue una cache di 13 GB che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 7 GB di Azure Cache for Redis per l'utilizzo di risorse delle calcolo e si ottiene lo sconto della prenotazione per un'ora di utilizzo di risorse di calcolo della cache di 6 GB.
 
 Per gli altri esempi, si presuppone che la capacità riservata acquistata per Azure Cache for Redis sia per una cache di 26 GB e che gli altri attributi della prenotazione corrispondano alla cache in esecuzione.
 
@@ -40,7 +40,7 @@ Per gli altri esempi, si presuppone che la capacità riservata acquistata per Az
 
 * **Esempio 4**: Si esegue una cache di 26 GB dalle 13:00 alle 13:45. Si esegue un'altra cache di 26 GB dalle 13:30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 
-Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](/azure/billing/billing-understand-reserved-instance-usage-ea).
+Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

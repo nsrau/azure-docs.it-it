@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371406"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132364"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -26,7 +26,7 @@ I partner con fatturazione diretta CSP certificati come [Azure Expert Managed Se
 Quando la richiesta viene approvata, il CSP può fornire una fattura combinata ai clienti. Per altre informazioni sui DSN che trasferiscono le sottoscrizioni, vedere [Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure per l'account MPA](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Dopo il trasferimento di una sottoscrizione con Contratto Enterprise a un partner CSP, per eventuali incrementi della quota applicati in precedenza alla sottoscrizione con Contratto Enterprise verrà ripristinato il valore predefinito. Se sono necessarie quote aggiuntive dopo il trasferimento della sottoscrizione, richiedere al provider CSP di inviare una richiesta di [incremento della quota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Dopo il trasferimento di una sottoscrizione con Contratto Enterprise a un partner CSP, per eventuali incrementi della quota applicati in precedenza alla sottoscrizione con Contratto Enterprise verrà ripristinato il valore predefinito. Se sono necessarie quote aggiuntive dopo il trasferimento della sottoscrizione, richiedere al provider CSP di inviare una richiesta di [incremento della quota](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Altri trasferimenti di sottoscrizione a un partner CSP
 
@@ -42,7 +42,7 @@ Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore
 1. Prima di iniziare, [convalidare](/rest/api/resources/resources/validatemoveresources) l'opzione secondo cui tutte le risorse di Azure possono essere spostate dalla sottoscrizione di origine alla sottoscrizione di destinazione.  
     Alcune risorse di Azure non possono essere spostate tra le sottoscrizioni. Per visualizzare l'elenco completo di risorse di Azure che possono essere spostate, vedere [Supporto per lo spostamento delle risorse](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - Azure CSP supporta solo risorse di Azure Resource Manager. Se una risorsa di Azure della sottoscrizione di origine è stata creata con il modello di distribuzione classica di Azure, prima della migrazione è necessario spostarla ad [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm). È necessario essere un partner per visualizzare la pagina Web.
+    >  - Azure CSP supporta solo risorse di Azure Resource Manager. Se una risorsa di Azure della sottoscrizione di origine è stata creata con il modello di distribuzione classica di Azure, prima della migrazione è necessario spostarla ad [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm). È necessario essere un partner per visualizzare la pagina Web.
 
 1. Verificare che tutti i servizi di sottoscrizione di origine usino il modello di Azure Resource Manager. Trasferire quindi le risorse dalla sottoscrizione di origine alla sottoscrizione di destinazione usando [Azure Resource Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

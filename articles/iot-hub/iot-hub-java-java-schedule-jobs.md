@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c1cac67d79363ce25fb55d73cc3d8c42ea901fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36092e0bb7d0249837d2eaa7898e9231ecb5f5a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325084"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147000"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Pianificare e trasmettere processi (Java)
 
@@ -54,7 +54,7 @@ Al termine dell'esercitazione saranno disponibili un'app per il dispositivo cons
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 

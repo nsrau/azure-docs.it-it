@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970640"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460666"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -70,6 +70,10 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 - Usare l'[Explorer di Backup](../../backup/monitor-azure-backup-with-backup-explorer.md) per visualizzare le informazioni operative degli elementi di backup (incluse le risorse di Azure non ancora configurate per il backup) e le informazioni di monitoraggio (processi e avvisi) per le sottoscrizioni delegate. L'Explorer di Backup è attualmente disponibile solo per i dati delle macchine virtuali di Azure.
 - Usare i [report di Backup](../../backup/configure-reports.md) tra sottoscrizioni delegate per tenere traccia delle tendenze cronologiche, analizzare l'utilizzo dello spazio di archiviazione dei backup e controllare i backup e i ripristini.
 
+[Progetti di Azure](../../governance/blueprints/index.yml):
+
+- Usare i progetti di Azure per orchestrare la distribuzione di modelli di risorse e altri elementi (richiede l' [accesso aggiuntivo](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) per preparare la sottoscrizione del cliente)
+
 [Gestione dei costi di Azure e fatturazione](../../cost-management-billing/index.yml):
 
 - Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso in base al ruolo di Azure (controllo degli accessi in base al ruolo di Azure) che il partner ha per la sottoscrizione del cliente.
@@ -77,6 +81,10 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Servizio Azure Kubernetes](../../aks/index.yml):
 
 - Gestire gli ambienti Kubernetes ospitati e distribuire e gestire le applicazioni in contenitori nei tenant dei clienti
+
+[Azure migrate](../../migrate/index.yml):
+
+- Creare progetti di migrazione nel tenant del cliente ed eseguire la migrazione delle macchine virtuali
 
 [Monitoraggio di Azure](../../azure-monitor/index.yml):
 
@@ -156,7 +164,7 @@ Richieste di supporto:
 In tutti gli scenari tenere presenti le limitazioni correnti seguenti:
 
 - Le richieste gestite da Azure Resource Manager possono essere eseguite usando Azure Lighthouse. Gli URI delle operazioni per queste richieste iniziano con `https://management.azure.com`. Tuttavia, le richieste gestite da un'istanza di un tipo di risorsa (ad esempio Key Vault accesso ai dati di archiviazione o accesso ai dati di archiviazione) non sono supportate con il faro di Azure. Gli URI delle operazioni per queste richieste iniziano in genere con un indirizzo univoco per l'istanza, ad esempio `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Il secondo è in genere usato per le operazioni di dati invece che per le operazioni di gestione.
-- Le assegnazione di ruolo devono usare i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione delle risorse delegata di Azure, ad eccezione del proprietario o dei ruoli predefiniti con [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) autorizzazione. Il ruolo Amministratore Accesso utenti è supportato solo per uso limitato nell'[assegnazione di ruoli a identità gestite](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
+- Le assegnazioni di ruolo devono usare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). Tutti i ruoli predefiniti sono attualmente supportati con la gestione delle risorse delegata di Azure, ad eccezione del proprietario o dei ruoli predefiniti con [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) autorizzazione. Il ruolo Amministratore Accesso utenti è supportato solo per uso limitato nell'[assegnazione di ruoli a identità gestite](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
 - Sebbene sia possibile caricare sottoscrizioni che utilizzano Azure Databricks, gli utenti nel tenant di gestione non possono al momento avviare le aree di lavoro Azure Databricks in una sottoscrizione delegata.
 - Sebbene sia possibile caricare sottoscrizioni e gruppi di risorse con blocchi di risorse, tali blocchi non impediranno l'esecuzione di azioni da parte degli utenti nel tenant di gestione. Le [assegnazioni di rifiuto](../../role-based-access-control/deny-assignments.md) che proteggono le risorse gestite dal sistema, ad esempio quelle create dalle applicazioni gestite di Azure o Azure Blueprints (assegnazioni di rifiuto assegnate dal sistema), impediscono agli utenti del tenant di gestione di agire su tali risorse; tuttavia, a questo punto gli utenti del tenant del cliente non possono creare le proprie assegnazioni di rifiuto (assegnazioni di rifiuto assegnate dall'utente).
 

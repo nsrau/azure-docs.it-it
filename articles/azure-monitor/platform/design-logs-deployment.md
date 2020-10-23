@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534200"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107879"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -64,7 +64,7 @@ Con il controllo degli accessi in base al ruolo, è possibile concedere a utenti
 
 I dati a cui un utente può accedere sono determinati da una combinazione di fattori elencati nella tabella seguente. Ogni è descritto nelle sezioni riportate di seguito.
 
-| Fattore | Descrizione |
+| Fattore | Description |
 |:---|:---|
 | [Modalità di accesso](#access-mode) | Metodo utilizzato dall'utente per accedere all'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | Impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o di risorsa. |
@@ -91,7 +91,7 @@ Gli utenti hanno due opzioni per accedere ai dati:
     > - Service Fabric
     > - Application Insights
     >
-    > È possibile verificare se i log sono associati correttamente alla propria risorsa eseguendo una query ed esaminando i record a cui si è interessati. Se l'ID di risorsa corretto si trova nella proprietà [_ResourceId](log-standard-properties.md#_resourceid) , i dati sono disponibili per le query incentrate sulle risorse.
+    > È possibile verificare se i log sono associati correttamente alla propria risorsa eseguendo una query ed esaminando i record a cui si è interessati. Se l'ID di risorsa corretto si trova nella proprietà [_ResourceId](./log-standard-columns.md#_resourceid) , i dati sono disponibili per le query incentrate sulle risorse.
 
 Monitoraggio di Azure determina automaticamente la modalità corretta a seconda del contesto in cui si esegue la ricerca log. L'ambito viene sempre presentato nella sezione in alto a sinistra del Log Analytics.
 
@@ -164,4 +164,3 @@ Quando si pianifica la migrazione a questo modello, considerare quanto segue:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per implementare le autorizzazioni e i controlli di sicurezza consigliati in questa guida, vedere [gestire l'accesso ai log](manage-access.md).
-

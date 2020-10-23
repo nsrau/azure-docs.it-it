@@ -3,15 +3,15 @@ title: Autorizzare l'accesso con Azure Active Directory
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566262"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332400"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
-Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
+Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Panoramica
 Quando un'entità di sicurezza (un utente o un'applicazione) tenta di accedere a una risorsa di hub eventi, la richiesta deve essere autorizzata. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi. 
@@ -39,7 +39,7 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 | [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi. |
 | [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi. |
 
-Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#role-based-access-control).
+Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#azure-role-based-access-control).
 
 ## <a name="resource-scope"></a>Ambito risorsa 
 Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che dovrà avere. In base alle procedure consigliate, è sempre preferibile concedere solo l'ambito più restrittivo possibile.
@@ -73,7 +73,7 @@ Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere infor
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come assegnare un ruolo predefinito di Azure a un'entità di sicurezza, vedere [autenticare l'accesso alle risorse di hub eventi usando Azure Active Directory](authenticate-application.md).
-- Informazioni [su come creare ruoli personalizzati con RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Informazioni [su come creare ruoli personalizzati con RBAC di Azure](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Informazioni [su come usare Azure Active Directory con eh](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 Vedere gli articoli correlati seguenti:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227713"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309145"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Baseline della sicurezza di Azure per Service Fabric
 
@@ -78,7 +78,7 @@ Prendere in considerazione la distribuzione di Web Application Firewall (WAF) di
 
 * [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/threat-protection.md)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -488,7 +488,7 @@ Inoltre, è possibile usare le raccomandazioni sulla gestione delle identità e 
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 * [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Come configurare le chiavi di crittografia gestite dal cliente](../storage/common/storage-encryption-keys-portal.md)
+* [Come configurare le chiavi di crittografia gestite dal cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Usare una soluzione di terze parti per l'esecuzione di valutazioni delle vulnera
 
 * [Indurre Chaos controllato nei cluster di Service Fabric](./service-fabric-controlled-chaos.md)
 
-* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -698,7 +698,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Se si usano chiavi gestite dal cliente, assicurarsi che Soft-Delete in Key Vault
 
 * [Crittografia dei dati inattivi di Archiviazione di Azure](../storage/common/storage-service-encryption.md)
 
-* [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

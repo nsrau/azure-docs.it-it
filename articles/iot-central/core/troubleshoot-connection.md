@@ -7,12 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322450"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424466"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Risolvere i problemi relativi al perché i dati dei dispositivi non vengono visualizzati in Azure IoT Central
 
@@ -34,9 +35,9 @@ Questa sezione consente di determinare se i dati raggiungono IoT Central.
 
 Se non è già stato fatto, installare lo `az cli` strumento e l' `azure-iot` estensione.
 
-Per informazioni su come installare `az cli` , vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)riga di comando di Azure.
+Per informazioni su come installare `az cli` , vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest)riga di comando di Azure.
 
-Per [installare](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) l' `azure-iot` estensione, eseguire il comando seguente:
+Per [installare](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) l' `azure-iot` estensione, eseguire il comando seguente:
 
 ```cmd/bash
 az extension add --name azure-iot
@@ -155,7 +156,7 @@ Se si verificano problemi relativi al flusso di autenticazione:
 | 401 | Non è possibile convalidare il token di autorizzazione. Ad esempio, è scaduta o non si applica all'URI della richiesta. Questo codice di errore viene anche restituito ai dispositivi come parte del flusso di attestazione TPM. | Verificare che il dispositivo abbia le credenziali corrette. |
 | 404 | L'istanza del servizio Device provisioning o una risorsa, ad esempio una registrazione, non esiste. | [Archiviare un ticket con il supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)tecnico. |
 | 412 | La `ETag` nella richiesta non corrisponde a quella `ETag` della risorsa esistente, come per ogni RFC7232. | [Archiviare un ticket con il supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)tecnico. |
-| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Ridurre la frequenza dei messaggi, suddividere le responsabilità tra più dispositivi. |
+| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Ridurre la frequenza dei messaggi, suddividere le responsabilità tra più dispositivi. |
 | 500 | An internal error occurred. | Consente di [archiviare un ticket con supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tecnico per verificare se è più utile. |
 
 ## <a name="payload-shape-issues"></a>Problemi di forma del payload

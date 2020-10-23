@@ -3,12 +3,12 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370035"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215281"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
@@ -22,7 +22,7 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 L'agente 3,0 supporta Java 8 e versioni successive.
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
 **1. scaricare l'agente**
 
@@ -114,8 +114,8 @@ Vedere i dettagli all' [anteprima pubblica 3,0: opzioni di configurazione](./jav
 ### <a name="logs"></a>Log
 
 * Java. util. Logging
-* Log4j
-* SLF4J/Logback
+* Log4j (incluse le proprietà MDC)
+* SLF4J/Logback (incluse le proprietà MDC)
 
 ### <a name="metrics"></a>Metriche
 

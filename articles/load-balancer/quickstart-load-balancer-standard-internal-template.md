@@ -1,6 +1,6 @@
 ---
-title: Creare un bilanciamento del carico interno usando un modello di Azure Resource Manager (ARM)
-description: Informazioni su come creare un bilanciamento del carico interno usando un modello di Azure Resource Manager (ARM).
+title: 'Avvio rapido: Creare un servizio di bilanciamento del carico interno usando un modello'
+description: Questa guida di avvio rapido descrive come creare un servizio di bilanciamento del carico interno usando un modello di Azure Resource Manager (ARM).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 287afc51aa15ed4cadba7e2d6cd389e4869d7d61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532834"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047761"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio di bilanciamento del carico interno per le macchine virtuali tramite un modello di Azure Resource Manager (ARM)
 

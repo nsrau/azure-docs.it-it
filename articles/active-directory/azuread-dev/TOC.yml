@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Abilitare l'accesso Single Sign-On in iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Eseguire il debug di Single Sign-On basato su SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Configurare le attestazioni
           items:
             - name: Configurare le attestazioni per i ruoli

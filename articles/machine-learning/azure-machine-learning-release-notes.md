@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996747"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139357"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -27,38 +27,19 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ### <a name="azure-machine-learning-sdk-for-python-v1160"></a>SDK di Azure Machine Learning per Python v 1.16.0
 + **Correzioni di bug e miglioramenti**
   + **azure-cli-ml**
-    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-interpret**
-    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
-  + **azureml-contrib-K8S**
-    + Aggiunta del supporto per il fissaggio del calcolo ArcKubernetes
-  + **azureml-contrib-Mir**
-    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-server**
-    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere utilizzati impostando `--cpu-cores-limit` e `--memory-gb-limit` flag nelle chiamate CLI applicabili
   + **azureml-core**
     + Aggiungere le versioni principali delle dipendenze dirette di azureml-Core
-    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Altre informazioni sulle risorse e sui limiti di Kubernetes sono disponibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Altre informazioni sulle [risorse e sui limiti di Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
     + Aggiornamento run.log_table per consentire la registrazione di singole righe.
-    + Aggiunto metodo statico `Run.get(workspace, run_id)` per recuperare un'esecuzione solo usando un metodo di istanza aggiunto `Workspace.get_run(run_id)` per l'area di lavoro per recuperare un'esecuzione nell'area di lavoro
+    + Aggiunto metodo statico `Run.get(workspace, run_id)` per recuperare un'esecuzione solo usando un'area di lavoro 
+    + Aggiunta del metodo `Workspace.get_run(run_id)` di istanza per recuperare un'esecuzione nell'area di lavoro
     + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
-  + **azureml-dataprep-nativo**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
-  + **azureml-explain-Model**
-    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
   + **azureml-interpret**
     + correzione del comportamento del flag di is_raw client in azureml-interpreta
-    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
-  + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
   + **azureml-sdk**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
-  + **azureml-tensorboard**
-    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
-  + **azureml-Training**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+    + `azureml-sdk` supporta ufficialmente Python 3,8.
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
     + Aggiunta dell'ambiente curato TensorFlow 2,3
     + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
   + **azureml-widgets**
@@ -153,7 +134,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ## <a name="2020-08-31"></a>2020-08-31
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>SDK di Azure Machine Learning per Python v 1.13.0
-+ **Funzionalità in anteprima**
++ **Funzionalità di anteprima**
   + **azureml-Core** Con la nuova funzionalità per i set di risultati di output, è possibile eseguire il writeback nell'archiviazione cloud, tra cui BLOB, ADLS gen 1, ADLS gen 2 e FileShare. È possibile configurare il percorso di output dei dati, la modalità di output dei dati (tramite montaggio o caricamento), se registrare i dati di output per riutilizzarli e condividerli in futuro e passare facilmente i dati intermedi tra i passaggi della pipeline. Questo consente la riproducibilità, la condivisione, impedisce la duplicazione dei dati e comporta un miglioramento in termini di produttività e efficienza. [Informazioni su come usare l'SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true)
     
 + **Correzioni di bug e miglioramenti**
@@ -197,7 +178,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 + **Nuove funzionalità**
   + Nuova pagina di destinazione introduttiva 
   
-+ **Funzionalità in anteprima**
++ **Funzionalità di anteprima**
     + Raccogli la funzionalità nei notebook. Con la funzionalità di [raccolta](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)   , gli utenti possono ora pulire facilmente i notebook con, raccolta usa un'analisi automatica delle dipendenze del notebook, assicurando che il codice essenziale venga mantenuto, ma rimuovendo eventuali parti irrilevanti.
 
 + **Correzioni di bug e miglioramenti**
@@ -362,7 +343,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Disconnetti avviso quando "azureml-Defaults" non è incluso come parte della dipendenza PIP
     + Migliorare il rendering delle note.
     + Aggiunta del supporto per le interruzioni di riga tra virgolette durante l'analisi di file delimitati in PipelineOutputFileDataset.
-    + La classe PipelineDataset è deprecata. Per altre informazioni, vedere https://aka.ms/dataset-deprecation. Per informazioni su come usare DataSet con pipeline, vedere https://aka.ms/pipeline-with-dataset .
+    + La classe PipelineDataset è deprecata. Per ulteriori informazioni, vedere https://aka.ms/dataset-deprecation. Per informazioni su come usare DataSet con pipeline, vedere https://aka.ms/pipeline-with-dataset .
   + **azureml-pipeline-steps**
     + Aggiornamenti del documento per azureml-pipeline-passaggi.
     +  Aggiunta del supporto in ParallelRunConfig `load_yaml()` per consentire agli utenti di definire gli ambienti inline con il resto della configurazione o in un file separato
@@ -379,7 +360,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 
 ### <a name="azure-machine-learning-sdk-for-python-v180"></a>SDK di Azure Machine Learning per Python v 1.8.0
   
-  + **Funzionalità in anteprima**
+  + **Funzionalità di anteprima**
     + **azureml-contrib-Equity** Il `azureml-contrib-fairness` pacchetto fornisce l'integrazione tra la valutazione dell'equità open source e il pacchetto di mitigazione della [Fairlearn](https://fairlearn.github.io) e Azure Machine Learning Studio. In particolare, il pacchetto consente il caricamento dei dashboard di valutazione dell'equità del modello come parte di un'esecuzione di AzureML e viene visualizzato in Azure Machine Learning Studio
 
 + **Correzioni di bug e miglioramenti**
@@ -625,7 +606,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ### <a name="azure-machine-learning-sdk-for-python-v150"></a>SDK Azure Machine Learning per Python v 1.5.0
 
 + **Nuove funzionalità**
-  + **Funzionalità in anteprima**
+  + **Funzionalità di anteprima**
     + **azureml-contrib-reinforcementlearning**
         + Azure Machine Learning sta rilasciando il supporto in anteprima per l'apprendimento per rinforzo tramite [Ray](https://ray.io) Framework. Il `ReinforcementLearningEstimator` consente il training degli agenti di formazione di rinforzo tra le destinazioni di calcolo GPU e CPU in Azure Machine Learning.
 
@@ -1178,7 +1159,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1074"></a>SDK di Azure Machine Learning per Python v 1.0.74
 
-  + **Funzionalità in anteprima**
+  + **Funzionalità di anteprima**
     + **azureml-contrib-dataset**
       + Dopo aver importato azureml-contrib-DataSet, è possibile chiamare `Dataset.Labeled.from_json_lines` anziché `._Labeled` per creare un set di dati con etichetta.
       + Quando `to_pandas_dataframe` si chiama su un set di dati con etichetta con l'opzione di download, è ora possibile specificare se sovrascrivere o meno i file esistenti.
@@ -1271,7 +1252,7 @@ Azure Machine Learning è ora un provider di risorse per griglia di eventi, è p
   + Annunciare due nuove edizioni (anche dette SKU in modo interscambiabile) in Azure Machine Learning. Con questa versione è ora possibile creare un'area di lavoro di base o aziendale Azure Machine Learning. Tutte le aree di lavoro esistenti verranno automaticamente inserite nell'edizione Basic ed è possibile passare al portale di Azure o a Studio per aggiornare l'area di lavoro in qualsiasi momento. È possibile creare un'area di lavoro di base o aziendale dal portale di Azure. Per ulteriori informazioni, leggere [la documentazione](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) . Dall'SDK è possibile determinare l'edizione dell'area di lavoro usando la proprietà "SKU" dell'oggetto dell'area di lavoro.
   + Sono stati apportati miglioramenti anche a Azure Machine Learning calcolo, ora è possibile visualizzare le metriche per i cluster (ad esempio, i nodi totali, i nodi in esecuzione, la quota Core totale) in monitoraggio di Azure, oltre a visualizzare i log di diagnostica per il debug. Inoltre, è possibile visualizzare le esecuzioni attualmente in esecuzione o in coda nel cluster e i dettagli, ad esempio gli IP dei diversi nodi del cluster. È possibile visualizzarli nel portale o usando le funzioni corrispondenti nell'SDK o nell'interfaccia della riga di comando.
 
-  + **Funzionalità in anteprima**
+  + **Funzionalità di anteprima**
     + Si sta rilasciando il supporto in anteprima per la crittografia del disco dell'unità SSD locale in Azure Machine Learning calcolo. Genera un ticket di supporto tecnico per consentire alla tua sottoscrizione di usare questa funzionalità.
     + Anteprima pubblica di Azure Machine Learning inferenza batch. Azure Machine Learning inferenza batch è destinata a processi di inferenza di grandi dimensioni che non sono dipendenti dal tempo. L'inferenza batch offre una scalabilità di calcolo inferenza conveniente, con velocità effettiva senza precedenti per le applicazioni asincrone. È ottimizzato per la velocità effettiva elevata, l'inferenza di incendi e dimenticamenti su raccolte di dati di grandi dimensioni.
     + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
@@ -1483,7 +1464,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](https
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Aggiunta del supporto per la conversione di ONNX per ADB e HDI
 
-+ **Funzionalità in anteprima**
++ **Funzionalità di anteprima**
   + **azureml-train-automl**
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + BERT e BiLSTM supportati come testo featurizer (solo anteprima)
@@ -1924,7 +1905,7 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
 ## <a name="2019-07-09"></a>2019-07-09
 
 ### <a name="visual-interface"></a>Interfaccia visiva
-+ **Funzionalità in anteprima**
++ **Funzionalità di anteprima**
   + È stato aggiunto il modulo "Execute R script" nell'interfaccia visiva.
 
 ### <a name="azure-machine-learning-sdk-for-python-v1048"></a>SDK di Azure Machine Learning per Python v 1.0.48
@@ -1935,7 +1916,7 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + Questo nuovo pacchetto consente di registrare set di dati aperti come set di dati nell'area di lavoro Azure Machine Learning e di sfruttare tutte le funzionalità offerte dal set di dati.
     + Sono incluse anche le funzionalità esistenti, ad esempio l'utilizzo di set di dati aperti come Panda/frame di dati di SPARK e i join della posizione per alcuni set di dati come Weather.
 
-+ **Funzionalità in anteprima**
++ **Funzionalità di anteprima**
     + HyperDriveConfig è ora in grado di accettare un oggetto pipeline come parametro per supportare l'ottimizzazione degli iperparametri tramite una pipeline.
 
 + **Correzioni di bug e miglioramenti**

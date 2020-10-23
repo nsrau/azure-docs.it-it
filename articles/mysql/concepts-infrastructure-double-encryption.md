@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531027"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125731"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per MySQL
 
@@ -20,7 +20,7 @@ Database di Azure per MySQL usa la [crittografia di archiviazione dei dati](conc
 La crittografia doppia dell'infrastruttura aggiunge un secondo livello di crittografia usando le chiavi gestite dal servizio. Usa il modulo crittografico convalidato FIPS 140-2, ma con un algoritmo di crittografia diverso. Questo offre un livello di protezione aggiuntivo per i dati inattivi. La chiave usata nella crittografia a doppia infrastruttura viene anche gestita dal servizio database di Azure per MySQL. La crittografia doppia dell'infrastruttura non è abilitata per impostazione predefinita, poiché il livello di crittografia aggiuntivo può avere un effetto sulle prestazioni.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL supporta i piani tariffari per utilizzo generico e ottimizzati per la memoria.
+> Questa funzionalità è supportata solo per i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria" nel database di Azure per PostgreSQL.
 
 La crittografia a livello di infrastruttura offre il vantaggio di essere implementata a livello più vicino al dispositivo di archiviazione o ai cavi di rete. Database di Azure per MySQL implementa i due livelli di crittografia usando le chiavi gestite dal servizio. Sebbene sia ancora tecnicamente al livello del servizio, è molto vicino all'hardware che archivia i dati inattivi. Facoltativamente, è possibile abilitare la crittografia dei dati inattivi usando la [chiave gestita dal cliente](concepts-data-encryption-mysql.md) per il server MySQL di cui è stato effettuato il provisioning. 
 

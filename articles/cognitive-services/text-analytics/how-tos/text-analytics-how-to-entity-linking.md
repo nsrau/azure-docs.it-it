@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f37828d5561ef382f572c1fdd4917a71f8a00407
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930170"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165604"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -43,7 +43,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 
 Per informazioni, vedere Supporto per le [lingue](../language-support.md) .
 
-### <a name="entity-types"></a>Tipi di entità
+## <a name="entity-types"></a>Tipi di entità
 
 Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER v 3.0 è in grado di riconoscere le entità nella [categoria di entità generale](../named-entity-types.md).
 

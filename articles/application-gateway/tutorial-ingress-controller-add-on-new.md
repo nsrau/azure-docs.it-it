@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285588"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427976"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso (anteprima) per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione
 
@@ -87,7 +87,7 @@ Nell'esempio seguente verrà distribuito un nuovo cluster del servizio Azure Kub
 Se si distribuisce un nuovo cluster del servizio Azure Kubernetes con il componente aggiuntivo Controller in ingresso del gateway applicazione abilitato senza specificare un'istanza del gateway applicazione esistente, verrà creata automaticamente un'istanza del gateway applicazione con SKU Standard_v2. Sarà quindi necessario specificare anche il nome e lo spazio indirizzi della subnet dell'istanza del gateway applicazione. Il nome dell'istanza del gateway applicazione sarà *myApplicationGateway* e lo spazio indirizzi della subnet che verrà usato è 10.2.0.0/16. Assicurarsi di aver aggiunto o aggiornato l'estensione aks-preview all'inizio di questa esercitazione. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 

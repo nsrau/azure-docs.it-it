@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743523"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369268"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -57,9 +57,9 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
-A questo punto, A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+La procedura è stata completata. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -115,17 +115,17 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Instradare il traffico a istanze integre (servizio app)
 
-Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Save**.
+Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Salva**.
 
 Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath` proprietà della `Microsoft.Web/sites` risorsa sul percorso di controllo integrità nel sito, ad esempio: `"/api/health/"` . Per disabilitare la funzionalità, impostare nuovamente la proprietà sulla stringa vuota `""` .
 
 ### <a name="health-check-path"></a>Percorso controllo integrità
 
-Il percorso deve rispondere entro due minuti con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro due minuti o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integro". Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP**s**, la richiesta Healthcheck verrà inviata tramite http**s**.
+Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro un minuto o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integra". Il servizio app non segue i reindirizzamenti 302 nel percorso di controllo integrità. Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP**s**, la richiesta Healthcheck verrà inviata tramite http**s**.
 
 Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 
-#### <a name="security"></a>Sicurezza 
+#### <a name="security"></a>Security 
 
 I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sicurezza per le API esposte. Per proteggere l'endpoint Healthcheck, è necessario prima usare funzionalità come [restrizioni IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [certificati client](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)o una rete virtuale per limitare l'accesso all'applicazione. È possibile proteggere l'endpoint Healthcheck stesso richiedendo che la `User-Agent` della richiesta in ingresso corrisponda a `ReadyForRequest/1.0` . Non è possibile eseguire lo spoofing del User-Agent perché la richiesta è già stata protetta dalle funzionalità di sicurezza precedenti.
 
@@ -133,7 +133,7 @@ I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sic
 
 Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. Inoltre, quando si esegue la scalabilità orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste.
 
-Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa.
+Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa. Se si vuole eseguire l'override di questo comportamento, è possibile impostare l' `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` impostazione dell'app su un valore compreso tra `0` e `100` . Se si imposta questa opzione su un valore più alto, verranno rimosse più istanze non integre (il valore predefinito è 50).
 
 Se un'istanza rimane non integra per un'ora, verrà sostituita con una nuova istanza. Al massimo un'istanza verrà sostituita all'ora, con un massimo di tre istanze al giorno per ogni piano di servizio app.
 

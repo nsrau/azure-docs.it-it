@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86133704"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369421"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -39,11 +39,11 @@ Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attivit
 
 Con Site Recovery è possibile implementare una soluzione di ripristino di emergenza per gli scenari seguenti:
 * I sistemi SAP sono in esecuzione in un Data Center di Azure e vengono replicati in un altro Data Center di Azure (ripristino di emergenza da Azure ad Azure). 
-   Per altre informazioni, vedere [Azure-to-Azure replication architecture](https://aka.ms/asr-a2a-architecture) (Architettura di replica da Azure ad Azure).
+   Per altre informazioni, vedere [Azure-to-Azure replication architecture](./azure-to-azure-architecture.md) (Architettura di replica da Azure ad Azure).
 * Sono presenti sistemi SAP in esecuzione su server VMware (o fisici) in locale. Si sta anche replicando i sistemi SAP in un sito di ripristino di emergenza in un Data Center di Azure (ripristino di emergenza da VMware ad Azure). 
-   Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [VMware-to-Azure replication architecture](https://aka.ms/asr-v2a-architecture) (Architettura di replica da VMware ad Azure).
+   Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [VMware-to-Azure replication architecture](./vmware-azure-architecture.md) (Architettura di replica da VMware ad Azure).
 * Sono presenti sistemi SAP in esecuzione in Hyper-V in locale. Si sta anche replicando i sistemi SAP in un sito di ripristino di emergenza in un Data Center di Azure (ripristino di emergenza da Hyper-V ad Azure).
-   Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [Hyper-V-to-Azure replication architecture](https://aka.ms/asr-h2a-architecture) (Architettura di replica da Hyper-V ad Azure).
+   Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [Hyper-V-to-Azure replication architecture](./hyper-v-azure-architecture.md) (Architettura di replica da Hyper-V ad Azure).
 
 In questo articolo viene usato uno scenario **di ripristino di emergenza da Azure ad Azure** . In questo scenario vengono illustrate le funzionalità di ripristino di emergenza di SAP di Site Recovery. Poiché la replica di Site Recovery non varia in base all'applicazione, il processo descritto dovrebbe applicarsi anche ad altri scenari.
 
@@ -138,7 +138,7 @@ Per il corretto funzionamento delle applicazioni, potrebbe essere necessario ese
 
 È possibile distribuire gli script di Site Recovery più usati nell'account di automazione di Azure selezionando **Distribuisci in Azure**. Quando si usa uno script pubblicato, seguire le istruzioni nello script.
 
-[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere uno script di pre-azione al gruppo 1 per eseguire il failover del gruppo di disponibilità SQL Server. Usare lo script ASR-SQL-FailoverAG pubblicato negli script di esempio. Seguire le istruzioni nello script e apportare le modifiche necessarie nello script in modo appropriato.
 1. Aggiungere uno script post-azione per il collegamento di un servizio di bilanciamento del carico alle macchine virtuali di cui è stato eseguito il failover del livello Web (gruppo 1). Usare lo script ASR-AddSingleLoadBalancer pubblicato negli script di esempio. Seguire le istruzioni nello script e apportare le modifiche necessarie nello script in base alle esigenze.

@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32f16d170df9963960862bc82aef1a4baf13896
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530370"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104445"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
 Funzioni di Azure si integra con il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'integrazione con il bus di servizio consente di compilare funzioni che reagiscono e inviano messaggi di coda o di argomento.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Esegue una funzione quando viene creato un messaggio di coda o argomento del bus di servizio | [Trigger](./functions-bindings-service-bus-trigger.md) |
 | Inviare messaggi del bus di servizio di Azure |[Binding di output](./functions-bindings-service-bus-output.md) |
@@ -41,7 +41,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Estensione degli strumenti di Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x

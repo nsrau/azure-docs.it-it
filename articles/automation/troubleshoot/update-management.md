@@ -5,12 +5,12 @@ services: automation
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070334"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217219"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -45,7 +45,7 @@ Le cause di questo errore sono le seguenti:
 
 * Passare a [Configurazione di rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte che devono essere consentiti per il funzionamento di Gestione aggiornamenti.  
 
-* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../update-management/update-mgmt-scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per le macchine virtuali. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
+* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per le macchine virtuali. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Rimuovere la configurazione del ruolo di lavoro attenendosi ai passaggi descritti in [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Windows locale](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) oppure [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Linux locale](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker).
 
@@ -63,13 +63,13 @@ Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Serv
 
 Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 
-1. Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato del computer. Vedere [Visualizzare la valutazione degli aggiornamenti](../update-management/update-mgmt-view-update-assessments.md).
+1. Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato del computer. Vedere [Visualizzare la valutazione degli aggiornamenti](../update-management/view-update-assessments.md).
 
 2. Controllare l'aggiornamento sostituito per assicurarsi che sia non disponibile al 100%.
 
 3. Nel server WSUS a cui si riferiscono i computer, [rifiutare l'aggiornamento](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
-4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per le macchine virtuali](../update-management/update-mgmt-manage-updates-for-vm.md).
+4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per le macchine virtuali](../update-management/manage-updates-for-vm.md).
 
 5. Ripetere i passaggi precedenti per gli altri aggiornamenti sostituiti.
 
@@ -112,9 +112,9 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
 4. Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se il computer viene visualizzato nei risultati della query, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/update-mgmt-scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti.
+5. Se il computer viene visualizzato nei risultati della query, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti.
 
-6. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni su come eseguire questa operazione, vedere [Abilitare i computer nell'area di lavoro](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
+6. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni su come eseguire questa operazione, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. Eseguire la query nell'area di lavoro.
 
@@ -190,11 +190,11 @@ Se la sottoscrizione non è configurata per il provider di risorse di Automazion
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Computer non disponibili o non contrassegnati correttamente quando viene eseguita la pianificazione
 
-Usare la procedura seguente se la sottoscrizione è configurata per il provider di risorse di Automazione, ma l'esecuzione della pianificazione degli aggiornamenti con i [gruppi dinamici](../update-management/update-mgmt-groups.md) specificati ha escluso alcuni computer.
+Usare la procedura seguente se la sottoscrizione è configurata per il provider di risorse di Automazione, ma l'esecuzione della pianificazione degli aggiornamenti con i [gruppi dinamici](../update-management/configure-groups.md) specificati ha escluso alcuni computer.
 
 1. Nel portale di Azure aprire l'account di Automazione e selezionare **Gestione aggiornamenti**.
 
-2. Controllare [Cronologia Gestione aggiornamenti](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) per determinare l'orario esatto in cui è stata eseguita la distribuzione degli aggiornamenti.
+2. Controllare [Cronologia Gestione aggiornamenti](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) per determinare l'orario esatto in cui è stata eseguita la distribuzione degli aggiornamenti.
 
 3. Per i computer che si sospetta siano stati esclusi da Gestione aggiornamenti, usare Azure Resource Graph (ARG) per [individuare le modifiche del computer](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
 
@@ -230,7 +230,7 @@ Nel portale di Azure vengono visualizzati solo i computer per i quali si dispone
 
 Attenersi ai passaggi seguenti per determinare se le query funzionano correttamente.
 
-1. Eseguire una query ARG formattata come illustrato qui sotto nel pannello Resource Graph explorer nel portale di Azure. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](../update-management/update-mgmt-groups.md).
+1. Eseguire una query ARG formattata come illustrato qui sotto nel pannello Resource Graph explorer nel portale di Azure. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -303,7 +303,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Le comunicazioni con l'account di Automazione sono bloccate
 
-Passare a [Pianificazione della rete](../update-management/update-mgmt-overview.md#ports) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
+Passare a [Pianificazione della rete](../update-management/overview.md#ports) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
 
 #### <a name="duplicate-computer-name"></a>Nome computer duplicato
 
@@ -389,9 +389,9 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 
 ### <a name="resolution"></a>Risoluzione
 
-Se applicabili, usare i [gruppi dinamici](../update-management/update-mgmt-groups.md) per le distribuzioni degli aggiornamenti. Inoltre, è possibile eseguire i passaggi seguenti.
+Se applicabili, usare i [gruppi dinamici](../update-management/configure-groups.md) per le distribuzioni degli aggiornamenti. Inoltre, è possibile eseguire i passaggi seguenti.
 
-1. Verificare che il computer o il server soddisfi i [requisiti](../update-management/update-mgmt-overview.md#client-requirements).
+1. Verificare che il computer o il server soddisfi i [requisiti](../update-management/overview.md#client-requirements).
 2. Verificare la connettività al ruolo di lavoro ibrido per runbook usando lo strumento di risoluzione dei problemi dell'agente del ruolo lavoro ibrido per runbook. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenario: gli aggiornamenti vengono installati senza una distribuzione
@@ -487,11 +487,11 @@ La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. 
 
 ### <a name="resolution"></a>Risoluzione
 
-Per comprendere il motivo per cui si è verificata durante l'esecuzione di un aggiornamento dopo l'avvio, [controllare l'output del processo](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) dal computer interessato nell'esecuzione. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza.  
+Per comprendere il motivo per cui si è verificata durante l'esecuzione di un aggiornamento dopo l'avvio, [controllare l'output del processo](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) dal computer interessato nell'esecuzione. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza.  
 
 Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
 
-Per altre informazioni sulle finestre di manutenzione, vedere [Installa aggiornamenti](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment).
+Per altre informazioni sulle finestre di manutenzione, vedere [Installa aggiornamenti](../update-management/deploy-updates.md#schedule-an-update-deployment).
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Scenario: il computer viene indicato come "Non valutato" e genera a un'eccezione HRESULT
 
@@ -522,7 +522,7 @@ Se si visualizza HRESULT, fare doppio clic sull'eccezione in rosso per visualizz
 |Eccezione  |Risoluzione o azione  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Per maggiori dettagli sulla causa dell'eccezione, cercare il codice di errore pertinente nell'[elenco codici di errore relativi a Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list).        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicano problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione [pianificazione della rete](../update-management/update-mgmt-overview.md#ports).        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicano problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione [pianificazione della rete](../update-management/overview.md#ports).        |
 |`0x8024001E`| L'operazione di aggiornamento non è stata completata perché il servizio o il sistema era in fase di arresto.|
 |`0x8024002E`| Il servizio Windows Update è disabilitato.|
 |`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del Registro di sistema per `WUServer` e `WUStatusServer` nella chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` indichino il server WSUS corretto.        |
@@ -556,9 +556,9 @@ Possibili cause:
 
 ### <a name="resolution"></a>Risoluzione
 
-Se si verificano errori durante l'esecuzione di un aggiornamento dopo un normale avvio, [controllare l'output del processo](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) del computer interessato. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza. Gestione aggiornamenti richiede che la gestione pacchetti sia integra affinché le distribuzioni degli aggiornamenti abbiano esito positivo.
+Se si verificano errori durante l'esecuzione di un aggiornamento dopo un normale avvio, [controllare l'output del processo](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) del computer interessato. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza. Gestione aggiornamenti richiede che la gestione pacchetti sia integra affinché le distribuzioni degli aggiornamenti abbiano esito positivo.
 
-Se vengono visualizzate patch, pacchetti o aggiornamenti specifici immediatamente prima che il processo abbia esito negativo, è possibile provare a[escludere](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) questi elementi dalla successiva distribuzione degli aggiornamenti. Per raccogliere informazioni sui log da Windows Update, vedere [File di log di Windows Update](/windows/deployment/update/windows-update-logs).
+Se vengono visualizzate patch, pacchetti o aggiornamenti specifici immediatamente prima che il processo abbia esito negativo, è possibile provare a[escludere](../update-management/deploy-updates.md#schedule-an-update-deployment) questi elementi dalla successiva distribuzione degli aggiornamenti. Per raccogliere informazioni sui log da Windows Update, vedere [File di log di Windows Update](/windows/deployment/update/windows-update-logs).
 
 Se non è possibile risolvere un problema di patch, effettuare una copia del file **/var/opt/Microsoft/omsagent/Run/automationworker/omsupdatemgmt.log** e conservarlo per la risoluzione dei problemi prima dell'inizio della successiva distribuzione degli aggiornamenti.
 
@@ -568,7 +568,7 @@ Se non è possibile risolvere un problema di patch, effettuare una copia del fil
 
 Provare a eseguire gli aggiornamenti direttamente nel computer. Se non è possibile eseguire gli aggiornamenti nel computer, vedere l'[elenco degli errori potenziali nella guida alla risoluzione dei problemi](#hresult).
 
-Se gli aggiornamenti sono eseguiti in locale, provare a rimuovere e reinstallare l'agente nel computer seguendo il materiale sussidiario in [Rimuovere una macchina virtuale da Gestione aggiornamenti](../update-management/update-mgmt-remove-vms.md).
+Se gli aggiornamenti sono eseguiti in locale, provare a rimuovere e reinstallare l'agente nel computer seguendo il materiale sussidiario in [Rimuovere una macchina virtuale da Gestione aggiornamenti](../update-management/remove-vms.md).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sono disponibili aggiornamenti che tuttavia non vengono visualizzati come disponibili nei computer
 
@@ -588,7 +588,7 @@ Spesso gli aggiornamenti vengono sostituiti da altri aggiornamenti. Per altre in
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Installazione degli aggiornamenti in base alla classificazione in Linux
 
-La distribuzione degli aggiornamenti in Linux in base alla classificazione ("Aggiornamenti critici e della sicurezza") presenta avvertimenti importanti, in particolare per CentOS. Queste limitazioni sono documentate nella [pagina di panoramica di Gestione aggiornamenti](../update-management/update-mgmt-overview.md#linux).
+La distribuzione degli aggiornamenti in Linux in base alla classificazione ("Aggiornamenti critici e della sicurezza") presenta avvertimenti importanti, in particolare per CentOS. Queste limitazioni sono documentate nella [pagina di panoramica di Gestione aggiornamenti](../update-management/overview.md#linux).
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 manca in modo coerente
 

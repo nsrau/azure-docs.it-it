@@ -1,16 +1,16 @@
 ---
 title: Migrazione a Bridge per Kubernetes
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descrive il processo di migrazione da Azure Dev Spaces a Bridge per Kubernetes
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044701"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329799"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
@@ -44,16 +44,16 @@ Azure Dev Spaces e Bridge per Kubernetes hanno funzionalità simili, ma si diffe
 | Requisito  | Azure Dev Spaces  | Bridge per Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Servizio Azure Kubernetes | In 15 aree di Azure | Qualsiasi area del servizio AKS    |
-| **Sicurezza** |
+| **Security** |
 | Accesso di sicurezza necessario per il cluster  | Collaboratore cluster AKS  | Kubernetes RBAC-aggiornamento della distribuzione   |
 | Accesso di sicurezza necessario nel computer di sviluppo  | N/D  | Amministrazione locale/sudo   |
 | **Usabilità** |
 | Indipendente dagli elementi Kubernetes e Docker  | No  | Sì   |
 | Rollback automatico delle modifiche, post-debug  | No  | Sì   |
-| **Ambienti** |
+| **Strumenti client supportati** |
 | Funziona con Visual Studio 2019  | Sì  | Sì   |
 | Funziona con Visual Studio Code  | Sì  | Sì   |
-| Funziona con l'interfaccia della riga di comando  | Sì  | No   |
+| Funziona con un'interfaccia della riga di comando  | Sì  | No   |
 | **Compatibilità sistema operativo** |
 | Funziona in Windows 10  | Sì  | Sì  |
 | Funziona in Linux  | Sì  | Sì  |

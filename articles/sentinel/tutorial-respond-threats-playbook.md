@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f75731fab9a238ffcac2e620235c9d8c5da97549
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053491"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840201"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Esercitazione: Configurare le risposte automatiche alle minacce in Azure Sentinel
 
@@ -72,7 +72,7 @@ Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sent
 
 5. In [**Progettazione app per la logica**](../logic-apps/logic-apps-overview.md) selezionare il modello che si vuole usare. Se si seleziona un modello che richiede credenziali, sarà necessario fornirle. In alternativa è possibile creare un nuovo playbook vuoto da zero. Selezionare **App per la logica vuota**. 
 
-   ![Progettazione app per la logica](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Screenshot che mostra il pannello App per la logica vuota.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. Verrà visualizzata la pagina Progettazione app per la logica in cui è possibile creare un nuovo modello oppure modificarne uno esistente. Vedere altre informazioni sulla creazione di un playbook con [App per la logica](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 

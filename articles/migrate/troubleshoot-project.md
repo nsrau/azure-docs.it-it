@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314651"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Risolvere i problemi relativi ai progetti di Azure Migrate
 
@@ -52,7 +52,7 @@ Se si tenta di creare un progetto e si verifica un errore di distribuzione:
 - Se viene visualizzato l'errore "le richieste devono contenere intestazioni di identità utente", questo potrebbe indicare che non si ha accesso al tenant Azure Active Directory (Azure AD) dell'organizzazione. In questo caso:
     - Quando si viene aggiunti a un tenant di Azure AD per la prima volta, si riceve un messaggio di posta elettronica di invito per l'aggiunta al tenant.
     - Accettare l'invito da aggiungere al tenant.
-    - Se il messaggio di posta elettronica non è visibile, contattare un utente con accesso al tenant e chiedere di [inviare di nuovo l'invito](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) .
+    - Se il messaggio di posta elettronica non è visibile, contattare un utente con accesso al tenant e chiedere di [inviare di nuovo l'invito](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) .
     - Dopo la ricezione del messaggio di posta elettronica di invito, aprirlo e selezionare il collegamento per accettare l'invito. Quindi, disconnettersi dalla portale di Azure ed eseguire di nuovo l'accesso. (l'aggiornamento del browser non funziona). È quindi possibile iniziare a creare il progetto di migrazione.
 
 ## <a name="how-do-i-delete-a-project"></a>Ricerca per categorie eliminare un progetto

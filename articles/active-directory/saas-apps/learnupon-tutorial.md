@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 47ecf00b608121271e98ca5abbbd5e69ca811fd2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Esercitazione: Integrazione di Azure Active Directory con LearnUpon
 
@@ -130,15 +130,15 @@ Per configurare Single Sign-On di Azure AD con LearnUpon, seguire questa procedu
 
 1. Fare clic sulla scheda **Impostazioni** .
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Screenshot che mostra la scheda settings.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Fare clic su **Single Sign On - SAML** e quindi fare clic su **General Settings** (Impostazioni generali) per configurare le impostazioni SAML.
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Screenshot che mostra le opzioni Single Sign On - SAML e General Settings selezionate.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. Nella sezione **General Settings** (Impostazioni generali), seguire questa procedura:
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Screenshot che mostra la sezione General Settings in cui è possibile immettere i valori descritti.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Selezionare **Enabled**.
 
@@ -158,7 +158,7 @@ Per configurare Single Sign-On di Azure AD con LearnUpon, seguire questa procedu
 
 1. Fare clic su **User Settings**(Impostazioni utente), e seguire questa procedura:
 
-     ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Screenshot che mostra la sezione User Settings in cui è possibile immettere i valori descritti.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. Nella casella di testo **First Name Identifier Format** (Formato identificatore nome) digitare il valore che indica la posizione del nome degli utenti dell'asserzione SAML, ad esempio `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   

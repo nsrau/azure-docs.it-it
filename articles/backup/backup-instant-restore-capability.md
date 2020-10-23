@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000380"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173919"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -61,11 +61,13 @@ Gli snapshot incrementali vengono archiviati nell'account di archiviazione della
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 Nella portale di Azure è possibile visualizzare un campo aggiunto nel riquadro Criteri di **backup della macchina virtuale** nella sezione **ripristino immediato** . È possibile modificare la durata del periodo di memorizzazione dello snapshot dal riquadro **criteri di backup della macchina virtuale** per tutte le macchine virtuali associate al criterio di backup specifico.
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 >[!NOTE]
 > Da AZ PowerShell versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell

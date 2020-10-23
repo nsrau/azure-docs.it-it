@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 447b781ec83a01a58e6af9e9e43f75b3fc56b10f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328854"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370781"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connettere Azure agli strumenti ITSM usando l'esportazione sicura
 
@@ -36,72 +36,68 @@ L'architettura di esportazione protetta introduce le nuove funzionalità seguent
 I passaggi del flusso di dati di esportazione protetta sono:
 
 1. Monitoraggio di Azure invia un avviso configurato per l'uso dell'esportazione protetta.
-1. Il payload dell'avviso viene inviato da un'azione webhook sicura allo strumento ITSM.
-1. L'applicazione ITSM verifica con Azure AD se l'avviso è autorizzato ad accedere allo strumento ITSM.
-1. Se l'avviso è autorizzato, l'applicazione:
+2. Il payload dell'avviso viene inviato da un'azione webhook sicura allo strumento ITSM.
+3. L'applicazione ITSM verifica con Azure AD se l'avviso è autorizzato ad accedere allo strumento ITSM.
+4. Se l'avviso è autorizzato, l'applicazione:
    
    1. Consente di creare un elemento di lavoro, ad esempio un evento imprevisto, nello strumento ITSM.
-   1. Associa l'ID dell'elemento di configurazione (CI) al database di gestione clienti (CMDB).
+   2. Associa l'ID dell'elemento di configurazione (CI) al database di gestione clienti (CMDB).
 
 ![Diagramma che illustra come lo strumento ITSM comunica con Azure A D, avvisi di Azure e un gruppo di azione.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
-## <a name="connection-with-bmc-helix"></a>Connessione con BMC Helix
+## <a name="benefits-of-secure-export"></a>Vantaggi dell'esportazione sicura
 
-L'esportazione protetta supporta BMC Helix. Ecco alcuni vantaggi dell'integrazione:
+I principali vantaggi dell'integrazione sono:
 
 * **Autenticazione migliore**: Azure ad offre un'autenticazione più sicura senza i timeout che in genere si verificano in connettore.
 * **Avvisi risolti nello strumento ITSM**: gli avvisi delle metriche implementano gli Stati "attivato" e "risolto". Quando la condizione viene soddisfatta, lo stato dell'avviso è "attivato". Quando la condizione non viene più soddisfatta, lo stato dell'avviso è "risolto". In connettore gli avvisi non possono essere risolti automaticamente. Con l'esportazione protetta, lo stato risolto passa allo strumento ITSM e pertanto viene aggiornato automaticamente.
-* **[Schema di avviso comune](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)**: in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
+* **[Schema di avviso comune](./alerts-common-schema.md)**: in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
 
 Per iniziare a usare lo strumento ITSM Connector, seguire questa procedura:
 
 1. Registrare l'app con Azure AD.
 2. Creare un gruppo di azione di Webhook sicuro.
-3. Configurare l'ambiente partner.
+3. Configurare l'ambiente partner. Attualmente è supportato un fornitore che è BMC Helix.
 
 ## <a name="register-with-azure-active-directory"></a>Registra con Azure Active Directory
 
 Per registrare l'applicazione con Azure AD, attenersi alla procedura seguente:
 
-1. Eseguire la procedura descritta in [registrare un'applicazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-1. In Azure AD selezionare **Expose Application**.
-1. Selezionare **imposta** per **URI ID applicazione**.
+1. Eseguire la procedura descritta in [registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-register-app.md).
+2. In Azure AD selezionare **Expose Application**.
+3. Selezionare **imposta** per **URI ID applicazione**.
 
    [![Screenshot dell'opzione per l'impostazione di U R I dell'applicazione i D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-1. Selezionare **Salva**.
+4. Selezionare **Salva**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Creare un gruppo di azione di Webhook sicuro
 
 Dopo che l'applicazione è stata registrata con Azure AD, è possibile creare elementi di lavoro nello strumento ITSM in base agli avvisi di Azure, usando l'azione webhook sicura nei gruppi di azioni.
 
 I gruppi di azioni forniscono un metodo modulare e riutilizzabile per attivare le azioni per gli avvisi di Azure. È possibile usare i gruppi di azioni con avvisi metrica, avvisi del log attività e avvisi di Azure Log Analytics nel portale di Azure.
-Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
-
-Usare la procedura seguente nell'ambiente BMC Helix:
-
-1. Accedere a Integration Studio.
-1. Cercare il flusso di **avvisi Crea evento imprevisto da Azure** .
-1. Copiare l'URL del webhook.
-   
-   ![Screenshot del webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](./action-groups.md).
 
 Per aggiungere un webhook a un'azione, seguire queste istruzioni per il webhook sicuro:
 
 1. Nel [portale di Azure](https://portal.azure.com/) cercare e selezionare **Monitoraggio**. Il riquadro **Monitoraggio** consolida tutte le impostazioni e i dati di monitoraggio in una vista.
-1. Selezionare **avvisi**  >  **Gestisci azioni**.
-1. Selezionare [Aggiungi gruppo di azione](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal) e compilare i campi.
-1. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
-1. Selezionare il **webhook protetto**.
-1. Selezionare i dettagli seguenti:
+2. Selezionare **avvisi**  >  **Gestisci azioni**.
+3. Selezionare [Aggiungi gruppo di azione](./action-groups.md#create-an-action-group-by-using-the-azure-portal) e compilare i campi.
+4. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
+5. Selezionare il **webhook protetto**.
+6. Selezionare i dettagli seguenti:
    1. Consente di selezionare l'ID oggetto dell'istanza di Azure Active Directory registrata.
-   1. Per l'URI, incollare l'URL del webhook copiato dall'ambiente BMC Helix.
-   1. Impostare **Abilita lo schema di avviso comune** su **Sì**. 
+   2. Per l'URI, incollare l'URL del webhook copiato dall'ambiente del fornitore.
+   3. Impostare **Abilita lo schema di avviso comune** su **Sì**. 
 
    La figura seguente illustra la configurazione di un'azione di Webhook sicura di esempio:
 
    ![Screenshot che mostra un'azione webhook sicura.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
 ## <a name="configure-the-partner-environment"></a>Configurare l'ambiente partner
+
+La configurazione contiene 2 passaggi:
+1. Ottenere l'URI per la definizione di esportazione protetta.
+2. Definizioni in base al flusso del fornitore.
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Connettere BMC Helix a monitoraggio di Azure
 
@@ -116,18 +112,26 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
 
 ### <a name="configure-the-bmc-helix-connection"></a>Configurare la connessione a BMC Helix
 
-1. Seguire le istruzioni riportate nella versione:
+1. per ottenere l'URI per l'esportazione protetta, attenersi alla procedura seguente nell'ambiente BMC Helix:
+
+   1. Accedere a Integration Studio.
+   2. Cercare il flusso di **avvisi Crea evento imprevisto da Azure** .
+   3. Copiare l'URL del webhook.
+   
+   ![Screenshot del webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+   
+2. Seguire le istruzioni in base alla versione:
    * [Abilitazione dell'integrazione predefinita con monitoraggio di Azure per la versione 20,02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
    * [Abilitazione dell'integrazione predefinita con monitoraggio di Azure per la versione 19,11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
-1. Come parte della configurazione della connessione in BMC Helix, passare all'istanza di Integration BMC e seguire queste istruzioni:
+3. Come parte della configurazione della connessione in BMC Helix, passare all'istanza di Integration BMC e seguire queste istruzioni:
 
    1. Selezionare **Catalogo**.
-   1. Selezionare **avvisi di Azure**.
-   1. Selezionare **connettori**.
-   1. Selezionare **configurazione**.
-   1. Selezionare la configurazione **Aggiungi nuova connessione** .
-   1. Immettere le informazioni per la sezione di configurazione:
+   2. Selezionare **avvisi di Azure**.
+   3. Selezionare **connettori**.
+   4. Selezionare **configurazione**.
+   5. Selezionare la configurazione **Aggiungi nuova connessione** .
+   6. Immettere le informazioni per la sezione di configurazione:
       - **Nome**: creare un proprio.
       - **Tipo di autorizzazione**: **nessuno**
       - **Descrizione**: crearne una personalizzata.
@@ -140,4 +144,4 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)
+* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-overview.md)

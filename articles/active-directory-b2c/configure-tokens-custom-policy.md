@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88505462"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340292"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
 
@@ -87,6 +87,48 @@ Nell'esempio precedente vengono impostati i valori seguenti.
     ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
+
+> [!NOTE]
+> Le applicazioni a singola pagina che usano il flusso del codice di autorizzazione con PKCE hanno sempre una durata del token di aggiornamento di 24 ore. [Altre informazioni sulle implicazioni di sicurezza dei token di aggiornamento nel browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornire attestazioni facoltative all'app
+
+Le attestazioni di output del [profilo tecnico dei criteri della relying party](relyingparty.md#technicalprofile) sono valori restituiti a un'applicazione. L'aggiunta di attestazioni di output emetterà le attestazioni nel token dopo un percorso utente riuscito e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere le attestazioni desiderate come attestazione di output.
+
+1. Aprire il file dei criteri personalizzati. Ad esempio, SignUpOrSignin.xml.
+1. Trovare l'elemento OutputClaims. Aggiungere il OutputClaim che si desidera includere nel token. 
+1. Impostare gli attributi di attestazione di output. 
+
+Nell'esempio seguente viene aggiunta l' `accountBalance` attestazione. L'attestazione accountBalance viene inviata all'applicazione come equilibrio. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+L'elemento OutputClaim contiene gli attributi seguenti:
+
+  - **ClaimTypeReferenceId** : identificatore di un tipo di attestazione già definito nella sezione [ClaimsSchema](claimsschema.md) del file di criteri o del file di criteri padre.
+  - **PartnerClaimType** : consente di modificare il nome dell'attestazione nel token. 
+  - **DefaultValue** : valore predefinito. È inoltre possibile impostare il valore predefinito su un [resolver di attestazioni](claim-resolver-overview.md), ad esempio l'ID tenant.
+  - **AlwaysUseDefaultValue** -forza l'uso del valore predefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

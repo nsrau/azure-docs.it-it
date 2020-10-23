@@ -3,12 +3,12 @@ title: Gestisci aree di lavoro di Sentinel di Azure su larga scala
 description: Informazioni su come gestire efficacemente Azure Sentinel sulle risorse dei clienti Delegate.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596946"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424099"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gestisci aree di lavoro di Sentinel di Azure su larga scala
 
@@ -39,7 +39,7 @@ Questo modello di distribuzione centralizzato presenta i vantaggi seguenti:
 > [!NOTE]
 > È possibile gestire le risorse delegate che si trovano in [aree](../../availability-zones/az-overview.md#regions)diverse. Tuttavia, la delega delle sottoscrizioni in un [cloud nazionale](../../active-directory/develop/authentication-national-cloud.md) e nel cloud pubblico di Azure o in due cloud nazionali distinti non è supportata.
 
-## <a name="granular-role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo granulare
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure granulare (RBAC di Azure)
 
 Ogni sottoscrizione cliente che verrà gestita da un MSSP deve essere caricata [in Azure Lighthouse](onboard-customer.md). In questo modo gli utenti designati nel tenant di gestione possono accedere ed eseguire operazioni di gestione nelle aree di lavoro di Azure Sentinel distribuite in tenant del cliente.
 

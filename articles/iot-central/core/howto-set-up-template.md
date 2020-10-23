@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122654"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -45,7 +45,7 @@ In un'applicazione IoT Central un modello di dispositivo usa un modello di funzi
 - Creare un modello di funzionalità di dispositivo con Visual Studio Code. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di funzionalità di dispositivo nell'applicazione IoT Central e quindi aggiungere eventuali personalizzazioni, dashboard e proprietà cloud necessari per l'applicazione IoT Central.
 - Creare un modello di funzionalità di dispositivo con Visual Studio Code. Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central, tramite una connessione di tipo device-first. IoT Central trova e importa automaticamente il modello di funzionalità di dispositivo dal repository pubblico. È quindi possibile aggiungere al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
 
-È anche possibile aggiungere modelli di dispositivo a un'applicazione IoT Central usando l' [API REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) o l' [interfaccia](howto-manage-iot-central-from-cli.md)della riga di comando.
+È anche possibile aggiungere modelli di dispositivo a un'applicazione IoT Central usando l' [API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) o l' [interfaccia](howto-manage-iot-central-from-cli.md)della riga di comando.
 
 Alcuni [modelli di applicazione](concepts-app-templates.md) includono già modelli di dispositivo utili nello scenario supportato dal modello di applicazione. Vedere ad esempio l' [architettura di analisi in archivio](../retail/store-analytics-architecture.md).
 
@@ -120,7 +120,7 @@ La telemetria è un flusso di valori inviati dal dispositivo, in genere da un se
 
 La tabella seguente illustra le impostazioni di configurazione per una funzionalità di telemetria:
 
-| Campo | Description |
+| Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore di telemetria usato nei dashboard e nei moduli. |
 | Nome | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
@@ -132,7 +132,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
 | Commento | Eventuali commenti sulla funzionalità di telemetria. |
-| Description | Descrizione della funzionalità di telemetria. |
+| Descrizione | Descrizione della funzionalità di telemetria. |
 
 ### <a name="properties"></a>Proprietà
 
@@ -140,7 +140,7 @@ Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potr
 
 La tabella seguente illustra le impostazioni di configurazione per una funzionalità della proprietà:
 
-| Campo | Description |
+| Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli. |
 | Nome | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
@@ -153,22 +153,22 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
 | Commento | Eventuali commenti sulla funzionalità della proprietà. |
-| Description | Descrizione della funzionalità della proprietà. |
+| Descrizione | Descrizione della funzionalità della proprietà. |
 
-### <a name="commands"></a>Comandi
+### <a name="commands"></a>Comandi:
 
 È possibile chiamare i comandi del dispositivo da IoT Central. I comandi passano facoltativamente i parametri al dispositivo e ricevono una risposta dal dispositivo. Ad esempio, è possibile chiamare un comando per riavviare un dispositivo entro 10 secondi.
 
 La tabella seguente illustra le impostazioni di configurazione per una funzionalità di comando:
 
-| Campo | Description |
+| Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il comando usato nei dashboard e nei moduli. |
 | Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Comando | `SynchronousExecutionType`. |
 | Commento | Eventuali commenti sulla funzionalità del comando. |
-| Description | Descrizione della funzionalità del comando. |
+| Descrizione | Descrizione della funzionalità del comando. |
 | Richiesta | Se abilitata, una definizione del parametro della richiesta, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 | Risposta | Se abilitata, una definizione della risposta del comando, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 
@@ -199,7 +199,7 @@ Usare le proprietà cloud per archiviare le informazioni sui dispositivi in IoT 
 
 La tabella seguente illustra le impostazioni di configurazione per una proprietà cloud:
 
-| Campo | Description |
+| Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà cloud usato nei dashboard e nei moduli. |
 | Nome | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021161"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204096"
 ---
 # <a name="create-client-side-performance-traces"></a>Creare tracce di prestazioni lato client
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con le funzionalità di Windows :::no-loc text="perfor
 
 ### <a name="installation"></a>Installazione
 
-Le applicazioni utilizzate per eseguire la traccia con ARR sono strumenti generici che possono essere utilizzati per lo sviluppo di Windows. Vengono forniti tramite [Windows Performance Toolkit](https://docs.microsoft.com/windows-hardware/test/wpt/). Per ottenere questo Toolkit, scaricare [Windows Assessment and Deployment Kit](https://docs.microsoft.com/windows-hardware/get-started/adk-install).
+Le applicazioni utilizzate per eseguire la traccia con ARR sono strumenti generici che possono essere utilizzati per lo sviluppo di Windows. Vengono forniti tramite [Windows Performance Toolkit](/windows-hardware/test/wpt/). Per ottenere questo Toolkit, scaricare [Windows Assessment and Deployment Kit](/windows-hardware/get-started/adk-install).
 
 ### <a name="terminology"></a>Terminologia
 
@@ -35,13 +35,13 @@ Quando si cercano le informazioni sulle tracce di prestazioni, si passerà inevi
 * `WPR`
 * `WPA`
 
-**ETW** sta per [ **E**Vent **T**Racing per **W**indows](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). Si tratta semplicemente del nome complesso per la funzionalità di traccia a livello di kernel efficiente incorporata in Windows. Viene definita traccia *eventi* , perché le applicazioni che supportano ETW generano eventi per le azioni di registrazione che possono contribuire a tenere traccia dei problemi di prestazioni. Per impostazione predefinita, il sistema operativo emette già eventi per elementi come accessi al disco, commutatori di attività e così via. Le applicazioni come ARR generano inoltre eventi personalizzati, ad esempio i frame eliminati, il ritardo di rete e così via.
+**ETW** sta per [ **E**Vent **T**Racing per **W**indows](/windows/win32/etw/about-event-tracing). Si tratta semplicemente del nome complesso per la funzionalità di traccia a livello di kernel efficiente incorporata in Windows. Viene definita traccia *eventi* , perché le applicazioni che supportano ETW generano eventi per le azioni di registrazione che possono contribuire a tenere traccia dei problemi di prestazioni. Per impostazione predefinita, il sistema operativo emette già eventi per elementi come accessi al disco, commutatori di attività e così via. Le applicazioni come ARR generano inoltre eventi personalizzati, ad esempio i frame eliminati, il ritardo di rete e così via.
 
 **ETL** si basa su **E**Vent **T**Race **L**ogging. Significa semplicemente che una traccia è stata raccolta (registrata) e viene pertanto utilizzata come estensione di file per i file in cui sono archiviati i dati di traccia. Pertanto, quando si esegue una traccia, in un secondo momento si disporrà di un \* file con estensione ETL.
 
-**WPR** sta per [ **W**indows **P**Esplora **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) e è il nome dell'applicazione che avvia e arresta la registrazione delle tracce dell'evento. WPR accetta un file di profilo (con \* estensione WPRP) che configura gli eventi esatti da registrare. Tale `wprp` file viene fornito con l'SDK arr. Quando si esegue la traccia in un PC desktop, è possibile avviare direttamente WPR. Quando si esegue una traccia in HoloLens, in genere si passa attraverso l'interfaccia Web.
+**WPR** sta per [ **W**indows **P**Esplora **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) e è il nome dell'applicazione che avvia e arresta la registrazione delle tracce dell'evento. WPR accetta un file di profilo (con \* estensione WPRP) che configura gli eventi esatti da registrare. Tale `wprp` file viene fornito con l'SDK arr. Quando si esegue la traccia in un PC desktop, è possibile avviare direttamente WPR. Quando si esegue una traccia in HoloLens, in genere si passa attraverso l'interfaccia Web.
 
-**WPA** è l'acronimo di [ **W**indows **P**Esplora **a**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) e è il nome dell'applicazione GUI utilizzata per aprire \* i file con estensione ETL e analizzare i dati per identificare i problemi di prestazioni. WPA consente di ordinare i dati in base a diversi criteri, visualizzare i dati in diversi modi, approfondire i dettagli e correlare le informazioni.
+**WPA** è l'acronimo di [ **W**indows **P**Esplora **a**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) e è il nome dell'applicazione GUI utilizzata per aprire \* i file con estensione ETL e analizzare i dati per identificare i problemi di prestazioni. WPA consente di ordinare i dati in base a diversi criteri, visualizzare i dati in diversi modi, approfondire i dettagli e correlare le informazioni.
 
 Sebbene sia possibile creare tracce ETL in qualsiasi dispositivo Windows (PC locale, HoloLens, server cloud e così via), in genere vengono salvati su disco e analizzati con WPA su un PC desktop. I file ETL possono essere inviati ad altri sviluppatori per consentirne l'aspetto. Tenere presente che le informazioni riservate, ad esempio i percorsi di file e gli indirizzi IP, possono essere acquisite nelle tracce ETL. È possibile utilizzare ETW in due modi: per registrare le tracce o per analizzare le tracce. La registrazione delle tracce è semplice e richiede una configurazione minima. L'analisi delle tracce d'altra parte richiede una conoscenza corretta dello strumento WPA e del problema che si sta esaminando. Il materiale generale per l'apprendimento di WPA verrà riportato di seguito, nonché le linee guida per l'interpretazione delle tracce specifiche di ARR.
 
@@ -51,7 +51,7 @@ Per identificare i problemi di prestazioni ARR è preferibile eseguire una tracc
 
 ### <a name="wpr-configuration"></a>Configurazione di WPR
 
-1. Avviare il [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) dal *menu Start*.
+1. Avviare il [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) dal *menu Start*.
 1. Espandi **altre opzioni**
 1. Fare clic su **Aggiungi profili...**
 1. Selezionare il file *AzureRemoteRenderingNetworkProfiling. WPRP*. È possibile trovare questo file in ARR SDK in *Tools/ETLProfiles*.
@@ -95,7 +95,7 @@ A questo punto si dispone di un file ETL che può essere aperto direttamente in 
 
 Windows Performance Analyzer è lo strumento standard per aprire i file ETL ed esaminare le tracce. Una spiegazione del funzionamento di WPA non rientra nell'ambito di questo articolo. Per iniziare, vedere le risorse seguenti:
 
-* Per una prima panoramica, Guarda i [video introduttivi](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) .
+* Per una prima panoramica, Guarda i [video introduttivi](/windows-hardware/test/wpt/windows-performance-analyzer) .
 * WPA dispone di una scheda *Introduzione* , che illustra i passaggi comuni. Esaminare gli argomenti disponibili. In particolare, in "Visualizza dati" si ottiene una rapida introduzione come creare grafici per dati specifici.
 * Sono disponibili informazioni eccezionali [su questo sito Web](https://randomascii.wordpress.com/2015/09/24/etw-central/), ma non tutte sono rilevanti per i principianti.
 

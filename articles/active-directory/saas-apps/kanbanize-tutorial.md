@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546832"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850711"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Kanbanize
 
@@ -153,7 +153,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 5. Nella pagina del pannello Administration (Amministrazione) dal lato sinistro del menu fare clic su **Integrations** (Integrazioni) e quindi abilitare **Single Sign-On**.
 
-    ![Integrazioni di Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Screenshot che mostra il pannello Administration con l'opzione Integrations selezionata.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. Nella sezione delle integrazioni fare clic su **CONFIGURE** (CONFIGURA) per aprire la pagina **Single Sign-On Integration** (Integrazione Single Sign-On).
 
@@ -161,7 +161,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 7. Nella pagina **Single Sign-On Integration** (Integrazione Single Sign-On) in **Configurations** (Configurazioni) seguire questa procedura:
 
-    ![Integrazioni di Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Screenshot che mostra la pagina Single Sign-On Integration in cui è possibile immettere i valori in questo passaggio.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. Nella casella di testo **IdP Entity ID** (ID entità provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 

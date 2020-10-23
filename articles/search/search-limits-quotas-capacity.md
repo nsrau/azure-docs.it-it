@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949851"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107828"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -101,10 +101,9 @@ Sono previsti tempi di esecuzione massimi per garantire il bilanciamento e la st
 > [!NOTE]
 > Come indicato in [Limiti per gli indici](#index-limits), gli indicizzatori applicheranno anche il limite superiore di 3000 elementi in tutte le raccolte complesse per documento a partire dalla versione più recente dell'API disponibile a livello generale che supporta i tipi complessi (`2019-05-06`). Se l'indicizzatore è stato creato con una versione precedente dell'API, non sarà soggetto a questo limite. Per mantenere la massima compatibilità, un indicizzatore creato con una versione precedente dell'API e quindi aggiornato con una versione dell'API `2019-05-06` o successiva verrà comunque **escluso** dai limiti. I clienti devono essere consapevoli dell'impatto negativo della presenza di raccolte complesse di grandi dimensioni (come indicato in precedenza) ed è consigliabile creare nuovi indicizzatori con la versione più recente dell'API disponibile a livello generale.
 
-### <a name="shared-private-link-resource-limits"></a>Limiti delle risorse di collegamento privato condiviso
+## <a name="shared-private-link-resource-limits"></a>Limiti delle risorse di collegamento privato condiviso
 
-> [!NOTE]
-> Gli indicizzatori possono accedere alle risorse in modo sicuro sugli endpoint privati gestiti tramite l' [API di risorse di collegamento privato condiviso](/rest/api/searchmanagement/sharedprivatelinkresources) , come descritto in [questa guida alle procedure](search-indexer-howto-access-private.md)
+Gli indicizzatori possono accedere ad altre risorse di Azure tramite [endpoint privati](search-indexer-howto-access-private.md) gestiti tramite l' [API di risorse di collegamento privato condiviso](/rest/api/searchmanagement/sharedprivatelinkresources). In questa sezione vengono descritti i limiti associati a questa funzionalità.
 
 | Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Sono previsti tempi di esecuzione massimi per garantire il bilanciamento e la st
 | Numero massimo di endpoint privati | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Numero massimo di tipi di risorse distinti<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 
-<sup>1</sup> le funzionalità di arricchimento e analisi delle immagini per intelligenza artificiale sono a elevato utilizzo di calcolo e consumano una quantità sproporzionata di potenza di elaborazione disponibile e pertanto per i livelli di servizio di ricerca più bassi che li configurano per l'esecuzione nell'ambiente privato potrebbe avere un impatto negativo sulle prestazioni e la stabilità del servizio di ricerca.
+<sup>1</sup> le funzionalità di arricchimento e analisi delle immagini per intelligenza artificiale sono a elevato utilizzo di calcolo e consumano una quantità sproporzionata di potenza di elaborazione disponibile. Per questo motivo, le connessioni private sono disabilitate sui livelli inferiori per evitare un impatto negativo sulle prestazioni e la stabilità del servizio di ricerca stesso.
 
 <sup>2</sup> il numero di tipi di risorse distinti viene calcolato come numero di valori univoci `groupId` usati in tutte le risorse di collegamento privato condivise per un determinato servizio di ricerca, indipendentemente dallo stato della risorsa.
 

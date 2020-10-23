@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aded49b5b9509a75e61612e44ffa19ff377d1712
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239654"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148331"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usare l'estensione IoT per l'interfaccia della riga di comando di Azure per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "80239654"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L'estensione](https://github.com/Azure/azure-iot-cli-extension) Internet delle cose per l'interfaccia della riga di comando di Azure è un'estensione Internet open source che aggiunge le funzionalità dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). L'interfaccia della riga di comando di Azure include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione Internet consente agli sviluppatori di accedere alla riga di comando per tutte le funzionalità del servizio Device provisioning in hub, IoT Edge e Internet.
+[L'estensione](https://github.com/Azure/azure-iot-cli-extension) Internet delle cose per l'interfaccia della riga di comando di Azure è un'estensione Internet open source che aggiunge le funzionalità dell'interfaccia della riga di comando di [Azure](/cli/azure/overview?view=azure-cli-latest). L'interfaccia della riga di comando di Azure include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione Internet consente agli sviluppatori di accedere alla riga di comando per tutte le funzionalità del servizio Device provisioning in hub, IoT Edge e Internet.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -61,7 +61,7 @@ Eseguire l'interfaccia della riga di comando di Azure e la relativa estensione I
 
 * [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
-* L'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az –version` per verificare.
+* L'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az –version` per verificare.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

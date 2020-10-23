@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
-ms.openlocfilehash: 83d2fa59654e038586a7f23eedbe7c656873f35c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 352da24b36124ff0446a81c1ecbc584da545bb16
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976575"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142206"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Crittografia dei dati inattivi con chiavi gestite dal cliente per l'hub Internet
 
@@ -24,6 +24,6 @@ Questa funzionalità richiede la creazione di un nuovo hub Internet (livello Bas
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Scopri di più sull'hub Internet](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
+* [Scopri di più sull'hub Internet](./about-iot-hub.md)
 
-* [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Altre informazioni su Azure Key Vault](../key-vault/general/overview.md)

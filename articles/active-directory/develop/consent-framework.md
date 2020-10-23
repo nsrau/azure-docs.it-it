@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706133"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366089"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -50,7 +49,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 1. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere il [flusso del codice di autorizzazione OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
-1. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo impedisce la visualizzazione della finestra di dialogo di consenso per ogni utente nel tenant e può essere eseguita nel [portale di Azure](https://portal.azure.com) dagli utenti con il ruolo di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo impedisce la visualizzazione della finestra di dialogo di consenso per ogni utente nel tenant e può essere eseguita nel [portale di Azure](https://portal.azure.com) dagli utenti con il ruolo di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../roles/permissions-reference.md).
 
     **Per fornire il consenso per le autorizzazioni delegate di un'app**
 
@@ -64,5 +63,4 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [come convertire un'app multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-* Per informazioni più dettagliate, scoprire [come viene supportato il consenso a livello del protocollo OAuth 2.0 durante il flusso di concessione del codice di autorizzazione](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code).
+Vedere [come convertire un'app multi-tenant](howto-convert-app-to-be-multi-tenant.md)

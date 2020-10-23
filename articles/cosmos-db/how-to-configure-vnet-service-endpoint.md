@@ -4,17 +4,21 @@ description: Questo documento descrive i passaggi necessari per configurare un e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 995e5a1a87ee332c48641f42c4134e3e58f11cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495421"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279706"
 ---
-# <a name="configure-access-from-virtual-networks-vnet"></a>Configurare l'accesso da reti virtuali
+# <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configurare l'accesso alle Azure Cosmos DB da reti virtuali (VNet)
+
+È possibile configurare l'account Azure Cosmos DB per consentire l'accesso solo da una subnet specifica di rete virtuale di Azure (VNet). Abilitando [Endpoint del servizio](../virtual-network/virtual-network-service-endpoints-overview.md) per accedere ad Azure Cosmos DB nella subnet all'interno di una rete virtuale, il traffico da tale subnet viene inviato ad Azure Cosmos DB con l'identità della subnet e della rete virtuale. Dopo aver abilitato l'endpoint del servizio Azure Cosmos DB, è possibile limitare l'accesso alla subnet aggiungendola all'account Azure Cosmos.
+
+Per impostazione predefinita, un account di Azure Cosmos è accessibile da qualsiasi provider di origine purché la richiesta sia accompagnata da un token di autorizzazione valido. Quando si aggiunge una o più subnet all'interno delle reti virtuali, solo le richieste provenienti da tali subnet otterranno una risposta valida. Le richieste provenienti da qualsiasi altra origine riceveranno una risposta 403 (Non consentito). 
 
 È possibile configurare gli account Azure Cosmos DB per consentire l'accesso da una sola subnet specifica di una rete virtuale di Azure. Per limitare l'accesso a un account Azure Cosmos DB con le connessioni da una subnet in una rete virtuale:
 
@@ -28,8 +32,6 @@ ms.locfileid: "87495421"
 > Per altre informazioni, vedere la procedura descritta nella sezione [Migrazione da una regola del firewall IP a un elenco di controllo di accesso della rete virtuale](#migrate-from-firewall-to-vnet) di questo articolo.
 
 Le sezioni seguenti descrivono come configurare un endpoint servizio di rete virtuale per un account Azure Cosmos DB.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-a-service-endpoint-by-using-the-azure-portal"></a><a id="configure-using-portal"></a>Configurare un endpoint di servizio tramite il portale di Azure
 
@@ -87,8 +89,7 @@ Per assicurarsi di avere accesso alle metriche di Azure Cosmos DB dal portale, �
 
 ## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a><a id="configure-using-powershell"></a>Configurare un endpoint di servizio tramite Azure PowerShell
 
-> [!NOTE]
-> Quando si usa PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di specificare l'elenco completo dei filtri IP e degli ACL della rete virtuale nei parametri e non solo quelli che devono essere aggiunti.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Usare questa procedura per configurare un endpoint di servizio per un account Azure Cosmos DB usando Azure PowerShell:  
 
@@ -110,6 +111,9 @@ Usare questa procedura per configurare un endpoint di servizio per un account Az
       -AddressPrefix $subnetPrefix `
       -ServiceEndpoint $serviceEndpoint | Set-AzVirtualNetwork
    ```
+
+   > [!NOTE]
+   > Quando si usa PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di specificare l'elenco completo dei filtri IP e degli ACL della rete virtuale nei parametri e non solo quelli che devono essere aggiunti.
 
 1. Ottenere informazioni sulla rete virtuale.
 
@@ -307,6 +311,54 @@ Prima di procedere, abilitare l'endpoint del servizio Azure Cosmos DB nella rete
 
 1. Rimuovere la regola del firewall IP per la subnet dalle regole del firewall dell'account Azure Cosmos DB.
 
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+Ecco alcune domande frequenti sulla configurazione dell'accesso da reti virtuali:
+
+### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>I notebook e la shell Mongo/Cassandra sono attualmente compatibili con gli account abilitati per la rete virtuale?
+
+Al momento, le integrazioni di [Mongo Shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) nel Cosmos DB Esplora dati e il [servizio Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)non sono supportate con l'accesso vnet. Questa implementazione è attualmente in fase di sviluppo attivo.
+
+### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>È possibile specificare l'endpoint servizio di rete virtuale e i criteri di controllo di accesso IP per un account Azure Cosmos? 
+
+È possibile abilitare l'endpoint servizio di rete virtuale e i criteri di controllo di accesso IP (ossia firewall) per un account Azure Cosmos. Queste due funzionalità sono complementari e garantiscono collettivamente isolamento e sicurezza dell'account di Azure Cosmos. L'utilizzo del firewall IP garantisce che gli indirizzi IP statici possano accedere all'account. 
+
+### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Come è possibile limitare l'accesso alla subnet all'interno di una rete virtuale? 
+
+Esistono due passaggi necessari per limitare l'accesso all'account Azure Cosmos da una subnet. In primo luogo, si consente al traffico dalla subnet di portare le rispettive subnet e l'identità di rete virtuale ad Azure Cosmos DB. Questa operazione viene eseguita abilitando l'endpoint del servizio per Azure Cosmos DB nella subnet. Successivamente viene aggiunta una regola nell'account di Azure Cosmos che specifica questa subnet come un'origine da cui è possibile accedere all'account.
+
+### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>Gli elenchi di accesso virtuale della rete virtuale e il Firewall IP rifiutano le richieste o le connessioni? 
+
+Quando vengono aggiunte regole di accesso al firewall IP o alla rete virtuale, solo le richieste provenienti da origini autorizzate ricevono risposte valide. Le altre richieste vengono rifiutate con un errore 403 (Non consentito). È importante distinguere il firewall dell'account Azure Cosmos da un firewall a livello di connessione. L'origine può comunque connettersi al servizio e le connessioni stesse non vengono rifiutate.
+
+### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Le richieste hanno iniziato a bloccarsi dopo aver abilitato l'endpoint del servizio ad Azure Cosmos DB nella subnet. Che cosa è successo?
+
+Dopo aver abilitato l'endpoint di servizio per Azure Cosmos DB in una subnet, l'origine del traffico che raggiunge l'account passa dall'indirizzo IP pubblico alla rete virtuale e alla subnet. Se l'account Azure Cosmos dispone solo di un firewall basato su protocollo IP, il traffico dalla subnet del servizio abilitato non corrisponderebbe alle regole del firewall IP e pertanto sarebbe rifiutato. Esaminare i passaggi per eseguire facilmente la migrazione dal firewall basato su protocollo IP per il controllo di accesso basato sulla rete virtuale.
+
+### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Sono necessarie autorizzazioni di Controllo degli accessi in base al ruolo aggiuntive per gli account Azure Cosmos con endpoint del servizio di rete virtuale?
+
+Dopo aver aggiunto gli endpoint del servizio di rete virtuale a un account Azure Cosmos, per apportare qualsiasi modifica alle impostazioni dell'account è necessario accedere all'azione `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` per tutte le reti virtuali configurate nell'account Azure Cosmos. Questa operazione è necessaria perché il processo di autorizzazione convalida l'accesso alle risorse (incluse le risorse di database e di rete virtuale) prima di valutare le proprietà.
+ 
+Viene convalidata l'autorizzazione per l'azione della risorsa di rete virtuale anche se l'utente non specifica gli elenchi di controllo di accesso di rete virtuale usando l'interfaccia della riga di comando di Azure. Attualmente, il piano di controllo di un account Azure Cosmos supporta l'impostazione dello stato completo dell'account Azure Cosmos. Uno dei parametri per le chiamate del piano di controllo è `virtualNetworkRules`. Se questo parametro non viene specificato, l'interfaccia della riga di comando di Azure esegue una chiamata Get Database per recuperare il parametro `virtualNetworkRules` e usa questo valore nella chiamata di aggiornamento.
+
+### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Anche le reti virtuali con peering hanno accesso all'account Azure Cosmos? 
+Solo la rete virtuale e le subnet aggiunte all'account Azure Cosmos possono avere accesso. Le reti virtuali con peering non possono accedere all'account fino a quando le subnet all'interno delle reti virtuali con peering non vengono aggiunte all'account.
+
+### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Qual è il numero massimo di subnet consentite per accedere a un singolo account Cosmos? 
+Attualmente, è consentito avere al massimo 256 subnet per un account Azure Cosmos.
+
+### <a name="can-i-enable-access-from-vpn-and-express-route"></a>È possibile abilitare l'accesso da VPN ed Express Route? 
+Per l'accesso all'account Azure Cosmos tramite ExpressRoute da locale, è necessario abilitare il peering Microsoft. Dopo avere inserito il firewall IP o le regole di accesso di rete virtuale, è possibile aggiungere gli indirizzi IP pubblici usati per il peering Microsoft sul firewall IP dell'account Azure Cosmos per consentire l'accesso dei servizi locali all'account Azure Cosmos. 
+
+### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>È necessario aggiornare le regole dei gruppi di sicurezza di rete (NSG)? 
+Le regole NSG vengono utilizzate per limitare la connettività da e verso una subnet con la rete virtuale. Quando si aggiunge un endpoint del servizio per Azure Cosmos DB alla subnet, non è necessario aprire la connettività in uscita del gruppo di sicurezza di rete per l'account Azure Cosmos. 
+
+### <a name="are-service-endpoints-available-for-all-vnets"></a>Gli endpoint di servizio sono disponibili per tutte le reti virtuali?
+No, solo le reti virtuali di Azure Resource Manager hanno un endpoint di servizio abilitato. Le reti virtuali classiche non supportano gli endpoint di servizio.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>È possibile accettare le connessioni nei datacenter di Azure pubblici quando viene abilitato l'accesso all'endpoint del servizio per Azure Cosmos DB?  
+Questa operazione è necessaria solo quando si vuole consentire l'accesso all'account Azure Cosmos DB da parte di altri servizi proprietari Azure come Azure Data Factory, Ricerca cognitiva di Azure o qualsiasi servizio distribuito in una specifica area di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per configurare un firewall per Azure Cosmos DB, vedere l'articolo [Supporto del firewall](firewall-support.md).
+* Per configurare un firewall per Azure Cosmos DB, vedere l'articolo [Supporto del firewall](how-to-configure-firewall.md).

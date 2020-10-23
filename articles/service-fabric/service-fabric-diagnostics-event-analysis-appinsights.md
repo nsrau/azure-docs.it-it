@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932448"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329577"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -32,7 +32,7 @@ Application Insights è perfettamente compatibile con l'uso di Service Fabric. N
 
 Nel riquadro di destra nell'immagine precedente, esistono due tipi principali di voci nell'elenco: le richieste e gli eventi. Le richieste sono chiamate effettuate all'API dell'app tramite richieste HTTP in questo caso, e gli eventi sono gli eventi personalizzati, che fungono da strumenti di telemetria che è possibile aggiungere in qualsiasi punto nel codice. È possibile esplorare ulteriormente la strumentazione delle applicazioni in [API di Application Insights per metriche ed eventi personalizzati](../azure-monitor/app/api-custom-events-metrics.md). Se si fa clic su una richiesta, verranno visualizzati altri dettagli, come illustrato nell'immagine seguente, inclusi i dati specifici per Service Fabric, raccolti nel pacchetto NuGet Application Insights Service Fabric. Queste informazioni sono utili per la risoluzione dei problemi e per stabilire qual è lo stato dell'applicazione. È inoltre possibile eseguire ricerche in tutte queste informazioni all'interno di Application Insights.
 
-![Dettagli delle richieste di Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Screenshot che Mostra ulteriori dettagli, inclusi i dati specifici per Service Fabric, raccolti nel pacchetto NuGet Application Insights Service Fabric.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights include una visualizzazione designata per l'esecuzione di query su tutti i dati in arrivo. Selezionare "Esplora metriche" nella parte superiore della pagina Panoramica per passare al portale di Application Insights. Qui è possibile eseguire query sugli eventi personalizzati menzionati in precedenza, sulle richieste, le eccezioni, i contatori delle prestazioni e altre metriche usando il linguaggio di query Kusto. L'esempio seguente mostra tutte le richieste nell'ultima ora.
 
@@ -48,7 +48,7 @@ Se si usa EventFlow per aggregare gli eventi, assicurarsi di importare il pacche
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
     }
 ]
 ```
@@ -65,7 +65,7 @@ Se si sviluppa in .NET e si intende usare alcuni modelli di programmazione di Se
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Passare alla risorsa di Application Insights nel portale di Azure
 
-Dopo aver configurato Application Insights come output per log ed eventi, le informazioni verranno visualizzate nella risorsa di Application Insights in pochi minuti. Passare alla risorsa di Application Insights che consente di accedere al dashboard della risorsa di Application Insights. Selezionare **Cerca** nella barra delle applicazioni Application Insights per visualizzare le tracce più recenti ricevute e per poterle filtrare.
+Dopo aver configurato Application Insights come output per log ed eventi, le informazioni verranno visualizzate nella risorsa di Application Insights in pochi minuti. Passare alla risorsa di Application Insights che consente di accedere al dashboard della risorsa di Application Insights. Selezionare _*Search** nella barra delle applicazioni Application Insights per visualizzare le tracce più recenti ricevute e per poterle filtrare.
 
 *Esplora metriche* è uno strumento utile per la creazione di dashboard personalizzati in base alle metriche che possono essere segnalate da applicazioni, servizi e cluster. Vedere [Esaminare le metriche in Application Insights](../azure-monitor/platform/metrics-charts.md) per configurare alcuni grafici per se stessi in base ai dati raccolti.
 

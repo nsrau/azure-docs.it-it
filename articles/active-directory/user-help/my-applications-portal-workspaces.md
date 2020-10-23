@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798058"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282519"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Usare le raccolte nel portale App personali
 
@@ -32,7 +32,7 @@ Le raccolte sono le diverse visualizzazioni dell'app presenti nel portale **App 
 
 Per impostazione predefinita, l'elenco delle raccolte nel portale **App personali** ne mostra una denominata **Tutte le app**, che contiene tutte le app accessibili:
 
-![Pagina Tutte le app nel portale App personali](media/my-applications-portal-workspaces/my-apps-all.png)
+![Pagina Tutte le app nel portale App personali](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Qualsiasi altra raccolta visualizzata in questo elenco è stata creata e condivisa dall'amministratore. È possibile scegliere una di queste raccolte per visualizzare un set di app con un ambito più specifico, ad esempio *Supporto* nell'esempio seguente:
 

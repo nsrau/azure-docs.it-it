@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Esercitazione: Integrazione di Azure Active Directory con Meta4 Global HR
 
@@ -103,13 +103,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta4 Global HR, seguir
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Meta4 Global HR](common/both-replyurl.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'U R L di risposta prima di selezionare Salva.](common/both-replyurl.png)
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Meta4 Global HR](common/both-signonurl.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.meta4globalhr.com`
 

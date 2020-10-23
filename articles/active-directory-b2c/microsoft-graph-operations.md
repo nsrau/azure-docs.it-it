@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102018"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
 
@@ -33,6 +33,15 @@ Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente
 - [Eliminare un utente](https://docs.microsoft.com/graph/api/user-delete)
 
 Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l'API Microsoft Graph, vedere [gestire gli account utente di Azure ad B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
+
+## <a name="user-phone-number-management"></a>Gestione dei numeri di telefono dell'utente
+
+- [Aggiungere](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Recupero](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Aggiornamento](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Elimina](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'utente con l'API Microsoft Graph, vedere [metodi di autenticazione B2C](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Provider di identità (flusso utente)
 
@@ -98,7 +107,7 @@ La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph �
 
 - [Elencare le proprietà dell'estensione](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Per i flussi utente, queste proprietà di estensione vengono [gestite tramite il portale di Azure](custom-policy-custom-attributes.md). Per i criteri personalizzati, Azure AD B2C crea la proprietà per la prima volta che il criterio scrive un valore nella proprietà di estensione.
+Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Per i flussi utente, queste proprietà di estensione vengono [gestite tramite il portale di Azure](custom-policy-custom-attributes.md). Per i criteri personalizzati, Azure AD B2C crea automaticamente la proprietà, la prima volta che il criterio scrive un valore nella proprietà dell'estensione.
 
 ## <a name="audit-logs"></a>Log di controllo
 

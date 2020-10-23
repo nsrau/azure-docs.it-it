@@ -1,22 +1,20 @@
 ---
 title: Eseguire il debug di processi ricorrenti in Azure Data Lake Analytics
 description: Informazioni su come usare gli Strumenti Azure Data Lake per Visual Studio per eseguire il debug di un processo ricorrente anomalo.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
-ms.openlocfilehash: 86d5134e257d2dae642eceb933a78047773b25a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129951"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219174"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Risolvere i problemi relativi a un processo ricorrente anomalo
 
-Questo articolo illustra come usare gli [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) per risolvere i problemi relativi ai processi ricorrenti. Per altre informazioni sui processi della pipeline e ricorrenti, vedere il [blog su Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Questo articolo illustra come usare gli [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) per risolvere i problemi relativi ai processi ricorrenti. Per altre informazioni sui processi della pipeline e ricorrenti, vedere il [blog su Azure Data Lake e Azure HDInsight](/archive/blogs/azuredatalake/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy).
 
 I processi ricorrenti condividono generalmente la stessa logica di query e dati di input simili. Ad esempio si supponga di avere un processo ricorrente che viene eseguito ogni lunedì mattina alle 8:00 per calcolare l'utente più attivo della settimana per la settimana precedente. Gli script per questi processi condividono un solo modello di script che contiene la logica di query. Gli input di questi processi sono i dati di utilizzo della settimana precedente. La condivisione della stessa logica di query e input simili comporta in genere che le prestazioni di questi processi siano simili e stabili. Se uno dei processi ricorrenti improvvisamente viene eseguito in modo anomalo, non viene eseguito o rallenta molto, potrebbe essere utile:
 

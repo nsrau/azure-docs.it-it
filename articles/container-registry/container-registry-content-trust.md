@@ -3,12 +3,12 @@ title: Gestione immagini firmate
 description: Informazioni su come abilitare l'attendibilità dei contenuti per il Registro Azure Container ed eseguire il push e il pull di immagini firmate. Il trust del contenuto implementa l'attendibilità del contenuto Docker ed è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409165"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148585"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -115,7 +115,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro Azure Container, vedere [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere [gestire l'accesso alle risorse di Azure con RBAC e l'interfaccia della riga di comando di](../role-based-access-control/role-assignments-cli.md) Azure e [risolvere i problemi relativi a RBAC](../role-based-access-control/troubleshooting.md)
+> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](../role-based-access-control/role-assignments-cli.md) della riga di comando di Azure e [risolvere i problemi relativi a RBAC](../role-based-access-control/troubleshooting.md)
 
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 

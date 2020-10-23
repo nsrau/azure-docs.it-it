@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398087"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202549"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creare e gestire il peering pubblico di ExpressRoute
 
@@ -30,7 +30,7 @@ Questo articolo consente di creare e gestire la configurazione del routing del p
 
 ## <a name="connectivity"></a>Connettività
 
-La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Se il circuito ExpressRoute è abilitato per il peering pubblico di Azure, è possibile accedere agli [intervalli di indirizzi IP pubblici usati in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) tramite il circuito.
+La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Se il circuito ExpressRoute è abilitato per il peering pubblico di Azure, è possibile accedere agli [intervalli di indirizzi IP pubblici usati in Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) tramite il circuito.
 
 Una volta abilitato il peering pubblico, è possibile connettersi alla maggior parte dei servizi di Azure. Non è consentito scegliere in modo selettivo i servizi per cui vengono annunciate route.
 
@@ -60,7 +60,7 @@ Per verificare la disponibilità di un servizio specifico, è possibile controll
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Il peering pubblico di Azure ha 1 indirizzo IP NAT associato a ogni sessione BGP. Per più di 2 indirizzi IP NAT, passare al peering Microsoft. Il peering Microsoft consente di configurare le proprie allocazioni NAT, nonché di usare i filtri di route per gli annunci con prefisso selettivo. Per altre informazioni, vedere [passare al peering Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Il peering pubblico di Azure ha 1 indirizzo IP NAT associato a ogni sessione BGP. Per più di 2 indirizzi IP NAT, passare al peering Microsoft. Il peering Microsoft consente di configurare le proprie allocazioni NAT, nonché di usare i filtri di route per gli annunci con prefisso selettivo. Per altre informazioni, vedere [passare al peering Microsoft](./how-to-move-peering.md).
 >
 
 ## <a name="custom-route-filters"></a>Filtri di Route personalizzati

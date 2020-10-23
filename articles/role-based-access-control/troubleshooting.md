@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665992"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368231"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Se si riceve l'errore "privilegi insufficienti per completare l'operazione", è probabile che l'interfaccia della riga di comando di Azure tenti di cercare l'identità assegnata in Azure AD e che l'entità servizio non sia in grado di leggere Azure AD per impostazione predefinita.
 
-    Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory.
+    Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/roles/permissions-reference.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory.
 
     Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)della riga di comando di Azure.
 

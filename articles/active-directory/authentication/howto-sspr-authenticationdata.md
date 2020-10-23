@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966492"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165001"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Popolamento preliminare delle informazioni di contatto per l'autenticazione utente per Azure Active Directory reimpostazione della password self-service (SSPR)
 
@@ -48,16 +48,14 @@ Quando un utente verifica il numero di telefono cellulare, il campo *telefonico*
 
 ## <a name="authentication-contact-info"></a>Informazioni di contatto per l'autenticazione
 
-Nella pagina **metodi di autenticazione** per un utente Azure AD nel portale di Azure, un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione, come illustrato nella schermata di esempio seguente:
+Nella pagina **metodi di autenticazione** per un utente Azure AD nel portale di Azure, un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione. È possibile esaminare i metodi esistenti nella sezione *metodi di autenticazione utilizzabili* o **+ Aggiungi metodi di autenticazione**, come illustrato nella schermata di esempio seguente:
 
-![Informazioni di contatto per l'autenticazione di un utente in Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Gestire i metodi di autenticazione dal portale di Azure":::
 
 Le considerazioni seguenti riguardano le informazioni di contatto per l'autenticazione:
 
 * Se il campo *telefono* è popolato e il *telefono cellulare* è abilitato nel criterio SSPR, l'utente visualizza tale numero nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Il campo *telefono alternativo* non viene usato per la reimpostazione della password.
 * Se il campo *posta elettronica* è popolato e il *messaggio di posta elettronica* è abilitato nel criterio SSPR, l'utente visualizza tale messaggio nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Se il campo *indirizzo di posta elettronica alternativo* è popolato e il *messaggio di posta elettronica* è abilitato nel criterio SSPR, l'utente non visualizzerà il messaggio di posta elettronica nella pagina di registrazione per la reimpostazione della password, ma lo visualizzerà durante il flusso di lavoro
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
@@ -169,5 +167,3 @@ Una volta che le informazioni di contatto per l'autenticazione sono già popolat
 
 > [!div class="nextstepaction"]
 > [Abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Gli amministratori globali possono modificare informazioni di contatto per l'autenticazione di un utente"

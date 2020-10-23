@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833250"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424509"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per MariaDB con PowerShell
 
@@ -23,14 +23,14 @@ Viene eseguito periodicamente il backup del database di Azure per i server Maria
 
 Per completare questa guida, è necessario:
 
-- Il [modulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
+- Il [modulo AZ PowerShell](/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
 - Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Durante la fase di anteprima del modulo Az.MariaDb PowerShell, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Quando il modulo Az.MariaDb di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
-Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Il set di parametri **PointInTimeRestore** del `Restore-AzMariaDbServer` cmdlet richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | Nome | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
@@ -117,11 +117,11 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Il set di parametri **Georestore** del `Restore-AzMariaDbServer` cmdlet richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
 |Nome | mydemoserver-georestored | Nome del nuovo server. |
-|Location | eastus | Posizione del nuovo server. |
+|Località | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 
 Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .

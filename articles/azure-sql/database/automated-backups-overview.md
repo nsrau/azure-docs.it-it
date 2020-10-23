@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728659"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124187"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -50,7 +50,7 @@ Per un database SQL è possibile configurare la ridondanza dell'archiviazione di
 > L'archiviazione con ridondanza della zona è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La ridondanza di archiviazione di backup configurabile per il database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale. Questa funzionalità non è ancora disponibile per il livello iperscalabile. 
+> La ridondanza di archiviazione di backup configurabile per il database SQL di Azure è attualmente disponibile a livello generale solo nell'area di Azure Asia sudorientale. Questa funzionalità non è ancora disponibile per il livello iperscalabile. 
 
 ### <a name="backup-usage"></a>Utilizzo backup
 

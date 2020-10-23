@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310000"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207139"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
 L'agente di Log Analytics di Azure raccoglie i dati di telemetria da macchine virtuali Windows e Linux in qualsiasi cloud, computer locali e quelli monitorati da [System Center Operations Manager](/system-center/scom/) e invia i dati raccolti all'area di lavoro log Analytics in monitoraggio di Azure. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](../../security-center/index.yml) e [Automazione di Azure](../../automation/automation-intro.md). Questo articolo fornisce una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete e dei metodi di distribuzione.
@@ -51,7 +51,7 @@ La tabella seguente elenca i tipi di dati configurabili che un'area di lavoro Lo
 L'agente di Log Analytics invia i dati a un'area di lavoro Log Analytics in Monitoraggio di Azure. L'agente Windows può essere multihomed per inviare dati a più aree di lavoro e a gruppi di gestione di System Center Operations Manager. L'agente Linux può inviare solo a una singola destinazione, ovvero un'area di lavoro o un gruppo di gestione.
 
 ## <a name="other-services"></a>Altri servizi
-L'agente per Linux e Windows non è solo per la connessione a monitoraggio di Azure. Altri servizi come il Centro sicurezza di Azure e Azure Sentinel si basano sull'agente e sulla relativa area di lavoro Log Analytics connessa. L'agente supporta anche automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [rilevamento modifiche](../../automation/change-tracking.md), [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md)e il [Centro sicurezza di Azure](../../security-center/security-center-intro.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
+L'agente per Linux e Windows non è solo per la connessione a monitoraggio di Azure. Altri servizi come il Centro sicurezza di Azure e Azure Sentinel si basano sull'agente e sulla relativa area di lavoro Log Analytics connessa. L'agente supporta anche automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [rilevamento modifiche](../../automation/change-tracking/overview.md), [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md)e il [Centro sicurezza di Azure](../../security-center/security-center-intro.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Limitazioni dell'area di lavoro e del gruppo di gestione
 
@@ -148,4 +148,3 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 * Esaminare le [origini dati](agent-data-sources.md) per informazioni sulle origini dati disponibili per raccogliere i dati dal sistema Windows o Linux. 
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 * Altre informazioni sulle [soluzioni di monitoraggio](../insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro Log Analytics.
-

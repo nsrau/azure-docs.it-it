@@ -1,84 +1,51 @@
 ---
-title: Panoramica del controllo di accesso in Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Informazioni sul funzionamento del controllo di accesso in Azure Data Lake Storage Gen2. Sono supportati il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli ACL simili a POSIX.
+title: Elenchi di controllo di accesso in Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Informazioni sul funzionamento degli elenchi di controllo di accesso degli ACL simili a POSIX in Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716106"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320482"
 ---
-# <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
+# <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli elenchi di controllo di accesso (ACL) simili a POSIX. Questo articolo offre un riepilogo delle nozioni di base del modello di controllo di accesso per Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli elenchi di controllo di accesso (ACL) simili a POSIX. Questo articolo descrive gli elenchi di controllo di accesso in Data Lake Storage Gen2. Per informazioni su come incorporare il controllo degli accessi in base al ruolo di Azure con ACL e su come viene valutato dal sistema per prendere decisioni relative alle autorizzazioni, vedere il [modello di controllo di accesso in Azure Data Lake storage Gen2](data-lake-storage-access-control-model.md).
 
-<a id="azure-role-based-access-control-rbac"></a>
+<a id="access-control-lists-on-files-and-directories"></a>
 
-## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
+## <a name="about-acls"></a>Informazioni sugli ACL
 
-Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare i set di autorizzazioni alle *entità di sicurezza* Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
-
-In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione di Azure. Nel caso di archiviazione di Azure e di conseguenza Azure Data Lake Storage Gen2 questo meccanismo è stato esteso alla risorsa contenitore (file system).
-
-Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito dell'account di archiviazione, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di Accodamento e BLOB](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+È possibile associare un' [entità di sicurezza](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) a un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)*. Ogni file e directory nell'account di archiviazione dispone di un elenco di controllo di accesso. Quando un'entità di sicurezza tenta un'operazione su un file o una directory, un controllo ACL determina se l'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) dispone del livello di autorizzazione corretto per eseguire l'operazione.
 
 > [!NOTE]
-> Un utente Guest non può creare un'assegnazione di ruolo.
+> Gli ACL si applicano solo alle entità di sicurezza nello stesso tenant e non si applicano agli utenti che usano l'autenticazione con chiave condivisa o firma di accesso condiviso (SAS). Questo perché nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sulle autorizzazioni dell'entità di sicurezza.  
 
-### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L'effetto delle assegnazioni di ruolo negli elenchi di controllo di accesso a livello di file e directory
-
-Quando si usano le assegnazioni di ruolo di Azure è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo di Azure è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
-
-Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC di Azure tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate prima all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni di ruolo di Azure dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non ha un'assegnazione di ruolo di Azure o l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
-
-> [!NOTE]
-> Se all'entità di sicurezza è stata assegnata l'assegnazione di ruolo incorporata del proprietario dei dati del BLOB di archiviazione, l'entità di sicurezza viene considerata un *utente con privilegi avanzati* e viene concesso l'accesso completo a tutte le operazioni di mutazione, inclusa l'impostazione del proprietario di una directory o di un file, nonché gli ACL per le directory e i file per cui non sono proprietari. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
-
-## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticazione con chiave condivisa e firma di accesso condiviso (SAS)
-
-Azure Data Lake Storage Gen2 supporta la chiave condivisa e i metodi SAS per l'autenticazione. Una caratteristica di questi metodi di autenticazione è che nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza.
-
-Nel caso della chiave condivisa, il chiamante acquisisce efficacemente l'accesso "super-utente", ovvero l'accesso completo a tutte le operazioni su tutte le risorse, tra cui l'impostazione del proprietario e la modifica degli ACL.
-
-I token di firma di accesso condiviso includono le autorizzazioni consentite come parte del token. Le autorizzazioni incluse nel token di firma di accesso condiviso vengono di fatto applicate a tutte le decisioni di autorizzazione, ma non vengono eseguiti altri controlli ACL.
-
-## <a name="access-control-lists-on-files-and-directories"></a>Elenchi di controllo di accesso per file e directory
-
-È possibile associare un'entità di sicurezza a un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)*. Ogni file e directory nell'account di archiviazione dispone di un elenco di controllo di accesso.
-
-> [!NOTE]
-> Gli ACL si applicano solo alle entità di sicurezza nello stesso tenant. 
-
-Se è stato assegnato un ruolo a un'entità di sicurezza a livello di account di archiviazione, è possibile usare gli elenchi di controllo di accesso per concedere a tale entità di sicurezza l'accesso con privilegi elevati a file e directory specifici.
-
-Non è possibile usare gli elenchi di controllo di accesso per fornire un livello di accesso inferiore rispetto a un livello concesso da un'assegnazione di ruolo. Ad esempio, se si assegna il ruolo di [collaboratore dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) a un'entità di sicurezza, non è possibile usare gli elenchi di controllo di accesso per impedire che l'entità di sicurezza scriva in una directory.
-
-
-### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Impostare le autorizzazioni a livello di file e directory usando gli elenchi di controllo di accesso
+## <a name="how-to-set-acls"></a>Come impostare gli ACL
 
 Per impostare le autorizzazioni a livello di file e directory, vedere gli articoli seguenti:
 
 | Ambiente | Articolo |
 |--------|-----------|
 |Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
-|Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
-|Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
-|PowerShell|[Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
-|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
+|Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
+|Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
+|PowerShell|[Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
+|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
 |API REST |[Percorso-aggiornamento](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi usare il comando seguente: `az ad sp show --id <Your App ID> --query objectId` . Assicurarsi di sostituire il `<Your App ID>` segnaposto con l'ID app della registrazione dell'app.
 
-### <a name="types-of-access-control-lists"></a>Tipi di elenchi di controllo di accesso
+## <a name="types-of-acls"></a>Tipi di ACL
 
 Esistono due tipi di elenchi di controllo di accesso: *ACL di accesso* e *ACL predefiniti*.
 
@@ -91,7 +58,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 > [!NOTE]
 > La modifica dell'ACL predefinito per un elemento padre non influisce sull'ACL di accesso o sull'ACL predefinito degli elementi figlio già esistenti.
 
-### <a name="levels-of-permission"></a>Livelli di autorizzazione
+## <a name="levels-of-permission"></a>Livelli di autorizzazione
 
 Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**ed **esecuzione**e possono essere usate nei file e nelle directory, come illustrato nella tabella seguente:
 
@@ -104,7 +71,7 @@ Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**e
 > [!NOTE]
 > Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo di Azure), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** al contenitore e a ogni cartella nella gerarchia di cartelle che portano al file.
 
-#### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
+### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 
 La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. Esiste una forma numerica ridotta in cui **Lettura=4**, **Scrittura=2** ed **Esecuzione=1** e la cui somma rappresenta le autorizzazioni. Di seguito sono riportati alcuni esempi.
 
@@ -115,13 +82,17 @@ La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. 
 | 4            | `R--`        | Lettura                   |
 | 0            | `---`        | Nessuna autorizzazione         |
 
-#### <a name="permissions-inheritance"></a>Ereditarietà delle autorizzazioni
+### <a name="permissions-inheritance"></a>Ereditarietà delle autorizzazioni
 
 Nel modello di tipo POSIX usato da Data Lake Storage Gen2, le autorizzazioni per un elemento vengono archiviate nell'elemento stesso. In altre parole, le autorizzazioni per un elemento non possono essere ereditate dagli elementi padre se le autorizzazioni vengono impostate dopo che l'elemento figlio è già stato creato. Le autorizzazioni vengono ereditate solo se le autorizzazioni predefinite sono state impostate per gli elementi padre prima che gli elementi figlio siano stati creati.
 
-### <a name="common-scenarios-related-to-permissions"></a>Scenari comuni correlati alle autorizzazioni
+## <a name="common-scenarios-related-to-acl-permissions"></a>Scenari comuni relativi alle autorizzazioni ACL
 
-La tabella seguente elenca alcuni scenari comuni che consentono di comprendere quali autorizzazioni sono necessarie per eseguire determinate operazioni su un account di archiviazione.
+Nella tabella seguente vengono illustrate le voci ACL necessarie per consentire a un'entità di sicurezza di eseguire le operazioni elencate nella colonna **Operation** . 
+
+Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `\` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland**e un file di testo nella directory Portland denominata **Data.txt**. 
+
+> [! IMPORANT] Questa tabella presuppone che si stiano usando **solo** ACL senza assegnazioni di ruolo RBAC di Azure. Per visualizzare una tabella simile che combina il controllo degli accessi in base al ruolo di Azure con ACL, vedere la [tabella delle autorizzazioni: combinazione](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)di controllo degli accessi
 
 |    Operazione             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -136,7 +107,7 @@ La tabella seguente elenca alcuni scenari comuni che consentono di comprendere q
 > [!NOTE]
 > Purché vengano soddisfatte le due condizioni precedenti, non sono necessarie autorizzazioni di scrittura per il file per eliminarlo.
 
-### <a name="users-and-identities"></a>Utenti e identità
+## <a name="users-and-identities"></a>Utenti e identità
 
 Ogni file e directory ha autorizzazioni distinte per le entità seguenti:
 
@@ -150,7 +121,7 @@ Ogni file e directory ha autorizzazioni distinte per le entità seguenti:
 
 Le identità di utenti e gruppi sono identità di Azure Active Directory (Azure AD). Se non diversamente specificato, un *utente*, nel contesto di data Lake storage Gen2, può fare riferimento a un utente Azure ad, a un'entità servizio, a un'identità gestita o a un gruppo di sicurezza.
 
-#### <a name="the-owning-user"></a>Utente proprietario
+### <a name="the-owning-user"></a>Utente proprietario
 
 L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. Un utente proprietario può:
 
@@ -160,16 +131,16 @@ L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. U
 > [!NOTE]
 > L'utente proprietario *non può* modificare l'utente proprietario di un file o di una directory. Solo gli utenti con privilegi avanzati possono modificare l'utente proprietario di un file o una directory.
 
-#### <a name="the-owning-group"></a>Gruppo proprietario
+### <a name="the-owning-group"></a>Gruppo proprietario
 
 Negli ACL POSIX ogni utente è associato a un *gruppo primario*. È ad esempio possibile che l'utente "Alice" appartenga al gruppo "Finance". Alice potrebbe anche appartenere a più gruppi, ma un gruppo viene sempre designato come gruppo primario. Quando Alice crea un file in POSIX, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza". Il gruppo proprietario si comporta in modo analogo alle autorizzazioni assegnate per altri utenti o gruppi.
 
-##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Assegnazione del gruppo proprietario per un nuovo file o directory
+#### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Assegnazione del gruppo proprietario per un nuovo file o directory
 
 * **Caso 1**: la directory radice "/". Questa directory viene creata quando viene creato un contenitore Data Lake Storage Gen2. In questo caso, il gruppo proprietario viene impostato sull'utente che ha creato il contenitore se è stato eseguito tramite OAuth. Se il contenitore viene creato usando una chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario sono impostati su **$superuser**.
 * **Caso 2** (tutti gli altri casi): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla directory padre.
 
-##### <a name="changing-the-owning-group"></a>Modifica del gruppo proprietario
+#### <a name="changing-the-owning-group"></a>Modifica del gruppo proprietario
 
 Il gruppo proprietario può essere modificato da:
 * Qualsiasi utente con privilegi avanzati.
@@ -178,7 +149,7 @@ Il gruppo proprietario può essere modificato da:
 > [!NOTE]
 > Il gruppo proprietario non può modificare gli ACL di un file o di una directory.  Mentre il gruppo proprietario è impostato sull'utente che ha creato l'account nel caso della directory radice, **caso 1** precedente, un singolo account utente non è valido per fornire le autorizzazioni tramite il gruppo proprietario. È possibile assegnare questa autorizzazione a un gruppo utenti valido, se applicabile.
 
-### <a name="access-check-algorithm"></a>Algoritmo di controllo dell'accesso
+## <a name="access-check-algorithm"></a>Algoritmo di controllo dell'accesso
 
 Lo pseudocodice seguente rappresenta l'algoritmo di controllo dell'accesso per gli account di archiviazione.
 
@@ -222,29 +193,36 @@ mask = get_mask( path )
 return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-#### <a name="the-mask"></a>La maschera
+### <a name="the-mask"></a>La maschera
 
 Come illustrato nell'algoritmo di controllo dell'accesso, la maschera limita l'accesso agli utenti non anonimi, al gruppo proprietario e ai gruppi non anonimi.  
 
-> [!NOTE]
-> Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di accesso della directory radice ("/") viene impostata per impostazione predefinita su 750 per le directory e 640 per i file. File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione.
->
-> La maschera può essere specificata in base alle singole chiamate. In questo modo sistemi diversi con un elevato utilizzo di risorse, ad esempio i cluster, possono avere maschere effettive diverse per le operazioni su file. Se una maschera viene specificata per una determinata richiesta, esegue l'override completo della maschera predefinita.
+Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di accesso della directory radice ("/") viene impostata per impostazione predefinita su **750** per le directory e **640** per i file. La tabella seguente illustra la notazione simbolica di questi livelli di autorizzazione.
 
-#### <a name="the-sticky-bit"></a>Sticky bit
+|Entità|Directory|File|
+|--|--|--|
+|utente proprietario|`rwx`|`r-w`|
+|gruppo proprietario|`r-x`|`r--`|
+|Altri|`---`|`---`|
+
+File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione. 
+
+La maschera può essere specificata in base alle singole chiamate. In questo modo sistemi diversi con un elevato utilizzo di risorse, ad esempio i cluster, possono avere maschere effettive diverse per le operazioni su file. Se una maschera viene specificata per una determinata richiesta, esegue l'override completo della maschera predefinita.
+
+### <a name="the-sticky-bit"></a>Sticky bit
 
 Il bit appiccicoso è una funzionalità più avanzata di un contenitore POSIX. Nel contesto di Data Lake Storage Gen2, è improbabile che lo sticky bit sia necessario. In breve, se lo sticky bit è abilitato in una directory, un elemento figlio può essere solo eliminato o rinominato dall'utente proprietario dell'elemento figlio.
 
 Il bit appiccicoso non viene visualizzato nella portale di Azure.
 
-### <a name="default-permissions-on-new-files-and-directories"></a>Autorizzazioni predefinite per nuovi file e directory
+## <a name="default-permissions-on-new-files-and-directories"></a>Autorizzazioni predefinite per nuovi file e directory
 
 Quando si crea un nuovo file o una nuova directory in una directory esistente, l'ACL predefinito per la directory padre determina quanto segue:
 
 - ACL predefinito e ACL di accesso di una directory figlio.
 - ACL di accesso di un file figlio (i file non hanno un ACL predefinito).
 
-#### <a name="umask"></a>umask
+### <a name="umask"></a>umask
 
 Quando si crea un file o una directory, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. La proprietà umask è un valore a 9 bit sulle directory padre, che contiene un valore RWX per **l'utente proprietario**, **il gruppo proprietario** e **altri**.
 
@@ -276,17 +254,35 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="common-questions-about-acls-in-data-lake-storage-gen2"></a>Domande frequenti sugli elenchi di controllo di accesso in Data Lake Storage Gen2
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>È necessario abilitare il supporto per gli ACL?
 
 No. Il controllo di accesso tramite ACL è abilitato per un account di archiviazione, purché sia attivata la funzionalità di spazio dei nomi gerarchico (HNS).
 
-Se lo spazio dei nomi gerarchico è disattivato, vengono applicate le regole di autorizzazione del controllo degli accessi in base al ruolo Azure.
+Se HNS è disattivato, le regole di autorizzazione RBAC di Azure Azure sono comunque valide.
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Qual è il modo migliore per applicare gli elenchi di controllo di accesso?
 
-Usare sempre i gruppi di sicurezza di Azure AD come entità assegnate negli elenchi di controllo di accesso. Evitare di assegnare direttamente singoli utenti o entità servizio. L'uso di questa struttura consentirà di aggiungere e rimuovere utenti o entità servizio senza la necessità di riapplicare gli elenchi di controllo di accesso a un'intera struttura di directory. Al contrario, è sufficiente aggiungerle o rimuoverle dal gruppo di sicurezza Azure AD appropriato. Tenere presente che gli elenchi di controllo di accesso non vengono ereditati e quindi per riapplicare gli elenchi di controllo di accesso, è necessario aggiornare l'elenco di controllo di accesso in ogni file e sottodirectory. 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)] 
+
+### <a name="how-are-azure-rbac-and-acl-permissions-evaluated"></a>Come vengono valutate le autorizzazioni RBAC e ACL di Azure?
+
+Per informazioni sul modo in cui il sistema valuta gli ACL e il controllo degli accessi in base al ruolo di Azure per prendere decisioni relative [alle autorizzazioni per](data-lake-storage-access-control-model.md#how-permissions-are-evaluated)le risorse dell'account di archiviazione, vedere
+
+### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quali sono i limiti per le assegnazioni di ruolo e le voci ACL di Azure?
+
+La tabella seguente fornisce una panoramica dei limiti da considerare quando si usa il controllo degli accessi in base al ruolo di Azure per gestire le autorizzazioni "grossolane" (autorizzazioni valide per gli account di archiviazione o i contenitori) e l'uso degli ACL per gestire le autorizzazioni con granularità fine (autorizzazioni valide per file e directory). Usare i gruppi di sicurezza per le assegnazioni ACL. Usando i gruppi, è meno probabile che superino il numero massimo di assegnazioni di ruolo per sottoscrizione e il numero massimo di voci ACl per ogni file o directory. 
+
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+
+### <a name="does-data-lake-storage-gen2-support-inheritance-of-azure-rbac"></a>Data Lake Storage Gen2 supporta l'ereditarietà di RBAC di Azure?
+
+Le assegnazioni di ruolo di Azure ereditano. Le assegnazioni scorrono dalle risorse di sottoscrizione, gruppo di risorse e account di archiviazione fino alla risorsa contenitore.
+
+### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
+
+Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sottodirectory figlio e i file creati nella directory padre. Per aggiornare gli ACL per gli elementi figlio esistenti, è necessario aggiungere, aggiornare o rimuovere gli ACL in modo ricorsivo per la gerarchia di directory desiderata. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](recursive-access-control-lists.md). 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una directory e il relativo contenuto?
 
@@ -330,11 +326,11 @@ OID verrà visualizzato.
 
 Quando si dispone dell'OID corretto per l'entità servizio, passare alla pagina Storage Explorer **Gestisci accesso** per aggiungere l'OID e assegnare le autorizzazioni appropriate per l'OID. Assicurarsi di selezionare **Salva**.
 
-### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
+### <a name="can-i-set-the-acl-of-a-container"></a>È possibile impostare l'ACL di un contenitore?
 
-Le assegnazioni di ruolo di Azure ereditano. Le assegnazioni scorrono dalle risorse di sottoscrizione, gruppo di risorse e account di archiviazione fino alla risorsa contenitore.
+No. Un contenitore non dispone di un ACL. È tuttavia possibile impostare l'ACL della directory radice del contenitore. Ogni contenitore dispone di una directory radice e condivide lo stesso nome del contenitore. Se, ad esempio, il contenitore è denominato `my-container` , la directory radice sarà denominata `myContainer/` . 
 
-Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia possono essere usati per impostare gli ACL per le sottodirectory e i file creati nella directory padre. 
+L'API REST di archiviazione di Azure contiene un'operazione denominata [set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), ma tale operazione non può essere usata per impostare l'ACL di un contenitore o la directory radice di un contenitore. Questa operazione viene invece usata per indicare se è possibile [accedere pubblicamente](anonymous-read-access-configure.md)ai BLOB in un contenitore. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
 
@@ -349,4 +345,4 @@ Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia 
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Panoramica di Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+- [Modello di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

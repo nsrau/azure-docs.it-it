@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880edff95bb548ec5328c543a542ea5dfcfc362f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86221137"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150297"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
-Questo articolo illustra come eseguire la sincronizzazione del contenuto in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
+Questo articolo illustra come eseguire la sincronizzazione del contenuto in [Servizio app di Azure](./overview.md) da Dropbox e OneDrive. 
 
 La distribuzione per la sincronizzazione del contenuto on demand si basa sul [motore di distribuzione Kudu](https://github.com/projectkudu/kudu/wiki) del servizio app. È possibile usare il codice e il contenuto dell'app in una cartella Cloud designata e quindi sincronizzarli con il servizio app facendo clic su un pulsante. La sincronizzazione del contenuto usa il server di compilazione Kudu. 
 

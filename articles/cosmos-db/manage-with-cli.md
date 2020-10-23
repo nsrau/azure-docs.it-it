@@ -4,14 +4,14 @@ description: Gestire Azure Cosmos DB risorse API Core (SQL) usando l'interfaccia
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840592"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277770"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gestire risorse API di Azure Cosmos Core (SQL) con l'interfaccia della riga di comando di Azure
 
@@ -20,6 +20,8 @@ La guida seguente illustra i comandi comuni per automatizzare la gestione degli 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
+Per esempi dell'interfaccia della riga di comando di Azure per altre API, vedere esempi [dell'interfaccia](cli-samples-cassandra.md)della riga di comando per Cassandra, esempi dell'interfaccia della riga di comando per l' [API MongoDB](cli-samples-mongodb.md) [, esempi](cli-samples-table.md) [dell'](cli-samples-gremlin.md)interfaccia
 
 > [!IMPORTANT]
 > Non è possibile rinominare Azure Cosmos DB risorse perché questo viola il modo in cui Azure Resource Manager funziona con gli URI delle risorse.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 6174d108fd80df9725ca5ef0fb9296dfffaf4a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10de2a4a00b716656626082a24ecbd56d0fcc3a4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302702"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127302"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Guida introduttiva: creare un indirizzo IP pubblico usando Azure PowerShell
 
@@ -106,7 +106,7 @@ Questa selezione è valida in tutte le aree ed è la selezione predefinita per g
 
 # <a name="basic-sku"></a>[**SKU Basic**](#tab/option-create-public-ip-basic)
 
-Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico statico di base denominato **myStandardPublicIP** in **myResourceGroup**.  Gli indirizzi IP pubblici di base non hanno il concetto di zone di disponibilità.
+Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico statico di base denominato **myBasicPublicIP** in **myResourceGroup**.  Gli indirizzi IP pubblici di base non hanno il concetto di zone di disponibilità.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -122,7 +122,7 @@ Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare l
 
 ---
 
-## <a name="additional-information"></a>Altre informazioni 
+## <a name="additional-information"></a>Informazioni aggiuntive 
 
 Per altri dettagli sulle singole variabili elencate in precedenza, vedere [gestire gli indirizzi IP pubblici](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 

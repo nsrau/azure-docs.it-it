@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838654"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122705"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
 Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
@@ -21,8 +21,9 @@ L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamen
 ## <a name="prerequisites"></a>Prerequisiti
 * Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Per usare gli endpoint privati, è necessario creare la cache di Azure per l'istanza di redis dopo il 28 luglio 2020.
+> Attualmente, non è supportata la replica geografica, le regole del firewall, il supporto della console del portale, più endpoint per cache in cluster, la persistenza per il firewall e le cache VNet inserite. 
 >
 >
 
@@ -109,6 +110,23 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
 
 La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
     
+> [!IMPORTANT]
+> 
+> È presente un `publicNetworkAccess` flag che è `Enabled` per impostazione predefinita. 
+> Questo flag ha lo scopo di consentire facoltativamente di consentire l'accesso dell'endpoint pubblico e privato alla cache se è impostato su `Enabled` . Se impostato su `Disabled` , consente l'accesso solo agli endpoint privati. È possibile impostare il valore su `Disabled` con la seguente richiesta patch.
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> Per connettersi a una cache in cluster, `publicNetworkAccess` è necessario impostare su `Disabled` e può essere presente una sola connessione all'endpoint privato. 
+>
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una cache di Azure esistente per l'istanza di redis 
 

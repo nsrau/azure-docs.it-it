@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225667"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328077"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Baseline della sicurezza di Azure per DNS di Azure
 
@@ -102,7 +102,7 @@ In DNS di Azure esiste il ruolo Collaboratore zona DNS, nonché il livello di zo
 
 - [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -260,13 +260,13 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
-**Indicazioni**: controllo di accesso di Azure Role-Based (RBAC di Azure) consente la gestione degli accessi con granularità fine per utenti, gruppi e risorse di Azure. Con il controllo degli accessi in base al ruolo di Azure è possibile concedere il livello di accesso necessario agli utenti. 
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente la gestione degli accessi con granularità fine per utenti, gruppi e risorse di Azure. Con il controllo degli accessi in base al ruolo di Azure è possibile concedere il livello di accesso necessario agli utenti. 
 
 In DNS di Azure esiste il ruolo Collaboratore zona DNS, nonché il livello di zona e il livello di set di record di Azure. È anche possibile creare ruoli personalizzati di Azure per fornire un controllo più granulare.
 
 - [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Informazioni su RBAC di Azure in Azure DNS privato](dns-protect-private-zones-recordsets.md)
 

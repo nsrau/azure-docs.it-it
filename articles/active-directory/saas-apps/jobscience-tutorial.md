@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850735"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Esercitazione: Integrazione di Azure Active Directory con Jobscience
 
@@ -42,7 +42,7 @@ Per configurare l'integrazione di Azure AD con Jobscience, sono necessari gli el
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di valutazione Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta di valutazione](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 1. Nella sezione **certificato di firma SAML** fare clic su **certificato (base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Screenshot mostra il riquadro certificato di firma SAML in cui è possibile scaricare un certificato.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![Screenshot che mostra il riquadro Certificato di firma SAML in cui è possibile scaricare un certificato.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. Fare clic sul pulsante **Salva** .
 
@@ -129,7 +129,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Passare a **Setup**.
    
-   ![Screenshot mostra l'elemento di configurazione per l'azienda.](./media/jobscience-tutorial/IC784358.png "Configurazione")
+   ![Screenshot mostra l'elemento di configurazione per l'azienda.](./media/jobscience-tutorial/IC784358.png "Eseguire la configurazione")
 
 1. Nella sezione **Administer** (Amministra) del riquadro di spostamento sinistro fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
    
@@ -145,7 +145,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella sezione **Single Sign-On Settings** eseguire la procedura seguente:
     
-    ![Single Sign-On Settings](./media/jobscience-tutorial/ic781026.png "Single Sign-On Settings")
+    ![Impostazioni per l'accesso Single Sign-On](./media/jobscience-tutorial/ic781026.png "Single Sign-On Settings")
     
     a. Selezionare **SAML Enabled**.
 
@@ -304,7 +304,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Jobscience nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Jobscience.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -324,4 +324,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/jobscience-tutorial/tutorial_general_201.png
 [202]: ./media/jobscience-tutorial/tutorial_general_202.png
 [203]: ./media/jobscience-tutorial/tutorial_general_203.png
-

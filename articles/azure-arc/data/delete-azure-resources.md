@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 46c1df8a175657e20dce984d0c8825ae99170246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761652"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364372"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminare le risorse in Azure
 
@@ -63,7 +63,7 @@ Se si usa un gruppo di risorse specifico e dedicato per i servizi dati abilitati
 
 Per eliminare le risorse dell'istanza gestita di SQL da Azure usando l'interfaccia della riga di comando di Azure, sostituire i valori segnaposto nel comando seguente ed eseguirlo.
 
-```console
+```azurecli
 az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
@@ -74,7 +74,7 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 
 Per eliminare una risorsa del gruppo di server di iperscala PostgreSQL da Azure usando l'interfaccia della riga di comando di Azure, sostituire i valori segnaposto nel comando seguente ed eseguirlo.
 
-```console
+```azurecli
 az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
 
 #Example
@@ -88,7 +88,7 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 
 Per eliminare un controller dati di Azure Arc da Azure usando l'interfaccia della riga di comando di Azure, sostituire i valori segnaposto nel comando seguente ed eseguirlo.
 
-```console
+```azurecli
 az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
 
 #Example
@@ -97,4 +97,4 @@ az resource delete --name <data controller name> --resource-type Microsoft.Azure
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Eliminare un gruppo di risorse usando l'interfaccia della riga di comando di Azure
 
-È anche possibile usare l'interfaccia della riga di comando di Azure per [eliminare un gruppo di risorse](/azure/azure-resource-manager/management/delete-resource-group).
+È anche possibile usare l'interfaccia della riga di comando di Azure per [eliminare un gruppo di risorse](../../azure-resource-manager/management/delete-resource-group.md).

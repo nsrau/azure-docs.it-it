@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 143b79a0e65d842daae84fb7565c0caa64e3b68a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505235"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276168"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Creare un account Azure Cosmos DB con il firewall per gli indirizzi IP
 
@@ -49,5 +49,3 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Altri esempi di script PowerShell di Azure Cosmos DB sono disponibili in [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md) (Script di PowerShell per Azure Cosmos DB).

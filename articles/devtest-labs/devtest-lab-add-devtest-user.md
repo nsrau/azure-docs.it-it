@@ -3,19 +3,19 @@ title: Aggiungere proprietari e utenti in Azure DevTest Labs | Documentazione Mi
 description: Aggiungere proprietari e utenti in Azure DevTest Labs usando il portale di Azure o PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533326"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330190"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-L'accesso in Azure DevTest Labs è controllato dal [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti del team in *ruoli* in cui si concede solo la quantità di accesso necessaria agli utenti per svolgere il proprio lavoro. Tre di questi ruoli di Azure sono *proprietario*, *utente DevTest Labs*e *collaboratore*. Questo articolo illustra le azioni che possono essere eseguite in ognuno dei tre ruoli principali di Azure. Viene poi illustrato come aggiungere utenti a un lab, sia tramite il portale che tramite uno script di PowerShell, e come aggiungere utenti a livello di sottoscrizione.
+L'accesso in Azure DevTest Labs è controllato dal [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Con il controllo degli accessi in base al ruolo di Azure, è possibile separare i compiti all'interno del team in *ruoli* in cui si concede solo la quantità di accesso necessaria agli utenti per svolgere il proprio lavoro. Tre di questi ruoli di Azure sono *proprietario*, *utente DevTest Labs*e *collaboratore*. Questo articolo illustra le azioni che possono essere eseguite in ognuno dei tre ruoli principali di Azure. Viene poi illustrato come aggiungere utenti a un lab, sia tramite il portale che tramite uno script di PowerShell, e come aggiungere utenti a livello di sottoscrizione.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Azioni che possono essere eseguite in ogni ruolo
 Esistono tre ruoli principali che è possibile assegnare a un utente:

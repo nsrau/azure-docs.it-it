@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86e1d74d5e4ab9f6e799c73bcf0d807d0d874f21
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509439"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219718"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorare lo stato hardware del filer di Azure FXT Edge
 
@@ -29,9 +29,9 @@ Questa sezione illustra i vari indicatori luminosi di stato incorporati nell'har
 
 ![immagine del disco rigido anteriore, orizzontale, con etichette di callout 2 (angolo superiore sinistro), 1 (angolo inferiore sinistro) e 3 (lato destro)](media/fxt-monitor/fxt-drive-callouts.png)
 
-Ogni vettore di unità dispone di due LED di stato: un indicatore di attività (1) e un indicatore di stato (2). 
+Ogni vettore di unità dispone di due LED di stato: un indicatore di attività (1) e un indicatore di stato (2).
 
-* Il LED attività (1) si accende quando l'unità è in uso.  
+* Il LED attività (1) si accende quando l'unità è in uso.
 * Il LED di stato (2) indica la condizione dell'unità usando i codici nella tabella seguente.
 
 | Stato del LED di stato unità              | Significato  |
@@ -44,30 +44,29 @@ Ogni vettore di unità dispone di due LED di stato: un indicatore di attività (
 
 Il lato destro dell'unità (3) è etichettato con la capacità dell'unità e altre informazioni.
 
-I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edge Filer, l'unità 0 è quella in alto a sinistra, mentre l'unità 1 è quella immediatamente al di sotto. La numerazione continua con questo modello. 
+I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edge Filer, l'unità 0 è quella in alto a sinistra, mentre l'unità 1 è quella immediatamente al di sotto. La numerazione continua con questo modello.
 
 ![Foto di un alloggiamento del disco rigido nello chassis FXT, con i numeri di unità e le etichette della capacità](media/fxt-drives-photo.png)
 
 ## <a name="left-control-panel"></a>Pannello di controllo a sinistra
 
-Il pannello di controllo anteriore sinistro presenta diversi indicatori LED di stato (1) e un indicatore di integrità del sistema chiaro (2). 
+Il pannello di controllo anteriore sinistro presenta diversi indicatori LED di stato (1) e un indicatore di integrità del sistema chiaro (2).
 
 ![Pannello di stato sinistro, con 1 indicatori di stato con etichetta a sinistra e 2 con l'etichetta della luce dell'indicatore di integrità del sistema grande a destra](media/fxt-monitor/fxt-control-panel-left.jpg)
 
-### <a name="control-panel-status-indicators"></a>Indicatori di stato del pannello di controllo 
+### <a name="control-panel-status-indicators"></a>Indicatori di stato del pannello di controllo
 
-Gli indicatori di stato a sinistra mostrano una luce ambra chiara se si verifica un errore nel sistema. Nella tabella seguente vengono descritte le possibili cause e soluzioni per gli errori. 
+Gli indicatori di stato a sinistra mostrano una luce ambra chiara se si verifica un errore nel sistema. Nella tabella seguente vengono descritte le possibili cause e soluzioni per gli errori.
 
-Se è ancora presente l'errore dopo aver provato queste soluzioni, [contattare il supporto tecnico](fxt-support-ticket.md) per assistenza. 
+Se è ancora presente l'errore dopo aver provato queste soluzioni, [contattare il supporto tecnico](fxt-support-ticket.md) per assistenza.
 
 | Icona | Descrizione | Condizione di errore | Possibili soluzioni |
 |----------------|---------------|--------------------|----------------------|
 | ![icona dell'unità](media/fxt-monitor/fxt-hd-icon.jpg) | Stato dell'unità | Errore unità | Controllare il registro eventi di sistema per determinare se si è verificato un errore nell'unità oppure <br>Eseguire il test di diagnostica online appropriato. riavviare il sistema ed eseguire la diagnostica incorporata (ePSA) o <br>Se le unità sono configurate in un array RAID, riavviare il sistema e immettere il programma dell'utilità di configurazione dell'adapter host |
 |![Icona temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Stato temperatura | Errore termico. ad esempio, una ventola ha avuto esito negativo o la temperatura ambiente non è compresa nell'intervallo | Verificare le seguenti condizioni indirizzabili: <br>Ventola di raffreddamento mancante o non riuscita <br>La copertura del sistema, il telo aereo, il modulo di memoria vuoto o la parentesi graffa di riempimento indietro è stata rimossa <br>Temperatura ambiente troppo elevata <br>Il flusso d'aria esterno è ostruito |
-|![icona di elettricità](media/fxt-monitor/fxt-electric-icon.jpg) | Stato elettrico | Errore elettrico, ad esempio una tensione fuori intervallo, un alimentatore non riuscito o un regolatore di tensione non riuscito |  Controllare il registro eventi di sistema o i messaggi di sistema per il problema specifico. Se si verifica un problema di PSU, controllare il LED di stato PSU e riposizionare il PSU, se necessario. | 
+|![icona di elettricità](media/fxt-monitor/fxt-electric-icon.jpg) | Stato elettrico | Errore elettrico, ad esempio una tensione fuori intervallo, un alimentatore non riuscito o un regolatore di tensione non riuscito |  Controllare il registro eventi di sistema o i messaggi di sistema per il problema specifico. Se si verifica un problema di PSU, controllare il LED di stato PSU e riposizionare il PSU, se necessario. |
 |![icona memoria](media/fxt-monitor/fxt-memory-icon.jpg) | Stato memoria | Errore di memoria | Controllare il registro eventi di sistema o i messaggi di sistema per il percorso della memoria non riuscita. Riposizionare il modulo memoria. |
 |![Icona PCIe](media/fxt-monitor/fxt-pcie-icon.jpg) | Stato PCIe | Errore della scheda PCIe | Riavviare il sistema; aggiornare i driver delle schede PCIe; reinstallare la scheda |
-
 
 ### <a name="system-health-status-indicator"></a>Indicatore dello stato di integrità del sistema
 
@@ -81,5 +80,3 @@ Premere il pulsante integrità sistema e ID per passare dalla modalità ID siste
 | Blu lampeggiante | La modalità ID sistema è attiva. Premere il pulsante integrità sistema e ID sistema se si desidera passare alla modalità integrità sistema. |
 | Ambra tinta unita | Il sistema è in modalità fail-safe. Se il problema persiste, [contattare il servizio supporto tecnico clienti Microsoft](fxt-support-ticket.md). |
 | Ambra lampeggiante | Errore di sistema. Controllare se nel registro eventi di sistema sono presenti messaggi di errore specifici. Per informazioni sui messaggi di evento e di errore generati dal firmware di sistema e dagli agenti che controllano i componenti di sistema, vedere la pagina relativa alla ricerca del codice di errore in qrl.dell.com. |
-
-

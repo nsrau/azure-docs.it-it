@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394381"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331516"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Baseline della sicurezza di Azure per griglia di eventi
 
@@ -20,7 +20,7 @@ La linea di base di sicurezza di Azure per Microsoft Azure griglia di eventi con
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
@@ -36,7 +36,7 @@ Griglia di eventi di Azure supporta anche i controlli di accesso basati su IP pu
 
 - [Panoramica del collegamento privato di Azure](../private-link/private-link-overview.md)
 
-- [Gruppo di sicurezza di rete di Azure](../virtual-network/security-overview.md)
+- [Gruppo di sicurezza di rete di Azure](../virtual-network/network-security-groups-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -76,7 +76,7 @@ Abilitare protezione DDoS standard in queste reti virtuali per proteggersi da at
 
 - [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
-- [Per altre informazioni sul centro sicurezza di Azure-Intelligence per le minacce integrata](/azure/security-center/security-center-alerts-service-layer)
+- [Per altre informazioni sul centro sicurezza di Azure-Intelligence per le minacce integrata](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -153,7 +153,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Indicazioni**: usare i tag per le risorse di rete associate alle risorse di griglia di eventi di Azure per organizzarle in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -163,7 +163,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Indicazioni**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate a griglia di eventi di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -173,7 +173,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
@@ -283,19 +283,19 @@ Inoltre, è possibile caricare l'area di lavoro di Log Analytics in Azure Sentin
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: griglia di eventi di Azure consente di controllare il livello di accesso assegnato a utenti diversi per eseguire varie operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa a questo scopo il controllo degli accessi in base al ruolo di Azure. Griglia di eventi supporta ruoli predefiniti e ruoli personalizzati.
+**Linee guida**: griglia di eventi di Azure consente di controllare il livello di accesso assegnato a utenti diversi per eseguire varie operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Griglia di eventi supporta ruoli predefiniti e ruoli personalizzati.
 
-Il controllo degli accessi in base al ruolo (RBAC) di Azure consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
 
 - [Autorizzazione dell'accesso alle risorse di griglia di eventi](security-authorization.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -321,7 +321,7 @@ Griglia di eventi può abilitare un'identità del servizio gestito per gli argom
 
 - [Autenticare i client di pubblicazione (griglia di eventi di Azure)](security-authenticate-publishing-clients.md)
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -355,7 +355,7 @@ Griglia di eventi può abilitare un'identità del servizio gestito per gli argom
 
 **Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -393,11 +393,11 @@ Griglia di eventi può abilitare un'identità del servizio gestito per gli argom
  
 Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 
-- [Distribuire Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Distribuire Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -409,7 +409,7 @@ Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la ge
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -421,7 +421,7 @@ Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la ge
  
  
  
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -439,9 +439,9 @@ Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la ge
 
 **Responsabilità**: non applicabile
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
@@ -449,7 +449,7 @@ Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la ge
  
  
  
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -457,13 +457,13 @@ Usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la ge
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite Azure Active Directory RBAC.
+**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](../governance/management-groups/create.md)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -501,7 +501,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
-**Linee guida**: griglia di eventi di Azure supporta l'uso di Azure Active Directory (ad) per autorizzare le richieste alle risorse di griglia di eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
+**Linee guida**: griglia di eventi di Azure supporta l'uso di Azure Active Directory (ad) per autorizzare le richieste alle risorse di griglia di eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
 - [Autorizzazione dell'accesso alle risorse di griglia di eventi](security-authorization.md)
 
@@ -521,7 +521,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: distribuire una soluzione di gestione delle patch automatizzata per i titoli software di terze parti
 
@@ -549,7 +549,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -563,7 +563,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -575,11 +575,11 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
  
  
  
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](../governance/management-groups/create.md)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -688,7 +688,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
@@ -696,7 +696,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 Azure Resource Manager è in grado di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per assicurarsi che le configurazioni soddisfino i requisiti di sicurezza dell'organizzazione prima delle distribuzioni.
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -738,9 +738,9 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate per la griglia di eventi o risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -802,7 +802,7 @@ Usare identità gestite insieme a Azure Key Vault per semplificare la gestione d
 
 - [Come usare le identità gestite per le risorse di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Come creare una Key Vault](/azure/key-vault/quick-create-portal)
+- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 - [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 
@@ -834,7 +834,7 @@ Usare identità gestite insieme a Azure Key Vault per semplificare la gestione d
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
@@ -848,7 +848,7 @@ Usare identità gestite insieme a Azure Key Vault per semplificare la gestione d
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
@@ -899,7 +899,7 @@ Attualmente, griglia di eventi non supporta le chiavi gestite dal cliente.
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -926,7 +926,7 @@ Attualmente, griglia di eventi non supporta le chiavi gestite dal cliente.
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -980,7 +980,7 @@ Attualmente, griglia di eventi non supporta le chiavi gestite dal cliente.
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -996,5 +996,5 @@ Attualmente, griglia di eventi non supporta le chiavi gestite dal cliente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

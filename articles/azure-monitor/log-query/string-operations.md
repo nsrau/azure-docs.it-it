@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397461"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310283"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
 
@@ -74,8 +74,8 @@ Operatore       |Descrizione                         |Distinzione maiuscole/minu
 `!startswith_cs`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|Sì        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|No             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|No         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Sì             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Sì         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Sì             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Sì         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|La stringa a sinistra contiene una corrispondenza per la stringa a destra        |Sì           |`"Fabrikam" matches regex "b.*k"`
 `in`           |È uguale a uno degli elementi       |Sì           |`"abc" in ("123", "345", "abc")`
 `!in`          |Non è uguale a nessuno degli elementi   |Sì           |`"bca" !in ("123", "345", "abc")`
@@ -95,7 +95,7 @@ countof(text, search [, kind])
 - `search`: stringa di testo normale o espressione regolare di cui trovare la corrispondenza nel testo.
 - `kind` - _normale_  |  _Regex_ (impostazione predefinita: Normal).
 
-### <a name="returns"></a>Risultati restituiti
+### <a name="returns"></a>Restituisce
 
 Il numero di volte in cui la stringa di ricerca può essere trovata nel contenitore. Le corrispondenze con stringhe di testo normale possono sovrapporsi, mentre quelle con espressioni regolari no.
 
@@ -137,7 +137,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`: stringa da cercare.
 - `typeLiteral`: valore letterale di tipo facoltativo, ad esempio typeof(long). Se specificato, la sottostringa estratta viene convertita nel tipo.
 
-### <a name="returns"></a>Risultati restituiti
+### <a name="returns"></a>Restituisce
 La sottostringa corrispondente nel gruppo Capture indicato da captureGroup, facoltativamente convertita in typeLiteral.
 Se non ci sono corrispondenze o la conversione del tipo non riesce, restituisce null.
 
@@ -243,7 +243,7 @@ replace(regex, rewrite, input_text)
 - `rewrite`: espressione regolare che sostituisce un'eventuale corrispondenza in base a un'espressione regolare. Usare \0 per fare riferimento all'intera corrispondenza, \1 per il primo gruppo Capture, \2 e così via per i gruppi Capture successivi.
 - `input_text`: stringa di input in cui cercare.
 
-### <a name="returns"></a>Risultati restituiti
+### <a name="returns"></a>Restituisce
 Il testo dopo la sostituzione di tutte le corrispondenze dell'espressione regolare con le valutazioni di rewrite. Le corrispondenze non si sovrappongono.
 
 ### <a name="examples"></a>Esempi

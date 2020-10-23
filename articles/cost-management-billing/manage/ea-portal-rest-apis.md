@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442497"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132585"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Azure Enterprise
 
@@ -25,15 +25,15 @@ I clienti di Microsoft Azure Enterprise possono ottenere informazioni sull'utili
 
 ### <a name="available-apis"></a>API disponibili
 
-**Saldo e riepilogo**: l'[API Saldo e riepilogo](../../billing/billing-enterprise-api-balance-summary.md) offre un riepilogo mensile delle informazioni su saldi, nuovi acquisti, addebiti per il servizio Azure Marketplace, rettifiche e addebiti per eccedenza. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Saldo e riepilogo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
+**Saldo e riepilogo**: l'[API Saldo e riepilogo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) offre un riepilogo mensile delle informazioni su saldi, nuovi acquisti, addebiti per il servizio Azure Marketplace, rettifiche e addebiti per eccedenza. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Saldo e riepilogo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
 
-**Dettagli utilizzo**: l'[API Dettagli utilizzo](../../billing/billing-enterprise-api-usage-detail.md) offre un'analisi giornaliera dettagliata delle quantità utilizzate e degli addebiti stimati in relazione a una registrazione. Il risultato include anche informazioni su istanze, contatori e reparti. È possibile eseguire query sull'API in base al periodo di fatturazione o a una data di inizio e di fine specificata. Per altre informazioni, vedere [API di creazione di report per i clienti Enterprise - Dettagli utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+**Dettagli utilizzo**: l'[API Dettagli utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) offre un'analisi giornaliera dettagliata delle quantità utilizzate e degli addebiti stimati in relazione a una registrazione. Il risultato include anche informazioni su istanze, contatori e reparti. È possibile eseguire query sull'API in base al periodo di fatturazione o a una data di inizio e di fine specificata. Per altre informazioni, vedere [API di creazione di report per i clienti Enterprise - Dettagli utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-**Addebito di Marketplace Store**: l'[API Addebito di Marketplace Store](../../billing/billing-enterprise-api-marketplace-storecharge.md) restituisce gli addebiti giornalieri dettagliati in base all'utilizzo per il Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Addebito di Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
+**Addebito di Marketplace Store**: l'[API Addebito di Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) restituisce gli addebiti giornalieri dettagliati in base all'utilizzo per il Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Addebito di Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
 **Elenco prezzi**: l'[API Elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornisce la tariffa applicabile per ogni contatore per un periodo di registrazione e fatturazione. Per altre informazioni, vedere [API di creazione di report per clienti Enterprise - Elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
-**Periodi di fatturazione**: l'[API Periodi di fatturazione](../../billing/billing-enterprise-api-billing-periods.md) restituisce un elenco di periodi di fatturazione contenenti i dati di consumo per una registrazione in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Periodi di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+**Periodi di fatturazione**: l'[API Periodi di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) restituisce un elenco di periodi di fatturazione contenenti i dati di consumo per una registrazione in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Periodi di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 ### <a name="enable-api-data-access"></a>Abilitare l'accesso ai dati API
 

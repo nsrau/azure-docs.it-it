@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823030"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Litmus
 
@@ -129,11 +129,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Security** (Sicurezza) nel pannello di spostamento sinistro.
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/security-img.png)
+    ![Screenshot che mostra la voce Security selezionata.](./media/litmus-tutorial/security-img.png)
 
 1. Nella sezione **Configure SAML Authentication** (Configura autenticazione SAML) seguire questa procedura:
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/configure1.png)
+    ![Screenshot che mostra la sezione Configure SAML Authentication in cui è possibile immettere i valori descritti.](./media/litmus-tutorial/configure1.png)
 
     a. Attivare l'interruttore **Enable SAML** (Abilita SAML).
 
@@ -143,7 +143,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Eseguire la procedura seguente:
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione in cui è possibile immettere i valori descritti.](./media/litmus-tutorial/configure3.png)
 
     a. Nella casella di testo **SAML 2.0 Endpoint(HTTP)** (Endpoint SAML 2.0 (HTTP)) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -157,15 +157,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **User Accounts** (Account utente) nel pannello di spostamento sinistro.
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![Screenshot che mostra la voce Accounts selezionata.](./media/litmus-tutorial/accounts-img.png)
 
 1. Fare clic sulla scheda **Add new user** (Aggiungi nuovo utente).
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![Screenshot che mostra la voce Add New User selezionata.](./media/litmus-tutorial/add-new-user.png)
 
 1. Nella sezione **Add User** (Aggiungi utente) seguire questa procedura:
 
-    ![Configurazione di Litmus](./media/litmus-tutorial/user-profile.png)
+    ![Screenshot che mostra la sezione Add User in cui è possibile immettere i valori descritti.](./media/litmus-tutorial/user-profile.png)
 
     a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **B.Simon\@contoso.com**
 

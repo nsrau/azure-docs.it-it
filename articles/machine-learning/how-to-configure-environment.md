@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613714"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203093"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -223,7 +223,7 @@ Funzionamento di Azure Databricks con Azure Machine Learning:
 Creare un [cluster databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Alcune impostazioni si applicano solo se si installa l'SDK per Machine Learning automatico in databricks.
 **La creazione del cluster richiederà alcuni minuti.**
 
-Usare queste impostazioni:
+Usa queste impostazioni:
 
 | Impostazione |Si applica a| Valore |
 |----|---|---|
@@ -276,7 +276,7 @@ Se l'installazione ha avuto esito positivo, la libreria importata avrà un aspet
 Se il cluster è stato creato con databricks non ML Runtime 7,1 o versione successiva, eseguire il comando seguente nella prima cella del notebook per installare AML SDK.
 
 ```
-%pip install -r https://aka.ms/automl_linux_requirements.txt
+%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
 Per databricks non ML Runtime 7,0 e versioni precedenti, installare l'SDK di AML usando lo [script init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 

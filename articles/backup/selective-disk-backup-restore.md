@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271376"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174112"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
@@ -185,7 +185,7 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Quando si eseguono questi comandi, verrà visualizzato `"diskExclusionProperties": null` .
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 Assicurarsi di usare Azure PowerShell versione 3.7.0 o successiva.
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Uso del portale di Azure
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Usando il portale di Azure, è possibile visualizzare i dischi inclusi ed esclusi dal riquadro dei dettagli del backup della macchina virtuale e dal riquadro dei dettagli del processo di backup.  Durante il ripristino, quando si seleziona il punto di ripristino da cui eseguire il ripristino, è possibile visualizzare i dischi di cui è stato eseguito il backup in tale punto di ripristino.
 

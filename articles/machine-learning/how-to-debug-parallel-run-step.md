@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315576"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216913"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
 
@@ -25,7 +25,7 @@ In questo articolo viene descritto come eseguire il debug e risolvere i problemi
 
 ## <a name="testing-scripts-locally"></a>Test degli script in locale
 
-Vedere la sezione [Test degli script in locale](how-to-debug-pipelines.md#debug-scripts-locally) per le pipeline di Machine Learning. Poiché ParallelRunStep viene eseguita come fase nelle pipeline di Machine Learning, la stessa risposta si applica a entrambi i casi.
+Vedere la sezione [Test degli script in locale](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) per le pipeline di Machine Learning. Poiché ParallelRunStep viene eseguita come fase nelle pipeline di Machine Learning, la stessa risposta si applica a entrambi i casi.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Debug degli script dal contesto remoto
 
@@ -141,6 +141,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+* Vedere questi [notebook di Jupyter che dimostrano pipeline Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 * Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) . Visualizzare la [documentazione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) di riferimento per la classe ParallelRunStep.
 

@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812591"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319745"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -35,7 +35,7 @@ L'architettura di report è costituita dai componenti seguenti:
 - **Attività** 
     - **Accessi**: il [report degli accessi](concept-sign-ins.md) fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
-    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
+    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -92,7 +92,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- Tutti
+- All
 - UX di gestione AAD
 - Verifiche di accesso
 - Provisioning degli account
@@ -114,7 +114,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- Tutti
+- All
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -127,10 +127,10 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Etichetta
-- Altro
+- Label
+- Altri
 - PermissionGrantPolicy
-- Policy
+- Condizione
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -141,7 +141,7 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- Tutti
+- All
 - Operazione completata
 - Operazioni non riuscite
 

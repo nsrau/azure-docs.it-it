@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005937"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371376"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -33,7 +33,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
 * Un dominio Azure Active Directory (Azure AD).
 
-    Se non si dispone di un dominio di Azure AD, creare il dominio nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [gestione dei nomi di dominio personalizzati nel Azure ad](../../active-directory/users-groups-roles/domains-manage.md)
+    Se non si dispone di un dominio di Azure AD, creare il dominio nella sottoscrizione di Azure. Per ulteriori informazioni, vedere [gestione dei nomi di dominio personalizzati nel Azure ad](../../active-directory/enterprise-users/domains-manage.md)
 
 * Un utente nel dominio di Azure AD con un ruolo di **amministratore dell'applicazione** . Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 
@@ -47,7 +47,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 
-    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi.
+    L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli. una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi. Per altre informazioni, vedere [visualizzare l'accesso a un utente per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![controllo di accesso](./media/create-account/access-control-iam.png)
 
@@ -61,7 +61,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 > [!NOTE]
 > Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.

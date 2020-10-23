@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ac6540dfd86430aab518b145ed391d1d6283219e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c491a0b5e4c4fc517368c5947fa6181201a5b5fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276578"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127268"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
 
@@ -34,8 +34,8 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` .  | Sì      |
 | columnDelimiter  | Carattere o caratteri utilizzati per separare le colonne in un file. <br>Il valore predefinito è **virgola `,` **. Quando il delimitatore di colonna viene definito come una stringa vuota, ovvero nessun delimitatore, l'intera riga viene considerata come una colonna singola.<br>Attualmente, il delimitatore di colonna come stringa vuota o multicarattere è supportato solo per il mapping del flusso di dati ma non per l'attività di copia.  | No       |
 | rowDelimiter     | Singolo carattere o "\r\n" usato per separare le righe in un file. <br>Il valore predefinito è uno dei seguenti valori **in lettura: ["\r\n", ",", "\n"]** e **"\n" o "\r\n" in scrittura** mediante mapping del flusso di dati e dell'attività di copia rispettivamente. <br>Quando il delimitatore di riga è impostato su nessun delimitatore (stringa vuota), il delimitatore di colonna deve essere impostato come nessun delimitatore (stringa vuota), ovvero trattare l'intero contenuto come valore singolo.<br>Attualmente, il delimitatore di riga come stringa vuota è supportato solo per il mapping del flusso di dati, ma non per l'attività di copia. | No       |
-| quoteChar        | Carattere singolo per citare i valori di colonna se contiene un delimitatore di colonna. <br>Il valore predefinito è **virgolette doppie** `"` . <br>Per il mapping del flusso di dati, `quoteChar` non può essere una stringa vuota. <br>Per l'attività di copia, quando `quoteChar` viene definito come una stringa vuota, significa che non sono presenti virgolette e il valore della colonna non è racchiuso tra virgolette e `escapeChar` viene usato per eseguire l'escape del delimitatore di colonna e di se stesso. | No       |
-| escapeChar       | Carattere singolo per l'escape delle virgolette all'interno di un valore racchiuso tra virgolette.<br>Il valore predefinito è **la `\` barra rovesciata **. <br>Per il mapping del flusso di dati, `escapeChar` non può essere una stringa vuota. <br/>Per l'attività di copia, quando `escapeChar` viene definito come stringa vuota, è `quoteChar` necessario impostare anche come stringa vuota, nel qual caso assicurarsi che tutti i valori di colonna non contengano delimitatori. | No       |
+| quoteChar        | Carattere singolo per citare i valori di colonna se contiene un delimitatore di colonna. <br>Il valore predefinito è **virgolette doppie** `"` . <br>Quando `quoteChar` viene definito come stringa vuota, significa che non sono presenti virgolette e il valore della colonna non è racchiuso tra virgolette e `escapeChar` viene usato per eseguire l'escape del delimitatore di colonna e di se stesso. | No       |
+| escapeChar       | Carattere singolo per l'escape delle virgolette all'interno di un valore racchiuso tra virgolette.<br>Il valore predefinito è **la `\` barra rovesciata **. <br>Quando `escapeChar` viene definito come stringa vuota, `quoteChar` deve essere impostato anche come stringa vuota, nel qual caso assicurarsi che tutti i valori di colonna non contengano delimitatori. | No       |
 | firstRowAsHeader | Specifica se trattare o rendere la prima riga come riga di intestazione con i nomi delle colonne.<br>I valori consentiti sono **true** e **false** (impostazione predefinita).<br>Quando la prima riga come intestazione è false, nota l'anteprima dei dati dell'interfaccia utente e l'output dell'attività di ricerca generano automaticamente i nomi di colonna come Prop_ {n} (a partire da 0), l'attività di copia richiede il [mapping esplicito](copy-activity-schema-and-type-mapping.md#explicit-mapping) dall'origine al sink e individua le colonne in base al numero ordinale (a partire da 1) ed elenca le colonne con nome come Column_  | No       |
 | nullValue        | Specifica la rappresentazione di stringa del valore null. <br>Il valore predefinito è una **stringa vuota**. | No       |
 | encodingName     | Tipo di codifica utilizzato per leggere/scrivere file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Nota il flusso di dati del mapping non supporta la codifica UTF-7. | No       |

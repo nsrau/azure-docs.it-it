@@ -2,14 +2,14 @@
 title: Come aggiornare monitoraggio di Azure per i contenitori per le metriche | Microsoft Docs
 description: Questo articolo descrive come aggiornare monitoraggio di Azure per i contenitori per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi sulle metriche aggregate.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618146"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309443"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare Monitoraggio di Azure per contenitori per abilitare le metriche
 
@@ -26,6 +26,7 @@ Come parte di questa funzionalità sono abilitate le metriche seguenti:
 | Insights. contenitore/nodi | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Come metrica del *nodo* , includono *host* come dimensione. Includono anche il<br> nome del nodo come valore per la dimensione *host* . |
 | Insights. container/Pod | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Come metrica *Pod* , includono quanto segue come Dimensions: controllerName, spazio dei nomi Kubernetes, nome, fase. |
 | Insights. contenitore/contenitori | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Insights. container/persistentvolumes | pvUsageExceededPercentage | |
 
 Per supportare queste nuove funzionalità, è incluso un nuovo agente in contenitori nella versione **Microsoft/OMS: ciprod05262020** per AKS e Version **Microsoft/OMS: Ciprod09252020** for Azure Arc Enabled Kubernetes clusters. Le nuove distribuzioni di AKS includono automaticamente questa modifica di configurazione e le funzionalità. L'aggiornamento del cluster per supportare questa funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando. È possibile abilitare questa operazione per cluster o per tutti i cluster nella sottoscrizione.
 

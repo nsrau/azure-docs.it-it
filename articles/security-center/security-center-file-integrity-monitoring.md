@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946094"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341533"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -30,8 +30,8 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md).<br>Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
-|Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
-|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking.md).|
+|Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
+|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
@@ -56,7 +56,7 @@ In questa esercitazione si apprenderà come:
 
 Confrontando lo stato corrente di questi elementi con lo stato durante l'analisi precedente, FIM avvisa l'utente se sono state apportate modifiche sospette.
 
-Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [Informazioni dettagliate sulla raccolta dei dati di Rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per Rilevamento modifiche di Azure.
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [rilevamento modifiche dettagli sulla raccolta dati](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
@@ -120,7 +120,7 @@ FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. 
 
     - Accedere e visualizzare lo stato e le impostazioni di ogni area di lavoro
 
-    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md).
+    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
 
     - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro.
 
@@ -262,7 +262,7 @@ In questo articolo si è appreso come usare il monitoraggio dell'integrità dei 
 
 * [Impostazione dei criteri di sicurezza](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
-* [Blog sulla sicurezza di Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
+* [Blog sulla sicurezza di Azure](/archive/blogs/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

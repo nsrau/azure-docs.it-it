@@ -2,13 +2,13 @@
 title: Azure Lab Services - Guida dell'amministratore | Microsoft Docs
 description: Questa guida è rivolta agli amministratori che creano e gestiscono account lab con Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444149"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425310"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab dell'istituto. Una volta configurato un account lab, gli amministratori o i docenti creano i lab per la classe contenuti nell'account lab. Questo articolo fornisce una panoramica generale delle risorse di Azure interessate e le istruzioni per crearle.
@@ -117,7 +117,7 @@ Quando si inizia a usare Azure Lab Services, è consigliabile stabilire delle co
 | Resource group | Contiene uno o più account lab e una o più raccolte di immagini condivise | \<organization short name\>-\<environment\>-RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Account lab | Contiene uno o più lab. | \<organization short name\>-\<environment\>-la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: account lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Lab per le classi | Contiene una o più VM. |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nome classe** identifica il nome del corso in classe supportato dal lab.</li><li>**Intervallo di tempo** identifica l'intervallo di tempo in cui il corso in classe viene offerto.</li>**Identificatore docente** identifica il docente proprietario del lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>raccolta | contosouniversitylabsgallery |
+| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>Raccolta | contosouniversitylabsgallery |
 
 Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [Convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
 
@@ -144,11 +144,11 @@ La località in cui è presente un lab per la classe varia in base ai fattori se
     > [!NOTE]
     > Quando un account lab è associato tramite peering a una rete virtuale, l'impostazione **Consenti all'autore del lab di selezionare la località del lab** è disabilitata. Per altre informazioni su questa impostazione, vedere [Consentire all'autore del lab di selezionare la località del lab in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Non esiste alcun peering con una rete virtuale ***e*** agli autori di lab non è consentito selezionare la località del lab**
+  - * * Non è consentito eseguire il peering di VNet **_e_*_ Lab Creators non è autorizzato a selezionare il Lab location_ *
   
     Quando all'account lab **non** è associata una rete virtuale tramite peering *e* [agli autori di lab **non** è consentito selezionare la località del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), i lab per la classe vengono creati automaticamente in un'area con capacità di VM disponibile.  In particolare, Azure Lab Services cerca disponibilità in [aree nella stessa area geografica dell'account lab](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **Non esiste alcun peering con una rete virtuale ***e*** agli autori di lab è consentito selezionare la località del lab**
+  - * * Nessun VNet è con peering **_e_*_ gli autori Lab possono selezionare il Lab location_ *
        
     Quando **non** esiste alcun peering con una rete virtuale e [agli autori di lab è consentito selezionare la località del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), le località che possono essere selezionate dall'autore del lab dipendono dalla capacità disponibile.
 
@@ -171,14 +171,14 @@ Quando gli amministratori o gli autori di lab creano un lab per la classe, posso
 | Media | <ul><li>4 core</li><li>7 GB di RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi. |
 | Medium (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB di RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi.
 | large | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate.  Queste dimensioni supportano anche la virtualizzazione annidata. |
-| Grande (virtualizzazione annidata) | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate. |
+| Grande (virtualizzazione annidata) | <ul><li>8 core</li><li>32 GB di RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate. |
 | GPU small (visualizzazione) | <ul><li>6 core</li><li>56 GB di RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
 | GPU small (calcolo) | <ul><li>6 core</li><li>56 GB di RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono più indicate per applicazioni a elevato utilizzo di calcolo quali intelligenza artificiale e Deep Learning. |
 | GPU medium (visualizzazione) | <ul><li>12 core</li><li>112 GB di RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
 
 ## <a name="manage-identity"></a>Gestire le identità
 
-Usando il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) è possibile assegnare i ruoli seguenti per concedere l'accesso agli account lab e ai lab per la classe:
+Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), è possibile assegnare i ruoli seguenti per concedere l'accesso agli account Lab e ai laboratori in aula:
 
 - **Proprietario dell'account lab**
 

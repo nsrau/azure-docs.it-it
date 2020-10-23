@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 652348d5feb7e382287c91536f1479f9aec126e1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031807"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132415"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Esaminare i dati di fatturazione dell'Iscrizione Enterprise tramite le API REST
 
@@ -37,9 +37,9 @@ Gli argomenti seguenti sono obbligatori:
 |Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
-In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
+In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 
 
 ## <a name="response"></a>Risposta  
@@ -90,9 +90,9 @@ Gli argomenti seguenti sono obbligatori:
 |Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
-In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
+In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 
 ### <a name="response"></a>Risposta  
 
@@ -146,9 +146,9 @@ Gli argomenti seguenti sono obbligatori:
 |Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
-In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
+In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 
 ### <a name="response"></a>Risposta  
 
@@ -183,6 +183,6 @@ L'esempio seguente illustra l'output dell'API REST per l'Iscrizione Enterprise `
 Questo esempio è abbreviato. Per la descrizione completa di ogni campo della risposta e per la gestione degli errori, vedere [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) (Ottenere i dettagli d'utilizzo per un account di registrazione).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Vedere [Panoramica della creazione di report aziendali](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Approfondire [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/) (API REST di fatturazione Enterprise)   
-- [Introduzione all'API REST di Azure](https://docs.microsoft.com/rest/api/azure/)   
+- Vedere [Panoramica della creazione di report aziendali](./enterprise-api.md)
+- Approfondire [Enterprise Billing REST API](/rest/api/billing/) (API REST di fatturazione Enterprise)   
+- [Introduzione all'API REST di Azure](/rest/api/azure/)

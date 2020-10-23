@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657210"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363726"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -313,7 +313,7 @@ Azure AD può fornire informazioni aggiuntive sulle prestazioni della reimpostaz
 È possibile usare i report predefiniti disponibili nel portale di Azure per misurare le prestazioni della reimpostazione della password self-service. Se si dispone di una licenza appropriata, è anche possibile creare query personalizzate. Per altre informazioni, vedere [Opzioni di creazione di report per la gestione delle password di Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  È necessario essere [un amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) e acconsentire esplicitamente alla raccolta di questi dati per l'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda Report o i log di controllo nel portale di Azure. Fino a che non si eseguono queste operazioni, i dati per l'organizzazione non vengono raccolti.
+>  È necessario essere [un amministratore globale](../roles/permissions-reference.md) e acconsentire esplicitamente alla raccolta di questi dati per l'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda Report o i log di controllo nel portale di Azure. Fino a che non si eseguono queste operazioni, i dati per l'organizzazione non vengono raccolti.
 
 I log di controllo per la registrazione e la reimpostazione della password sono disponibili per 30 giorni. Se il controllo di sicurezza all'interno dell'azienda richiede un periodo di conservazione più lungo, i log devono essere esportati e utilizzati in uno strumento SIEM, ad esempio [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
 

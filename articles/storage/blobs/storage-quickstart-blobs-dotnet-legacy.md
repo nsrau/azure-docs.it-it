@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001417"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091424"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Guida introduttiva: Libreria client di archiviazione BLOB di Azure v11 per .NET
 
@@ -33,7 +33,7 @@ Usare la libreria client di Archiviazione BLOB di Azure per .NET per:
 
 Risorse aggiuntive:
 
-* [Documentazione di riferimento delle API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Documentazione di riferimento delle API](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Codice sorgente della libreria](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Esempi](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ Questi frammenti di codice di esempio illustrano come eseguire le operazioni seg
 
 ### <a name="authenticate-the-client"></a>Autenticare il client
 
-Il codice seguente controlla che la variabile di ambiente contenga una stringa di connessione analizzabile per creare un oggetto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) che punti all'account di archiviazione. Per verificare la validità della stringa di connessione, usare il metodo [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Se `TryParse` ha esito positivo, inizializza la variabile `storageAccount` e restituisce `true`.
+Il codice seguente controlla che la variabile di ambiente contenga una stringa di connessione analizzabile per creare un oggetto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) che punti all'account di archiviazione. Per verificare la validità della stringa di connessione, usare il metodo [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse). Se `TryParse` ha esito positivo, inizializza la variabile `storageAccount` e restituisce `true`.
 
 Aggiungere questo codice all'interno del metodo `ProcessAsync`:
 

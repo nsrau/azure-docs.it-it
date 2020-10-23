@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/06/2020
-ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766711"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370125"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -24,7 +24,6 @@ Le risorse sono elencate in base allo spazio dei nomi del provider di risorse. P
 
 > [!NOTE]
 > Usare sempre l' [operazione](template-deploy-what-if.md) di simulazione prima di distribuire un modello in modalità completa. Cosa-se Mostra le risorse che verranno create, eliminate o modificate. Usare il tipo di simulazione per evitare l'eliminazione involontaria delle risorse.
-
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -47,6 +46,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft. BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -176,6 +176,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft. Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
@@ -364,6 +365,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | privateClouds | Sì |
+> | privateClouds/addons | No |
 > | privateClouds/autorizzazioni | No |
 > | privateClouds/cluster | No |
 > | privateClouds / globalReachConnections | No |
@@ -426,12 +428,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | clusters | Sì |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft. BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | bareMetalInstances | Sì |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | batchAccounts | Sì |
+> | batchAccounts/certificates | No |
+> | batchAccounts/pools | No |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -973,7 +984,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | aree di lavoro | Sì |
 > | aree di lavoro/dbWorkspaces | No |
-> | aree di lavoro/storageEncryption | No |
 > | aree di lavoro/virtualNetworkPeerings | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1129,6 +1139,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | applicationgroups/desktops | No |
 > | applicationgroups/startmenuitems | No |
 > | hostpools | Sì |
+> | hostpools / msixpackages | No |
 > | hostpools/sessionhosts | No |
 > | hostpools/sessionhosts/usersessions | No |
 > | hostpools/usersessions | No |
@@ -1380,13 +1391,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | devices | Sì |
+> | dispositivi | Sì |
+> | networkFunctions | Sì |
+> | networkFunctionVendors | No |
 > | registeredSubscriptions | No |
 > | fornitori | No |
-> | fornitori/vendorskus | No |
-> | fornitori/vendorskus/previewSubscriptions | No |
-> | virtualnetworkfunctions | Sì |
-> | virtualnetworkfunctionvendors | No |
+> | fornitori/vendorSkus | No |
+> | fornitori/vendorSkus/previewSubscriptions | No |
+> | virtualNetworkFunctions | Sì |
+> | virtualNetworkFunctionVendors | No |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1507,9 +1520,20 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | aree di lavoro | Sì |
+> | aree di lavoro/batchEndpoints | Sì |
+> | aree di lavoro/batchEndpoints/distribuzioni | Sì |
+> | aree di lavoro/codici | No |
+> | aree di lavoro/codici/versioni | No |
 > | workspaces/computes | No |
+> | aree di lavoro/archivi dati | No |
 > | aree di lavoro/eventGridFilters | No |
+> | aree di lavoro/processi | No |
+> | aree di lavoro/labelingJobs | No |
 > | aree di lavoro/linkedServices | No |
+> | aree di lavoro/modelli | No |
+> | aree di lavoro/modelli/versioni | No |
+> | aree di lavoro/onlineEndpoints | Sì |
+> | aree di lavoro/onlineEndpoints/distribuzioni | Sì |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2157,6 +2181,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | SignalR | Sì |
 > | SignalR/eventGridFilters | No |
 
+## <a name="microsoftsingularity"></a>Microsoft. Singularity
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | account | Sì |
+> | account/accountQuotaPolicies | No |
+> | account/groupPolicies | No |
+> | account/processi | No |
+> | account/storageContainers | No |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2289,6 +2324,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | clusters | Sì |
+> | cluster/privateEndpoints | No |
 > | streamingjobs | Sì |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
@@ -2374,7 +2410,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | devices | Sì |
+> | dispositivi | Sì |
 > | registeredSubscriptions | No |
 > | fornitori | No |
 > | fornitori/SKU | No |
@@ -2423,6 +2459,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | runtimes | No |
 > | serverFarms | Sì |
 > | serverFarms/eventGridFilters | No |
+> | serverFarms/firstPartyApps | No |
+> | serverFarms/firstPartyApps/keyVaultSettings | No |
 > | siti | Sì |
 > | siti/configurazione  | No |
 > | siti/eventGridFilters | No |

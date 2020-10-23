@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079554"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168563"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -77,15 +77,15 @@ In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistic
 
 2. Selezionare la dimensione (proprietà) che si desidera filtrare.
 
-   ![Immagine di metrica](./media/metrics-charts/00006.png)
+   ![Screenshot che mostra le dimensioni (proprietà) che è possibile filtrare.](./media/metrics-charts/00006.png)
 
 3. Selezionare i valori della dimensione che si desidera includere nel tracciamento del grafico. Questo esempio mostra l'applicazione del filtro per le transazioni di archiviazione con esito positivo:
 
-   ![Immagine di metrica](./media/metrics-charts/00007.png)
+   ![Screenshot che mostra l'applicazione di filtri alle transazioni di archiviazione riuscite.](./media/metrics-charts/00007.png)
 
 4. Dopo avere selezionato i valori di filtro, fare clic all'esterno del selettore di filtro per chiuderlo. Il grafico mostra a questo punto il numero di transazioni di archiviazione con esito negativo:
 
-   ![Immagine di metrica](./media/metrics-charts/00008.png)
+   ![Screenshot che mostra il numero di transazioni di archiviazione non riuscite](./media/metrics-charts/00008.png)
 
 5. È possibile ripetere i passaggi da 1 a 4 per applicare più filtri agli stessi grafici.
 
@@ -104,11 +104,11 @@ In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistic
 
 2. Scegliere una dimensione in cui si desidera segmentare il grafico:
 
-   ![Immagine di metrica](./media/metrics-charts/00010.png)
+   ![Screenshot che mostra la dimensione selezionata in cui segmentare il grafico.](./media/metrics-charts/00010.png)
 
    Il grafico mostra ora più righe, una per ogni segmento della dimensione:
 
-   ![Immagine di metrica](./media/metrics-charts/00012.png)
+   ![Screenshot che Mostra più righe, una per ogni segmento della dimensione.](./media/metrics-charts/00012.png)
 
 3. Fare clic al di fuori del **selettore di raggruppamento** per chiuderlo.
 
@@ -125,7 +125,7 @@ Un altro esempio è una fluttuazione della memoria disponibile, in cui il valore
 
 Per controllare l'intervallo dell'asse y, usare "..." nel menu del grafico e selezionare **Modifica grafico** per accedere alle impostazioni avanzate del grafico. Modificare i valori nella sezione Intervallo asse Y oppure usare il pulsante **Auto** per ripristinare le impostazioni predefinite.
 
-![Immagine di metrica](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot che evidenzia l'opzione Modifica grafico.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Bloccare i limiti dell'asse y dei grafici che tengono traccia dei vari conteggi o somme in un periodo di tempo (e che quindi usano le aggregazioni Count, Sum, Minimum o Maximum) richiede in genere di specificare una granularità temporale fissa anziché di basarsi sulle impostazioni predefinite automatiche. Questa operazione è necessaria perché i valori nei grafici cambiano quando la granularità temporale viene automaticamente modificata dall'utente che ridimensiona la finestra del browser o che passa da una risoluzione dello schermo a un'altra. La modifica risultante nella granularità temporale influenza l'aspetto del grafico, invalidando la selezione corrente dell'intervallo dell'asse y.
@@ -138,7 +138,7 @@ Per modificare il colore di una linea del grafico, fare clic sulla barra colorat
 
 Una volta configurati, i colori del grafico rimarranno in questo modo quando si aggiunge il grafico a un dashboard. Nella sezione seguente viene illustrato come aggiungere un grafico.
 
-![Immagine di metrica](./media/metrics-charts/018.png)
+![Screenshot che illustra come aggiungere un grafico.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Aggiungere grafici ai dashboard
 

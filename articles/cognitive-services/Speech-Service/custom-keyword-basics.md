@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667694"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166455"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introduzione alla parola chiave personalizzata
 
@@ -54,7 +54,7 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 1. Il portale crea le pronunce candidate per la parola chiave. Ascoltare ogni candidato facendo clic sui pulsanti di riproduzione e rimuovere i controlli accanto a tutte le pronunce non corrette. Una volta selezionate solo le pronunce valide, fare clic su **Train** per iniziare a generare il modello di parola chiave. 
 
-    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Screenshot che mostra dove si sceglie il pronounciations corretto.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. Potrebbero essere necessari fino a trenta minuti per la generazione del modello. L'elenco delle parole chiave verrà modificato da **elaborazione** **a completata** quando il modello è completo. È quindi possibile scaricare il file.
 

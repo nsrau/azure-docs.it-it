@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305211"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107777"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -206,7 +206,7 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 Per informazioni su come progettare e distribuire un Azure Load Balancer, vedere [che cos'è Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi illustrati in questa [Guida introduttiva](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , esclusi i passaggi descritti nella sezione **creare server back-end**.   
 
 > [!NOTE]
-> Per configurare la Azure Load Balancer usando lo **SKU Basic**, è necessario che le macchine virtuali di Azure appartengano a un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/windows/manage-availability.md). Per aggiungere macchine virtuali esistenti a un set di disponibilità, fare riferimento a [imposta Azure Resource Manager set di disponibilità della macchina](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)virtuale.
+> Per configurare la Azure Load Balancer usando lo **SKU Basic**, è necessario che le macchine virtuali di Azure appartengano a un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/manage-availability.md). Per aggiungere macchine virtuali esistenti a un set di disponibilità, fare riferimento a [imposta Azure Resource Manager set di disponibilità della macchina](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)virtuale.
 > 
 
 Dopo aver creato il servizio di bilanciamento del carico, è necessario creare un pool back-end che distribuisce il traffico a uno o più server gateway. Seguire i passaggi descritti nella sezione dell'articolo introduttivo [creare risorse per il servizio di bilanciamento del carico](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -330,7 +330,7 @@ Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore 
 | **Cmdlet** | **Parameters** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password (stringa sicura) |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. impostare un proxy di inoltro che non richiede l'autenticazione: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. deselezionare l'impostazione proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Ottiene l'host attualmente consentito (solo l'host consentito configurato localmente, non gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 
@@ -389,4 +389,3 @@ Per ottenere assistenza, selezionare l'icona del punto interrogativo nell'angolo
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Aggiungere origini dati](./agent-data-sources.md) per raccogliere dati da origini connesse e archiviare i dati nell'area di lavoro log Analytics.
-

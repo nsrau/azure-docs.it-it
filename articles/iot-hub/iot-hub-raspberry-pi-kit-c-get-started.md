@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327464"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145854"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connettere Raspberry Pi ad Azure IoT Hub (C)
 
@@ -154,7 +154,7 @@ Per i pin dei sensori usare i collegamenti seguenti:
 | SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Cavo verde   |
 | CS (Pin 24F)             | SPI0 CS (Pin 24)       | Cavo blu    |
 
-Fare clic per visualizzare i [mapping Pin di Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) come riferimento.
+Fare clic per visualizzare i [mapping Pin di Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) come riferimento.
 
 Dopo aver correttamente collegato BME280 a Raspberry Pi, dovrebbe apparire come mostrato nell'immagine di seguito.
 

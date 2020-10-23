@@ -4,16 +4,16 @@ description: Gestione delle istanze di avviso in Azure
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77667619"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102871"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Gestire le istanze di avviso con avvisi unificati
 
-Con l' [esperienza degli avvisi unificati](https://aka.ms/azure-alerts-overview) in monitoraggio di Azure, è possibile visualizzare tutti i diversi tipi di avvisi in Azure. Questa operazione si estende su più sottoscrizioni in un unico riquadro. In questo articolo viene illustrato come visualizzare le istanze di avviso e come individuare specifiche istanze di avviso per la risoluzione dei problemi.
+Con l' [esperienza degli avvisi unificati](./alerts-overview.md) in monitoraggio di Azure, è possibile visualizzare tutti i diversi tipi di avvisi in Azure. Questa operazione si estende su più sottoscrizioni in un unico riquadro. In questo articolo viene illustrato come visualizzare le istanze di avviso e come individuare specifiche istanze di avviso per la risoluzione dei problemi.
 
 > [!NOTE]
 > È possibile accedere solo agli avvisi generati negli ultimi 30 giorni.
@@ -54,5 +54,4 @@ Oltre ai filtri disponibili nella pagina precedente, è anche possibile filtrare
 
 Selezionando un'istanza di avviso, viene visualizzata la pagina **Dettagli avviso** che consente di visualizzare altri dettagli sull'istanza di avviso specifica.   
 
-![Screenshot della pagina dei dettagli dell'avviso](media/alerts-managing-alert-instances/alert-details.jpg)  
-
+![Screenshot della pagina dei dettagli dell'avviso](media/alerts-managing-alert-instances/alert-details.jpg)

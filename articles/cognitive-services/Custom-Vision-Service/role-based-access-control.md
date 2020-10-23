@@ -1,7 +1,7 @@
 ---
-title: Controllo degli accessi in base al ruolo-Visione personalizzata
+title: Controllo degli accessi in base al ruolo di Azure-Visione personalizzata
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrato come configurare il controllo degli accessi in base al ruolo per i progetti Visione personalizzata.
+description: Questo articolo illustra come configurare il controllo degli accessi in base al ruolo di Azure per i progetti Visione personalizzata.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826934"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146374"
 ---
-# <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+# <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Utilizzando il controllo degli accessi in base al ruolo, è possibile assegnare diversi livelli di autorizzazioni ai membri del team per i progetti Visione personalizzata Per ulteriori informazioni su RBAC, vedere la [documentazione relativa a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile assegnare membri del team diversi livelli di autorizzazioni per i progetti Visione personalizzata Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere la [documentazione relativa a RBAC](https://docs.microsoft.com/azure/role-based-access-control/)
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Aggiungere un'assegnazione di ruolo alla risorsa Visione personalizzata
 
@@ -27,7 +27,7 @@ Il controllo degli accessi in base al ruolo può essere assegnato a una risorsa 
 1. Nel [portale di Azure](https://ms.portal.azure.com/) selezionare **Tutti i servizi**. 
 1. Selezionare quindi **Servizi cognitivi**e passare alla risorsa di training visione personalizzata specifica.
    > [!NOTE]
-   > È anche possibile configurare il controllo degli accessi in base al ruolo per interi gruppi di risorse, sottoscrizioni o gruppi di gestione A tale scopo, selezionare il livello di ambito desiderato, quindi passare all'elemento desiderato, ad esempio selezionando **gruppi di risorse** e quindi facendo clic sul gruppo di risorse desiderato.
+   > È anche possibile configurare il controllo degli accessi in base al ruolo di Azure per tutti i gruppi di risorse, le sottoscrizioni A tale scopo, selezionare il livello di ambito desiderato, quindi passare all'elemento desiderato, ad esempio selezionando **gruppi di risorse** e quindi facendo clic sul gruppo di risorse desiderato.
 1. Selezionare **controllo di accesso (IAM)** nel riquadro di spostamento a sinistra.
 1. Selezionare la scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per questo ambito.
 1. Selezionare **Aggiungi**  ->  **assegnazione ruolo**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554416"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941025"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con New Relic (By Organization)
 
@@ -82,15 +82,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Fare clic su **Carica il file di metadati**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base con il collegamento Carica file di metadati.](common/upload-metadata.png)
 
     b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Screenshot che mostra una finestra di dialogo in cui è possibile selezionare e caricare un file.](common/browse-upload-metadata.png)
 
     c. Dopo il caricamento del file di metadati, il valore di **Identificatore** e **URL di risposta** viene inserito automaticamente nella sezione Configurazione SAML di base:
 
-    ![image](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     > [!Note]
     > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle esigenze.

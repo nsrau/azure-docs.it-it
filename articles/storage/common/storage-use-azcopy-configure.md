@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037185"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132211"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -42,7 +42,7 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 
 Se si esegue AzCopy in Windows e si vuole indicare che non deve usare _alcun_ proxy (anziché rilevare automaticamente le impostazioni), usare questi comandi. Con queste impostazioni, AzCopy non cercherà o tenterà di usare un proxy.
 
-| Sistema operativo | Ambiente | Comandi  |
+| Sistema operativo | Ambiente | Comandi:  |
 |--------|-----------|----------|
 | **Windows** | Prompt dei comandi (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|

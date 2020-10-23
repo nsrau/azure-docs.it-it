@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387678"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363862"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gestire Azure AD B2C criteri personalizzati con Azure PowerShell
 
@@ -29,7 +29,7 @@ Azure PowerShell offre diversi cmdlet per la gestione dei criteri personalizzata
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
 * [Azure AD PowerShell per il **modulo di anteprima** Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell offre diversi cmdlet per la gestione dei criteri personalizzata
 
 Per usare i criteri personalizzati nel tenant di Azure AD B2C, è prima di tutto necessario connettere la sessione di PowerShell al tenant usando il comando [Connect-AzureAD][Connect-AzureAD] .
 
-Eseguire il comando seguente, sostituendo `{b2c-tenant-name}` con il nome del tenant del Azure ad B2C. Accedere con un account a cui è assegnato il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) nella directory.
+Eseguire il comando seguente, sostituendo `{b2c-tenant-name}` con il nome del tenant del Azure ad B2C. Accedere con un account a cui è assegnato il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) nella directory.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

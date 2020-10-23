@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300103"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104139"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -48,7 +48,7 @@ Per comprendere i concetti relativi ai log relativi alle strategie di accesso e 
 
 ![Modificare la modalità di accesso all'area di lavoro](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 Usare il comando seguente per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione:
 
@@ -134,7 +134,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Type    | Autorizzazione | Descrizione |
+| Tipo    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
@@ -243,7 +243,7 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
 
 Il controllo degli accessi in base al **livello di tabella** consente di definire un controllo più granulare dei dati in un'area di lavoro log Analytics, oltre alle altre autorizzazioni. Questo controllo consente di definire tipi di dati specifici accessibili solo a un set specifico di utenti.
 
-Implementare il controllo di accesso alle tabelle con i [ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md) per concedere l'accesso a [tabelle](../log-query/logs-structure.md) specifiche nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con [modalità di controllo degli accessi](design-logs-deployment.md#access-control-mode) del contesto di area di lavoro o delle risorse indipendentemente dalla [modalità di accesso](design-logs-deployment.md#access-mode)dell'utente.
+Implementare il controllo di accesso alle tabelle con i [ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md) per concedere l'accesso a [tabelle](./data-platform-logs.md) specifiche nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con [modalità di controllo degli accessi](design-logs-deployment.md#access-control-mode) del contesto di area di lavoro o delle risorse indipendentemente dalla [modalità di accesso](design-logs-deployment.md#access-mode)dell'utente.
 
 Creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md) con le azioni seguenti per definire l'accesso al controllo di accesso alla tabella.
 

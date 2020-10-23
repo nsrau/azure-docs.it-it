@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448220"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044463"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -41,10 +41,7 @@ Per modificare le proprietà dell'applicazione:
 
 1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Trovare e selezionare l'applicazione da configurare.
 2. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica.
-
-    ![Screenshot della schermata Proprietà che mostra le proprietà modificabili dell'app.](media/add-application-portal/edit-properties.png)
-
-3. Esaminare le opzioni disponibili per la configurazione:
+3. Esaminare le opzioni disponibili. Le opzioni disponibili variano in base al modo in cui l'app è integrata con Azure AD. Ad esempio, un'app che usa l'accesso Single Sign-On basato su SAML avrà campi, come *URL accesso utente*, che non saranno invece disponibili in un'app che usa l'accesso Single Sign-On basato su ODC. Notare inoltre che le app aggiunte tramite **Azure Active Directory > Registrazioni app** sono bastate su OIDC per impostazione predefinita. Viceversa, le app aggiunte tramite **Azure Active Directory > Applicazioni aziendali** potrebbero usare qualsiasi numero di standard Single Sign-On. Tutte le app avranno i campi per la configurazione quando vengono visualizzate ed è possibile usarle. Questi campi sono:
     - **Abilitata per l'accesso degli utenti?** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
     - **Visibile agli utenti?** determina se gli utenti assegnati a un'app possono vederla in [Le mie app](https://myapps.microsoft.com) e nell'icona di avvio delle app di Microsoft 365. Vedere il menu waffle nell'angolo in alto a sinistra del sito Web Microsoft 365.

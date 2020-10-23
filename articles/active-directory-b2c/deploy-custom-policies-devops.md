@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388681"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363930"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -33,7 +33,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
 * [App di gestione](microsoft-graph-get-started.md) registrata nel tenant con i criteri di autorizzazione dell'API Microsoft Graph *. ReadWrite. TrustFramework*
 * [Pipeline di Azure](https://azure.microsoft.com/services/devops/pipelines/)e accesso a un [progetto Azure DevOps Services][devops-create-project]
@@ -151,7 +151,7 @@ Aggiungere quindi un'attività per distribuire un file di criteri.
     * **Versione attività**: 2. *
     * **Nome visualizzato**: il nome dei criteri che questa attività deve caricare. Ad esempio, *B2C_1A_TrustFrameworkBase*.
     * **Tipo**: percorso file
-    * **Percorso script**: selezionare i puntini di sospensione (***...***), passare alla cartella *script* e quindi selezionare il file *DeployToB2C.ps1* .
+    * **Percorso script**: selezionare i puntini di sospensione (**_.._* . _), passare alla cartella _Scripts *, quindi selezionare il file di *DeployToB2C.ps1* .
     * **Argomenti:**
 
         Immettere i valori seguenti per gli **argomenti**. Sostituire `{alias-name}` con l'alias specificato nella sezione precedente.

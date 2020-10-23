@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533843"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369829"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
-Con Azure Active Directory (Azure AD), un amministratore globale può effettuare assegnazioni **permanenti** di ruoli di amministratore Azure ad. Queste assegnazioni di ruoli possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
+Con Azure Active Directory (Azure AD), un amministratore globale può effettuare assegnazioni **permanenti** di ruoli di amministratore Azure ad. Queste assegnazioni di ruoli possono essere create usando il [portale di Azure](../roles/permissions-reference.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
 
 Il servizio Azure AD Privileged Identity Management (PIM) consente inoltre agli amministratori dei ruoli con privilegi di effettuare assegnazioni di ruolo di amministratore permanenti. Inoltre, gli amministratori dei ruoli con privilegi possono rendere gli utenti **idonei** per i ruoli di amministratore Azure ad. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni.
 
@@ -30,7 +30,7 @@ Il servizio Azure AD Privileged Identity Management (PIM) consente inoltre agli 
 
 A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Management viene aggiornata a una nuova versione che corrisponde alle esperienze per i ruoli delle risorse di Azure. In questo modo vengono create funzionalità aggiuntive e le [modifiche apportate all'API esistente](azure-ad-roles-features.md#api-changes). Mentre è in corso il rollback della nuova versione, le procedure descritte in questo articolo dipendono dalla versione di Privileged Identity Management attualmente disponibile. Attenersi alla procedura descritta in questa sezione per determinare la versione di Privileged Identity Management. Quando si conosce la versione di Privileged Identity Management, è possibile selezionare le procedure descritte in questo articolo corrispondenti a tale versione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Aprire **Azure ad Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
   [![Selezionare Azure AD Privileged Identity Management >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -41,7 +41,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 
 Seguire questa procedura per rendere un utente idoneo per un ruolo di amministratore Azure AD.
 
-1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo di [amministratore dei ruoli con privilegi](../roles/permissions-reference.md#privileged-role-administrator) .
 
     Per informazioni su come concedere a un altro amministratore l'accesso per gestire Privileged Identity Management, vedere [concedere l'accesso ad altri amministratori per gestire Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -77,7 +77,7 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
 ## <a name="assign-a-role-with-restricted-scope"></a>Assegnare un ruolo con ambito limitato
 
-Per determinati ruoli, l'ambito delle autorizzazioni concesse può essere limitato a una singola unità amministrativa, a un'entità servizio o a un'applicazione. Questa procedura è un esempio di assegnazione di un ruolo che dispone dell'ambito di un'unità amministrativa. Per un elenco dei ruoli che supportano l'ambito tramite unità amministrativa, vedere [assegnare ruoli con ambito a un'unità amministrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Questa funzionalità è attualmente implementata per Azure AD organizzazioni.
+Per determinati ruoli, l'ambito delle autorizzazioni concesse può essere limitato a una singola unità amministrativa, a un'entità servizio o a un'applicazione. Questa procedura è un esempio di assegnazione di un ruolo che dispone dell'ambito di un'unità amministrativa. Per un elenco dei ruoli che supportano l'ambito tramite unità amministrativa, vedere [assegnare ruoli con ambito a un'unità amministrativa](../roles/admin-units-assign-roles.md). Questa funzionalità è attualmente implementata per Azure AD organizzazioni.
 
 1. Accedere al centro di [amministrazione Azure Active Directory](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
 
@@ -97,7 +97,7 @@ Per determinati ruoli, l'ambito delle autorizzazioni concesse può essere limita
    - Selezionare l'ambito del ruolo (in questo caso, unità amministrative)
    - Selezionare un'unità amministrativa per l'ambito
 
-Per ulteriori informazioni sulla creazione di unità amministrative, vedere [aggiungere e rimuovere unità amministrative](../users-groups-roles/roles-admin-units-manage.md).
+Per ulteriori informazioni sulla creazione di unità amministrative, vedere [aggiungere e rimuovere unità amministrative](../roles/admin-units-manage.md).
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Aggiornare o rimuovere un'assegnazione di ruolo esistente
 

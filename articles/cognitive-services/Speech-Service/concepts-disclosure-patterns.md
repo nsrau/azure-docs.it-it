@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: shlo
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74776623"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425122"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
 Ora che&#39;ho determinato il giusto [livello di divulgazione](concepts-disclosure-guidelines.md#disclosure-assessment) per la tua esperienza vocale sintetica,&#39;s è un momento opportuno per esplorare i modelli di progettazione potenziali.
@@ -38,7 +38,7 @@ Usare il grafico seguente per fare riferimento direttamente ai modelli applicabi
 
 
 
-| Se l'esperienza di Voice sintetico... | Consigli | Modelli di progettazione |
+| Se l'esperienza di Voice sintetico... | Indicazioni | Modelli di progettazione |
 | --- | --- | --- |
 | Richiede la divulgazione elevata  | Usare almeno un modello esplicito e i segnali impliciti in primo piano per aiutare gli utenti a compilare le associazioni. |[Divulgazione esplicita](#explicit-disclosure)<br>[Divulgazione implicita](#implicit-disclosure)  |
 | Richiede la divulgazione limitata | La divulgazione può essere minima o superflua, ma può trarre vantaggio da alcuni modelli impliciti. | [Divulgazione delle funzionalità](#capability-disclosure)<br>[Trasparenza conversazione](#conversational-transparency)  |
@@ -61,7 +61,7 @@ Prima dell'inizio dell'esperienza vocale, l'assistente digitale è stato complet
 ![Introduzione trasparente durante la prima esecuzione](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
 *La voce sintetica viene introdotta durante l'onboarding di un nuovo utente.*
 
-Consigli
+Indicazioni
 - Descrivere che la voce è artificiale, ad esempio &quot; digitale &quot;
 - Descrivere le operazioni che l'agente è in grado di eseguire
 - Specificare in modo esplicito le origini della&#39;vocale
@@ -96,7 +96,7 @@ Usare questo modello se l'utente interagisce con un lettore audio o un component
 ![Sottotitolo esplicito in uno scenario multimediale di notizie](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
 *Un sottotitolo esplicito è l'attribuzione da cui proviene la voce.*
 
-Consigli
+Indicazioni
 
 - Punto di ingresso dell'offerta per ulteriori informazioni sulla voce sintetizzata
 
@@ -111,7 +111,7 @@ Offrire scelte che hanno un effetto significativo ed evidente sull'esperienza di
 ![Preferenze dell'utente](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *Le preferenze utente consentono agli utenti di personalizzare e migliorare l'esperienza.*
 
-Consigli
+Indicazioni
 
 - Consenti agli utenti di personalizzare la voce (ad esempio, selezionare la lingua e il tipo di voce)
 - Fornire agli utenti un modo per insegnare al sistema di rispondere alla propria voce univoca (ad esempio, la calibrazione vocale, i comandi personalizzati)
@@ -124,7 +124,7 @@ Offrire modi per personalizzare l'assistente digitale&#39;s Voice. Se la voce si
 ![Personalizzazione vocale](media/responsible-ai/disclosure-patterns/customization-voice-type.png)<br/>
 *Offrire la possibilità di selezionare un set di voci consente di fornire la natura artificiale.*
 
-Consigli
+Indicazioni
 - Consenti agli utenti di visualizzare in anteprima il suono di ogni voce
 - Usa un'introduzione autentica per ogni voce
 - Fornire punti di ingresso per ulteriori informazioni sulla voce sintetizzata
@@ -136,7 +136,7 @@ Oltre a rispettare le normative della COPPA, fornire la divulgazione agli elemen
 ![Divulgazione per gli elementi padre](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
 *Un'introduzione trasparente ottimizzata per i genitori garantisce che un adulto abbia reso conto della natura sintetica della voce prima che un figlio interagisce con esso.*
 
-Consigli
+Indicazioni
 
 - Indirizzare gli elementi padre come destinatari primari per la divulgazione
 - Incoraggiare i genitori a comunicare la divulgazione ai propri figli
@@ -155,7 +155,7 @@ Quando un utente richiede ulteriori informazioni sulla voce sintetica, l'obietti
 ![Fornire agli utenti ulteriori informazioni sulla voce sintetica](media/responsible-ai/disclosure-patterns/learn-more.png)<br/>
 *Ulteriori informazioni possono essere disponibili in un sito esterno della guida del sito.*
 
-Consigli
+Indicazioni
 
 - Semplifica i concetti complessi ed evita l'uso di un gergo tecnico e legale
 - Non seppellire questo contenuto nelle istruzioni sulla privacy e sulle condizioni per l'utilizzo
@@ -184,7 +184,7 @@ Prendere in considerazione le diverse modalità di interazione dell'esperienza q
 
 La divulgazione può essere eseguita in modo implicito impostando previsioni accurate su ciò che è in grado di supportare Digital Assistant. Fornire comandi di esempio in modo che gli utenti possano imparare a interagire con l'assistente digitale e offrire la guida contestuale per ottenere altre informazioni sulla voce sintetica durante le fasi iniziali dell'esperienza.
 
-![Suggerimenti visivi e commenti e suggerimenti](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Esempio di risposte predefinite a una conversazione che è possibile creare.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Trasparenza conversazione
 

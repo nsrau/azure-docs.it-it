@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514906"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168019"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 
@@ -294,7 +294,7 @@ Consultare la guida complementare relativa alla [soluzione di ripristino di emer
 1. Nel portale di Azure selezionare l'insieme di credenziali **Servizi di ripristino**&gt; **Piani di ripristino (Site Recovery)** &gt; **pianodiripristino_nome** creato per la VM del file server.
 1. Nel pannello del piano di ripristino fare clic su **Altro** &gt;  **Failover pianificato**.
 
-   ![Piano di ripristino](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Screenshot che evidenzia le opzioni di failover e failover pianificato.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Nel pannello **Conferma failover pianificato** scegliere i percorsi di origine e di destinazione, selezionare la rete di destinazione e fare clic sull'icona del segno di spunta (✓) per avviare il processo di failover.
 1. Dopo la replica le macchine virtuali create sono in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
 1. Dopo il completamento della replica, le macchine virtuali vengono avviate nella località secondaria.
@@ -361,5 +361,5 @@ La pianificazione della capacità prevede almeno due processi importanti:
   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.

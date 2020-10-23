@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081390"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143582"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Come usare JSONPath per trasformare i dati JSON nelle cartelle di lavoro
 
@@ -22,7 +22,7 @@ Le cartelle di lavoro di sono in grado di eseguire query sui dati da molte origi
 
 JSONPath è un linguaggio di query per JSON simile a XPath for XML. Analogamente a XPath, JSONPath consente l'estrazione e la filtraggio dei dati fuori dalla struttura JSON.
 
-Utilizzando la trasformazione JSONPath, gli autori di cartelle di lavoro sono in grado di convertire JSON in una struttura di tabella. La tabella può quindi essere usata per tracciare le [visualizzazioni delle cartelle di lavoro](workbooks-visualizations.md).
+Utilizzando la trasformazione JSONPath, gli autori di cartelle di lavoro sono in grado di convertire JSON in una struttura di tabella. La tabella può quindi essere usata per tracciare le [visualizzazioni delle cartelle di lavoro](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Uso di JSONPath
 

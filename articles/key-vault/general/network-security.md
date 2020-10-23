@@ -7,19 +7,63 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087395"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042474"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
-Questo articolo contiene istruzioni dettagliate per configurare reti virtuali e firewall di Azure Key Vault in modo da limitare l'accesso all'insieme di credenziali delle chiavi. Gli [endpoint servizio di rete virtuale per Key Vault](overview-vnet-service-endpoints.md) consentono di limitare l'accesso alla rete virtuale specificata e a un set di intervalli di indirizzi IPv4 (protocollo IP versione 4).
+Questo articolo fornisce indicazioni per configurare il firewall di Azure Key Vault. Questo documento illustra in dettaglio le diverse configurazioni del firewall di Key Vault e include le istruzioni dettagliate su come configurare Azure Key Vault per l'uso con altre applicazioni e altri servizi di Azure.
+
+## <a name="firewall-settings"></a>Impostazioni del firewall
+
+Questa sezione descrive i vari modi in cui è possibile configurare il firewall di Azure Key Vault.
+
+### <a name="key-vault-firewall-disabled-default"></a>Firewall Key Vault disabilitato (impostazione predefinita)
+
+Per impostazione predefinita, quando si crea un nuovo insieme di credenziali delle chiavi, il firewall di Azure Key Vault è disabilitato. Tutte le applicazioni e i servizi di Azure possono accedere e inviare richieste all'insieme di credenziali delle chiavi. Si noti che questa configurazione non significa che qualsiasi utente sarà in grado di eseguire operazioni nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi applica comunque restrizioni su segreti, chiavi e certificati archiviati al suo interno richiedendo l'autenticazione di Azure Active Directory e le autorizzazioni dei criteri di accesso. Per capire in maggior dettaglio l'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento di informazioni di base [qui](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals).
+
+### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall di Key Vault abilitato (solo servizi attendibili)
+
+Quando si abilita il firewall di Key Vault, viene offerta l'opzione 'Consentire ai servizi Microsoft attendibili di ignorare il firewall?' L'elenco dei servizi attendibili non copre ogni singolo servizio di Azure. Ad esempio, Azure DevOps non è presente nell'elenco dei servizi attendibili. **Ciò non implica che i servizi non inclusi nell'elenco non siano considerati attendibili o sicuri.** L'elenco di servizi attendibili include i servizi per cui Microsoft controlla tutto il codice eseguito al loro interno. Poiché gli utenti possono scrivere codice personalizzato nei servizi di Azure, ad esempio Azure DevOps, Microsoft non offre la possibilità di creare un'approvazione generale per il servizio. Inoltre, il semplice fatto che un servizio sia incluso nell'elenco di servizi attendibili non significa che sia consentito per tutti gli scenari.
+
+Per determinare se un servizio che si prova a usare è incluso nell'elenco di servizi attendibili, vedere [questo documento](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+
+### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall di Key Vault abilitato (indirizzi e intervalli IPv4 - IP statici)
+
+Per autorizzare un particolare servizio ad accedere all'insieme di credenziali delle chiavi attraverso il firewall di Key Vault, è possibile aggiungere il relativo indirizzo IP all'elenco di indirizzi consentiti del firewall. Questa configurazione è ottimale per i servizi che usano indirizzi IP statici o intervalli noti.
+
+Per consentire un indirizzo IP o un intervallo di una risorsa di Azure, ad esempio un'app Web o App per la logica, seguire questa procedura.
+
+1. Accedere al Portale di Azure
+1. Selezionare la risorsa (istanza specifica del servizio)
+1. Fare clic sul pannello 'Proprietà' in 'Impostazioni'
+1. Cercare il campo "Indirizzo IP".
+1. Copiare questo valore o intervallo e immetterlo nell'elenco di indirizzi consentiti del firewall di Key Vault.
+
+Per consentire un intero servizio di Azure attraverso il firewall di Key Vault, usare l'elenco di indirizzi IP di data center documentati pubblicamente per Azure disponibile [qui](https://www.microsoft.com/download/details.aspx?id=41653). Trovare gli indirizzi IP associati al servizio nell'area desiderata e aggiungerli al firewall di Key Vault seguendo la procedura precedente.
+
+### <a name="key-vault-firewall-enabled-virtual-networks---dynamic-ips"></a>Firewall di Key Vault abilitato (reti virtuali - IP dinamici)
+
+Se si prova ad autorizzare una risorsa di Azure, ad esempio una macchina virtuale, nell'insieme di credenziali delle chiavi, potrebbe non essere possibile usare indirizzi IP statici e non è consigliabile consentire a tutti gli indirizzi IP per le macchine virtuali di Azure di accedere all'insieme di credenziali delle chiavi.
+
+In questo caso, è necessario creare la risorsa all'interno di una rete virtuale e quindi consentire l'accesso all'insieme di credenziali delle chiavi al traffico proveniente dalla rete virtuale e dalla subnet specifiche. A questo scopo, eseguire i passaggi seguenti.
+
+1. Accedere al Portale di Azure
+1. Selezionare l'insieme di credenziali delle chiavi da configurare
+1. Selezionare il pannello 'Rete'.
+1. Selezionare '+ Aggiungi rete virtuale esistente'.
+1. Selezionare la rete virtuale e la subnet da autorizzare attraverso il firewall di Key Vault.
+
+### <a name="key-vault-firewall-enabled-private-link"></a>Firewall di Key Vault abilitato (collegamento privato)
+
+Per informazioni su come configurare una connessione di collegamento privato nell'insieme di credenziali delle chiavi, vedere il documento [qui](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
 
 > [!IMPORTANT]
 > Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.

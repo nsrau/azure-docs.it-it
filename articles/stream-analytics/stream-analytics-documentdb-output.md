@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596565"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424775"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
-Analisi di flusso di Azure può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
+Analisi di flusso di Azure può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione. Si consiglia di impostare il processo sul livello di compatibilità 1,2 quando si usa Azure Cosmos DB come output.
 
 Se non si ha familiarità con Azure Cosmos DB, vedere la [documentazione di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) per iniziare. 
 
@@ -137,3 +137,17 @@ Se si verifica un errore temporaneo, la indisponibilità del servizio o la limit
 - NotFound (codice errore HTTP 404)
 - Forbidden (codice errore HTTP 403)
 - BadRequest (codice errore HTTP 400)
+
+## <a name="common-issues"></a>Problemi comuni
+
+1. Un vincolo di indice univoco viene aggiunto alla raccolta e i dati di output di analisi di flusso violano questo vincolo. Assicurarsi che i dati di output di analisi di flusso non violino i vincoli UNIQUE o rimuovere i vincoli. Per ulteriori informazioni, vedere [vincoli UNIQUE KEY in Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. La `PartitionKey` colonna non esiste.
+
+3. La `Id` colonna non esiste.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Informazioni sugli output di Analisi di flusso di Azure](stream-analytics-define-outputs.md) 
+* [Output di Analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md)
+* [Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure](stream-analytics-custom-path-patterns-blob-storage-output.md)

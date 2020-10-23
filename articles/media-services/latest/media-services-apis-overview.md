@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019784"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426852"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di Servizi multimediali v3
 
@@ -35,7 +35,7 @@ Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimedial
 * **Autenticazione tramite entità servizio**: usata per autenticare un servizio, ad esempio app Web, app per le funzioni, app per la logica, API e microservizi. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le app Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a Servizi multimediali con un'entità servizio.
 * **Autenticazione utente**: usata per autenticare una persona che usa l'app per interagire con le risorse di Servizi multimediali. L'app interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-Per l'API di Servizi multimediali è necessario che l'utente o l'app che effettua le richieste all'API REST possa accedere alla risorsa dell'account di Servizi multimediali e usi un ruolo **Collaboratore** o **Proprietario**. È possibile accedere all'API con il ruolo **Lettore**, ma saranno disponibili solo operazioni **Get** o **List**. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo per gli account di Servizi multimediali](rbac-overview.md).
+Per l'API di Servizi multimediali è necessario che l'utente o l'app che effettua le richieste all'API REST possa accedere alla risorsa dell'account di Servizi multimediali e usi un ruolo **Collaboratore** o **Proprietario**. È possibile accedere all'API con il ruolo **Lettore**, ma saranno disponibili solo operazioni **Get** o **List**. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali](rbac-overview.md).
 
 Invece di creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di Servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

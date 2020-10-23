@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799a2d20513f331890bec0882fec852c462c5840
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85856921"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108270"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Spark in HDInsight e Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il nu
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Esecuzione di cluster Spark in Data Lake Storage Gen1**. Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**. Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Esecuzione di cluster Spark in Data Lake Storage Gen1**. Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen1](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**. Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](./data-lake-store-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parametri
 

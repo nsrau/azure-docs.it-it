@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87062065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440834"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -39,45 +39,21 @@ Il risultato di questo processo è un set di nodi (i gemelli digitali) connessi 
 
 ## <a name="create-with-the-apis"></a>Creare con le API
 
-In questa sezione viene illustrato come creare i gemelli digitali e le relazioni da un'applicazione client. Contiene esempi di codice .NET che usano le [API DigitalTwins](how-to-use-apis-sdks.md), per fornire un contesto aggiuntivo su ciò che accade all'interno di ognuno di questi concetti.
+In questa sezione viene illustrato come creare i gemelli digitali e le relazioni da un'applicazione client. Contiene esempi di codice .NET che usano le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), per fornire un contesto aggiuntivo su ciò che accade all'interno di ognuno di questi concetti.
 
 ### <a name="create-digital-twins"></a>Creare i gemelli digitali
 
-Di seguito è riportato un frammento di codice client che usa le [API DigitalTwins](how-to-use-apis-sdks.md) per creare un'istanza di un gemello di tipo *room*.
+Di seguito è riportato un frammento di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare un'istanza di un gemello di tipo *room*.
 
 Nell'anteprima corrente dei dispositivi gemelli digitali di Azure, tutte le proprietà di un dispositivo gemello devono essere inizializzate prima che il dispositivo gemello possa essere creato. Questa operazione viene eseguita creando un documento JSON che fornisce i valori di inizializzazione necessari.
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+È anche possibile usare una classe helper denominata `BasicDigitalTwin` per archiviare più direttamente i campi di proprietà in un oggetto "gemello", come alternativa all'uso di un dizionario. Per ulteriori informazioni sulla classe helper ed esempi relativi all'uso, vedere la sezione [*creare un dispositivo gemello digitale*](how-to-manage-twin.md#create-a-digital-twin) di *How-to: Manage Digital gemells*.
 
 ### <a name="create-relationships"></a>Creare relazioni
 
-Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](how-to-use-apis-sdks.md) per creare una relazione tra un gemello digitale di tipo *floor*denominato *pianterreno* e un gemello digitale di tipo *room*chiamato *Cafe*.
+Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare una relazione tra un gemello digitale di tipo *floor*denominato *pianterreno* e un gemello digitale di tipo *room*chiamato *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

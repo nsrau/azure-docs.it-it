@@ -1,5 +1,5 @@
 ---
-title: Creare un'istanza FCI con i dischi condivisi di Azure (anteprima)
+title: Creare un'istanza FCI con i dischi condivisi di Azure
 description: Usare i dischi condivisi di Azure per creare un'istanza del cluster di failover (FCI) con SQL Server in macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272651"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168240"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 - Una sottoscrizione di Azure. Inizia subito [gratuitamente](https://azure.microsoft.com/free/). 
 - [Due o più macchine virtuali di Windows Azure](failover-cluster-instance-prepare-vm.md). Sono supportati entrambi i [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md) e i gruppi di [posizionamento di prossimità](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs). Se si usa un PPG, tutti i nodi devono esistere nello stesso gruppo.
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
-- La versione più recente di [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-azure-shared-disk"></a>Aggiungi disco condiviso di Azure
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurare la connettività 
 
-Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](hadr-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 CU2 + e Windows Server 2016 (o versione successiva), è possibile visualizzare in anteprima la funzionalità del nome di [rete distribuita](hadr-distributed-network-name-dnn-configure.md) . 
+Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 Cu2 (o versione successiva) e Windows Server 2016 (o versione successiva), è invece possibile usare la funzionalità nome di [rete distribuita](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -221,7 +221,8 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](hadr-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](failover-cluster-instance-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Se i dischi condivisi di Azure non sono la soluzione di archiviazione FCI appropriata, provare a creare un'istanza FCI usando [condivisioni file Premium](failover-cluster-instance-premium-file-share-manually-configure.md) o [spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md) . 
 

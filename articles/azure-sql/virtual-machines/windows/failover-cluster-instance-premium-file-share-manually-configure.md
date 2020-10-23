@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298712"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164398"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle VM di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
 - [Due o più macchine virtuali di Windows Azure predisposte](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o in [zone di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diverse.
 - Una [condivisione file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) da usare come unità del cluster, in base alla quota di archiviazione del database per i file di dati.
-- La versione più recente di [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montare la condivisione file Premium
 
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurare la connettività 
 
-Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](hadr-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 e Windows Server 2016 (o versione successiva), è possibile visualizzare in anteprima la funzionalità nome di [rete distribuita](hadr-distributed-network-name-dnn-configure.md) . 
+Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 Cu2 (o versione successiva) e Windows Server 2016 (o versione successiva), è invece possibile usare la funzionalità nome di [rete distribuita](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -204,7 +204,8 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](hadr-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](failover-cluster-instance-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Se le condivisioni file Premium non sono la soluzione di archiviazione FCI appropriata, provare a creare un'istanza FCI usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md) . 
 

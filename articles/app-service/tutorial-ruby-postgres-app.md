@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979489"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150173"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilare un'app Ruby e Postgres nel servizio app di Azure in Linux
 
@@ -108,7 +108,7 @@ Per arrestare il server Rails, digitare `Ctrl + C` nel terminale.
 
 ## <a name="create-postgres-in-azure"></a>Creare Postgres in Azure
 
-In questo passaggio viene creato un database Postgres in [Database di Azure per PostgreSQL](/azure/postgresql/). Successivamente si configurerà l'applicazione Ruby on Rails per la connessione a questo database.
+In questo passaggio viene creato un database Postgres in [Database di Azure per PostgreSQL](../postgresql/index.yml). Successivamente si configurerà l'applicazione Ruby on Rails per la connessione a questo database.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -117,7 +117,7 @@ In questo passaggio viene creato un database Postgres in [Database di Azure per 
 ## <a name="create-postgres-database-in-azure"></a>Creare un database Postgres in Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 In questa sezione verranno creati un database e un server di Database di Azure per PostgreSQL. Per iniziare, installare l'estensione `db-up` con il comando seguente:
 

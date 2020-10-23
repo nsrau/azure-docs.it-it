@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369910"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331210"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -30,7 +30,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |
 | Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integrazioni di API con [API del portale Cloud Partner esistenti](cloud-partner-portal-api-overview.md) | Le API di portale Cloud Partner esistenti sono ancora supportate e le integrazioni esistenti continuano a funzionare. Per altre informazioni, vedere l'articolo relativo alle [API REST di portale cloud partner.](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analisi | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analytics | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>È necessario creare un nuovo account per gestire le offerte nel centro per i partner?
@@ -77,8 +77,8 @@ Per i tipi di offerta supportati nel centro per i partner, tutte le offerte sono
 
 | Tipo di offerta <img src="" width=150px>| Spostati nel centro per i partner? <img src="" width=100px>| Passaggi successivi |
 | --- | --- | --- |
-| SaaS | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare una nuova offerta SaaS nel Marketplace commerciale](partner-center-portal/create-new-saas-offer.md). |
-| Macchina virtuale | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di macchina virtuale di Azure in Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| SaaS | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta SaaS per il Marketplace commerciale](plan-saas-offer.md). |
+| Macchina virtuale | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [pianificare un'offerta di macchina virtuale](marketplace-virtual-machines.md). |
 | Applicazione Azure | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di applicazione Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un'offerta di Dynamics 365 business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 per Customer Engagement & PowerApps | Sì | Accedere al centro per i partner per creare nuove offerte e gestire le offerte create in portale Cloud Partner. Per altre informazioni, vedere [creare un Dynamics 365 per Customer Engagement & offerta PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -155,16 +155,16 @@ Si noteranno alcune modifiche di personalizzazione. Ad esempio, gli *SKU* vengon
 
 Inoltre, le informazioni fornite in precedenza nel **Marketplace** o nelle pagine dei **Dettagli della vetrina**  (servizio di consulenza, Power BI app) nell'portale cloud partner vengono ora raccolte nella pagina di presentazione dell' **offerta** nel centro per i partner:
 
-[![Screenshot che mostra la pagina dell'elenco di offerte del centro per i partner.](media/cpp-pc-faq/offer-listing.png "Mostra la pagina dell'elenco di offerte del centro per i partner")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [Screenshot mostra la pagina dell'elenco di offerte del centro per i partner.] (media/cpp-PC-domande frequenti/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Le informazioni fornite in precedenza per gli SKU in una singola pagina del portale Cloud Partner possono ora essere raccolte in diverse pagine del centro per i partner:
 
-- Pagina Configura piano
+- Pagina di configurazione del piano
 - Pagina Elenco piani
 - Pagina Disponibilità del piano
 - Pianificare la pagina configurazione tecnica, come illustrato di seguito:
 
-![! [Screenshot mostra la pagina di configurazione tecnica del centro per i partner.] (media/cpp-PC-domande frequenti/technical-configuration.png "Mostra la pagina di configurazione tecnica del centro per i partner")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Mostra la pagina di configurazione tecnica del centro per i partner.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 L'ID offerta è ora visualizzato sulla barra di spostamento a sinistra dell'offerta:
 

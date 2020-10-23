@@ -1,24 +1,21 @@
 ---
-title: Power BI e sinapsi SQL senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi
-description: Informazioni su come creare un database sinapsi SQL senza server e visualizzazioni sul collegamento sinapsi per Azure Cosmos DB, eseguire query sui contenitori di Azure Cosmos e quindi creare un modello con Power BI su tali viste.
+title: Power BI e pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi
+description: Informazioni su come creare un database del pool SQL con sinapsi senza server e visualizzazioni tramite il collegamento sinapsi per Azure Cosmos DB, eseguire query sui contenitori di Azure Cosmos e quindi creare un modello con Power BI su tali viste.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937979"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367636"
 ---
-# <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e sinapsi SQL senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima)
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e il pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima) 
 
-Questo articolo illustra come creare una sinapsi SQL senza server (che in precedenza era denominata database **SQL su richiesta**) e le visualizzazioni tramite il collegamento sinapsi per Azure Cosmos DB. Si eseguirà una query sui contenitori di Azure Cosmos e quindi si compilerà un modello con Power BI su tali viste per riflettere tale query.
-
-> [!NOTE]
-> L'uso dell'archivio analitico Azure Cosmos DB con la sinapsi SQL senza server è attualmente in anteprima gestita. Per richiedere l'accesso, contattare il [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+In questo articolo si apprenderà come creare un pool SQL di sinapsi senza server, che in precedenza era indicato come database **su richiesta SQL**e viste sul collegamento sinapsi per Azure Cosmos DB. Si eseguirà una query sui contenitori di Azure Cosmos e quindi si compilerà un modello con Power BI su tali viste per riflettere tale query.
 
 In questo scenario si utilizzeranno dati fittizi sulle vendite di prodotti Surface in un negozio di vendita al dettaglio partner. Si analizzeranno i ricavi per ogni negozio in base alla vicinanza a famiglie di grandi dimensioni e all'effetto della pubblicità per una settimana specifica. In questo articolo vengono create due visualizzazioni denominate **RetailSales** e **StoreDemographics** e una query tra di esse. È possibile ottenere i dati del prodotto di esempio da questo repository [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
 
@@ -44,7 +41,7 @@ Dall'area di lavoro sinapsi passare alla scheda **sviluppo** , selezionare l' **
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Aggiungere uno script SQL all'area di lavoro di sinapsi Analytics":::
 
-Ogni area di lavoro viene fornita con un endpoint SQL senza server sinapsi. Dopo aver creato uno script SQL, dalla barra degli strumenti nella parte superiore connettersi a **SQL su richiesta**.
+Ogni area di lavoro viene fornita con un endpoint SQL senza server. Dopo aver creato uno script SQL, dalla barra degli strumenti nella parte superiore connettersi a **SQL su richiesta**.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Aggiungere uno script SQL all'area di lavoro di sinapsi Analytics":::
 
@@ -55,7 +52,7 @@ Creare un nuovo database, denominato **RetailCosmosDB**, e una vista SQL sui con
 Create database RetailCosmosDB
 ```
 
-Successivamente, creare più viste tra i contenitori di Azure Cosmos abilitati per il collegamento sinapsi diversi. Questo consentirà di usare T-SQL per aggiungere ed eseguire query Azure Cosmos DB dati che si siedono in contenitori diversi.  Quando si creano le visualizzazioni, assicurarsi di selezionare il database **RetailCosmosDB** .
+Successivamente, creare più viste tra i contenitori di Azure Cosmos abilitati per il collegamento sinapsi diversi. Le visualizzazioni consentiranno di usare T-SQL per aggiungere ed eseguire query Azure Cosmos DB dati che si siedono in contenitori diversi.  Quando si creano le visualizzazioni, assicurarsi di selezionare il database **RetailCosmosDB** .
 
 Negli script seguenti viene illustrato come creare visualizzazioni in ogni contenitore. Per semplicità, si userà la funzionalità di [inferenza dello schema automatica](analytical-store-introduction.md#analytical-schema) dei contenitori di sinapsi SQL senza server abilitati al collegamento sinapsi:
 
@@ -110,7 +107,7 @@ Selezionare **Esegui** che fornisce la seguente tabella come risultato:
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Viste dei modelli sui contenitori con Power BI
 
-Aprire quindi il desktop Power BI e connettersi all'endpoint di SQL Server sinapsi usando la procedura seguente:
+Aprire quindi il desktop Power BI e connettersi all'endpoint SQL senza server attenendosi alla procedura seguente:
 
 1. Aprire l'applicazione Power BI Desktop. Selezionare **recuperare i dati** e selezionare **altro**.
 
@@ -128,7 +125,7 @@ Aprire quindi il desktop Power BI e connettersi all'endpoint di SQL Server sinap
 
 1. Trascinare la colonna **StoreId** dalla vista **RetailSales** alla colonna **StoreId** nella vista **StoreDemographics** .
 
-1. Selezionare la relazione molti-a-uno (*: 1) perché sono presenti più righe con lo stesso ID di archivio nella visualizzazione **RetailSales** , ma il **StoreDemographics** ha solo una riga dell'ID di archivio (è una tabella delle dimensioni)
+1. Selezionare la relazione molti-a-uno (*: 1) perché sono presenti più righe con lo stesso ID di archivio nella vista **RetailSales** . **StoreDemographics** dispone di una sola riga dell'ID di archivio (si tratta di una tabella delle dimensioni).
 
 Passare quindi alla finestra del **report** e creare un report per confrontare l'importanza relativa della dimensione domestica con i ricavi medi per negozio in base alla rappresentazione distribuita dei ricavi e dell'indice LargeHH:
 
@@ -145,4 +142,4 @@ Dopo aver scelto queste opzioni, viene visualizzato un grafico simile allo scree
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la sinapsi SQL senza server per [analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure sinapsi Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Usare il pool SQL sinapsi senza server per [analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure sinapsi Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

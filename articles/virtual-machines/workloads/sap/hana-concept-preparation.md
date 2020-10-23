@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70101254"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424251"
 ---
 # <a name="disaster-recovery-principles"></a>Principi relativi al ripristino di emergenza
 
@@ -68,7 +68,7 @@ Il passaggio successivo consiste nell'installare la seconda istanza di SAP HANA 
 - Arrestare l'istanza di SAP HANA appena installata nell'unità HANA in istanze Large nell'area di Azure di ripristino di emergenza.
 - Smontare i volumi PRD e contattare il servizio SAP HANA in Azure Service Management. I volumi non possono rimanere montati nell'unità poiché non devono risultare accessibili durante il funzionamento come destinazione della replica di archiviazione.  
 
-![Passaggio della configurazione di ripristino di emergenza prima di definire la replica](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagramma che mostra la relazione di replica tra i volumi PRD nell'area di Azure di produzione e i volumi PRD nell'area di Azure di ripristino di emergenza.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 Il team operativo stabilisce la relazione di replica tra i volumi PRD nell'area di Azure di produzione e i volumi PRD nell'area di Azure di ripristino di emergenza.
 

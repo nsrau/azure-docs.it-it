@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652073"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458052"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuovere il `DisablePasswordExpiration` valore dall'attributo PasswordPolicies. Al contrario, il valore viene impostato su `None` durante la sincronizzazione della password successiva per ogni utente alla successiva modifica della password in ad locale.  
+Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuovere il `DisablePasswordExpiration` valore dall'attributo PasswordPolicies. Al contrario, il `DisablePasswordExpiration` valore viene rimosso da PasswordPolicies durante la successiva sincronizzazione degli hash delle password per ogni utente, alla successiva modifica della password in Active Directory locale.
 
 È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers, prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non aggiunga il `DisablePasswordExpiration` valore all'attributo PasswordPolicies per gli utenti.
 

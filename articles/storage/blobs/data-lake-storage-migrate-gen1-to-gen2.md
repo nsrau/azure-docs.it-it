@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716141"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102643"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
 
@@ -122,7 +122,7 @@ Diamo uno sguardo più da vicino a ogni modello.
  
 ### <a name="lift-and-shift-pattern"></a>Modello lift-and-Shift
 
-Questo è il modello più semplice.
+Questo è il modello più semplice. 
 
 1. Arrestare tutte le Scritture in Gen1.
 
@@ -131,6 +131,8 @@ Questo è il modello più semplice.
 3. Operazioni di inserimento dei punti e carichi di lavoro in Gen2.
 
 4. Rimuovere le autorizzazioni di Gen1.
+
+Vedere il codice di esempio per il modello lift-and-Shift nell' [esempio di migrazione Lift-and-Shift](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![modello lift-and-Shift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Questo è il modello più semplice.
 
 4. Rimuovere le autorizzazioni di Gen1.
 
+Vedere il codice di esempio per il modello di copia incrementale nell' [esempio di migrazione della copia incrementale](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Modello di copia incrementale](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Questo è il modello più semplice.
 
 4. Arrestare tutte le Scritture in Gen1, quindi rimuovere le autorizzazioni di Gen1.
 
+Vedere il codice di esempio per il modello Dual pipeline nell' [esempio di migrazione a doppia pipeline](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Modello di pipeline doppia](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Questo è il modello più semplice.
 3. Al termine di tutti gli spostamenti, arrestare tutte le Scritture in Gen1 e disattivare la replica bidirezionale.
 
 4. Rimuovere le autorizzazioni di Gen1.
+
+Vedere il codice di esempio per il modello di sincronizzazione bidirezionale nell' [esempio di migrazione della sincronizzazione bidirezionale](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Modello bidirezionale](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

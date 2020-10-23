@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575572"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122467"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -164,7 +164,7 @@ Se si seleziona **Usa file XML**, è possibile specificare contenitori e BLOB sp
 2. Selezionare **+ contenitore** per creare un contenitore.
     ![Screenshot della sezione dei contenitori.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. Nella scheda **nuovo contenitore** visualizzata dal lato destro del portale di Azure aggiungere un nome per il contenitore. Il nome deve essere in lettere minuscole ed è possibile includere numeri e trattini '-'. Selezionare quindi il **livello di accesso pubblico** dalla casella di riepilogo a discesa. Si consiglia di scegliere **privato (accesso non anonimo)** per impedire ad altri utenti di accedere ai dati. Per altre informazioni sui livelli di accesso ai contenitori, vedere [autorizzazioni di accesso al contenitore](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+3. Nella scheda **nuovo contenitore** visualizzata dal lato destro del portale di Azure aggiungere un nome per il contenitore. Il nome deve essere in lettere minuscole ed è possibile includere numeri e trattini '-'. Selezionare quindi il **livello di accesso pubblico** dalla casella di riepilogo a discesa. Si consiglia di scegliere **privato (accesso non anonimo)** per impedire ad altri utenti di accedere ai dati. Per altre informazioni sui livelli di accesso ai contenitori, vedere [autorizzazioni di accesso al contenitore](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
    ![Screenshot della scheda nuovo contenitore che mostra l'opzione privata (nessun accesso anonimo) selezionata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 

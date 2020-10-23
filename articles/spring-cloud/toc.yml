@@ -40,7 +40,7 @@
     - name: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD con Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Usare l'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuire Azure Spring Cloud nella rete virtuale
@@ -92,37 +92,38 @@
     - name: Diagnostica e risoluzione automatica dei problemi
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Monitorare
-      items:
-        - name: Traccia distribuita e Application Insights
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Analizzare log e metriche
-          href: diagnostic-services.md
-        - name: Streaming dei log in tempo reale
-          href: spring-cloud-howto-log-streaming.md
-    - name: Distribuzione di DevOps
-      items:
-        - name: CI/CD con DevOps di Azure
-          href: spring-cloud-howto-cicd.md
-        - name: CI/CD con GitHub Actions
-          href: spring-cloud-howto-github-actions.md
-        - name: Autenticazione con Key Vault in GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
-    - name: Risolvere problemi
-      items:
-        - name: Guida per la risoluzione dei problemi
-          href: spring-cloud-troubleshoot.md
+    - name: Creare ruoli e autorizzazioni
+      href: spring-cloud-howto-permissions.md
+    - name: Traccia distribuita e Application Insights
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Analizzare log e metriche
+      href: diagnostic-services.md
+    - name: Streaming dei log in tempo reale
+      href: spring-cloud-howto-log-streaming.md
+- name: Distribuzione di DevOps
+  items:
+    - name: CI/CD con DevOps di Azure
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD con GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Autenticazione con Key Vault in GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Risolvere problemi
+  items:
+    - name: Guida per la risoluzione dei problemi
+      href: spring-cloud-troubleshoot.md
 - name: Informazioni di riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
-      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
+      href: /powershell/module/az.springcloud
     - name: Risorse
       href: spring-cloud-resources.md
     - name: Domande frequenti
       href: spring-cloud-faq.md
     - name: Informazioni di riferimento sulle API REST
-      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+      href: /rest/api/azurespringclould/
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

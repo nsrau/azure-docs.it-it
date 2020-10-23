@@ -4,12 +4,12 @@ description: Questo articolo illustra come autenticare l'accesso alle risorse di
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270101"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332434"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse di hub eventi usando firme di accesso condiviso (SAS)
 Firma di accesso condiviso (SAS) offre un controllo granulare sul tipo di accesso concesso ai client che dispongono della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una firma di accesso condiviso: 
@@ -222,7 +222,7 @@ Per autenticare le applicazioni back-end che usano i dati generati dai producer 
 Vedere gli articoli seguenti:
 
 - [Autorizzare usando SAS](authenticate-shared-access-signature.md)
-- [Autorizzare l'uso del controllo degli accessi in base al ruolo (RBAC)](authenticate-shared-access-signature.md)
+- [Autorizzare usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](authenticate-shared-access-signature.md)
 - [Altre informazioni su Hub eventi](event-hubs-about.md)
 
 Vedere gli articoli correlati seguenti:

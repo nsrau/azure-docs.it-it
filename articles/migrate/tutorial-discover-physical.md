@@ -4,12 +4,12 @@ description: Informazioni su come individuare i server fisici locali con Valutaz
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442291"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314074"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Esercitazione: Individuare i server fisici con Valutazione server
 
@@ -208,7 +208,7 @@ Configurare l'appliance per la prima volta.
    
    L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web. 
-4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](tutorial-prepare-physical.md) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
+4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni]() corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
 
@@ -245,5 +245,3 @@ Dopo l'individuazione, è possibile verificare se i server vengono visualizzati 
 
 - [Valutare i server fisici](tutorial-assess-physical.md) per la migrazione alle macchine virtuali di Azure.
 - [Esaminare i dati](migrate-appliance.md#collected-data---physical) raccolti dall'appliance durante l'individuazione.
-
-

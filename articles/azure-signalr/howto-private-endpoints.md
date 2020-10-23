@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302143"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152332"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usare endpoint privati per il servizio Azure SignalR
 
@@ -60,7 +60,7 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per il servizio 
 | Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Una     | \<Azure SignalR Service public IP address\>           |
+| ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il controllo di accesso alla rete.
 
@@ -69,7 +69,7 @@ I record di risorse DNS per ' foobar ', quando vengono risolti da un client in V
 | Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Una     | 10.1.1.5                                              |
+| ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
 
 Questo approccio consente di accedere al servizio Azure SignalR **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
 
@@ -82,8 +82,8 @@ Il nome della zona DNS consigliata per gli endpoint privati per il servizio Azur
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
-- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configurazione DNS per endpoint privati](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configurazione DNS per endpoint privati](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Creare un endpoint privato
 
@@ -198,7 +198,7 @@ Questo vincolo è il risultato delle modifiche DNS apportate quando il servizio 
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
-Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../virtual-network/security-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

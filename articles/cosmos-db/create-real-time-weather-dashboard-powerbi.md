@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804130"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370764"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Creare un dashboard in tempo reale usando Azure Cosmos DB e Power BI
 
@@ -46,7 +46,7 @@ Azure Analysis Services offre una piattaforma completamente gestita come servizi
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Inserire i dati meteorologici in Azure Cosmos DB
 
-Configurare una pipeline di inserimento per caricare [i dati meteo](https://catalog.data.gov/dataset/local-weather-archive) in Azure Cosmos DB. È possibile configurare un processo di [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) per caricare periodicamente i dati meteo più recenti in Azure Cosmos DB usando l'origine http e il sink di Cosmos DB.
+Configurare una pipeline di inserimento per caricare [i dati meteo](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) in Azure Cosmos DB. È possibile configurare un processo di [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) per caricare periodicamente i dati meteo più recenti in Azure Cosmos DB usando l'origine http e il sink di Cosmos DB.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Connetti Power BI a Azure Cosmos DB
@@ -63,7 +63,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
    A seconda della colonna e del tipo di dati presenti nel set di dati di origine, è possibile modificare di conseguenza i campi RangeStart e RangeEnd
 
    
-   |Proprietà  |Tipo di dati  |Filtra  |
+   |Proprietà  |Tipo di dati  |Filtro  |
    |---------|---------|---------|
    |_ts     |   Numeric      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Data (ad esempio:-2019-08-19)     |   string      | [Document. date] > DateTime. ToText (RangeStart, "AAAA-MM-GG") e [Document. date] < DateTime. ToText (RangeEnd, "AAAA-MM-GG")        |
@@ -87,7 +87,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Inserire i dati meteorologici in Azure Cosmos DB 
 
-Configurare una pipeline di inserimento per caricare [i dati meteo](https://catalog.data.gov/dataset/local-weather-archive) in Azure Cosmos DB. È possibile configurare un processo di Azure Data Factory (ADF) per caricare periodicamente i dati meteo più recenti in Azure Cosmos DB usando l'origine HTTP e il sink di Cosmos DB.
+Configurare una pipeline di inserimento per caricare [i dati meteo](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) in Azure Cosmos DB. È possibile configurare un processo di Azure Data Factory (ADF) per caricare periodicamente i dati meteo più recenti in Azure Cosmos DB usando l'origine HTTP e il sink di Cosmos DB.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Connetti Azure Analysis Services all'account Azure Cosmos
 

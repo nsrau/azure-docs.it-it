@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302526"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142611"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurare gli upload dei file nell'hub IoT tramite l'interfaccia della riga di comando di Azure
 
@@ -21,21 +21,21 @@ ms.locfileid: "78302526"
 
 Per [caricare i file da un dispositivo](iot-hub-devguide-file-upload.md), è prima di tutto necessario associare un account di archiviazione di Azure all'hub IoT. È possibile usare un account di archiviazione esistente o crearne uno nuovo.
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* Un hub IoT di Azure. Se non si dispone di un hub Internet delle cose, è possibile usare il [ `az iot hub create` comando](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) per crearne uno o [creare un hub Internet delle cose usando il portale](iot-hub-create-through-portal.md).
+* Un hub IoT di Azure. Se non si dispone di un hub Internet delle cose, è possibile usare il [ `az iot hub create` comando](/cli/azure/iot/hub#az-iot-hub-create) per crearne uno o [creare un hub Internet delle cose usando il portale](iot-hub-create-through-portal.md).
 
-* Un account dell'Archiviazione di Azure. Se non si ha un account di archiviazione di Azure, è possibile usare l'interfaccia della riga di comando di Azure per crearne uno. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md).
+* Un account dell'Archiviazione di Azure. Se non si ha un account di archiviazione di Azure, è possibile usare l'interfaccia della riga di comando di Azure per crearne uno. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
 
 Accedere al proprio account Azure e selezionare la sottoscrizione.
 
-1. Al prompt dei comandi eseguire il [comando per l'accesso](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. Al prompt dei comandi eseguire il [comando per l'accesso](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
 
     ```azurecli
     az login
@@ -43,7 +43,7 @@ Accedere al proprio account Azure e selezionare la sottoscrizione.
 
     Seguire le istruzioni per l'autenticazione tramite il codice e accedere all'account Azure con un Web browser.
 
-2. Se si usano più sottoscrizioni di Azure, effettuando l'accesso ad Azure è possibile accedere a tutti gli account Azure associati alle credenziali. Usare il seguente [comando per elencare gli account Azure](https://docs.microsoft.com/cli/azure/account) che è possibile usare:
+2. Se si usano più sottoscrizioni di Azure, effettuando l'accesso ad Azure è possibile accedere a tutti gli account Azure associati alle credenziali. Usare il seguente [comando per elencare gli account Azure](/cli/azure/account) che è possibile usare:
 
     ```azurecli
     az account list
@@ -144,5 +144,5 @@ Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare ques
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Proteggere la soluzione IoT sin dall'inizio](../iot-fundamentals/iot-security-ground-up.md)

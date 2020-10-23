@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f136248b93283b02824ead7f34886a056ae0a33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762060"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969773"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
-- Un documento modulo. È possibile scaricare un'immagine dal [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) per questo argomento di avvio rapido.
+- Un documento modulo. È possibile scaricare un'immagine dal [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip*) per questa guida di avvio rapido.
 
 > [!NOTE]
 > Questo argomento di avvio rapido usa un documento archiviato localmente. Per informazioni sull'uso di file remoti accessibili tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).

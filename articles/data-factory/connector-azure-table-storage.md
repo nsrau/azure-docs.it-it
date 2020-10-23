@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417486"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220449"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 
@@ -236,7 +236,7 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureTableSource**. |Sì |
-| AzureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati. Vedere gli esempi nella sezione seguente. |No |
+| AzureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati.<br/>La query di origine è una mappa diretta dall' `$filter` opzione di query supportata dall'archiviazione tabelle di Azure. per altre informazioni sulla sintassi di [questo documento](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), vedere gli esempi nella [sezione Esempi di azureTableSourceQuery](#azuretablesourcequery-examples)seguente. |No |
 | azureTableSourceIgnoreTableNotFound |Indica se consentire l'eccezione di tabella non esistente.<br/>I valori consentiti sono **True** e **False** (predefinito). |No |
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery

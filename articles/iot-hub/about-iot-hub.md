@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87428974"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148835"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
@@ -40,7 +40,7 @@ L'Hub IoT consente un canale di comunicazione sicuro per i dispositivi per l'inv
 
 * Si dispone del controllo completo sull'accesso al dispositivo ed è possibile controllare le connessioni a livello di ogni dispositivo.
 
-* Il [Servizio Device Provisioning in hub IoT](https://docs.microsoft.com/azure/iot-dps/) esegue automaticamente il provisioning dei dispositivi all'hub IoT corretto quando il dispositivo si avvia per la prima volta.
+* Il [Servizio Device Provisioning in hub IoT](../iot-dps/index.yml) esegue automaticamente il provisioning dei dispositivi all'hub IoT corretto quando il dispositivo si avvia per la prima volta.
 
 * Più tipi di autenticazione supportano un'ampia gamma di funzionalità del dispositivo:
 
@@ -64,13 +64,13 @@ La funzionalità di routing dei messaggi incorporati offre flessibilità per con
 
 È possibile integrare l'hub IoT con altri servizi di Azure per compilare soluzioni end-to-end complete. Ad esempio, usare:
 
-* [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/) consente all'azienda di reagire rapidamente a eventi critici in modo affidabile, scalabile e sicuro.
+* [Griglia di eventi di Azure](../event-grid/index.yml) consente all'azienda di reagire rapidamente a eventi critici in modo affidabile, scalabile e sicuro.
 
-* [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/) per automatizzare i processi aziendali.
+* [App per la logica di Azure](../logic-apps/index.yml) per automatizzare i processi aziendali.
 
 * [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) per aggiungere la machine learning e tutti i modelli alla soluzione dell'utente.
 
-* [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) per eseguire calcoli di analisi in tempo reale sui dati di streaming dai dispositivi.
+* [Analisi di flusso di Azure](../stream-analytics/index.yml) per eseguire calcoli di analisi in tempo reale sui dati di streaming dai dispositivi.
 
 ## <a name="configure-and-control-your-devices"></a>Configurare e controllare i dispositivi
 
@@ -88,7 +88,7 @@ La funzionalità di routing dei messaggi incorporati offre flessibilità per con
 
 ## <a name="connect-your-devices"></a>Connettere i dati dell'utente
 
-Usare le librerie di [Azure IoT SDK per dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) per compilare applicazioni in esecuzione sui dispositivi e che interagiscono con l'hub IoT. Le piattaforme supportate includono più distribuzioni Linux, Windows e sistemi operativi in tempo reale. Le lingue supportate comprendono:
+Usare le librerie di [Azure IoT SDK per dispositivi](./iot-hub-devguide-sdks.md) per compilare applicazioni in esecuzione sui dispositivi e che interagiscono con l'hub IoT. Le piattaforme supportate includono più distribuzioni Linux, Windows e sistemi operativi in tempo reale. Le lingue supportate comprendono:
 
 * C
 * C#
@@ -108,7 +108,7 @@ Se la soluzione non può usare le librerie dei dispositivi, i dispositivi posson
 
 Se la soluzione dell'utente non può usare uno dei protocolli supportati, è possibile estendere l'Hub IoT per supportare i protocolli personalizzati:
 
-* Usare [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) per creare un gateway di campo per l'esecuzione della traslazione del protocollo sul bordo.
+* Usare [Azure IoT Edge](../iot-edge/index.yml) per creare un gateway di campo per l'esecuzione della traslazione del protocollo sul bordo.
 
 * Personalizzare il [gateway del protocollo Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) per eseguire la traslazione del protocollo nel cloud.
 

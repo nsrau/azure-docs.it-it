@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i modelli di Azure Resource Manager?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare modelli - Portale
       href: quickstart-create-templates-use-the-portal.md
@@ -98,6 +98,8 @@
               href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: DevOps
           items:
+            - name: Configurazione app
+              href: ../../azure-app-configuration/quickstart-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DevTest Labs
               href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Pipeline
@@ -164,6 +166,8 @@
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Sicurezza
           items:
+            - name: Attestazione
+              href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Key Vault
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Archiviazione
@@ -172,6 +176,8 @@
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Web
           items:
+            - name: Servizio app
+              href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Hub di notifica
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Esercitazioni

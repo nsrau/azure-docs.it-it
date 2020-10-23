@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Modificare i moduli Analisi video live di IoT Edge
+title: Esercitazione - Modificare i moduli Analisi video live di Azure IoT Edge
 description: Questa esercitazione mostra come modificare e creare i moduli del gateway Analisi video live usati dal modello di applicazione Analisi video - rilevamento movimento e oggetti.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037997"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124895"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Esercitazione: Modificare e creare i moduli del gateway Analisi video live
 
@@ -28,8 +28,8 @@ Per completare la procedura di questa esercitazione, è necessario quanto segue:
 * [Node.js](https://nodejs.org/en/download/) versione 10 o successiva
 * [Visual Studio Code](https://code.visualstudio.com/Download) con l'estensione [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) installata
 * Motore [Docker](https://www.docker.com/products/docker-desktop)
-* Un'istanza di [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) per ospitare le versioni personalizzate dei moduli.
-* Un account di [Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
+* Un'istanza di [Registro Azure Container](../../container-registry/index.yml) per ospitare le versioni personalizzate dei moduli.
+* Un account di [Servizi multimediali di Azure](../../media-services/index.yml). Se sono state completate le esercitazioni precedenti, è possibile riutilizzare quello creato in precedenza.
 
 ## <a name="clone-the-repository"></a>Clonare il repository
 
@@ -50,7 +50,7 @@ Aprire la cartella del repository *live-video-analytics* locale con VS Code.
 1. Modificare la sezione del modulo `LvaEdgeGatewayModule` per aggiungere il nome dell'immagine e il nome dell'account AMS in `env:amsAccountName:value`.
 1. Modificare la sezione del modulo `lvaYolov3` e aggiungere il nome dell'immagine.
 1. Modificare la sezione del modulo `lvaEdge` e aggiungere il nome dell'immagine.
-1. Per informazioni su come completare la configurazione, vedere [Creare un'applicazione di analisi video in Azure IoT Central](tutorial-video-analytics-create-app.md).
+1. Per informazioni su come completare la configurazione, vedere [Creare un'applicazione di analisi video in Azure IoT Central](tutorial-video-analytics-create-app-yolo-v3.md).
 
 ## <a name="build-the-code"></a>Compilare il codice
 

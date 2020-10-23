@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756919"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044769"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Avvio rapido: Ottenere un numero di telefono tramite il portale di Azure
 
@@ -103,7 +103,7 @@ Selezionare il pannello Numeri di telefono nel menu per gestire i numeri di tele
 > [!NOTE]
 > Potrebbero essere necessari alcuni minuti prima che i numeri di cui è stato effettuato il provisioning vengano visualizzati in questa pagina.
 
-### <a name="customizing-phone-number-plans"></a>Personalizzare i piani dei numeri di telefono
+### <a name="customizing-phone-number-features"></a>Personalizzazione delle funzionalità dei numeri di telefono
 Nella pagina `Numbers` è possibile selezionare il numero di telefono facendo clic sul numero per cui personalizzare il piano.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::

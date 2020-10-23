@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327222"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151584"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -31,7 +31,7 @@ LUIS consente tre tipi di risorse di Azure e una risorsa non di Azure:
 |--|--|--|--|
 |Creazione di una risorsa|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. [Creare una risorsa Luis authoring](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se si vuole creare Luis Apps programtically o dal portale Luis. È necessario prima [eseguire la migrazione dell'account Luis](luis-migration-authoring.md#what-is-migration) per poter collegare le risorse Authroring di Azure all'applicazione. È possibile controllare le autorizzazioni per la risorsa di creazione assegnando persone al [ruolo Collaboratore](#contributions-from-other-authors). <br><br> Esiste un avialable di livello per la risorsa LUIS Authoring:<br> * **Risorsa di authoring F0 gratuita** che offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite per i test mensili. |`LUIS.Authoring`|`Cognitive Services`|
 |Risorsa di stima| Dopo la pubblicazione dell'applicazione LUIS, utilizzare la risorsa/chiave di stima per eseguire query sulle richieste dell'endpoint di stima. Creare una risorsa di stima LUIS prima che l'app client richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione o di avvio. <br><br> Sono disponibili due livelli di avialble per la risorsa di stima:<br> * **Risorsa di stima F0 gratuita** che fornisce 10.000 richieste di endpoint di stima gratuite mensili<br> * **Risorsa di stima S0 standard** che corrisponde al livello a pagamento. [Ulteriori informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Risorsa di avvio/versione di valutazione|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. Questa operazione viene creata da predefinito se si sceglie l'opzione della risorsa di avvio durante la prima iscrizione di TP LUIS. Tuttavia, la chiave di avvio sarà deprecata e tutti gli utenti LUIS dovranno eseguire la [migrazione dei propri account](luis-migration-authoring.md#what-is-migration) e collegare le applicazioni Luis a una risorsa di creazione. Questa risorsa non fornisce le autorizzazioni per il controllo degli accessi in base al ruolo, come la risorsa di creazione. <br><br> Proprio come la risorsa di creazione, la risorsa iniziale offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite.|-|Non è una risorsa di Azure|
+|Risorsa di avvio/versione di valutazione|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. Questa operazione viene creata da predefinito se si sceglie l'opzione della risorsa di avvio durante la prima iscrizione di TP LUIS. Tuttavia, la chiave di avvio sarà deprecata e tutti gli utenti LUIS dovranno eseguire la [migrazione dei propri account](luis-migration-authoring.md#what-is-migration) e collegare le applicazioni Luis a una risorsa di creazione. Questa risorsa non fornisce le autorizzazioni per il controllo degli accessi in base al ruolo di Azure, come la risorsa di creazione. <br><br> Proprio come la risorsa di creazione, la risorsa iniziale offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite.|-|Non è una risorsa di Azure|
 |[Chiave di risorsa multiservizio di servizi cognitivi](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Richieste di endpoint di stima delle query condivise con LUIS e altri servizi cognitivi supportati.|`CognitiveServices`|`Cognitive Services`|
 
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543279"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Sectigo Certificate Manager
 
-Questa esercitazione descrive come integrare Sectigo Certificate Manager con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Sectigo Certificate Manager (noto anche come SCM) con Azure Active Directory (Azure AD).
 
 L'integrazione di Sectigo Certificate Manager con Azure AD offre i vantaggi seguenti:
 
@@ -35,7 +35,10 @@ Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con
 Per configurare l'integrazione di Azure AD con Sectigo Certificate Manager, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di una sottoscrizione di Azure AD, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Sottoscrizione di Sectigo Certificate Manager abilitata per l'accesso Single Sign-On.
+* Account di Sectigo Certificate Manager.
+
+> [!NOTE]
+> Sectigo esegue più istanze di Sectigo Certificate Manager. L'istanza principale di Sectigo Certificate Manager è **https:\//cert-manager.com** e questo è l'URL usato in questa esercitazione.  Se l'account usato si trova in un'istanza diversa, è necessario modificare gli URL di conseguenza.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -99,47 +102,45 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con Sectigo 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nel riquadro **Configurazione SAML di base** seguire questa procedura per configurare la *modalità avviata da IDP*:
+1. Nella sezione **Configurazione SAML di base** completare la procedura seguente:
 
-    1. Nella casella **Identificatore** immettere uno degli URL seguenti:
-       * https:\//cert-manager.com/shibboleth
-       * https:\//hard.cert-manager.com/shibboleth
+    1. Nella casella **Identificatore (ID entità)** immettere **https:\//cert-manager.com/shibboleth** per l'istanza principale di Sectigo Certificate Manager.
 
-    1. Nella casella **URL di risposta** immettere uno degli URL seguenti:
-        * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
-        * https:\//hard.cert-manager.com/Shibboleth.sso/SAML2/POST
+    1. Nella casella **URL di risposta** immettere **https:\//cert-manager.com/Shibboleth.sso/SAML2/POST** per l'istanza principale di Sectigo Certificate Manager.
+        
+    > [!NOTE]
+    > Anche se in generale il valore di **URL di accesso** è obbligatorio per la *modalità avviata da SP*, non è necessario eseguire l'accesso da Sectigo Certificate Manager.        
+
+1. Facoltativamente, nella sezione **Configurazione SAML di base** completare la procedura seguente per configurare la *modalità avviata da IDP* e consentire il funzionamento di **Test**:
 
     1. Selezionare **Imposta URL aggiuntivi**.
 
-    1. Nella casella **Stato dell'inoltro** immettere uno degli URL seguenti:
-       * https:\//cert-manager.com/customer/SSLSupport/idp
-       * https:\//hard.cert-manager.com/customer/SSLSupport/idp
+    1. Nella casella **Stato dell'inoltro** immettere l'URL specifico del cliente di Sectigo Certificate Manager. Per l'istanza principale di Sectigo Certificate Manager immettere **https:\//cert-manager.com/customer/\<customerURI\>/idp**.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Sectigo Certificate Manager](common/idp-relay.png)
 
-1.  Per configurare l'applicazione in *modalità avviata da SP*, seguire questa procedura:
+1. Nella sezione **Attributi utente e attestazioni** completare la procedura seguente:
 
-    * Nella casella **URL di accesso** immettere uno degli URL seguenti:
-      * https:\//cert-manager.com/Shibboleth.sso/Login
-      * https:\//hard.cert-manager.com/Shibboleth.sso/Login
+    1. Eliminare tutte le **attestazioni aggiuntive**.
+    
+    1. Selezionare **Aggiungi nuova attestazione** e aggiungere le quattro attestazioni seguenti:
+    
+        | Nome | Spazio dei nomi | Source (Sorgente) | Attributo di origine | Descrizione |
+        | --- | --- | --- | --- | --- |
+        | eduPersonPrincipalName | empty | Attributo | user.userprincipalname | Deve corrispondere al campo **IdP person ID** (ID persona IdP) in Sectigo Certificate Manager for Admins. |
+        | mail | empty | Attributo | user.mail | Obbligatoria |
+        | givenName | empty | Attributo | user.givenname | Facoltativo |
+        | sn | empty | Attributo | user.surname | Facoltativo |
 
-      ![Informazioni su URL e dominio per l'accesso Single Sign-On di Sectigo Certificate Manager](common/both-signonurl.png)
+       ![Sectigo Certificate Manager - Aggiunta di quattro nuove attestazioni](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. Nella sezione **Certificato di firma SAML** nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** accanto a **Certificato (Base64)** . Selezionare un'opzione di download in base alle esigenze. Salvare il certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** selezionare **Download** accanto a **XML metadati federazione**. Salvare il file XML nel computer.
 
-    ![Opzione di download Certificato (Base64)](common/certificatebase64.png)
-
-1. Nella sezione **Configura Sectigo Certificate Manager** copiare gli URL seguenti in base alle esigenze:
-
-    * URL di accesso
-    * Identificatore di Azure AD
-    * URL di chiusura sessione
-
-    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+    ![Opzione per il download del file XML dei metadati federazione](common/metadataxml.png)
 
 ### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configurare l'accesso Single Sign-On di Sectigo Certificate Manager
 
-Per configurare l'accesso Single Sign-On sul lato Sectigo Certificate Manager, inviare il file del certificato (Base64) scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Sectigo Certificate Manager](https://sectigo.com/support). Il team di supporto di Sectigo Certificate Manager usa le informazioni inviate per assicurarsi che la connessione Single Sign-On SAML venga impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato Sectigo Certificate Manager, inviare il file XML dei metadati della federazione scaricato al [team di supporto di Sectigo Certificate Manager](https://sectigo.com/support). Il team di supporto di Sectigo Certificate Manager usa le informazioni inviate per assicurarsi che la connessione Single Sign-On SAML venga impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -167,7 +168,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si concede a Britta Simon l'accesso a Sectigo Certificate Manager in modo che possa usare l'accesso Single Sign-On di Azure.
+In questa sezione si concede a Britta Simon l'accesso a Sectigo Certificate Manager in modo che l'utente possa usare l'accesso Single Sign-On di Azure.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Sectigo Certificate Manager**.
 
@@ -197,9 +198,19 @@ In questa sezione viene creato un utente di nome Britta Simon in Sectigo Certifi
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD tramite il portale App personali.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD.
 
-Dopo aver configurato l'accesso Single Sign-On, quando si seleziona **Sectigo Certificate Manager** nel portale App personali, viene eseguito automaticamente l'accesso a Sectigo Certificate Manager. Per altre informazioni sul portale App personali, vedere [Accedere e usare le app nel portale App personali](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Eseguire il test da Sectigo Certificate Manager (accesso Single Sign-On avviato da SP)
+
+Aprire l'URL specifico del cliente, che per l'istanza principale di Sectigo Certificate Manager è https:\//cert-manager.com/customer/\<customerURI\>/ e selezionare il pulsante sotto **Or Sign In With** (Oppure eseguire l'accesso con).  Se la configurazione è corretta, l'accesso a Sectigo Certificate Manager verrà eseguito automaticamente.
+
+#### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Eseguire il test dalla configurazione dell'accesso Single Sign-On (accesso Single Sign-On avviato da IDP)
+
+Nel riquadro di integrazione dell'applicazione **Sectigo Certificate Manager** selezionare **Single Sign-On** e selezionare il pulsante **Test**.  Se la configurazione è corretta, l'accesso a Sectigo Certificate Manager verrà eseguito automaticamente.
+
+#### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>Eseguire il test con il portale App personali (accesso Single Sign-On avviato da IDP)
+
+Selezionare **Sectigo Certificate Manager** nel portale App personali.  Se la configurazione è corretta, l'accesso a Sectigo Certificate Manager verrà eseguito automaticamente. Per altre informazioni sul portale App personali, vedere [Accedere e usare le app nel portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

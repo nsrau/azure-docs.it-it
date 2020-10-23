@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005650"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173008"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Con *metriche* si intendono le risorse rilevanti per i servizi, che sono fornite dai nodi nel cluster. Una metrica è un qualsiasi elemento che si vuole gestire per controllare o migliorare le prestazioni dei servizi. Ad esempio, è possibile osservare il consumo di memoria per capire se il servizio è sovraccarico. Le metriche possono essere usate per determinare se il servizio può essere spostato in un'altra posizione con memoria meno vincolata, per ottenere prestazioni migliori.
@@ -27,7 +27,7 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 
 | Metrica | Carico di istanza senza stato | Carico secondario con stato | Carico primario con stato | Peso |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |Alto |
+| PrimaryCount |0 |0 |1 |Alta |
 | ReplicaCount |0 |1 |1 |Media |
 | Conteggio |1 |1 |1 |Basso |
 
@@ -138,12 +138,13 @@ Di seguito ognuna di queste impostazioni viene esaminata in modo più dettagliat
 ## <a name="load"></a>Caricamento
 La definizione di metriche consiste essenzialmente nella rappresentazione di un carico. Il *carico* è la quantità di una determinata metrica che viene consumata da una replica o un'istanza del servizio in un nodo specifico. Il carico può essere configurato in qualsiasi momento, Ad esempio:
 
-  - Può essere definito quando viene creato un servizio. Si tratta in questo caso del _carico predefinito_.
-  - Le informazioni sulla metrica, inclusi i carichi predefiniti per un servizio possono essere aggiornati dopo aver creato il servizio. Si tratta in questo caso di _aggiornamento di un servizio_. 
-  - Il carico di una determinata partizione può essere reimpostato sui valori predefiniti per il servizio. Viene definita _reimpostazione del carico della partizione_.
-  - Il carico può essere restituito per ogni oggetto servizio in modo dinamico in fase di esecuzione. Si ha in questo caso la _creazione di report di carico_. 
-  
-Tutte queste strategie possono essere usate nello stesso servizio per tutta la relativa durata. 
+  - Può essere definito quando viene creato un servizio. Questo tipo di configurazione di caricamento è denominato _carico predefinito_.
+  - Le informazioni sulle metriche, inclusi i caricamenti predefiniti, per un servizio possono essere aggiornate dopo la creazione del servizio. Questo aggiornamento della metrica viene eseguito tramite l' _aggiornamento di un servizio_.
+  - Il carico di una determinata partizione può essere reimpostato sui valori predefiniti per il servizio. Questo aggiornamento della metrica viene chiamato _reimpostazione del carico della partizione_.
+  - Il carico può essere segnalato in base a un oggetto per servizio, in modo dinamico in fase di esecuzione. Questo aggiornamento della metrica è denominato _caricamento report_.
+  - Il carico per le repliche o le istanze della partizione può essere aggiornato anche segnalando i valori di carico tramite una chiamata API dell'infrastruttura. Questo aggiornamento della metrica viene definito _caricamento dei report per una partizione_.
+
+Tutte queste strategie possono essere usate nello stesso servizio per tutta la relativa durata.
 
 ## <a name="default-load"></a>Carico predefinito
 Il *carico predefinito* è la quantità di metrica consumata da ogni oggetto servizio (istanza senza stato o replica con stato) del servizio specifico. Cluster Resource Manager usa questo numero per il carico dell'oggetto servizio finché non riceve altre informazioni, ad esempio un report del carico dinamico. Per i servizi più semplici, il carico predefinito è una definizione statica. Non viene mai aggiornato e viene usato per tutta la durata del servizio. Il carico predefinito è efficace per scenari di pianificazione della capacità semplici, in cui determinate quantità di risorse sono dedicate a diversi carichi di lavoro e non vengono modificate.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 Un servizio può segnalare in un report una qualsiasi delle metriche definite al momento della creazione. Se un servizio segnala il carico per una metrica non configurata per l'utilizzo, Service Fabric ignora il report. Se nello stesso momento vengono segnalate altre metriche valide, i report vengono accettati. Il codice del servizio può eseguire la misurazione e la creazione di report per tutte le metriche configurate e gli operatori possono specificare la configurazione delle metriche da usare senza dover modificare il codice. 
+
+## <a name="reporting-load-for-a-partition"></a>Segnalazione del carico per una partizione
+La sezione precedente descrive il modo in cui le repliche del servizio o le istanze segnalano il carico stesso. È disponibile un'opzione aggiuntiva per segnalare dinamicamente il carico con FabricClient. Quando si segnala il carico per una partizione, è possibile creare una segnalazione per più partizioni contemporaneamente.
+
+Tali report verranno usati esattamente come i report di caricamento provenienti dalle repliche o dalle istanze stesse. I valori segnalati saranno validi fino a quando non vengono segnalati nuovi valori di carico, tramite la replica o l'istanza o segnalando un nuovo valore di carico per una partizione.
+
+Con questa API sono disponibili diversi modi per aggiornare il carico nel cluster:
+
+  - Una partizione del servizio con stato può aggiornare il carico della replica primaria.
+  - I servizi con e senza stato possono aggiornare il carico di tutte le repliche o istanze secondarie.
+  - I servizi con e senza stato possono aggiornare il carico di una replica o di un'istanza specifica in un nodo.
+
+È anche possibile combinare uno di questi aggiornamenti per partizione nello stesso momento.
+
+L'aggiornamento dei carichi per più partizioni è possibile con una singola chiamata API, nel qual caso l'output conterrà una risposta per partizione. Nel caso in cui l'aggiornamento della partizione non venga applicato correttamente per qualsiasi motivo, gli aggiornamenti per tale partizione verranno ignorati e verrà fornito il codice di errore corrispondente per una partizione di destinazione:
+
+  - PartitionNotFound-l'ID partizione specificato non esiste.
+  - ReconfigurationPending-la partizione è attualmente in fase di riconfigurazione.
+  - InvalidForStatelessServices: è stato effettuato un tentativo di modificare il carico di una replica primaria per una partizione che appartiene a un servizio senza stato.
+  - ReplicaDoesNotExist: la replica o l'istanza secondaria non esiste in un nodo specificato.
+  - InvalidOperation-può verificarsi in due casi: il caricamento dell'aggiornamento per una partizione che appartiene all'applicazione di sistema o l'aggiornamento del carico stimato non è abilitato.
+
+Se vengono restituiti alcuni degli errori, è possibile aggiornare l'input per una partizione specifica, quindi riprovare a eseguire l'aggiornamento per una partizione specifica.
+
+Codice:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+Con questo esempio, verrà eseguito un aggiornamento dell'ultimo carico segnalato per una partizione _53df3d7f-5471-403b-B736-bde6ad584f42_. Il carico della replica primaria per una metrica _CustomMetricName0_ verrà aggiornato con il valore 100. Allo stesso tempo, il carico per la stessa metrica per una replica secondaria specifica situata nel nodo _NodeName0_verrà aggiornato con il valore 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Aggiornamento della configurazione delle metriche di un servizio
 È possibile aggiornare in modo dinamico e in tempo reale l'elenco delle metriche associate al servizio e le proprietà di tali metriche. Questo approccio consente di sperimentare con flessibilità. Di seguito alcuni esempi che mostrano l'utilità di questo tipo di aggiornamento:

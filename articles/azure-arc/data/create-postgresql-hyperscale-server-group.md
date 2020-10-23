@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317345"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364423"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
@@ -24,7 +24,7 @@ Questo documento descrive i passaggi per creare un gruppo di server con iperscal
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Se si ha già familiarità con gli argomenti riportati di seguito, è possibile ignorare questo paragrafo.
 È possibile leggere alcuni argomenti importanti prima di procedere con la creazione:
 - [Panoramica dei servizi dati abilitati per Azure Arc](overview.md)
@@ -112,7 +112,7 @@ Per visualizzare gli endpoint per un'istanza di PostgreSQL, eseguire il comando 
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Ad esempio:
+Esempio:
 ```console
 [
   {
@@ -130,7 +130,7 @@ Ad esempio:
 ]
 ```
 
-È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via.
+È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via.
 
 Se si usa una macchina virtuale di Azure da testare, seguire le istruzioni seguenti:
 
@@ -138,7 +138,7 @@ Se si usa una macchina virtuale di Azure da testare, seguire le istruzioni segue
 
 Quando si usa una macchina virtuale di Azure, l'indirizzo IP dell'endpoint non visualizzerà l'indirizzo IP _pubblico_ . Per individuare l'indirizzo IP pubblico, usare il comando seguente:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ Potrebbe anche essere necessario esporre la porta del gruppo di server di ipersc
 
 Per impostare una regola, è necessario conoscerne il nome NSG. Per determinare il NSG, usare il comando seguente:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,7 +156,7 @@ Una volta ottenuto il nome del NSG, è possibile aggiungere una regola del firew
 
 Sostituire il valore del parametro--Destination-Port-Ranges sotto con il numero di porta ottenuto dal comando ' azdata Arc Postgres server list ' precedente.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -169,7 +169,7 @@ Aprire Azure Data Studio e connettersi all'istanza di con l'indirizzo IP e il nu
 
 Tenere presente che se si usa una macchina virtuale di Azure, sarà necessario l'indirizzo IP _pubblico_ accessibile tramite il comando seguente:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

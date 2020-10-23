@@ -4,12 +4,12 @@ description: Panoramica del servizio Backup di Azure e del suo contributo nel co
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968328"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172469"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Informazioni sul servizio Backup di Azure
 
@@ -46,7 +46,7 @@ Backup di Azure offre i vantaggi principali seguenti:
 - **Più opzioni di archiviazione**: Backup di Azure offre due tipi di replica per garantire la disponibilità elevata delle risorse di archiviazione e/o dei dati.
   - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy.md#locally-redundant-storage) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
   - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di servizio a livello di area.
-  - L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendone la residenza e la resilienza nella stessa area. L'archiviazione con ridondanza della zona non prevede tempi di inattività. Pertanto, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e non possono subire tempi di inattività possono essere sottoposti a backup nell'archiviazione con ridondanza della zona.
+  - L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendone la residenza e la resilienza nella stessa area. L'archiviazione con ridondanza della zona non prevede tempi di inattività. Pertanto, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e non possono subire tempi di inattività possono essere sottoposti a backup nell'archiviazione con ridondanza della zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

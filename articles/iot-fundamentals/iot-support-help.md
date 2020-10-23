@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: ea4ecbbeaa4ad016e32aa9301d6f6ac49a6d342e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330180"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206051"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Opzioni di supporto e assistenza di Azure IoT
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Quali sono le opzioni di supporto e assistenza di Azure IoT?
 
 Ecco alcuni suggerimenti su dove è possibile ottenere assistenza durante lo sviluppo di soluzioni di Azure IoT.
 
@@ -31,21 +31,21 @@ Esplorare la gamma di [opzioni di supporto tecnico di Azure e scegliere il piano
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Pubblicare una domanda in Domande e risposte Microsoft
 
-Per ricevere risposte rapide e affidabili a domande di carattere tecnico sui prodotti, è possibile interagire con tecnici Microsoft, con MVP (Most Valuable Professional) di Azure o con la community di esperti nella pagina [Domande e risposte Microsoft](https://aka.ms/azureqa), la destinazione ideale di Azure per il supporto della community. 
+Per ricevere risposte rapide e affidabili a domande di carattere tecnico sui prodotti, è possibile interagire con tecnici Microsoft, con MVP (Most Valuable Professional) di Azure o con la community di esperti nella pagina [Domande e risposte Microsoft](/answers/products/azure), la destinazione ideale di Azure per il supporto della community. 
 
 Se non si trova una risposta al problema tramite la ricerca, inviare una nuova domanda a Domande e risposte Microsoft. Quando si formula la domanda, usare uno dei tag seguenti:
 
-- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
-- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
-- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Hub IoT Azure](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Servizio Device Provisioning in hub IoT di Azure](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
-- [Azure IoT SDK](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
-- [Gemelli digitali di Azure](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
-- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
-- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
-- [Mappe di Azure](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Azure IoT](/answers/topics/azure-iot.html)
+- [Azure IoT Central](/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](/answers/topics/azure-iot-edge.html)
+- [Hub IoT Azure](/answers/topics/azure-iot-hub.html)
+- [Servizio Device Provisioning in hub IoT di Azure](/answers/topics/azure-iot-dps.html)
+- [Azure IoT SDK](/answers/topics/azure-iot-sdk.html)
+- [Gemelli digitali di Azure](/answers/topics/azure-digital-twins.html)
+- [Azure RTOS](/answers/topics/azure-rtos.html)
+- [Azure Sphere](/answers/topics/azure-sphere.html)
+- [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
+- [Mappe di Azure](/answers/topics/azure-maps.html)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Pubblicare una domanda su Stack Overflow
 
@@ -101,5 +101,4 @@ Inoltre, è possibile condividere le proprie esperienze, contattare e imparare d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Che cos'è Azure IoT?](iot-introduction.md)
+[Che cos'è Azure IoT?](iot-introduction.md)

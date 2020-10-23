@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651242"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207343"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
@@ -209,7 +209,7 @@ In questa sezione è possibile visualizzare Gestione traffico in azione.
 
    ![Testare il profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 
-## <a name="delete-the-traffic-manager-profile"></a>Eliminare il profilo di Gestione traffico
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, eliminare i gruppi di risorse (**ResourceGroupTM1** e **ResourceGroupTM2**). A tale scopo, selezionare il gruppo di risorse (**ResourceGroupTM1** o **ResourceGroupTM2**) e quindi selezionare **Elimina**.
 

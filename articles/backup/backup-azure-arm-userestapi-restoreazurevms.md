@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506679"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174023"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -122,7 +122,7 @@ Dopo aver selezionato il [punto di ripristino pertinente](#select-recovery-point
 ***Tutte le operazioni di ripristino sull'elemento di backup vengono eseguite con la stessa API *post* . Solo il corpo della richiesta cambia con gli scenari di ripristino.***
 
 > [!IMPORTANT]
-> Di [seguito](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options)sono indicati tutti i dettagli sulle varie opzioni di ripristino e le relative dipendenze. Prima di procedere con l'attivazione di queste operazioni, vedere.
+> Di [seguito](./backup-azure-arm-restore-vms.md#restore-options)sono indicati tutti i dettagli sulle varie opzioni di ripristino e le relative dipendenze. Prima di procedere con l'attivazione di queste operazioni, vedere.
 
 L'attivazione delle operazioni di ripristino è una richiesta *post* . Per altre informazioni sull'API, vedere l' [API REST "trigger Restore"](/rest/api/backup/restores/trigger).
 
@@ -246,7 +246,7 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 
 ### <a name="restore-disks-selectively"></a>Ripristinare i dischi in modo selettivo
 
-Se si esegue il backup in modo [selettivo dei dischi](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), l'elenco di dischi sottoposti a backup corrente viene fornito nel [Riepilogo dei punti di ripristino](#select-recovery-point) e nella [risposta dettagliata](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). È anche possibile ripristinare in modo selettivo i dischi e altri dettagli sono disponibili [qui](selective-disk-backup-restore.md#selective-disk-restore). Per ripristinare in modo selettivo un disco tra l'elenco dei dischi di cui è stato eseguito il backup, trovare il LUN del disco dalla risposta del punto di ripristino e aggiungere la proprietà **restoreDiskLunList** al [corpo della richiesta precedente](#example-request) , come illustrato di seguito.
+Se si esegue il backup in modo [selettivo dei dischi](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), l'elenco di dischi sottoposti a backup corrente viene fornito nel [Riepilogo dei punti di ripristino](#select-recovery-point) e nella [risposta dettagliata](/rest/api/backup/recoverypoints/get). È anche possibile ripristinare in modo selettivo i dischi e altri dettagli sono disponibili [qui](selective-disk-backup-restore.md#selective-disk-restore). Per ripristinare in modo selettivo un disco tra l'elenco dei dischi di cui è stato eseguito il backup, trovare il LUN del disco dalla risposta del punto di ripristino e aggiungere la proprietà **restoreDiskLunList** al [corpo della richiesta precedente](#example-request) , come illustrato di seguito.
 
 ```json
 {

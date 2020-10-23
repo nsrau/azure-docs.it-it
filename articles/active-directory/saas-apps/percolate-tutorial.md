@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553991"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Esercitazione: Integrazione di Azure Active Directory con Percolate
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Percolate, seguire ques
 
 5. Se si desidera configurare l'applicazione in modalità avviata da SP, selezionare **Impostare URL aggiuntivi** e nel riquadro **URL di accesso** immettere **https://percolate.com/app/login** :
 
-   ![Informazioni su URL e dominio per l'accesso Single Sign-On di Percolate](common/metadata-upload-additional-signon.png)
+   ![Screenshot che mostra l'opzione "Impostare URL aggiuntivi" selezionata con la casella di testo "URL di accesso" evidenziata.](common/metadata-upload-additional-signon.png)
 6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Copia** per copiare l'**URL dei metadati di federazione dell'app**. Salvare questo URL.
 
     ![Copiare l'URL dei metadati di federazione dell'app](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
-    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
+    ![Screenshot che mostra l'opzione "Utenti e gruppi" selezionata nel riquadro sinistro.](common/users-groups-blade.png)
 
 4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 

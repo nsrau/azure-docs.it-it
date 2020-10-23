@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601365"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371053"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -42,13 +42,13 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Valutazione e analisi degli utenti contrassegnati per i report di rischio e vulnerabilità da Azure AD Identity Protection | Team operativo di InfoSec |
 
 > [!NOTE]
-> Azure AD Identity Protection richiede una licenza Azure AD Premium P2. Per trovare la licenza corretta per i propri requisiti, vedere [confronto tra le funzionalità disponibili a livello generale delle edizioni Azure ad free e Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection richiede una licenza Azure AD Premium P2. Per trovare la licenza corretta per i propri requisiti, vedere [confronto tra le funzionalità disponibili a livello generale delle edizioni Azure ad free e Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprietario per le attività che non dispongono di un proprietario o modificare la proprietà per le attività che non sono allineate alle raccomandazioni precedenti.
 
 #### <a name="owner-recommended-reading"></a>Lettura consigliata dal proprietario
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Gestione di credenziali
@@ -119,7 +119,7 @@ L'autenticazione federata con autenticazione integrata di Windows (IWA) o l'aute
 
 ### <a name="device-trust-access-policies"></a>Criteri di accesso attendibilità dispositivo
 
-Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità importanti da proteggere. È possibile usare l'identità di un dispositivo per proteggere le risorse in qualsiasi momento e da qualunque posizione.L'autenticazione del dispositivo e l'accounting per il tipo di attendibilità migliorano il comportamento di sicurezza e l'usabilità da:
+Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità importanti da proteggere. È possibile usare l'identità di un dispositivo per proteggere le risorse in qualsiasi momento e da qualunque posizione. L'autenticazione del dispositivo e l'accounting per il tipo di attendibilità migliorano il comportamento di sicurezza e l'usabilità da:
 
 - Evitare attriti, ad esempio con l'autenticazione a più fattori, quando il dispositivo è attendibile
 - Blocco dell'accesso da dispositivi non attendibili
@@ -128,7 +128,7 @@ Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità
 È possibile portare a termine questo obiettivo portando le identità dei dispositivi e gestendo tali identità in Azure AD usando uno dei metodi seguenti:
 
 - Le organizzazioni possono usare [Microsoft Intune](/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft endpoint Configuration Manager) e i dispositivi mobili Android.
-- [Azure ad ibrido join](../devices/hybrid-azuread-join-managed-domains.md) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con [accesso condizionale](../conditional-access/overview.md)   .
+- [Azure ad ibrido join](../devices/hybrid-azuread-join-managed-domains.md) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con [accesso condizionale](../conditional-access/overview.md) .
 
 Se si dispone di dispositivi Windows aggiunti a un dominio che non sono registrati nel cloud o di dispositivi Windows aggiunti a un dominio registrati nel cloud ma senza criteri di accesso condizionale, è necessario registrare i dispositivi non registrati e, in entrambi i casi, [usare Azure ad ibrido join come controllo](../conditional-access/require-managed-devices.md) nei criteri di accesso condizionale.
 
@@ -177,7 +177,7 @@ La [migrazione di app da ad FS a Azure ad](../manage-apps/migrate-adfs-apps-to-a
 
 ### <a name="assign-users-to-applications"></a>Assegnare gli utenti alle applicazioni
 
-Per [assegnare gli utenti alle applicazioni](../manage-apps/assign-user-or-group-access-portal.md) , è consigliabile eseguire il mapping con i gruppi, perché consentono una maggiore flessibilità e capacità di gestione su larga scala. I vantaggi derivanti dall'uso dei gruppi includono l' [appartenenza dinamica](../users-groups-roles/groups-dynamic-membership.md) a gruppi e la [delega ai proprietari di app](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Pertanto, se si usano già e si gestiscono i gruppi, è consigliabile eseguire le azioni seguenti per migliorare la gestione su larga scala:
+Per [assegnare gli utenti alle applicazioni](../manage-apps/assign-user-or-group-access-portal.md) , è consigliabile eseguire il mapping con i gruppi, perché consentono una maggiore flessibilità e capacità di gestione su larga scala. I vantaggi derivanti dall'uso dei gruppi includono l' [appartenenza dinamica](../enterprise-users/groups-dynamic-membership.md) a gruppi e la [delega ai proprietari di app](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Pertanto, se si usano già e si gestiscono i gruppi, è consigliabile eseguire le azioni seguenti per migliorare la gestione su larga scala:
 
 - Delegare la gestione e la governance dei gruppi ai proprietari dell'applicazione.
 - Consente l'accesso self-service all'applicazione.
@@ -189,8 +189,8 @@ D'altra parte, se si trovano applicazioni con assegnazione a singoli utenti, ass
 #### <a name="assign-users-to-applications-recommended-reading"></a>Assegnare gli utenti alle applicazioni consigliate per la lettura
 
 - [Assegnare utenti e gruppi a un'applicazione in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegare le autorizzazioni di registrazione all'app in Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Regole di appartenenza dinamica per i gruppi in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegare le autorizzazioni di registrazione all'app in Azure Active Directory](../roles/delegate-app-roles.md)
+- [Regole di appartenenza dinamica per i gruppi in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Criteri di accesso
 
@@ -248,7 +248,7 @@ L'accesso condizionale è uno strumento essenziale per migliorare il comportamen
 - Usare i criteri di accesso condizionale per [implementare](../conditional-access/plan-conditional-access.md)l'autenticazione a più fattori, anziché usare l'autenticazione a più fattori **per utente**
 - Disporre di un piccolo set di criteri di base che possono essere applicati a più applicazioni
 - Definire gruppi di eccezioni vuoti e aggiungerli ai criteri per avere una strategia di eccezione
-- Pianificare gli account [break Glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) senza controlli multi-factor authentication
+- Pianificare gli account [break Glass](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) senza controlli multi-factor authentication
 - Assicura un'esperienza coerente tra Microsoft 365 applicazioni client, ad esempio teams, OneDrive, Outlook e così via. implementando lo stesso set di controlli per servizi come Exchange Online e SharePoint Online
 - L'assegnazione ai criteri deve essere implementata tramite gruppi, non singoli utenti
 - Eseguire verifiche regolari dei gruppi di eccezioni usati nei criteri per limitare il tempo di inattività della sicurezza da parte degli utenti. Se si è proprietari di Azure AD P2, è possibile usare le verifiche di accesso per automatizzare il processo
@@ -309,7 +309,7 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Ad esempio:
+- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Esempio:
 
 |Risorsa | Autorizzazione |
 | :- | :- |
@@ -347,7 +347,7 @@ Di seguito sono elencate le impostazioni di utenti e gruppi che possono essere b
 - [Integrazione di applicazioni con Azure Active Directory](../develop/quickstart-register-app.md)
 - [App, autorizzazioni e consenso in Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Usare i gruppi per gestire l'accesso alle risorse in Azure Active Directory](./active-directory-manage-groups.md)
-- [Impostazione della gestione self-service dell'accesso alle applicazioni in Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Impostazione della gestione self-service dell'accesso alle applicazioni in Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Traffico proveniente da posizioni impreviste
 

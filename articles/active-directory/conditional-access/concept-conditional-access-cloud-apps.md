@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801988"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145514"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -122,7 +122,6 @@ Oltre alle app Microsoft, gli amministratori possono aggiungere ai criteri di ac
 
 > [!NOTE]
 > Poiché i criteri di accesso condizionale consentono di impostare i requisiti per l'accesso a un servizio, non è possibile applicarli a un'applicazione client (pubblica/nativa). In altre parole, il criterio non è impostato direttamente su un'applicazione client (pubblica/nativa), ma viene applicato quando un client chiama un servizio. I criteri impostati nel servizio SharePoint, ad esempio, vengono applicati ai client che chiamano SharePoint. Un criterio impostato in Exchange si applica al tentativo di accedere alla posta elettronica tramite il client Outlook. Questo è il motivo per cui le applicazioni client (pubbliche/native) non sono disponibili nella selezione delle app cloud e l'opzione di accesso condizionale non è disponibile nelle impostazioni dell'applicazione client (pubblica/nativa) registrata nel tenant. 
-
 
 ## <a name="user-actions"></a>Azioni utente
 

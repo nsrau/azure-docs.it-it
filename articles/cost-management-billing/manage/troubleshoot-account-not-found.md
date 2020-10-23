@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f701e41c62336bcd7638360a27a0fb4c3ce3ec7d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686667"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132636"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Risolvere i problemi di visualizzazione dell'account di fatturazione nel portale di Azure
 
@@ -59,7 +59,7 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 Per informazioni su come risolvere i problemi, leggere gli articoli seguenti relativi alla fatturazione e alle sottoscrizioni.
 
-- [Carta rifiutata](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemi relativi all'accesso alla sottoscrizione](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Non sono state trovate sottoscrizioni](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Vista dei costi Enterprise disabilitata](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Carta rifiutata](./troubleshoot-declined-card.md)
+- [Problemi relativi all'accesso alla sottoscrizione](./troubleshoot-sign-in-issue.md)
+- [Non sono state trovate sottoscrizioni](./no-subscriptions-found.md)
+- [Vista dei costi Enterprise disabilitata](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

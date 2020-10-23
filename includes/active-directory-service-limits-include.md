@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 49d0d3e8665e0e80b1626c180300611149eff23f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 819a897e2a785991378ce4b6cb19194665b569f0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005982"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363403"
 ---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory (Azure AD).
 
@@ -21,7 +21,7 @@ Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure 
 | --- | --- |
 | Tenant | Un utente singolo può appartenere a un massimo di 500 tenant di Azure AD come membro o guest.<br/>Un singolo utente può creare un massimo di 200 directory. |
 | Domini | È possibile aggiungere non più di 900 nomi di dominio gestito. Se si configurano tutti i domini per la federazione con l'istanza locale di Active Directory, è possibile aggiungere un massimo di 450 nomi di dominio in ogni tenant. |
-|Risorse |<ul><li>Per impostazione predefinita, gli utenti dell'edizione gratuita di Azure Active Directory possono creare un massimo di 50.000 risorse di Azure AD in un singolo tenant. Se si ha almeno un dominio verificato, la quota predefinita del servizio Azure AD per l'organizzazione viene estesa a 300.000 risorse di Azure AD. Questo limite del servizio non è correlato al limite del piano tariffario di 500.000 risorse indicato nella pagina dei prezzi di Azure AD. Per superare la quota predefinita, è necessario contattare supporto tecnico Microsoft.</li><li>Un utente non amministratore può creare al massimo 250 risorse di Azure AD. In questa quota vengono conteggiate sia le risorse attive che quelle eliminate disponibili per il ripristino. Solo le risorse di Azure AD eliminate da meno di 30 giorni sono disponibili per il ripristino. Le risorse di Azure AD che non sono più disponibili per il ripristino vengono conteggiate in questa quota al valore di un quarto per 30 giorni. Se è probabile che alcuni sviluppatori superino ripetutamente questa quota nel corso delle loro normali mansioni, è possibile [creare e assegnare un ruolo personalizzato](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) con l'autorizzazione per creare un numero illimitato di registrazioni di app.</li></ul> |
+|Risorse |<ul><li>Per impostazione predefinita, gli utenti dell'edizione gratuita di Azure Active Directory possono creare un massimo di 50.000 risorse di Azure AD in un singolo tenant. Se si ha almeno un dominio verificato, la quota predefinita del servizio Azure AD per l'organizzazione viene estesa a 300.000 risorse di Azure AD. Questo limite del servizio non è correlato al limite del piano tariffario di 500.000 risorse indicato nella pagina dei prezzi di Azure AD. Per superare la quota predefinita, è necessario contattare supporto tecnico Microsoft.</li><li>Un utente non amministratore può creare al massimo 250 risorse di Azure AD. In questa quota vengono conteggiate sia le risorse attive che quelle eliminate disponibili per il ripristino. Solo le risorse di Azure AD eliminate da meno di 30 giorni sono disponibili per il ripristino. Le risorse di Azure AD che non sono più disponibili per il ripristino vengono conteggiate in questa quota al valore di un quarto per 30 giorni. Se è probabile che alcuni sviluppatori superino ripetutamente questa quota nel corso delle loro normali mansioni, è possibile [creare e assegnare un ruolo personalizzato](../articles/active-directory/roles/quickstart-app-registration-limits.md) con l'autorizzazione per creare un numero illimitato di registrazioni di app.</li></ul> |
 | Estensioni dello schema |<ul><li>Le estensioni di tipo stringa possono contenere un massimo di 256 caratteri. </li><li>Le estensioni di tipo binario sono limitate a 256 byte.</li><li>In una singola risorsa di Azure AD è possibile scrivere solo 100 valori di estensione, tra *tutti* i tipi e *tutte* le applicazioni.</li><li>Solo le entità User, Group, TenantDetail, Device, Application e ServicePrincipal possono essere estese con gli attributi a valore singolo di tipo stringa o di tipo binario.</li><li>Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.</li></ul> |
 | APPLICAZIONI |Al massimo 100 utenti possono essere proprietari di una singola applicazione. |
 |Manifesto dell'applicazione |Nel manifesto dell'applicazione è possibile aggiungere un massimo di 1200 voci. |

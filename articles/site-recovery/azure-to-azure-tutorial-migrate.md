@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006415"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045347"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Spostare le VM in un'altra area di Azure
 
@@ -100,8 +100,8 @@ I passaggi seguenti mostrano come preparare la macchina virtuale per lo spostame
 1. In **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 1. Creare il gruppo di risorse **ContosoRG**.
 1. Specificare un'area di Azure. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. In **Insiemi di credenziali dei servizi di ripristino** selezionare **Panoramica** > **ContosoVMVault** > **Elementi replicati** >  **+Replica**.
-1. In **Source** (Origine) selezionare **Azure**.
+1. In **Insiemi di credenziali dei servizi di ripristino** selezionare **ContosoVMVault** > **Elementi replicati** >  **+Replica**.
+1. Nell'elenco a discesa selezionare **Macchine virtuali di Azure**.
 1. In **Percorso di origine** selezionare l'area di Azure di origine in cui le VM sono attualmente in esecuzione.
 1. Selezionare il modello di distribuzione Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.
 1. Scegliere **OK** per salvare le impostazioni.

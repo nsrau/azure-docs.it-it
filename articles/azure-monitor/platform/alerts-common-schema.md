@@ -4,12 +4,12 @@ description: Informazioni sullo schema di avviso comune, perché è consigliabil
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539483"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108831"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -39,7 +39,7 @@ Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avv
 
 Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita degli avvisi sia nel portale di Azure che nel app per dispositivi mobili di Azure nel futuro immediato. 
 
-[Altre informazioni sulle definizioni dello schema per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
+[Altre informazioni sulle definizioni dello schema per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > Le azioni seguenti non supportano lo schema di avviso comune: connettore ITSM.
@@ -120,5 +120,5 @@ Il corpo della richiesta seguente, ad esempio, per l'API REST di [creazione o ag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](./alerts-common-schema-integrations.md) 
+- [Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](./alerts-common-schema-definitions.md)
+- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](./alerts-common-schema-integrations.md)

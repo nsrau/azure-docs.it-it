@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c8f93548443b043f26bdb3bd7d7d38e6efb39852
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4678ab34de169a8406f0d73b63906152ef1185f0
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334498"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281915"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Avvio rapido: Compilare un'app Java per gestire i dati dell'API SQL di Azure Cosmos DB
 
@@ -45,9 +45,9 @@ In questo argomento di avvio rapido si apprenderà a creare e gestire un account
 
 *Struttura di un account Cosmos DB.* Indipendentemente dall'API o dal linguaggio di programmazione, un *account* Cosmos DB contiene zero o più *database*, un *database* (DB) contiene zero o più *contenitori* e un *contenitore* contiene zero o più elementi, come illustrato nel diagramma seguente:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
-Altre informazioni su database, contenitori ed elementi sono disponibili [qui](databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione*. 
+Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione*. 
 
 La velocità effettiva con provisioning viene misurata in unità richiesta (*UR*) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
 

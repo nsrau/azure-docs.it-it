@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005072"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370339"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gestire le organizzazioni a cui si ha accesso nel portale account personale
 
@@ -30,7 +30,7 @@ La pagina **organizzazioni** del portale **account personale** consente di gesti
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni dell'organizzazione accessibili da un account aziendale o dell'Istituto di istruzione. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../users-groups-roles/index.yml).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni dell'organizzazione accessibili da un account aziendale o dell'Istituto di istruzione. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 

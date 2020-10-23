@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398647"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367993"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Microsoft Azure ExpressRoute con Azure Site Recovery
 
@@ -37,7 +37,7 @@ Verificare che siano soddisfatti anche i [requisiti di rete](vmware-azure-config
 
 Se si usa il proxy in locale e si vuole usare ExpressRoute per il traffico di replica, è necessario configurare l'elenco proxy bypass nel server di configurazione e nei server di elaborazione. Seguire la procedura descritta di seguito:
 
-- Scaricare lo strumento PsExec da [qui](https://aka.ms/PsExec) per accedere al contesto utente del sistema.
+- Scaricare lo strumento PsExec da [qui](/sysinternals/downloads/psexec) per accedere al contesto utente del sistema.
 - Aprire Internet Explorer nel contesto utente del sistema eseguendo la riga di comando seguente PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 - Aggiungere impostazioni proxy in Internet Explorer
 - Nell'elenco di bypass aggiungere l'URL di archiviazione di Azure *. blob.core.windows.net

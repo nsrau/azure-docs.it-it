@@ -4,12 +4,12 @@ description: Questo articolo fornisce indicazioni sull'architettura di riferimen
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367751"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328845"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architettura di riferimento Azure DevTest Labs per le aziende
 Questo articolo fornisce un'architettura di riferimento per facilitare la distribuzione di una soluzione basata su Azure DevTest Labs in un'organizzazione. Include quanto segue:
@@ -20,17 +20,17 @@ Questo articolo fornisce un'architettura di riferimento per facilitare la distri
 
 ![Diagramma dell'architettura di riferimento](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Questi sono gli elementi chiave dell'architettura di riferimento:
 
 - **Azure Active Directory (Azure ad)**: DevTest Labs usa il [servizio Azure ad per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Considerare questi due aspetti chiave quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs:
-    - **Gestione delle risorse**: consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita in Azure usando il controllo degli accessi in base al ruolo (RBAC). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
+    - **Gestione delle risorse**: consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
     - **Macchine virtuali (a livello di rete)**: nella configurazione predefinita, le macchine virtuali usano un account amministratore locale. Se è disponibile un dominio ([Azure ad Domain Services](../active-directory-domain-services/overview.md), un dominio locale o un dominio basato su cloud), i computer possono essere aggiunti al dominio. Gli utenti possono quindi usare le proprie identità basate su dominio per connettersi alle macchine virtuali.
 - **Connettività locale**: nel diagramma dell'architettura viene usato [ExpressRoute](../expressroute/expressroute-introduction.md) . È anche possibile usare una [VPN da sito a sito](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Sebbene ExpressRoute non sia necessario per DevTest Labs, viene comunemente usato nelle aziende. ExpressRoute è necessario solo se è necessario l'accesso alle risorse aziendali. Scenari comuni:
     - Sono presenti dati locali che non possono essere spostati nel cloud.
     - Si preferisce aggiungere le macchine virtuali del Lab al dominio locale.
     - Si vuole forzare tutto il traffico di rete all'interno e all'esterno dell'ambiente cloud tramite un firewall locale per la sicurezza e la conformità.
-- **Gruppi di sicurezza di rete**: un modo comune per limitare il traffico all'ambiente cloud (o all'interno dell'ambiente cloud) in base agli indirizzi IP di origine e di destinazione consiste nell'usare un [gruppo di sicurezza di rete](../virtual-network/security-overview.md). Ad esempio, si desidera consentire solo il traffico proveniente dalla rete aziendale nelle reti del Lab.
+- **Gruppi di sicurezza di rete**: un modo comune per limitare il traffico all'ambiente cloud (o all'interno dell'ambiente cloud) in base agli indirizzi IP di origine e di destinazione consiste nell'usare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md). Ad esempio, si desidera consentire solo il traffico proveniente dalla rete aziendale nelle reti del Lab.
 - **Gateway Desktop remoto**: le aziende in genere bloccano le connessioni Desktop remoto in uscita nel firewall aziendale. Sono disponibili diverse opzioni per abilitare la connettività all'ambiente basato su cloud in DevTest Labs, tra cui:
   - Usare un [Gateway Desktop remoto](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e consentire l'indirizzo IP statico del servizio di bilanciamento del carico del gateway.
   - [Indirizzare tutto il traffico RDP in ingresso](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) attraverso la connessione VPN da sito a sito o ExpressRoute. Questa funzionalità è una considerazione comune quando le aziende pianificano una distribuzione di DevTest Labs.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018502"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142457"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Pianificare e trasmettere processi (.NET)
 
@@ -261,7 +261,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
     ```
 
     > [!NOTE]
-    > Per altre informazioni sulla sintassi della query, vedere [Linguaggio di query di hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Per altre informazioni sulla sintassi della query, vedere [Linguaggio di query di hub IoT](./iot-hub-devguide-query-language.md).
     >
 
 1. Aggiungere infine le righe seguenti al metodo **Main** :
@@ -311,4 +311,4 @@ In questa esercitazione è stato usato un processo per pianificare un metodo dir
 
 * Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, leggere [Esercitazione: come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
 
-* Per altre informazioni sulla distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge, vedere la [Guida introduttiva di IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Per altre informazioni sulla distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge, vedere la [Guida introduttiva di IoT Edge](../iot-edge/quickstart-linux.md).

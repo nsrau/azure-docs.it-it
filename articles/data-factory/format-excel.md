@@ -9,19 +9,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331965"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328284"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Seguire questo articolo quando si desidera **analizzare i file di Excel**. Azure Data Factory supporta sia ". xls" sia ". xlsx".
 
-Il formato Excel è supportato per i connettori seguenti [: Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md). È supportato come origine ma non come sink.
+Il formato Excel è supportato per i connettori seguenti [: Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md). È supportato come origine ma non come sink. 
+
+**Nota**: il formato ". xls" non è supportato quando si usa [http](connector-http.md). 
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -71,7 +73,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="excel-as-source"></a>Excel come origine 
 
-Nella sezione *** \* origine \* *** dell'attività di copia sono supportate le proprietà seguenti.
+Nella sezione attività di copia **_ \_ source \* *** sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -106,7 +108,7 @@ In mapping dei flussi di dati è possibile leggere il formato Excel negli archiv
 
 La tabella seguente elenca le proprietà supportate da un'origine Excel. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome                      | Descrizione                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
+| Name                      | Descrizione                                                  | Obbligatorio | Valori consentiti                                            | Proprietà script flusso di dati         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no       | String[]                                                  | wildcardPaths                     |
 | Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no       | string                                                    | partitionRootPath                 |

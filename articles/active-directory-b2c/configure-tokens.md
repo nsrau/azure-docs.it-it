@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389565"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340224"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
@@ -41,6 +41,9 @@ Questo articolo illustra come configurare [la durata e la compatibilità di un t
 
 8. Fare clic su **Salva**.
 
+> [!NOTE]
+> Le applicazioni a singola pagina che usano il flusso del codice di autorizzazione con PKCE hanno sempre una durata del token di aggiornamento di 24 ore. [Altre informazioni sulle implicazioni di sicurezza dei token di aggiornamento nel browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 ## <a name="configure-jwt-token-compatibility"></a>Configurare la compatibilità del token JWT
 
 1. Selezionare **Flussi utente (criteri)** .
@@ -51,6 +54,17 @@ Questo articolo illustra come configurare [la durata e la compatibilità di un t
     ![Impostazioni della proprietà di compatibilità del token nel portale di Azure](./media/configure-tokens/token-compatibility.png)
 
 5. Fare clic su **Salva**.
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornire attestazioni facoltative all'app
+
+Le attestazioni dell'applicazione sono valori restituiti all'applicazione. Aggiornare il flusso utente per includere le attestazioni desiderate.
+
+1. Selezionare **Flussi utente (criteri)** .
+1. Aprire il flusso utente creato in precedenza.
+1. Selezionare **Attestazioni dell'applicazione**.
+1. Scegliere le attestazioni e gli attributi che si desidera inviare nuovamente all'applicazione.
+1. Fare clic su **Salva**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

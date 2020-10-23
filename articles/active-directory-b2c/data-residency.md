@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840558"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309673"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
 
@@ -59,6 +59,14 @@ I paesi/aree geografiche seguenti sono in fase di aggiunta all'elenco. Per ora, 
 
 > Argentina, Australia, Brasile, Cile, Colombia, Ecuador, Iraq, Nuova Zelanda, Paraguay, Perù, Uruguay e Venezuela.
 
+## <a name="remote-profile-solution"></a>Soluzione profilo remoto
+
+Con Azure AD B2C [criteri personalizzati](custom-policy-overview.md), è possibile eseguire l'integrazione con i [Servizi API RESTful](custom-policy-rest-api-intro.md), che consentono di archiviare e leggere i profili utente da un database remoto, ad esempio un database di marketing, un sistema CRM o un'applicazione line-of-business.  
+- Durante i flussi di iscrizione e di modifica del profilo, Azure AD B2C chiama un'API REST personalizzata per salvare in modo permanente il profilo utente nell'origine dati remota. Le credenziali dell'utente vengono archiviate nella directory Azure AD B2C. 
+- Al momento dell'accesso, dopo la convalida delle credenziali con un account locale o di social networking, Azure AD B2C richiama l'API REST, che invia l'identificatore univoco dell'utente come chiave primaria utente (indirizzo di posta elettronica o objectId utente). L'API REST legge i dati dal database remoto e restituisce il profilo utente.  
+
+Una volta completata l'iscrizione, la modifica del profilo o l'accesso, Azure AD B2C include il profilo utente nel token di accesso restituito all'applicazione. Per altre informazioni, vedere la [soluzione di esempio Azure ad B2C Remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
+
 ## <a name="preview-tenant"></a>Tenant di anteprima
 
 Se è stato creato un tenant B2C durante Azure AD periodo di anteprima B2C, è probabile che il **tipo di tenant** indichi **tenant di anteprima**.
@@ -70,3 +78,7 @@ Non esiste **alcun percorso di migrazione** da un tenant di anteprima B2C a un t
 Si verificano problemi noti quando si elimina un tenant B2C di anteprima e si crea un tenant B2C a livello di produzione con lo stesso nome di dominio. *È necessario creare un tenant B2C a livello di produzione con un nome di dominio diverso*.
 
 ![Screenshot di un tipo di tenant, come tenant di anteprima.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Creare un tenant Azure ad B2C](tutorial-create-tenant.md).

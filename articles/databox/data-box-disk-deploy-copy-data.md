@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766840"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125338"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Dopo aver completato la copia dei dati, è possibile passare alla convalida dei 
 
 Se non si è usato lo strumento di divisione della copia per copiare i dati, sarà necessario convalidare i dati. Seguire questa procedura per verificare i dati.
 
-1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità. Questo comando è disponibile solo per l'ambiente Windows. Gli utenti Linux devono verificare che i dati di origine copiati nel disco soddisfino i [prerequisiti](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità. Questo comando è disponibile solo per l'ambiente Windows. Gli utenti Linux devono verificare che i dati di origine copiati nel disco soddisfino i [prerequisiti](./data-box-disk-limits.md).
     
     ![Output dello strumento di convalida di Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Per verificare i dati, eseguire la procedura seguente.
 1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità.
 2. Usare l'opzione 2 per convalidare i file e generare i checksum. A seconda della dimensione dei dati, questo passaggio potrebbe richiedere del tempo. Se si verificano errori durante la convalida e la generazione dei checksum, si riceverà una notifica e anche un collegamento ai log degli errori.
 
-    Per altre informazioni sulla convalida dei dati, vedere [Convalidare i dati](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Se si riscontrano errori durante la convalida, vedere l'articolo sulla [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
+    Per altre informazioni sulla convalida dei dati, vedere [Convalidare i dati](#validate-data). Se si riscontrano errori durante la convalida, vedere l'articolo sulla [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
 
 ::: zone-end

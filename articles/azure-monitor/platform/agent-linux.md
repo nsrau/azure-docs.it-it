@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013747"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332502"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installare l'agente di Log Analytics in computer Linux
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Linux usando i metodi seguenti:
@@ -43,9 +43,11 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 >[!NOTE]
 >Se si usa una distribuzione o una versione attualmente non supportata e non allineata al modello di supporto, è consigliabile creare una copia tramite fork del repository, nella consapevolezza che il supporto tecnico Microsoft non fornisce assistenza per versioni dell'agente con fork.
 
-### <a name="python-2-requirement"></a>Requisito di Python 2
+### <a name="python-requirement"></a>Requisito per Python
 
- L'agente di Log Analytics richiede Python 2. Se la macchina virtuale usa una distribuzione che non include Python 2 per impostazione predefinita, è necessario installarla. I comandi di esempio seguenti installeranno Python 2 in distribuzioni diverse.
+A partire dalla versione dell'agente 1.13.27, l'agente Linux supporterà sia Python 2 che 3. È sempre consigliabile usare l'agente più recente. 
+
+Se si usa una versione precedente dell'agente, è necessario che la macchina virtuale usi Python 2 per impostazione predefinita. Se la macchina virtuale usa una distribuzione che non include Python 2 per impostazione predefinita, è necessario installarla. I comandi di esempio seguenti installeranno Python 2 in distribuzioni diverse.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ L'agente OMS ha un supporto di personalizzazione limitato per Linux.
 Sono attualmente supportati gli elementi seguenti: 
 - FIPs
 
-Gli elementi seguenti sono pianificati ma non ancora supportati:
+Di seguito sono riportate alcune considerazioni, ma non ancora supportate:
 - CIS
 - SELINUX
 
@@ -100,7 +102,7 @@ Vedere [Panoramica dell'agente di log Analytics](log-analytics-agent.md#network-
 
 L'agente di Log Analytics per Linux è costituito da più pacchetti. Il file di versione contiene i pacchetti seguenti, disponibili eseguendo il bundle della shell con il `--extract` parametro:
 
-**Pacchetto** | **Version** | **Descrizione**
+**Pacchetto** | **Versione** | **Descrizione**
 ----------- | ----------- | --------------
 omsagent | 1.13.9 | Agente di Log Analytics per Linux
 omsconfig | 1.1.1 | Agente di configurazione per l'agente di Log Analytics
@@ -126,9 +128,9 @@ La procedura seguente consente di configurare l'installazione dell'agente per Lo
 
 Se il computer Linux deve comunicare tramite un server proxy per Log Analytics, questa configurazione può essere specificata nella riga di comando includendo `-p [protocol://][user:password@]proxyhost[:port]` . La proprietà del *protocollo* accetta `http` o `https` e la proprietà *proxyhost* accetta un nome di dominio completo o un indirizzo IP del server proxy. 
 
-Ad esempio: `https://proxy01.contoso.com:30443`
+ad esempio `https://proxy01.contoso.com:30443`
 
-Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
+Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. ad esempio `https://user01:password@proxy01.contoso.com:30443`
 
 1. Per configurare il computer Linux per la connessione a un'area di lavoro Log Analytics, eseguire il comando seguente specificando l'ID e la chiave primaria dell'area di lavoro. Il comando seguente scarica l'agente, convalida il relativo checksum e ne esegue l'installazione.
     

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: c0313c74b046d4c93c8625eab8659df392041059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419810"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419890"
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
 
@@ -40,15 +40,11 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 
 ## <a name="azure-portal"></a><a name="portal"></a>Portale di Azure
 
-È possibile reimpostare un gateway VPN di Resource Manager tramite il portale di Azure. Se si desidera reimpostare un gateway classico, vedere la procedura di [PowerShell](#resetclassic).
+È possibile reimpostare un gateway VPN di Resource Manager tramite il portale di Azure. Se si vuole reimpostare un gateway classico, vedere la procedura di PowerShell per il [modello di distribuzione classica](#resetclassic).
 
 ### <a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e passare al gateway di rete virtuale di Resource Manager che si desidera reimpostare.
-2. Nel pannello per il gateway di rete virtuale fare clic su "Reimposta".
-
-   ![Pannello di reimpostazione gateway VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Nel pannello Reimposta, fare clic sul pulsante **Reimposta**.
+[!INCLUDE [portal steps](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
 ## <a name="powershell"></a><a name="ps"></a>PowerShell
 
@@ -69,7 +65,7 @@ Quando si riceve un valore restituito, si può presupporre che il ripristino del
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modello di distribuzione classica
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. I cmdlet di Azure PowerShell per la gestione dei servizi devono essere installati localmente sul desktop. Non è possibile usare Azure Cloud Shell. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Quando si usa questo comando, assicurarsi di usare il nome completo della rete virtuale. I reti virtuali classici creati con il portale hanno un nome lungo che è necessario per PowerShell. È possibile visualizzare il nome lungo usando "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzureVNetGateway**. I cmdlet di Azure PowerShell per la gestione dei servizi devono essere installati localmente sul desktop. Non è possibile usare Azure Cloud Shell. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Gestione servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Quando si usa questo comando, assicurarsi di usare il nome completo della rete virtuale. I reti virtuali classici creati con il portale hanno un nome lungo che è necessario per PowerShell. È possibile visualizzare il nome lungo usando "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
 
 L'esempio seguente reimposta il gateway per una rete virtuale denominata "Group TestRG1 TestVNet1" (che mostra semplicemente "TestVNet1" nel portale):
 

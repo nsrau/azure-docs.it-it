@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372613"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048509"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
 
 Con Gemelli digitali di Azure è possibile creare e interagire con modelli live degli ambienti reali. A questo scopo occorre modellare singoli elementi come **gemelli digitali**, quindi connetterli in un **grafo** della conoscenza che possa rispondere agli eventi live ed essere sottoposto a query per ottenere informazioni.
 
-In questo argomento di avvio rapido si esplorerà un grafo predefinito di Gemelli digitali di Azure con l'aiuto di un'applicazione di esempio denominata [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer consente di caricare uno scenario, visualizzare rappresentazioni visive dei gemelli e del grafo ed eseguire altre attività di gestione tramite un'esperienza visiva basata su browser.
+In questo argomento di avvio rapido si esplorerà un grafo predefinito di Gemelli digitali di Azure con l'aiuto di un'applicazione di esempio denominata [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer consente di caricare una rappresentazione digitale di un ambiente, visualizzare immagini visive dei gemelli e del grafo creati per rappresentare l'ambiente in Gemelli digitali di Azure ed eseguire altre attività di gestione tramite un'esperienza visiva basata sul browser.
 
 L'avvio rapido illustra i passaggi principali seguenti:
 
@@ -38,8 +38,8 @@ Per completare questa guida di avvio rapido è necessaria una sottoscrizione di 
 È anche necessario **Node.js** nel computer. È possibile scaricare la versione più recente da questo collegamento: [Node.js](https://nodejs.org/).
 
 Infine, occorre anche scaricare due esempi da usare durante la procedura descritta nell'argomento di avvio rapido:
-* L'applicazione di esempio **ADT Explorer**. Questo esempio contiene l'app principale usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. È possibile ottenere l'app in [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**Azure_Digital_Twins__ADT__explorer.zip**_. Decomprimere la cartella ed estrarre i file.
-* Lo **scenario di esempio di Gemelli digitali di Azure**. È incluso un grafo predefinito di Gemelli digitali di Azure da caricare e usare in ADT Explorer. È possibile ottenere lo scenario in [Esempi di Gemelli digitali di Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome **Azure_Digital_Twins_samples.zip**. Decomprimere la cartella ed estrarre i file.
+* L'applicazione di esempio **ADT Explorer**. Questo esempio contiene l'app principale usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. È possibile ottenere l'app in [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins__ADT__explorer.zip**_. Decomprimere la cartella ed estrarre i file.
+* Lo **scenario di esempio di Gemelli digitali di Azure**. È incluso un grafo predefinito di Gemelli digitali di Azure da caricare e usare in ADT Explorer. È possibile ottenere lo scenario in [Esempi di Gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins_samples.zip**_. Decomprimere la cartella ed estrarre i file.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurare Gemelli digitali di Azure e ADT Explorer
 
@@ -205,7 +205,7 @@ ADT Explorer userà ora il file caricato per creare i gemelli richiesti e le rel
     :::column-end:::
 :::row-end:::
 
-Il grafo è stato caricato in ADT Explorer. Per visualizzarlo, selezionare il pulsante *Run Query* (Esegui query) nel riquadro *GRAPH EXPLORER* (Esplora grafo), nella parte superiore della finestra di ADT Explorer. 
+Il grafo è stato caricato in ADT Explorer. Per visualizzarlo, selezionare il pulsante *Esegui query* nel riquadro *GRAPH EXPLORER* nella parte superiore della finestra di ADT Explorer. 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -305,7 +305,7 @@ In questa guida di avvio rapido è stata creata un'istanza di Gemelli digitali d
 Il grafo è stato quindi esplorato nei modi seguenti:
 1. Usando una query per rispondere a una domanda sullo scenario.
 2. Modificando una proprietà in un gemello digitale.
-    * Eseguendo di nuovo la query per vedere come cambia la risposta in seguito all'aggiornamento.
+3. Eseguendo di nuovo la query per vedere come cambia la risposta in seguito all'aggiornamento.
 
 Lo scopo di questo esercizio è illustrare come usare il grafo di Gemelli digitali di Azure per rispondere a domande sull'ambiente, anche quando l'ambiente continua a cambiare. 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046809"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131684"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Domande frequenti su Metrics Advisor
 
@@ -31,7 +31,7 @@ Il [sito Web demo](https://anomaly-detector.azurewebsites.net/) è disponibile p
 
 :::image type="content" source="media/pricing.png" alt-text="Messaggio quando esiste già una risorsa F0":::
 
-Durante l'anteprima pubblica, è consentito creare solo un'istanza di metriche Advisor in una sottoscrizione, in un'area.
+Durante l'anteprima pubblica, è possibile creare solo un'istanza di metriche Advisor per area in una sottoscrizione.
 
 Se è già stata creata un'istanza nella stessa area usando la stessa sottoscrizione, è possibile provare un'area diversa o una sottoscrizione diversa per creare una nuova istanza. È anche possibile eliminare un'istanza esistente per crearne una nuova.
 
@@ -108,6 +108,40 @@ Se non sono presenti soglie, è possibile usare il "rilevamento intelligente", c
 
 Se i dati sono in genere piuttosto instabili e fluttuano molto e si vuole ricevere un avviso quando diventa troppo stabile o addirittura una linea piatta, è possibile configurare la "soglia di modifica" per rilevare questi punti dati quando la modifica è troppo piccola.
 Per informazioni dettagliate, vedere [configurazioni di rilevamento anomalie](how-tos/configure-metrics.md#anomaly-detection-methods) .
+
+## <a name="advanced-concepts"></a>Concetti avanzati
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>In che modo la metrica Advisor compila un albero degli eventi imprevisti per le metriche multidimensionali?
+
+Una metrica può essere suddivisa in più serie temporali in base alle dimensioni. Ad esempio, la metrica `Response latency` viene monitorata per tutti i servizi di proprietà del team. La `Service` categoria può essere utilizzata come dimensione per arricchire la metrica, in modo che venga `Response latency` divisa per `Service1` , `Service2` e così via. Ogni servizio può essere distribuito in computer diversi in più data center, quindi la metrica potrebbe essere ulteriormente divisa da `Machine` e `Data center` .
+
+|Service| Data center| Computer  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+A partire dal totale `Response latency` , è possibile eseguire il drill-down nella metrica per `Service` , `Data center` e `Machine` . Tuttavia, potrebbe essere opportuno che i proprietari del servizio usino il percorso `Service`  ->  `Data center`  ->  `Machine` o forse è più opportuno che i tecnici dell'infrastruttura usino il percorso `Data Center`  ->  `Machine`  ->  `Service` . Tutto dipende dai singoli requisiti aziendali degli utenti. 
+
+In metrica Advisor gli utenti possono specificare qualsiasi percorso di cui si desidera eseguire il drill-down o il rollup da un nodo della topologia gerarchica. Più precisamente, la topologia gerarchica è un grafo aciclici diretto anziché una struttura ad albero. Esiste una topologia gerarchica completa costituita da tutte le possibili combinazioni di dimensioni, come la seguente: 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Messaggio quando esiste già una risorsa F0" lightbox="media/dimension-combinations-view.png":::
+
+In teoria, se la dimensione `Service` presenta `Ls` valori distinti, la dimensione `Data center` dispone di `Ldc` valori distinti e la dimensione `Machine` ha `Lm` valori distinti, è possibile che `(Ls + 1) * (Ldc + 1) * (Lm + 1)` nella topologia gerarchica siano presenti combinazioni di dimensioni. 
+
+In genere, tuttavia, non tutte le combinazioni di dimensioni sono valide, il che può ridurre significativamente la complessità. Attualmente, se gli utenti aggregano la metrica, il numero di dimensioni non è limitato. Se è necessario usare la funzionalità rollup fornita da metrica Advisor, il numero di dimensioni non deve essere superiore a 6. Tuttavia, viene limitato il numero di serie temporali espanse per dimensioni per una metrica a un valore inferiore a 10.000.
+
+Lo strumento dell' **albero degli eventi imprevisti** nella pagina di diagnostica Mostra solo i nodi in cui è stata rilevata un'anomalia anziché l'intera topologia. Questo consente di concentrarsi sul problema corrente. È anche possibile che non vengano visualizzate tutte le anomalie all'interno della metrica e che vengano invece visualizzate le anomalie più frequenti in base al contributo. In questo modo è possibile individuare rapidamente l'effetto, l'ambito e il percorso di distribuzione dei dati anomali. Che riduce significativamente il numero di anomalie di cui è necessario concentrarsi e consente agli utenti di comprendere e individuare i problemi principali. 
+ 
+Quando si verifica un'anomalia, ad esempio, `Service = S2 | Data Center = DC2 | Machine = M5` la deviazione dell'anomalia influisce sul nodo padre `Service= S2` che ha rilevato anche l'anomalia, ma l'anomalia non influisce sull'intero data center in `DC2` e su tutti i servizi in `M5` . La struttura ad albero dell'evento imprevisto verrà compilata come nello screenshot seguente, l'anomalia principale viene acquisita in `Service = S2` e la causa radice può essere analizzata in due percorsi che entrambi portano a `Service = S2 | Data Center = DC2 | Machine = M5` .
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 vertici con etichetta con due percorsi distinti connessi da bordi con un nodo comune con etichetta S2. L'anomalia superiore viene acquisita in Service = S2 e la causa principale può essere analizzata dai due percorsi che entrambi portano a Service = S2 | Data Center = DC2 | Computer = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Panoramica di Advisor metriche](overview.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961789"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164602"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
 
@@ -61,7 +61,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
-    ![Creazione dell'app Web][1]
+    ![Screenshot del portale di Azure che Mostra Web e dispositivi mobili selezionato in Azure Marketplace e la schermata per la creazione di una nuova app Web aperta a destra.][1]
 
 2. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
 
@@ -71,7 +71,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 5. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
-    ![Nuovo piano di servizio app][2]
+    ![Screenshot della portale di Azure che mostra il riquadro app Web, il riquadro piano di servizio app e il nuovo riquadro piano di servizio app aperto.][2]
 
 6. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
@@ -99,7 +99,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Create a Resource** > **Web + Mobile** > **App Web per contenitori** (Crea una risorsa > Web e dispositivi mobili). 
 
-    ![Creazione dell'app Web][7]
+    ![Screenshot del portale di Azure che Mostra Web e dispositivi mobili selezionato in Azure Marketplace e il riquadro app Web per contenitori aperto a destra.][7]
 
 1. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
 
@@ -107,7 +107,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 1. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
-    ![Nuovo piano di servizio app][8]
+    ![Screenshot del portale di Azure che mostra il riquadro app Web per contenitori, il riquadro piano di servizio app e il nuovo riquadro piano di servizio app aperto.][8]
 
 1. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
@@ -192,7 +192,7 @@ Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduction to
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md

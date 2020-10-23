@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444768"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164517"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurare Always Encrypted usando l'archivio certificati di Windows
 
@@ -97,7 +97,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
 1. Espandere **database**  >  **Clinic**  >  **tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata Always Encrypted:
 
-    ![Crittografa colonne](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Screenshot che mostra la crittografia colonne... opzione di menu nella tabella patients.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
 
@@ -149,7 +149,7 @@ Ora che la crittografia Always Encrypted è configurata, è possibile creare un'
 1. Aprire Visual Studio e creare un'applicazione console C#. Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
 2. Denominare il progetto **AlwaysEncryptedConsoleApp** e fare clic su **OK**.
 
-![Nuova applicazione console](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Screenshot che mostra il nuovo progetto AlwaysEncryptedConsoleApp denominato.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Modificare la stringa di connessione per abilitare la crittografia sempre attiva
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 È possibile osservare che le colonne crittografate non contengono dati di testo non crittografato.
 
-   ![Nuova applicazione console](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Screenshot che mostra i dati crittografati nelle colonne crittografate.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro **Column Encryption Setting=Enabled** alla connessione.
 
@@ -518,7 +518,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
 2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.
 3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
-    ![Nuova applicazione console](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Screenshot che mostra la scheda parametri aggiuntivi per la connessione con Column Encryption setting = enabled digitato nella casella.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Eseguire la query seguente nel database **Clinic** .
 
     ```tsql

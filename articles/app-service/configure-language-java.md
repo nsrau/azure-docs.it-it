@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976012"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171581"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app java per il servizio app Azure
 
@@ -691,6 +691,10 @@ Per verificare che l'origine dati sia stata aggiunta al server JBoss, SSH nella 
 Il servizio app consente agli utenti di scegliere la versione principale di JVM, ad esempio Java 8 o Java 11, e la versione secondaria, ad esempio 1.8.0 _232 o 11.0.5. È anche possibile scegliere di aggiornare automaticamente la versione secondaria Man mano che le nuove versioni secondarie diventano disponibili. Nella maggior parte dei casi, i siti di produzione devono usare versioni JVM secondarie aggiunte. In questo modo si eviteranno interruzioni unnanticipated durante un aggiornamento automatico della versione secondaria.
 
 Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM sul sito. Per assicurarsi che l'applicazione venga eseguita sulla versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di gestione temporanea. Una volta confermata l'esecuzione corretta dell'applicazione nella nuova versione secondaria, è possibile scambiare gli slot di gestione temporanea e di produzione.
+
+## <a name="jboss-eap-hardware-options"></a>Opzioni hardware di JBoss EAP
+
+JBoss EAP è disponibile solo per le opzioni hardware Premium e isolated. Per evitare comportamenti imprevisti, i clienti che hanno creato un sito EAP di JBoss su un livello gratuito, condiviso, Basic o standard durante l'anteprima pubblica dovrebbero essere scalati fino a livello hardware Premium o isolato.
 
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 

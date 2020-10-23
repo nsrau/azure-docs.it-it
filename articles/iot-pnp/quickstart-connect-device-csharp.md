@@ -7,18 +7,18 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d1deac1c7932a8f3cec06d9c264ba401f7f1341d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577034"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044548"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Avvio rapido: Connettere un'applicazione per dispositivi Plug and Play IoT in esecuzione in Windows all'hub IoT (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-Questa guida di avvio rapido illustra come creare un'applicazione di dispositivo Plug and Play IoT di esempio, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare i dati di telemetria inviati. L'applicazione di esempio è scritta in CSharp ed è inclusa in Azure IoT SDK per dispositivi per C#. Un generatore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
+Questa guida di avvio rapido illustra come creare un'applicazione di dispositivo Plug and Play IoT di esempio, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare i dati di telemetria inviati. L'applicazione di esempio è scritta in C# ed è inclusa negli esempi di Azure IoT per C#. Un generatore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,9 +31,9 @@ Per completare questa guida di avvio rapido in Windows, è necessario che nel co
 
 ## <a name="download-the-code"></a>Scaricare il codice
 
-In questo argomento di avvio rapido viene preparato un ambiente di sviluppo che è possibile usare per clonare e compilare l'SDK dell'hub IoT di Azure per dispositivi per C#.
+In questa guida di avvio rapido viene preparato un ambiente di sviluppo che è possibile usare per clonare e compilare il repository degli esempi di Azure IoT per C#.
 
-Aprire un prompt dei comandi in una cartella di propria scelta. Eseguire questo comando per clonare il repository GitHub degli [esempi di Microsoft Azure IoT per .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) in questo percorso:
+Aprire un prompt dei comandi in una cartella di propria scelta. Eseguire questo comando per clonare il repository GitHub degli [esempi di Microsoft Azure IoT per C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) in questo percorso:
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -113,4 +113,4 @@ DateTime since = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
 In questa guida di avvio rapido si è appreso come connettere un dispositivo Plug and Play IoT a un hub IoT. Per altre informazioni su come creare una soluzione che interagisce con i dispositivi Plug and Play IoT, vedere:
 
 > [!div class="nextstepaction"]
-> [Procedura: Connettersi a un dispositivo e interagire con esso](howto-develop-solution.md)
+> [Procedura: Connettersi a un dispositivo e interagire con esso](./quickstart-service-node.md)

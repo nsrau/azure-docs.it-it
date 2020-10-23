@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462037"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152143"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -93,7 +93,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
 ### <a name="clone-the-source-code-and-initialize"></a>Clonare il codice sorgente ed eseguire l'inizializzazione
 
-1. Installare il [carico di lavoro "sviluppo di applicazioni desktop con C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) per Visual Studio 2019. Sono supportati anche Visual Studio 2017 e 2015.
+1. Installare il [carico di lavoro "sviluppo di applicazioni desktop con C++"](/cpp/build/vscpp-step-0-installation?view=vs-2019) per Visual Studio 2019. Sono supportati anche Visual Studio 2017 e 2015.
 
 1. Installare [CMake](https://cmake.org/). Verificare che sia contenuto in `PATH` digitando `cmake -version` dal prompt dei comandi.
 
@@ -115,7 +115,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
     cmake ..
     ```
 
-    Se `cmake` non trova il compilatore C++, è possibile che si verifichino errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Se `cmake` non trova il compilatore C++, è possibile che si verifichino errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
 
@@ -206,7 +206,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 
@@ -234,7 +234,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 ### <a name="bulk-update-for-multiple-devices"></a>Eseguire l'aggiornamento in blocco per più dispositivi
 
-Per aggiornare la configurazione di campionamento della traccia distribuita per più dispositivi, usare la [configurazione automatica dei dispositivi](iot-hub-auto-device-config.md). Assicurarsi di seguire questo schema per dispositivi gemelli:
+Per aggiornare la configurazione di campionamento della traccia distribuita per più dispositivi, usare la [configurazione automatica dei dispositivi](./iot-hub-automatic-device-management.md). Assicurarsi di seguire questo schema per dispositivi gemelli:
 
 ```json
 {
@@ -260,7 +260,7 @@ Per visualizzare tutte le tracce registrate da un hub IoT, eseguire una query su
 
 ### <a name="query-using-log-analytics"></a>Eseguire query usando Log Analytics
 
-Se è stata eseguita la configurazione di [Log Analytics con i log di diagnostica](../azure-monitor/platform/resource-logs-collect-storage.md), eseguire una query cercando i log nella categoria `DistributedTracing`. Questa query ad esempio mostra tutte le tracce registrate:
+Se è stata eseguita la configurazione di [Log Analytics con i log di diagnostica](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), eseguire una query cercando i log nella categoria `DistributedTracing`. Questa query ad esempio mostra tutte le tracce registrate:
 
 ```Kusto
 // All distributed traces 
@@ -282,7 +282,7 @@ Per informazioni sui diversi tipi di log, vedere [Log di diagnostica dell'hub Io
 
 ### <a name="application-map"></a>Mappa delle applicazioni
 
-Per visualizzare il flusso dei messaggi IoT, configurare l'app di esempio di Mappa delle applicazioni. L'app di esempio invia i log della traccia distribuita a [Mappa delle applicazioni](../application-insights/app-insights-app-map.md) usando una funzione di Azure e un hub eventi.
+Per visualizzare il flusso dei messaggi IoT, configurare l'app di esempio di Mappa delle applicazioni. L'app di esempio invia i log della traccia distribuita a [Mappa delle applicazioni](../azure-monitor/app/app-map.md) usando una funzione di Azure e un hub eventi.
 
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ottenere l'esempio in GitHub</a>
@@ -295,11 +295,11 @@ L'immagine seguente mostra la traccia distribuita in Mappa delle applicazioni co
 
 ### <a name="context"></a>Context
 
-Molte soluzioni IoT, inclusa l'[architettura di riferimento](https://aka.ms/iotrefarchitecture) (solo in inglese), in genere seguono una variante dell'[architettura di microservizi](https://docs.microsoft.com/azure/architecture/microservices/). Man mano che una soluzione IoT diventa più complessa, si accumula una dozzina o più di microservizi, non tutti necessariamente di Azure. L'individuazione delle posizioni in cui i messaggi IoT vengono eliminati o rallentano può risultare complicata. Si supponga ad esempio di disporre di una soluzione IoT che usa cinque diversi servizi di Azure e 1500 dispositivi attivi. Ogni dispositivo invia 10 messaggi da dispositivo a cloud al secondo (per un totale di 15.000 messaggi al secondo), ma si nota che la propria applicazione Web rileva solo 10.000 messaggi al secondo. Dove è il problema? Come è possibile individuarne la causa?
+Molte soluzioni IoT, inclusa l'[architettura di riferimento](https://aka.ms/iotrefarchitecture) (solo in inglese), in genere seguono una variante dell'[architettura di microservizi](/azure/architecture/microservices/). Man mano che una soluzione IoT diventa più complessa, si accumula una dozzina o più di microservizi, non tutti necessariamente di Azure. L'individuazione delle posizioni in cui i messaggi IoT vengono eliminati o rallentano può risultare complicata. Si supponga ad esempio di disporre di una soluzione IoT che usa cinque diversi servizi di Azure e 1500 dispositivi attivi. Ogni dispositivo invia 10 messaggi da dispositivo a cloud al secondo (per un totale di 15.000 messaggi al secondo), ma si nota che la propria applicazione Web rileva solo 10.000 messaggi al secondo. Dove è il problema? Come è possibile individuarne la causa?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Modello di traccia distribuita in un'architettura di microservizi
 
-Per ricostruire il flusso di un messaggio IoT attraverso diversi servizi, ogni servizio deve propagare un *ID di correlazione* che identifichi in modo univoco il messaggio. Dopo essere stati raccolti in un sistema centralizzato, gli ID di correlazione consentono di visualizzare il flusso del messaggio. Questo metodo è denominato [modello di traccia distribuita](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+Per ricostruire il flusso di un messaggio IoT attraverso diversi servizi, ogni servizio deve propagare un *ID di correlazione* che identifichi in modo univoco il messaggio. Dopo essere stati raccolti in un sistema centralizzato, gli ID di correlazione consentono di visualizzare il flusso del messaggio. Questo metodo è denominato [modello di traccia distribuita](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
 Per supportare una più ampia adozione della traccia distribuita, Microsoft sta contribuendo alla [proposta dello standard W3C per la traccia distribuita](https://w3c.github.io/trace-context/).
 
@@ -328,5 +328,5 @@ Dopo l'abilitazione, il supporto della traccia distribuita per l'hub IoT seguir�
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sul modello di traccia distribuita generale nei microservizi, vedere [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) (Modello di architettura di microservizi: traccia distribuita).
-- Per definire la configurazione per l'applicazione delle impostazioni di traccia distribuita per un numero elevato di dispositivi, vedere [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md).
+- Per definire la configurazione per l'applicazione delle impostazioni di traccia distribuita per un numero elevato di dispositivi, vedere [Configurare e monitorare i dispositivi IoT su larga scala](./iot-hub-automatic-device-management.md).
 - Per altre informazioni su Monitoraggio di Azure, vedere [Panoramica di Monitoraggio di Azure](../azure-monitor/overview.md).

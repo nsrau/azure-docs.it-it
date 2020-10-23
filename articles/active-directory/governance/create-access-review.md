@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602932"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362774"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -164,6 +164,7 @@ Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, no
 |Revisione automatica | Le decisioni sono state registrate dal sistema per tutti gli utenti che non sono stati rivisti. Verifica è pronto per procedere con l' **applicazione** se l'applicazione automatica è abilitata. |
 |Applicazione | Non verrà apportata alcuna modifica all'accesso per gli utenti che sono stati approvati. |
 |Applicato | Gli utenti negati, se presenti, sono stati rimossi dalla risorsa o dalla directory. |
+|Operazione non riuscita | Non è stato possibile procedere con la revisione. Questo errore può essere correlato all'eliminazione del tenant, a una modifica nelle licenze o ad altre modifiche interne del tenant. |
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 

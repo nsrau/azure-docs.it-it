@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631129"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930714"
 ---
 # <a name="tutorial-mock-api-responses"></a>Esercitazione: Simulare le risposte di un'API
 
@@ -107,7 +107,7 @@ Sebbene non sia richiesto per questo esempio, è possibile configurare impostazi
 1. Selezionare **Salva**.
 
     > [!TIP]
-    > Una barra gialla con il testo **Mocking is enabled** (Il comportamento fittizio è abilitato) indica che le risposte restituite da Gestione API inviano un criterio fittizio e non una risposta back-end effettiva.
+    > Una barra gialla con il testo **Mocking is enabled** (Il comportamento fittizio è abilitato) indica che le risposte restituite da Gestione API sono simulate dal [criterio fittizio](api-management-advanced-policies.md#mock-response) e non sono prodotte dal back-end.
 
 ## <a name="test-the-mocked-api"></a>Testare l'API fittizia
 

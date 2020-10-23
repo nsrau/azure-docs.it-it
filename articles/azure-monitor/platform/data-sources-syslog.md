@@ -1,20 +1,23 @@
 ---
-title: Raccogliere e analizzare messaggi Syslog in Monitoraggio di Azure | Microsoft Docs
+title: Raccogliere origini dati syslog con Log Analytics Agent in monitoraggio di Azure
 description: Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e i dettagli dei record creati.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322313"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440621"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Raccogliere origini dati syslog con Log Analytics Agent
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
+
+> [!IMPORTANT]
+> Questo articolo illustra la raccolta di eventi syslog con l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 > [!NOTE]
 > Monitoraggio di Azure supporta la raccolta di messaggi inviati da rsyslog o syslog-ng, dove rsyslog rappresenta il daemon predefinito. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere dati syslog da questa versione di queste distribuzioni, è necessario installare e configurare il [daemon rsyslog](http://rsyslog.com) per sostituire sysklog.
@@ -45,7 +48,7 @@ Per qualsiasi altra struttura, [configurare un'origine dati dei log personalizza
 L'agente di Log Analytics per Linux raccoglie solo gli eventi con le funzionalità e i livelli di gravità specificati nella configurazione. È possibile configurare Syslog tramite il portale di Azure o mediante la gestione dei file di configurazione negli agenti Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurare Syslog nel portale di Azure
-Configurare Syslog usando il [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources). Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
+Configurare syslog dal [menu dati in impostazioni avanzate](agent-data-sources.md#configuring-data-sources) per l'area di lavoro log Analytics. Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
 
 È possibile aggiungere una nuova funzionalità selezionando prima di tutto l'opzione **applica la configurazione seguente alle macchine virtuali** e digitando il nome e facendo clic su **+** . Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati. Non è possibile specificare altri criteri per filtrare i messaggi.
 

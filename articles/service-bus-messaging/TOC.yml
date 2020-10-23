@@ -88,7 +88,7 @@
       href: service-bus-outages-disasters.md
     - name: Limitazione
       href: service-bus-throttling.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -107,8 +107,6 @@
                   href: service-bus-managed-service-identity.md
                 - name: Eseguire l'autenticazione da un'applicazione
                   href: authenticate-application.md
-        - name: Criteri di sicurezza integrati
-          href: service-bus-messaging-security-controls.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

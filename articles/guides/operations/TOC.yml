@@ -2,7 +2,7 @@
   items:
     - name: Introduzione ad Azure
       href: azure-operations-guide.md
-    - name: Avvi rapidi
+    - name: Guide rapide introduttive
       items:
         - name: Macchine virtuali
           items:
@@ -39,21 +39,21 @@
             - name: Creare e gestire macchine virtuali Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline CI/CD di Jenkins
-              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: Bilanciare il carico delle macchine virtuali
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Creazione di modelli di Gestione risorse di Azure
-              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: Eseguire il backup di macchine virtuali su vasta scala
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guide pratiche
       items:
         - name: 'Come scaricare la fattura e i dati di utilizzo giornalieri di Azure '
-          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
     - name: Risorse
       items:
         - name: Catalogo prodotti di Azure
-          href: 'https://docs.microsoft.com/azure/#pivot=products'
+          href: ../../index.yml
         - name: Roadmap per Azure
           href: 'https://azure.microsoft.com/roadmap/'
         - name: Calcolatore prezzi

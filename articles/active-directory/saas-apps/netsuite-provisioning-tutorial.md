@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983954"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428410"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Netsuite per il provisioning utenti automatico
 
@@ -28,6 +28,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 *   Tenant di Azure Active Directory.
 *   Una sottoscrizione di Netsuite OneWorld. Si noti che il provisioning utenti automatico è attualmente supportato solo con NetSuite OneWorld.
 *   Un account utente in Netsuite con autorizzazioni di amministratore.
+*   Per l'integrazione con Azure AD è necessaria un'esenzione 2FA. Per questa eccezione, contattare il team di supporto di NetSuite.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Assegnazione di utenti a Netsuite OneWorld
 

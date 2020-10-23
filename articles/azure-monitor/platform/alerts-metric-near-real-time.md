@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108814"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -119,7 +119,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 ## <a name="payload-schema"></a>Schema del payload
 
 > [!NOTE]
-> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
+> È anche possibile usare lo [schema di avviso comune](./alerts-common-schema.md), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](./alerts-common-schema-definitions.md)
 
 
 L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli avvisi delle metriche più recenti se viene usato un [gruppo di azioni](./action-groups.md) correttamente configurato:
@@ -180,4 +180,3 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 * Altre informazioni sulla nuova [esperienza di avvisi](./alerts-overview.md).
 * Per altre informazioni, fare riferimento agli [avvisi di log in Azure](./alerts-unified-log.md).
 * Informazioni sugli [avvisi in Azure](./alerts-overview.md).
-

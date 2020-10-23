@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756755"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976930"
 ---
 # <a name="quickstart-handle-sms-events"></a>Avvio rapido: Gestire gli eventi SMS
 
@@ -92,13 +92,13 @@ Consultare l'elenco completo degli [eventi supportati dai Servizi di comunicazio
 
 ### <a name="receiving-sms-events"></a>Ricezione di eventi SMS
 
-Dopo aver completato una delle azioni descritte sopra, si noterà che gli eventi `SMS Received` e `SMS Delivery Report Received` vengono inviati all'endpoint. Questi eventi sono visualizzati nel [Visualizzatore di Griglia di eventi di Azure di esempio](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurato all'inizio. È possibile premere l'icona a forma di occhio accanto all'evento per visualizzare l'intero payload. Gli eventi hanno un aspetto simile al seguente:
+Dopo aver completato una delle azioni descritte sopra, si noterà che gli eventi `SMS Received` e `SMS Delivery Report Received` vengono inviati all'endpoint. Questi eventi sono visualizzati nel [Visualizzatore di Griglia di eventi di Azure di esempio](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurato all'inizio. È possibile premere l'icona a forma di occhio accanto all'evento per visualizzare l'intero payload. Gli eventi avranno l'aspetto seguente:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
-Vedere altre informazioni sugli [schemi di eventi e altre nozioni relative agli eventi](../../concepts/event-handling.md)
+Altre informazioni sugli [schemi di eventi e altri concetti relativi agli eventi](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

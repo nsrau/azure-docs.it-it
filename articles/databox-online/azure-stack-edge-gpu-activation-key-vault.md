@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367602"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integrazione di Azure Key Vault con Azure Stack Edge 
 
@@ -22,7 +22,7 @@ Azure Key Vault è integrato con la risorsa Azure Stack Edge per la gestione dei
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Informazioni su Key Vault e Azure Stack Edge
 
-Azure Key Vault servizio cloud viene usato per archiviare e controllare in modo sicuro l'accesso a token, password, certificati, chiavi API e altri segreti. Key Vault facilita inoltre la creazione e il controllo delle chiavi di crittografia utilizzate per crittografare i dati. 
+Azure Key Vault servizio cloud viene usato per archiviare e controllare in modo sicuro l'accesso a token, password, certificati, chiavi API e altri segreti. Key Vault facilita inoltre la creazione e il controllo delle chiavi di crittografia utilizzate per crittografare i dati. Per ulteriori informazioni sulle transazioni consentite e sugli addebiti corrispondenti, vedere [prezzi per Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 Per Azure Stack servizio Edge, uno dei segreti usati è la chiave di integrità del canale (CIK). Questa chiave consente di crittografare i segreti. Con l'integrazione di Key Vault, la CIK viene archiviata in modo sicuro nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [archiviare in modo sicuro segreti e chiavi](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -44,6 +44,8 @@ Viene creato un insieme di credenziali delle chiavi per la risorsa Azure Stack E
 - È possibile scegliere di accettare il nome predefinito della chiave o specificare un nome personalizzato per l'insieme di credenziali delle chiavi. Il nome dell'insieme di credenziali delle chiavi deve avere una lunghezza compreso tra 3 e 24 caratteri. Non è possibile usare un insieme di credenziali delle chiavi già in uso. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI creato durante la creazione della risorsa Azure Stack Edge](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Per passare all'insieme di credenziali delle chiavi di Azure, passare alle **Proprietà** nella risorsa di Azure stack Edge e selezionare il nome dell'insieme di credenziali delle chiavi. 
 
 - Per evitare l'eliminazione accidentale, un blocco di risorsa è abilitato nell'insieme di credenziali delle chiavi. Nell'insieme di credenziali delle chiavi è abilitata anche un'eliminazione temporanea che consente il ripristino dell'insieme di credenziali delle chiavi entro 90 giorni, se si verifica un'eliminazione accidentale. Per altre informazioni, vedere [Panoramica di Azure Key Vault soft-delete](../key-vault/general/soft-delete-overview.md)
 

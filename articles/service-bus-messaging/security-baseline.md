@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761159"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310444"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Baseline della sicurezza di Azure per il bus di servizio
 
@@ -62,7 +62,7 @@ Usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezion
 
 - [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
-- [Intelligence per le minacce integrata nel centro sicurezza di Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Intelligence per le minacce integrata nel centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -111,7 +111,7 @@ Usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezion
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Criteri predefiniti di Azure per lo spazio dei nomi del bus di servizio](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [Criteri predefiniti di Azure per lo spazio dei nomi del bus di servizio](./policy-reference.md#azure-service-bus-messaging)
 
 - [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
@@ -129,7 +129,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag. 
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md) 
 
 - [Come creare una rete virtuale](../virtual-network/quick-create-portal.md) 
 
@@ -143,7 +143,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Indicazioni**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate al bus di servizio di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -177,7 +177,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Come abilitare le impostazioni di diagnostica per il bus di servizio di Azure](service-bus-diagnostic-logs.md)
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -231,9 +231,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Ruoli predefiniti per il bus di servizio di Azure](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -311,7 +311,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -347,7 +347,7 @@ Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che co
 
 In aggiunta, ruotare regolarmente la firma di accesso condiviso dello spazio dei nomi del bus di servizio.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -363,7 +363,7 @@ In aggiunta, ruotare regolarmente la firma di accesso condiviso dello spazio dei
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. In monitoraggio di Azure è quindi possibile configurare gli avvisi del log desiderati per determinate azioni che si verificano nei log.
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Autorizzare l'accesso alle risorse del bus di servizio usando Azure Active Directory](authenticate-application.md)
 
@@ -375,7 +375,7 @@ In aggiunta, ruotare regolarmente la firma di accesso condiviso dello spazio dei
 
 **Linee guida**: usare le funzionalità di protezione delle identità e rilevamento dei rischi di Azure Active Directory per configurare risposte automatiche per rilevare azioni sospette correlate alle risorse abilitate per il bus di servizio. È necessario abilitare le risposte automatiche tramite Sentinel di Azure per implementare le risposte di sicurezza dell'organizzazione.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -403,7 +403,7 @@ In aggiunta, ruotare regolarmente la firma di accesso condiviso dello spazio dei
 
 **Indicazioni**: usare i tag sulle risorse correlate al bus di servizio per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -413,11 +413,11 @@ In aggiunta, ruotare regolarmente la firma di accesso condiviso dello spazio dei
 
 **Linee guida**: implementare sottoscrizioni e gruppi di gestione distinti per lo sviluppo, il test e la produzione. Gli spazi dei nomi del bus di servizio devono essere separati da reti virtuali con endpoint privati configurati e contrassegnati in modo appropriato.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
@@ -437,7 +437,7 @@ Microsoft gestisce l'infrastruttura sottostante per il bus di servizio di Azure 
 
 - [Consentire l'accesso agli spazi dei nomi del bus di servizio di Azure tramite endpoint privati](private-link-service.md)
 
-- [Informazioni sui gruppi di sicurezza di rete e sui tag di servizio](/azure/virtual-network/security-overview)
+- [Informazioni sui gruppi di sicurezza di rete e sui tag di servizio](../virtual-network/network-security-groups-overview.md)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -507,7 +507,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -527,11 +527,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e monitorare gli spazi dei nomi del bus di servizio di Azure e le risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -574,7 +574,7 @@ Inoltre, usare Azure Resource Graph per eseguire query e individuare le risorse 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -603,9 +603,9 @@ Inoltre, usare Azure Resource Graph per eseguire query e individuare le risorse 
 
 Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. ServiceBus" per creare criteri personalizzati per il controllo o l'applicazione delle configurazioni.
 
-- [Criteri predefiniti di Azure per il bus di servizio ](/azure/service-bus-messaging/policy-samples)
+- [Criteri predefiniti di Azure per il bus di servizio ](./policy-reference.md)
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -653,7 +653,7 @@ Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. ServiceBus
 
 - [Configurare le chiavi gestite dal cliente per il bus di servizio](configure-customer-managed-key.md)
 
-- [Come creare una Key Vault](/azure/key-vault/quick-create-portal)
+- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -731,7 +731,7 @@ Verificare la regolarità dei backup automatici dei segreti di Key Vault con il 
 
 - [Come configurare le chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi](configure-customer-managed-key.md)
 
-- [Come ripristinare le chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -741,7 +741,7 @@ Verificare la regolarità dei backup automatici dei segreti di Key Vault con il 
 
 **Linee guida**: abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Il bus di servizio di Azure richiede che le chiavi gestite dal cliente dispongano di eliminazione temporanea e non ripuliscono la configurazione.
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Configurare un insieme di credenziali delle chiavi con chiavi](../event-hubs/configure-customer-managed-key.md)
 
@@ -775,7 +775,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -843,5 +843,5 @@ Usare il Centro sicurezza di Azure per l'automazione del flusso di lavoro per at
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

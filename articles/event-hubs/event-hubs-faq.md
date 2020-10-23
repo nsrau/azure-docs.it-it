@@ -3,12 +3,12 @@ title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729101"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424187"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -132,7 +132,7 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 
 Esempio:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+bootstrap. Servers = dummynamespace. ServiceBus. Windows. NET: 9093 request. timeout. ms = 60000 Security. Protocol = SASL_SSL SASL. Mechanism = PLAIN sasl.jaas.config= org. Apache. Kafka. Common. Security. Plain. PlainLoginModule required username = "$ConnectionString" password = "endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
 
 Nota: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
 
@@ -206,7 +206,7 @@ Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di a
 ## <a name="best-practices"></a>Procedure consigliate
 
 ### <a name="how-many-partitions-do-i-need"></a>Quante partizioni sono necessarie?
-Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per altre informazioni sulle partizioni, vedere [Partizioni](event-hubs-features.md#partitions).
+Il numero di partizioni viene specificato al momento della creazione e deve essere compreso tra 1 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per altre informazioni sulle partizioni, vedere [Partizioni](event-hubs-features.md#partitions).
 
 È possibile impostarlo in modo che sia il valore massimo possibile, ovvero 32, al momento della creazione. Tenere presente che se si dispone di più di una partizione, gli eventi vengono inviati a più partizioni senza mantenerne l'ordine, a meno che non si configurino i mittenti per inviare solo a una singola partizione tra le 32, lasciando ridondanti le 31 partizioni rimanenti. Nel primo caso, è necessario leggere gli eventi in tutte le 32 partizioni. Nel secondo caso, non esiste alcun costo aggiuntivo evidente rispetto alla configurazione che è necessario eseguire in più sull'host processore di eventi.
 

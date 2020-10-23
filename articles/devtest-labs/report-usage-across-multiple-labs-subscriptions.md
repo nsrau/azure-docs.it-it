@@ -3,16 +3,16 @@ title: Azure DevTest Labs l'utilizzo in più laboratori e sottoscrizioni
 description: Informazioni su come creare report Azure DevTest Labs utilizzo in più laboratori e sottoscrizioni.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287278"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152201"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Segnala l'utilizzo di Azure DevTest Labs tra più laboratori e sottoscrizioni
 
-Molte organizzazioni di grandi dimensioni vogliono tenere traccia dell'utilizzo delle risorse in modo da renderle più efficaci grazie alla visualizzazione delle tendenze e degli outlier nell'utilizzo. In base all'utilizzo delle risorse, i proprietari o i responsabili del Lab possono personalizzare i Lab per [migliorare l'utilizzo delle risorse e i costi](../cost-management-billing/manage/getting-started.md). In Azure DevTest Labs, è possibile scaricare l'utilizzo delle risorse per Lab consentendo di esaminare in modo più approfondito i modelli di utilizzo. Questi modelli di utilizzo possono contribuire a individuare le modifiche per migliorare l'efficienza. La maggior parte delle aziende desiderano sia l'utilizzo del singolo Lab sia l'utilizzo complessivo in [più laboratori e sottoscrizioni](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Molte organizzazioni di grandi dimensioni vogliono tenere traccia dell'utilizzo delle risorse in modo da renderle più efficaci grazie alla visualizzazione delle tendenze e degli outlier nell'utilizzo. In base all'utilizzo delle risorse, i proprietari o i responsabili del Lab possono personalizzare i Lab per [migliorare l'utilizzo delle risorse e i costi](../cost-management-billing/cost-management-billing-overview.md). In Azure DevTest Labs, è possibile scaricare l'utilizzo delle risorse per Lab consentendo di esaminare in modo più approfondito i modelli di utilizzo. Questi modelli di utilizzo possono contribuire a individuare le modifiche per migliorare l'efficienza. La maggior parte delle aziende desiderano sia l'utilizzo del singolo Lab sia l'utilizzo complessivo in [più laboratori e sottoscrizioni](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Questo articolo illustra come gestire le informazioni sull'utilizzo delle risorse in più laboratori e sottoscrizioni.
 

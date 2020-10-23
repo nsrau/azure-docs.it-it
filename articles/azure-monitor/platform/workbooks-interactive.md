@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: ee71082b96d41f9bad7fb54a70d308c24dec5b57
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: daedef3410e32b97f8cf753bcbad6c2bc11bbc41
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932040"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143641"
 ---
 # <a name="interactive-workbooks"></a>Cartelle di lavoro interattive
 
@@ -188,5 +188,5 @@ Mentre il comportamento predefinito prevede l'esportazione di un parametro come 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* Per [iniziare ad](./workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

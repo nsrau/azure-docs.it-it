@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271495"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172224"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91271495"
 
 Questo articolo illustra come usare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB a un insieme di credenziali di servizi di ripristino di Azure.
 
-È possibile usare [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) per inizializzare i backup DPM/MAB iniziali di grandi dimensioni offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero usati per spostare grandi quantità di dati di backup online tramite una rete ad alta latenza. Questa funzionalità è attualmente in anteprima.
+È possibile usare [Azure Data Box](../databox/data-box-overview.md) per inizializzare i backup DPM/MAB iniziali di grandi dimensioni offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero usati per spostare grandi quantità di dati di backup online tramite una rete ad alta latenza. Questa funzionalità è attualmente in anteprima.
 
 Il backup offline basato su Azure Data Box offre due vantaggi diversi rispetto al [backup offline basato sul servizio Importazione/Esportazione di Azure](backup-azure-backup-server-import-export.md):
 
@@ -39,8 +39,8 @@ Sono supportati gli SKU Data Box seguenti:
 
 | Dimensioni dei dati di backup (dopo la compressione da Marte) \* per server | SKU Azure Data Box supportati |
 | --- | --- |
-| \<= 7,2 TB | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 TB e <= 80 TB\*\* | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| \<= 7,2 TB | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 TB e <= 80 TB\*\* | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 \*I tassi di compressione sono in genere compresi tra il 10% e il 20% <br>
 \*\*Contattare [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) se si prevede che i dati di backup iniziali per una singola origine dati saranno superiori a 80 TB.
@@ -64,7 +64,7 @@ Verificare quanto segue:
 
 ### <a name="order-and-receive-the-data-box-device"></a>Ordinare e ricevere il dispositivo Data Box
 
-Verificare che i dispositivi Data Box richiesti siano in stato *recapitato* prima di attivare il backup offline. Per ordinare lo SKU più adatto in base alle proprie esigenze, vedere [Dimensioni dei dati di backup e SKU Data Box supportati](#backup-data-size-and-supported-data-box-skus). Per ordinare e ricevere i dispositivi Data Box, seguire i passaggi di [questo articolo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered).
+Verificare che i dispositivi Data Box richiesti siano in stato *recapitato* prima di attivare il backup offline. Per ordinare lo SKU più adatto in base alle proprie esigenze, vedere [Dimensioni dei dati di backup e SKU Data Box supportati](#backup-data-size-and-supported-data-box-skus). Per ordinare e ricevere i dispositivi Data Box, seguire i passaggi di [questo articolo](../databox/data-box-disk-deploy-ordered.md).
 
 > [!IMPORTANT]
 > Non selezionare *BlobStorage* per il **tipo di account**. Il server DPM/MAB richiede un account che supporti i BLOB di pagine che non sono supportati quando si seleziona *BlobStorage* . Selezionare  **storage V2 (utilizzo generico v2)** come **tipo di account** quando si crea l'account di archiviazione di destinazione per il processo di Azure Data Box.
@@ -77,14 +77,14 @@ Una volta ricevuto il dispositivo Azure Data Box, a seconda dello SKU Azure Data
 
 ### <a name="setup-azure-data-box-disk"></a>Configurare Azure Data Box Disk
 
-Se è stato ordinato uno o più dischi Azure Data Box (fino a 8 TB ognuno), seguire i passaggi indicati [qui](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) per decomprimere, connettere e sbloccare il disco Data Box.
+Se è stato ordinato uno o più dischi Azure Data Box (fino a 8 TB ognuno), seguire i passaggi indicati [qui](../databox/data-box-disk-deploy-set-up.md) per decomprimere, connettere e sbloccare il disco Data Box.
 
 > [!NOTE]
 > È possibile che il server DPM/MAB non disponga di una porta USB. In questo caso, è possibile connettere il disco Azure Data Box a un altro server/client ed esporre la radice del dispositivo come condivisione di rete.
 
 ## <a name="setup-azure-data-box"></a>Configurare Azure Data Box
 
-Se è stato ordinato un Azure Data Box (fino a 100 TB), seguire i passaggi indicati [qui](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) per configurare la data box.
+Se è stato ordinato un Azure Data Box (fino a 100 TB), seguire i passaggi indicati [qui](../databox/data-box-deploy-set-up.md) per configurare la data box.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Montare Azure Data Box come sistema locale
 
@@ -100,7 +100,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
    ```
 
 4. La finestra di comando visualizzata come risultato del comando precedente si trova nel contesto del sistema locale. Usare questa finestra di comando per eseguire i passaggi per montare la condivisione del BLOB di pagine di Azure come unità di rete in Windows Server.
-5. Seguire questa procedura per connettere il server DPM/MAB al dispositivo Data Box tramite NFS ed eseguire il comando seguente nel prompt dei [comandi di sistema](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) locale per montare la condivisione BLOB di pagine di Azure:
+5. Seguire questa procedura per connettere il server DPM/MAB al dispositivo Data Box tramite NFS ed eseguire il comando seguente nel prompt dei [comandi di sistema](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) locale per montare la condivisione BLOB di pagine di Azure:
 
     ```cmd
     mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
@@ -110,7 +110,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Trasferire i dati di backup iniziali a dispositivi Azure Data Box
 
-1. Nel server DPM/MAB, attenersi alla procedura per [creare un nuovo gruppo protezione](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)dati. Se si aggiunge una protezione in linea al gruppo protezione dati esistente, fare clic con il pulsante destro del mouse sul gruppo protezione dati esistente, quindi scegliere **Aggiungi protezione dati online** e iniziare dal **passaggio 8**.
+1. Nel server DPM/MAB, attenersi alla procedura per [creare un nuovo gruppo protezione](/system-center/dpm/create-dpm-protection-groups)dati. Se si aggiunge una protezione in linea al gruppo protezione dati esistente, fare clic con il pulsante destro del mouse sul gruppo protezione dati esistente, quindi scegliere **Aggiungi protezione dati online** e iniziare dal **passaggio 8**.
 2. Nella pagina **Selezione membri del gruppo** specificare i computer e le origini di cui si vuole eseguire il backup.
 3. Nella pagina **Seleziona metodo protezione dati** specificare come si vuole gestire i backup a breve e lungo termine. Assicurarsi di selezionare **Protezione dati online**.
 
@@ -163,7 +163,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
     > ![Unità USB](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > Ad esempio, se il percorso del disco è `\\mydomain\myserver\disk1\` e *disk1* contiene una directory denominata *PageBlob*, il percorso da fornire nella procedura guidata del server DPM/MAB è `\\mydomain\myserver\disk1\` .
-    > Se si [configura un dispositivo Azure Data Box da 100 TB](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box), specificare il percorso di rete seguente per il dispositivo: `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob`.
+    > Se si [configura un dispositivo Azure Data Box da 100 TB](./offline-backup-azure-data-box.md#set-up-azure-data-box), specificare il percorso di rete seguente per il dispositivo: `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob`.
 
 15. Selezionare **Avanti**. Nella pagina **Riepilogo** verificare le impostazioni e selezionare **Crea gruppo**.
 
@@ -193,8 +193,8 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
 
 Al termine del backup dei dati in Azure Data Box Disk, seguire questa procedura.
 
-- Per inviare Azure Data Box Disk ad Azure, seguire la procedura descritta in [questo articolo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Se è stato usato un dispositivo Azure Data Box da 100 TB, seguire [questi passaggi](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) per inviare Azure Data Box ad Azure.
-- [Monitorare il processo Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) nel portale di Azure. Al *termine*del processo di Azure Data Box, il server DPM/MAB sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Contrassegna quindi il processo di backup come *Processo completato* se viene creato un punto di ripristino.
+- Per inviare Azure Data Box Disk ad Azure, seguire la procedura descritta in [questo articolo](../databox/data-box-disk-deploy-picked-up.md). Se è stato usato un dispositivo Azure Data Box da 100 TB, seguire [questi passaggi](../databox/data-box-deploy-picked-up.md) per inviare Azure Data Box ad Azure.
+- [Monitorare il processo Data Box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al *termine*del processo di Azure Data Box, il server DPM/MAB sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Contrassegna quindi il processo di backup come *Processo completato* se viene creato un punto di ripristino.
 
   > [!NOTE]
   > Il server DPM/MAB attiva i backup nelle ore pianificate durante la creazione del gruppo protezione dati. Questi processi risulteranno tuttavia *in attesa del completamento del processo Azure Data Box* fino al termine del processo.

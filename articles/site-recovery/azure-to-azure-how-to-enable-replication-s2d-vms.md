@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135752"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424833"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta in un'altra area
 
@@ -49,12 +49,12 @@ Il diagramma seguente mostra un cluster di failover di macchine virtuali di Azur
 1. Selezionare i criteri di replica con la coerenza dell'applicazione disattivata* (è disponibile solo il supporto della coerenza per arresto anomalo del sistema)
 1. Abilitare la replica
 
-   ![Protezione di Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Screenshot che mostra dove configurare le impostazioni di replica.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Passare agli elementi replicati per visualizzare lo stato di entrambe le macchine virtuali.
 3. Entrambe le macchine virtuali sono protette e vengono anche visualizzate come parte di un gruppo di coerenza tra più macchine virtuali.
 
-   ![Protezione di Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Screenshot che mostra che le macchine virtuali sono protette e fanno parte di un gruppo di coerenza tra più macchine virtuali.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Creazione di un piano di ripristino
 Un piano di ripristino supporta la sequenziazione di vari livelli in un'applicazione multilivello durante un failover. La sequenziazione aiuta a mantenere la coerenza delle applicazioni. Quando si crea un piano di ripristino per un'applicazione Web multilivello, completare la procedura descritta in [Creare un piano di ripristino con Site Recovery](site-recovery-create-recovery-plans.md).

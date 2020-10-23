@@ -9,31 +9,31 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569933"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275299"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [SDK di feed di modifiche .NET v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring data V2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Connettore Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazioni asincrone.
@@ -232,7 +232,7 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 * Aggiunta del supporto per la durata (TTL) relativa ai documenti.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md).
+* Implementazione delle [raccolte partizionate](partitioning-overview.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md).
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Risolto un bug in HashPartitionResolver per generare valori hash in little endian per coerenza con altri SDK.
@@ -263,7 +263,7 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Dopo il 30 maggio 2020, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 1. x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+> Dopo il 30 maggio 2020, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 1. x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1.x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
 >
 > Dopo il 29 febbraio 2016, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 0. x dell'API Azure Cosmos DB Java SDK per SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 0. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
 

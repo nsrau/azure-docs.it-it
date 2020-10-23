@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a9560cfe0daf158dad03a3171047669a19eade
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13dd930842cb724d12711ac9e7704fd9af4e29d8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547961"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Esercitazione: Integrazione di Azure Active Directory con Oneteam
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Oneteam, seguire questa
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Oneteam](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le caselle di testo "Identificatore" e "URL di risposta" evidenziate e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://api.one-team.io/teams/<team name>`
 

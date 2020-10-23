@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263777"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132704"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -84,7 +84,7 @@ L'agente di monitoraggio di Azure invia dati alle metriche di monitoraggio di Az
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-Per un elenco delle versioni del sistema operativo Windows e Linux attualmente supportate dall'agente di Log Analytics, vedere [sistemi operativi supportati](agents-overview.md#supported-operating-systems) .
+Vedere [sistemi operativi supportati](agents-overview.md#supported-operating-systems) per un elenco delle versioni del sistema operativo Windows e Linux attualmente supportate dall'agente di monitoraggio di Azure.
 
 
 
@@ -99,7 +99,7 @@ L'agente di monitoraggio di Azure viene implementato come [estensione della macc
 
 | Proprietà | Windows | Linux |
 |:---|:---|:---|
-| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Editore | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976258"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424752"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
 
@@ -41,16 +41,16 @@ La seguente matrice di connettività, riepiloga i flussi supportati in questo sc
 
 | Da             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
 |---|---|---|---|---|---|
-| **Spoke di NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Statico |      X   |        X     |      X    |
-| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; |   Statico |      X   |        X     |      X    |
-| **Rami**     | &#8594; |   Statico |      X   |        X     |      X    |
+| **Spoke di NVA**   | &#8594; | Su appliance virtuale di VNet | Peering | Su appliance virtuale di VNet | Su appliance virtuale di VNet |
+| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; | Peering | Connessione diretta | Connessione diretta | Connessione diretta |
+| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; | Su appliance virtuale di VNet | Connessione diretta | Connessione diretta | Connessione diretta |
+| **Rami**     | &#8594; | Su appliance virtuale di VNet | Connessione diretta | Connessione diretta | Connessione diretta |
 
-Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Considerare quanto segue:
+Ognuna delle celle nella matrice di connettività descrive il modo in cui un VNet o un ramo (il lato "da" del flusso, le intestazioni di riga nella tabella) comunica con un VNet o un ramo di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella). "Direct" significa che la connettività viene fornita in modo nativo dalla rete WAN virtuale, ovvero "peering" significa che la connettività viene fornita da una route di User-Defined in VNet, "over appliance virtuale di rete virtuale" significa che la connettività attraversa l'appliance virtuale di rete distribuita nell'appliance virtuale di rete (NVA). Considerare quanto segue:
 
 * I spoke di appliance virtuale di rete non sono gestiti da WAN virtuale. Di conseguenza, i meccanismi con i quali comunicheranno con altri reti virtuali o rami verranno gestiti dall'utente. La connettività ai VNet dell'appliance virtuale di rete viene fornita da un peering VNet e una route predefinita a 0.0.0.0/0 che punta all'appliance virtuale di rete come hop successivo dovrebbe coprire la connettività a Internet, ad altri spoke e ai Branch
 * L'appliance virtuale di reti virtuali saprà conoscere i propri spoke di appliance virtuale di dispositivo, ma non i spoke di appliance virtuale di appliance connessi ad altri reti virtuali di appliance Nella tabella 1, ad esempio, VNet 2 conosce VNet 5 e VNet 6, ma non su altri spoke come VNet 7 e VNet 8. Per inserire i prefissi di altri spoke in appliance virtuale di reti virtuali, è necessaria una route statica
-* Analogamente, i rami e i reti virtuali non di appliance virtuale di dispositivo non saranno in grado di rilevare i nodi dell'appliance virtuale di terze, perché i spoke di appliance virtuale di dispositivo Di conseguenza, le route statiche saranno necessarie anche qui.
+* Analogamente, i rami e i reti virtuali non di appliance virtuale di rete non sono in grado di rilevare i problemi dell'appliance virtuale di rete, perché i spoke di NVA non sono connessi agli hub Di conseguenza, le route statiche saranno necessarie anche qui.
 
 Tenendo presente che i spoke di appliance virtuale di rete non sono gestiti da WAN virtuale, tutte le altre righe mostrano lo stesso modello di connettività. Di conseguenza, una singola tabella di route, ovvero quella predefinita, eseguirà le operazioni seguenti:
 

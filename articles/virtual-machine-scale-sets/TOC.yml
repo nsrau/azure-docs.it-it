@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i set di scalabilità delle macchine virtuali?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare nel portale di Azure
       href: quick-create-portal.md
@@ -195,7 +195,7 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/infrastructure-automation.md
       maintainContext: true
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: ../virtual-machines/security-policy.md
@@ -203,8 +203,6 @@
           href: disk-encryption-overview.md
         - name: Baseline di sicurezza di Azure
           href: security-baseline.md
-        - name: Criteri di sicurezza integrati
-          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Monitoraggio
       href: ../azure-monitor/insights/monitor-vm-azure.md

@@ -3,12 +3,12 @@ title: Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399245"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424116"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 
@@ -22,7 +22,7 @@ Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le 
 
 ## <a name="role-support-for-azure-lighthouse"></a>Supporto dei ruoli per Azure Lighthouse
 
-Quando si definisce un'autorizzazione, a ogni account utente deve essere assegnato uno dei [ruoli Controllo degli accessi in base al ruolo predefiniti](../../role-based-access-control/built-in-roles.md). I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
+Quando si definisce un'autorizzazione, a ogni account utente deve essere assegnato uno dei [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
 
 Tutti i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) sono attualmente supportati con Azure Lighthouse, con le eccezioni seguenti:
 

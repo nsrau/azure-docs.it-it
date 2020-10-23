@@ -3,12 +3,12 @@ title: Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azu
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566228"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329611"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azure
 L'articolo [risolvere i problemi di connettività](troubleshooting-guide.md) fornisce suggerimenti per la risoluzione dei problemi di connettività con hub eventi di Azure. Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure. 
@@ -21,7 +21,7 @@ Se si usa Azure Active Directory (Azure AD) per l'autenticazione e l'autorizzazi
 - [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) per l'accesso di invio.
 - [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) per l'accesso di ricezione.
 
-Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#role-based-access-control).
+Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Ambiti delle risorse
 - **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 

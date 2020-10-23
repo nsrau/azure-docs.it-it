@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80585982"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342230"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gestire i dati degli utenti nel Centro sicurezza di Azure
 Questo articolo fornisce informazioni su come è possibile gestire i dati degli utenti nel Centro sicurezza di Azure. La gestione dei dati degli utenti include la possibilità di accedere ai dati, eliminarli o esportarli.
@@ -87,7 +87,7 @@ Un utente con ruolo Amministratore dell'account può esportare i dettagli dell'a
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Per altre informazioni, vedere [ottenere avvisi di sicurezza (Get Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
+Per altre informazioni, vedere [ottenere avvisi di sicurezza (Get Collection)](/previous-versions/azure/reference/mt704050(v=azure.100)).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Limitazione dell'uso dei dati personali per la profilatura o il marketing senza consenso dell'utente
 Un utente del Centro sicurezza può scegliere di rifiutare esplicitamente eliminando i propri [dati di contatto di sicurezza](security-center-provide-security-contact-details.md).

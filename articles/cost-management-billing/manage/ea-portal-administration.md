@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 33a53fa46d7d07183b77f2608d44f8ea5d0d2804
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371916"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132262"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -71,13 +71,13 @@ Azure EA Portal consente di amministrare i costi e l'utilizzo del contratto Ente
 
 Ogni ruolo ha un livello di accesso e autorità diverso.
 
-Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
+Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazione](./ea-portal-get-started.md#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Aggiungere un account EA di Azure
 
 L'account Azure EA è un'unità organizzativa in EA Portal di Azure. Viene usato per l'amministrazione delle sottoscrizioni e anche per la creazione di report. Per accedere e usare i servizi di Azure, è necessario creare un account o farsene creare uno.
 
-Per altre informazioni sugli account Azure, vedere [Aggiungere un account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
+Per altre informazioni sugli account Azure, vedere [Aggiungere un account](./ea-portal-get-started.md#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Offerta Sviluppo/test Enterprise
 

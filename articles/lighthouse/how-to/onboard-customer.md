@@ -3,12 +3,12 @@ title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873214"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426340"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
-Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/built-in-roles.md) ai propri utenti nel tenant.
+Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) appropriati agli utenti nel tenant.
 
 Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
 
@@ -242,18 +242,18 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-file <pathToTemplateFile> \
-                     --parameters <parameters/parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --parameters <parameters/parameterFile> \
+                         --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --parameters <parameterFile> \
+                         --verbose
 ```
 
 ## <a name="confirm-successful-onboarding"></a>Verificare che l'onboarding sia riuscito

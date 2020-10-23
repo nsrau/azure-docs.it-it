@@ -3,12 +3,12 @@ title: Preparare Azure Migrate per il funzionamento con uno strumento ISV e Move
 description: Questo articolo descrive come preparare Azure Migrate per il funzionamento con uno strumento ISV o con Movere e come iniziare a usare lo strumento.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103926"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369149"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Predisporre l'uso di uno strumento ISV o di Movere
 
@@ -26,7 +26,7 @@ Per l'account utente di Azure sono necessarie le autorizzazioni seguenti:
 
 1. In Azure AD controllare il ruolo per l'account.
 2. Se si ha il ruolo utente, selezionare **Impostazioni utente** a sinistra e verificare se gli utenti possono registrare le applicazioni. Se è impostato su **Sì**, qualsiasi utente nel tenant di Azure AD può registrare un'app. Se è impostato su **No**, solo gli utenti amministratori possono registrare le app.   
-3. Se non si hanno autorizzazioni, un utente amministratore può concedere all'account utente il ruolo di [Amministratore applicazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator), in modo che possa registrare l'app.
+3. Se non si hanno autorizzazioni, un utente amministratore può concedere all'account utente il ruolo di [Amministratore applicazione](../active-directory/roles/permissions-reference.md#application-administrator), in modo che possa registrare l'app.
 4. Quando lo strumento viene collegato a Azure Migrate, l'amministratore può rimuovere il ruolo dall'account.
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Impostare le autorizzazioni per assegnare un ruolo a un'app Azure AD

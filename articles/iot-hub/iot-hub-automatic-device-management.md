@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6d3661128008c13e5d4d459f6f8e7925aa18a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e30daa3f81ed5dcae1323e721bf85cfed8fa9614
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322772"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147815"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestione automatica di dispositivi e moduli IoT con il portale di Azure
 
@@ -242,8 +242,8 @@ In questo articolo si è appreso come configurare e monitorare i dispositivi IoT
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 
 
-* [Servizio Device Provisioning in hub IoT di Azure](/azure/iot-dps)
+* [Servizio Device Provisioning in hub IoT di Azure](../iot-dps/index.yml)

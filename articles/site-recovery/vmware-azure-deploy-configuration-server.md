@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287738"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359816"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -166,7 +166,7 @@ Per risolvere i problemi di connettività &, vedere l' [articolo sulla risoluzio
     Per altre informazioni sul server di configurazione e sulle relative funzionalità, vedere [architettura della replica da VMware ad Azure](vmware-azure-architecture.md).
 * Dove è possibile trovare la versione più recente del server di configurazione?
 
-    Per informazioni sui passaggi da eseguire per aggiornare il server di configurazione tramite il portale, vedere [Aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni su come aggiornare tutti i componenti di Site Recovery, vedere [aggiornamenti dei servizi in Site Recovery](https://aka.ms/asr_how_to_upgrade).
+    Per informazioni sui passaggi da eseguire per aggiornare il server di configurazione tramite il portale, vedere [Aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni su come aggiornare tutti i componenti di Site Recovery, vedere [aggiornamenti dei servizi in Site Recovery](./service-updates-how-to.md).
 * Dove è possibile scaricare la passphrase per il server di configurazione?
 
     Per scaricare la passphrase, vedere [gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).

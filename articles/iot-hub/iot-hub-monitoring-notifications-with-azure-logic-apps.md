@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680715"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146641"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680715"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[App](https://docs.microsoft.com/azure/logic-apps/) per la logica di Azure consente di orchestrare i flussi di lavoro in servizi locali e cloud, in una o più aziende e in diversi protocolli. Un'app per la logica inizia con un trigger, seguito da una o più azioni che possono essere sequenziate usando controlli incorporati, ad esempio le condizioni e gli iteratori. Questa flessibilità rende le app per la logica una soluzione ideale per gli scenari di monitoraggio degli stessi. Ad esempio, l'arrivo dei dati di telemetria da un dispositivo a un endpoint dell'hub Internet può avviare flussi di lavoro di app per la logica per eseguire il warehouse dei dati in un BLOB di archiviazione di Azure, inviare avvisi di posta elettronica per avvisare le anomalie dei dati, pianificare un tecnico visita se un dispositivo segnala un errore e così via.
+[App](../logic-apps/index.yml) per la logica di Azure consente di orchestrare i flussi di lavoro in servizi locali e cloud, in una o più aziende e in diversi protocolli. Un'app per la logica inizia con un trigger, seguito da una o più azioni che possono essere sequenziate usando controlli incorporati, ad esempio le condizioni e gli iteratori. Questa flessibilità rende le app per la logica una soluzione ideale per gli scenari di monitoraggio degli stessi. Ad esempio, l'arrivo dei dati di telemetria da un dispositivo a un endpoint dell'hub Internet può avviare flussi di lavoro di app per la logica per eseguire il warehouse dei dati in un BLOB di archiviazione di Azure, inviare avvisi di posta elettronica per avvisare le anomalie dei dati, pianificare un tecnico visita se un dispositivo segnala un errore e così via.
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
@@ -104,7 +104,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Aggiungere un endpoint personalizzato e una regola di routing all'hub Internet delle cose
 
-Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub Internet e creare una regola di routing dei messaggi per indirizzare i messaggi che contengono un avviso di temperatura a tale endpoint, dove verranno prelevati dall'app per la logica. La regola di routing utilizza una query di routing, `temperatureAlert = "true"` , per inviare i messaggi in base al valore della `temperatureAlert` proprietà dell'applicazione impostata dal codice client in esecuzione nel dispositivo. Per altre informazioni, vedere [query di routing messaggi basata sulle proprietà del messaggio](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub Internet e creare una regola di routing dei messaggi per indirizzare i messaggi che contengono un avviso di temperatura a tale endpoint, dove verranno prelevati dall'app per la logica. La regola di routing utilizza una query di routing, `temperatureAlert = "true"` , per inviare i messaggi in base al valore della `temperatureAlert` proprietà dell'applicazione impostata dal codice client in esecuzione nel dispositivo. Per altre informazioni, vedere [query di routing messaggi basata sulle proprietà del messaggio](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Aggiungere un endpoint personalizzato
 

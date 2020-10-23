@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843108"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367007"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -42,7 +42,7 @@ Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di
 ## <a name="prerequisites"></a>Prerequisiti
 - È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
 
-- Se si dispone di un utente guest che deve assegnare gli eventi imprevisti, all'utente deve essere assegnato il ruolo [lettore di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) nel tenant di Azure ad. Per gli utenti regolari (non Guest) questo ruolo è assegnato per impostazione predefinita.
+- Se si dispone di un utente guest che deve assegnare gli eventi imprevisti, all'utente deve essere assegnato il ruolo [lettore di directory](../active-directory/roles/permissions-reference.md#directory-readers) nel tenant di Azure ad. Per gli utenti regolari (non Guest) questo ruolo è assegnato per impostazione predefinita.
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
 

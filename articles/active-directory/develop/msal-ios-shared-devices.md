@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528129"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365911"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modalità dispositivo condiviso per dispositivi iOS
 
@@ -43,7 +43,7 @@ Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amm
 
 1. Gli **amministratori di dispositivi** preparano il dispositivo per la condivisione usando un provider di gestione di dispositivi mobili (MDM) come Microsoft Intune per gestire i dispositivi nell'organizzazione. Il MDM inserisce l'app Microsoft Authenticator nei dispositivi e attiva la modalità "Shared" per ogni dispositivo tramite un aggiornamento del profilo al dispositivo. Questa impostazione della modalità condivisa è la modifica del comportamento delle app supportate nel dispositivo. Questa configurazione dal provider MDM imposta la modalità del dispositivo condiviso per il dispositivo e Abilita il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) , che è necessario per la modalità dispositivo condiviso.
 
-1. [**Obbligatorio durante l'anteprima pubblica**] Un utente con ruolo di [amministratore del dispositivo cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
+1. [**Obbligatorio durante l'anteprima pubblica**] Un utente con ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
 
     Per configurare l'appartenenza dei ruoli aziendali nel portale di Azure: **Azure Active Directory**  >  **ruoli e amministratori**  >  **amministratore del dispositivo cloud**
 

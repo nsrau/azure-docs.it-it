@@ -1,18 +1,18 @@
 ---
 title: Programma di co-selling per i partner - Marketplace commerciale Microsoft
-description: Grazie al programma di co-selling per i partner del Centro per i partner Microsoft è possibile raggiungere una vasta platea di clienti e generare nuove vendite.
+description: Il programma di co-selling del centro per partner Microsoft per i partner può aiutarti a raggiungere una vasta clientela e a generare nuove vendite.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/23/2020
-ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268724"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207709"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -24,7 +24,7 @@ Il programma di co-selling è disponibile per il **software compilato con la pro
 
 <ul>
 
-![Diagramma che illustra come avviene il co-selling quando i clienti potenziali vengono condivisi, accettati e acquisiti a fronte dei clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+![Diagramma che illustra il modo in cui la co-selling si verifica quando i lead di vendita vengono condivisi, accettati e vinti dai clienti gestiti da Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 </ul>
 
 - **Co-selling incentivate** Le soluzioni IP possono ottenere incentivi per i venditori di settore Microsoft quando vengono venduti in collaborazione con i team di vendita Microsoft, oltre ai vantaggi del Marketplace elencati di seguito.</li></ul>
@@ -35,7 +35,7 @@ Le offerte che raggiungono lo stato **incentivate di co-selling IP di Azure** ot
 
 * Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica all'offerta IaaS o SaaS venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere [tariffa di servizio ridotta](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
 * I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita dell'offerta IaaS o SaaS. Altre informazioni sul programma CSP sono disponibili nel [programma Cloud Solution Provider](cloud-solution-providers.md).
-* Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **"vantaggio Azure idoneo"** nel portale di Azure. Per altri dettagli, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md) .
+* Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **"benefici di Azure idonei"** in portale di Azure. Per altri dettagli, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md) .
 * Le offerte che raggiungono lo stato di **co-selling IP di Azure incentivate** o **Business Applications incentivate di co-selling** riceveranno una notifica di **"soluzioni preferite"** nelle vetrine. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Scopri di più [sulle soluzioni preferite in Microsoft AppSource e in Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-selling di passaggi e requisiti di pubblicazione
@@ -44,8 +44,8 @@ La tabella seguente elenca i passaggi e i requisiti per l'offerta del Marketplac
 
 |Passaggio    |Tipo di offerta    |Requisiti    |Stato di co-selling    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> Creare un account nel centro per i partner e pubblicare l'offerta nel Marketplace commerciale.</li>|Tutti|<li>L'offerta soddisfa i requisiti di pubblicazione del Marketplace commerciale.</li><li>Si dispone di un profilo business completo nel centro per i partner.</li>|Non pronto|
-|<ol start=2><li>Inviare i materiali di co-selling necessari.</li>|Offerte IP *con* [opzione di co-selling nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Caricare i materiali necessari nel centro per i partner](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Contatto di vendita per ogni paese idoneo.</li><li>Distinta base del cliente: un cercapersone, un deck di presentazione clienti (facoltativo), un URL della pagina di destinazione della soluzione, un URL del canale di social media o altro (ad esempio, un case study).|Co-selling pronto|
+|<ol start=1><li> Creare un account nel centro per i partner e pubblicare l'offerta nel Marketplace commerciale.</li>|All|<li>L'offerta soddisfa i requisiti di pubblicazione del Marketplace commerciale.</li><li>Si dispone di un profilo business completo nel centro per i partner.</li>|Non pronto|
+|<ol start=2><li>Inviare i materiali di co-selling necessari.</li>|Offerte IP *con* [opzione di co-selling nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Caricare i materiali necessari nel centro per i partner](#how-to-submit-co-sell-materials-in-partner-center)|Co-selling pronto|
 ||Offerte IP *senza* [opzione di co-selling nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.|Co-selling pronto|
 ||Servizi di consulenza|<li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li><li>Competenza Gold attiva.</li>|Co-selling pronto|
 |<ol start=3><li>Qualifica per gli incentivi di co-selling IP</li>|Applicazioni Azure, contenitori di Azure, moduli di IoT Edge, SaaS, VM|Una volta ottenuta la co-selling, sono necessari due requisiti aggiuntivi: <ul> Requisito 1: ottenere uno degli obiettivi seguenti:<ul><li>*A livello di organizzazione:* raggiungere o superare $100.000 USD di ricavi usati da Azure per i 12 mesi finali.</li><li>*A livello di offerta:* ricavi fatturati in Marketplace cumulativi di $100.000 USD.</li></ul><br>Requisito 2: più del 50% dell'infrastruttura dell'offerta deve essere eseguito in Azure:<ul><li>Offerte IP *con* l' [opzione di co-selling nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): caricare un diagramma dell'architettura con i documenti di co-selling nel centro per i partner per la revisione.</li><li>Offerte IP *senza* [opzione di co-selling nel centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)per i partner: caricare un diagramma dell'architettura in OCP GTM.|Co-selling IP di Azure incentivate|
@@ -63,15 +63,19 @@ Avviare il percorso di co-selling direttamente nel centro per i partner seguendo
 
 1. Nel menu a sinistra selezionare **co-selling con Microsoft**.
 
-    [![Questa immagine mostra la località della co-selling con la scheda Microsoft.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Questa immagine mostra la località della co-selling con la scheda Microsoft.":::
 
-1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta.
+1. Fornire i dettagli di base per elencare i venditori Microsoft e individuare rapidamente l'offerta nella sezione **Listato** . (*Obbligatorio: tutti i campi).*
+
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Questa immagine mostra la località della co-selling con la scheda Microsoft.":::  
+
+1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. (*Obbligatorio: cliente One-pager e Customer Presentation Deck).*
+
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Questa immagine mostra la località della co-selling con la scheda Microsoft.":::
  
-   [![Questa immagine mostra la sezione documenti nella scheda co-selling.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
+1. Caricare le informazioni di contatto sulle vendite nella sezione **contatti** . I venditori Microsoft possono rivolgersi a questi contatti per richiedere informazioni aggiuntive sull'offerta. (*Obbligatorio: un contatto per ogni area geografica in cui l'offerta è resa disponibile).*
 
-1. Caricare le informazioni di contatto sulle vendite nella sezione **contatti** . I venditori Microsoft possono rivolgersi a questi contatti per richiedere informazioni aggiuntive sull'offerta.
-
-     [![Questa immagine mostra la sezione contatti nella scheda co-selling.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Questa immagine mostra la località della co-selling con la scheda Microsoft.":::
 
 1. Salvare la bozza prima di continuare.
 1. Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviarla per la revisione e la pubblicazione. In alto a destra selezionare **revisione e pubblica**. Esaminare i dettagli dell'offerta e quindi selezionare **pubblica**.

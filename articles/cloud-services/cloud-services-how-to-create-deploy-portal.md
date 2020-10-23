@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076692"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164165"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
@@ -56,7 +56,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Screenshot che evidenzia l'opzione del servizio cloud in creare una risorsa > calcolo.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
 4. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
@@ -74,7 +74,7 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
 3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Schermata che evidenzia il processo di caricamento di un certificato.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verificare che la distribuzione sia stata completata correttamente
 1. Fare clic sull'istanza del servizio cloud.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 0b6973f50e4d51c1c94e262a08681ec0431f511e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d78b67cbd811ae0f3b7cea8aec119d05464c124a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333988"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047795"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un servizio pubblico di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -1080,6 +1080,6 @@ In questo argomento di avvio rapido
 * Sono stati configurati la regola del traffico di bilanciamento del carico e il probe di integrità.
 * È stato testato il servizio di bilanciamento del carico.
 
-Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](load-balancer-overview.md) e le [domande frequenti su Load Balancer](load-balancer-faqs.md).
-
-Altre informazioni su [Load Balancer e zone di disponibilità](load-balancer-standard-availability-zones.md).
+Per altre informazioni su Azure Load Balancer, passare a...
+> [!div class="nextstepaction"]
+> [Informazioni su Azure Load Balancer](load-balancer-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528873"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: Integrazione di Azure Active Directory con Meta Networks Connector
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Meta Networks Connector](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Meta Networks Connector](common/both-advanced-urls.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-advanced-urls.png)
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
 6. L'applicazione Meta Networks Connector prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di attributi token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
     
 7. Oltre quelli elencati in precedenza, l'applicazione Meta Networks Connector prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
@@ -134,9 +134,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra il riquadro Attestazioni utente con l'opzione per aggiungere una nuova attestazione.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti.](common/new-attribute-details.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
@@ -173,19 +173,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
     
 2. Passare ad **Amministratore** e selezionare **Impostazioni**.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Screenshot che mostra l'opzione Impostazioni dal menu Administrator.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Assicurarsi che le opzioni **Log Internet Traffic** (Registra traffico Internet) e **Force VPN MFA** (Forza MFA VPN) siano disattivate.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Screenshot che mostra la disattivazione di queste impostazioni.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Passare ad **Amministratore** e selezionare **SAML**.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Screenshot che mostra l'opzione SAML nel menu Administrator.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Nella pagina **DETTAGLI** completare i passaggi seguenti:
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Screenshot che mostra la pagina DETAILS in cui è possibile immettere i valori descritti.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copiare il valore del campo **SSO URL** (URL di Single Sign-On) nella casella di testo **URL di accesso** della sezione **URL e dominio Meta Networks Connector**.
     
@@ -197,7 +197,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
     
 6. Nella scheda **GENERALE** completare i passaggi seguenti:
 
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Screenshot che mostra la pagina GENERALE in cui è possibile immettere i valori descritti.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. Nella casella di testo **Identity Provider Single Sign-On URL** (URL di accesso Single Sign-On del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 

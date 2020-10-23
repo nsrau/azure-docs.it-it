@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257670"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329560"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi e visualizzazione di eventi con i log di monitoraggio di Azure
  I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e forniscono gli strumenti di analisi per sfruttarne al meglio la disponibilità e le prestazioni. Questo articolo illustra come eseguire query nei log di monitoraggio di Azure per ottenere informazioni dettagliate e risolvere i problemi che si verificano nel cluster. Vengono affrontate le seguenti domande comuni:
@@ -42,7 +42,7 @@ In `Summary` vengono visualizzati riquadri sotto forma di grafo per ogni soluzio
 
 L'immagine seguente mostra la home page della soluzione Analisi Service Fabric. La home page fornisce una visualizzazione di riepilogo delle operazioni eseguite nel cluster.
 
-![Soluzione Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Screenshot che mostra il home page della soluzione Analisi Service Fabric.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  Se è stata abilitata la diagnostica al momento della creazione del cluster, è possibile visualizzare gli eventi per 
 
@@ -105,5 +105,5 @@ Il linguaggio di query Kusto è potente. Un'altra query importante che è possib
 * Per abilitare il monitoraggio dell'infrastruttura, ovvero i contatori delle prestazioni, vedere come [aggiungere l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md). L'agente raccoglie i contatori delle prestazioni e li aggiunge all'area di lavoro esistente.
 * Per i cluster locali, log di monitoraggio di Azure offre un gateway (proxy di inoltro HTTP) che può essere usato per inviare dati ai log di monitoraggio di Azure. Per altre informazioni, vedere [connessione di computer senza accesso a Internet ai log di monitoraggio di Azure tramite il gateway log Analytics](../azure-monitor/platform/gateway.md).
 * Configurare gli [avvisi automatizzati](../azure-monitor/platform/alerts-overview.md) in modo da semplificare il rilevamento e la diagnostica.
-* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) disponibili nell'ambito dei log di monitoraggio di Azure.
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure.
 * Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere informazioni sui [log di monitoraggio di Azure](../azure-monitor/overview.md).

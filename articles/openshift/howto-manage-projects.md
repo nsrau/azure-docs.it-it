@@ -8,14 +8,20 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816440"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216930"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gestire progetti, modelli, flussi di immagini in un cluster Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 30 giugno 2022. Il supporto per la creazione di nuovi cluster Azure Red Hat OpenShift 3,11 continua fino al 30 novembre 2020. Dopo il ritiro, i cluster di Azure Red Hat OpenShift 3,11 rimanenti verranno arrestati per evitare vulnerabilità di sicurezza.
+> 
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Per domande specifiche, [Contattaci](mailto:arofeedback@microsoft.com).
 
 In una piattaforma OpenShift container, i progetti vengono utilizzati per raggruppare e isolare gli oggetti correlati. In qualità di amministratore, è possibile concedere agli sviluppatori l'accesso a progetti specifici, consentire loro di creare progetti personalizzati e concedere loro diritti amministrativi a singoli progetti.
 
@@ -25,7 +31,7 @@ In una piattaforma OpenShift container, i progetti vengono utilizzati per raggru
 
 Quando viene inviata una richiesta di progetto, l'API sostituisce i parametri seguenti nel modello:
 
-| Parametro               | Descrizione                                    |
+| Parametro               | Description                                    |
 | ----------------------- | ---------------------------------------------- |
 | PROJECT_NAME            | Nome del progetto. Obbligatorio.             |
 | PROJECT_DISPLAYNAME     | Nome visualizzato del progetto. Può essere vuoto. |

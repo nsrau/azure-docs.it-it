@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439939"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126550"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connettività SSL/TLS nel database di Azure per MySQL
 
@@ -20,8 +20,11 @@ Il Database di Azure per MySQL supporta la connessione del server di database al
 > [!NOTE]
 > L'aggiornamento del `require_secure_transport` valore del parametro Server non influisce sul comportamento del servizio MySQL. Usare le funzionalità di imposizione SSL e TLS descritte in questo articolo per proteggere le connessioni al database.
 
+>[!NOTE]
+> In base ai commenti e suggerimenti dei clienti abbiamo esteso la deprecazione del certificato radice per la CA radice Baltimore esistente fino al 15 febbraio 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> Il certificato radice SSL è impostato per scadere a partire dal 26 ottobre 2020 (10/26/2020). Aggiornare l'applicazione per usare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Per altre informazioni, vedere [aggiornamenti di certificati pianificati](concepts-certificate-rotation.md)
+> Il certificato radice SSL è impostato per scadere a partire dal 15 febbraio 2021 (02/15/2021). Aggiornare l'applicazione per usare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Per altre informazioni, vedere [aggiornamenti di certificati pianificati](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Impostazioni predefinite SSL
 

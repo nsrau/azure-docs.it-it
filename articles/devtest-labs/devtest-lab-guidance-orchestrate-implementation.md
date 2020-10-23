@@ -4,12 +4,12 @@ description: Questo articolo contiene le indicazioni per l'orchestrazione dell'i
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480848"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330615"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrare l'implementazione di Azure DevTest Labs
 Questo articolo descrive un approccio consigliato per la distribuzione e l'implementazione rapide di Azure DevTest Labs. L'immagine seguente evidenzia il processo complessivo come indicazione prescrittiva e al contempo osserva la flessibilità necessaria per supportare vari scenari e requisiti di settore.
@@ -36,7 +36,7 @@ Dopo avere determinato la topologia di rete, è possibile creare il primo lab o 
 
 1. Creare un ambiente DevTest Labs iniziale.
 2. Determinare le immagini di macchine virtuali consentite e le dimensioni per l'uso con il lab. Decidere se è possibile caricare immagini personalizzate in Azure da usare con DevTest Labs.
-3. Proteggere l'accesso al lab creando Controlli degli accessi in base al ruolo per il lab (proprietari del lab e utenti del lab). È consigliabile usare account di Active Directory sincronizzati con Azure Active Directory per l'identità con DevTest Labs.
+3. Proteggere l'accesso al Lab creando il controllo degli accessi in base al ruolo di Azure iniziale (RBAC di Azure) per il Lab (proprietari del Lab e utenti del Lab). È consigliabile usare account di Active Directory sincronizzati con Azure Active Directory per l'identità con DevTest Labs.
 4. Configurare DevTest Labs per l'uso di criteri, ad esempio le pianificazioni, gestione dei costi, macchine virtuali richiedibili, immagini personalizzate o formule.
 5. Stabilire un repository online, ad esempio Azure Repos/Git.
 6. Decidere se usare repository pubblici o privati o una combinazione di entrambi. Organizzare modelli JSON per le distribuzioni e la manutenzione a lungo termine.

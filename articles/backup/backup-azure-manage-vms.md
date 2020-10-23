@@ -3,12 +3,12 @@ title: Gestire e monitorare i backup delle macchine virtuali di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145434"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174087"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -24,6 +24,8 @@ Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di rip
 È possibile gestire i backup usando il dashboard ed eseguendo il drill-down nelle singole macchine virtuali. Per avviare i backup del computer, aprire l'insieme di credenziali nel dashboard.
 
 ![Visualizzazione dashboard completa con dispositivo di scorrimento](./media/backup-azure-manage-vms/bottom-slider.png)
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="view-vms-on-the-dashboard"></a>Visualizzare le macchine virtuali nel dashboard
 

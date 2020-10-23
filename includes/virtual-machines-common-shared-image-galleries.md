@@ -4,15 +4,15 @@ description: includere file
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89494308"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116707"
 ---
 Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini. Raccolte di immagini condivise fornisce:
 
@@ -56,19 +56,36 @@ Sono disponibili tre parametri per ogni definizione dell'immagine usati in combi
 
 Questi tre presentano set univoci di valori. Il formato è simile a quello in cui è attualmente possibile specificare l'editore, l'offerta e lo SKU per [immagini di Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md), in Azure PowerShell, per ottenere la versione più recente di un'immagine del Marketplace. Ogni definizione dell'immagine deve avere un set univoco di questi valori.
 
+I parametri seguenti determinano quali tipi di versioni di immagini possono contenere:
+
+- Stato sistema operativo: è possibile impostare lo stato sistema operativo su [generalizzato o specializzato](#generalized-and-specialized-images). Questo campo è obbligatorio.
+- Sistema operativo: può essere Windows o Linux. Questo campo è obbligatorio.
+-   Generazione di Hyper-V: specificare se l'immagine è stata creata da un disco rigido virtuale Hyper-V di prima o di [seconda generazione](../articles/virtual-machines/generation-2.md). L'impostazione predefinita è la prima generazione.
+
+
 Di seguito sono elencati altri parametri che è possibile impostare nella definizione dell'immagine, in modo da tenere traccia più facilmente delle risorse:
 
-* Stato sistema operativo: è possibile impostare lo stato sistema operativo su [generalizzato o specializzato](#generalized-and-specialized-images).
-* Sistema operativo: può essere Windows o Linux.
-* Descrizione: usare la descrizione per fornire informazioni più dettagliate sul motivo per cui la definizione dell'immagine esiste. Ad esempio, si potrebbe avere una definizione dell'immagine per il server front-end in cui l'applicazione è preinstallata.
-* Eula: può essere usato per puntare a un contratto di licenza con l'utente finale specifico per la definizione dell'immagine.
-* Informativa sulla privacy e note sulla versione: archivia le note sulla versione e le informative sulla privacy in Archiviazione di Azure e fornisce un URI per accedervi come parte della definizione dell'immagine.
-* Data di fine vita: consente di allegare una data di fine vita alla definizione dell'immagine in modo da eliminare automaticamente le definizioni delle immagini obsolete.
-* Tag: quando si crea la definizione dell'immagine è possibile aggiungere tag. Per altre informazioni sui tag, vedere [Usare i tag per organizzare le risorse](../articles/azure-resource-manager/management/tag-resources.md)
-* Elementi consigliati per la CPU virtuale e memoria minime e massime: se l'immagine presenta CPU virtuale ed elementi consigliati per la memoria, è possibile allegare tali informazioni alla definizione dell'immagine.
-* Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per dischi HDD standard, è necessario aggiungerli all'elenco di quelli non consentiti.
-* Generazione di Hyper-V: è possibile specificare se l'immagine è stata creata da un disco rigido virtuale Hyper-V di prima o di seconda generazione.
-* Informazioni sui piani di acquisto per immagini del Marketplace - `-PurchasePlanPublisher `, `-PurchasePlanName` e `-PurchasePlanProduct`. Per un approfondimento delle informazioni sui piani di acquisto, vedere [Trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
+- Descrizione: usare la descrizione per fornire informazioni più dettagliate sul motivo per cui la definizione dell'immagine esiste. Ad esempio, si potrebbe avere una definizione dell'immagine per il server front-end in cui l'applicazione è preinstallata.
+- Eula: può essere usato per puntare a un contratto di licenza con l'utente finale specifico per la definizione dell'immagine.
+- Informativa sulla privacy e note sulla versione: archivia le note sulla versione e le informative sulla privacy in Archiviazione di Azure e fornisce un URI per accedervi come parte della definizione dell'immagine.
+- Data di fine vita: consente di allegare una data di fine vita alla definizione dell'immagine in modo da eliminare automaticamente le definizioni delle immagini obsolete.
+- Tag: quando si crea la definizione dell'immagine è possibile aggiungere tag. Per altre informazioni sui tag, vedere [Usare i tag per organizzare le risorse](../articles/azure-resource-manager/management/tag-resources.md)
+- Elementi consigliati per la CPU virtuale e memoria minime e massime: se l'immagine presenta CPU virtuale ed elementi consigliati per la memoria, è possibile allegare tali informazioni alla definizione dell'immagine.
+- Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per dischi HDD standard, è necessario aggiungerli all'elenco di quelli non consentiti.
+- Informazioni sui piani di acquisto per immagini del Marketplace - `-PurchasePlanPublisher`, `-PurchasePlanName` e `-PurchasePlanProduct`. Per un approfondimento delle informazioni sui piani di acquisto, vedere [Trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
+
+
+## <a name="image-versions"></a>Versioni dell'immagine
+
+La **versione dell'immagine** è quella che si usa per creare una VM. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Quando si usa una **versione dell'immagine** per creare una macchina virtuale, vengono creati nuovi dischi per la VM. Le versioni delle immagini possono essere usate più volte.
+
+Le proprietà di una versione dell'immagine sono:
+
+- Numero di versione. Viene usato come nome della versione dell'immagine. È sempre nel formato MajorVersion.MinorVersion.Patch. Quando si specifica di usare l'**ultima** versione quando si crea una VM, viene scelta l'immagine più recente in base al valore più alto di MajorVersion, quindi a quello di MinorVersion e infine a quello di Patch. 
+- Origine. L'origine può essere una VM, un disco gestito, uno snapshot, un'immagine gestita o un'altra versione di immagine. 
+- Escludi da versione più recente. È possibile impedire l'uso di una versione come versione più recente dell'immagine. 
+- Data di scadenza. La data dopo la quale non è possibile creare macchine virtuali da questa immagine.
+
 
 ## <a name="generalized-and-specialized-images"></a>Immagini specializzate e generalizzate
 

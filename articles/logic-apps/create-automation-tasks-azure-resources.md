@@ -6,17 +6,17 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269727"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201121"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gestire le risorse di Azure e monitorare i costi creando attività di automazione (anteprima)
 
 > [!IMPORTANT]
-> Questa funzionalità è disponibile in anteprima pubblica, viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Per semplificare la gestione [delle risorse di Azure](../azure-resource-manager/management/overview.md#terminology) , è possibile creare attività di gestione automatizzate per una risorsa o un gruppo di risorse specifico usando i modelli di attività di automazione, che variano in base al tipo di risorsa. Per un [account di archiviazione di Azure](../storage/common/storage-account-overview.md), ad esempio, è possibile configurare un'attività di automazione che invii il costo mensile per l'account di archiviazione. Per una [macchina virtuale di Azure](https://azure.microsoft.com/services/virtual-machines/), è possibile creare un'attività di automazione che attiva o disattiva tale macchina virtuale in base a una pianificazione predefinita.
 
@@ -47,7 +47,7 @@ Questo articolo illustra come completare le attività seguenti:
 
 Attualmente, è possibile creare un'attività di automazione solo a livello di risorsa, visualizzare la cronologia delle esecuzioni dell'attività e modificare il flusso di lavoro dell'app per la logica sottostante dell'attività, che è alimentato dal servizio app per la [logica di Azure](../logic-apps/logic-apps-overview.md) . Le attività di automazione sono più semplici e leggere rispetto ad [automazione di Azure](../automation/automation-intro.md).
 
-Per confronto, automazione di Azure è un servizio di automazione e configurazione basato sul cloud che supporta una gestione coerente negli ambienti Azure e non Azure. Il servizio include l' [automazione dei processi per l'orchestrazione dei processi](../automation/automation-intro.md#process-automation) tramite [manuali operativi](../automation/automation-runbook-execution.md), la gestione della configurazione con [rilevamento delle modifiche e l'inventario](../automation/change-tracking.md), la gestione degli aggiornamenti, le funzionalità condivise e le funzionalità eterogenee. Automazione fornisce il controllo completo durante la distribuzione, l'attività e la rimozione delle autorizzazioni di carichi di lavoro e risorse.
+Per confronto, automazione di Azure è un servizio di automazione e configurazione basato sul cloud che supporta una gestione coerente negli ambienti Azure e non Azure. Il servizio include l' [automazione dei processi per l'orchestrazione dei processi](../automation/automation-intro.md#process-automation) tramite [manuali operativi](../automation/automation-runbook-execution.md), la gestione della configurazione con [rilevamento delle modifiche e l'inventario](../automation/change-tracking/overview.md), la gestione degli aggiornamenti, le funzionalità condivise e le funzionalità eterogenee. Automazione fornisce il controllo completo durante la distribuzione, l'attività e la rimozione delle autorizzazioni di carichi di lavoro e risorse.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -263,7 +263,7 @@ Quando si modifica il flusso di lavoro sottostante per un'attività di automazio
 
 1. Per disabilitare il flusso di lavoro in modo che l'attività non continui l'esecuzione, vedere [gestire le app per la logica nella portale di Azure](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Ci piacerebbe sapere. Per segnalare bug, fornire commenti e suggerimenti o porre domande su questa funzionalità di anteprima, [contattare il team di app per la logica di Azure](mailto:logicapps@microsoft.com).
 

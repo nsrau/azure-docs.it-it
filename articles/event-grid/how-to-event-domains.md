@@ -4,12 +4,12 @@ description: Mostra come gestire set di argomenti di grandi dimensioni in Grigli
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502036"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330078"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -79,7 +79,7 @@ Prendere nota del valore di `endpoint` e `id` perché verranno richiesti per ges
 
 ## <a name="manage-access-to-topics"></a>Gestire l'accesso agli argomenti
 
-Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](../role-based-access-control/role-assignments-cli.md). Per l'assegnazione di ruolo si usa il controllo dell'accesso basato sul ruolo per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
+Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](../role-based-access-control/role-assignments-cli.md). L'assegnazione di ruolo usa il controllo degli accessi in base al ruolo di Azure per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
 
 In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
 

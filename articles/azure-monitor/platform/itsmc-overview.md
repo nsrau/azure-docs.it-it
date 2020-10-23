@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613765"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461295"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -106,6 +106,10 @@ Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedu
 ## <a name="using-the-solution"></a>Uso della soluzione
    Usando la soluzione Connettore di Gestione dei servizi IT, è possibile creare elementi di lavoro da avvisi di Azure, avvisi di Log Analytics e record di log di Log Analytics.
 
+## <a name="template-definitions"></a>Definizioni di modello
+   Sono disponibili tipi di elementi di lavoro che possono usare i modelli definiti dallo strumento ITSM.
+L'uso di modelli consente al cliente di definire i campi che verranno popolati automaticamente in base a valori fissi definiti come parte del gruppo di azioni. La definizione dei modelli viene eseguita nello strumento ITSM.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT dagli avvisi di Azure
 
 Una volta creata la connessione di Gestione dei servizi IT, è possibile creare uno o più elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure tramite **ITSM Action** (Azione di Gestione dei servizi IT) in **Gruppi di azioni**.
@@ -133,8 +137,10 @@ Utilizzare la procedura seguente:
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 
 6. Selezionare il tipo di **Elemento di lavoro** dal menu a discesa.
-   Scegliere di usare un modello esistente o compilare i campi necessari per il prodotto ITSM.
-7. Fare clic su **OK**.
+
+7. Se si desidera compilare i campi box con valori fissi, è necessario selezionare la casella di controllo "utilizza modello personalizzato" in caso contrario, scegliere di utilizzare un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco a discesa e compilare i campi del modello con valori fissi.
+
+8. Fare clic su **OK**.
 
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
 

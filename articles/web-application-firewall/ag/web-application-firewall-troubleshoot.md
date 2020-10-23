@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983075"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131837"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
 
@@ -174,7 +174,7 @@ Con l'ausilio di [Fiddler](https://www.telerik.com/fiddler), si esaminano le sin
 
 In questo esempio, è possibile notare che il campo in cui è stata immessa la stringa *1 = 1* è denominato **Text1**.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot del debugger Web di stato Telerik Fiddler. Nella scheda Raw 1 = 1 è visibile dopo il nome Text1." border="false":::
 
 Si tratta di un campo che è possibile escludere. Per ulteriori informazioni sugli elenchi di esclusione, vedere l'articolo relativo ai [limiti e alle esclusioni delle dimensioni delle richieste del Web Application Firewall](application-gateway-waf-configuration.md#waf-exclusion-lists). È possibile escludere la valutazione in questo caso configurando l'esclusione seguente:
 
@@ -299,7 +299,7 @@ Il secondo (regola 942130) è quello interessante. È possibile vedere nei detta
 
 Fiddler è uno strumento utile ancora una volta per trovare i nomi delle intestazioni di richiesta. Nello screenshot seguente è possibile visualizzare le intestazioni per questa richiesta GET, che includono *Content-Type*, *User-Agent*e così via.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot del debugger Web di stato Telerik Fiddler. La scheda Raw elenca i dettagli dell'intestazione della richiesta, ad esempio la connessione, il tipo di contenuto e l'agente utente." border="false":::
 
 Un altro modo per visualizzare le intestazioni di richiesta e risposta consiste nell'esaminare gli strumenti di sviluppo di Chrome. È possibile premere F12 o fare clic con il pulsante destro del mouse su > **controllare**  ->  **strumenti di sviluppo**, quindi selezionare la scheda **rete** . caricare una pagina Web, quindi fare clic sulla richiesta che si desidera controllare.
 

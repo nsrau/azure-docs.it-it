@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048152"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219735"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
 
@@ -92,7 +92,7 @@ Il nome di questa impostazione è `deviceAutoDeleteProperties` . Se si usa il si
 | Proprietà | Valori possibili | Spiegazione |
 | ----- | ----- | ---- |
 | deleteOn | true, false | Impostare su per `false` impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true` . <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Specificare l'intervallo di tempo in minuti. Il modulo eliminerà automaticamente i BLOB dalla risorsa di archiviazione locale quando questo valore scade. <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Specificare l'intervallo di tempo in minuti. Il modulo eliminerà automaticamente i BLOB dalla risorsa di archiviazione locale quando questo valore scade. Il numero massimo di minuti correnti consentito è 35791. <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | Per impostazione predefinita, è impostato su e manterrà `true` il BLOB mentre viene caricato nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo su `false` e eliminerà i dati non appena scade deleteAfterMinutes. Nota: affinché questa proprietà funzioni, uploadOn deve essere impostato su true.  <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale quando il valore scade e le successive operazioni di blocco di Accodamento a tali BLOB avranno esito negativo. È possibile assicurarsi che il valore di scadenza sia sufficientemente grande per la frequenza prevista delle operazioni di Accodamento eseguite dall'applicazione.<br><br> Variabile di ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Uso della condivisione SMB come archiviazione locale
@@ -195,7 +195,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Connettersi alla risorsa di archiviazione locale con Azure Storage Explorer
 
-È possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'account di archiviazione locale.
+È possibile usare [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) per connettersi all'account di archiviazione locale.
 
 1. Scaricare e installare Azure Storage Explorer
 

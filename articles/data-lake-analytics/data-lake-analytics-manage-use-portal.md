@@ -1,18 +1,16 @@
 ---
 title: Gestire Azure Data Lake Analytics tramite il portale di Azure
 description: Questo articolo descrive come usare il portale di Azure per gestire utenti, processi, origini dati e account di Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531213"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218426"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -91,9 +89,9 @@ Se altri servizi di Azure, come Azure Data Factory o Macchine virtuali, si conne
 7. Esaminare tutte le modifiche selezionate e quindi fare clic su **Esegui**.
 8. Al termine della procedura guidata, fare clic su **Fine**.
 
-## <a name="manage-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo
+## <a name="manage-azure-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo di Azure
 
-Come per altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo (RBAC, Role-Based Access Control) per controllare il modo con cui gli utenti interagiscono con il servizio.
+Analogamente ad altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo di Azure per controllare il modo in cui gli utenti interagiscono con il servizio.
 
 I ruoli di Azure standard offrono le funzionalità seguenti:
 * **Proprietario**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.

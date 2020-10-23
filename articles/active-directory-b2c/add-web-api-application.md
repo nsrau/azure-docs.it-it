@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385961"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214958"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la
 1. Selezionare **Registra**.
 1. Registrare l' **ID dell'applicazione (client)** da usare nel codice dell'API Web.
 
-Se si dispone di un'applicazione che implementa il flusso di concessione implicita, ad esempio un'applicazione a pagina singola basata su JavaScript, è possibile abilitare il flusso attenendosi alla procedura seguente:
+Se si dispone di un'applicazione che implementa il flusso di concessione implicita, ad esempio un' [applicazione a pagina singola basata su JavaScript](tutorial-register-spa.md), è possibile abilitare il flusso attenendosi alla procedura seguente:
 
 1. In **Gestisci** selezionare **Autenticazione**.
 1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.

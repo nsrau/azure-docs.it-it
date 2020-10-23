@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587634"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461023"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -202,7 +202,7 @@ Ecco i campi nel corpo di una notifica di modifica del bordo.
 
 #### <a name="body-details"></a>Dettagli corpo
 
-Il corpo è il payload di una relazione, anche in formato JSON. USA lo stesso formato di una `GET` richiesta per una relazione tramite l' [API DigitalTwins](how-to-use-apis-sdks.md). 
+Il corpo è il payload di una relazione, anche in formato JSON. USA lo stesso formato di una `GET` richiesta per una relazione tramite l' [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
 "Aggiornamento di una relazione" indica che le proprietà della relazione sono state modificate. 
 

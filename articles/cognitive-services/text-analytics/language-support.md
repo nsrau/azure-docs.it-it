@@ -10,17 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977732"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371186"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
-> [!IMPORTANT]
-> La versione 3. x del API Analisi del testo non è attualmente disponibile nelle aree seguenti: India centrale, Emirati Arabi Uniti settentrionali, Cina settentrionale 2 Cina orientale.
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment-analysis)
@@ -119,13 +118,108 @@ ms.locfileid: "91977732"
 
 #### <a name="language-detection"></a>[Rilevamento lingua](#tab/language-detection)
 
-Il API Analisi del testo è in grado di rilevare un'ampia gamma di linguaggi, varianti, dialetti e lingue regionali/culturali.  Rilevamento lingua restituisce la lingua in generale. Per la frase "I have a dog", ad esempio, restituisce `en` anziché `en-US`. L'unico caso particolare è rappresentato dalla lingua cinese, per la quale la funzionalità Rilevamento lingua restituisce `zh_CHS` o `zh_CHT`, se è in grado di determinare il tipo di scrittura dal testo fornito. In situazioni in cui non è possibile identificare il tipo di scrittura per un documento in cinese, restituirà semplicemente `zh`.
-
-L'elenco esatto delle lingue per questa funzionalità non viene pubblicato, ma è in grado di rilevare un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali. 
+Il API Analisi del testo è in grado di rilevare un'ampia gamma di linguaggi, varianti, dialetti e lingue regionali/culturali e di restituire le lingue rilevate con il nome e il codice. Analisi del testo Rilevamento lingua parametri del codice lingua sono conformi allo standard [BCP-47](https://tools.ietf.org/html/bcp47) con la maggior parte di essi conformi agli identificatori [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) . 
 
 Se si ha contenuto espresso in un lingua usata con minore frequenza, si può provare Rilevamento lingua per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
+| Linguaggio | Codice lingua |  supporto V3 | Disponibile a partire dalla versione del modello V3: |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albanese|`sq`|✓|    |
+|Arabo|`ar`|✓|    |
+|Armeno|`hy`|✓|    |
+|Basco|`eu`|✓|    |
+|Bielorusso|`be`|✓|    |
+|Bengalese|`bn`|✓|    |
+|Bosniaco|`bs`|✓|2020-09-01|
+|Bulgaro|`bg`|✓|    |
+|Birmano|`my`|✓|    |
+|Catalano, Valenziano|`ca`|✓|    |
+|Khmer centrale|`km`|✓|    |
+|Cinese|`zh`|✓|    |
+|Cinese semplificato|`zh_chs`|✓|    |
+|Cinese tradizionale|`zh_cht`|✓|    |
+|Croato|`hr`|✓|    |
+|Ceco|`cs`|✓|    |
+|Danese|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Divehi, Dhivehi, Maldiviano|`dv`|✓|    |
+|Olandese, fiammingo|`nl`|✓|    |
+|Inglese|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estone|`et`|✓|    |
+|Figiano|`fj`|✓|2020-09-01|
+|Finlandese|`fi`|✓|    |
+|Francese|`fr`|✓|    |
+|Galiziano|`gl`|✓|    |
+|Georgiano|`ka`|✓|    |
+|Tedesco|`de`|✓|    |
+|Greco|`el`|✓|    |
+|Gujarati|`gu`|✓|    |
+|Haitiano Creolo Haitiano|`ht`|✓|    |
+|Ebraico|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Daw|`mww`|✓|2020-09-01|
+|Ungherese|`hu`|✓|    |
+|Islandese|`is`|✓|    |
+|Indonesiano|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Irlandese|`ga`|✓|    |
+|Italiano|`it`|✓|    |
+|Giapponese|`ja`|✓|    |
+|Kannada|`kn`|✓|    |
+|Kazako|`kk`|✓|2020-09-01|
+|Coreano|`ko`|✓|    |
+|Curdo|`ku`|✓|    |
+|Lao|`lo`|✓|    |
+|Latino|`la`|✓|    |
+|Lettone|`lv`|✓|    |
+|Lituano|`lt`|✓|    |
+|Macedone|`mk`|✓|    |
+|Malgascio|`mg`|✓|2020-09-01|
+|Malese|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltese|`mt`|✓|    |
+|Maori|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Norvegese|`no`|✓|    |
+|Norvegese nynorsk|`nn`|✓|    |
+|Oriya|`or`|✓|    |
+|Pashto, Pushto|`ps`|✓|    |
+|Persiano|`fa`|✓|    |
+|Polacco|`pl`|✓|    |
+|Portoghese|`pt`|✓|    |
+|Punjabi, Picchio|`pa`|✓|    |
+|Querétaro Otomi|`otq`|✓|2020-09-01|
+|Rumeno, moldavo, moldavo|`ro`|✓|    |
+|Russo|`ru`|✓|    |
+|Samoano|`sm`|✓|2020-09-01|
+|Serbo|`sr`|✓|    |
+|Singalese, singalese|`si`|✓|    |
+|Slovacco|`sk`|✓|    |
+|Sloveno|`sl`|✓|    |
+|Somalo|`so`|✓|    |
+|Spagnolo, castigliano|`es`|✓|    |
+|Swahili|`sw`|✓|    |
+|Svedese|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Tahitiano|`ty`|✓|2020-09-01|
+|Tamil|`ta`|✓|    |
+|Telugu|`te`|✓|    |
+|Thai|`th`|✓|    |
+|Tongano|`to`|✓|2020-09-01|
+|Turco|`tr`|✓|    |
+|Ucraino|`uk`|✓|    |
+|Urdu|`ur`|✓|    |
+|Uzbeco|`uz`|✓|    |
+|Vietnamita|`vi`|✓|    |
+|Gallese|`cy`|✓|    |
+|Yiddish|`yi`|✓|    |
+|Yucatec Maya|`yua`|✓|    |
+
+
 ---
+
 
 ## <a name="see-also"></a>Vedere anche
 

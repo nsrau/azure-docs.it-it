@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d6c9bea3d0ff95a3cb9d8fcce41eaa6f8bbfed21
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326185"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093940"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Procedura - Avviare l'applicazione Spring Cloud dal codice sorgente
 
@@ -37,7 +37,7 @@ Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze
 1. [Installare Git](https://git-scm.com/)
 2. [Installare JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Installare Maven 3.0 o versione successiva](https://maven.apache.org/download.cgi)
-4. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/free/)
 
 > [!TIP]

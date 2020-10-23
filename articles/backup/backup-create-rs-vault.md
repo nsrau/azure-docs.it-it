@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981495"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171632"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -35,7 +35,7 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
    - Se si usa Azure come endpoint di archiviazione di backup primario, è consigliabile continuare a usare l'impostazione con **ridondanza geografica** predefinita.
    - Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
    - Altre informazioni sulla ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-   - Se è necessaria la disponibilità dei dati senza tempi di inattività in un'area, garantendo la residenza dei dati, scegliere l' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Se è necessaria la disponibilità dei dati senza tempi di inattività in un'area, garantendo la residenza dei dati, scegliere l' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >Le impostazioni di replica di archiviazione per l'insieme di credenziali non sono rilevanti per il backup della condivisione file di Azure perché la soluzione corrente è basata su snapshot e non ci sono dati trasferiti nell'insieme di credenziali. Gli snapshot vengono archiviati nello stesso account di archiviazione della condivisione file di cui è stato eseguito il backup.

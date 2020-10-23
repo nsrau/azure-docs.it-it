@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321175"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370866"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
 
@@ -104,9 +104,9 @@ Se Azure AD non riesce a verificare un nome di dominio personalizzato, provare a
 
   Se non è possibile aggiornare il record sul sito del registrar, condividere la voce con un utente che dispone delle autorizzazioni per aggiungere la voce e verificare che sia corretta.
 
-- **Verificare che il nome di dominio non sia già usato in un'altra directory.** Un nome di dominio può essere verificato solo in una directory. Se il nome di dominio è attualmente verificato in un'altra directory, non può essere verificato anche nella nuova directory. Per risolvere questo problema di duplicazione, è necessario eliminare il nome di dominio dalla directory precedente. Per altre informazioni sull'eliminazione dei nomi di dominio, vedere [Gestire i nomi di dominio personalizzati](../users-groups-roles/domains-manage.md).
+- **Verificare che il nome di dominio non sia già usato in un'altra directory.** Un nome di dominio può essere verificato solo in una directory. Se il nome di dominio è attualmente verificato in un'altra directory, non può essere verificato anche nella nuova directory. Per risolvere questo problema di duplicazione, è necessario eliminare il nome di dominio dalla directory precedente. Per altre informazioni sull'eliminazione dei nomi di dominio, vedere [Gestire i nomi di dominio personalizzati](../enterprise-users/domains-manage.md).
 
-- **Assicurarsi che non vi siano tenant di Power BI non gestiti.** Se gli utenti hanno attivato Power BI con l'iscrizione self-service e creato un tenant non gestito per l'organizzazione, è necessario assumere la gestione come amministratore all'interno o esterno, usando PowerShell. Per altre informazioni, vedere [Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Assicurarsi che non vi siano tenant di Power BI non gestiti.** Se gli utenti hanno attivato Power BI con l'iscrizione self-service e creato un tenant non gestito per l'organizzazione, è necessario assumere la gestione come amministratore all'interno o esterno, usando PowerShell. Per altre informazioni, vedere [Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -114,6 +114,6 @@ Se Azure AD non riesce a verificare un nome di dominio personalizzato, provare a
 
 - Aggiungere utenti al dominio. Per ulteriori informazioni, vedere [come aggiungere o eliminare utenti](add-users-azure-active-directory.md).
 
-- Gestire le informazioni sul nome di dominio in Azure AD. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati](../users-groups-roles/domains-manage.md).
+- Gestire le informazioni sul nome di dominio in Azure AD. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati](../enterprise-users/domains-manage.md).
 
 - Se sono disponibili versioni locali di Windows Server che si vuole usare con Azure Active Directory, vedere [Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

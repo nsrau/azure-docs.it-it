@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904590"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951622"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
 
 Questa esercitazione descrive come configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro. Dopo aver configurato il ruolo di calcolo, Azure Stack Edge Pro può trasformare i dati prima che vengano inviati ad Azure.
 
@@ -55,11 +55,11 @@ Per configurare il calcolo in Azure Stack Edge Pro, creare una risorsa hub IoT.
     |Hub IoT     | Scegliere **Nuovo** o **Esistente**. <br> Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente. <br> In ogni caso, la risorsa hub IoT usa la stessa sottoscrizione e lo stesso gruppo di risorse usati dalla risorsa Azure Stack Edge.     |
     |Nome     |Immettere un nome per la risorsa hub IoT.         |
 
-    ![Introduzione al calcolo](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Introduzione al calcolo 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
 4. Selezionare **Create** (Crea). La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
     
-    ![Introduzione al calcolo](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Introduzione al calcolo 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge Pro, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
@@ -138,19 +138,19 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
  
 1. In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Verificare la trasformazione dei dati 2](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1. Aggiungere i dati alla condivisione locale.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Verificare la trasformazione dei dati 3](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     I dati vengono spostati nella condivisione cloud.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Verificare la trasformazione dei dati 4](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     Viene quindi eseguito il push dei dati dalla condivisione cloud all'account di archiviazione. Per visualizzare i dati, passare a Storage Explorer.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Verificare la trasformazione dei dati 5](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 Il processo di convalida è stato completato.
 

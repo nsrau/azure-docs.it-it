@@ -11,20 +11,20 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259663"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275279"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flusso del codice di autorizzazione di OAuth 2.0 in Azure Active Directory B2C
 
-È possibile usare la concessione del codice di autorizzazione OAuth 2.0 nelle app che vengono installate su un dispositivo per ottenere l'accesso a risorse protette, ad esempio le API Web. Con l'implementazione di Azure Active Directory B2C (Azure AD B2C) di OAuth 2.0 è possibile aggiungere attività di gestione dell'iscrizione, dell'accesso e altre attività di gestione delle identità alle app per desktop e per dispositivi mobili. Questo articolo è indipendente dal linguaggio. Descrive come inviare e ricevere messaggi HTTP senza usare alcuna libreria open source.
+È possibile usare la concessione del codice di autorizzazione OAuth 2.0 nelle app che vengono installate su un dispositivo per ottenere l'accesso a risorse protette, ad esempio le API Web. Usando l'implementazione di Azure Active Directory B2C (Azure AD B2C) di OAuth 2,0, è possibile aggiungere attività di gestione dell'iscrizione, dell'accesso e di altre identità alle app a singola pagina, per dispositivi mobili e desktop. Questo articolo è indipendente dal linguaggio. Descrive come inviare e ricevere messaggi HTTP senza usare alcuna libreria open source. Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate. Esaminare le [app di esempio che usano MSAL](code-samples.md).
 
-Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). È possibile usarlo per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei [tipi di applicazioni](application-types.md), tra cui le applicazioni Web e le applicazioni installate in modo nativo. È possibile usare il flusso del codice di autorizzazione di OAuth 2.0 per acquisire in modo sicuro token di accesso e di aggiornamento per le applicazioni, i quali possono essere usati per accedere a risorse protette da un [server di autorizzazione](protocols-overview.md).  Il token di aggiornamento consente al client di acquisire nuovi token di accesso (e aggiornamento) quando scade il token di accesso, in genere dopo un'ora.
+Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). È possibile usarlo per l'autenticazione e l'autorizzazione nella maggior parte dei [tipi](application-types.md)di applicazioni, tra cui applicazioni Web, applicazioni a pagina singola e applicazioni installate in modo nativo. È possibile usare il flusso del codice di autorizzazione di OAuth 2.0 per acquisire in modo sicuro token di accesso e di aggiornamento per le applicazioni, i quali possono essere usati per accedere a risorse protette da un [server di autorizzazione](protocols-overview.md).  Il token di aggiornamento consente al client di acquisire nuovi token di accesso (e aggiornamento) quando scade il token di accesso, in genere dopo un'ora.
 
-Questo articolo illustra il flusso del codice di autorizzazione di OAuth 2.0 dei **client pubblici**. Un client pubblico è qualsiasi applicazione client che non può essere considerata attendibile in modo sicuro per mantenere l'integrità di una password segreta. Questo include app per dispositivi mobili, applicazioni desktop e pressoché qualsiasi applicazione che viene eseguita su un dispositivo e deve ottenere token di accesso.
+Questo articolo illustra il flusso del codice di autorizzazione di OAuth 2.0 dei **client pubblici**. Un client pubblico è qualsiasi applicazione client che non può essere considerata attendibile in modo sicuro per mantenere l'integrità di una password segreta. Sono incluse le applicazioni a singola pagina, le app per dispositivi mobili, le applicazioni desktop e, in pratica, tutte le applicazioni che non vengono eseguite in un server.
 
 > [!NOTE]
 > Per aggiungere la gestione delle identità a un'App Web usando Azure AD B2C, usare [OpenID Connect](openid-connect.md) al posto di OAuth 2.0.
@@ -36,6 +36,12 @@ Per provare le richieste HTTP in questo articolo:
 1. Sostituire `{tenant}` con il nome del tenant di Azure AD B2C.
 1. Sostituire `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` con l'ID app di un'applicazione registrata in precedenza nel tenant del Azure ad B2C.
 1. Sostituire `{policy}` con il nome di un criterio creato nel tenant, ad esempio `b2c_1_sign_in` .
+
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Installazione dell'URI di reindirizzamento necessaria per le app a singola pagina
+
+Il flusso del codice di autorizzazione per le applicazioni a pagina singola richiede una configurazione aggiuntiva.  Seguire le istruzioni per la [creazione dell'applicazione a singola pagina](tutorial-register-spa.md) per contrassegnare correttamente l'URI di reindirizzamento come abilitato per CORS. Per aggiornare un URI di reindirizzamento esistente per abilitare CORS, è possibile fare clic sul prompt migrate nella sezione "Web" della scheda **Authentication** della **registrazione dell'app**. In alternativa, è possibile aprire l' **Editor del manifesto registrazioni app** e impostare il `type` campo per l'URI di reindirizzamento su `spa` nella `replyUrlsWithType` sezione.
+
+Il `spa` tipo di reindirizzamento è compatibile con le versioni precedenti del flusso implicito. Le app che usano attualmente il flusso implicito per ottenere i token possono passare al `spa` tipo di URI di reindirizzamento senza problemi e continuare a usare il flusso implicito.
 
 ## <a name="1-get-an-authorization-code"></a>1. ottenere un codice di autorizzazione
 Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . Questa è la parte interattiva del flusso, dove l'utente esegue operazioni. In questa richiesta il client indica nel parametro `scope` le autorizzazioni che deve acquisire dall'utente. Di seguito sono riportati tre esempi (con interruzioni di riga per migliorare la leggibilità), ognuno dei quali usa un flusso utente diverso.
@@ -49,8 +55,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_mode=query
 &scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
 ```
-
 
 | Parametro | Necessaria? | Descrizione |
 | --- | --- | --- |
@@ -63,8 +70,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |Consigliato |Metodo da usare per inviare all'app il codice di autorizzazione risultante. Può essere `query`, `form_post` o `fragment`. |
 | state |Consigliato |Valore incluso nella richiesta che può essere una stringa di qualsiasi contenuto che si intende usare. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima del verificarsi della richiesta di autenticazione, ad esempio la pagina in cui si trova l'utente o il flusso utente che era in esecuzione. |
 | prompt |Facoltativo |Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non avrà effetto. |
-| code_challenge  | Facoltativo | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE). Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge_method | Facoltativo | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. I possibili valori sono i seguenti:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. Azure AD B2C supporta sia `plain` che `S256` . Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge  | consigliato / obbligatorio | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE). Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è ora consigliata per tutti i tipi di applicazioni: app native, applicazione a pagina singola e client riservati come le app Web. | 
+| `code_challenge_method` | consigliato / obbligatorio | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Questo *dovrebbe* essere `S256` , ma la specifica consente l'uso di `plain` se per qualche motivo il client non è in grado di supportare SHA256. <br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. Microsoft Identity Platform supporta `plain` e `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è obbligatoria per [app a pagina singola che usano il flusso del codice di autorizzazione](tutorial-register-spa.md).|
 
 Viene a questo punto richiesto all'utente di completare il flusso di lavoro del flusso utente. È possibile che venga richiesto all'utente di immettere nome utente e password, di accedere con un'identità di social networking, di iscriversi alla directory o di effettuare qualsiasi altro passaggio. Le azioni dell'utente dipendono dal modo in cui è definito il flusso utente.
 
@@ -98,7 +105,7 @@ error=access_denied
 | error_description |Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
 | state |Vedere la descrizione completa nella tabella precedente. Se nella richiesta è incluso un parametro `state`, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori `state` nella richiesta e nella risposta siano identici. |
 
-## <a name="2-get-a-token"></a>2. ottenere un token
+## <a name="2-get-an-access-token"></a>2. ottenere un token di accesso
 Ora che è stato acquisito il codice di autorizzazione, è possibile riscattare `code` per un token per la risorsa desiderata inviando una richiesta POST all'endpoint `/token`. In Azure AD B2C, è possibile [richiedere i token di accesso per altre API](access-tokens.md#request-a-token) come di consueto specificando gli ambiti nella richiesta.
 
 È anche possibile richiedere un token di accesso per l'API Web back-end dell'app per convenzione di usare l'ID client dell'app come ambito richiesto (che comporterà un token di accesso con tale ID client come "audience"):
@@ -108,8 +115,7 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
-
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 ```
 
 | Parametro | Necessaria? | Descrizione |
@@ -122,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | ambito |Consigliato |Elenco di ambiti separato da spazi. Un valore per l'ambito indica ad Azure AD entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per avere un accesso di lunga durata alle risorse.  È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
 | codice |Obbligatoria |Codice di autorizzazione acquisito nella prima sezione del flusso. |
 | redirect_uri |Obbligatoria |L'URI di reindirizzamento dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| code_verifier | Facoltativo | Stesso code_verifier usato per ottenere il codice di autorizzazione. Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_verifier | Consigliato | Stesso code_verifier usato per ottenere il codice di autorizzazione. Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 

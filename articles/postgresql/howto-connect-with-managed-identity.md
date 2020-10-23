@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1b9603e43541ec1a364e4653caeeafc751f7e4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012093"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427509"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Connettersi con l'identità gestita a Database di Azure per PostgreSQL
 
@@ -27,7 +27,7 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con la funzionalità delle identità gestite per le risorse di Azure, vedere questa [panoramica](../../articles/active-directory/managed-identities-azure-resources/overview.md). Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alle risorse della sottoscrizione di Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - È necessaria una macchina virtuale di Azure, ad esempio che esegue Ubuntu Linux, da usare per l'accesso al database tramite l'identità gestita
 - È necessario un server di Database di Azure per PostgreSQL con l'[autenticazione di Azure AD](howto-configure-sign-in-aad-authentication.md) configurata
 - Per seguire l'esempio in C#, completare prima di tutto la procedura per [connettersi con C#](connect-csharp.md)

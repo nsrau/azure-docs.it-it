@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071160"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108474"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Type | Posizione | Descrizione |
+| Nome | Tipo | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
@@ -143,7 +143,7 @@ Sono supportati anche i parametri comuni seguenti:
 * `PipelineVariable`
 * `OutVariable` 
 
-Per ulteriori informazioni, vedere [informazioni su parametricomuni](https://go.microsoft.com/fwlink/?LinkID=113216).
+Per ulteriori informazioni, vedere [informazioni su parametricomuni](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Esempio di Push-OutputBinding: risposte HTTP
 
@@ -560,7 +560,7 @@ Sono disponibili alcuni modelli di concorrenza che è possibile esplorare a seco
 
 È possibile impostare queste variabili di ambiente nelle [impostazioni dell'app](functions-app-settings.md) per le funzioni.
 
-A seconda del caso d'uso, Durable Functions possibile migliorare significativamente la scalabilità. Per altre informazioni, vedere [Durable Functions modelli di applicazione](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+A seconda del caso d'uso, Durable Functions possibile migliorare significativamente la scalabilità. Per altre informazioni, vedere [Durable Functions modelli di applicazione](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > È possibile che venga ricevuto il messaggio "le richieste vengono accodate a causa di un avviso di Runspaces disponibile". si noti che questo non è un errore. Il messaggio indica che le richieste vengono accodate e verranno gestite al completamento delle richieste precedenti.

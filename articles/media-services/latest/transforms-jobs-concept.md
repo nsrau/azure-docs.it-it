@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297978"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426775"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Trasformazioni e processi in servizi multimediali
 
@@ -62,7 +62,7 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 
 ### <a name="creating-transforms"></a>Creazione di trasformazioni
 
-È possibile creare trasformazioni usando REST, l'interfaccia della riga di comando o uno degli SDK pubblicati. L'API di Servizi multimediali v3 è determinata da Azure Resource Manager, quindi è possibile usare modelli di Resource Manager per creare e distribuire trasformazioni nell'account di Servizi multimediali. Si può usare il controllo degli accessi in base al ruolo per bloccare l'accesso alle trasformazioni.
+È possibile creare trasformazioni usando REST, l'interfaccia della riga di comando o uno degli SDK pubblicati. L'API di Servizi multimediali v3 è determinata da Azure Resource Manager, quindi è possibile usare modelli di Resource Manager per creare e distribuire trasformazioni nell'account di Servizi multimediali. Il controllo degli accessi in base al ruolo di Azure può essere usato per bloccare l'accesso alle trasformazioni.
 
 ### <a name="updating-transforms"></a>Aggiornamento delle trasformazioni
 

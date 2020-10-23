@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4343a5e185fdfe96e1e3298b0fc3fe6719f3a4a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116292"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215842"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
-1. Selezionare gli **account in qualsiasi directory organizzativa** per questa applicazione.
+1. Selezionare **account in qualsiasi directory organizzativa (qualsiasi Azure ad directory – multi-tenant)** per questa applicazione.
 1. Per l' **URI di reindirizzamento**accettare il valore di **Web**e immettere l'URL seguente in lettere minuscole, dove `your-B2C-tenant-name` viene sostituito con il nome del tenant Azure ad B2C.
 
     ```
@@ -166,7 +166,7 @@ A questo punto, i criteri sono stati configurati in modo che Azure AD B2C sappia
 
 ## <a name="register-the-claims-provider"></a>Registrare il provider di attestazioni
 
-Il provider di identità è a questo punto configurato, ma non è disponibile in alcuna delle schermate di iscrizione/accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità Azure AD.
+A questo punto, il provider di identità è stato configurato, ma non è disponibile in nessuna delle schermate di iscrizione/accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità Azure AD.
 
 1. Aprire il file *TrustFrameworkBase.xml* dallo starter pack.
 2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.

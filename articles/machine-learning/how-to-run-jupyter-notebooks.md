@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460034"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221423"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -108,6 +108,16 @@ Per modificare un notebook, aprire un notebook nella sezione **User files** (Fil
 Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il completamento del codice, alimentato da [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), in qualsiasi notebook di Python.
 
 È anche possibile avviare Jupyter o JupyterLab dalla barra degli strumenti del notebook.  Azure Machine Learning non offre aggiornamenti e correzioni di bug di Jupyter o JupyterLab poiché sono prodotti open source non coperti dal supporto tecnico Microsoft.
+
+### <a name="focus-mode"></a>Modalità messa a fuoco
+
+Usare la modalità messa a fuoco per espandere la visualizzazione corrente in modo da potersi concentrare sulle schede attive. La modalità messa a fuoco nasconde Esplora file dei notebook.
+
+1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco**   per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che si trovi nella voce di menu **..** . nella barra degli strumenti.
+1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard**.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Create new file":::
+
 
 ### <a name="use-intellisense"></a>Usare IntelliSense
 
@@ -222,6 +232,9 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 

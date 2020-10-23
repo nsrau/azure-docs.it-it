@@ -3,12 +3,12 @@ title: Replicare le macchine virtuali di Azure Stack in Azure tramite Azure Site
 description: Informazioni su come configurare il ripristino di emergenza in Azure per macchine virtuali di Azure Stack con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448979"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370526"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -34,7 +34,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![Il diagramma Mostra gli insiemi di credenziali dei servizi di ripristino per due tenant in cloud associati a sottoscrizioni tenant sia in un'infrastruttura Azure Stack comune.](./media/azure-stack-site-recovery/architecture.png)
 
@@ -153,7 +153,7 @@ Per ogni computer da replicare, trovare l'indirizzo IP:
 2. In **Attività iniziali** selezionare su Site Recovery. Selezionare quindi **Preparare l'infrastruttura**.
 3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
 4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
-5. In **I computer sono virtualizzati** selezionare **Non virtualizzato/Altro**. Quindi scegliere **OK**.
+5. In **I computer sono virtualizzati** selezionare **Non virtualizzato/Altro**. Selezionare **OK**.
 
     ![Obiettivo di protezione](./media/azure-stack-site-recovery/protection-goal.png)
 
@@ -186,7 +186,7 @@ Installare il server di configurazione:
 > [!NOTE]
 > Il server di configurazione può essere installato anche dalla riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line)
 >
-> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per aggiornarlo immediatamente, selezionare **Server di configurazione** > ***nome del server*** > **Aggiorna server**.
+> Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per eseguire immediatamente l'aggiornamento, selezionare server di **configurazione**  >  **_nome server_*_ > _* Refresh server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passaggio 4: Configurare l'ambiente di destinazione
 
@@ -282,7 +282,7 @@ Quando si esegue un failover di test, si verifica quanto segue:
 
 Eseguire un failover di test per una macchina virtuale come indicato di seguito:
 
-1. In **Impostazioni**  >  **elementi replicati**fare clic sulla macchina virtuale > **+ failover di test**.
+1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **+Failover di test**.
 2. Per questa procedura dettagliata, viene scelto di usare il punto di ripristino con valore **Elaborato più recente**.
 3. In **Failover di test** selezionare la rete Azure di destinazione.
 4. Fare clic su **OK** per iniziare il failover.
@@ -314,7 +314,7 @@ Eseguire quindi un failover come indicato di seguito:
 
 ### <a name="fail-back-to-azure-stack"></a>Eseguire il failback in Azure Stack
 
-Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
+Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusione
 
@@ -323,4 +323,3 @@ In questo articolo le macchine virtuali di Azure Stack sono state replicate in A
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo il failback, è possibile proteggere nuovamente la macchina virtuale e avviare ancora la replica in Azure. A tale scopo, ripetere i passaggi descritti in questo articolo.
-

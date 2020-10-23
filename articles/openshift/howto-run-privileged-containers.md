@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271367"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218868"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 verrà ritirato il 30 giugno 2022. Il supporto per la creazione di nuovi cluster Azure Red Hat OpenShift 3,11 continua fino al 30 novembre 2020. Dopo il ritiro, i cluster di Azure Red Hat OpenShift 3,11 rimanenti verranno arrestati per evitare vulnerabilità di sicurezza.
+> 
+> Seguire questa guida per [creare un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Per domande specifiche, [Contattaci](mailto:arofeedback@microsoft.com).
 
 Non è possibile eseguire contenitori con privilegi arbitrari nei cluster OpenShift di Azure Red Hat.
 È consentita l'esecuzione di due soluzioni di monitoraggio e conformità di sicurezza nei cluster ARO.
@@ -115,7 +121,7 @@ Quando si distribuiscono i campi, impostare i campi seguenti:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | Aqua-account  |
-| Progetto        | Aqua-sicurezza |
+| Project        | Aqua-sicurezza |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passaggi specifici del prodotto per Prism cloud/Twistlock
 

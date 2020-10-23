@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318025"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201835"
 ---
 # <a name="security-control-v2-asset-management"></a>Controllo di sicurezza V2: gestione delle risorse
 
@@ -150,7 +150,7 @@ A seconda del tipo di script, è possibile usare configurazioni specifiche del s
 
 - [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../../security-center/security-center-adaptive-application.md)
 
-- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../../automation/change-tracking.md)
+- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../../automation/change-tracking/overview.md)
 
 - [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

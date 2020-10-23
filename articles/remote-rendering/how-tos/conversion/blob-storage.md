@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681649"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206544"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
 
@@ -28,7 +28,7 @@ Il servizio di [conversione del modello](model-conversion.md) richiede l'accesso
 La creazione dell'account di archiviazione e dei contenitori BLOB può essere eseguita con uno degli strumenti seguenti:
 
 - [Portale di Azure](https://portal.azure.com)
-- [riga di comando AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [riga di comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDK (C#, Python...)
 
@@ -46,13 +46,13 @@ Seguire i passaggi indicati nella sezione [creare un account](../create-an-accou
 
 Le firme di accesso (SAS) archiviate vengono usate per concedere l'accesso in lettura per l'input e per l'accesso in scrittura per l'output. Si consiglia di generare nuovi URI ogni volta che viene convertito un modello. Poiché gli URI scadono dopo un certo periodo di tempo, la loro permanenza per una durata più lunga può compromettere l'applicazione in modo imprevisto.
 
-Per informazioni dettagliate sulle associazioni di firma di accesso condiviso, vedere la [documentazione di SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Per informazioni dettagliate sulle associazioni di firma di accesso condiviso, vedere la [documentazione di SAS](../../../storage/common/storage-sas-overview.md).
 
 È possibile generare un URI di firma di accesso condiviso utilizzando uno dei seguenti:
 
 - AZ PowerShell module
   - vedere gli [script di PowerShell di esempio](../../samples/powershell-example-scripts.md)
-- [riga di comando AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [riga di comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - fare clic con il pulsante destro del mouse sul contenitore "Ottieni firma di accesso condiviso" (lettura, elencare l'accesso per il contenitore di input, accesso in scrittura per il contenitore
 - SDK (C#, Python...)
@@ -64,11 +64,11 @@ Un esempio di come usare le firme di accesso condiviso nella conversione degli a
 Per iniziare a convertire un modello, è necessario caricarlo, usando una delle opzioni seguenti:
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) : una comoda interfaccia utente per caricare, scaricare e gestire i file nell'archivio BLOB di Azure
-- [Riga di comando di Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Riga di comando di Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
+- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
   - vedere gli [script di PowerShell di esempio](../../samples/powershell-example-scripts.md)
-- [Uso di un SDK di archiviazione (Python, C#...)](https://docs.microsoft.com/azure/storage/)
-- [Uso delle API REST di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+- [Uso di un SDK di archiviazione (Python, C#...)](../../../storage/index.yml)
+- [Uso delle API REST di archiviazione di Azure](/rest/api/storageservices/blob-service-rest-api)
 
 Per un esempio di come caricare i dati per la conversione, vedere Conversion.ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 

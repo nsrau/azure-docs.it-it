@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261075"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340088"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
 
@@ -98,7 +98,7 @@ Per le risorse esistenti con dati di metrica sufficienti, le soglie dinamiche po
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
 
-Le soglie dinamiche possono essere applicate a qualsiasi piattaforma o metrica personalizzata in Monitoraggio di Azure e sono state ottimizzate per le comuni metriche delle applicazioni e delle infrastrutture.
+Le soglie dinamiche possono essere applicate alla maggior parte della piattaforma e alle metriche personalizzate in monitoraggio di Azure ed è stato ottimizzato anche per le metriche dell'infrastruttura e dell'applicazione comuni.
 Di seguito sono illustrate le procedure consigliate per configurare gli avvisi per alcune di queste metriche usando le soglie dinamiche.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Soglie dinamiche per le metriche relative alle percentuali di CPU delle macchine virtuali
@@ -127,7 +127,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Fine**.
+9. Fare clic su **Done**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 
@@ -162,7 +162,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Fine**.
+9. Fare clic su **Done**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 

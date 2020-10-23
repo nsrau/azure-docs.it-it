@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440774"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339731"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
@@ -33,10 +33,10 @@ Il gruppo di gestione radice viene creato automaticamente quando si esegue una d
 2. Si crea un gruppo di gestione tramite una chiamata API.
 3. Si crea un gruppo di gestione con PowerShell.
 
-Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organizzare le risorse con i gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md).
+Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md).
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Creare un gruppo di gestione nel portale di Azure
-È possibile organizzare le sottoscrizioni in gruppi di gestione a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. Anche se i gruppi di gestione non sono necessari per l'onboarding del Centro sicurezza, è consigliabile creare almeno un gruppo di gestione per poter creare il gruppo di gestione radice. Dopo la creazione del gruppo, vi saranno collegate tutte le sottoscrizioni nel tenant di Azure AD. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../azure-resource-manager/management-groups-create.md).
+È possibile organizzare le sottoscrizioni in gruppi di gestione a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. Anche se i gruppi di gestione non sono necessari per l'onboarding del Centro sicurezza, è consigliabile creare almeno un gruppo di gestione per poter creare il gruppo di gestione radice. Dopo la creazione del gruppo, vi saranno collegate tutte le sottoscrizioni nel tenant di Azure AD. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -48,7 +48,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
     - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. 
     - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
-      ![Crea](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure

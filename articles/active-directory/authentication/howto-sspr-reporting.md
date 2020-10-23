@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92b9d3c51a9240b7dfc0f8e815735f0e1ecd4dd3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968311"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363607"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -27,7 +27,7 @@ Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio
 È possibile rispondere alle domande seguenti grazie ai report presenti nel [Portale di Azure](https://portal.azure.com/):
 
 > [!NOTE]
-> È necessario essere [un amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda **Creazione report** o i log di controllo. I dati vengono raccolti per l'organizzazione solo dopo questa operazione.
+> È necessario essere [un amministratore globale](../roles/permissions-reference.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda **Creazione report** o i log di controllo. I dati vengono raccolti per l'organizzazione solo dopo questa operazione.
 >
 
 * Quante persone si sono registrate per la reimpostazione delle password?

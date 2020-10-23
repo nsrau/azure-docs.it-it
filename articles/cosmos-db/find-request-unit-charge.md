@@ -1,30 +1,31 @@
 ---
-title: Trovare l'addebito delle unità richieste (UR) in Azure Cosmos DB
-description: Informazioni su come trovare l'addebito delle unità richiesta (UR) per qualsiasi operazione eseguita con un contenitore di Azure Cosmos.
+title: Trova il costo dell'unità richiesta (UR) per una query SQL in Azure Cosmos DB
+description: Informazioni su come trovare l'addebito delle unità richiesta (UR) per le query SQL eseguite su un contenitore di Azure Cosmos. È possibile usare i linguaggi portale di Azure, .NET, Java, Python e Node.js per trovare l'addebito delle UR.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/01/2019
+ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316189"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281845"
 ---
-# <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
+# <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Trovare l'addebito delle unità richiesta per le operazioni eseguite in Azure Cosmos DB API SQL
 
-Questo articolo presenta i vari modi in cui è possibile trovare il consumo di [unità richiesta](request-units.md) (UR) per qualsiasi operazione eseguita con un contenitore in Azure Cosmos DB. È attualmente possibile misurare questo consumo solo usando il portale di Azure oppure esaminando la risposta inviata da Azure Cosmos DB tramite uno degli SDK.
+Azure Cosmos DB supporta un'ampia gamma di API, come SQL, MongoDB, Cassandra, Gremlin e Tabella. Ogni API ha il proprio set di operazioni di database, da semplici operazioni di lettura e scrittura puntuali a query complesse. Ogni operazione di database utilizza le risorse di sistema a seconda della complessità.
 
-## <a name="sql-core-api"></a>API SQL (Core)
+Il costo di tutte le operazioni di database viene normalizzato da Azure Cosmos DB ed è espresso in termini di unità richiesta (o in breve UR). È possibile considerare le UR come una valuta delle prestazioni astraendo le risorse di sistema, ad esempio CPU, IOPS e memoria, necessarie per eseguire le operazioni del database supportate da Azure Cosmos DB. I costi vengono sempre misurati in UR, indipendentemente dall'API usata per interagire con il contenitore Azure Cosmos. Il fatto che l'operazione di database sia una scrittura, un punto di lettura o una query, i costi vengono sempre misurati in ur. Per altre informazioni, vedere l'articolo relativo alle [unità richiesta e alle relative considerazioni](request-units.md) .
 
-Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di UR per un'operazione con un contenitore di Azure Cosmos.
+Questo articolo illustra i diversi modi in cui è possibile trovare il consumo di [unità richiesta](request-units.md) (UR) per qualsiasi operazione eseguita su un contenitore in Azure Cosmos DB API SQL. Se si usa un'API diversa, vedere l'articolo [relativo all'API per MongoDB](find-request-unit-charge-mongodb.md), [API Cassandra](find-request-unit-charge-cassandra.md), l' [api Gremlin](find-request-unit-charge-gremlin.md)e gli articoli [API tabella](find-request-unit-charge-table.md) per trovare il costo di Ur/s.
 
-### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+È attualmente possibile misurare questo consumo solo usando il portale di Azure oppure esaminando la risposta inviata da Azure Cosmos DB tramite uno degli SDK. Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di UR per un'operazione con un contenitore di Azure Cosmos.
 
-È attualmente possibile trovare l'addebito relativo alla richiesta nel portale di Azure solo per una query SQL.
+## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -40,7 +41,7 @@ Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di 
 
 :::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query SQL nel portale di Azure":::
 
-### <a name="use-the-net-sdk"></a>Usare .NET SDK
+## <a name="use-the-net-sdk"></a>Usare .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -87,7 +88,7 @@ Per altre informazioni, vedere [Guida introduttiva: creare un'app Web .NET usand
 
 ---
 
-### <a name="use-the-java-sdk"></a>Usare Java SDK
+## <a name="use-the-java-sdk"></a>Usare Java SDK
 
 Gli oggetti restituiti da [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) espongono un metodo `getRequestCharge()`:
 
@@ -117,7 +118,7 @@ feedResponse.forEach(result -> {
 
 Per altre informazioni, vedere [Guida introduttiva: creare un'applicazione Java usando un account API SQL Azure Cosmos DB](create-sql-api-java.md).
 
-### <a name="use-the-nodejs-sdk"></a>Usare Node.js SDK
+## <a name="use-the-nodejs-sdk"></a>Usare Node.js SDK
 
 Gli oggetti restituiti da [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) espongono un oggetto secondario `headers` che viene mappato a tutte le intestazione restituite dall'API HTTP sottostante. L'addebito della richiesta è disponibile sotto la chiave `x-ms-request-charge`:
 
@@ -152,7 +153,7 @@ while (query.hasMoreResults()) {
 
 Per altre informazioni, vedere [Guida introduttiva: creare un'app Node.js usando un account di Azure Cosmos DB API SQL](create-sql-api-nodejs.md). 
 
-### <a name="use-the-python-sdk"></a>Usare Python SDK
+## <a name="use-the-python-sdk"></a>Usare Python SDK
 
 L'oggetto `CosmosClient` proveniente da [Python SDK](https://pypi.org/project/azure-cosmos/) espone un dizionario `last_response_headers` che viene mappato a tutte le intestazione restituite dall'API HTTP sottostante per l'ultima operazione eseguita. L'addebito della richiesta è disponibile sotto la chiave `x-ms-request-charge`:
 
@@ -167,143 +168,6 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
 Per altre informazioni, vedere [Guida introduttiva: creare un'app Python usando un account API SQL Azure Cosmos DB](create-sql-api-python.md). 
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
-
-L'addebito delle UR è esposto da un [comando di database](https://docs.mongodb.com/manual/reference/command/) personalizzato denominato `getLastRequestStatistics`. Il comando restituisce un documento contenente il nome dell'ultima operazione eseguita, il relativo addebito della richiesta e la durata. Se si usa l'API di Azure Cosmos DB per MongoDB, sono disponibili diverse opzioni per il recupero dell'addebito delle UR.
-
-### <a name="use-the-azure-portal"></a>Usare il portale di Azure
-
-È attualmente possibile trovare l'addebito relativo alla richiesta nel portale di Azure solo per una query.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-
-1. [Creare un nuovo account di Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e inserirvi dati oppure selezionare un account esistente che contiene già dati.
-
-1. Passare al riquadro **Esplora dati** e quindi selezionare il contenitore da usare.
-
-1. Selezionare **Nuova query**.
-
-1. Immettere una query valida e quindi fare clic su **Esegui query**.
-
-1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
-
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query SQL nel portale di Azure":::
-
-### <a name="use-the-mongodb-net-driver"></a>Usare il driver .NET di MongoDB
-
-Quando si usa il [driver .NET MongoDB ufficiale](https://docs.mongodb.com/ecosystem/drivers/csharp/), è possibile eseguire i comandi chiamando il metodo `RunCommand` per un oggetto `IMongoDatabase`. Questo metodo richiede un'implementazione della classe astratta `Command<>`:
-
-```csharp
-class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
-{
-    public override RenderedCommand<Dictionary<string, object>> Render(IBsonSerializerRegistry serializerRegistry)
-    {
-        return new RenderedCommand<Dictionary<string, object>>(new BsonDocument("getLastRequestStatistics", 1), serializerRegistry.GetSerializer<Dictionary<string, object>>());
-    }
-}
-
-Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatisticsCommand());
-double requestCharge = (double)stats["RequestCharge"];
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Web .NET usando un'API Azure Cosmos DB per MongoDB](create-mongodb-dotnet.md).
-
-### <a name="use-the-mongodb-java-driver"></a>Usare il driver Java di MongoDB
-
-
-Quando si usa il [driver Java MongoDB ufficiale](https://mongodb.github.io/mongo-java-driver/), è possibile eseguire i comandi chiamando il metodo `runCommand` per un oggetto `MongoDatabase`:
-
-```java
-Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
-Double requestCharge = stats.getDouble("RequestCharge");
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK](create-mongodb-java.md).
-
-### <a name="use-the-mongodb-nodejs-driver"></a>Usare il driver Node.js di MongoDB
-
-Quando si usa il [driver Node.js MongoDB ufficiale](https://mongodb.github.io/node-mongodb-native/), è possibile eseguire i comandi chiamando il metodo `command` per un oggetto `db`:
-
-```javascript
-db.command({ getLastRequestStatistics: 1 }, function(err, result) {
-    assert.equal(err, null);
-    const requestCharge = result['RequestCharge'];
-});
-```
-
-Per altre informazioni, vedere [Guida introduttiva: eseguire la migrazione di un'app Web MongoDB Node.js esistente a Azure Cosmos DB](create-mongodb-nodejs.md).
-
-## <a name="cassandra-api"></a>API Cassandra
-
-Quando si eseguono operazioni con l'API Cassandra di Azure Cosmos DB, l'addebito delle UR viene restituito nel payload in ingresso come campo denominato `RequestCharge`. Sono disponibili diverse opzioni per il recupero dell'addebito delle UR.
-
-### <a name="use-the-net-sdk"></a>Usare .NET SDK
-
-Quando si usa [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/), è possibile recuperare il payload in ingresso sotto la proprietà `Info` di un oggetto `RowSet`:
-
-```csharp
-RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Cassandra usando .NET SDK e Azure Cosmos DB](create-cassandra-dotnet.md).
-
-### <a name="use-the-java-sdk"></a>Usare Java SDK
-
-Quando si usa [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core), è possibile recuperare il payload in ingresso chiamando il metodo `getExecutionInfo()` per un oggetto `ResultSet`:
-
-```java
-ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tables;");
-Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Cassandra usando Java SDK e Azure Cosmos DB](create-cassandra-java.md).
-
-## <a name="gremlin-api"></a>API Gremlin
-
-Quando si usa l'API Gremlin, sono disponibili diverse opzioni per trovare il consumo di UR per un'operazione con un contenitore di Azure Cosmos. 
-
-### <a name="use-drivers-and-sdk"></a>Usare driver e SDK
-
-Le intestazioni restituite dall'API Gremlin vengono mappate agli attributi di stato personalizzati attualmente esposti da Gremlin .NET e Java SDK. L'addebito della richiesta è disponibile sotto la chiave `x-ms-request-charge`.
-
-### <a name="use-the-net-sdk"></a>Usare .NET SDK
-
-Quando si usa [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/), gli attributi di stato sono disponibili sotto la proprietà `StatusAttributes` dell'oggetto `ResultSet<>`:
-
-```csharp
-ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
-double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'applicazione .NET Framework o Core usando un account API Azure Cosmos DB Gremlin](create-graph-dotnet.md).
-
-### <a name="use-the-java-sdk"></a>Usare Java SDK
-
-Quando si usa [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver), è possibile recuperare gli attributi di stato chiamando il metodo `statusAttributes()` per l'oggetto `ResultSet`:
-
-```java
-ResultSet results = client.submit("g.V().count()");
-Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un database a grafo in Azure Cosmos DB usando Java SDK](create-graph-java.md).
-
-## <a name="table-api"></a>API di tabella
-
-Attualmente l'unico SDK che restituisce l'addebito delle UR per le operazioni di tabella è [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). L'oggetto `TableResult` espone una proprietà `RequestCharge` che viene popolata dall'SDK quando viene usata con l'API Tabella di Azure Cosmos DB:
-
-```csharp
-CloudTable tableReference = client.GetTableReference("table");
-TableResult tableResult = tableReference.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
-if (tableResult.RequestCharge.HasValue) // would be false when using Azure Storage Tables
-{
-    double requestCharge = tableResult.RequestCharge.Value;
-}
-```
-
-Per altre informazioni, vedere [Guida introduttiva: creare un'app API tabella usando .NET SDK e Azure Cosmos DB](create-table-dotnet.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

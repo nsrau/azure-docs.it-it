@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793282"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150589"
 ---
 # <a name="troubleshooting-message-routing"></a>Risoluzione dei problemi relativi al routing dei messaggi
 
@@ -42,7 +42,7 @@ Tutte le [metriche dell'hub](iot-hub-devguide-endpoints.md) delle cose correlate
 Osservare i **routes** [log di diagnostica](iot-hub-monitor-resource-health.md#routes) per le route per ottenere altre informazioni sulle [operazioni](#operation-names) di routing ed endpoint oppure identificare gli errori e il [codice di errore](#common-error-codes) pertinente per comprendere ulteriormente il problema. Il nome dell'operazione **RouteEvaluationError** nel log, ad esempio, indica che non è stato possibile valutare la route a causa di un problema con il formato del messaggio. Usare i suggerimenti forniti per i [nomi di operazione](#operation-names) specifici per attenuare il problema. Quando un evento viene registrato come errore, il log fornirà anche ulteriori informazioni sul motivo per cui la valutazione non è riuscita. Se, ad esempio, il nome dell'operazione è **EndpointUnhealthy**, i [codici di errore](#common-error-codes) 403004 indicano che l'endpoint ha esaurito lo spazio.
 
 #### <a name="the-health-of-the-endpoint"></a>Stato dell'endpoint
-Usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. L'API *Ottieni endpoint Health* fornisce inoltre informazioni sull'ultima volta in cui un messaggio è stato inviato all'endpoint, l'ultimo [errore noto](#last-known-errors-for-iot-hub-routing-endpoints), l'ora dell'ultimo errore noto e l'ultima volta che è stato eseguito un tentativo di invio per questo endpoint. Utilizzare la possibile mitigazione fornita per l' [ultimo errore noto](#last-known-errors-for-iot-hub-routing-endpoints)specifico.
+Usare l'API REST per [ottenere l'integrità dell'endpoint](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. L'API *Ottieni endpoint Health* fornisce inoltre informazioni sull'ultima volta in cui un messaggio è stato inviato all'endpoint, l'ultimo [errore noto](#last-known-errors-for-iot-hub-routing-endpoints), l'ora dell'ultimo errore noto e l'ultima volta che è stato eseguito un tentativo di invio per questo endpoint. Utilizzare la possibile mitigazione fornita per l' [ultimo errore noto](#last-known-errors-for-iot-hub-routing-endpoints)specifico.
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>Si è improvvisamente interrotto il recupero dei messaggi dall'endpoint predefinito
 
@@ -52,9 +52,9 @@ Per risolvere il problema, analizzare quanto segue.
 Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint. Per assicurarsi che i messaggi continuino a passare all'endpoint incorporato se viene aggiunta una nuova route, configurare una route per l'endpoint *degli eventi* . 
 
 #### <a name="was-the-fallback-route-disabled"></a>La route di fallback è stata disabilitata?
-La route di fallback Invia tutti i messaggi che non soddisfano le condizioni di query in nessuna delle route esistenti per gli [Hub eventi predefiniti](iot-hub-devguide-messages-read-builtin.md) (messaggi/eventi), che è compatibile con [Hub eventi](https://docs.microsoft.com/azure/event-hubs/). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito.
+La route di fallback Invia tutti i messaggi che non soddisfano le condizioni di query in nessuna delle route esistenti per gli [Hub eventi predefiniti](iot-hub-devguide-messages-read-builtin.md) (messaggi/eventi), che è compatibile con [Hub eventi](../event-hubs/index.yml). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito.
 
-È possibile abilitare o disabilitare la route di fallback nel pannello routing dei messaggi portale di Azure >. È anche possibile usare Azure Resource Manager per [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) per usare un endpoint personalizzato per la route di fallback.
+È possibile abilitare o disabilitare la route di fallback nel pannello routing dei messaggi portale di Azure >. È anche possibile usare Azure Resource Manager per [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) per usare un endpoint personalizzato per la route di fallback.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Ultimi errori noti per gli endpoint di routing dell'hub Internet
 

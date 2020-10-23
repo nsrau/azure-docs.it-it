@@ -1,22 +1,25 @@
 ---
-title: Effettuare il provisioning della velocità effettiva per la scalabilità automatica in Azure Cosmos DB
-description: Informazioni su come effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di contenitore e di database in Azure Cosmos DB usando il portale di Azure, l'interfaccia della riga di comando, PowerShell e altri SDK.
+title: Provisioning della velocità effettiva di scalabilità automatica in Azure Cosmos DB API SQL
+description: Informazioni su come effettuare il provisioning della velocità effettiva di scalabilità automatica a livello di contenitore e database in Azure Cosmos DB API SQL usando portale di Azure, CLI, PowerShell e vari altri SDK.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017142"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277831"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore in Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva di ridimensionamento automatico per database o contenitore nell'API Azure Cosmos DB-SQL
 
-Questo articolo illustra come effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile abilitare la scalabilità automatica per un singolo contenitore oppure effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database e condividerla tra tutti i contenitori nel database.
+Questo articolo illustra come eseguire il provisioning della velocità effettiva di scalabilità automatica in un database o un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB API SQL. È possibile abilitare la scalabilità automatica per un singolo contenitore oppure effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database e condividerla tra tutti i contenitori nel database.
+
+Se si usa un'API diversa, vedere l'articolo relativo alle API [per MongoDB](how-to-provision-throughput-mongodb.md), [API Cassandra](how-to-provision-throughput-cassandra.md), articoli sull' [API Gremlin](how-to-provision-throughput-gremlin.md) per eseguire il provisioning della velocità effettiva.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -52,7 +55,7 @@ Per effettuare il provisioning della scalabilità automatica per il database con
 > [!NOTE]
 > Quando si abilita la scalabilità automatica per un database o un contenitore esistente, il valore iniziale per il numero massimo di UR/s è determinato dal sistema, in base alle impostazioni correnti del provisioning della velocità effettiva manuale e allo spazio di archiviazione. Al termine dell'operazione, se necessario, è possibile modificare il numero massimo di UR/s. [Altre informazioni.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET V3 SDK per API SQL
+## <a name="azure-cosmos-db-net-v3-sdk"></a>SDK di Azure Cosmos DB .NET V3
 
 Usare la [versione 3.9 o successiva](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) di Azure Cosmos DB .NET SDK per API SQL per gestire le risorse con scalabilità automatica. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java V4 SDK per API SQL
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Azure Cosmos DB Java v4 SDK
 
 È possibile usare la [versione 4.0 o successiva](https://mvnrepository.com/artifact/com.azure/azure-cosmos) di Azure Cosmos DB Java SDK per API SQL per gestire le risorse con scalabilità automatica.
 
@@ -234,7 +237,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### <a name="sync"></a>[Sincrono](#tab/api-sync)
+#### <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>API Cassandra
-
-È possibile eseguire il provisioning degli account Azure Cosmos DB per API Cassandra per la scalabilità automatica usando i [comandi di CQL](manage-scale-cassandra.md#use-autoscale), l'interfaccia della riga di comando di [Azure](cli-samples.md), i [modelli Azure Resource Manager](resource-manager-samples.md) [Azure PowerShell](powershell-samples.md)
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
-
-È possibile eseguire il provisioning degli account di Azure Cosmos DB per l'API MongoDB per la scalabilità automatica usando i [comandi di estensione MongoDB](mongodb-custom-commands.md), l'interfaccia della riga di comando di [Azure](cli-samples.md), [Azure Resource Manager](resource-manager-samples.md) [Azure PowerShell](powershell-samples.md)
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

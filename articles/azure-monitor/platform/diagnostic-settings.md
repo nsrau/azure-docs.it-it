@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449324"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107930"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -46,8 +46,8 @@ Le metriche e i log della piattaforma possono essere inviati alle destinazioni n
 | Destination | Descrizione |
 |:---|:---|
 | [area di lavoro Log Analytics](design-logs-deployment.md) | L'invio di log e metriche a un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
-| [Hub eventi](/azure/event-hubs/) | L'invio di log e metriche a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.  |
-| [Account di archiviazione di Azure](/azure/storage/blobs/) | L'archiviazione di log e metriche in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. Rispetto ai log di monitoraggio di Azure e a un'area di lavoro Log Analytics, archiviazione di Azure è meno costosa e i log possono essere conservati per un periodo illimitato.  |
+| [Hub eventi](../../event-hubs/index.yml) | L'invio di log e metriche a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.  |
+| [Account di archiviazione di Azure](../../storage/blobs/index.yml) | L'archiviazione di log e metriche in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. Rispetto ai log di monitoraggio di Azure e a un'area di lavoro Log Analytics, archiviazione di Azure è meno costosa e i log possono essere conservati per un periodo illimitato.  |
 
 
 ### <a name="destination-requirements"></a>Requisiti di destinazione
@@ -128,7 +128,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
         >
         > Se, ad esempio, si impostano i criteri di conservazione per *WorkflowRuntime* su 180 giorni e le 24 ore successive lo si imposta su 365 giorni, i log archiviati durante le prime 24 ore verranno eliminati automaticamente dopo 180 giorni, mentre tutti i registri successivi del tipo verranno eliminati automaticamente dopo 365 giorni. Se si modifica il criterio di conservazione in un secondo momento, le prime 24 ore di log rimaneranno per 365 giorni.
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 
@@ -137,7 +137,7 @@ Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle
 Usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) per creare un'impostazione di diagnostica con [Azure PowerShell](../samples/powershell-samples.md). Per una descrizione dei parametri, vedere la documentazione relativa a questo cmdlet.
 
 > [!IMPORTANT]
-> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](diagnostic-settings-template.md) per creare un modello di gestione risorse e distribuirlo con PowerShell.
+> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](../samples/resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con PowerShell.
 
 Di seguito è riportato un esempio di cmdlet di PowerShell per la creazione di un'impostazione di diagnostica con le tre destinazioni.
 
@@ -150,7 +150,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Usare il comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) per creare un'impostazione di diagnostica con l'interfaccia della riga di comando di [Azure](/cli/azure/monitor?view=azure-cli-latest). Per una descrizione dei parametri, vedere la documentazione relativa a questo comando.
 
 > [!IMPORTANT]
-> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](diagnostic-settings-template.md) per creare un modello di gestione risorse e distribuirlo con l'interfaccia della riga di comando.
+> Non è possibile usare questo metodo per il log attività di Azure. Usare invece [Crea impostazione diagnostica in monitoraggio di Azure usando un modello di gestione risorse](../samples/resource-manager-diagnostic-settings.md) per creare un modello di gestione risorse e distribuirlo con l'interfaccia della riga di comando.
 
 Di seguito è riportato un esempio di comando dell'interfaccia della riga di comando per creare un'impostazione di diagnostica con le tre destinazioni
 

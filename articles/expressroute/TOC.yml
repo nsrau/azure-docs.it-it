@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è ExpressRoute?
       href: expressroute-introduction.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare un circuito ExpressRoute - Portale
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -95,6 +95,10 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Connettività tra reti
       href: cross-network-connectivity.md
+    - name: Security
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Attributi di sicurezza
       href: expressroute-security-controls.md
     - name: BFD su ExpressRoute
@@ -166,7 +170,7 @@
     - name: Procedure consigliate
       items:
         - name: Procedure consigliate per la sicurezza di rete e i servizi cloud
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: Ottimizzare il routing
           href: expressroute-optimize-routing.md
         - name: Routing asimmetrico
@@ -192,9 +196,9 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST (versione classica)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Modello di Resource Manager
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits
@@ -269,5 +273,3 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: Creare e modificare un peering pubblico
           href: about-public-peering.md
-    - name: Baseline di sicurezza
-      href: security-baseline.md

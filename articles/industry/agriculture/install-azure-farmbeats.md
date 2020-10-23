@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479560"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330479"
 ---
 # <a name="install-azure-farmbeats"></a>Installare Azure FarmBeats
 
@@ -87,7 +87,7 @@ Le prime due autorizzazioni sono necessarie per [creare il passaggio dell'applic
 
 La persona che esegue l'installazione di FarmBeats da Marketplace deve essere un proprietario del gruppo di risorse in cui è in corso l'installazione di FarmBeats. Per i proprietari delle sottoscrizioni, questa operazione viene eseguita automaticamente quando viene creato il gruppo di risorse. Per gli altri, creare prima di tutto il gruppo di risorse e chiedere al proprietario della sottoscrizione di creare un proprietario del gruppo di risorse.
 
-È possibile verificare le autorizzazioni di accesso nel portale di Azure seguendo le istruzioni sul [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+È possibile verificare le autorizzazioni di accesso nel portale di Azure seguendo le istruzioni nel [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Decidere la sottoscrizione e l'area geografica
 
@@ -198,7 +198,7 @@ Per la prima volta agli utenti verrà richiesto di selezionare una sottoscrizion
 
 Il percorso input.jssu file è facoltativo. Se non specificato, lo script richiederà tutti gli input necessari. L'aggiornamento verrà completato in circa 30 minuti.
 
-## <a name="uninstall"></a>Uninstall
+## <a name="uninstall"></a>Disinstallare
 
 Per disinstallare Azure FarmBeats datahub o Accelerator, seguire questa procedura:
 

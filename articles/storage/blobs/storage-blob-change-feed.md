@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568235"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172903"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
@@ -139,7 +139,7 @@ Usare un modello di Azure Resource Manager per abilitare il feed delle modifiche
 Il feed di modifiche produce diversi metadati e file di log. Questi file si trovano nel contenitore **$blobchangefeed** dell'account di archiviazione. 
 
 > [!NOTE]
-> Nella versione corrente il contenitore **$blobchangefeed** non è visibile in Azure Storage Explorer o portale di Azure. Attualmente non è possibile visualizzare il contenitore $blobchangefeed quando si chiama l'API ListContainers, ma è possibile chiamare l'API ListBlobs direttamente sul contenitore per visualizzare i BLOB.
+> Nella versione corrente il contenitore $blobchangefeed è visibile solo in portale di Azure ma non è visibile in Azure Storage Explorer. Attualmente non è possibile visualizzare il contenitore $blobchangefeed quando si chiama l'API ListContainers, ma è possibile chiamare l'API ListBlobs direttamente sul contenitore per visualizzare i BLOB
 
 Le applicazioni client possono utilizzare il feed delle modifiche utilizzando la libreria del processore dei feed delle modifiche BLOB fornita con l'SDK del processore dei feed delle modifiche. 
 

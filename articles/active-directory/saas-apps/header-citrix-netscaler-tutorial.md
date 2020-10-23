@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540586"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944224"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Citrix NetScaler (autenticazione basata su intestazione)
 
@@ -392,7 +392,7 @@ Per associare un criterio di riscrittura a un server virtuale usando l'interfacc
 
 1. Nel riquadro **Load Balancing Virtual Server** (Server virtuale di bilanciamento del carico) selezionare **Policies** (Criteri) in **Advanced Settings** (Impostazioni avanzate). Nell'elenco sono visualizzati tutti i criteri configurati per l'istanza di NetScaler.
  
-    ![Configurazione di Citrix NetScaler - Riquadro Load Balancing Virtual Server](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Screenshot che mostra la scheda "Configuration" con i campi "Name", "Action" ed "Expression" evidenziati e il pulsante "Create" selezionato.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Configurazione di Citrix NetScaler - Riquadro Load Balancing Virtual Server](./media/header-citrix-netscaler-tutorial/header06.png)
 

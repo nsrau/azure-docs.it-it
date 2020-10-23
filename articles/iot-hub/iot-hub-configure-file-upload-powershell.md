@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60318461"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142275"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurare i caricamenti dei file nell'hub IoT con PowerShell
 
@@ -23,15 +23,15 @@ Per usare la [funzionalità di caricamento di file nell'hub IoT](iot-hub-devguid
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* [Cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Cmdlet di Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Un hub IoT di Azure. Se non si ha un hub Internet delle cose, è possibile usare il [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) per crearne uno o usare il portale per [creare un hub](iot-hub-create-through-portal.md)Internet.
+* Un hub IoT di Azure. Se non si ha un hub Internet delle cose, è possibile usare il [cmdlet New-AzIoTHub](/powershell/module/az.iothub/new-aziothub) per crearne uno o usare il portale per [creare un hub](iot-hub-create-through-portal.md)Internet.
 
-* Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione di Azure, è possibile usare i [cmdlet PowerShell di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/az.storage/) per crearne uno o usare il portale per [creare un account di archiviazione](../storage/common/storage-create-storage-account.md)
+* Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione di Azure, è possibile usare i [cmdlet PowerShell di Archiviazione di Azure](/powershell/module/az.storage/) per crearne uno o usare il portale per [creare un account di archiviazione](../storage/common/storage-account-create.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
 
@@ -136,5 +136,5 @@ Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare ques
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Proteggere la soluzione IoT sin dall'inizio](../iot-fundamentals/iot-security-ground-up.md)

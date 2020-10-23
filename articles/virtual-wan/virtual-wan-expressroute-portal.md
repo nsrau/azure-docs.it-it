@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821878"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054815"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Modificare le dimensioni del gateway
 > * Creare una route predefinita
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
@@ -40,7 +40,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * Ottenere un intervallo di indirizzi IP per l'area dell'hub. L'hub è una rete virtuale che viene creata e usata dalla rete WAN virtuale. L'intervallo di indirizzi specificati per l'hub non può sovrapporsi ad alcuna delle reti virtuali esistenti a cui ci si connette. Inoltre non può sovrapporsi agli intervalli di indirizzi a cui ci si connette in locale. Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, coordinarsi con qualcuno che possa fornire tali dettagli.
 
-* Per la connessione al gateway dell'hub, è necessario un circuito ExpressRoute Premium/Standard.
+* Per la connessione al gateway dell'hub, è necessario il circuito ExpressRoute sia Premium o Standard.
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -153,6 +153,17 @@ Se si vuole che l'hub virtuale di Azure annunci la route predefinita 0.0.0.0/0 a
 
    ![Propaga route predefinita](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propaga route predefinita")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
+
+Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla rete WAN virtuale, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
+Per altre informazioni sulla rete WAN virtuale, vedere:
+
+> [!div class="nextstepaction"]
+> * [Domande frequenti sulla rete WAN virtuale](virtual-wan-faq.md)

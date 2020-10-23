@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 660c346669c684921164f6488647f589492c7416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbfd00af62f783b0f5122ddb59b921c1ad9e7019
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006619"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92331227"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creare una connessione da sito a sito nel portale di Azure
 
@@ -60,6 +60,8 @@ Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi
 * **Chiave condivisa:** in questo esempio si usa abc123. È possibile usare qualsiasi valore compatibile con l'hardware VPN, ma è importante che i valori corrispondano su entrambi i lati della connessione.
 
 ## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. creare una rete virtuale
+
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

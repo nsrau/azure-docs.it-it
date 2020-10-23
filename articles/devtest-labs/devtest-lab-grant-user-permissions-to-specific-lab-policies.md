@@ -3,25 +3,25 @@ title: Concedere le autorizzazioni utente per specifici criteri di lab | Documen
 description: Informazioni su come concedere le autorizzazioni utente per criteri di lab specifici nei laboratori di sviluppo/test in base alle esigenze di ogni utente
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835681"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328471"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Panoramica
 In questo articolo viene illustrato come usare PowerShell per concedere agli utenti autorizzazioni per un particolare criterio di lab. In questo modo, le autorizzazioni possono essere applicate in base alle esigenze di ciascun utente. Ad esempio, è possibile concedere a un determinato utente la possibilità di modificare le impostazioni dei criteri delle macchine virtuali, ma non i criteri dei costi.
 
 ## <a name="policies-as-resources"></a>Criteri come risorse
-Come illustrato nell'articolo [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md) , RBAC consente la gestione degli accessi con granularità fine delle risorse per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+Come illustrato nell'articolo [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure, il controllo degli accessi in base al ruolo di Azure consente la gestione degli accessi con granularità fine delle risorse per Azure. Con il controllo degli accessi in base al ruolo di Azure, è possibile separare i compiti all'interno del team di DevOps e concedere solo la quantità di accesso agli utenti necessari per svolgere i propri processi.
 
-Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio Lab è una risorsa nel tipo di risorsa criteri e può essere assegnato come ambito a un ruolo di Azure.
+In DevTest Labs, un criterio è un tipo di risorsa che Abilita l'azione RBAC di Azure **Microsoft. DevTestLab/Labs/policySets/Policies/**. Ogni criterio Lab è una risorsa nel tipo di risorsa criteri e può essere assegnato come ambito a un ruolo di Azure.
 
 Ad esempio, per concedere agli utenti l'autorizzazione di lettura/scrittura per i criteri di **dimensioni delle VM consentite** , è necessario creare un ruolo personalizzato che funzioni con **Microsoft. DevTestLab/Labs/policySets/Policies/** Action, quindi assegnare gli utenti appropriati a questo ruolo personalizzato nell'ambito di **Microsoft. DevTestLab/Labs/PolicySets/Policies/AllowedVmSizesInLab**.
 
-Per altre informazioni sui ruoli personalizzati in RBAC, vedere il [controllo di accesso ai ruoli personalizzati](../role-based-access-control/custom-roles.md).
+Per altre informazioni sui ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Creazione di un ruolo personalizzato lab tramite PowerShell
 Per iniziare, è necessario [installare Azure PowerShell](/powershell/azure/install-az-ps). 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333444"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424397"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
 
@@ -44,7 +44,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e lo zoom](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare lo zoom per supportare il provisioning con Azure AD
+## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare lo zoom per supportare il provisioning con Azure AD
 
 1. Accedere alla console di [amministrazione dello zoom](https://zoom.us/signin). Passare a **Advanced > App Marketplace** nel riquadro di spostamento a sinistra.
 
@@ -152,6 +152,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="change-log"></a>Registro delle modifiche
 * 05/14/2020-supporto per le operazioni di aggiornamento aggiunte per i messaggi di posta elettronica [tipo EQ "Work"].
+* 10/20/2020-è stato aggiunto il supporto per due nuovi ruoli "Licensed" e "on-premi" per sostituire i ruoli esistenti "Pro" e "Corp". Il supporto per i ruoli "Pro" e "Corp" verrà rimosso in futuro.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

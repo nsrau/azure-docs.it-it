@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782813"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340785"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
@@ -57,4 +57,4 @@ Questo articolo illustra il funzionamento della gestione tra tenant nel centro s
 
 * Rafforzare il comportamento di [sicurezza con il Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * Domande frequenti sul [Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
-* Informazioni [sul faro di Azure in scenari aziendali](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) : Scopri come Azure Lighthouse può semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant Azure ad.
+* Informazioni [sul faro di Azure in scenari aziendali](../lighthouse/concepts/enterprise.md) : Scopri come Azure Lighthouse può semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant Azure ad.

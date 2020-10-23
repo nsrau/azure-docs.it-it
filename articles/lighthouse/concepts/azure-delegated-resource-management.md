@@ -1,18 +1,18 @@
 ---
 title: Gestione risorse delegate di Azure
 description: Gestione delle risorse delegate di Azure è un componente chiave di Azure Lighthouse, che consente ai provider di servizi di gestire risorse delegate su larga scala con agilità e precisione.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163527"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203858"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
-Gestione delle risorse delegate di Azure è uno dei componenti principali di [Azure Lighthouse](../overview.md). Con la gestione risorse delegate di Azure, i provider di servizi possono semplificare le esperienze di engagement e onboarding dei clienti, gestendo al contempo le risorse delegate su larga scala con agilità e precisione.
+Gestione delle risorse delegate di Azure è uno dei componenti principali di [Azure Lighthouse](../overview.md). Con la gestione risorse delegate di Azure, i provider di servizi possono semplificare le esperienze di engagement e onboarding dei clienti, gestendo al contempo le risorse delegate su larga scala con agilità e precisione. I clienti mantengono il controllo sui provider di servizi che possono accedere al tenant, i clienti mantengono il controllo sugli utenti che possono accedere al tenant, sulle risorse a cui possono accedere e sulle azioni che possono essere eseguite.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Informazioni sulla gestione risorse delegate di Azure
 
@@ -35,7 +35,8 @@ Di seguito viene illustrato il funzionamento generale della gestione risorse del
 2. È possibile specificare questo accesso e caricare il cliente in Azure Lighthouse in uno dei due modi seguenti:
    - [Pubblicare un'offerta di servizio gestito di Azure Marketplace](../how-to/publish-managed-services-offers.md) (privata o pubblica) che il cliente accetterà
    - [Distribuire un modello di Azure Resource Manager nel tenant del cliente](../how-to/onboard-customer.md) per una o più sottoscrizioni o gruppi di risorse specifici
-3. Una volta caricato il cliente, gli utenti autorizzati possono accedere al tenant di gestione ed eseguire attività nell'ambito del cliente specificato, in base all'accesso definito.
+
+3. Una volta caricato il cliente, gli utenti autorizzati possono accedere al tenant di gestione ed eseguire attività nell'ambito del cliente specificato, in base all'accesso definito. I clienti possono esaminare le azioni del provider di servizi e avere la possibilità di rimuovere l'accesso, se necessario.
 
 > [!NOTE]
 > È possibile gestire le risorse delegate che si trovano in [aree](../../availability-zones/az-overview.md#regions)diverse. Tuttavia, la delega delle sottoscrizioni in un [cloud nazionale](../../active-directory/develop/authentication-national-cloud.md) e nel cloud pubblico di Azure o in due cloud nazionali distinti non è supportata.

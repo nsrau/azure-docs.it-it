@@ -7,18 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405123"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150959"
 ---
 # <a name="azure-signalr-service-faq"></a>Domande frequenti sul servizio Azure SignalR
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Il servizio Azure SignalR può già essere usato per la produzione?
 
-Sì, sia il supporto per [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) che quello per [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) sono disponibili a livello generale.
+Sì, sia il supporto per [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) che quello per [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) sono disponibili a livello generale.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando sono presenti più server applicazioni, i messaggi client vengono inviati a tutti i server o solo a uno?
 
@@ -48,7 +48,7 @@ No.
 
 Il servizio Azure SignalR fornisce tutti e tre i trasporti supportati da ASP.NET Core SignalR per impostazione predefinita. Non è configurabile. Il servizio Azure SignalR gestirà le connessioni e i trasporti per tutte le connessioni client.
 
-È possibile configurare i trasporti sul lato client come descritto in [Configurazione di ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+È possibile configurare i trasporti sul lato client come descritto in [Configurazione di ASP.NET Core SignalR](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Qual è il significato di metriche come il numero di messaggi o il numero di connessioni mostrato nel portale di Azure? Quale tipo di aggregazione scegliere?
 

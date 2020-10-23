@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 7a9541eb3b7c662b43de0d3a609ecec4fe2621ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519406"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341414"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure
 
@@ -29,46 +29,40 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) viene eseguito e il risultato è **AMServiceEnabled: false**
+* Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) viene eseguito e il risultato è **AMServiceEnabled: false**
 
-* Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) viene eseguito e si verifica una delle condizioni seguenti:
+* Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) viene eseguito e si verifica una delle condizioni seguenti:
 
   * Una delle proprietà seguenti è false:
 
-    **AMServiceEnabled**
+    - **AMServiceEnabled**
+    - **AntispywareEnabled**
+    - **RealTimeProtectionEnabled**
+    - **BehaviorMonitorEnabled**
+    - **IoavProtectionEnabled**
+    - **OnAccessProtectionEnabled**
 
-    **AntispywareEnabled**
+  * Se una o entrambe le proprietà seguenti sono pari a 7 o più:
 
-    **RealTimeProtectionEnabled**
-
-    **BehaviorMonitorEnabled**
-
-    **IoavProtectionEnabled**
-
-    **OnAccessProtectionEnabled**
-
-  * Se una o entrambe le proprietà seguenti sono pari a 7 o più.
-
-    **AntispywareSignatureAge**
-
-    **AntivirusSignatureAge**
+    - **AntispywareSignatureAge**
+    - **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Il Centro sicurezza consiglia di **"installare soluzioni Endpoint Protection nella macchina virtuale"** durante l'importazione di **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** ed eseguendo **Get-MProtComputerStatus** risultati con **AMServiceEnabled = false**
+* Il Centro sicurezza consiglia di **"installare soluzioni Endpoint Protection nella macchina virtuale"** durante l'importazione di **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** e l'esecuzione di **Get-MProtComputerStatus** produce **AMServiceEnabled = false**.
 
 * Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando **Get-MprotComputerStatus** viene eseguito e si verifica una delle condizioni seguenti:
 
   * Almeno una delle proprietà seguenti è false:
 
-    * **AMServiceEnabled**
-    * **AntispywareEnabled**
-    * **RealTimeProtectionEnabled**
-    * **BehaviorMonitorEnabled**
-    * **IoavProtectionEnabled**
-    * **OnAccessProtectionEnabled**
+    - **AMServiceEnabled**
+    - **AntispywareEnabled**
+    - **RealTimeProtectionEnabled**
+    - **BehaviorMonitorEnabled**
+    - **IoavProtectionEnabled**
+    - **OnAccessProtectionEnabled**
 
-  * Se uno o entrambi gli aggiornamenti della firma seguenti sono maggiori o uguali a 7. 
+  * Se uno o entrambi gli aggiornamenti della firma seguenti sono maggiori o uguali a 7:
 
     * **AntispywareSignatureAge**
     * **AntivirusSignatureAge**
@@ -76,95 +70,73 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
 ## <a name="trend-micro"></a>Tendenza Micro
 
 * Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
-    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** esiste
-    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    * Il file **dsa_query. cmd** si trova nella cartella di installazione
-    * Esecuzione di **dsa_query. cmd** risultati con **Component. am. Mode: rilevato agente di sicurezza Deep micro-trend**
+    - **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** esiste
+    - **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
+    - Il file **dsa_query. cmd** si trova nella cartella di installazione
+    - Esecuzione di **dsa_query. cmd** risultati con **Component. am. Mode: rilevato agente di sicurezza Deep micro-trend**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
 
-* **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
-
-* **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+- **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+- **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Oppure
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
-
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+- **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+- **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
 
-* Verificare la versione di Symantec >= 12: percorso del registro di sistema: **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion "-valore" ProductVersion "**
-
-* Verificare lo stato di protezione in tempo reale: **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
-
-* Verificare lo stato di aggiornamento della firma: **HKLM\Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 giorni**
-
-* Controllare lo stato dell'analisi completa: **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 giorni**
-
-* Trova firma numero di versione percorso della firma versione per Symantec 12: **percorsi registro di sistema + "CurrentVersion\SharedDefs"-valore "SRTSP"** 
-
-* Percorso della versione della firma per Symantec 14: **percorsi del registro di sistema + "CurrentVersion\SharedDefs\SDSDefs"-valore "SRTSP"**
+- Verificare la versione di Symantec >= 12: percorso del registro di sistema: **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion "-valore" ProductVersion "**
+- Controllare Real-Time stato di protezione: **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
+- Verificare lo stato di aggiornamento della firma: **HKLM\Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 giorni**
+- Controllare lo stato dell'analisi completa: **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 giorni**
+- Trova firma numero di versione percorso della firma versione per Symantec 12: **percorsi registro di sistema + "CurrentVersion\SharedDefs"-valore "SRTSP"** 
+- Percorso della versione della firma per Symantec 14: **percorsi del registro di sistema + "CurrentVersion\SharedDefs\SDSDefs"-valore "SRTSP"**
 
 Percorsi del registro di sistema:
-
-* **"HKLM: \ Software\Symantec\Symantec Endpoint Protection" + $Path;**
-* **"HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+- **"HKLM: \ Software\Symantec\Symantec Endpoint Protection" + $Path;**
+- **"HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection per Windows
 
 Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
 
-* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** esiste
-
-* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+- **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** esiste
+- **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
 
-* Versione di McAfee: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
-
-* Trovare la versione della firma: **HKLM: \ Software\McAfee\AVSolution\DS\DS-value "dwContentMajorVersion"**
-
-* Trova data firma: **HKLM: \ Software\McAfee\AVSolution\DS\DS-valore "szContentCreationDate" >= 7 giorni**
-
-* Trova analisi Data: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-value "LastFullScanOdsRunTime" >= 7 giorni**
+- Versione di McAfee: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
+- Trovare la versione della firma: **HKLM: \ Software\McAfee\AVSolution\DS\DS-value "dwContentMajorVersion"**
+- Trova data firma: **HKLM: \ Software\McAfee\AVSolution\DS\DS-valore "szContentCreationDate" >= 7 giorni**
+- Trova analisi Data: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-value "LastFullScanOdsRunTime" >= 7 giorni**
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security per Linux Threat Prevention 
 
 Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
 
-- Uscite file **/opt/ISEC/ENS/threatprevention/bin/isecav** 
-
+- Il file **/opt/ISEC/ENS/threatprevention/bin/isecav** esiste
 - l'output **di "/opt/ISEC/ENS/threatprevention/bin/isecav-Version"** è: **nome McAfee = McAfee Endpoint Security per Linux Threat Prevention e McAfee Version >= 10**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
 
 - **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** restituisce un'analisi **veloce, un'analisi completa** ed entrambe le analisi <= 7 giorni
-
 - **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** restituisce la **data e l'ora di aggiornamento del motore** e di entrambi <= 7 giorni
-
 - **"/opt/ISEC/ENS/threatprevention/bin/isecav--getoasconfig--Summary"** restituisce lo stato **di analisi dell'accesso**
 
 ## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus per Linux 
 
 Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
-
 - Il file **/opt/Sophos-AV/bin/savdstatus** viene chiuso o cerca il percorso personalizzato **"readlink $ (savscan)"**
-
 - **"/opt/Sophos-AV/bin/savdstatus--Version"** restituisce Sophos Name = **Sophos Anti-virus e Sophos Version >= 9**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
-
 - **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | grep-i "analisi pianificata. \* operazione completata "| Tail-1 "**, restituisce un valore
-
 - **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | grep "analisi completata"** | Tail-1 ", restituisce un valore
-
 - **"/opt/Sophos-AV/bin/savdstatus--LastUpdate"** restituisce LastUpdate, che deve essere <= 7 giorni 
-
 - **"/opt/Sophos-AV/bin/savdstatus-v"** è uguale a **"l'analisi in corso è in esecuzione"** 
-
 - **"/opt/Sophos-AV/bin/savconfig Get LiveProtection"** restituisce Enabled
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto

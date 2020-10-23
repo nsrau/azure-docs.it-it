@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441845"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -51,7 +51,7 @@ Questa funzionalità non è attualmente supportata. Se l'accesso alle risorse de
 Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. È possibile usare l'API di invito di Collaborazione B2B per personalizzare il flusso di lavoro di onboarding.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Per impostazione predefinita, gli oggetti Guest non sono visibili nell'elenco indirizzi globale (GAL) dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere è [possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Sì. Per impostazione predefinita, gli oggetti Guest non sono visibili nell'elenco indirizzi globale (GAL) dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere è [possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>È possibile fare in modo che un utente guest diventi amministratore con limitazioni?
 Assolutamente sì. Per altre informazioni, vedere [Aggiunta di utenti guest a un ruolo](add-guest-to-role.md).
@@ -80,16 +80,16 @@ Sì. È possibile creare un criterio di accesso condizionale che impedisce a tut
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>La reimpostazione della password per gli utenti di Collaborazione B2B di Azure AD è supportata?
-Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpostare la password dell'utente](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) dal portale di Azure, ma non è possibile reimpostare direttamente una password per un utente guest che accede con un account gestito da un'altra directory di Azure AD o da un altro provider di identità esterno. Solo l'utente guest o un amministratore nella home directory dell'utente può reimpostare la password. Di seguito sono riportati alcuni esempi di come funziona la reimpostazione della password per gli utenti guest:
+Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpostare la password dell'utente](../fundamentals/active-directory-users-reset-password-azure-portal.md) dal portale di Azure, ma non è possibile reimpostare direttamente una password per un utente guest che accede con un account gestito da un'altra directory di Azure AD o da un altro provider di identità esterno. Solo l'utente guest o un amministratore nella home directory dell'utente può reimpostare la password. Di seguito sono riportati alcuni esempi di come funziona la reimpostazione della password per gli utenti guest:
  
 * Gli utenti guest che accedono con un account Microsoft (ad esempio, guestuser@live.com) possono reimpostare le proprie password con la reimpostazione della password self-service dell'account Microsoft. Vedere [Come reimpostare la password dell'account Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gli utenti guest che accedono con un account Google o un altro provider di identità esterno possono reimpostare le proprie password usando il metodo di reimpostazione della password self-service del provider di identità. Un utente guest con un account Google guestuser@gmail.com, ad esempio, può reimpostare la password seguendo le istruzioni contenute in [Modificare o reimpostare la password](https://support.google.com/accounts/answer/41078).
-* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
+* Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](../users-groups-roles/domains-admin-takeover.md) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
 
 * Se la home directory dell'utente guest è il tenant di Azure AD, è possibile reimpostare la password dell'utente. È ad esempio possibile che sia stato creato o sincronizzato un utente da Active Directory locale e che UserType sia stato impostato su Guest. Poiché questo utente è incluso nella directory, è possibile reimpostarne la password dal portale di Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 offre supporto online per Collaborazione B2B di Azure AD?
-Sì, Dynamics 365 (online) supporta Collaborazione B2B di Azure AD. Per altre informazioni, vedere l'articolo di Dynamics 365 [Invitare gli utenti con Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Sì, Dynamics 365 (online) supporta Collaborazione B2B di Azure AD. Per altre informazioni, vedere l'articolo di Dynamics 365 [Invitare gli utenti con Collaborazione B2B di Azure Active Directory](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual è la durata di una password iniziale per un nuovo utente di Collaborazione B2B?
 Azure AD ha requisiti fissi per il set di caratteri, la complessità della password e il blocco account che si applicano equamente a tutti gli account utente cloud di Azure AD. Gli account utente cloud sono account non federati con un altro provider di identità, ad esempio: 
@@ -135,4 +135,3 @@ Per informazioni su quali licenze sono necessarie all'organizzazione per poter u
 ### <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-

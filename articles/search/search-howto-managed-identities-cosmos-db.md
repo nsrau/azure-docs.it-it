@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275286"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102694"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore a un database Cosmos DB usando un'identità gestita
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore a un database Azure Cosmos DB usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
 
 Prima di acquisire maggiore familiarità con questa funzionalità, è consigliabile sapere che cos’è un indicizzatore e come lo si configura per l'origine dati. Altre informazioni sono disponibili nei collegamenti seguenti:
+
 * [Panoramica degli indicizzatori](search-indexer-overview.md)
 * [Indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -143,9 +144,8 @@ Se non si riesce a indicizzare i dati da Cosmos DB tenere presente quanto segue:
 
 1. Se sono state recentemente ruotate le chiavi dell'account Cosmos DB, sarà necessario attendere fino a 15 minuti per il corretto funzionamento della stringa di connessione dell'identità gestita.
 
-1. Verificare se per l'account Cosmos DB è stato limitato l'accesso alle reti Select. In tal caso, vedere l'articolo relativo all' [accesso dell'indicizzatore alle origini dati tramite le funzionalità di sicurezza di rete di Azure](search-indexer-securing-resources.md).
+1. Verificare se per l'account Cosmos DB è stato limitato l'accesso alle reti Select. In caso contrario, fare riferimento all' [indicizzatore accesso al contenuto protetto dalle funzionalità di sicurezza di rete di Azure](search-indexer-securing-resources.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli indicizzatori Cosmos DB:
 * [Indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md)

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801325"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281055"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB gar
 
 * Se si effettua il provisioning della velocità effettiva in un database, tutti i contenitori, ad esempio insiemi/tabelle/grafici all'interno del database possono condividere la velocità effettiva in base al carico. La velocità effettiva riservata a livello di database viene condivisa in modo non uniforme a seconda del carico di lavoro in un set specifico di contenitori.
 
-* Se si effettua il provisioning della velocità effettiva in un contenitore, è garantita la velocità effettiva per tale contenitore, supportata dal contratto di servizio. La scelta di una chiave di partizione logica è fondamentale per la distribuzione uniforme del carico tra tutte le partizioni logiche di un contenitore. Per altri dettagli, vedere gli articoli su [partizionamento](partitioning-overview.md) e [scalabilità orizzontale](partition-data.md).
+* Se si effettua il provisioning della velocità effettiva in un contenitore, è garantita la velocità effettiva per tale contenitore, supportata dal contratto di servizio. La scelta di una chiave di partizione logica è fondamentale per la distribuzione uniforme del carico tra tutte le partizioni logiche di un contenitore. Per altri dettagli, vedere gli articoli su [partizionamento](partitioning-overview.md) e [scalabilità orizzontale](partitioning-overview.md).
 
 Di seguito sono riportate alcune linee guida per scegliere una strategia di velocità effettiva con provisioning:
 

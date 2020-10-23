@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825428"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370424"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -90,7 +90,7 @@ Site Recovery acquisisce snapshot nel modo seguente:
 1. Site Recovery acquisisce snapshot dei dati coerenti con l'arresto anomalo del sistema per impostazione predefinita, oltre a snapshot coerenti con l'app se si specifica una frequenza.
 2. Dagli snapshot vengono creati punti di ripristino che vengono archiviati in base alle impostazioni di conservazione dei criteri di replica.
 
-### <a name="consistency"></a>Consistenza
+### <a name="consistency"></a>Coerenza
 
 La tabella seguente illustra i vari tipi di coerenza.
 
@@ -167,11 +167,11 @@ Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al c
 
 #### <a name="control-access-with-nsg-rules"></a>Controllare l'accesso con le regole NSG
 
-Se si controlla la connettività delle macchine virtuali filtrando il traffico da e verso reti/subnet di Azure mediante [regole NSG](../virtual-network/security-overview.md), tenere presenti i requisiti seguenti:
+Se si controlla la connettività delle macchine virtuali filtrando il traffico da e verso reti/subnet di Azure mediante [regole NSG](../virtual-network/network-security-groups-overview.md), tenere presenti i requisiti seguenti:
 
 - Le regole NSG per l'area di Azure di origine devono consentire l'accesso in uscita per il traffico di replica.
 - È consigliabile creare le regole in un ambiente di test prima di usarle in un ambiente di produzione.
-- Usare [tag di servizio](../virtual-network/security-overview.md#service-tags) invece di consentire singoli indirizzi IP.
+- Usare [tag di servizio](../virtual-network/network-security-groups-overview.md#service-tags) invece di consentire singoli indirizzi IP.
     - I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP raggruppati per ridurre al minimo la complessità della creazione delle regole di sicurezza.
     - Microsoft aggiorna automaticamente i tag di servizio nel corso del tempo. 
  

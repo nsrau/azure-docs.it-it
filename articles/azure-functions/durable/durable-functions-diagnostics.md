@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: f91cdaa81e18105eb39af442ab6152bfd2888ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319708"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168142"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -99,7 +99,7 @@ Per abilitare la creazione di eventi di riproduzione con orchestrazione verbose,
 ```
 
 > [!NOTE]
-> Per impostazione predefinita, la telemetria di Application Insights viene campionata dal runtime di Funzioni di Azure per evitare di generare dati con eccessiva frequenza. In questo modo è possibile che le informazioni di rilevamento vengano perse quando si verificano molti eventi del ciclo di vita in un breve periodo di tempo. L'[articolo sul monitoraggio in Funzioni di Azure](../functions-monitoring.md#configure-sampling) illustra come configurare questo comportamento.
+> Per impostazione predefinita, la telemetria di Application Insights viene campionata dal runtime di Funzioni di Azure per evitare di generare dati con eccessiva frequenza. In questo modo è possibile che le informazioni di rilevamento vengano perse quando si verificano molti eventi del ciclo di vita in un breve periodo di tempo. L'[articolo sul monitoraggio in Funzioni di Azure](../configure-monitoring.md#configure-sampling) illustra come configurare questo comportamento.
 
 ### <a name="single-instance-query"></a>Query per singola istanza
 

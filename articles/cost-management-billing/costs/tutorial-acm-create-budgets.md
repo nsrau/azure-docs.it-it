@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527140"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132806"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
-I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-24 ore e i budget vengono valutati a fronte di questi costi ogni 12-14 ore. Assicurarsi di acquisire familiarità con le specifiche di [Aggiornamenti dei dati relativi a costi e utilizzo](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
+I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-24 ore e i budget vengono valutati a fronte di questi costi ogni 12-14 ore. Assicurarsi di acquisire familiarità con le specifiche di [Aggiornamenti dei dati relativi a costi e utilizzo](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 
@@ -72,7 +72,7 @@ Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per
 - Collaboratore e collaboratore Gestione costi: può creare, modificare o eliminare i propri budget. Può modificare l'importo di budget per budget creati da altri utenti.
 - Lettore e lettore Gestione costi: può visualizzare i budget per cui ha l'autorizzazione.
 
-Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](../../cost-management/assign-access-acm-data.md).
+Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -104,7 +104,7 @@ In base ai campi scelti nel budget fino a questo momento, verrà visualizzato un
 
 Dopo aver configurato l'importo del budget, selezionare **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
 
-Se si vogliono ricevere messaggi di posta elettronica, aggiungere azure-noreply@microsoft.com all'elenco dei mittenti approvati in modo che i messaggi non vengano recapitati nella cartella Posta indesiderata. Per altre informazioni sulle notifiche, vedere [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
+Se si vogliono ricevere messaggi di posta elettronica, aggiungere azure-noreply@microsoft.com all'elenco dei mittenti approvati in modo che i messaggi non vengano recapitati nella cartella Posta indesiderata. Per altre informazioni sulle notifiche, vedere [Use cost alerts](./cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
 
 Nell'esempio seguente viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API dei budget, è anche possibile assegnare ruoli agli utenti perché ricevano gli avvisi. L'assegnazione dei ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API dei budget di Azure, vedere [API dei budget](/rest/api/consumption/budgets). Se si vuole che un messaggio di posta elettronica di avviso venga inviato in una lingua diversa, vedere [Impostazioni locali supportate per i messaggi di posta elettronica di avviso relativi ai budget](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -112,7 +112,7 @@ I limiti di avviso supportano un intervallo compreso tra 0,01 e 1000% della sogl
 
 ![Esempio che illustra le condizioni di avviso](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Dopo averlo creato, il budget viene visualizzato nell'analisi dei costi. La visualizzazione del budget rispetto alla tendenza di spesa è uno dei primi passaggi quando si iniziano ad [analizzare i costi e la spesa](../../cost-management/quick-acm-cost-analysis.md).
+Dopo averlo creato, il budget viene visualizzato nell'analisi dei costi. La visualizzazione del budget rispetto alla tendenza di spesa è uno dei primi passaggi quando si iniziano ad [analizzare i costi e la spesa](./quick-acm-cost-analysis.md).
 
 ![Esempio di budget e spesa di esempio illustrato nell'analisi dei costi](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

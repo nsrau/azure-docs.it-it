@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574144"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370696"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protezione dei dati archiviati in Azure Data Lake Storage Gen1
-La protezione dei dati in Azure Data Lake Storage Gen1 prevede tre passaggi.  Il controllo degli accessi in base al ruolo e gli elenchi di controllo di accesso devono essere impostati in modo da consentire completamente l'accesso ai dati per utenti e gruppi di sicurezza.
+La protezione dei dati in Azure Data Lake Storage Gen1 prevede tre passaggi.  Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e gli elenchi di controllo di accesso (ACL) devono essere impostati per consentire l'accesso completo ai dati per gli utenti e i gruppi di sicurezza.
 
 1. Per iniziare, creare gruppi di sicurezza in Azure Active Directory (Azure AD). Questi gruppi di sicurezza vengono usati per implementare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nel portale di Azure. Per altre informazioni [, vedere controllo](../role-based-access-control/role-assignments-portal.md)degli accessi in base al ruolo.
 2. Assegnare i gruppi di sicurezza Azure AD all'account di Data Lake Storage Gen1. In questo modo viene controllato l'accesso all'account Data Lake Storage Gen1 dal portale e dalle operazioni di gestione del portale o delle API.
@@ -39,7 +39,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 Per istruzioni su come creare gruppi di sicurezza Azure AD e su come aggiungere utenti al gruppo, vedere [gestione dei gruppi di sicurezza in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
-> È possibile aggiungere utenti e altri gruppi a un gruppo in Azure AD tramite il portale di Azure. Tuttavia, per aggiungere un'entità servizio a un gruppo, usare il [modulo PowerShell di Azure AD](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+> È possibile aggiungere utenti e altri gruppi a un gruppo in Azure AD tramite il portale di Azure. Tuttavia, per aggiungere un'entità servizio a un gruppo, usare il [modulo PowerShell di Azure AD](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs
@@ -68,13 +68,13 @@ Quando si assegnano utenti o gruppi di sicurezza agli account Data Lake Storage 
     Per le operazioni sui dati, le operazioni consentite agli utenti sono definite da singole autorizzazioni a livello di file system. Pertanto, un utente con il ruolo Lettore può visualizzare solo le impostazioni amministrative associate all'account, ma potrebbe anche leggere e scrivere dati, in base alle autorizzazioni per il file system che gli sono state assegnate. Le autorizzazioni del file system di Data Lake Storage Gen1 sono descritte in [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Solo il ruolo **Proprietario** può consentire automaticamente l'accesso al file system. I ruoli **Collaboratore**, **Lettore** e tutti gli altri richiedono elenchi di controllo di accesso per poter consentire qualsiasi livello di accesso a cartelle e file.  Il ruolo **Proprietario** concede autorizzazioni di utente con privilegi utente a file e cartelle che non possono essere sostituiti tramite elenchi di controllo di accesso. Per altre informazioni sul mapping dei criteri di controllo degli accessi in base al ruolo all'accesso ai dati, vedere [Controllo degli accessi in base al ruolo per la gestione degli account](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Solo il ruolo **Proprietario** può consentire automaticamente l'accesso al file system. I ruoli **Collaboratore**, **Lettore** e tutti gli altri richiedono elenchi di controllo di accesso per poter consentire qualsiasi livello di accesso a cartelle e file.  Il ruolo **Proprietario** concede autorizzazioni di utente con privilegi utente a file e cartelle che non possono essere sostituiti tramite elenchi di controllo di accesso. Per altre informazioni su come i criteri di controllo degli accessi in base al ruolo di Azure vengono mappati all'accesso ai dati, vedere [controllo degli account](data-lake-store-security-overview.md#azure-rbac-for-account-management)
 
 4. Se si vuole aggiungere un gruppo/utente non elencato nel pannello **Aggiungi autorizzazioni**, è possibile invitarlo digitandone l'indirizzo e-mail nella casella di testo **Seleziona** e quindi selezionandolo nell'elenco.
    
     ![Aggiungere un gruppo di sicurezza](./media/data-lake-store-secure-data/adl.add.user.2.png "Aggiungere un gruppo di sicurezza")
    
-5. Fare clic su **Save**. Il gruppo di sicurezza dovrebbe essere ora aggiunto all'elenco, come illustrato di seguito.
+5. Fare clic su **Salva**. Il gruppo di sicurezza dovrebbe essere ora aggiunto all'elenco, come illustrato di seguito.
    
     ![Gruppo di sicurezza aggiunto](./media/data-lake-store-secure-data/adl.add.user.3.png "Gruppo di sicurezza aggiunto")
 
@@ -153,5 +153,5 @@ Quando si rimuovono gli elenchi di controllo di accesso (ACL) del gruppo di sicu
 * [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Introduzione a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)
-* [Iniziare a usare Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Introduzione all'uso di Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Accesso ai log di diagnostica per Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)

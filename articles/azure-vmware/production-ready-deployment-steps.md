@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802209"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055087"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -104,7 +104,7 @@ Per accedere al cloud privato della soluzione Azure VMware, il circuito ExpressR
 Il circuito ExpressRoute dalla soluzione Azure VMware si connette a un gateway ExpressRoute nella Rete virtuale di Azure definita in questo passaggio.  
 
 >[!IMPORTANT]
->Se si sceglie una rete virtuale esistente, è necessario selezionarne una che non include una subnet del gateway preesistente.  
+>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione Azure VMware, purché non si superi il limite di quattro circuiti ExpressRoute per rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.  
 
 Se si vuole connettere il circuito ExpressRoute dalla soluzione Azure VMware a un gateway ExpressRoute esistente, è possibile eseguire questa operazione dopo la distribuzione.  
 

@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 6992b6abb8ab54d5f08903f1b1393111bbd78c09
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06aa840c3cf33c9d1b70b800d45b9b455c4d61ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322990"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858337"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e JavaScript
 
@@ -47,86 +47,13 @@ Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice s
 
 Aggiungere quindi il codice seguente all'interno dell'elemento `body` del documento. Questo codice configura un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
-```html
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click
-the <strong>Analyze face</strong> button.<br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-<button onclick="processImage()">Analyze face</button><br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:<br><br>
-        <textarea id="responseTextArea" class="UIInput"
-            style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:<br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-```
+:::code language="html" source="~/cognitive-services-quickstart-code/javascript/web/face/rest/detect.html" id="html_include":::
 
 ## <a name="write-the-javascript-script"></a>Scrivere lo script JavaScript
 
 Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento. Questo codice configura il codice JavaScript che chiama l'API Viso.
 
-```html
-<script type="text/javascript">
-    function processImage() {
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-    
-        var uriBase =
-            "https://<My Endpoint String>.com/face/v1.0/detect";
-    
-        // Request parameters.
-        var params = {
-            "returnFaceId": "true",
-            "returnFaceLandmarks": "false",
-            "returnFaceAttributes":
-                "age,gender,headPose,smile,facialHair,glasses,emotion," +
-                "hair,makeup,occlusion,accessories,blur,exposure,noise"
-        };
-    
-        // Display the image.
-        var sourceImageUrl = document.getElementById("inputImage").value;
-        document.querySelector("#sourceImage").src = sourceImageUrl;
-    
-        // Perform the REST API call.
-        $.ajax({
-            url: uriBase + "?" + $.param(params),
-    
-            // Request headers.
-            beforeSend: function(xhrObj){
-                xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            },
-    
-            type: "POST",
-    
-            // Request body.
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
-        })
-    
-        .done(function(data) {
-            // Show formatted JSON on webpage.
-            $("#responseTextArea").val(JSON.stringify(data, null, 2));
-        })
-    
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            // Display error message.
-            var errorString = (errorThrown === "") ?
-                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-            errorString += (jqXHR.responseText === "") ?
-                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
-                    jQuery.parseJSON(jqXHR.responseText).message :
-                        jQuery.parseJSON(jqXHR.responseText).error.message;
-            alert(errorString);
-        });
-    };
-</script>
-```
+:::code language="html" source="~/cognitive-services-quickstart-code/javascript/web/face/rest/detect.html" id="script_include":::
 
 Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta. Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
 
@@ -139,6 +66,35 @@ Aprire *detectFaces.html* nel browser. Facendo clic sul pulsante **Analyze face*
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
 Il testo seguente è un esempio di risposta JSON con esito positivo.
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Estrarre gli attributi del viso
+ 
+Per estrarre gli attributi del viso, usare il modello di rilevamento 1 e aggiungere il parametro di query `returnFaceAttributes`.
+
+```javascript
+// Request parameters.
+var params = {
+    "detectionModel": "detection_01",
+    "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+    "returnFaceId": "true"
+};
+```
+
+La risposta includerà gli attributi del viso. Ad esempio:
 
 ```json
 [

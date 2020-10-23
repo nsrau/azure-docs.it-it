@@ -1,22 +1,22 @@
 ---
 title: Distribuire cache di Azure per Redis usando Azure Resource Manager modello
-description: Informazioni su come usare un modello di Azure Resource Manager per distribuire una cache di Azure per la risorsa Redis. Sono disponibili modelli per gli scenari comuni.
+description: Informazioni su come usare un modello di Azure Resource Manager (modello ARM) per distribuire una cache di Azure per la risorsa Redis. Sono disponibili modelli per gli scenari comuni.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461239"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424210"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Creare una cache di Azure per Redis usando un modello di Gestione risorse
+# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Creare una cache di Azure per Redis usando un modello ARM
 
-Informazioni su come creare un modello di Azure Resource Manager per la distribuzione di una cache di Azure per Redis. La cache è utilizzabile con un account di archiviazione esistente per mantenere i dati di diagnostica. Verrà anche illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Le impostazioni di diagnostica sono attualmente condivise da tutte le cache nella stessa area di una sottoscrizione. L'aggiornamento di una cache nell'area ha effetto su tutte le altre cache presenti nell'area.
+Informazioni su come creare un modello di Azure Resource Manager (ARM template) che distribuisce una cache di Azure per Redis. La cache è utilizzabile con un account di archiviazione esistente per mantenere i dati di diagnostica. Verrà anche illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Le impostazioni di diagnostica sono attualmente condivise da tutte le cache nella stessa area di una sottoscrizione. L'aggiornamento di una cache nell'area ha effetto su tutte le altre cache presenti nell'area.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Sono disponibili anche modelli di Gestione risorse per il nuovo [livello Premium
 * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Creare una cache Redis Premium distribuita in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Per verificare gli ultimi modelli, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare `Azure Cache for Redis`.
+Per cercare i modelli più recenti, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare _cache di Azure per Redis_.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -59,7 +59,7 @@ Per verificare gli ultimi modelli, vedere [Modelli di avvio rapido di Azure](htt
     * **Gruppo di risorse**: selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
     * **Località**: selezionare una località per il gruppo di risorse. L'account di archiviazione e la cache Redis devono trovarsi nella stessa area. Per impostazione predefinita, la cache Redis usa la stessa località del gruppo di risorse. Quindi, specificare lo stesso percorso dell'account di archiviazione.
     * **Nome cache Redis**: immettere un nome per la cache Redis.
-    * **Account di archiviazione di diagnostica esistente**: immettere l'ID risorsa di un account di archiviazione. La sintassi è ** &lt; ID sottoscrizione/subscriptions/>&lt; nome del gruppo di risorse/resourceGroups/>nome dell'account di &lt; archiviazione/Providers/Microsoft.storage/storageAccounts/>**.
+    * **Account di archiviazione di diagnostica esistente**: immettere l'ID risorsa di un account di archiviazione. La sintassi è `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Per le impostazioni rimanenti, usare i valori predefiniti.
 1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**.

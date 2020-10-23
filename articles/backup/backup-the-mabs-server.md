@@ -1,16 +1,16 @@
 ---
-title: Eseguire il backup del server MAB
+title: Eseguire il backup del server di Backup di Microsoft Azure
 description: Informazioni su come eseguire il backup del server di Backup di Microsoft Azure (MAB).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946832"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172123"
 ---
-# <a name="back-up-the-mabs-server"></a>Eseguire il backup del server MAB
+# <a name="back-up-the-mabs-server"></a>Eseguire il backup del server di Backup di Microsoft Azure
 
 Per assicurarsi che i dati possano essere ripristinati in caso di errore di Backup di Microsoft Azure Server (MAB), è necessaria una strategia per il backup del server di MAB. Se non viene eseguito il backup, sarà necessario ricompilarlo manualmente dopo un errore e i punti di ripristino basati su disco non saranno ripristinabili. È possibile eseguire il backup dei server MAB eseguendo il backup del database di MAB.
 
@@ -60,7 +60,7 @@ Come parte della strategia di backup di MAB, sarà necessario eseguire il backup
 
     Assicurarsi di avere il codice di accesso specificato quando è stato installato l'agente di servizi di ripristino di Azure e il server MAB è stato registrato nell'insieme di credenziali di backup di Azure. Questo passcode sarà necessario per il ripristino del backup.
 
-2. Creare un insieme di credenziali di Backup di Azure, scaricare il file di installazione dell’agente Backup di Azure e l’insieme di credenziali. Eseguire il file di installazione per installare l'agente nel server MAB e usare le credenziali dell'insieme di credenziali per registrare il server MAB nell'insieme di credenziali. [Altre informazioni](backup-azure-microsoft-azure-backup.md).
+2. Creare un insieme di credenziali di Backup di Azure, scaricare il file di installazione dell’agente Backup di Azure e l’insieme di credenziali. Eseguire il file di installazione per installare l'agente nel server MAB e usare le credenziali dell'insieme di credenziali per registrare il server MAB nell'insieme di credenziali. [Altre informazioni](backup-azure-microsoft-azure-backup.md)
 
 3. Dopo aver configurato l'insieme di credenziali, configurare un gruppo protezione dati MAB che contiene il database di MAB. Selezionare per eseguirne il backup su disco e in Azure.
 
@@ -115,13 +115,13 @@ Per ricostruire l'oggetto MAB con lo stesso database, è necessario innanzitutto
 
 1. Passare al percorso del disco rigido virtuale di replica `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PhysicalReplicaId\>`
 2. Montare il **disk0. vhdx** presente utilizzando il `mount-vhd disk0.vhdx` comando.
-3. Una volta montato il disco rigido virtuale di replica, usare `mountvol.exe` per assegnare una lettera di unità al volume di replica usando l'ID replica fisica dell'output dello script SQL. Ad esempio: `mountvol X: \?\Volume{}\`
+3. Una volta montato il disco rigido virtuale di replica, usare `mountvol.exe` per assegnare una lettera di unità al volume di replica usando l'ID replica fisica dell'output dello script SQL. ad esempio `mountvol X: \?\Volume{}\`
 
 #### <a name="to-copy-the-database-from-a-previous-recovery-point"></a>Per copiare il database da un punto di ripristino precedente
 
 1. Passare alla directory del contenitore DPMDB  `\<MABSServer FQDN\>\<PhysicalReplicaId\>` . Verranno visualizzate più directory con alcuni identificatori GUID univoci in base ai punti di ripristino corrispondenti effettuati per il database di MAB. Altre directory rappresentano un punto di ripristino.
 2. Passare a un percorso del disco rigido virtuale PIT, ad esempio, `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PITId\>` e montare **disk0. vhdx** in tale percorso usando il `mount-vhd disk0.vhdx` comando.
-3. Una volta montato il disco rigido virtuale di replica, usare `mountvol.exe` per assegnare una lettera di unità al volume di replica, usando l'ID replica fisica dell'output dello script SQL. Ad esempio: `mountvol X: \?\Volume{}\`
+3. Una volta montato il disco rigido virtuale di replica, usare `mountvol.exe` per assegnare una lettera di unità al volume di replica, usando l'ID replica fisica dell'output dello script SQL. ad esempio `mountvol X: \?\Volume{}\`
 
    Tutti i termini visualizzati con parentesi angolari nei passaggi precedenti sono i titolari di posizione. Sostituirli con i valori appropriati, come indicato di seguito:
    - **ReFSVolume** -percorso di accesso dall'output dello script SQL
@@ -168,7 +168,7 @@ Se il server MAB è ancora operativo e il pool di archiviazione è intatto (ad e
 
 1. Decidere da dove si vuole ripristinare il database.
 
-    - Se si vuole copiare il database dall'ultimo backup effettuato direttamente dal volume di replica di MAB, usare **mountvol.exe** per assegnare una lettera di unità al volume di replica usando il GUID dall'output dello script SQL. Ad esempio: `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
+    - Se si vuole copiare il database dall'ultimo backup effettuato direttamente dal volume di replica di MAB, usare **mountvol.exe** per assegnare una lettera di unità al volume di replica usando il GUID dall'output dello script SQL. ad esempio `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
 
     - Se si vuole copiare il database da un punto di ripristino precedente (copia shadow), è necessario elencare tutte le copie shadow per la replica usando il GUID del volume dall'output dello script SQL. Questo comando elenca le copie shadow per il volume: `C:\>Vssadmin list shadows /for\=\\?\Volume{d7a4fd76-a0a8-11e2-8fd3-001c23cb7375}\` . Prendere nota dell'ora di creazione e dell'ID copia shadow da cui si desidera eseguire il ripristino.
 
@@ -184,9 +184,9 @@ Se il server MAB è ancora operativo e il pool di archiviazione è intatto (ad e
 
 È possibile eseguire il backup del database MAB in un disco locale con il backup nativo di SQL Server, indipendentemente da MAB.
 
-- [Panoramica ](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) di backup e ripristino di database SQL Server.
+- [Panoramica ](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) di backup e ripristino di database SQL Server.
 
-- [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sul backup di SQL Server nel cloud.
+- [Altre informazioni](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sul backup di SQL Server nel cloud.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Eseguire il backup in una condivisione protetta da MAB
 
@@ -238,9 +238,9 @@ Questa opzione di backup usa SQL nativo per eseguire il backup del database MAB 
 
 È possibile eseguire il backup del database MAB come per qualsiasi altro database SQL Server usando SQL Server backup nativo.
 
-- [Panoramica ](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) di backup e ripristino di database SQL Server.
+- [Panoramica ](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) di backup e ripristino di database SQL Server.
 
-- [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sul backup di SQL Server nel cloud.
+- [Altre informazioni](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sul backup di SQL Server nel cloud.
 
 ### <a name="recover-the-mabs-database"></a>Ripristinare il database MAB
 

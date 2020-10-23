@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909729"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442185"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
@@ -126,7 +126,7 @@ Se il modulo non è installato o non è disponibile una versione richiesta, eseg
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Usare i cmdlet AzureADPolicy per configurare i criteri
 
-Per creare un elenco di accesso consentito o negato, usare il cmdlet [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). L'esempio seguente illustra come impostare un elenco di accesso negato che blocca il dominio "live.com".
+Per creare un elenco di accesso consentito o negato, usare il cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). L'esempio seguente illustra come impostare un elenco di accesso negato che blocca il dominio "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ Di seguito è riportato lo stesso esempio, ma con la definizione del criterio in
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Per impostare il criterio per l'elenco di accesso consentito o negato, usare il cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
+Per impostare il criterio per l'elenco di accesso consentito o negato, usare il cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
+Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Per rimuovere il criterio, usare il cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
+Per rimuovere il criterio, usare il cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -162,6 +162,3 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 - Per una panoramica di Azure AD B2B, vedere [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
 - Per informazioni sull'accesso condizionale e la collaborazione B2B, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
-
-
-

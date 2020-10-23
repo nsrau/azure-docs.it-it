@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 713b1698bff703507f46e1a8f76c6be385f41ec5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282461"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938424"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server-or-hyperscale-citus-online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione online di un database di Azure per PostgreSQL - Server singolo a un database di Azure per PostgreSQL - Server singolo o Hyperscale (Citus) con il Servizio Migrazione del database tramite il portale di Azure
+# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione online di un database di un server singolo di Database di Azure per PostgreSQL a un server singolo di Database di Azure per PostgreSQL con il Servizio Migrazione del database tramite il portale di Azure
 
-È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di [Database di Azure per PostgreSQL - Server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) a un'istanza di [Hyperscale (Citus) in Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** dal Database di Azure per PostgreSQL v10 ad Hyperscale (Citus) in Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
+È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di [Database di Azure per PostgreSQL - Server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) alla stessa versione o a una diversa di un'istanza di Database di Azure per PostgreSQL - Server singolo o di Database di Azure per PostgreSQL - Server flessibile con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da Database di Azure per PostgreSQL v10 a Database di Azure per PostgreSQL - Server singolo usando l'attività di migrazione online del Servizio Migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -57,9 +57,10 @@ Per completare questa esercitazione, è necessario:
 * Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in ingresso seguenti nel Servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello del server per l'origine del Database di Azure per PostgreSQL per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
 * Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per la destinazione del Database di Azure per PostgreSQL per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
+* [Abilitare la replica logica](https://docs.microsoft.com/azure/postgresql/concepts-logical) nell'origine di Database di Azure per PostgreSQL. 
 * Impostare i parametri del server seguenti nell'istanza di Database di Azure per PostgreSQL usata come origine:
 
-  * max_replication_slots = [numero di slot]. È consigliabile impostare **cinque slot**
+  * max_replication_slots = [numero di slot], l'impostazione consigliata è **10 slot**
   * max_wal_senders = [numero di attività simultanee]: il parametro max_wal_senders imposta il numero di attività simultanee che è possibile eseguire, si consiglia di impostare il valore su **10 attività**
 
 > [!NOTE]
@@ -284,7 +285,10 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 
     ![Schermata Completa cutover](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. Quando lo stato della migrazione del database è **Completato**, connettere le applicazioni alla nuova istanza di destinazione di Database di Azure per PostgreSQL.
+3. Quando lo stato della migrazione del database è **Completato**, [ricreare le sequenze](https://wiki.postgresql.org/wiki/Fixing_Sequences) (se applicabile) e connettere le applicazioni alla nuova istanza di destinazione di Database di Azure per PostgreSQL.
+ 
+> [!NOTE]
+> Il Servizio Migrazione del database di Azure può essere usato per eseguire aggiornamenti delle versioni principali con tempi di inattività ridotti in Database di Azure per PostgreSQL - Server singolo. Configurare prima di tutto un database di destinazione con la versione di PostgreSQL più recente, le impostazioni di rete e i parametri. Quindi, è possibile avviare la migrazione ai database di destinazione usando la procedura illustrata in precedenza. Dopo la migrazione al server di database di destinazione, è possibile aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

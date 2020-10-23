@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317513"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370220"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -186,7 +186,7 @@ L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema 
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>È necessario il ruolo di amministratore globale di Azure AD
-Utente autenticato correttamente. All'utente non è stato assegnato il ruolo di amministratore globale. In [questo modo è possibile assegnare il ruolo di amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) all'utente.
+Utente autenticato correttamente. All'utente non è stato assegnato il ruolo di amministratore globale. In [questo modo è possibile assegnare il ruolo di amministratore globale](../roles/permissions-reference.md) all'utente.
 
 <div id="privileged-identity-management">
 <!--

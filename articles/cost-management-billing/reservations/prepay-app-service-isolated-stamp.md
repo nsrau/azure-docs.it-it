@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688930"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151532"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata
 
@@ -39,7 +39,7 @@ Acquistare prenotazioni dello stamp di Windows se nello stamp sono presenti uno 
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Acquistare capacità riservata per uno stamp isolato
 
-È possibile acquistare capacità riservata per uno stamp isolato nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Usare [pagamenti anticipati o mensili](monthly-payments-reservations.md) per acquistare la prenotazione. Per acquistare capacità riservata, è necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o una sottoscrizione individuale con pagamento in base al consumo.
+È possibile acquistare capacità riservata per uno stamp isolato nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Usare [pagamenti anticipati o mensili](./prepare-buy-reservation.md) per acquistare la prenotazione. Per acquistare capacità riservata, è necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o una sottoscrizione individuale con pagamento in base al consumo.
 
 - Per le sottoscrizioni Enterprise, l'opzione **Aggiungi istanze riservate** deve essere abilitata in [EA Portal](https://ea.azure.com/). Se questa impostazione è disabilitata, è necessario essere un amministratore EA.
 - Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o di vendita possono acquistare capacità riservata di Azure Synapse Analytics.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283378"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461720"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architettura della connettività per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -312,7 +312,7 @@ Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato 
 Le funzionalità di rete virtuale seguenti non sono attualmente supportate con SQL Istanza gestita:
 
 - **Peering Microsoft**: l'abilitazione del [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) nei circuiti ExpressRoute con peering diretto o transitivo con una rete virtuale in cui risiede SQL istanza gestita influisce sul flusso del traffico tra i componenti di SQL istanza gestita all'interno della rete virtuale e i servizi da cui dipende, causando problemi di disponibilità. Le distribuzioni di SQL Istanza gestita alla rete virtuale con peering Microsoft già abilitato dovrebbero avere esito negativo.
-- **Peering di rete virtuale globale**: la connettività del [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) tra aree di Azure non funziona per SQL istanza gestita a causa di [vincoli di bilanciamento del carico documentati](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **Peering di rete virtuale globale**: la connettività del [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) tra le aree di Azure non funziona per le istanze gestite di SQL inserite in subnet create prima del 9/22/2020.
 - **AzurePlatformDNS**: se si usa il [tag del servizio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS per bloccare la risoluzione DNS della piattaforma, il rendering di SQL istanza gestita non è disponibile. Anche se SQL Istanza gestita supporta il DNS definito dal cliente per la risoluzione DNS all'interno del motore, esiste una dipendenza dal DNS della piattaforma per le operazioni della piattaforma.
 - **Gateway NAT**: l'uso della [rete virtuale di Azure NAT](../../virtual-network/nat-overview.md) per controllare la connettività in uscita con un indirizzo IP pubblico specifico renderebbe SQL istanza gestita non disponibile. Il servizio di Istanza gestita SQL è attualmente limitato all'uso del servizio di bilanciamento del carico di base che non fornisce la coesistenza dei flussi in ingresso e in uscita con la rete virtuale NAT.
 

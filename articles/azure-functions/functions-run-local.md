@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88929491"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164865"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java usa un archetipo Maven per creare il progetto di funzioni locali, insieme alla prima funzione attivata tramite HTTP. Usare il comando seguente per creare il progetto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Per un esempio di utilizzo dell'archetipo Maven, vedere la [Guida introduttiva alla riga di comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Java usa un archetipo Maven per creare il progetto di funzioni locali, insieme alla prima funzione attivata tramite HTTP. Usare il comando seguente per creare il progetto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Per un esempio di utilizzo dell'archetipo Maven, vedere la [Guida introduttiva alla riga di comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
 
 Quando si fornisce un nome di progetto, viene creata e inizializzata una nuova cartella con lo stesso nome. In caso contrario, viene inizializzata la cartella corrente.  
 Nella versione 3. x/2. x, quando si esegue il comando è necessario scegliere un runtime per il progetto. 
@@ -574,15 +574,11 @@ Il modo consigliato per monitorare l'esecuzione delle funzioni è l'integrazione
 
 ### <a name="application-insights-integration"></a>Integrazione di Application Insights
 
-L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. Per altre informazioni, vedere [Enable Application Insights Integration](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Abilitare i log in streaming
 
 È possibile visualizzare un flusso di file di log generati dalle funzioni in una sessione della riga di comando nel computer locale. 
-
-#### <a name="native-streaming-logs"></a>Log in streaming nativi
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

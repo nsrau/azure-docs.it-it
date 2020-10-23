@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337144"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126174"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -104,7 +104,7 @@ Azure IoT Central usa l'hub IoT come gateway del cloud che permette la connettiv
 - Gestione di dispositivi.
 - Connettività dei dispositivi sicura.
 
-Per altre informazioni sull'hub IoT, vedere [Documentazione sull'hub IoT](https://docs.microsoft.com/azure/iot-hub/).
+Per altre informazioni sull'hub IoT, vedere [Documentazione sull'hub IoT](../../iot-hub/index.yml).
 
 Per altre informazioni sulla connettività dei dispositivi in Azure IoT Central, vedere [Connettività dei dispositivi](concepts-get-connected.md).
 
@@ -119,7 +119,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analisi
+## <a name="analytics"></a>Analytics
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 

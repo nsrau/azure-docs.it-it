@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Machine Learning automatizzato
+title: Che cos'è il Machine Learning automatico? AutoML
 titleSuffix: Azure Machine Learning
 description: Informazioni su come Azure Machine Learning è in grado di scegliere automaticamente un algoritmo e, a partire da questo, generare un modello per consentire all'utente di risparmiare tempo. Tale scelta viene effettuata usando i parametri e i criteri specificati per selezionare l'algoritmo migliore per il modello.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760970"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367517"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -158,14 +158,14 @@ L'interfaccia Web per Machine Learning automatizzato usa sempre una [destinazion
 Quando si sceglie la destinazione di calcolo, tenere in considerazione i fattori seguenti:
 
  * **Scegliere un computer locale**: se lo scenario riguarda le esplorazioni iniziali o le demo che usano dati di piccole dimensioni e training di breve durata, ovvero secondi o pochi minuti per ogni esecuzione figlio, il training sul computer locale potrebbe essere la scelta migliore.  Non sono presenti tempi di installazione, le risorse dell'infrastruttura (PC o macchina virtuale) sono direttamente disponibili.
- * **Scegliere un cluster di elaborazione di Machine Learning remoto**: se si esegue il training con set di dati di dimensioni maggiori, ad esempio nel training di produzione che crea modelli che richiedono training di maggiore durata, il calcolo remoto fornirà prestazioni ottimali end-to-end in termini di tempo, in quanto `AutoML` parallelizza i training nei nodi del cluster. In un calcolo remoto, il tempo di avvio per l'infrastruttura interna aggiungerà circa 1,5 minuti per ogni esecuzione figlio, oltre a minuti aggiuntivi per l'infrastruttura cluster se le macchine virtuali non sono ancora attive e in esecuzione.
+ * **Scegliere un cluster di elaborazione ml remoto**: se si esegue il training con set di impostazioni di dimensioni maggiori, ad esempio nel training di produzione, creazione di modelli che richiedono treni più lunghi, il calcolo remoto fornirà prestazioni migliori per l'ora end-to-end perché `AutoML` parallelizzare i treni tra i nodi del cluster. In un calcolo remoto, il tempo di avvio per l'infrastruttura interna aggiungerà circa 1,5 minuti per ogni esecuzione, oltre a minuti aggiuntivi per l'infrastruttura cluster se le macchine virtuali non sono ancora in esecuzione.
 
 ### <a name="pros-and-cons"></a>Vantaggi e svantaggi
 Nella scelta tra calcolo locale o remoto, tenere presenti i vantaggi e gli svantaggi seguenti.
 
 |  | Vantaggi  |Svantaggi  |
 |---------|---------|---------|---------|
-|**Destinazione di calcolo locale** |  <li> Nessun tempo di avvio dell'ambiente   | <li>  Subset di funzionalità<li>  Esecuzioni non parallelizzabili <li> Non ottimale per dati di grandi dimensioni <li>Nessun flusso di dati durante il training <li>  Nessuna definizione delle funzionalità basata sulla rete neurale profonda <li> Solo Python SDK |
+|**Destinazione di calcolo locale** |  <li> Nessun orario di avvio dell'ambiente   | <li>  Subset di funzionalità<li>  Esecuzioni non parallelizzabili <li> Non ottimale per dati di grandi dimensioni <li>Nessun flusso di dati durante il training <li>  Nessuna definizione delle funzionalità basata sulla rete neurale profonda <li> Solo Python SDK |
 |**Cluster di elaborazione di Machine Learning remoti**|  <li> Set completo di funzionalità <li> Esecuzioni figlio parallelizzate <li>   Supporto per dati di grandi dimensioni<li>  Definizione delle funzionalità basata sulla rete neurale profonda <li>  Scalabilità dinamica del cluster di elaborazione su richiesta <li> Esperienza senza codice (interfaccia utente Web)  |  <li> Tempo di avvio per i nodi del cluster <li> Tempo di avvio per ogni esecuzione figlio    |
 
 ### <a name="feature-availability"></a>Disponibilità delle funzionalità 
@@ -219,7 +219,7 @@ Le impostazioni seguenti consentono di configurare l'esperimento di Machine Lear
 |**Suddivide i dati in set di training/convalida**| ✓|✓
 |**Supporta le attività di Machine Learning: classificazione, regressione e previsione**| ✓| ✓
 |**Ottimizza in base alla metrica primaria**| ✓| ✓
-|**Supporta l'ambiente di calcolo di Azure Machine Learning come destinazione di calcolo** | ✓|✓
+|**Supporta le risorse di calcolo di Azure ML come destinazione di calcolo** | ✓|✓
 |**Configurare l'orizzonte di previsione, i ritardi di destinazione & finestra in sequenza**|✓|✓
 |**Imposta criteri uscita** |✓|✓ 
 |**Imposta il numero massimo di iterazioni simultanee**| ✓|✓
@@ -275,7 +275,7 @@ Le esercitazioni sono esempi introduttivi end-to-end di scenari AutoML.
 
  + **Per un'esperienza di basso o senza codice**, vedere l' [esercitazione: creare modelli di classificazione Machine Learning automatizzati con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Gli articoli illustrano in dettaglio le funzionalità offerte da AutoML. Ad esempio, 
+Gli articoli illustrano in dettaglio le funzionalità offerte da AutoML. Ad esempio: 
 
 + Configurare le impostazioni per gli esperimenti di training automatici
     + In Azure Machine Learning Studio, [usare questi passaggi](how-to-use-automated-ml-for-ml-models.md). 

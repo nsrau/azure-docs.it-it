@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601308"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371002"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione delle identità e degli accessi Azure Active Directory
 
@@ -37,7 +37,7 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Decidere chi ottiene Enterprise Mobility + Security licenze | Team operativo IAM |
 | Decidere chi ottiene Microsoft 365 licenze | Team di produttività |
 | Decidere chi ottiene altre licenze, ad esempio, Dynamics, codespaces di Visual Studio | Proprietario dell'applicazione |
-| Assegnare licenze | Team operativo IAM |
+| Assegnare le licenze | Team operativo IAM |
 | Risoluzione dei problemi e correzione degli errori di assegnazione delle licenze | Team operativo IAM |
 | Effettuare il provisioning delle identità nelle applicazioni Azure AD | Team operativo IAM |
 
@@ -45,7 +45,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 #### <a name="assigning-owners-recommended-reading"></a>Assegnazione dei proprietari consigliata per la lettura
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Sincronizzazione delle identità locale
@@ -157,13 +157,13 @@ Usare le linee guida seguenti per definire i piani di servizio agli utenti:
 - Facoltativamente, è possibile definire un attributo per contenere i pacchetti per gli utenti.
 
 > [!IMPORTANT]
-> Le licenze basate sui gruppi in Azure AD introducono il concetto di utenti in stato di errore di licenza. Se si notano errori di licenza, è necessario [identificare e risolvere](../users-groups-roles/licensing-groups-resolve-problems.md) immediatamente eventuali problemi di assegnazione delle licenze.
+> Le licenze basate sui gruppi in Azure AD introducono il concetto di utenti in stato di errore di licenza. Se si notano errori di licenza, è necessario [identificare e risolvere](../enterprise-users/licensing-groups-resolve-problems.md) immediatamente eventuali problemi di assegnazione delle licenze.
 
 ![Schermata di una descrizione della schermata del computer generata automaticamente](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Gestione del ciclo di vita
 
-Se attualmente si usa uno strumento, ad esempio [Microsoft Identity Manager](/microsoft-identity-manager/) o un sistema di terze parti, che si basa su un'infrastruttura locale, è consigliabile eseguire l'offload dell'assegnazione dallo strumento esistente, implementare le licenze basate sui gruppi e definire una gestione del ciclo di vita del gruppo in base ai [gruppi](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Analogamente, se il processo esistente non tiene conto dei nuovi dipendenti o dipendenti che lasciano l'organizzazione, è consigliabile distribuire le licenze basate sui gruppi in base ai gruppi dinamici e definire il ciclo di vita dell'appartenenza a un gruppo. Infine, se le licenze basate sui gruppi vengono distribuite in gruppi locali che non dispongono di gestione del ciclo di vita, è consigliabile usare i gruppi cloud per abilitare funzionalità come la proprietà delegata o l'appartenenza dinamica basata su attributi.
+Se attualmente si usa uno strumento, ad esempio [Microsoft Identity Manager](/microsoft-identity-manager/) o un sistema di terze parti, che si basa su un'infrastruttura locale, è consigliabile eseguire l'offload dell'assegnazione dallo strumento esistente, implementare le licenze basate sui gruppi e definire una gestione del ciclo di vita del gruppo in base ai [gruppi](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Analogamente, se il processo esistente non tiene conto dei nuovi dipendenti o dipendenti che lasciano l'organizzazione, è consigliabile distribuire le licenze basate sui gruppi in base ai gruppi dinamici e definire il ciclo di vita dell'appartenenza a un gruppo. Infine, se le licenze basate sui gruppi vengono distribuite in gruppi locali che non dispongono di gestione del ciclo di vita, è consigliabile usare i gruppi cloud per abilitare funzionalità come la proprietà delegata o l'appartenenza dinamica basata su attributi.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Assegnazione delle app con il gruppo "tutti gli utenti"
 

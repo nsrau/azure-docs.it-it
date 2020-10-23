@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877096"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328880"
 ---
-# <a name="configure-device-redirections"></a>Configurare il reindirizzamento dei dispositivi
+# <a name="configure-device-redirections"></a>Configurare i reindirizzamenti dei dispositivi
 
 La configurazione del reindirizzamento dei dispositivi per l'ambiente desktop virtuale Windows consente di usare stampanti, dispositivi USB, microfoni e altri dispositivi secondari nella sessione remota. Alcuni Reindirizzamento del dispositivo richiedono modifiche alle proprietà Remote Desktop Protocol (RDP) e Criteri di gruppo impostazioni.
 
@@ -50,7 +50,10 @@ Impostare la proprietà RDP seguente per configurare il reindirizzamento della f
 - `camerastoredirect:s:*` reindirizza tutte le fotocamere.
 - `camerastoredirect:s:` Disabilita il reindirizzamento della fotocamera.
 
-È inoltre possibile reindirizzare fotocamere specifiche utilizzando un elenco delimitato da punti e virgola di interfacce di KSCATEGORY_VIDEO_CAMERA, ad esempio `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>Anche se la `camerastoredirect:s:` proprietà è disabilitata, le fotocamere locali possono essere reindirizzate tramite la `devicestoredirect:s:` Proprietà. Per disabilitare completamente il set di reindirizzamento della fotocamera `camerastoredirect:s:` e impostare `devicestoredirect:s:` o definire alcuni subset di dispositivi Plug and Play che non includono fotocamere.
+
+È inoltre possibile reindirizzare fotocamere specifiche utilizzando un elenco delimitato da punti e virgola di interfacce di KSCATEGORY_VIDEO_CAMERA, ad esempio `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>Reindirizzamento degli Appunti
 

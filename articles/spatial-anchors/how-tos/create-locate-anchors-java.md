@@ -9,12 +9,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 59cd363482674fc62cb5c94712d3902871a940be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b9199668b50ad0bfa4a6ac34073ea2835405edb
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321191"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097508"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Java
 
@@ -44,7 +44,7 @@ Per completare questa guida, accertarsi di avere:
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Altre informazioni sulla classe [CloudSpatialAnchorSession](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession).
+Altre informazioni sulla classe [CloudSpatialAnchorSession](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession).
 
 ```java
     private CloudSpatialAnchorSession mCloudSession;
@@ -54,7 +54,7 @@ Altre informazioni sulla classe [CloudSpatialAnchorSession](https://docs.microso
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Altre informazioni sulla classe [SessionConfiguration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionconfiguration).
+Altre informazioni sulla classe [SessionConfiguration](/java/api/com.microsoft.azure.spatialanchors.sessionconfiguration).
 
 ```java
     mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
@@ -68,7 +68,7 @@ Altre informazioni sulla classe [SessionConfiguration](https://docs.microsoft.co
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Altre informazioni sull'interfaccia [TokenRequiredListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.tokenrequiredlistener).
+Altre informazioni sull'interfaccia [TokenRequiredListener](/java/api/com.microsoft.azure.spatialanchors.tokenrequiredlistener).
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {
@@ -116,7 +116,7 @@ Altre informazioni sull'interfaccia [TokenRequiredListener](https://docs.microso
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-Altre informazioni sul metodo [start](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.start).
+Altre informazioni sul metodo [start](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.start).
 
 ```java
     mCloudSession.setSession(mSession);
@@ -125,7 +125,7 @@ Altre informazioni sul metodo [start](https://docs.microsoft.com/java/api/com.mi
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-Altre informazioni sul metodo [processFrame](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe).
+Altre informazioni sul metodo [processFrame](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe).
 
 ```java
     mCloudSession.processFrame(mSession.update());
@@ -133,7 +133,7 @@ Altre informazioni sul metodo [processFrame](https://docs.microsoft.com/java/api
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Altre informazioni sull'interfaccia [SessionUpdatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionupdatedlistener).
+Altre informazioni sull'interfaccia [SessionUpdatedListener](/java/api/com.microsoft.azure.spatialanchors.sessionupdatedlistener).
 
 ```java
     mCloudSession.addSessionUpdatedListener(args -> {
@@ -149,7 +149,7 @@ Altre informazioni sull'interfaccia [SessionUpdatedListener](https://docs.micros
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Altre informazioni sulla classe [CloudSpatialAnchor](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor).
+Altre informazioni sulla classe [CloudSpatialAnchor](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor).
 
 ```java
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -198,7 +198,7 @@ Altre informazioni sulla classe [CloudSpatialAnchor](https://docs.microsoft.com/
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Altre informazioni sul metodo [getSessionStatusAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync).
+Altre informazioni sul metodo [getSessionStatusAsync](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync).
 
 ```java
     Future<SessionStatus> sessionStatusFuture = mCloudSession.getSessionStatusAsync();
@@ -230,7 +230,7 @@ Altre informazioni sul metodo [getSessionStatusAsync](https://docs.microsoft.com
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-Altre informazioni sul metodo [getAppProperties](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.getappproperties).
+Altre informazioni sul metodo [getAppProperties](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.getappproperties).
 
 ```java
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor();
@@ -244,7 +244,7 @@ Altre informazioni sul metodo [getAppProperties](https://docs.microsoft.com/java
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Altre informazioni sul metodo [updateAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync).
+Altre informazioni sul metodo [updateAnchorPropertiesAsync](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync).
 
 ```java
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -276,7 +276,7 @@ Altre informazioni sul metodo [updateAnchorPropertiesAsync](https://docs.microso
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-Altre informazioni sul metodo [getAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync).
+Altre informazioni sul metodo [getAnchorPropertiesAsync](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync).
 
 ```java
     Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
@@ -308,7 +308,7 @@ Altre informazioni sul metodo [getAnchorPropertiesAsync](https://docs.microsoft.
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Altre informazioni sul metodo [setExpiration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration).
+Altre informazioni sul metodo [setExpiration](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration).
 
 ```java
     Date now = new Date();
@@ -321,7 +321,7 @@ Altre informazioni sul metodo [setExpiration](https://docs.microsoft.com/java/ap
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Altre informazioni sul metodo [createWatcher](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher).
+Altre informazioni sul metodo [createWatcher](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher).
 
 ```java
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -331,7 +331,7 @@ Altre informazioni sul metodo [createWatcher](https://docs.microsoft.com/java/ap
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Altre informazioni sull'interfaccia [AnchorLocatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.anchorlocatedlistener).
+Altre informazioni sull'interfaccia [AnchorLocatedListener](/java/api/com.microsoft.azure.spatialanchors.anchorlocatedlistener).
 
 ```java
     mCloudSession.addAnchorLocatedListener(args -> {
@@ -358,7 +358,7 @@ Altre informazioni sull'interfaccia [AnchorLocatedListener](https://docs.microso
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-Altre informazioni sul metodo [deleteAnchorAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync).
+Altre informazioni sul metodo [deleteAnchorAsync](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync).
 
 ```java
     Future deleteAnchorFuture = mCloudSession.deleteAnchorAsync(cloudAnchor);
@@ -367,7 +367,7 @@ Altre informazioni sul metodo [deleteAnchorAsync](https://docs.microsoft.com/jav
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Altre informazioni sul metodo [stop](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.stop).
+Altre informazioni sul metodo [stop](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.stop).
 
 ```java
     mCloudSession.stop();
@@ -375,7 +375,7 @@ Altre informazioni sul metodo [stop](https://docs.microsoft.com/java/api/com.mic
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Altre informazioni sul metodo [reset](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.reset).
+Altre informazioni sul metodo [reset](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.reset).
 
 ```java
     mCloudSession.reset();
@@ -383,7 +383,7 @@ Altre informazioni sul metodo [reset](https://docs.microsoft.com/java/api/com.mi
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-java.md)]
 
-Altre informazioni sul metodo [close](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.close).
+Altre informazioni sul metodo [close](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.close).
 
 ```java
     mCloudSession.close();

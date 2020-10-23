@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: b0532007ff03cd9dcf253824a1158fd0b8661120
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 82b44c00b0ee4160a4baf6ad6cca7a97350d6239
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760462"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970946"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [cURL](https://curl.haxx.se/windows/) installato.
-- Un set di almeno sei moduli dello stesso tipo. Cinque di questi moduli verranno usati per eseguire il training del modello, che quindi verrà testato con il sesto. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard. È possibile inserire i file di test in una cartella separata.
+- Un set di almeno sei moduli dello stesso tipo. Cinque di questi moduli verranno usati per eseguire il training del modello, che quindi verrà testato con il sesto. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip*) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard. È possibile inserire i file di test in una cartella separata.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 

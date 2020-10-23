@@ -3,16 +3,15 @@ title: Creare & Azure Data Lake Analytics di query-PowerShell
 description: Usare Azure PowerShell per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61177d1338be30ae14ccea3ff94c5e0e554aa331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a05231bc971737a08d74ad04150e5449dfc792
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077314"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220942"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introduzione ad Azure Data Lake Analytics con Azure PowerShell
 
@@ -26,12 +25,12 @@ Questo articolo illustra come usare Azure PowerShell per creare account Azure Da
 
 Prima di iniziare questa esercitazione sono necessari le informazioni seguenti:
 
-* Un **account di Azure Data Lake Analytics**. Vedere [Introduzione a Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* Un **account di Azure Data Lake Analytics**. Vedere [Introduzione a Data Lake Analytics](./data-lake-analytics-get-started-portal.md).
 * **Una workstation con Azure PowerShell**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Questa esercitazione presuppone che si abbia già familiarità con l'uso di Azure PowerShell. In particolare, è necessario sapere come accedere ad Azure. Per istruzioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
+Questa esercitazione presuppone che si abbia già familiarità con l'uso di Azure PowerShell. In particolare, è necessario sapere come accedere ad Azure. Per istruzioni, vedere [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 Per accedere con un nome di sottoscrizione:
 

@@ -6,42 +6,43 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79223138"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217525"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Esercitazione: Aggiungere l'archiviazione back-end e configurare lo spazio dei nomi virtuale 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Esercitazione: Aggiungere l'archiviazione back-end e configurare lo spazio dei nomi virtuale
 
-Questa esercitazione illustra come aggiungere l'archiviazione back-end per la cache e configurare il file system virtuale lato client. 
+Questa esercitazione illustra come aggiungere l'archiviazione back-end per la cache e configurare il file system virtuale lato client.
 
-Il cluster si connette a sistemi di archiviazione back-end per accedere alla richiesta dei client di dati e per archiviare le modifiche in modo più definitivo rispetto alla cache. 
+Il cluster si connette a sistemi di archiviazione back-end per accedere alla richiesta dei client di dati e per archiviare le modifiche in modo più definitivo rispetto alla cache.
 
-Lo spazio dei nomi è lo pseudo file system lato client che consente di sostituire l'archiviazione back-end senza modificare i flussi di lavoro lato client. 
+Lo spazio dei nomi è lo pseudo file system lato client che consente di sostituire l'archiviazione back-end senza modificare i flussi di lavoro lato client.
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Aggiungere l'archiviazione back-end al cluster Azure FXT Edge Filer 
+>
+> * Aggiungere l'archiviazione back-end al cluster Azure FXT Edge Filer
 > * Definire il percorso per l'archiviazione lato client
 
 ## <a name="about-back-end-storage"></a>Informazioni sull'archiviazione back-end
 
 Il cluster Azure FXT Edge Filer usa una definizione di *core filer* per collegare un sistema di archiviazione back-end al cluster FXT.
 
-Azure FXT Edge Filer è compatibile con diversi tra i sistemi hardware NAS più diffusi e può usare contenitori vuoti dell'archiviazione BLOB di Azure o di altre risorse di archiviazione nel cloud. 
+Azure FXT Edge Filer è compatibile con diversi tra i sistemi hardware NAS più diffusi e può usare contenitori vuoti dell'archiviazione BLOB di Azure o di altre risorse di archiviazione nel cloud.
 
 Quando vengono aggiunti, i contenitori di archiviazione nel cloud devono essere vuoti in modo che il sistema operativo FXT possa gestire completamente tutti i dati nel volume di archiviazione nel cloud. È possibile spostare i dati esistenti nel contenitore cloud dopo aver aggiunto il contenitore al cluster come core filer.
 
 Usare il Pannello di controllo per aggiungere un core filer al sistema.
 
 > [!NOTE]
-> 
+>
 > Se si vuole usare l'archiviazione Amazon AWS o Google Cloud, è necessario installare una licenza per funzionalità FlashCloud<sup>TM</sup>. Contattare il rappresentante Microsoft per richiedere una chiave di licenza e quindi seguire le istruzioni nella guida alla configurazione legacy per l'[aggiunta o la rimozione delle licenze per funzionalità](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
-> 
-> Il supporto per l'archiviazione BLOB di Azure è incluso nella licenza software di Azure FXT Edge Filer. 
+>
+> Il supporto per l'archiviazione BLOB di Azure è incluso nella licenza software di Azure FXT Edge Filer.
 
 Per informazioni più dettagliate sull'aggiunta di core filer, leggere queste sezioni della guida alla configurazione del cluster:
 
@@ -59,7 +60,7 @@ Per definire un core filer, fare clic sul pulsante **Create** (Crea) nella pagin
 
 ![Selezione del pulsante Create (Crea) sopra l'elenco dei core filer nella pagina Manage Core Filers (Gestisci core filer)](media/fxt-cluster-config/create-core-filer-button.png)
 
-La procedura guidata **Add New Core Filer** (Aggiungi nuovo core filer) consente di creare un core filer che si collega all'archiviazione back-end. La guida alla configurazione del cluster include le descrizioni dettagliate del processo, che è diverso a seconda che si tratti dell'archiviazione NFS/NAS o dell'archiviazione nel cloud (vedere i collegamenti riportati in precedenza). 
+La procedura guidata **Add New Core Filer** (Aggiungi nuovo core filer) consente di creare un core filer che si collega all'archiviazione back-end. La guida alla configurazione del cluster include le descrizioni dettagliate del processo, che è diverso a seconda che si tratti dell'archiviazione NFS/NAS o dell'archiviazione nel cloud (vedere i collegamenti riportati in precedenza).
 
 Le attività secondarie da eseguire includono:
 
@@ -71,15 +72,15 @@ Le attività secondarie da eseguire includono:
 
 * Per i core filer NAS specificare il nome di dominio completo (FQDN) o l'indirizzo IP. Il nome di dominio completo è consigliato per tutti i core filer e obbligatorio per l'accesso SMB.
 
-* Selezionare un criterio di cache. Nella seconda pagina della procedura guidata sono elencati i criteri di cache disponibili per il nuovo core filer. Per informazioni dettagliate, leggere la [sezione relativa ai criteri della guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Selezionare un criterio di cache. Nella seconda pagina della procedura guidata sono elencati i criteri di cache disponibili per il nuovo core filer. Per informazioni dettagliate, leggere la [sezione relativa ai criteri della guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html).
 
   ![Seconda pagina della procedura guidata per l'aggiunta di un nuovo core filer per NAS hardware. Il menu a discesa Cache Policy (Criteri cache) è aperto e mostra diverse opzioni disabilitate, oltre a tre opzioni valide di criteri cache, ovvero il criterio per ignorare, quello per la memorizzazione nella cache di lettura e quello per la memorizzazione nella cache di lettura/scrittura.](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
 * Per l'archiviazione nel cloud è necessario specificare altri parametri, tra cui le credenziali di accesso e del servizio cloud. Per informazioni dettagliate, leggere la sezione su [protocollo e servizio cloud](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) nella guida alla configurazione del cluster.
 
-  ![Informazioni sul core filer cloud nella procedura guidata per l'aggiunta di un nuovo core filer](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Informazioni sul core filer cloud nella procedura guidata per l'aggiunta di un nuovo core filer](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Se le credenziali dell'accesso cloud sono già state aggiunte per questo cluster, verranno visualizzate nell'elenco. Aggiornare e aggiungere le credenziali nella pagina delle impostazioni **Cluster** > **Cloud Credentials** (Cluster > Credenziali cloud). 
+  Se le credenziali dell'accesso cloud sono già state aggiunte per questo cluster, verranno visualizzate nell'elenco. Aggiornare e aggiungere le credenziali nella pagina delle impostazioni **Cluster** > **Cloud Credentials** (Cluster > Credenziali cloud).
 
 Dopo aver inserito tutte le impostazioni obbligatorie nella procedura guidata, fare clic sul pulsante **Add Filer** (Aggiungi filer) per inviare la modifica.
 
@@ -91,14 +92,14 @@ Nel core filer di questo screenshot manca un vserver. È necessario collegare il
 
 ## <a name="configure-the-namespace"></a>Configurare lo spazio dei nomi
 
-Il cluster Azure FXT Edge Filer crea un file system virtuale denominato *spazio dei nomi cluster* che semplifica l'accesso client ai dati archiviati in diversi sistemi back-end. Dal momento che i client richiedono i file usando un percorso virtuale, è possibile aggiungere o sostituire i sistemi di archiviazione senza dover modificare il flusso di lavoro dei client. 
+Il cluster Azure FXT Edge Filer crea un file system virtuale denominato *spazio dei nomi cluster* che semplifica l'accesso client ai dati archiviati in diversi sistemi back-end. Dal momento che i client richiedono i file usando un percorso virtuale, è possibile aggiungere o sostituire i sistemi di archiviazione senza dover modificare il flusso di lavoro dei client.
 
-Lo spazio dei nomi cluster consente inoltre di presentare i sistemi di archiviazione cloud e NAS in una struttura di file simile. 
+Lo spazio dei nomi cluster consente inoltre di presentare i sistemi di archiviazione cloud e NAS in una struttura di file simile.
 
-I vserver del cluster gestiscono lo spazio dei nomi e forniscono il contenuto ai client. La creazione dello spazio dei nomi cluster richiede due passaggi: 
+I vserver del cluster gestiscono lo spazio dei nomi e forniscono il contenuto ai client. La creazione dello spazio dei nomi cluster richiede due passaggi:
 
-1. Creare un vserver 
-1. Configurare le giunzioni tra i sistemi di archiviazione back-end e i percorsi del file system lato client 
+1. Creare un vserver
+1. Configurare le giunzioni tra i sistemi di archiviazione back-end e i percorsi del file system lato client
 
 ### <a name="create-a-vserver"></a>Creare un vserver
 
@@ -109,7 +110,7 @@ I vserver sono file server virtuali che consentono di controllare il flusso di d
 * I vserver applicano i controlli di accesso ai file, inclusi i criteri di esportazione dei core filer e i sistemi di autenticazione utente
 * I vserver forniscono l'infrastruttura SMB
 
-Prima di iniziare a configurare un vserver per il cluster, leggere la documentazione collegata e rivolgersi al rappresentante Microsoft per maggiori informazioni su spazio dei nomi e vserver. Se si usano VLAN, [crearle](fxt-configure-network.md#adjust-network-settings) prima di creare il vserver. 
+Prima di iniziare a configurare un vserver per il cluster, leggere la documentazione collegata e rivolgersi al rappresentante Microsoft per maggiori informazioni su spazio dei nomi e vserver. Se si usano VLAN, [crearle](fxt-configure-network.md#adjust-network-settings) prima di creare il vserver.
 
 Queste sezioni della guida alla configurazione del cluster consentono di acquisire familiarità con le funzionalità del vserver FXT e dello spazio dei nomi globale:
 
@@ -117,7 +118,7 @@ Queste sezioni della guida alla configurazione del cluster consentono di acquisi
 * [Uso di uno spazio dei nomi globale](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
 * [Creazione di un vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
 
-È necessario almeno un vserver per il cluster. 
+È necessario almeno un vserver per il cluster.
 
 Per creare un nuovo vserver, sono necessarie le informazioni seguenti:
 
@@ -129,7 +130,7 @@ Per creare un nuovo vserver, sono necessarie le informazioni seguenti:
 
 * Se la rete include VLAN, è necessario indicare la VLAN da usare per questo vserver
 
-Per creare un nuovo vserver, usare la pagina delle impostazioni **VServer** > **Manage VServers** (Vserver > Gestisci vserver). Per informazioni dettagliate, leggere la sezione sulla [creazione di un vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) nella guida alla configurazione del cluster. 
+Per creare un nuovo vserver, usare la pagina delle impostazioni **VServer** > **Manage VServers** (Vserver > Gestisci vserver). Per informazioni dettagliate, leggere la sezione sulla [creazione di un vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) nella guida alla configurazione del cluster.
 
 ![Finestra popup per la creazione di un nuovo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -154,7 +155,6 @@ Usare innanzitutto la pagina **VServer** > **Export Rules** (Vserver > Regole di
 Usare quindi la pagina **VServer** > **Export Policies** (Vserver > Criteri di esportazione) per applicare i criteri personalizzati alle esportazioni del core filer quando l'accesso viene effettuato tramite tale vserver.
 
 Per informazioni dettagliate, leggere l'articolo relativo a come [controllare l'accesso alle esportazioni del core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) nella guida alla configurazione del cluster.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684984"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131089"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creare e gestire le regole di allocazione dei costi di Azure (anteprima)
 
@@ -58,16 +58,16 @@ Quando si distribuiscono i costi in base a risorse di calcolo, di archiviazione 
 
 Quando si distribuiscono i costi in proporzione al costo totale, la percentuale proporzionale viene assegnata in base alla somma o al costo totale delle destinazioni selezionate per il mese di fatturazione corrente.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Esempio che mostra la percentuale di allocazione" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Una volta impostate, le percentuali precompilate definite sono fisse. Vengono usate per tutte le allocazioni in corso. Le percentuali cambiano solo quando la regola viene aggiornata manualmente.
 
 1. Selezionare una delle opzioni seguenti nell'elenco **Precompila la percentuale su**.
     - **Distribuisci in modo uniforme**: ogni destinazione riceve una percentuale uniforme del costo totale.
     - **Costo totale**: crea un rapporto proporzionale alle destinazioni in base al relativo costo totale. Il rapporto viene usato per distribuire i costi dalle origini selezionate.
-    - **Costo delle risorse di calcolo**: crea un rapporto proporzionale alle destinazioni in base al costo delle risorse di calcolo di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
-    - **Costo di archiviazione**: crea un rapporto proporzionale alle destinazioni in base ai costi delle risorse di archiviazione di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
-    - **Costo di rete**: crea un rapporto proporzionale alle destinazioni in base ai costi delle risorse di rete di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions)). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
+    - **Costo delle risorse di calcolo**: crea un rapporto proporzionale alle destinazioni in base al costo delle risorse di calcolo di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Compute](/azure/templates/microsoft.compute/allversions). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
+    - **Costo di archiviazione**: crea un rapporto proporzionale alle destinazioni in base ai costi delle risorse di archiviazione di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Storage](/azure/templates/microsoft.storage/allversions)). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
+    - **Costo di rete**: crea un rapporto proporzionale alle destinazioni in base ai costi delle risorse di rete di Azure (tipi di risorse nello spazio dei nomi [Microsoft.Network](/azure/templates/microsoft.network/allversions)). Il rapporto viene usato per distribuire i costi dalle origini selezionate.
     - **Personalizzata**: consente di specificare manualmente una percentuale in numero intero. Il totale specificato deve essere uguale al 100%.
 1. Una volta configurata la regola, selezionare **Crea**.
 
@@ -84,7 +84,7 @@ Quando la regola di allocazione dei costi è attiva, i costi delle origini selez
 
 È possibile visualizzare l'impatto della regola di allocazione nell'analisi dei costi. Passare a [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure. Selezionare una sottoscrizione nell'elenco di destinazioni di una regola di allocazione dei costi attiva. Selezionare quindi **Analisi dei costi** nel menu. In Analisi dei costi selezionare **Raggruppa per** e quindi **Allocazione dei costi**. La visualizzazione risultante mostra una suddivisione dei costi generata in base alla sottoscrizione. Vengono visualizzati anche i costi allocati alla sottoscrizione, come illustrato nell'immagine seguente.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Esempio che mostra la ripartizione dei costi" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualizzare l'allocazione dei costi per un gruppo di risorse
 
@@ -94,7 +94,7 @@ Usare un processo simile per verificare l'impatto di una regola di allocazione d
 
 Nel portale di Azure passare a **Gestione dei costi e fatturazione** > **Gestione costi** > **Analisi dei costi**. In Analisi dei costi selezionare **Aggiungi filtro**. Selezionare **Tag**, scegliere la chiave e i valori dei tag a cui sono stati allocati costi.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Esempio che mostra i costi per gli elementi con tag" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Modificare una regola di allocazione dei costi esistente
 
@@ -112,10 +112,10 @@ Attualmente, l'allocazione dei costi è supportata in Gestione costi nelle visua
 Gli elementi seguenti non sono attualmente supportati dall'anteprima pubblica di allocazione dei costi:
 
 - [Esportazioni](tutorial-export-acm-data.md) pianificate
-- Dati esposti dall'API [Dettagli utilizzo](https://docs.microsoft.com/rest/api/consumption/usagedetails/list)
+- Dati esposti dall'API [Dettagli utilizzo](/rest/api/consumption/usagedetails/list)
 - Area delle sottoscrizioni di fatturazione
 - [App Power BI Gestione costi](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Connettore Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Connettore Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>I costi vengono fattorizzati nelle visualizzazioni di budget e previsioni?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ Le regole con origini o destinazioni sovrapposte non sono consigliate. Le regole
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare o aggiornare le regole di allocazione usando l'[API REST di allocazione dei costi](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Creare o aggiornare le regole di allocazione usando l'[API REST di allocazione dei costi](/rest/api/cost-management/costallocationrules)
 - Informazioni su [come ottimizzare gli investimenti nel cloud con Gestione costi di Azure](cost-mgt-best-practices.md)

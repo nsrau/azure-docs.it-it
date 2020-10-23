@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435406"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461805"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -170,13 +170,26 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Gateway VPN | Sì | Sì | No |  |
 |Desktop virtuale Windows | No | No | No |  |
 
+## <a name="virtual-machine-agents"></a>Agenti per le macchine virtuali
+Nella tabella seguente sono elencati gli agenti che possono raccogliere dati dal sistema operativo guest delle macchine virtuali e inviare dati al monitoraggio. Ogni agente può raccogliere dati diversi e inviarli a metriche o log in monitoraggio di Azure. 
+
+Per informazioni dettagliate sui dati che ogni agente può raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](platform/agents-overview.md) .
+
+| Agente |  Metriche | Log |
+|:---|:---|:---|:---|
+| [Agente di monitoraggio di Azure (anteprima)](platform/azure-monitor-agent-overview.md) | Sì | Sì |
+| [Agente di Log Analytics](platform/log-analytics-agent.md) | No | Sì|
+| [Estensione di diagnostica](platform/diagnostics-extension-overview.md) | Sì | No |
+| [Agente Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sì | No |
+| [Dependency Agent](insights/vminsights-enable-overview.md) | No | Sì |
+
 
 ## <a name="product-integrations"></a>Integrazioni dei prodotti
 Le soluzioni e i servizi elencati nella tabella seguente archiviano i dati in un'area di lavoro di Log Analytics in modo che possano essere analizzati con altri dati di log raccolti da Monitoraggio di Azure.
 
 | Prodotto o servizio | Descrizione |
 |:---|:---|
-| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [Gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md). |
+| [Automazione di Azure](../automation/index.yml) | Gestisce gli aggiornamenti del sistema operativo e tiene traccia delle modifiche in computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking/overview.md) e [Gestione aggiornamenti](../automation/update-management/update-mgmt-overview.md). |
 | [Azure Information Protection](/azure/information-protection/) | Classifica ed eventualmente protegge documenti e messaggi di posta elettronica. Vedere [Reporting centralizzato per Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro sicurezza di Azure](../security-center/index.yml) | Raccoglie e analizza gli eventi di sicurezza ed esegue l'analisi delle minacce. Vedere [Raccolta dati nel Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Si connette a varie origini, tra cui Office 365 e Amazon Web Services Cloud Trail. Vedere [Origini dati Connect](../sentinel/connect-data-sources.md). |

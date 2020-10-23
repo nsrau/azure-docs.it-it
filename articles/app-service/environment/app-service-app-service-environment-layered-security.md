@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e9a776aad966bb74e22f6d7fb8d66530e4b4db92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255197"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150225"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
@@ -115,7 +115,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 Con il gruppo di sicurezza di rete applicato alla subnet, solo ai tre ambienti del servizio app upstream e all'ambiente del servizio app contenente il back-end dell'API è consentito chiamare l'ambiente "apiase".
 
 ## <a name="additional-links-and-information"></a>Informazioni e collegamenti aggiuntivi
-Informazioni sui [gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
+Informazioni sui [gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md).
 
 Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambienti del servizio app.
 

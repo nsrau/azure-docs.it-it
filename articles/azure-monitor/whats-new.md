@@ -6,16 +6,83 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325658"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151808"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
 Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati in modo significativo. L'articolo verrà aggiornato la prima settimana di ogni mese per includere gli aggiornamenti degli articoli del mese precedente.
+
+## <a name="september-2020"></a>Settembre 2020
+
+### <a name="general"></a>Generale
+- [Domande frequenti su Monitoraggio di Azure](faq.md) - Aggiunta la sezione su OpenTelemetry.
+
+### <a name="agents"></a>Agenti
+- [Panoramica dell'agente di Monitoraggio di Azure](platform/azure-monitor-agent-overview.md) - Aggiunti i fattori decisionali per passare al nuovo agente.
+- [Panoramica degli agenti di monitoraggio di Azure](platform/agents-overview.md) - Aggiunto il supporto per Windows 10.
+
+### <a name="alerts"></a>Avvisi
+- [Creare un avviso del log con un modello di Azure Resource Manager](platform/alerts-log-create-templates.md) - Nuovo articolo.
+- [Risoluzione dei problemi relativi agli avvisi delle metriche di Azure](platform/alerts-troubleshoot-metric.md) - Aggiunta una sezione sull'esportazione di un modello di Resource Manager per una regola di avviso delle metriche.
+
+### <a name="application-insights"></a>Application Insights
+- [Creare una nuova risorsa di Application Insights basata sull'area di lavoro in Monitoraggio di Azure](app/create-workspace-resource.md) - Rimossa la designazione di anteprima.
+- [Conservazione e archiviazione dei dati in Azure Application Insights](app/data-retention-privacy.md) - Aggiunti i dettagli per il nuovo supporto per la protezione dalla perdita dei dati in Mac e Linux.
+- [Contatori di eventi in Application Insights](app/eventcounters.md) - Aggiunta una nota sui contatori raccolti per impostazione predefinita.
+- [Metriche basate su log e metriche preaggregate in Azure Application Insights](app/pre-aggregated-metrics-log-metrics.md) - Rimossa la designazione di anteprima.
+- [Eseguire la migrazione di una risorsa classica di Application Insights in Monitoraggio di Azure a una risorsa basata su area di lavoro](app/convert-classic-resource.md) - Nuovo articolo.
+- [Monitorare le applicazioni Java in qualsiasi ambiente: Application Insights in Monitoraggio di Azure](app/java-in-process-agent.md) - Articolo aggiornato per includere la nuova versione di anteprima dell'agente.
+- [Configurare l'analisi di app Web per ASP.NET con Azure Application Insights](app/asp-net.md) - Articolo riscritto.
+- [Canali di telemetria in Azure Application Insights](app/telemetry-channels.md) - Aggiunti i dettagli per il nuovo supporto per la protezione dalla perdita dei dati in Mac e Linux.
+- [Risolvere i problemi relativi a Snapshot Debugger in Azure Application Insights](app/snapshot-debugger-troubleshoot.md) - Aggiunta la sezione su SSL nella risoluzione dei problemi di Snapshot Debugger.
+- [Usare Analisi delle modifiche alle applicazioni in Monitoraggio di Azure per trovare i problemi delle app Web](app/change-analysis.md) - Aggiunte le sezioni relative a macchine virtuali e log attività.
+
+
+### <a name="containers"></a>Contenitori
+- [Configurare il cluster Kubernetes con abilitazione di Azure Arc con Monitoraggio di Azure per i contenitori](insights/container-insights-enable-arc-enabled-clusters.md) - Aggiunte le istruzioni per abilitare il monitoraggio tramite entità servizio.
+- [Metriche di distribuzioni e HPA con Monitoraggio di Azure per i contenitori](insights/container-insights-deployment-hpa-metrics.md) - Nuovo articolo.
+
+### <a name="insights-and-solutions"></a>Informazioni dettagliate e soluzioni
+- [Monitoraggio di Azure per la cache di Azure per Redis](insights/redis-cache-insights-overview.md) - Rimossa la designazione di anteprima.
+- [Monitoraggio di Azure per reti (anteprima)](insights/network-insights-overview.md) - Aggiunte le sezioni relative a connettività e traffico.
+- [Connettore di Gestione dei servizi IT - Esportazione sicura in Monitoraggio di Azure](platform/it-service-management-connector-secure-webhook-connections.md) - Nuovo articolo.
+- [Connettore di Gestione dei servizi IT in Monitoraggio di Azure](platform/itsmc-connections.md) - Nota sulle integrazioni di Cherwell e Provance ITSM.
+- [Monitorare Key Vault con Monitoraggio di Azure per Key Vault](insights/key-vault-insights-overview.md) - Rimossa la designazione di anteprima.
+
+### <a name="logs"></a>Log
+- [Controllare le query sui log in Monitoraggio di Azure](log-query/query-audit.md) - Nuovo articolo.
+- [Chiave gestita dal cliente di Monitoraggio di Azure](platform/customer-managed-keys.md) - Aggiunta la sezione relativa a Customer Lockbox.
+- [Cluster dedicati per i log di Monitoraggio di Azure](log-query/logs-dedicated-clusters.md) - Nuovo articolo.
+- [Progettazione della distribuzione dei log di Monitoraggio di Azure](platform/design-logs-deployment.md) - Aggiornata la sezione sui limiti di velocità del volume di inserimento dati e scalabilità.
+- [Ambito delle query sui log in Log Analytics di Monitoraggio di Azure](log-query/scope.md) - Aggiornato l'articolo per includere le applicazioni basate su area di lavoro.
+- [Log in Monitoraggio di Azure](platform/data-platform-logs.md) - Aggiornato l'articolo per includere le applicazioni basate su area di lavoro.
+- [Colonne standard in Monitoraggio di Azure](platform/log-standard-columns.md) - Aggiornato l'articolo per includere le applicazioni basate su area di lavoro.
+- [Limiti del servizio Monitoraggio di Azure](service-limits.md) - Aggiornati i limiti per le query utente.
+- [Uso di account di archiviazione gestiti dal cliente in Log Analytics di Monitoraggio di Azure](platform/private-storage.md) - Articolo riscritto.
+- [Visualizzazione e analisi dei dati in Azure Log Analytics](./platform/data-platform-logs.md) - Aggiornato l'articolo per includere le applicazioni basate su area di lavoro.
+
+
+### <a name="platform-logs"></a>Log della piattaforma
+- [Schema degli eventi del log attività di Azure - Monitoraggio di Azure](platform/activity-log-schema.md) - Aggiunti i livelli di gravità.
+- [Esempi di modelli di Resource Manager per le impostazioni di diagnostica](samples/resource-manager-diagnostic-settings.md) - Aggiunto un esempio per l'account di archiviazione di Azure.
+
+### <a name="visualizations"></a>Visualizzazioni
+- [Visualizzazioni grafico delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-chart-visualizations.md) - Nuovo articolo.
+- [Renderer di barre composite delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-composite-bar.md) - Nuovo articolo.
+- [Visualizzazioni grafo delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-graph-visualizations.md) - Nuovo articolo.
+- [Visualizzazioni griglia delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-grid-visualizations.md) - Nuovo articolo.
+- [Visualizzazioni a nido d'ape delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-honey-comb.md) - Nuovo articolo.
+- [Visualizzazioni di testo delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-text-visualizations.md) - Nuovo articolo.
+- [Visualizzazioni riquadro delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-tile-visualizations.md) - Nuovo articolo.
+- [Visualizzazioni ad albero delle cartelle di lavoro di Monitoraggio di Azure](platform/workbooks-tree-visualizations.md) - Nuovo articolo.
+
+
+
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -127,11 +194,11 @@ Articoli nuovi e aggiornati dalla ristrutturazione del contenuto di Monitoraggio
 - [Connettere computer Linux a Monitoraggio di Azure](platform/agent-linux.md)
 - [Abilitare Monitoraggio di Azure per un ambiente ibrido](insights/vminsights-enable-hybrid.md)
 - [Abilitare Monitoraggio di Azure per una singola macchina virtuale o un set di scalabilità di macchine virtuali nel portale di Azure](insights/vminsights-enable-portal.md)
-- [Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure](insights/vminsights-enable-at-scale-policy.md)
+- [Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure](./insights/vminsights-enable-policy.md)
 - [Abilitare Monitoraggio di Azure per le macchine virtuali](insights/vminsights-enable-overview.md)
 - [Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell](insights/vminsights-enable-powershell.md)
 - [Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager](insights/vminsights-enable-resource-manager.md)
-- [Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell o modelli](insights/vminsights-enable-at-scale-powershell.md)
+- [Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell o modelli](./insights/vminsights-enable-powershell.md)
 
 
 ### <a name="visualizations"></a>Visualizzazioni
@@ -225,7 +292,7 @@ Articoli nuovi e aggiornati dopo la ristrutturazione e il consolidamento del con
 
 - [Domande frequenti su Monitoraggio di Azure](faq.md) - Aggiunta di una sezione per le metriche.
 - [Chiave gestita dal cliente di Monitoraggio di Azure](platform/customer-managed-keys.md) - Varie modifiche in previsione della disponibilità generale.
-- [Definizioni di criteri predefiniti per Monitoraggio di Azure](samples/policy-samples.md) - Nuovo articolo.
+- [Definizioni di criteri predefiniti per Monitoraggio di Azure](./samples/policy-reference.md) - Nuovo articolo.
 - [Account di archiviazione di proprietà del cliente per l'inserimento dei log](platform/private-storage.md) - Nuovo articolo.
 - [Gestire l'utilizzo e i costi per i log di Monitoraggio di Azure](platform/manage-cost-storage.md) - Aggiunta della fatturazione proporzionale per i cluster.
 - [Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure](platform/private-link-security.md) - Nuovo articolo.
@@ -263,8 +330,8 @@ Articoli nuovi e aggiornati dopo la ristrutturazione e il consolidamento del con
 - [Espressione app() nelle query di log di Monitoraggio di Azure](log-query/app-expression.md)
 - [Ambito delle query su log in Log Analytics di Monitoraggio di Azure](log-query/scope.md)
 - [Eseguire query su più risorse con Monitoraggio di Azure](log-query/cross-workspace-query.md)
-- [Proprietà standard nei record di log di Monitoraggio di Azure](platform/log-standard-properties.md)
-- [Struttura dei log di Monitoraggio di Azure](log-query/logs-structure.md)
+- [Proprietà standard nei record di log di Monitoraggio di Azure](./platform/log-standard-columns.md)
+- [Struttura dei log di Monitoraggio di Azure](./platform/data-platform-logs.md)
 
 
 
@@ -286,7 +353,7 @@ Articoli nuovi e aggiornati dopo la ristrutturazione e il consolidamento del con
 - [Creare un'area di lavoro Log Analytics usando l'interfaccia della riga di comando di Azure](learn/quick-create-workspace-cli.md) - Aggiunta di una sezione relativa alla risoluzione dei problemi.
 - [Eliminare e ripristinare l'area di lavoro di Azure Log Analytics](platform/delete-workspace.md) - Aggiornamento delle informazioni sul ripristino di un'area di lavoro eliminata.
 - [Funzioni nelle query di log di Monitoraggio di Azure](log-query/functions.md) - Rimozione di una nota sulle funzioni che non contengono altre funzioni.
-- [Struttura dei log di Monitoraggio di Azure](log-query/logs-structure.md) - Chiarimento delle descrizioni delle proprietà per la tabella di Application Insights.
+- [Struttura dei log di Monitoraggio di Azure](./platform/data-platform-logs.md) - Chiarimento delle descrizioni delle proprietà per la tabella di Application Insights.
 - [Usare i log di Monitoraggio di Azure con App per la logica di Azure e Power Automate](platform/logicapp-flow-connector.md) - Aggiunta di una sezione sui limiti.
 - [Usare PowerShell per creare e configurare un'area di lavoro Log Analytics](platform/powershell-workspace-configuration.md) - Aggiunta di una sezione relativa alla risoluzione dei problemi.
 
@@ -511,7 +578,7 @@ Diversi nuovi articoli di guida alla conversione da Progettazione visualizzazion
 #### <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 
 - [Configurare la raccolta dei dati dell'agente di Monitoraggio di Azure per i contenitori](insights/container-insights-agent-config.md) - Aggiunti dettagli per l'aggiornamento dell'agente in Azure Red Hat OpenShift, oltre a informazioni aggiuntive per distinguere i metodi per l'aggiornamento dell'agente.
-- [Come configurare gli avvisi per i problemi di prestazioni in Monitoraggio di Azure per i contenitori](insights/container-insights-alerts.md) - Informazioni riviste e passaggi aggiornati per la creazione di un avviso sui dati relativi alle prestazioni archiviati nell'area di lavoro usando avvisi del contesto area di lavoro.
+- [Come configurare gli avvisi per i problemi di prestazioni in Monitoraggio di Azure per i contenitori](./insights/container-insights-log-alerts.md) - Informazioni riviste e passaggi aggiornati per la creazione di un avviso sui dati relativi alle prestazioni archiviati nell'area di lavoro usando avvisi del contesto area di lavoro.
 - [Monitorare le prestazioni del cluster Kubernetes con Monitoraggio di Azure per i contenitori](insights/container-insights-analyze.md) - Aggiornati sia l'articolo introduttivo che l'articolo di analisi relativi al supporto dei cluster Kubernetes Windows.
 - [Configurare i cluster Azure Red Hat OpenShift con Monitoraggio di Azure per i contenitori](insights/container-insights-azure-redhat-setup.md) - Aggiunti dettagli per l'aggiornamento dell'agente in Azure Red Hat OpenShift, oltre a informazioni aggiuntive per distinguere i metodi per l'aggiornamento dell'agente.
 - [Configurare cluster Kubernetes ibridi con Monitoraggio di Azure per i contenitori](insights/container-insights-hybrid-setup.md) - Contenuto aggiornato con l'aggiunta del supporto per la porta sicura 10250 con cAdvisor di Kubelet.
@@ -531,7 +598,7 @@ Diversi nuovi articoli di guida alla conversione da Progettazione visualizzazion
 
 - [Gestire le aree di lavoro di Log Analytics in Monitoraggio di Azure](platform/manage-access.md) - Aggiornamenti alle azioni da non eseguire
 - [Gestire l'utilizzo e i costi per i log di Monitoraggio di Azure](platform/manage-cost-storage.md) - Aggiunto un chiarimento sul calcolo del volume di dati nella sezione Modello di prezzi.
-- [Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro Log Analytics](platform/template-workspace-configuration.md) - Modello aggiornato con nuovi piani tariffari.
+- [Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro Log Analytics](./samples/resource-manager-workspace.md) - Modello aggiornato con nuovi piani tariffari.
 
 ### <a name="platform-logs"></a>Log della piattaforma
 
@@ -601,9 +668,9 @@ Più articoli aggiornati nell'ambito della ristrutturazione del contenuto per i 
 - [Limiti del servizio Monitoraggio di Azure](service-limits.md)
 - [Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics](./platform/activity-log.md)
 - [Raccogliere il log attività di Azure con le impostazioni di diagnostica (anteprima) - Monitoraggio di Azure](./platform/activity-log.md)
-- [Raccogliere i log attività di Azure in un'area di lavoro Log Analytics tra diversi tenant di Azure](platform/activity-log-collect-tenants.md)
+- [Raccogliere i log attività di Azure in un'area di lavoro Log Analytics tra diversi tenant di Azure](./platform/activity-log.md)
 - [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Creare un'impostazione di diagnostica in Azure usando un modello di Resource Manager](platform/diagnostic-settings-template.md)
+- [Creare un'impostazione di diagnostica in Azure usando un modello di Resource Manager](./samples/resource-manager-diagnostic-settings.md)
 - [Creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](platform/diagnostic-settings.md)
 - [Esportare il log attività di Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Panoramica dei log della piattaforma di Azure](platform/platform-logs-overview.md)

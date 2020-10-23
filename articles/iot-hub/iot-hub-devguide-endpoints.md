@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019564"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152187"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -95,7 +95,7 @@ Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas 
 
 In una soluzione IoT un *gateway sul campo* è posizionato tra i dispositivi e l'hub IoT e in genere si trova vicino ai dispositivi. I dispositivi comunicano direttamente con il gateway sul campo tramite un protocollo supportato dai dispositivi. Il gateway sul campo si connette a un endpoint dell'hub IoT usando un protocollo supportato dall'hub IoT. Un gateway sul campo potrebbe essere un dispositivo hardware dedicato o un computer a bassa potenza che esegue il software del gateway personalizzato.
 
-È possibile usare [Azure IoT Edge](/azure/iot-edge/) per implementare un gateway sul campo. IoT Edge offre funzionalità come il multiplex delle comunicazioni da più dispositivi sulla stessa connessione dell'hub IoT.
+È possibile usare [Azure IoT Edge](../iot-edge/index.yml) per implementare un gateway sul campo. IoT Edge offre funzionalità come il multiplex delle comunicazioni da più dispositivi sulla stessa connessione dell'hub IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

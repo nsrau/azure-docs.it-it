@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565089"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367959"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -88,7 +88,7 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 È possibile creare e collegare i dischi quando si crea un set di scalabilità oppure con un set di scalabilità esistente.
 
-A partire dalla versione `2019-07-01` dell'API, è possibile impostare le dimensioni del disco del sistema operativo in un set di scalabilità di macchine virtuali con la proprietà [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Dopo il provisioning, può essere necessario espandere o ripartizionare il disco per utilizzare l'intero spazio. Vedere altre informazioni sull'[espansione del disco](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+A partire dalla versione `2019-07-01` dell'API, è possibile impostare le dimensioni del disco del sistema operativo in un set di scalabilità di macchine virtuali con la proprietà [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Dopo il provisioning, può essere necessario espandere o ripartizionare il disco per utilizzare l'intero spazio. Vedere altre informazioni sull'[espansione del disco](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Collegare dischi al momento della creazione del set di scalabilità
 Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando richiesto, immettere un nome utente e una password per le istanze di macchina virtuale. Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985.

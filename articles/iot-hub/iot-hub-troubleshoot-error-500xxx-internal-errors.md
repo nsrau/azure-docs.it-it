@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688909"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150310"
 ---
 # <a name="500xxx-internal-errors"></a>Errori interni 500xxx
 
@@ -37,4 +37,4 @@ Possono essere presenti diverse cause per una risposta di errore 500xxx. In tutt
 
 ## <a name="solution"></a>Soluzione
 
-Per attenuare gli errori di 500xxx, emettere un nuovo tentativo dal dispositivo. Per [gestire automaticamente i tentativi](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), assicurarsi di usare la versione più recente degli [Azure IoT SDK](./iot-hub-devguide-sdks.md). Per le procedure consigliate sulla gestione degli errori temporanei e la ripetizione dei tentativi, vedere [Gestione degli errori temporanei](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Se il problema persiste, controllare [integrità risorse](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e [lo stato di Azure](https://status.azure.com/) per verificare se l'hub cose ha un problema noto. È anche possibile usare la [funzionalità di failover manuale](./tutorial-manual-failover.md). Se non sono presenti problemi noti e il problema persiste, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/) per ulteriori indagini.
+Per attenuare gli errori di 500xxx, emettere un nuovo tentativo dal dispositivo. Per [gestire automaticamente i tentativi](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), assicurarsi di usare la versione più recente degli [Azure IoT SDK](./iot-hub-devguide-sdks.md). Per le procedure consigliate sulla gestione degli errori temporanei e la ripetizione dei tentativi, vedere [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).  Se il problema persiste, controllare [integrità risorse](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e [lo stato di Azure](https://status.azure.com/) per verificare se l'hub cose ha un problema noto. È anche possibile usare la [funzionalità di failover manuale](./tutorial-manual-failover.md). Se non sono presenti problemi noti e il problema persiste, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/) per ulteriori indagini.

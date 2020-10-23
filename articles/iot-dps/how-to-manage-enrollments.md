@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974939"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165316"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con il portale di Azure
 
@@ -24,7 +24,7 @@ La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di
 
 Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
-* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato dallo stesso certificato di firma, che può essere il [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo sul dispositivo fisico. È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
+* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato dallo stesso certificato di firma, che può essere il [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo sul dispositivo fisico. È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. 
 
     È possibile creare un gruppo di registrazioni per un gruppo di dispositivi nel portale usando la procedura seguente:
 

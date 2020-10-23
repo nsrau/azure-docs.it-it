@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056158"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319733"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -95,7 +95,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 
 - Identità
-- Date
+- Data
 - Stato
 - Azione
 
@@ -131,8 +131,8 @@ Il filtro **azione** consente di filtrare:
 - Create 
 - Aggiornamento
 - Delete
-- Disabilita
-- Altro
+- Disabilitazione
+- Altri
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -215,7 +215,7 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 - È possibile usare l'attributo Change ID come identificatore univoco. Questo è, ad esempio, utile quando si interagisce con il supporto tecnico.
 
-- Attualmente non è disponibile alcuna opzione per scaricare i dati di provisioning come file CSV, ma è possibile esportare i dati usando [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Attualmente non è disponibile alcuna opzione per scaricare i dati di provisioning come file CSV, ma è possibile esportare i dati usando [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - È possibile che vengano visualizzati eventi ignorati per gli utenti che non rientrano nell'ambito. Questo comportamento è previsto, soprattutto quando l'ambito di sincronizzazione è impostato su tutti gli utenti e i gruppi. Il servizio valuterà tutti gli oggetti nel tenant, anche quelli che non rientrano nell'ambito. 
 
@@ -245,10 +245,10 @@ Usare la tabella seguente per comprendere meglio come risolvere gli errori che s
 |DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando viene valutato ogni utente, si tenta di importare l'utente dal sistema di origine. Questo errore si verifica in genere quando all'utente importato manca la proprietà corrispondente definita nei mapping degli attributi. Senza un valore presente nell'oggetto utente per l'attributo corrispondente, non è possibile valutare le modifiche dell'ambito, della corrispondenza o dell'esportazione. Si noti che la presenza di questo errore non indica che l'utente è nell'ambito perché non è ancora stata valutata la definizione dell'ambito per l'utente.|
 |EntrySynchronizationSkipped | Il servizio di provisioning ha eseguito una query sul sistema di origine e ha identificato l'utente. Non è stata eseguita alcuna azione aggiuntiva per l'utente e i relativi elementi sono stati ignorati. Il salto potrebbe essere dovuto all'esterno dell'ambito o all'utente già esistente nel sistema di destinazione senza che siano necessarie altre modifiche.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Quando si esegue una richiesta GET per recuperare un utente o un gruppo, nella risposta sono stati ricevuti più utenti o gruppi. Si prevede di ricevere un solo utente o gruppo nella risposta. Se, [ad esempio](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), si esegue una richiesta GET per recuperare un gruppo e si fornisce un filtro per escludere i membri e l'endpoint scim restituisce i membri, verrà generato questo errore.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Quando si esegue una richiesta GET per recuperare un utente o un gruppo, nella risposta sono stati ricevuti più utenti o gruppi. Si prevede di ricevere un solo utente o gruppo nella risposta. Se, [ad esempio](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), si esegue una richiesta GET per recuperare un gruppo e si fornisce un filtro per escludere i membri e l'endpoint scim restituisce i membri, verrà generato questo errore.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Verificare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [API Graph dei log di provisioning](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [API Graph dei log di provisioning](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

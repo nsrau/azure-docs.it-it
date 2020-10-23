@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330877"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105992"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
-Questo articolo presenta le [definizioni dello schema di avviso comuni](https://aka.ms/commonAlertSchemaDocs) per Monitoraggio di Azure, incluse quelle per webhook, App per la logica di Azure, Funzioni di Azure e runbook di Automazione di Azure. 
+Questo articolo presenta le [definizioni dello schema di avviso comuni](./alerts-common-schema.md) per Monitoraggio di Azure, incluse quelle per webhook, App per la logica di Azure, Funzioni di Azure e runbook di Automazione di Azure. 
 
 Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa. Queste istanze sono descritte nello schema comune nelle sezioni seguenti:
 * **Informazioni di base**: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa interessata dall'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
@@ -541,5 +541,5 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere [Schema di avviso comune](https://aka.ms/commonAlertSchemaDocs).
-- Informazioni su [come creare un'app per la logica che usa lo schema di avviso comune per gestire tutti gli avvisi](./alerts-common-schema-integrations.md). 
+- Per altre informazioni, vedere [Schema di avviso comune](./alerts-common-schema.md).
+- Informazioni su [come creare un'app per la logica che usa lo schema di avviso comune per gestire tutti gli avvisi](./alerts-common-schema-integrations.md).

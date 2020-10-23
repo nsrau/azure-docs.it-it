@@ -1,21 +1,18 @@
 ---
 title: Come configurare una pipeline di CI/CD per Azure Data Lake Analytics
 description: Informazioni su come configurare l'integrazione continua e la distribuzione continua per Azure Data Lake Analytics.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496118"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219327"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -39,7 +36,7 @@ Prima di configurare un'attività di compilazione per un progetto U-SQL, assicur
 <!-- check for SDK Build target in current path then in USQLSDKPath-->
 <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
 <Import Project="$(USQLSDKPath)\UsqlSDKBuild.targets" Condition="!Exists('UsqlSDKBuild.targets') And '$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\UsqlSDKBuild.targets')" />
-``` 
+```
 
 Se non sono presenti, l'utente può eseguire la migrazione del progetto servendosi di due opzioni:
 
@@ -52,16 +49,16 @@ MSBuild non offre supporto integrato per i progetti U-SQL. Per ottenere questo s
 
 Per aggiungere il riferimento al pacchetto NuGet, fare clic con il pulsante destro del mouse sulla soluzione in Esplora soluzioni di Visual Studio e scegliere **Gestisci pacchetti NuGet**. In alternativa, è possibile aggiungere un file denominato `packages.config` nella cartella della soluzione e inserire i contenuti seguenti:
 
-```xml 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
   <package id="Microsoft.Azure.DataLake.USQL.SDK" version="1.3.180620" targetFramework="net452" />
 </packages>
-``` 
+```
 
 ### <a name="manage-u-sql-database-references"></a>Gestire i riferimenti al database U-SQL
 
-Gli script U-SQL in un progetto U-SQL potrebbero includere istruzioni di query per gli oggetti di database U-SQL. In tal caso, è necessario fare riferimento al progetto di database U-SQL corrispondente che include la definizione degli oggetti prima di compilare il progetto U-SQL. Ciò avviene, ad esempio, quando si esegue una query su una tabella U-SQL o si fa riferimento a un assembly. 
+Gli script U-SQL in un progetto U-SQL potrebbero includere istruzioni di query per gli oggetti di database U-SQL. In tal caso, è necessario fare riferimento al progetto di database U-SQL corrispondente che include la definizione degli oggetti prima di compilare il progetto U-SQL. Ciò avviene, ad esempio, quando si esegue una query su una tabella U-SQL o si fa riferimento a un assembly.
 
 Leggere altre informazioni sul [progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
@@ -71,38 +68,42 @@ Leggere altre informazioni sul [progetto di database U-SQL](data-lake-analytics-
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Compilare il progetto U-SQL con la riga di comando di MSBuild
 
-Prima di tutto, eseguire la migrazione del progetto e ottenere il pacchetto NuGet. Chiamare quindi la riga di comando di MSBuild standard con gli argomenti aggiuntivi seguenti per compilare il progetto U-SQL: 
+Prima di tutto, eseguire la migrazione del progetto e ottenere il pacchetto NuGet. Chiamare quindi la riga di comando di MSBuild standard con gli argomenti aggiuntivi seguenti per compilare il progetto U-SQL:
 
 ```console
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
-``` 
+```
 
 La definizione e i valori degli argomenti sono i seguenti:
 
-* **USQLSDKPath = \<U-SQL Nuget package> \build\runtime**. Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
-* **USQLTargetType=Merge o SyntaxCheck**:
-    * **Unisci**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
-    * **SyntaxCheck**. La modalità SyntaxCheck prima unisce i file code-behind nello script U-SQL. Compila quindi lo script U-SQL per convalidare il codice.
-* **DataRoot=\<DataRoot path>**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
-* **EnableDeployment=true** o **false**. EnableDeployment indica se è consentita la distribuzione dei database U-SQL di riferimento durante il processo di compilazione. Se si fa riferimento a un progetto di database U-SQL e si utilizzano gli oggetti di database nello script U-SQL, impostare questo parametro su **true**.
+- **USQLSDKPath = \<U-SQL Nuget package> \build\runtime**. Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
+- **USQLTargetType=Merge o SyntaxCheck**:
+
+  - **Unisci**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
+
+  - **SyntaxCheck**. La modalità SyntaxCheck prima unisce i file code-behind nello script U-SQL. Compila quindi lo script U-SQL per convalidare il codice.
+
+- **DataRoot=\<DataRoot path>**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
+
+- **EnableDeployment=true** o **false**. EnableDeployment indica se è consentita la distribuzione dei database U-SQL di riferimento durante il processo di compilazione. Se si fa riferimento a un progetto di database U-SQL e si utilizzano gli oggetti di database nello script U-SQL, impostare questo parametro su **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integrazione continua con Azure Pipelines
 
 Oltre alla riga di comando, è anche possibile usare un'attività di MSBuild o Visual Studio Build per compilare progetti U-SQL in Azure Pipelines. Per configurare una pipeline di compilazione, assicurarsi di aggiungere due attività nella pipeline: un'attività di ripristino di NuGet e un'attività di MSBuild.
 
-![Attività di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+![Attività di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Advanced**  >  **directory di destinazione** avanzata su `$(Build.SourcesDirectory)/packages` se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
+1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Advanced**  >  **directory di destinazione** avanzata su `$(Build.SourcesDirectory)/packages` se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
 
-    ![Attività di ripristino di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+   ![Attività di ripristino di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Impostare gli argomenti di MSBuild in Visual Studio Build Tools o in un'attività di MSBuild, come illustrato nell'esempio seguente. In alternativa, è possibile definire variabili per questi argomenti nella pipeline di compilazione di Azure Pipelines.
+2. Impostare gli argomenti di MSBuild in Visual Studio Build Tools o in un'attività di MSBuild, come illustrato nell'esempio seguente. In alternativa, è possibile definire variabili per questi argomenti nella pipeline di compilazione di Azure Pipelines.
 
-    ![Definire variabili di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
+   ![Definire variabili di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png)
 
-    ```console
-    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
-    ```
+   ```console
+   /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
+   ```
 
 ### <a name="u-sql-project-build-output"></a>Output di compilazione del progetto U-SQL
 
@@ -114,181 +115,183 @@ Dopo avere eseguito una compilazione, tutti gli script nel progetto U-SQL vengon
 ## <a name="test-u-sql-scripts"></a>Testare gli script U-SQL
 
 Azure Data Lake fornisce progetti di test per gli script U-SQL e funzioni, oggetti e aggregati C# definiti dall'utente:
-* Leggere le informazioni su come [aggiungere test case per gli script U-SQL e il codice C# esteso](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Informazioni su come [eseguire i test case in Azure Pipelines](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
+
+- Informazioni su come [aggiungere test case per gli script U-SQL e il codice C# esteso](data-lake-analytics-cicd-test.md#test-u-sql-scripts)
+
+- Informazioni su come [eseguire i test case in Azure Pipelines](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
 
 ## <a name="deploy-a-u-sql-job"></a>Distribuire un processo U-SQL
 
-Dopo aver verificato il codice tramite il processo di compilazione e test, è possibile inviare i processi U-SQL direttamente da Azure Pipelines tramite un'attività di Azure PowerShell. È anche possibile distribuire lo script in Azure Data Lake Store o Archiviazione BLOB di Azure ed [eseguire i processi pianificati tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Dopo aver verificato il codice tramite il processo di compilazione e test, è possibile inviare i processi U-SQL direttamente da Azure Pipelines tramite un'attività di Azure PowerShell. È anche possibile distribuire lo script in Azure Data Lake Store o Archiviazione BLOB di Azure ed [eseguire i processi pianificati tramite Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md).
 
 ### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Inviare processi U-SQL tramite Azure Pipelines
 
-L'output di compilazione del progetto U-SQL è un file ZIP denominato **USQLProjectName.usqlpack**. Il file ZIP include tutti gli script U-SQL nel progetto. È possibile usare l'[attività di Azure PowerShell](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) nelle pipeline con lo script di PowerShell di esempio seguente per inviare processi U-SQL direttamente da Azure Pipelines.
+L'output di compilazione del progetto U-SQL è un file ZIP denominato **USQLProjectName.usqlpack**. Il file ZIP include tutti gli script U-SQL nel progetto. È possibile usare l'[attività di Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell) nelle pipeline con lo script di PowerShell di esempio seguente per inviare processi U-SQL direttamente da Azure Pipelines.
 
 ```powershell
 <#
-    This script can be used to submit U-SQL Jobs with given U-SQL project build output(.usqlpack file).
-    This will unzip the U-SQL project build output, and submit all scripts one-by-one.
+   This script can be used to submit U-SQL Jobs with given U-SQL project build output(.usqlpack file).
+   This will unzip the U-SQL project build output, and submit all scripts one-by-one.
 
-    Note: the code behind file for each U-SQL script will be merged into the built U-SQL script in build output.
-          
-    Example :
-        USQLJobSubmission.ps1 -ADLAAccountName "myadlaaccount" -ArtifactsRoot "C:\USQLProject\bin\debug\" -DegreeOfParallelism 2
+   Note: the code behind file for each U-SQL script will be merged into the built U-SQL script in build output.
+
+   Example :
+      USQLJobSubmission.ps1 -ADLAAccountName "myadlaaccount" -ArtifactsRoot "C:\USQLProject\bin\debug\" -DegreeOfParallelism 2
 #>
 
 param(
-    [Parameter(Mandatory=$true)][string]$ADLAAccountName, # ADLA account name to submit U-SQL jobs
-    [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DegreeOfParallelism = 1
+   [Parameter(Mandatory=$true)][string]$ADLAAccountName, # ADLA account name to submit U-SQL jobs
+   [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
+   [Parameter(Mandatory=$false)][string]$DegreeOfParallelism = 1
 )
 
 function Unzip($USQLPackfile, $UnzipOutput)
 {
-    $USQLPackfileZip = Rename-Item -Path $USQLPackfile -NewName $([System.IO.Path]::ChangeExtension($USQLPackfile, ".zip")) -Force -PassThru
-    Expand-Archive -Path $USQLPackfileZip -DestinationPath $UnzipOutput -Force
-    Rename-Item -Path $USQLPackfileZip -NewName $([System.IO.Path]::ChangeExtension($USQLPackfileZip, ".usqlpack")) -Force
+   $USQLPackfileZip = Rename-Item -Path $USQLPackfile -NewName $([System.IO.Path]::ChangeExtension($USQLPackfile, ".zip")) -Force -PassThru
+   Expand-Archive -Path $USQLPackfileZip -DestinationPath $UnzipOutput -Force
+   Rename-Item -Path $USQLPackfileZip -NewName $([System.IO.Path]::ChangeExtension($USQLPackfileZip, ".usqlpack")) -Force
 }
 
 ## Get U-SQL scripts in U-SQL project build output(.usqlpack file)
 Function GetUsqlFiles()
 {
 
-    $USQLPackfiles = Get-ChildItem -Path $ArtifactsRoot -Include *.usqlpack -File -Recurse -ErrorAction SilentlyContinue
+   $USQLPackfiles = Get-ChildItem -Path $ArtifactsRoot -Include *.usqlpack -File -Recurse -ErrorAction SilentlyContinue
 
-    $UnzipOutput = Join-Path $ArtifactsRoot -ChildPath "UnzipUSQLScripts"
+   $UnzipOutput = Join-Path $ArtifactsRoot -ChildPath "UnzipUSQLScripts"
 
-    foreach ($USQLPackfile in $USQLPackfiles)
-    {
-        Unzip $USQLPackfile $UnzipOutput
-    }
+   foreach ($USQLPackfile in $USQLPackfiles)
+   {
+      Unzip $USQLPackfile $UnzipOutput
+   }
 
-    $USQLFiles = Get-ChildItem -Path $UnzipOutput -Include *.usql -File -Recurse -ErrorAction SilentlyContinue
+   $USQLFiles = Get-ChildItem -Path $UnzipOutput -Include *.usql -File -Recurse -ErrorAction SilentlyContinue
 
-    return $USQLFiles
+   return $USQLFiles
 }
 
 ## Submit U-SQL scripts to ADLA account one-by-one
 Function SubmitAnalyticsJob()
 {
-    $usqlFiles = GetUsqlFiles
+   $usqlFiles = GetUsqlFiles
 
-    Write-Output "$($usqlFiles.Count) jobs to be submitted..."
+   Write-Output "$($usqlFiles.Count) jobs to be submitted..."
 
-    # Submit each usql script and wait for completion before moving ahead.
-    foreach ($usqlFile in $usqlFiles)
-    {
-        $scriptName = "[Release].[$([System.IO.Path]::GetFileNameWithoutExtension($usqlFile.fullname))]"
+   # Submit each usql script and wait for completion before moving ahead.
+   foreach ($usqlFile in $usqlFiles)
+   {
+      $scriptName = "[Release].[$([System.IO.Path]::GetFileNameWithoutExtension($usqlFile.fullname))]"
 
-        Write-Output "Submitting job for '{$usqlFile}'"
+      Write-Output "Submitting job for '{$usqlFile}'"
 
-        $jobToSubmit = Submit-AzDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
-        
-        LogJobInformation $jobToSubmit
-        
-        Write-Output "Waiting for job to complete. Job ID:'{$($jobToSubmit.JobId)}', Name: '$($jobToSubmit.Name)' "
-        $jobResult = Wait-AzDataLakeAnalyticsJob -Account $ADLAAccountName -JobId $jobToSubmit.JobId  
-        LogJobInformation $jobResult
-    }
+      $jobToSubmit = Submit-AzDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
+
+      LogJobInformation $jobToSubmit
+
+      Write-Output "Waiting for job to complete. Job ID:'{$($jobToSubmit.JobId)}', Name: '$($jobToSubmit.Name)' "
+      $jobResult = Wait-AzDataLakeAnalyticsJob -Account $ADLAAccountName -JobId $jobToSubmit.JobId  
+      LogJobInformation $jobResult
+   }
 }
 
 Function LogJobInformation($jobInfo)
 {
-    Write-Output "************************************************************************"
-    Write-Output ([string]::Format("Job Id: {0}", $(DefaultIfNull $jobInfo.JobId)))
-    Write-Output ([string]::Format("Job Name: {0}", $(DefaultIfNull $jobInfo.Name)))
-    Write-Output ([string]::Format("Job State: {0}", $(DefaultIfNull $jobInfo.State)))
-    Write-Output ([string]::Format("Job Started at: {0}", $(DefaultIfNull  $jobInfo.StartTime)))
-    Write-Output ([string]::Format("Job Ended at: {0}", $(DefaultIfNull  $jobInfo.EndTime)))
-    Write-Output ([string]::Format("Job Result: {0}", $(DefaultIfNull $jobInfo.Result)))
-    Write-Output "************************************************************************"
+   Write-Output "************************************************************************"
+   Write-Output ([string]::Format("Job Id: {0}", $(DefaultIfNull $jobInfo.JobId)))
+   Write-Output ([string]::Format("Job Name: {0}", $(DefaultIfNull $jobInfo.Name)))
+   Write-Output ([string]::Format("Job State: {0}", $(DefaultIfNull $jobInfo.State)))
+   Write-Output ([string]::Format("Job Started at: {0}", $(DefaultIfNull  $jobInfo.StartTime)))
+   Write-Output ([string]::Format("Job Ended at: {0}", $(DefaultIfNull  $jobInfo.EndTime)))
+   Write-Output ([string]::Format("Job Result: {0}", $(DefaultIfNull $jobInfo.Result)))
+   Write-Output "************************************************************************"
 }
 
 Function DefaultIfNull($item)
 {
-    if ($item -ne $null)
-    {
-        return $item
-    }
-    return ""
+   if ($item -ne $null)
+   {
+      return $item
+   }
+   return ""
 }
 
 Function Main()
 {
-    Write-Output ([string]::Format("ADLA account: {0}", $ADLAAccountName))
-    Write-Output ([string]::Format("Root folde for usqlpack: {0}", $ArtifactsRoot))
-    Write-Output ([string]::Format("AU count: {0}", $DegreeOfParallelism))
+   Write-Output ([string]::Format("ADLA account: {0}", $ADLAAccountName))
+   Write-Output ([string]::Format("Root folde for usqlpack: {0}", $ArtifactsRoot))
+   Write-Output ([string]::Format("AU count: {0}", $DegreeOfParallelism))
 
-    Write-Output "Starting USQL script deployment..."
-    
-    SubmitAnalyticsJob
+   Write-Output "Starting USQL script deployment..."
 
-    Write-Output "Finished deployment..."
+   SubmitAnalyticsJob
+
+   Write-Output "Finished deployment..."
 }
 
 Main
 ```
 
 >[!NOTE]
-> I comandi: `Submit-AzDataLakeAnalyticsJob` e `Wait-AzDataLakeAnalyticsJob` sono entrambi Azure PowerShell cmdlet per Azure Data Lake Analytics in Azure Resource Manager Framework. Si neeed una workstation con Azure PowerShell installato. Per altri comandi ed esempi, è possibile fare riferimento all' [elenco](https://docs.microsoft.com/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) dei comandi.
+> I comandi: `Submit-AzDataLakeAnalyticsJob` e `Wait-AzDataLakeAnalyticsJob` sono entrambi Azure PowerShell cmdlet per Azure Data Lake Analytics in Azure Resource Manager Framework. Si neeed una workstation con Azure PowerShell installato. Per altri comandi ed esempi, è possibile fare riferimento all' [elenco](/powershell/module/Az.DataLakeAnalytics) dei comandi.
 >
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Distribuire i processi U-SQL tramite Azure Data Factory
 
-È possibile inviare i processi di U-SQL direttamente da Azure Pipelines. In alternativa, è possibile caricare gli script di compilazione in Azure Data Lake Store o Archiviazione BLOB di Azure ed [eseguire i processi pianificati tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+È possibile inviare i processi di U-SQL direttamente da Azure Pipelines. In alternativa, è possibile caricare gli script di compilazione in Azure Data Lake Store o Archiviazione BLOB di Azure ed [eseguire i processi pianificati tramite Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md).
 
-Usare l'[attività di Azure PowerShell](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure Pipelines con lo script di esempio di PowerShell seguente per caricare gli script U-SQL in un account di Azure Data Lake Store:
+Usare l'[attività di Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell) in Azure Pipelines con lo script di esempio di PowerShell seguente per caricare gli script U-SQL in un account di Azure Data Lake Store:
 
 ```powershell
 <#
-    This script can be used to upload U-SQL files to ADLS with given U-SQL project build output(.usqlpack file).
-    This will unzip the U-SQL project build output, and upload all scripts to ADLS one-by-one.
-          
-    Example :
-        FileUpload.ps1 -ADLSName "myadlsaccount" -ArtifactsRoot "C:\USQLProject\bin\debug\"
+   This script can be used to upload U-SQL files to ADLS with given U-SQL project build output(.usqlpack file).
+   This will unzip the U-SQL project build output, and upload all scripts to ADLS one-by-one.
+
+   Example :
+      FileUpload.ps1 -ADLSName "myadlsaccount" -ArtifactsRoot "C:\USQLProject\bin\debug\"
 #>
 
 param(
-    [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
-    [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
+   [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
+   [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
+   [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
 )
 
 Function UploadResources()
 {
-    Write-Host "************************************************************************"
-    Write-Host "Uploading files to $ADLSName"
-    Write-Host "***********************************************************************"
+   Write-Host "************************************************************************"
+   Write-Host "Uploading files to $ADLSName"
+   Write-Host "***********************************************************************"
 
-    $usqlScripts = GetUsqlFiles
+   $usqlScripts = GetUsqlFiles
 
-    $files = @(get-childitem $usqlScripts -recurse)
-    foreach($file in $files)
-    {
-        Write-Host "Uploading file: $($file.Name)"
-        Import-AzDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
-    }
+   $files = @(get-childitem $usqlScripts -recurse)
+   foreach($file in $files)
+   {
+      Write-Host "Uploading file: $($file.Name)"
+      Import-AzDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
+   }
 }
 
 function Unzip($USQLPackfile, $UnzipOutput)
 {
-    $USQLPackfileZip = Rename-Item -Path $USQLPackfile -NewName $([System.IO.Path]::ChangeExtension($USQLPackfile, ".zip")) -Force -PassThru
-    Expand-Archive -Path $USQLPackfileZip -DestinationPath $UnzipOutput -Force
-    Rename-Item -Path $USQLPackfileZip -NewName $([System.IO.Path]::ChangeExtension($USQLPackfileZip, ".usqlpack")) -Force
+   $USQLPackfileZip = Rename-Item -Path $USQLPackfile -NewName $([System.IO.Path]::ChangeExtension($USQLPackfile, ".zip")) -Force -PassThru
+   Expand-Archive -Path $USQLPackfileZip -DestinationPath $UnzipOutput -Force
+   Rename-Item -Path $USQLPackfileZip -NewName $([System.IO.Path]::ChangeExtension($USQLPackfileZip, ".usqlpack")) -Force
 }
 
 Function GetUsqlFiles()
 {
 
-    $USQLPackfiles = Get-ChildItem -Path $ArtifactsRoot -Include *.usqlpack -File -Recurse -ErrorAction SilentlyContinue
+   $USQLPackfiles = Get-ChildItem -Path $ArtifactsRoot -Include *.usqlpack -File -Recurse -ErrorAction SilentlyContinue
 
-    $UnzipOutput = Join-Path $ArtifactsRoot -ChildPath "UnzipUSQLScripts"
+   $UnzipOutput = Join-Path $ArtifactsRoot -ChildPath "UnzipUSQLScripts"
 
-    foreach ($USQLPackfile in $USQLPackfiles)
-    {
-        Unzip $USQLPackfile $UnzipOutput
-    }
+   foreach ($USQLPackfile in $USQLPackfiles)
+   {
+      Unzip $USQLPackfile $UnzipOutput
+   }
 
-    return Get-ChildItem -Path $UnzipOutput -Include *.usql -File -Recurse -ErrorAction SilentlyContinue
+   return Get-ChildItem -Path $UnzipOutput -Include *.usql -File -Recurse -ErrorAction SilentlyContinue
 }
 
 UploadResources
@@ -349,9 +352,11 @@ L'output della compilazione di un progetto di database U-SQL è un pacchetto di 
 
 L'aggiunta diretta di test case per le funzioni con valori di tabella e le stored procedure non è al momento supportata. In alternativa, è possibile creare un progetto U-SQL con script U-SQL per chiamare tali funzioni e scrivere i relativi test case. Per configurare i test case per le funzioni con valori di tabella e le stored procedure definite nel progetto di database U-SQL, seguire questa procedura:
 
-1.  Creare un progetto U-SQL a scopo di test e scrivere gli script U-SQL che chiamano le funzioni con valori di tabella e le stored procedure.
-2.  Aggiungere un riferimento a database al progetto U-SQL. Per ottenere la definizione di funzione con valori di tabella e di stored procedure, è necessario fare riferimento al progetto di database che contiene l'istruzione DDL. Leggere altre informazioni sui [riferimenti a database](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
-3.  Aggiungere test case per gli script U-SQL che chiamano le funzioni con valori di tabella e le stored procedure. Leggere le informazioni su come [aggiungere test case per gli script U-SQL](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
+1. Creare un progetto U-SQL a scopo di test e scrivere gli script U-SQL che chiamano le funzioni con valori di tabella e le stored procedure.
+
+1. Aggiungere un riferimento a database al progetto U-SQL. Per ottenere la definizione di funzione con valori di tabella e di stored procedure, è necessario fare riferimento al progetto di database che contiene l'istruzione DDL. Leggere altre informazioni sui [riferimenti a database](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
+
+1. Aggiungere test case per gli script U-SQL che chiamano le funzioni con valori di tabella e le stored procedure. Leggere le informazioni su come [aggiungere test case per gli script U-SQL](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Distribuzione di database U-SQL tramite Azure Pipelines
 
@@ -364,98 +369,98 @@ L'aggiunta diretta di test case per le funzioni con valori di tabella e le store
 
 Per configurare un'attività di distribuzione di database in Azure Pipelines, seguire questa procedura:
 
-1. Aggiungere un'attività di script di PowerShell in una pipeline di versione o di compilazione ed eseguire lo script di PowerShell seguente. Questa attività consente di ottenere le dipendenze di Azure SDK per `PackageDeploymentTool.exe` e `PackageDeploymentTool.exe`. È possibile impostare i parametri **-AzureSDK** e **-DBDeploymentTool** per caricare le dipendenze e lo strumento di distribuzione in cartelle specifiche. Passare il percorso **-AzureSDK** a `PackageDeploymentTool.exe` come parametro **-AzureSDKPath** nel passaggio 2. 
+1. Aggiungere un'attività di script di PowerShell in una pipeline di versione o di compilazione ed eseguire lo script di PowerShell seguente. Questa attività consente di ottenere le dipendenze di Azure SDK per `PackageDeploymentTool.exe` e `PackageDeploymentTool.exe`. È possibile impostare i parametri **-AzureSDK** e **-DBDeploymentTool** per caricare le dipendenze e lo strumento di distribuzione in cartelle specifiche. Passare il percorso **-AzureSDK** a `PackageDeploymentTool.exe` come parametro **-AzureSDKPath** nel passaggio 2.
 
-    ```powershell
-    <#
-        This script is used for getting dependencies and SDKs for U-SQL database deployment.
-        PowerShell command line support for deploying U-SQL database package(.usqldbpack file) will come soon.
+   ```powershell
+   <#
+      This script is used for getting dependencies and SDKs for U-SQL database deployment.
+      PowerShell command line support for deploying U-SQL database package(.usqldbpack file) will come soon.
 
-        Example :
-            GetUSQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
-    #>
+      Example :
+          GetUSQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
+   #>
 
-    param (
-        [string]$AzureSDK = "AzureSDK", # Folder to cache Azure SDK dependencies
-        [string]$DBDeploymentTool = "DBDeploymentTool", # Folder to cache U-SQL database deployment tool
-        [string]$workingfolder = "" # Folder to execute these command lines
-    )
+   param (
+      [string]$AzureSDK = "AzureSDK", # Folder to cache Azure SDK dependencies
+      [string]$DBDeploymentTool = "DBDeploymentTool", # Folder to cache U-SQL database deployment tool
+      [string]$workingfolder = "" # Folder to execute these command lines
+   )
 
-    if ([string]::IsNullOrEmpty($workingfolder))
-    {
-        $scriptpath = $MyInvocation.MyCommand.Path
-        $workingfolder = Split-Path $scriptpath
-    }
-    cd $workingfolder
+   if ([string]::IsNullOrEmpty($workingfolder))
+   {
+      $scriptpath = $MyInvocation.MyCommand.Path
+      $workingfolder = Split-Path $scriptpath
+   }
+   cd $workingfolder
 
-    echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
-    echo "Downloading required packages..."
+   echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
+   echo "Downloading required packages..."
 
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.5.1-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.4.1-preview -outf Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.3 -outf Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip
-    iwr https://www.nuget.org/api/v2/package/Newtonsoft.Json/6.0.8 -outf Newtonsoft.Json.6.0.8.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.DataLake.USQL.SDK/ -outf USQLSDK.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.5.1-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.4.1-preview -outf Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.3 -outf Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip
+   iwr https://www.nuget.org/api/v2/package/Newtonsoft.Json/6.0.8 -outf Newtonsoft.Json.6.0.8.zip
+   iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.DataLake.USQL.SDK/ -outf USQLSDK.zip
 
-    echo "Extracting packages..."
+   echo "Extracting packages..."
 
-    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview -Force
-    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.4.1-preview -Force
-    Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
-    Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
-    Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
-    Expand-Archive Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3 -Force
-    Expand-Archive Newtonsoft.Json.6.0.8.zip -DestinationPath Newtonsoft.Json.6.0.8 -Force
-    Expand-Archive USQLSDK.zip -DestinationPath USQLSDK -Force
+   Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview -Force
+   Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.4.1-preview -Force
+   Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
+   Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
+   Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
+   Expand-Archive Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3 -Force
+   Expand-Archive Newtonsoft.Json.6.0.8.zip -DestinationPath Newtonsoft.Json.6.0.8 -Force
+   Expand-Archive USQLSDK.zip -DestinationPath USQLSDK -Force
 
-    echo "Copy required DLLs to output folder..."
+   echo "Copy required DLLs to output folder..."
 
-    mkdir $AzureSDK -Force
-    mkdir $DBDeploymentTool -Force
-    copy Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview\lib\net452\*.dll $AzureSDK
-    copy Microsoft.Azure.Management.DataLake.Store.2.4.1-preview\lib\net452\*.dll $AzureSDK
-    copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $AzureSDK
-    copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $AzureSDK
-    copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $AzureSDK
-    copy Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3\lib\net452\*.dll $AzureSDK
-    copy Newtonsoft.Json.6.0.8\lib\net45\*.dll $AzureSDK
-    copy USQLSDK\build\runtime\*.* $DBDeploymentTool
-    ```
+   mkdir $AzureSDK -Force
+   mkdir $DBDeploymentTool -Force
+   copy Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview\lib\net452\*.dll $AzureSDK
+   copy Microsoft.Azure.Management.DataLake.Store.2.4.1-preview\lib\net452\*.dll $AzureSDK
+   copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $AzureSDK
+   copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $AzureSDK
+   copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $AzureSDK
+   copy Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3\lib\net452\*.dll $AzureSDK
+   copy Newtonsoft.Json.6.0.8\lib\net45\*.dll $AzureSDK
+   copy USQLSDK\build\runtime\*.* $DBDeploymentTool
+   ```
 
 2. Aggiungere un'**attività della riga di comando** in una pipeline di compilazione o di versione e compilare lo script chiamando `PackageDeploymentTool.exe`. `PackageDeploymentTool.exe` si trova nella cartella **$DBDeploymentTool** definita. Lo script di esempio è il seguente: 
 
-    * Distribuire un database U-SQL in locale:
+   - Distribuire un database U-SQL in locale:
 
-        ```
-        PackageDeploymentTool.exe deploylocal -Package <package path> -Database <database name> -DataRoot <data root path>
-        ```
+      ```cmd
+      PackageDeploymentTool.exe deploylocal -Package <package path> -Database <database name> -DataRoot <data root path>
+      ```
 
-    * Usare la modalità di autenticazione interattiva per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
+   - Usare la modalità di autenticazione interattiva per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
 
-        ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
-        ```
+      ```cmd
+      PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
+      ```
 
-    * Usare l'autenticazione **secrete** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
+   - Usare l'autenticazione **secrete** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
 
-        ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
-        ```
+      ```cmd
+      PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
+      ```
 
-    * Usare l'autenticazione **certFile** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
+   - Usare l'autenticazione **certFile** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
 
-        ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
-        ```
+      ```cmd
+      PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
+      ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Descrizione dei parametri di PackageDeploymentTool.exe
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Valore predefinito | Obbligatoria |
+| Parametro | Descrizione | Valore predefinito | Obbligatorio |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -464,13 +469,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Valore predefinito|Obbligatoria|
+|Parametro|Descrizione|Valore predefinito|Obbligatorio|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Valore predefinito|Obbligatoria|
+|Parametro|Descrizione|Valore predefinito|Obbligatorio|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|

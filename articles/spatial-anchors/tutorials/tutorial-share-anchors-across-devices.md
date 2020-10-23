@@ -8,33 +8,35 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358784"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097287"
 ---
-# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
+# <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere ancoraggi nello spazio tra sessioni e dispositivi
 
-Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per creare ancoraggi durante una sessione e quindi individuarli nello stesso dispositivo o in un differente. Questi stessi ancoraggi potrebbero anche essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
+Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. 
 
-![Animazione che mostra ancoraggi nello spazio di Azure creati con un dispositivo mobile e usati con un dispositivo diverso nel corso di vari giorni.](./media/persistence.gif)
+Questa esercitazione illustra come usare gli [ancoraggi nello spazio di Azure](../overview.md) per creare ancoraggi durante una sessione e quindi individuarli nello stesso dispositivo o in uno diverso. Questi stessi ancoraggi possono anche essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
 
-Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app che può essere distribuita in due o più dispositivi. Gli ancoraggi nello spazio di Azure creati da un'istanza possono essere condivisi con le altre.
+![Animazione che mostra gli ancoraggi nello spazio creati con un dispositivo mobile e usati con un dispositivo diverso nel corso dei giorni.](./media/persistence.gif)
 
-Si apprenderà come:
+
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Distribuire un'app Web ASP.NET Core in Azure che può essere usata per condividere ancoraggi, archiviandoli per un periodo di tempo.
-> * Configurare la scena AzureSpatialAnchorsLocalSharedDemo all'interno dell'esempio Unity disponibile negli avvi rapidi per sfruttare l'app Web di condivisione degli ancoraggi.
-> * Distribuire ed eseguire in uno o più dispositivi.
+> * Distribuire un'app Web ASP.NET Core in Azure che è possibile usare per condividere ancoraggi, quindi archiviare gli ancoraggi in memoria per un periodo di tempo specificato.
+> * Configurare la scena AzureSpatialAnchorsLocalSharedDemo all'interno dell'esempio Unity disponibile nelle guide di avvio rapido per sfruttare l'app Web di condivisione degli ancoraggi.
+> * Distribuire ed eseguire gli ancoraggi in uno o più dispositivi.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core solo per mostrare un esempio di condivisione degli identificatori di Ancoraggi nello spazio di Azure con altri dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo.
+> [!NOTE]
+> In questa esercitazione si useranno Unity e l'app Web ASP.NET Core, ma questo approccio si prefigge solo di fornire un esempio di come condividere gli identificatori di ancoraggi nello spazio di Azure con altri dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -42,21 +44,21 @@ Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core s
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-## <a name="deploy-your-sharing-anchors-service"></a>Distribuire il servizio di condivisione degli ancoraggi
+## <a name="deploy-the-sharing-anchors-service"></a>Distribuire il servizio di condivisione degli ancoraggi
 
 ## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
-Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`.
+Aprire Visual Studio e quindi aprire il progetto nella cartella *Sharing\SharingServiceSample*.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
 ## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
-Prima di distribuire il servizio in VS Code, è necessario creare un gruppo di risorse e un piano di servizio app.
+Prima di distribuire il servizio in Visual Studio Code, è necessario creare un gruppo di risorse e un piano di servizio app.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Passare al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a> e accedere alla propria sottoscrizione di Azure.
+Passare al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a> e quindi accedere alla propria sottoscrizione di Azure.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -64,7 +66,7 @@ Passare al <a href="https://portal.azure.com/" target="_blank">portale di Azure<
 
 Accanto a **Gruppo di risorse** selezionare **Nuovo**.
 
-Assegnare al gruppo di risorse il nome **myResourceGroup** e selezionare **OK**.
+Assegnare al gruppo di risorse il nome **myResourceGroup** e quindi selezionare **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
@@ -72,17 +74,19 @@ Assegnare al gruppo di risorse il nome **myResourceGroup** e selezionare **OK**.
 
 Accanto a **Piano di hosting** selezionare **Nuovo**.
 
-Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni seguenti:
+Nel riquadro **Configura piano di hosting** usare queste impostazioni:
 
 | Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
-|Piano di servizio app| MySharingServicePlan | Nome del piano di servizio app. |
-| Location | Stati Uniti occidentali | Data center in cui è ospitata l'app Web. |
-| Dimensione | Gratuito | Il [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting. |
+|Piano di servizio app| MySharingServicePlan | Nome del piano di servizio app |
+| Location | Stati Uniti occidentali | Il data center in cui viene ospitata l'app Web |
+| Dimensione | Gratuito | Il [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting |
 
 Selezionare **OK**.
 
-Aprire Visual Studio Code e il progetto nella cartella `Sharing\SharingServiceSample`. Seguire <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">questa esercitazione</a> per distribuire il servizio di condivisione tramite Visual Studio Code. È possibile seguire la procedura a partire dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto ASP.NET come illustrato nel passaggio precedente perché si dispone già del progetto da distribuire e pubblicare, ovvero SharingServiceSample.
+Aprire Visual Studio Code e quindi aprire il progetto nella cartella *Sharing\SharingServiceSample*. 
+
+Per distribuire il servizio di condivisione tramite Visual Studio Code, seguire le istruzioni riportate in <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code</a>. Iniziare dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto ASP.NET come illustrato nel passaggio precedente, perché è già disponibile un progetto da distribuire e pubblicare, ovvero SharingServiceSample.
 
 ---
 
@@ -96,8 +100,7 @@ Aprire Visual Studio Code e il progetto nella cartella `Sharing\SharingServiceSa
 
 In questa esercitazione è stata distribuita un'app Web ASP.NET Core in Azure, quindi è stata configurata e distribuita un'app Unity. Sono stati creati ancoraggi nello spazio con l'app, successivamente condivisi con altri dispositivi tramite l'app Web ASP.NET Core.
 
-È possibile migliorare l'app Web ASP.NET Core in modo che usi Azure Cosmos DB per rendere permanente l'archiviazione degli identificatori di Ancoraggio nello spazio condivisi. Con l'aggiunta del supporto di Azure Cosmos DB, l'app Web ASP.NET Core potrà creare un ancoraggio oggi, tornare dopo alcuni giorni ed essere ancora in grado di individuarlo usando l'identificatore di ancoraggio archiviato nell'app Web.
+È possibile migliorare l'app Web ASP.NET Core in modo che usi Azure Cosmos DB per rendere permanente l'archiviazione degli identificatori di ancoraggi nello spazio condivisi. Aggiungendo il supporto di Azure Cosmos DB, l'app Web ASP.NET Core può creare un ancoraggio immediatamente. Quindi, usando l'identificatore dell'ancoraggio archiviato nell'app Web, è possibile usare l'app dopo diversi giorni per individuare di nuovo l'ancoraggio.
 
 > [!div class="nextstepaction"]
-> [Usare Azure Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)
-
+> [Usare Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)

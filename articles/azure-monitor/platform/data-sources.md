@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802065"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107947"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -20,7 +20,7 @@ Questo articolo descrive le diverse origini dei dati di monitoraggio raccolti da
 
 ## <a name="application-tiers"></a>Livelli di applicazione
 
-Le origini dei dati di monitoraggio delle applicazioni Azure possono essere organizzate in livelli, i livelli più elevati sono l'applicazione stessa e i livelli inferiori sono componenti della piattaforma Azure. Il metodo di accesso ai dati di ogni livello varia. I livelli applicazione sono riepilogati nella tabella seguente e le origini dei dati di monitoraggio in ogni livello sono presentate nelle sezioni seguenti. Per una descrizione di ogni posizione dei dati e per informazioni su come accedere ai dati, vedere [monitoraggio dei percorsi dati in Azure](data-locations.md) .
+Le origini dei dati di monitoraggio delle applicazioni Azure possono essere organizzate in livelli, i livelli più elevati sono l'applicazione stessa e i livelli inferiori sono componenti della piattaforma Azure. Il metodo di accesso ai dati di ogni livello varia. I livelli applicazione sono riepilogati nella tabella seguente e le origini dei dati di monitoraggio in ogni livello sono presentate nelle sezioni seguenti. Per una descrizione di ogni posizione dei dati e per informazioni su come accedere ai dati, vedere [monitoraggio dei percorsi dati in Azure](../monitor-reference.md) .
 
 
 ![Livelli di monitoraggio](../media/overview/overview.png)
@@ -106,7 +106,7 @@ I requisiti di configurazione e il contenuto dei log delle risorse variano in ba
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Inviare i log delle risorse ai log di monitoraggio di Azure per l'analisi con altri dati di log raccolti. | [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure](./resource-logs.md#send-to-azure-storage) |
-| Archiviazione: | Inviare i log delle risorse ad archiviazione di Azure per l'archiviazione. | [Archiviare i log delle risorse di Azure](./resource-logs.md#send-to-log-analytics-workspace) |
+| Archiviazione | Inviare i log delle risorse ad archiviazione di Azure per l'archiviazione. | [Archiviare i log delle risorse di Azure](./resource-logs.md#send-to-log-analytics-workspace) |
 | Hub eventi | Trasmettere i log delle risorse ad altre posizioni usando gli hub eventi. |[Trasmettere i log delle risorse di Azure a un hub eventi](./resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>Sistema operativo (Guest)
@@ -119,7 +119,7 @@ L'abilitazione dell'estensione Diagnostica di Azure per macchine virtuali di Azu
 
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
-| Archiviazione: | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione Diagnostica di Azure per Windows (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Archiviazione | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione Diagnostica di Azure per Windows (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Metriche di Monitoraggio di Azure | Quando si configura l'estensione di diagnostica per raccogliere i contatori delle prestazioni, questi vengono scritti nel database di metriche di monitoraggio di Azure. | [Inviare metriche del sistema operativo guest all'archivio delle metriche di monitoraggio di Azure usando un modello di Gestione risorse per una macchina virtuale Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Hub eventi | Configurare l'estensione di diagnostica per trasmettere i dati in altri percorsi tramite hub eventi.  | [Streaming di dati Diagnostica di Azure tramite hub eventi](diagnostics-extension-stream-event-hubs.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Log di Application Insights | Raccogliere i log e i contatori delle prestazioni dalla risorsa di calcolo che supporta l'applicazione per l'analisi con altri dati dell'applicazione. | [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](diagnostics-extension-to-application-insights.md) |
@@ -208,4 +208,4 @@ Altri servizi in Azure scrivono i dati nella piattaforma dati di monitoraggio di
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sui [tipi di dati di monitoraggio raccolti da Monitoraggio di Azure](data-platform.md) e su come visualizzare e analizzare i dati.
-- Elenca le [diverse posizioni in cui le risorse di Azure archiviano i dati](data-locations.md) e come è possibile accedervi. 
+- Elenca le [diverse posizioni in cui le risorse di Azure archiviano i dati](../monitor-reference.md) e come è possibile accedervi.

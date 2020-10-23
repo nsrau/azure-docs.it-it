@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567537"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328188"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametri globali in Azure Data Factory
 
@@ -52,7 +52,7 @@ Per la maggior parte dei casi d'uso, è consigliabile includere i parametri glob
 
 ![Includi nel modello ARM](media/author-global-parameters/include-arm-template.png)
 
-L'aggiunta di parametri globali al modello ARM aggiunge un'impostazione a livello di factory che può eseguire l'override di altre impostazioni a livello di Factory, ad esempio una chiave gestita dal cliente o una configurazione git in altri ambienti. Se queste impostazioni sono abilitate in un ambiente con privilegi elevati, ad esempio UAT o PROD, è preferibile distribuire i parametri globali tramite uno script di PowerShell nei passaggi indicati di seguito.
+Se si aggiungono parametri globali al modello ARM, viene aggiunta un'impostazione a livello di factory che sostituisce altre impostazioni a livello di Factory, ad esempio una chiave gestita dal cliente o una configurazione git in altri ambienti. Se queste impostazioni sono abilitate in un ambiente con privilegi elevati, ad esempio UAT o PROD, è preferibile distribuire i parametri globali tramite uno script di PowerShell nei passaggi indicati di seguito.
 
 ### <a name="deploying-using-powershell"></a>Distribuzione tramite PowerShell
 

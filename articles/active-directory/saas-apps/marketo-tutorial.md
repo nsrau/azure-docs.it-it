@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b8874d8813d6200c915778841c26e77b02e434
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 764f01fa5966a6620612405b4df37fc5ff44f33a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554873"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Esercitazione: Integrazione di Azure Active Directory con Marketo
 
@@ -130,15 +130,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa
    
     b. Fare clic sul pulsante **Admin** (Amministratore) nel riquadro di spostamento in alto.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Screenshot che mostra il pulsante Admin selezionato nel riquadro di spostamento.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Passare al menu Integration (Integrazione) e fare clic sul **collegamento Munchkin**.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_11.png)
+    ![Screenshot che mostra il collegamento Munchkin selezionato nel menu Integration.](./media/marketo-tutorial/tutorial_marketo_11.png)
    
     d. Copiare l'ID Munchkin visualizzato sullo schermo e completare il valore per l'URL di risposta nella configurazione guidata di Azure AD.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_12.png) 
+    ![Screenshot che mostra la pagina Munchkin in cui è possibile copiare l'Account I D.](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
 2. Per configurare l'accesso Single Sign-On nell'applicazione, seguire questa procedura:
    
@@ -146,15 +146,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa
    
     b. Fare clic sul pulsante **Admin** (Amministratore) nel riquadro di spostamento in alto.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Screenshot che mostra il pulsante Admin selezionato nel riquadro di spostamento.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Passare al menu Integration (Integrazione) e fare clic su **Single Sign-On**.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_07.png) 
+    ![Screenshot che mostra l'opzione Single Sign-On selezionata nel menu Integration.](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
     d. Per abilitare le impostazioni SAML fare clic sul pulsante **Edit** (Modifica).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_08.png) 
+    ![Screenshot che mostra S S O Settings in cui è possibile selezionare EDIT.](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
     e. Impostazioni dell'accesso Single Sign-On **abilitate**.
    
@@ -164,7 +164,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa
    
     h. Selezionare User ID Location (Percorso ID utente) come **elemento Name Identifier** (Identificatore nome).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_09.png)
+    ![Screenshot che mostra la sezione Edit SAML Settings in cui è possibile immettere i valori descritti.](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > Se l'identificatore utente non è un valore UPN, modificarlo nella scheda degli attributi.
@@ -179,7 +179,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa
    
     m. In **Error URL** (URL errore) copiare l'**URL istanza** di Marketo e fare clic su **Save** (Salva) per salvare le impostazioni.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_10.png)
+    ![Screenshot che mostra la finestra di dialogo Edit Redirect Pages in cui è possibile immettere i valori descritti.](./media/marketo-tutorial/tutorial_marketo_10.png)
 
 3. Per abilitare l'accesso Single Sign-On per gli utenti, completare le azioni seguenti:
    
@@ -187,15 +187,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa
    
     b. Fare clic sul pulsante **Admin** (Amministratore) nel riquadro di spostamento in alto.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Screenshot che mostra il pulsante Admin selezionato nel riquadro di spostamento.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Passare al menu **Security** (Sicurezza) e fare clic su **Login Settings** (Impostazioni di accesso).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_13.png)
+    ![Screenshot che mostra l'opzione Login Settings selezionata in Security.](./media/marketo-tutorial/tutorial_marketo_13.png)
    
     d. Selezionare l'opzione **Require SSO** (Richiedi SSO) e usare **Save** (Salva) per salvare le impostazioni.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_14.png)
+    ![Screenshot che mostra la sezione Password Strength Settings in cui è possibile selezionare Require S S O.](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -256,21 +256,21 @@ In questa sezione viene creato un utente chiamato Britta Simon in Marketo. Segui
 
 2. Fare clic sul pulsante **Admin** (Amministratore) nel riquadro di spostamento in alto.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Screenshot che mostra il pulsante Admin selezionato nel riquadro di spostamento.](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
 3. Passare al menu **Security** (Sicurezza) e fare clic su **Users & Roles** (Utenti e ruoli).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_19.png)  
+    ![Screenshot che mostra l'opzione Users & Roles selezionata in Security.](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
 4. Fare clic sul collegamento **Invite New User** (Invita nuovo utente) nella scheda Users (Utenti).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_15.png) 
+    ![Screenshot che mostra il collegamento Invite New User nella scheda Users.](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
 5. La procedura guidata (Invita nuovo utente) immetterà i valori per le informazioni seguenti.
    
     a. Immettere l'indirizzo di **Email** (Posta elettronica) dell'utente nella casella di testo.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_16.png)
+    ![Screenshot che mostra il primo passaggio della procedura guidata Invite New User in cui immettere le informazioni sull'utente.](./media/marketo-tutorial/tutorial_marketo_16.png)
    
     b. Immettere il valore per **First Name** (Nome) nella casella di testo.
    
@@ -280,10 +280,10 @@ In questa sezione viene creato un utente chiamato Britta Simon in Marketo. Segui
 
 6. Nella scheda **Permissions** (Autorizzazioni) selezionare i **ruoli utente** e fare clic su **Next** (Avanti).
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_17.png)
+    ![Screenshot che mostra il primo passaggio della procedura guidata Invite New User in cui immettere le autorizzazioni.](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. Fare clic sul pulsante **Send** (Invia) per inoltrare l'invito all'utente.
    
-    ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_18.png)
+    ![Screenshot che mostra il primo passaggio della procedura guidata Invite New User in cui immettere il messaggio.](./media/marketo-tutorial/tutorial_marketo_18.png)
 
 8. L'utente riceve la notifica tramite posta elettronica e deve fare clic sul collegamento e modificare la password per attivare l'account. 
 

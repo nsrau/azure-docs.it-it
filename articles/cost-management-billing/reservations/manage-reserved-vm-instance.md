@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400127"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151624"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -110,7 +110,7 @@ Per delegare la gestione dell'accesso per una prenotazione:
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifica l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate
 
- Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
+ Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
 
 Per impostazione predefinita, quando l'ambito della prenotazione è condiviso, la flessibilità delle dimensioni istanza è attiva. La capacità del data center non viene classificata per le distribuzioni di macchine virtuali.
 
@@ -173,7 +173,7 @@ Acquistare un piano di servizio:
 - [Pagare in anticipo le risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Acquistare un piano software:
-- [Pagare in anticipo i piani software Red Hat dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Pagare in anticipo i piani software Red Hat dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Informazioni su sconti e utilizzo:

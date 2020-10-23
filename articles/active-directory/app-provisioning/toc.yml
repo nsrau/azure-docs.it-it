@@ -5,6 +5,8 @@
   items:
     - name: Che cos'è il provisioning di applicazioni?
       href: user-provisioning.md
+    - name: Novità della documentazione
+      href: whats-new-docs.md
 - name: Esercitazioni
   expanded: true
   items:

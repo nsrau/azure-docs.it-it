@@ -1,14 +1,14 @@
 ---
 title: Gestione dell'agente server abilitati per Azure Arc
 description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita di Azure Arc Enabled Servers Connected computer Agent.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5161bd097809f1feb6f84b07e07c63d06d0a9c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254993"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371427"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -138,7 +138,7 @@ Le azioni del comando [yum](https://access.redhat.com/articles/yum-cheat-sheet),
     zypper update
     ```
 
-Le azioni del comando [zypper](https://en.opensuse.org/Portal:Zypper), ad esempio l'installazione e la rimozione di pacchetti, vengono registrate nel file di log `/var/log/zypper.log`. 
+Le azioni del comando [zypper](https://en.opensuse.org/Portal:Zypper), ad esempio l'installazione e la rimozione di pacchetti, vengono registrate nel file di log `/var/log/zypper.log`.
 
 ## <a name="about-the-azcmagent-tool"></a>Informazioni sullo strumento Azcmagent
 
@@ -148,9 +148,11 @@ Lo strumento Azcmagent (Azcmagent.exe) viene usato per configurare l'agente comp
 
 * **Disconnetti**: permette di disconnettere il computer da Azure Arc
 
-* **Riconnetti**: permette di riconnettere un computer disconnesso ad Azure Arc
+* **Mostra**: permette di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che possono essere utili per la risoluzione di eventuali problemi con l'agente. Includere il `-j` parametro per restituire i risultati in formato JSON.
 
-* **Mostra**: permette di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che possono essere utili per la risoluzione di eventuali problemi con l'agente.
+* **Logs** : crea un file con estensione zip nella directory corrente contenente i log che facilitano la risoluzione dei problemi.
+
+* **Versione** : Mostra la versione dell'agente del computer connesso.
 
 * **-h o --help**: mostra i parametri della riga di comando disponibili
 
@@ -158,7 +160,7 @@ Lo strumento Azcmagent (Azcmagent.exe) viene usato per configurare l'agente comp
 
 * **-v o --verbose**: permette di abilitare la registrazione dettagliata
 
-È possibile eseguire un comando **Connetti**, **Disconnetti** e **Riconnetti** manualmente durante l'accesso in modo interattivo oppure automatizzarlo mediante la stessa entità servizio usata per caricare più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md) della piattaforma di identità Microsoft. Se non è stata usata un'entità servizio per registrare il computer con i server abilitati per Azure Arc, vedere l' [articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
+È possibile eseguire manualmente la **connessione** e la **disconnessione** mentre si è connessi in modo interattivo oppure automatizzare usando la stessa entità servizio usata per caricare più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md)della piattaforma Microsoft Identity. Se non è stata usata un'entità servizio per registrare il computer con i server abilitati per Azure Arc, vedere l' [articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
 
 >[!NOTE]
 >Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
@@ -198,28 +200,7 @@ Per disconnettersi mediante un token di accesso, eseguire il comando seguente:
 
 Per disconnettersi con le credenziali di accesso con privilegi elevati (interattive), eseguire il comando seguente:
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Riconnetti
-
-> [!WARNING]
-> Il `reconnect` comando è deprecato e non deve essere usato. Il comando verrà rimosso in una versione futura dell'agente e gli agenti esistenti non saranno in grado di completare la richiesta di riconnessione. Disconnettere [disconnect](#disconnect) il computer, quindi [riconnetterlo](#connect) .
-
-Questo parametro riconnette il computer già registrato o connesso con i server abilitati per Azure Arc. Questa operazione può essere necessaria, se il computer è stato spento per almeno 45 giorni, per la scadenza del certificato. Questo parametro usa le opzioni di autenticazione fornite per recuperare le nuove credenziali corrispondenti alla risorsa di Azure Resource Manager che rappresenta il computer.
-
-Questo comando richiede privilegi più elevati rispetto al ruolo di [Onboarding di Azure Connected Machine](agent-overview.md#required-permissions).
-
-Per connettersi nuovamente mediante un'entità servizio, eseguire il comando seguente:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Per connettersi nuovamente mediante un token di accesso, eseguire il comando seguente:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Per connettersi nuovamente con le credenziali di accesso con privilegi elevati (interattive), eseguire il comando seguente:
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Rimuovere l'agente
 
@@ -344,4 +325,4 @@ sudo azcmagent_proxy remove
 
 * Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
 
-* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).

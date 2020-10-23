@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370135"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Esercitazione: Assegnare il ruolo con autorizzazioni di lettura nella directory a un gruppo di Azure AD e gestire le assegnazioni di ruolo
 
@@ -23,9 +23,9 @@ ms.locfileid: "91278040"
 > [!NOTE]
 > L'assegnazione del **ruolo con autorizzazioni di lettura nella directory** a un gruppo in questo articolo è in **anteprima pubblica**. 
 
-Questo articolo illustra come creare un gruppo in Azure Active Directory (Azure AD) e come assegnare tale gruppo al [**ruolo con autorizzazioni di lettura nella directory**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Le autorizzazioni del ruolo con autorizzazioni di lettura nella directory consentono ai proprietari del gruppo di aggiungere altri membri al gruppo, ad esempio un'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) di [database SQL di Azure](sql-database-paas-overview.md), [Istanza gestita di SQL di Azure ](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). In questo modo si evita che un [amministratore globale](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o un [amministratore ruolo con privilegi](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) debba assegnare il ruolo con autorizzazioni di lettura nella directory direttamente per ogni identità del server logico SQL di Azure nel tenant.
+Questo articolo illustra come creare un gruppo in Azure Active Directory (Azure AD) e come assegnare tale gruppo al [**ruolo con autorizzazioni di lettura nella directory**](../../active-directory/roles/permissions-reference.md#directory-readers). Le autorizzazioni del ruolo con autorizzazioni di lettura nella directory consentono ai proprietari del gruppo di aggiungere altri membri al gruppo, ad esempio un'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) di [database SQL di Azure](sql-database-paas-overview.md), [Istanza gestita di SQL di Azure ](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). In questo modo si evita che un [amministratore globale](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o un [amministratore ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) debba assegnare il ruolo con autorizzazioni di lettura nella directory direttamente per ogni identità del server logico SQL di Azure nel tenant.
 
-Questa esercitazione usa la funzionalità introdotta in [Usare i gruppi cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../../active-directory/users-groups-roles/roles-groups-concept.md). 
+Questa esercitazione usa la funzionalità introdotta in [Usare i gruppi cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../../active-directory/roles/groups-concept.md). 
 
 Per altre informazioni sui vantaggi derivanti dall'assegnazione del ruolo con autorizzazioni di lettura nella directory a un gruppo di Azure AD per Azure SQL, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -38,7 +38,7 @@ Per altre informazioni sui vantaggi derivanti dall'assegnazione del ruolo con au
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>Creare un nuovo gruppo e assegnare i proprietari e i ruoli
 
-1. Per questa configurazione iniziale è necessario un utente con autorizzazioni di [amministratore globale](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Per questa configurazione iniziale è necessario un utente con autorizzazioni di [amministratore globale](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator).
 1. L'utente con privilegi dovrà accedere al [portale di Azure](https://portal.azure.com).
 1. Passare alla risorsa **Azure Active Directory**. In **Gestita** passare a **Gruppi**. Selezionare **Nuovo gruppo** per creare un nuovo gruppo.
 1. Selezionare **Sicurezza** come tipo di gruppo e compilare gli altri campi. Assicurarsi che l'impostazione **I ruoli di Azure AD possono essere assegnati al gruppo (anteprima)** venga impostata su **Sì**. Assegnare quindi al gruppo il **ruolo con autorizzazioni di lettura nella directory** di Azure AD.
@@ -94,7 +94,7 @@ Quando si configura un amministratore di Azure AD per il server logico, non è n
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Assegnazione del ruolo con autorizzazioni di lettura nella directory con PowerShell
 
 > [!IMPORTANT]
-> Queste procedure iniziali dovranno essere eseguite da un [amministratore globale](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator). Oltre a PowerShell, Azure AD offre l'API Microsoft Graph per [Creare un gruppo a cui è possibile assegnare ruoli in Azure AD](../../active-directory/users-groups-roles/roles-groups-create-eligible.md#using-microsoft-graph-api).
+> Queste procedure iniziali dovranno essere eseguite da un [amministratore globale](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator). Oltre a PowerShell, Azure AD offre l'API Microsoft Graph per [Creare un gruppo a cui è possibile assegnare ruoli in Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Importare quindi il modulo di Azure AD PowerShell (anteprima) usando questo comando. Potrebbe essere necessario eseguire PowerShell come amministratore.
 

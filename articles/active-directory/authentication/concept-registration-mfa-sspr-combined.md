@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965149"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424567"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
@@ -34,7 +34,7 @@ Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a
 
 Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata sull'amministratore e la documentazione incentrata sull'utente per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità. Basare il training sulla [documentazione dell'utente](../user-help/security-info-setup-signin.md) per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
 
-Azure AD registrazione di informazioni di sicurezza combinata non è attualmente disponibile per i cloud nazionali come Azure US Government, Azure Germania o Azure Cina 21Vianet.
+Azure AD registrazione di informazioni di sicurezza combinata non è attualmente disponibile per i cloud nazionali come Azure Germania o Azure Cina 21Vianet. È disponibile per il governo degli Stati Uniti di Azure.
 
 > [!IMPORTANT]
 > Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata visualizzano il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze visualizzano solo la nuova esperienza profilo personale. Il nuovo *profilo* è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
@@ -51,7 +51,7 @@ Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<languag
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-| Metodo | Register | Modifica | Eliminazione |
+| Metodo | Register | Modifica | Delete |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
@@ -59,7 +59,7 @@ La registrazione combinata supporta le azioni e i metodi di autenticazione segue
 | Telefono | Sì | Sì | Sì |
 | Telefono alternativo | Sì | Sì | Sì |
 | Telefono ufficio | No | No | No |
-| Email | Sì | Sì | Sì |
+| E-mail | Sì | Sì | Sì |
 | Domande di sicurezza | Sì | No | Sì |
 | Password dell'app | Sì | No | Sì |
 | Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |

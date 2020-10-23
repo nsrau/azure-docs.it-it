@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044199"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171924"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -65,16 +65,16 @@ Questo metodo accetta un payload JSON con lo schema seguente:
 
 | Nome | Type | Descrizione |
 |-|-|-|
-| schemaVersion | Stringa | Impostare su `1.0` |
+| schemaVersion | string | Impostare su `1.0` |
 | items | Matrice JSON | Matrice con `id` `filter` Tuple e. |
-| ID | Stringa | Espressione regolare che fornisce il nome del modulo. Può corrispondere a più moduli in un dispositivo perimetrale. È previsto il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . |
+| ID | string | Espressione regolare che fornisce il nome del modulo. Può corrispondere a più moduli in un dispositivo perimetrale. È previsto il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sezione JSON | Filtri di log da applicare ai moduli corrispondenti all' `id` espressione regolare nella tupla. |
 | coda | numero intero | Numero di righe di log nel passato da recuperare a partire dall'ultima. FACOLTATIVO |
 | since | numero intero | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX.  Se `tail` `since` vengono specificati sia che, i log vengono recuperati usando `since` prima il valore. Quindi, il `tail` valore viene applicato al risultato e viene restituito il risultato finale. FACOLTATIVO |
 | until | numero intero | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
 | livello di registrazione | numero intero | Filtrare le righe di log inferiori o uguali al livello di log specificato. Le linee di log devono seguire il formato di registrazione consigliato e usare lo standard del [livello di gravità syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . FACOLTATIVO |
-| regex | Stringa | Filtrare le righe di log con contenuto corrispondente all'espressione regolare specificata utilizzando il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . FACOLTATIVO |
-| codifica | Stringa | `gzip` o `none`. Il valore predefinito è `none`. |
+| regex | string | Filtrare le righe di log con contenuto corrispondente all'espressione regolare specificata utilizzando il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . FACOLTATIVO |
+| codifica | string | `gzip` o `none`. Il valore predefinito è `none`. |
 | contentType | string | `json` o `text`. Il valore predefinito è `text`. |
 
 > [!NOTE]
@@ -275,7 +275,7 @@ Questo metodo accetta un payload JSON con lo schema seguente:
 
 | Nome | Type | Descrizione |
 |-|-|-|
-| schemaVersion | Stringa | Impostare su `1.0` |
+| schemaVersion | string | Impostare su `1.0` |
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | since | numero intero | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX. FACOLTATIVO |
 | until | numero intero | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
@@ -370,7 +370,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-Nel portale di Azure richiamare il metodo con il nome del metodo `UploadModuleLogs` e il payload JSON seguente dopo aver compilato il GUID con le informazioni:
+Nel portale di Azure richiamare il metodo con il nome del metodo `GetTaskStatus` e il payload JSON seguente dopo aver compilato il GUID con le informazioni:
 
 ```json
     {

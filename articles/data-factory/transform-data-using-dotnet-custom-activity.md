@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276496"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368996"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
@@ -310,7 +310,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperare gli output SecureString
 
-I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio:
+I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Esempio:
 
 ```json
 "extendedProperties": {
@@ -387,5 +387,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
+* [Attività di esecuzione batch Azure Machine Learning Studio (classica)](transform-data-using-machine-learning.md)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

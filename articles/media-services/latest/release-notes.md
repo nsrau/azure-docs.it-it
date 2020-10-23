@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015703"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426812"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -335,9 +335,9 @@ Sono stati introdotti i miglioramenti seguenti:
 
 Il nuovo oggetto **Transform** semplifica il modello di codifica. Consente infatti di creare e condividere facilmente set di impostazioni e modelli di codifica di Resource Manager. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Autenticazione e controllo degli accessi in base al ruolo di Azure Active Directory
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Autenticazione Azure Active Directory e RBAC di Azure
 
-L'autenticazione e il controllo degli accessi in base al ruolo di Azure AD consentono trasformazioni sicure, LiveEvent, criteri di chiave simmetrica e asset in base al ruolo o agli utenti in Azure AD.
+Autenticazione di Azure AD e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consentono trasformazioni sicure, LiveEvents, criteri chiave simmetrica o risorse per ruolo o utenti in Azure AD.
 
 #### <a name="client-sdks"></a>Client SDK  
 

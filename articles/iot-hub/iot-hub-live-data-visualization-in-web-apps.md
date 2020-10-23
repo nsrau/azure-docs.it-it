@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327566"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146677"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
 
-I [gruppi di consumer](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) offrono visualizzazioni indipendenti nel flusso di eventi che consentono alle app e ai servizi di Azure di usare i dati in modo indipendente dallo stesso endpoint dell'hub eventi. In questa sezione si aggiunge un gruppo di consumer all'endpoint predefinito dell'hub IoT che l'app Web userà per leggere i dati.
+I [gruppi di consumer](../event-hubs/event-hubs-features.md#event-consumers) offrono visualizzazioni indipendenti nel flusso di eventi che consentono alle app e ai servizi di Azure di usare i dati in modo indipendente dallo stesso endpoint dell'hub eventi. In questa sezione si aggiunge un gruppo di consumer all'endpoint predefinito dell'hub IoT che l'app Web userà per leggere i dati.
 
 Eseguire il comando seguente per aggiungere un gruppo di consumer all'endpoint predefinito dell'hub IoT:
 
@@ -156,11 +156,11 @@ Si dovrebbe visualizzare anche l'output nella console che mostra i messaggi tras
 
 ## <a name="host-the-web-app-in-app-service"></a>Ospitare l'app Web nel Servizio app di Azure
 
-La [funzionalità app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/overview) offre una piattaforma distribuita come servizio (PAAS) per l'hosting di applicazioni Web. Le applicazioni Web ospitate nel Servizio app di Azure possono trarre vantaggio dalle potenti funzionalità di Azure, ad esempio sicurezza aggiuntiva, bilanciamento del carico e scalabilità, nonché soluzioni DevOps di Azure e partner come la distribuzione continua, la gestione dei pacchetti e così via. Il Servizio app di Azure supporta applicazioni Web sviluppate in molti linguaggi comuni e distribuite in un'infrastruttura Windows o Linux.
+La [funzionalità app Web del Servizio app di Azure](../app-service/overview.md) offre una piattaforma distribuita come servizio (PAAS) per l'hosting di applicazioni Web. Le applicazioni Web ospitate nel Servizio app di Azure possono trarre vantaggio dalle potenti funzionalità di Azure, ad esempio sicurezza aggiuntiva, bilanciamento del carico e scalabilità, nonché soluzioni DevOps di Azure e partner come la distribuzione continua, la gestione dei pacchetti e così via. Il Servizio app di Azure supporta applicazioni Web sviluppate in molti linguaggi comuni e distribuite in un'infrastruttura Windows o Linux.
 
-In questa sezione si esegue il provisioning di un'app Web in Servizio app e si distribuisce il codice usando i comandi dell'interfaccia della riga di comando di Azure. Per informazioni dettagliate sui comandi usati, vedere la documentazione di [AZ webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest). Prima di iniziare, assicurarsi di aver completato i passaggi per [aggiungere un gruppo di risorse all'hub IoT](#add-a-consumer-group-to-your-iot-hub), [ottenere una stringa di connessione del servizio per l'hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [scaricare l'app Web da GitHub](#download-the-web-app-from-github).
+In questa sezione si esegue il provisioning di un'app Web in Servizio app e si distribuisce il codice usando i comandi dell'interfaccia della riga di comando di Azure. Per informazioni dettagliate sui comandi usati, vedere la documentazione di [AZ webapp](/cli/azure/webapp?view=azure-cli-latest). Prima di iniziare, assicurarsi di aver completato i passaggi per [aggiungere un gruppo di risorse all'hub IoT](#add-a-consumer-group-to-your-iot-hub), [ottenere una stringa di connessione del servizio per l'hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [scaricare l'app Web da GitHub](#download-the-web-app-from-github).
 
-1. Un [piano di servizio app](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) definisce un set di risorse di calcolo per l'esecuzione di un'app ospitata in Servizio app. In questa esercitazione per ospitare l'app Web viene usato il livello Sviluppatore/gratuito. Con il livello gratuito, l'app Web viene eseguita su risorse Windows condivise con altre app del servizio app, incluse le app di altri clienti. Azure offre anche piani di servizio app per distribuire app Web in risorse di calcolo Linux. Se si dispone già di un piano di servizio app che si desidera usare, è possibile ignorare questo passaggio.
+1. Un [piano di servizio app](../app-service/overview-hosting-plans.md) definisce un set di risorse di calcolo per l'esecuzione di un'app ospitata in Servizio app. In questa esercitazione per ospitare l'app Web viene usato il livello Sviluppatore/gratuito. Con il livello gratuito, l'app Web viene eseguita su risorse Windows condivise con altre app del servizio app, incluse le app di altri clienti. Azure offre anche piani di servizio app per distribuire app Web in risorse di calcolo Linux. Se si dispone già di un piano di servizio app che si desidera usare, è possibile ignorare questo passaggio.
 
    Per creare un piano di servizio app usando il livello gratuito di Windows, eseguire il comando seguente. Usare lo stesso gruppo di risorse usato dall'hub IoT dell'utente. Il nome del piano di servizio può contenere lettere maiuscole e minuscole, numeri e trattini.
 
@@ -187,7 +187,7 @@ In questa sezione si esegue il provisioning di un'app Web in Servizio app e si d
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Per distribuire il codice nel servizio app, si useranno le [credenziali di distribuzione livello utente](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Le credenziali di distribuzione livello utente sono diverse dalle credenziali di Azure e vengono usate per le distribuzioni FTP e locali Git in un'app Web. Una volta impostate, sono valide in tutte le app del servizio app in tutte le sottoscrizioni dell'account Azure. Se in precedenza sono state impostate delle credenziali di distribuzione livello utente, è possibile usare tali credenziali.
+5. Per distribuire il codice nel servizio app, si useranno le [credenziali di distribuzione livello utente](../app-service/deploy-configure-credentials.md). Le credenziali di distribuzione livello utente sono diverse dalle credenziali di Azure e vengono usate per le distribuzioni FTP e locali Git in un'app Web. Una volta impostate, sono valide in tutte le app del servizio app in tutte le sottoscrizioni dell'account Azure. Se in precedenza sono state impostate delle credenziali di distribuzione livello utente, è possibile usare tali credenziali.
 
    Se in precedenza non sono state impostate delle credenziali di distribuzione livello utente o non è possibile ricordare la password, eseguire il comando seguente. Il nome utente della distribuzione deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "@". Quando viene richiesto, immettere e confermare la nuova password. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli.
 

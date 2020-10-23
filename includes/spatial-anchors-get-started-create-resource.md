@@ -4,48 +4,52 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b83951cd743afc7e249e3ee37182007bbe40cb5c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83638975"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971298"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creare una risorsa di Ancoraggi nello spazio
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
-Nel riquadro di spostamento sinistro del portale di Azure fare clic su **Crea una risorsa**.
+Nel riquadro sinistro selezionare **Crea una risorsa**.
 
 Digitare **Ancoraggi nello spazio** nella casella di ricerca.
 
-   ![Ricerca di Ancoraggi nello spazio](./media/spatial-anchors-get-started-create-resource/portal-search.png)
+![Screenshot che mostra i risultati di una ricerca di ancoraggi nello spazio.](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-Selezionare **Ancoraggi nello spazio**. Nella finestra di dialogo selezionare **Crea**.
+Selezionare **Ancoraggi nello spazio**, quindi selezionare **Crea**.
 
-Nella finestra di dialogo **Account ancoraggi nello spazio**:
+Nel riquadro **Account ancoraggi nello spazio** procedere come segue:
 
-- Immettere un nome risorsa univoco, usando caratteri alfanumerici regolari.
-- Selezionare la sottoscrizione a cui collegare la risorsa.
-- Creare un gruppo di risorse selezionando **Crea nuovo**. Assegnare al gruppo il nome **myResourceGroup** e selezionare **OK**.
-      [!INCLUDE [resource group intro text](resource-group.md)]
-- Selezionare un'area in cui inserire la risorsa.
-- Selezionare **Nuovo** per iniziare a creare la risorsa.
+* Immettere un nome di risorsa univoco usando i normali caratteri alfanumerici.  
+* Selezionare la sottoscrizione a cui collegare la risorsa.  
+* Creare un gruppo di risorse selezionando **Crea nuovo**. Assegnare al gruppo il nome **myResourceGroup** e quindi selezionare **OK**.  
 
-   ![Creare una risorsa](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
+  [!INCLUDE [resource group intro text](resource-group.md)]
+  
+* Selezionare un'area in cui inserire la risorsa.  
+* Selezionare **Nuovo** per iniziare a creare la risorsa.
 
-Dopo aver creato la risorsa, il portale di Azure indicherà che la distribuzione è stata completata. Fare clic su **Vai alla risorsa**.
+![Screenshot del riquadro Ancoraggi nello spazio per la creazione di una risorsa.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-![Distribuzione completata](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+Dopo aver creato la risorsa, il portale di Azure indica che la distribuzione è stata completata. 
+   
+![Screenshot che mostra la distribuzione della risorsa completata.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Sarà possibile quindi visualizzare le proprietà della risorsa. Copiare il valore dell'**ID account** della risorsa in un editor di testo perché sarà necessario in seguito.
+Selezionare **Vai alla risorsa**. È ora possibile visualizzare le proprietà della risorsa. 
+   
+Copiare il valore di **ID account** della risorsa in un editor di testo per un uso successivo.
 
-   ![Proprietà risorsa](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Screenshot del riquadro di proprietà della risorsa.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-Copiare il valore di **Dominio account** della risorsa in un editor di testo perché sarà necessario in seguito.
+Copiare anche il valore di **Dominio account** della risorsa in un editor di testo per un uso successivo.
 
-   ![Dominio account](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+![Screenshot che mostra il valore di Dominio account della risorsa.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-In **Impostazioni** selezionare **Chiave**. Copiare il valore di **Chiave primaria** in un editor di testo. Questo valore è `Account Key`. Sarà necessario più avanti.
+In **Impostazioni** selezionare **Chiave**. Copiare i valori di **Chiave primaria** e **Chiave dell'account** in un editor di testo per un uso successivo.
 
-   ![Chiave account](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot del riquadro delle chiavi per l'account.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

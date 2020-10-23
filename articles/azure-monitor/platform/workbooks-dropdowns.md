@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: ad1e09a0f9d1e0f9e4a748220edf5eced96123f8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 07a8ece76bffe0fbbcbc211e83730433cdeda2c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932567"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143800"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametri elenco a discesa cartella di lavoro
 
@@ -154,5 +154,5 @@ Di seguito è riportato un esempio per l'elenco a discesa di selezione multifunz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
+* Per [iniziare ad](./workbooks-overview.md#visualizations) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.

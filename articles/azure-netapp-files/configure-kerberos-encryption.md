@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461479"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217049"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp Files
 
@@ -75,7 +75,7 @@ La configurazione di NFSv 4.1 Kerberos crea due account computer in Active Direc
 * Un account computer per le condivisioni SMB
 * Un account computer per NFSv 4.1: è possibile identificare questo account tramite il prefisso `NFS-` . 
 
-Dopo aver creato il primo volume Kerberos NFSv 4.1, impostare il tipo di crittografia o l'account del computer usando il comando PowerShell seguente:
+Dopo aver creato il primo volume Kerberos NFSv 4.1, impostare il tipo di crittografia per l'account computer usando il comando PowerShell seguente:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Per configurare il client NFS, seguire le istruzioni riportate in [configurare u
 3. Creare la directory (punto di montaggio) per il nuovo volume.  
 
 4. Impostare il tipo di crittografia predefinito su AES 256 per l'account computer:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * È necessario eseguire questo comando solo una volta per ogni account computer.
     * È possibile eseguire questo comando da un controller di dominio o da un PC in cui è installato strumenti di [amministrazione remota](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) del server. 
-    * La `$COMPUTERACCOUNT` variabile è l'account computer creato in Active Directory quando si distribuisce il volume Kerberos. Si tratta dell'account con prefisso `NFS-` . 
+    * La `$NFSCOMPUTERACCOUNT` variabile è l'account computer creato in Active Directory quando si distribuisce il volume Kerberos. Si tratta dell'account con prefisso `NFS-` . 
     * La `$ANFSERVICEACCOUNT` variabile è un account utente Active Directory senza privilegi con controlli delegati sull'unità organizzativa in cui è stato creato l'account computer. 
 
 5. Montare il volume nell'host: 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945746"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342281"
 ---
 # <a name="working-with-security-policies"></a>Uso dei criteri di sicurezza
 
@@ -33,7 +33,7 @@ Il Centro sicurezza di Azure apporta le raccomandazioni sulla sicurezza in base 
 
 Il Centro sicurezza offre le opzioni seguenti per l'uso dei criteri di sicurezza:
 
-* **Visualizzare e modificare i criteri predefiniti predefiniti** : quando si Abilita il Centro sicurezza, un'iniziativa predefinita denominata ' ASC default ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza. Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](security-center-policy-definitions.md) .
+* **Visualizzare e modificare i criteri predefiniti predefiniti** : quando si Abilita il Centro sicurezza, un'iniziativa predefinita denominata ' ASC default ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza. Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](./policy-reference.md) .
 
 * **Aggiungere criteri personalizzati** : se si desidera personalizzare le iniziative di sicurezza applicate alla sottoscrizione, è possibile eseguire questa operazione nel centro sicurezza. Si riceveranno quindi consigli se i computer non seguono i criteri creati. Per istruzioni sulla creazione e l'assegnazione di criteri personalizzati, vedere [uso dei criteri di sicurezza personalizzati](custom-security-policies.md).
 

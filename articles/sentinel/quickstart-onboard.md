@@ -8,13 +8,14 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/14/2020
+ms.custom: references_regions
+ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889029"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106978"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
@@ -26,7 +27,6 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
 >[!IMPORTANT] 
 > Per informazioni sugli addebiti relativi all'uso di Azure Sentinel, vedere [i prezzi di Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
-  
 
 ## <a name="global-prerequisites"></a>Prerequisiti globali
 
@@ -38,7 +38,23 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 - Per usare Azure Sentinel, è necessario disporre delle autorizzazioni di collaboratore o lettore per il gruppo di risorse a cui appartiene l'area di lavoro.
 - Possono essere necessarie autorizzazioni aggiuntive per connettere origini dati specifiche.
 - Azure Sentinel è un servizio a pagamento. Per informazioni sui prezzi, vedere [Informazioni su Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
- 
+
+### <a name="geographical-availability-and-data-residency"></a>Disponibilità geografica e residenza dei dati
+
+- Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). 
+
+- I dati generati da Azure Sentinel, ad esempio eventi imprevisti, segnalibri e regole di analisi, possono contenere dati del cliente originati dalle aree di lavoro Log Analytics del cliente. I dati generati da Azure Sentinel vengono salvati nell'area geografica elencata nella tabella seguente, in base all'area geografica in cui si trova l'area di lavoro:
+
+    | Area geografica dell'area di lavoro | Area geografica dei dati generati da Azure Sentinel |
+    | --- | --- |
+    | Stati Uniti<br>India<br>Brasile<br>Africa<br>Corea del Sud | Stati Uniti |
+    | Europa<br>Francia<br>Svizzera | Europa |
+    | Australia | Australia |
+    | Regno Unito | Regno Unito |
+    | Canada | Canada |
+    | Giappone | Giappone |
+    |
+
 ## <a name="enable-azure-sentinel"></a>Abilitare Azure Sentinel <a name="enable"></a>
 
 1. Accedere al portale di Azure. Assicurarsi che la sottoscrizione in cui è stato creato Azure Sentinel sia selezionata.
@@ -55,7 +71,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
    >[!NOTE] 
    > - Le aree di lavoro predefinite create in Centro sicurezza di Azure non vengono visualizzate nell'elenco e non è possibile installare Azure Sentinel in tali aree.
-   > - Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). I dati generati da Azure Sentinel (ad esempio eventi imprevisti, segnalibri e regole di avviso, che possono contenere dati del cliente originati da tali aree di lavoro), vengono salvati in Europa (per le aree di lavoro che risiedono in Europa), in Australia (per le aree di lavoro che risiedono in Australia) o nell'area Stati Uniti orientali (per le aree di lavoro che risiedono in tutte le altre aree).
+   >
 
    >[!IMPORTANT]
    >
@@ -67,19 +83,21 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
 ## <a name="connect-data-sources"></a>Connettere le origini dati
 
-Azure Sentinel crea la connessione ai servizi e alle app collegandosi al servizio e inviando gli eventi e i log ad Azure Sentinel. Per i computer e le macchine virtuali, è possibile installare l'agente di Azure Sentinel che raccoglie i log e li trasmette ad Azure Sentinel. Per i firewall e i proxy, Azure Sentinel usa un server Linux Syslog in cui è installato l'agente e da cui l'agente raccoglie i file di log e li trasmette ad Azure Sentinel. 
+Azure Sentinel inserisce i dati da app e servizi connettendosi al servizio e inoltrando gli eventi e i log ad Azure Sentinel. Per i computer fisici e le macchine virtuali, è possibile installare l'agente di Log Analytics che raccoglie i log e li inoltra ad Azure Sentinel. Per i firewall e i proxy, Azure Sentinel installa l'agente di Log Analytics in un server SysLog Linux, da cui l'agente raccoglie i file di log e li inoltra ad Azure Sentinel. 
  
-1. Fare clic su **Connettori dati**.
-1. È disponibile un riquadro per ogni origine dati che è possibile connettere.<br>
-Fare clic ad esempio su **Azure Active Directory**. Se si connette questa origine dati, è possibile trasmettere tutti i log da Azure AD ad Azure Sentinel. È possibile selezionare il tipo di log da ottenere, ovvero log di accesso o di controllo. <br>
-In via definitiva, Azure Sentinel offre consigli per le cartelle di lavoro da installare per ogni connettore, in modo da ottenere immediatamente analisi approfondite sui dati. <br> Per altre informazioni, seguire le istruzioni di installazione o [fare riferimento alla guida di connessione pertinente](connect-data-sources.md). Per informazioni sui connettori dei dati, vedere [Connettere i servizi Microsoft](connect-data-sources.md).
+1. Nel menu principale selezionare **Connettori dati**. Verrà visualizzata la raccolta di connettori dati.
 
-Dopo che le origini dati sono connesse, viene avviato il trasferimento dei dati in Azure Sentinel ed è possibile iniziare a usarli. È possibile visualizzare i log nei [dashboard predefiniti](quickstart-get-visibility.md) e iniziare a compilare le query in Log Analytics per [esaminare i dati](tutorial-investigate-cases.md).
+1. La raccolta è un elenco di tutte le origini dati che è possibile connettere. Selezionare un'origine dati e quindi fare clic sul pulsante **Apri la pagina del connettore**.
 
+1. La pagina del connettore mostra le istruzioni per la configurazione del connettore ed eventuali istruzioni aggiuntive eventualmente necessarie.<br>
+Se ad esempio si seleziona l'origine dati **Azure Active Directory**, che consente di trasmettere in streaming i log da Azure AD ad Azure Sentinel, è possibile selezionare il tipo di log da recuperare, ad esempio log di accesso e/o log di controllo. <br> Per altre informazioni, seguire le istruzioni di installazione o [fare riferimento alla guida di connessione pertinente](connect-data-sources.md). Per informazioni sui connettori dei dati, vedere [Connettere i servizi Microsoft](connect-data-sources.md).
 
+1. La scheda **Passaggi successivi** nella pagina del connettore mostra le cartelle di lavoro predefinite, le query di esempio e i modelli di regola di analisi pertinenti correlati al connettore dati. È possibile usarli così come sono o modificarli, ma in entrambi i casi si otterranno immediatamente informazioni dettagliate interessanti sui dati. <br>
+
+Dopo che le origini dati sono connesse, viene avviato il trasferimento dei dati in Azure Sentinel ed è possibile iniziare a usarli. È possibile visualizzare i log nelle [cartelle di lavoro predefinite](quickstart-get-visibility.md) e iniziare a creare le query in Log Analytics per [esaminare i dati](tutorial-investigate-cases.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento si è appreso come connettere le origini dati ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo documento si è appreso a eseguire l'onboarding e a connettere le origini dati ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Trasmettere i dati da [appliance di Common Event Format](connect-common-event-format.md) in Azure Sentinel.

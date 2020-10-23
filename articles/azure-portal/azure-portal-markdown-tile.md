@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263947"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281763"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usare un riquadro markdown nei dashboard di Azure per visualizzare il contenuto personalizzato
 
@@ -48,7 +48,7 @@ ms.locfileid: "91263947"
       ![Screenshot che illustra l'immissione dell'URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Per una maggiore sicurezza, è possibile creare un file Markdown e archiviarlo in un [BLOB dell'account di archiviazione di Azure in cui è abilitata la crittografia](../storage/common/storage-service-encryption.md), quindi puntare al file usando l'opzione URL. Il contenuto di Markdown viene crittografato tramite le opzioni di crittografia dell'account di archiviazione. Solo gli utenti con autorizzazioni per il file possono visualizzare il contenuto di Markdown nel dashboard.
+      > Per una maggiore sicurezza, è possibile creare un file Markdown e archiviarlo in un [BLOB dell'account di archiviazione di Azure in cui è abilitata la crittografia](../storage/common/storage-service-encryption.md), quindi puntare al file usando l'opzione URL. Il contenuto di Markdown viene crittografato tramite le opzioni di crittografia dell'account di archiviazione. Solo gli utenti con autorizzazioni per il file possono visualizzare il contenuto di Markdown nel dashboard. Impostare una regola di condivisione risorse tra le origini (CORS) nell'account di archiviazione in modo che il portale di Azure ( _https://portal.azure.com/_ ) possa accedere al file Markdown nel BLOB.
 
 1. Selezionare **Fine** per chiudere il riquadro **Modifica markdown**. Il contenuto viene visualizzato nel riquadro Markdown, che è possibile ridimensionare trascinando il quadratino nell'angolo in basso a destra.
 

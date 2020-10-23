@@ -1,126 +1,66 @@
 ---
 title: Aggiornare un cluster per l'uso del nome comune del certificato
-description: Informazioni su come passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster di Service Fabric.
+description: Informazioni su come convertire un certificato di Service Fabric cluster da dichiarazioni basate su identificazione personale a nomi comuni.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224798565921593d3c91dfcc187efa71a71b1fdd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247915"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368061"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
-Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati. In questo articolo viene descritto come aggiornare un cluster di Service Fabric in esecuzione per usare il nome comune del certificato anziché l'identificazione personale del certificato.
-
->[!NOTE]
-> Se nel modello sono dichiarate due identificazioni personali, è necessario eseguire due distribuzioni.  La prima distribuzione viene eseguita prima di seguire i passaggi descritti in questo articolo.  La prima distribuzione imposta la proprietà **thumbprint** nel modello sul certificato in uso e rimuove la proprietà **thumbprintSecondary**.  Per la seconda distribuzione, seguire i passaggi descritti in questo articolo.
- 
+# <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Convertire i certificati del cluster da dichiarazioni basate su identificazione personale a nomi comuni
+La firma di un certificato (colloquialmente noto come "identificazione personale") è univoca, il che significa che un certificato del cluster dichiarato da identificazione personale fa riferimento a un'istanza specifica di un certificato. Questo, a sua volta, rende la gestione e il rollover del certificato, in generale, difficile ed esplicito: ogni modifica richiede l'orchestrazione degli aggiornamenti del cluster e degli host di elaborazione sottostanti. La conversione di una dichiarazione di certificato del cluster di Service Fabric da una dichiarazione basata sull'identificazione personale basata sul nome comune del soggetto del certificato semplifica notevolmente la gestione. in particolare, il rollover di un certificato non richiede più un aggiornamento del cluster. Questo articolo descrive come convertire un cluster esistente in dichiarazioni comuni basate sul nome senza tempi di inattività.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Ottenere un certificato
-Ottenere innanzitutto un certificato da un'[autorità di certificazione](https://wikipedia.org/wiki/Certificate_authority).  Il nome comune del certificato deve essere usato per il dominio personalizzato di cui si è proprietari e deve essere acquistato da un registrar di dominio. Ad esempio "azureservicefabricbestpractices.com"; gli utenti che non sono dipendenti Microsoft non possono effettuare il provisioning di certificati per i domini MS, pertanto non è possibile usare i nomi DNS del bilanciamento del carico o di Gestione traffico come nomi comuni per il certificato e quindi sarà necessario eseguire il provisioning di una [zona DNS di Azure](../dns/dns-delegate-domain-azure-dns.md) affinché il dominio personalizzato sia risolvibile in Azure. È anche possibile dichiarare il dominio personalizzato di cui si è proprietari come "managementEndpoint" del cluster se si desidera che il portale rifletta l'alias di dominio personalizzato per il cluster.
+## <a name="moving-to-certificate-authority-ca-signed-certificates"></a>Passaggio ai certificati firmati dall'autorità di certificazione (CA)
+La sicurezza di un cluster il cui certificato è dichiarato dall'identificazione personale si basa sul fatto che non è possibile o non è possibile eseguire il calcolo della falsificazione di un certificato con la stessa firma di un altro. In questo caso, la provenienza del certificato è meno importante, quindi i certificati autofirmati sono appropriati. Al contrario, la sicurezza di un cluster con certificati dichiarati dal nome comune deriva dal servizio di infrastruttura a chiave pubblica (PKI) che ha emesso il certificato e include aspetti quali le procedure di certificazione, se la sicurezza operativa viene controllata e molti altri. Per questo motivo, la scelta di un'infrastruttura a chiave pubblica è importante, una conoscenza approfondita delle autorità emittenti (autorità di certificazione o CA) è obbligatoria e i certificati autofirmati sono essenzialmente inutili. Un certificato dichiarato dal nome comune (CN) viene in genere considerato valido se la catena può essere compilata correttamente, l'oggetto ha l'elemento CN previsto e l'emittente (immediato o superiore nella catena) è considerato attendibile dall'agente che esegue la convalida. Service Fabric supporta la dichiarazione di certificati da parte del CN con l'emittente ' implicità (la catena deve terminare con un trust anchor) o con autorità emittenti dichiarate dall'identificazione personale ("blocco dell'autorità emittente"); per altri dettagli, vedere questo  [articolo](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) . Per convertire un cluster usando un certificato autofirmato dichiarato da identificazione personale nel nome comune, la destinazione, il certificato firmato da un'autorità di certificazione deve essere introdotto per la prima volta nel cluster mediante identificazione personale. solo in questo modo è possibile eseguire la conversione da TP a CN.
 
-A scopo di test, è possibile ottenere un certificato firmato da un'autorità di certificazione disponibile o aperta.
-
-> [!NOTE]
-> I certificati autofirmati, inclusi quelli generati quando si distribuisce un cluster di Service Fabric nel portale di Azure, non sono supportati. 
+A scopo di test, un certificato autofirmato può essere dichiarato da CN, aggiungendo l'emittente alla relativa identificazione personale. dal punto di vista della sicurezza, questo è quasi equivalente alla dichiarazione dello stesso certificato da parte di TP. Si noti, tuttavia, che una conversione corretta di questo tipo non garantisce una conversione corretta da TP a CN con un certificato firmato da un'autorità di certificazione. È pertanto consigliabile testare la conversione con un certificato firmato da CA appropriato (sono disponibili opzioni gratuite).
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Caricare il certificato e installarlo nel set di scalabilità
-In Azure, un cluster di Service Fabric è distribuito in un set di scalabilità di macchine virtuali.  Aggiornare il certificato a un insieme di credenziali delle chiavi, quindi installarlo nel set di scalabilità di macchine virtuali in cui è in esecuzione il cluster.
+In Azure, il meccanismo consigliato per ottenere e provisioning dei certificati riguarda il servizio Azure Key Vault e i relativi strumenti. È necessario eseguire il provisioning di un certificato corrispondente alla dichiarazione del certificato cluster in ogni nodo dei set di scalabilità di macchine virtuali che comprende il cluster. Per ulteriori informazioni, fare riferimento ai [segreti nei set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm) . È importante che i certificati cluster correnti e di destinazione siano installati nelle macchine virtuali di ogni tipo di nodo del cluster prima di apportare modifiche alle dichiarazioni di certificato del cluster. Il percorso di rilascio del certificato per il provisioning in un nodo di Service Fabric viene illustrato in dettaglio [qui](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+## <a name="bring-cluster-to-an-optimal-starting-state"></a>Portare il cluster a uno stato di avvio ottimale
+La conversione di una dichiarazione di certificato da un'identificazione personale a un effetto basato sul nome comune è:
 
-$SubscriptionId  =  "<subscription ID>"
+- Come ogni nodo del cluster trova e presenta le proprie credenziali ad altri nodi
+- Modalità di convalida delle credenziali della controparte in ogni nodo durante la creazione di una connessione protetta  
 
-# Sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $SubscriptionId
+Prima di procedere, esaminare le [regole di presentazione e di convalida per entrambe le configurazioni](cluster-security-certificates.md#certificate-configuration-rules) . La considerazione più importante quando si esegue una conversione di nome da identificazione personale a comune è che i nodi aggiornati e non ancora aggiornati, ovvero i nodi appartenenti a domini di aggiornamento diversi, devono essere in grado di eseguire correttamente l'autenticazione reciproca in qualsiasi momento durante l'aggiornamento. Il metodo consigliato per ottenere questo risultato consiste nel dichiarare il certificato di destinazione/obiettivo in base all'identificazione personale in un aggiornamento iniziale e completare la transizione al nome comune in uno successivo. Se il cluster si trova già in uno stato di avvio consigliato, è possibile ignorare questa sezione.
 
-$region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgroup"
-$VaultName = "mykeyvault"
-$certFilename = "C:\users\sfuser\myclustercert.pfx"
-$certname = "myclustercert"
-$Password  = "P@ssw0rd!123"
-$VmssResourceGroupName     = "myclustergroup"
-$VmssName                  = "prnninnxj"
+Sono disponibili più Stati di avvio validi per una conversione. l'invariante è che il cluster sta già usando il certificato di destinazione (dichiarato da identificazione personale) all'inizio dell'aggiornamento al nome comune. Si considerino `GoalCert` , `OldCert1` , `OldCert2` :
 
-# Create new Resource Group 
-New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+#### <a name="valid-starting-states"></a>Stati di avvio validi
+- `Thumbprint: GoalCert, ThumbprintSecondary: None`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `GoalCert` ha una data successiva a `NotAfter` quella di `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `GoalCert` ha una data successiva a `NotAfter` quella di `OldCert1`
 
-# Create the new key vault
-$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
-    -Location $region -EnabledForDeployment 
-$resourceId = $newKeyVault.ResourceId 
+Se il cluster non si trova in uno degli stati validi descritti in precedenza, fare riferimento all'appendice per ottenere tale stato alla fine di questo articolo.
 
-# Add the certificate to the key vault.
-$PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
-    -FilePath $certFilename -Password $PasswordSec
+## <a name="select-the-desired-common-name-based-certificate-validation-scheme"></a>Selezionare lo schema di convalida dei certificati basato sul nome comune desiderato
+Come descritto in precedenza, Service Fabric supporta la dichiarazione di certificati da parte di CN con un trust anchor implicito o con il blocco esplicito delle identificazioni personali dell'autorità emittente. Per informazioni dettagliate, fare riferimento a [questo articolo](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) e assicurarsi di avere una conoscenza corretta delle differenze e le implicazioni della scelta di uno dei due meccanismi. Sintatticamente, questa differenza/scelta è determinata dal valore del `certificateIssuerThumbprintList` parametro: Empty significa che si basa su una CA radice attendibile (Trust Anchor), mentre un set di identificazioni personali limita le emittenti dirette consentite dei certificati del cluster.
 
-$CertificateThumbprint = $KVSecret.Thumbprint
-$CertificateURL = $KVSecret.SecretId
-$SourceVault = $resourceId
-$CommName    = $KVSecret.Certificate.SubjectName.Name
+   > [!NOTE]
+   > Il campo ' certificateIssuerThumbprint ' consente di specificare le autorità emittenti dirette previste per i certificati dichiarati dal nome comune del soggetto. I valori accettabili sono una o più identificazioni personali SHA1 separate da virgole. Si noti che si tratta di un potenziamento della convalida del certificato: se non è specificata alcuna autorità emittente o se l'elenco è vuoto, il certificato verrà accettato per l'autenticazione se la catena può essere compilata e termina in una radice considerata attendibile dal validator. Se vengono specificate una o più identificazioni personali dell'autorità emittente, il certificato verrà accettato se l'identificazione personale dell'emittente diretta, come Estratto dalla catena, corrisponde a uno qualsiasi dei valori specificati in questo campo, indipendentemente dal fatto che la radice sia attendibile o meno. Si noti che un'infrastruttura a chiave pubblica può utilizzare autorità di certificazione diverse (' emittenti ') per firmare i certificati con un oggetto specifico, quindi è importante specificare tutte le identificazioni personali dell'autorità emittente previste per tale oggetto. In altre parole, non è garantito che il rinnovo di un certificato sia firmato dallo stesso emittente del certificato da rinnovare.
+   >
+   > La procedura consigliata è quella di specificare l'autorità di certificazione. Anche se è ancora possibile ometterla senza compromettere il funzionamento (per certificati concatenati a una radice attendibile), questo comportamento è soggetto a limitazioni e, nell'immediato futuro, potrebbe essere eliminato. Si noti inoltre che i cluster distribuiti in Azure e protetti con certificati X509, emessi da un'infrastruttura a chiave pubblica privata e dichiarati dal soggetto, potrebbero non essere convalidati dal servizio Azure Service Fabric (per le comunicazioni dal cluster al servizio), se i criteri dei certificati dell'infrastruttura a chiave pubblica non sono rilevabili, disponibili e accessibili. 
 
-Write-Host "CertificateThumbprint    :"  $CertificateThumbprint
-Write-Host "CertificateURL           :"  $CertificateURL
-Write-Host "SourceVault              :"  $SourceVault
-Write-Host "Common Name              :"  $CommName    
+## <a name="update-the-clusters-azure-resource-management-arm-template-and-deploy"></a>Aggiornare il modello di Azure Resource Manager (ARM) del cluster e distribuire
+È consigliabile gestire i cluster di Azure Service Fabric con i modelli ARM; un'alternativa, anche usando gli artefatti JSON, è la [Azure Resource Explorer (anteprima)](https://resources.azure.com). Al momento non è disponibile un'esperienza equivalente nel portale di Azure. Se il modello originale corrispondente a un cluster esistente non è disponibile, è possibile ottenere un modello equivalente nella portale di Azure passando al gruppo di risorse che contiene il cluster, selezionando **Esporta modello** dal menu a sinistra di **automazione** e quindi selezionando altre risorse desiderate; come minimo, le risorse del set di scalabilità di macchine virtuali e del cluster devono essere esportate. Il modello generato può essere scaricato anche. Si noti che questo modello può richiedere modifiche prima che sia completamente distribuibile e potrebbe non corrispondere esattamente a quello originale. si tratta di una reflection dello stato corrente della risorsa cluster.
 
-Set-StrictMode -Version 3
-$ErrorActionPreference = "Stop"
+Di seguito sono riportate le modifiche necessarie:
+    - aggiornamento della definizione dell'estensione del nodo Service Fabric (nella risorsa della macchina virtuale); Se il cluster definisce più tipi di nodo, sarà necessario aggiornare la definizione di ogni set di scalabilità di macchine virtuali corrispondente
+    - aggiornamento della definizione di risorsa cluster
 
-$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+Di seguito sono elencati esempi dettagliati.
 
-# Get current VM scale set 
-$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
-
-# Add new secret to the VM scale set.
-$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
-    -VaultCertificate $certConfig
-
-# Update the VM scale set 
-Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
-    -Name $VmssName -VirtualMachineScaleSet $vmss 
-```
-
->[!NOTE]
-> I segreti del set di scalabilità non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
-
-## <a name="download-and-update-the-template-from-the-portal"></a>Scaricare e aggiornare il modello dal portale
-Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.
-
-![Visualizzare un modello][image1]
-
-Scaricare i file JSON di modello e i parametri sul computer locale.
-
-Prima di tutto, aprire il file dei parametri in un editor di testo e aggiungere il seguente valore di parametro:
+### <a name="updating-the-virtual-machine-scale-set-resources"></a>Aggiornamento delle risorse del set di scalabilità di macchine virtuali
+Da
 ```json
-"certificateCommonName": {
-    "value": "myclustername.southcentralus.cloudapp.azure.com"
-},
-```
-
-Aprire quindi il file di modello in un editor di testo e apportare tre aggiornamenti per supportare il nome comune del certificato.
-
-1. Nella sezione **parametri**, aggiungere un parametro *certificateCommonName*:
-    ```json
-    "certificateCommonName": {
-        "type": "string",
-        "metadata": {
-            "description": "Certificate Commonname"
-        }
-    },
-    ```
-
-    Prendere in considerazione anche la rimozione del *CertificateThumbprint*, a cui potrebbe non essere più fatto riferimento nel modello di gestione risorse.
-
-2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile** -> **extensionProfile** -> **Extensions** -> **Properties** -> **Settings** -> **Certificate**, Add `"commonNames": ["[parameters('certificateCommonName')]"],` e Remove `"thumbprint": "[parameters('certificateThumbprint')]",` .
-    ```json
-        "virtualMachineProfile": {
+"virtualMachineProfile": {
         "extensionProfile": {
             "extensions": [
                 {
@@ -129,17 +69,36 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
                         "type": "ServiceFabricNode",
                         "autoUpgradeMinorVersion": true,
                         "protectedSettings": {
-                            "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                            "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                            ...
                         },
                         "publisher": "Microsoft.Azure.ServiceFabric",
                         "settings": {
-                            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                            "nodeTypeRef": "[variables('vmNodeType0Name')]",
-                            "dataPath": "D:\\SvcFab",
-                            "durabilityLevel": "Bronze",
-                            "enableParallelJobs": true,
-                            "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                            ...
+                            "certificate": {
+                                "thumbprint": "[parameters('certificateThumbprint')]",
+                                "x509StoreName": "[parameters('certificateStoreValue')]"
+                            }
+                        },
+                        ...
+                    }
+                },
+```
+A
+```json
+"virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+                    "properties": {
+                        "type": "ServiceFabricNode",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                            ...
+                        },
+                        "publisher": "Microsoft.Azure.ServiceFabric",
+                        "settings": {
+                            ...
                             "certificate": {
                                 "commonNames": [
                                     "[parameters('certificateCommonName')]"
@@ -147,37 +106,59 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
                                 "x509StoreName": "[parameters('certificateStoreValue')]"
                             }
                         },
-                        "typeHandlerVersion": "1.0"
+                        ...
                     }
                 },
-    ```
+```
 
-3.  Nella risorsa **Microsoft.ServiceFabric/clusters**, aggiornare la versione dell'API in "2018-02-01".  Aggiungere anche un'impostazione **certificateCommonNames** con una proprietà **commonNames** e rimuovere l'impostazione **certificato** con la proprietà identificazione personale come illustrato nell'esempio seguente:
-    ```json
+### <a name="updating-the-cluster-resource"></a>Aggiornamento della risorsa cluster
+Nella risorsa **Microsoft. ServiceFabric/Clusters** aggiungere una proprietà **certificateCommonNames** con un'impostazione **commonNames** e rimuovere completamente la proprietà **Certificate** (tutte le impostazioni):
+
+Da
+```json
     {
         "apiVersion": "2018-02-01",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+            ...
         ],
         "properties": {
             "addonFeatures": [
-                "DnsService",
-                "RepairManager"
+                ...
+            ],
+            "certificate": {
+              "thumbprint": "[parameters('certificateThumbprint')]",
+              "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
+        ...
+```
+A
+```json
+    {
+        "apiVersion": "2018-02-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            ...
+        ],
+        "properties": {
+            "addonFeatures": [
+                ...
             ],
             "certificateCommonNames": {
                 "commonNames": [
                     {
                         "certificateCommonName": "[parameters('certificateCommonName')]",
-                        "certificateIssuerThumbprint": ""
+                        "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprintList')]"
                     }
                 ],
                 "x509StoreName": "[parameters('certificateStoreValue')]"
             },
         ...
-    ```
+```
 
 Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un cluster Service fabric che utilizza il nome comune del certificato anziché l'identificazione personale.](./service-fabric-create-cluster-using-cert-cn.md)
 
@@ -191,9 +172,22 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
+## <a name="appendix-achieve-a-valid-starting-state-for-converting-a-cluster-to-cn-based-certificate-declarations"></a>Appendice: ottenere uno stato iniziale valido per la conversione di un cluster in dichiarazioni di certificati basate su CN
+
+| Stato iniziale | Aggiornamento 1 | Aggiornamento 2 |
+| :--- | :--- | :--- |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `GoalCert` con una data successiva a `NotAfter``OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `OldCert1` con una data successiva a `NotAfter``GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `OldCert1` ha una data successiva a `NotAfter``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `OldCert1` ha una data successiva a `NotAfter``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Rimuovere uno dei `OldCert1` o `OldCert2` per ottenere lo stato `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continua dal nuovo stato iniziale |
+
+Per istruzioni su come eseguire uno di questi aggiornamenti, vedere [questo documento](service-fabric-cluster-security-update-certs-azure.md).
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
-* Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
-* [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
+* Informazioni su come eseguire [il rollover di un certificato del cluster in base al nome comune](service-fabric-cluster-rollover-cert-cn.md)
+* Informazioni su come [configurare un cluster per il rollover](cluster-security-certificate-management.md) automatico non semplice
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

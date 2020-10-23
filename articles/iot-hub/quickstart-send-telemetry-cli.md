@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: e2b8eecc629e9da75ea15815ee38844c48abb019
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffcdf8d2baf7a449234ca14d603583f62949159d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499909"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150623"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e monitorarli con l'interfaccia della riga di comando di Azure
 
@@ -55,7 +55,7 @@ In questa sezione vengono preparate due sessioni dell'interfaccia della riga di 
 
 L'interfaccia della riga di comando di Azure richiede l'accesso all'account Azure. Tutte le comunicazioni tra la sessione della shell dell'interfaccia della riga di comando di Azure e l'hub IoT vengono autenticate e crittografate. Di conseguenza, in questa Guida introduttiva non è richiesta alcuna autenticazione aggiuntiva, ad esempio una stringa di connessione, da usare con un dispositivo reale.
 
-*  Eseguire il comando [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+*  Eseguire il comando [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ In questa sezione viene usata l'interfaccia della riga di comando di Azure per c
 > [!TIP]
 > Facoltativamente, è possibile creare un gruppo di risorse di Azure, un hub IoT e altre risorse usando il [portale di Azure](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) o altri metodi programmatici.  
 
-1. Eseguire il comando [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
+1. Eseguire il comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) per creare un gruppo di risorse. Il comando seguente crea un gruppo denominato *MyResourceGroup* nella posizione *eastus*. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Eseguire il comando [az iot hub create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
+1. Eseguire il comando [az iot hub create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. Un nome dell'hub IoT deve essere univoco a livello globale in Azure. Tale segnaposto viene usato nella parte restante di questa Guida introduttiva per rappresentare il nome dell'hub IoT.
 
@@ -94,7 +94,7 @@ In questa sezione viene usata l'interfaccia della riga di comando di Azure per c
 In questa sezione viene creato un dispositivo simulato nella prima sessione dell'interfaccia della riga di comando. Il dispositivo simulato invia i dati di telemetria del dispositivo all'hub IoT. Nella seconda sessione dell'interfaccia della riga di comando vengono monitorati eventi e dati di telemetria e viene inviato un messaggio dal cloud al dispositivo simulato.
 
 Per creare e avviare un dispositivo simulato:
-1. Eseguire il comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) nella prima sessione dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
+1. Eseguire il comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) nella prima sessione dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -104,7 +104,7 @@ Per creare e avviare un dispositivo simulato:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Eseguire il comando [az iot device simulate](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) nella prima sessione dell'interfaccia della riga di comando.  Verrà avviato il dispositivo simulato. Il dispositivo invia i dati di telemetria all'hub IoT e riceve i messaggi da quest'ultimo.  
+1. Eseguire il comando [az iot device simulate](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) nella prima sessione dell'interfaccia della riga di comando.  Verrà avviato il dispositivo simulato. Il dispositivo invia i dati di telemetria all'hub IoT e riceve i messaggi da quest'ultimo.  
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -113,7 +113,7 @@ Per creare e avviare un dispositivo simulato:
     ```
 
 Per monitorare un dispositivo:
-1. Nella seconda sessione dell'interfaccia della riga di comando eseguire il comando [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events). Verrà avviato il monitoraggio del dispositivo simulato. L'output mostra i dati di telemetria che il dispositivo simulato invia all'hub IoT.
+1. Nella seconda sessione dell'interfaccia della riga di comando eseguire il comando [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events). Verrà avviato il monitoraggio del dispositivo simulato. L'output mostra i dati di telemetria che il dispositivo simulato invia all'hub IoT.
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -136,7 +136,7 @@ In questa sezione viene usata la seconda sessione dell'interfaccia della riga di
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Nella seconda sessione dell'interfaccia della riga di comando, eseguire il comando [az iot device c2d-message send](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send). Viene inviato un messaggio da cloud a dispositivo dall'hub IoT al dispositivo simulato. Il messaggio include una stringa e due coppie chiave-valore.  
+1. Nella seconda sessione dell'interfaccia della riga di comando, eseguire il comando [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send). Viene inviato un messaggio da cloud a dispositivo dall'hub IoT al dispositivo simulato. Il messaggio include una stringa e due coppie chiave-valore.  
 
     *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
@@ -184,12 +184,12 @@ Se si continua con il prossimo articolo consigliato, è possibile conservare le 
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
 
 Per eliminare un gruppo di risorse per nome:
-1. Eseguire il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
+1. Eseguire il comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). In questo modo vengono rimossi il gruppo di risorse, l'hub IoT e la registrazione del dispositivo creato.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Eseguire il comando [az group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list) per verificare che il gruppo di risorse sia stato eliminato.  
+1. Eseguire il comando [az group list](/cli/azure/group?view=azure-cli-latest#az-group-list) per verificare che il gruppo di risorse sia stato eliminato.  
 
     ```azurecli
     az group list

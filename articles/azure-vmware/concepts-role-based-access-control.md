@@ -3,22 +3,28 @@ title: Concetti-controllo degli accessi in base al ruolo (RBAC)
 description: Informazioni sulle funzionalità chiave del controllo degli accessi in base al ruolo per la soluzione VMware di Azure
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: a863f44dd5fdd485f8d5ebfcfbacee994e6b63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580230"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440944"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Controllo degli accessi in base al ruolo (RBAC) per la soluzione VMware di Azure
 
-In una distribuzione locale di vCenter e ESXi, l'amministratore ha accesso all' administrator@vsphere.local account vCenter e potrebbe avere utenti o gruppi di Active Directory (ad) aggiuntivi assegnati. Tuttavia, in una distribuzione di soluzione VMware di Azure, l'amministratore non ha accesso all'account utente amministratore ma può assegnare utenti e gruppi di Active Directory al ruolo CloudAdmin in vCenter.  Inoltre, l'utente del cloud privato della soluzione VMware di Azure non è autorizzato ad accedere o configurare componenti di gestione specifici supportati e gestiti da Microsoft, ad esempio cluster, host, archivi dati e commutatori virtuali distribuiti.
-
-
-Nella soluzione VMware di Azure, vCenter dispone di un utente locale predefinito denominato cloudadmin che viene assegnato al ruolo CloudAdmin incorporato. L'utente cloudadmin locale viene usato per configurare altri utenti in Active Directory. Il ruolo CloudAdmin, in generale, ha il privilegio di creare e gestire i carichi di lavoro nel cloud privato (macchine virtuali, pool di risorse, archivi dati e reti). Il ruolo CloudAdmin nella soluzione VMware di Azure dispone di un set specifico di privilegi vCenter diversi dalle altre soluzioni cloud VMware.   
+Nella soluzione VMware di Azure, vCenter dispone di un utente locale predefinito denominato cloudadmin e assegnato al ruolo CloudAdmin predefinito. L'utente cloudadmin locale viene usato per configurare gli utenti in Active Directory. In generale, il ruolo CloudAdmin crea e gestisce i carichi di lavoro nel cloud privato. Nella soluzione VMware di Azure il ruolo CloudAdmin dispone di privilegi vCenter diversi dalle altre soluzioni cloud VMware.     
 
 > [!NOTE]
 > La soluzione VMware di Azure attualmente non offre ruoli personalizzati in vCenter o nel portale della soluzione VMware di Azure. 
+
+In una distribuzione locale di vCenter e ESXi, l'amministratore ha accesso all' administrator@vsphere.local account vCenter. Possono anche avere utenti/gruppi aggiuntivi di Active Directory (AD) assegnati. 
+
+In una distribuzione della soluzione VMware di Azure, l'amministratore non ha accesso all'account utente amministratore. Ma possono assegnare utenti e gruppi di Active Directory al ruolo CloudAdmin in vCenter.  
+
+L'utente del cloud privato non ha accesso a e non può configurare componenti di gestione specifici supportati e gestiti da Microsoft. Ad esempio cluster, host, archivi dati e commutatori virtuali distribuiti.
+
+
+
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Ruolo CloudAdmin della soluzione VMware di Azure in vCenter
 
@@ -32,7 +38,7 @@ Nella soluzione VMware di Azure, vCenter dispone di un utente locale predefinito
 
 Il ruolo CloudAdmin nella soluzione VMware di Azure presenta i privilegi seguenti in vCenter. Per una spiegazione dettagliata di ogni privilegio, fare riferimento alla [documentazione del prodotto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) .
 
-| Privilege | Description |
+| Privilege | Descrizione |
 | --------- | ----------- |
 | **Avvisi** | Conferma avviso<br />Crea allarme<br />Disabilita azione allarme<br />Modifica allarme<br />Rimuovi allarme<br />Imposta stato allarme |
 | **Autorizzazioni** | Modificare le autorizzazioni |
@@ -49,7 +55,7 @@ Il ruolo CloudAdmin nella soluzione VMware di Azure presenta i privilegi seguent
 | **Sessioni** | Message<br />Convalida sessione |
 | **Profilo** | Visualizzazione archiviazione basata su profili |
 | **Visualizzazione archiviazione** | Visualizzazione |
-| **vApp** | Aggiungi macchina virtuale<br />Assegnare il pool di risorse<br />Assegna vApp<br />Clone<br />Create<br />Elimina<br />Esportazione<br />Importa<br />Spostamento<br />Spegnimento<br />Accendere<br />Rinominare<br />Sospendi<br />Unregister <br />Visualizza ambiente OVF<br />configurazione dell'applicazione vApp<br />configurazione dell'istanza di vApp<br />configurazione di vApp managedBy<br />configurazione della risorsa vApp |
+| **vApp** | Aggiungi macchina virtuale<br />Assegnare il pool di risorse<br />Assegna vApp<br />Clone<br />Create<br />Delete<br />Esportazione<br />Importa<br />Spostamento<br />Spegnimento<br />Accendere<br />Rinominare<br />Sospendi<br />Unregister <br />Visualizza ambiente OVF<br />configurazione dell'applicazione vApp<br />configurazione dell'istanza di vApp<br />configurazione di vApp managedBy<br />configurazione della risorsa vApp |
 | **Macchina virtuale** | Modifica configurazione<br />&#160;&#160;&#160;&#160;acquisire il lease del disco<br />&#160;&#160;&#160;&#160;aggiungere un disco esistente<br />&#160;&#160;&#160;&#160;Aggiungi nuovo disco<br />&#160;&#160;&#160;&#160;aggiungere o rimuovere un dispositivo<br />&#160;&#160;&#160;&#160;configurazione avanzata<br />&#160;&#160;&#160;&#160;modificare il numero di CPU<br />&#160;&#160;&#160;&#160;modificare la memoria<br />Impostazioni di modifica &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;modificare la selezione host file<br />&#160;&#160;&#160;&#160;modificare la risorsa<br />&#160;&#160;&#160;&#160;configurare il dispositivo USB host<br />&#160;&#160;&#160;&#160;configurare il dispositivo RAW<br />&#160;&#160;&#160;&#160;configurare managedBy<br />&#160;&#160;&#160;&#160;visualizzare le impostazioni di connessione<br />&#160;&#160;&#160;&#160;estendere il disco virtuale<br />&#160;&#160;&#160;&#160;modificare le impostazioni del dispositivo<br />Compatibilità della tolleranza di errore &#160;&#160;&#160;&#160;query<br />&#160;&#160;&#160;&#160;i file senza proprietà<br />&#160;&#160;&#160;&#160;ricaricare da percorsi<br />&#160;&#160;&#160;&#160;rimuovere il disco<br />Ridenominazione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;reimpostare le informazioni Guest<br />Annotazione set di &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;/Nascondi rilevamento modifiche disco<br />Elemento padre del fork di attivazione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;aggiornare la compatibilità delle macchine virtuali<br />Modifica inventario<br />&#160;&#160;&#160;&#160;crea da esistente<br />&#160;&#160;&#160;&#160;Crea nuovo<br />Spostamento &#160;&#160;&#160;&#160;<br />Registro &#160;&#160;&#160;&#160;<br />Rimozione &#160;&#160;&#160;&#160;<br />Annullamento della registrazione di &#160;&#160;&#160;&#160;<br />Operazioni Guest<br />&#160;&#160;&#160;&#160;la modifica dell'alias dell'operazione Guest<br />&#160;&#160;&#160;&#160;query alias operazione Guest<br />&#160;&#160;&#160;&#160;modifiche delle operazioni Guest<br />Esecuzione del programma &#160;&#160;&#160;&#160;operazione Guest<br />&#160;&#160;&#160;&#160;le query sull'operazione Guest<br />Interazione<br />Domanda di risposta &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;l'operazione di backup nella macchina virtuale<br />&#160;&#160;&#160;&#160;configurare supporti CD<br />&#160;&#160;&#160;&#160;configurare supporti floppy<br />&#160;&#160;&#160;&#160;connettere i dispositivi<br />Interazione &#160;&#160;&#160;&#160;console<br />Schermata di creazione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;deframmenta tutti i dischi<br />Trascinamento della selezione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;la gestione del sistema operativo guest per l'API VIX<br />&#160;&#160;&#160;&#160;inserire codici di analisi HID USB<br />&#160;&#160;&#160;&#160;installare gli strumenti VMware<br />Sospendere o sospendere &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;eseguire operazioni di cancellazione o compattazione<br />Spegnimento &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;accendere<br />&#160;&#160;&#160;&#160;sessione di registrazione nella macchina virtuale<br />&#160;&#160;&#160;&#160;sessione di riproduzione nella macchina virtuale<br />Sospensione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;Sospendi tolleranza di errore<br />Failover di test di &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;riavviare il test della macchina virtuale secondaria<br />&#160;&#160;&#160;&#160;disattivare la tolleranza di errore<br />&#160;&#160;&#160;&#160;attivare la tolleranza di errore<br />Provisioning<br />&#160;&#160;&#160;&#160;consentire l'accesso al disco<br />&#160;&#160;&#160;&#160;consentire l'accesso ai file<br />&#160;&#160;&#160;&#160;consentire l'accesso in sola lettura al disco<br />&#160;&#160;&#160;&#160;consentire il download della macchina virtuale<br />Modello di clonazione &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;clonare la macchina virtuale<br />&#160;&#160;&#160;&#160;creare un modello dalla macchina virtuale<br />&#160;&#160;&#160;&#160;personalizzare Guest<br />&#160;&#160;&#160;&#160;distribuire il modello<br />Contrassegno &#160;&#160;&#160;&#160;come modello<br />&#160;&#160;&#160;&#160;modificare la specifica della personalizzazione<br />Innalzamento di livello &#160;&#160;&#160;&#160;dischi<br />&#160;&#160;&#160;&#160;leggere le specifiche di personalizzazione<br />Configurazione del servizio<br />&#160;&#160;&#160;&#160;consentire le notifiche<br />&#160;&#160;&#160;&#160;consentire il polling delle notifiche degli eventi globali<br />&#160;&#160;&#160;&#160;gestire la configurazione del servizio<br />&#160;&#160;&#160;&#160;modificare la configurazione del servizio<br />Configurazioni del servizio query &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;la configurazione del servizio di lettura<br />Gestione snapshot<br />Creazione Snapshot &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;rimuovere lo snapshot<br />&#160;&#160;&#160;&#160;Rinomina snapshot<br />&#160;&#160;&#160;&#160;ripristinare lo snapshot<br />Replica vSphere<br />&#160;&#160;&#160;&#160;configurare la replica<br />&#160;&#160;&#160;&#160;gestire la replica<br />Monitoraggio della replica &#160;&#160;&#160;&#160; |
 | **vService** | Crea dipendenza<br />Elimina dipendenza<br />Riconfigurare la configurazione della dipendenza<br />Aggiorna dipendenza |
 

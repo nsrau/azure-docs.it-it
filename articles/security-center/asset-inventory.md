@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950738"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341924"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Esplorare e gestire le risorse con gli strumenti di inventario e gestione delle risorse
 
@@ -68,22 +68,22 @@ Nella pagina inventario sono disponibili gli strumenti seguenti:
     ![Opzioni di esportazione dell'inventario](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > La documentazione di KQL fornisce un database con alcuni dati di esempio insieme ad alcune semplici query per ottenere la &quot;sensazione" per il linguaggio. [Per altre informazioni, vedere questa esercitazione su KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > La documentazione di KQL fornisce un database con alcuni dati di esempio insieme ad alcune semplici query per ottenere la &quot;sensazione" per il linguaggio. [Per altre informazioni, vedere questa esercitazione su KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Opzioni di gestione delle risorse** : l'inventario consente di eseguire query di individuazione complesse. Quando sono state trovate le risorse corrispondenti alle query, l'inventario fornisce collegamenti per operazioni quali:
 
     - Assegnare i tag alle risorse filtrate: selezionare le caselle di controllo accanto alle risorse che si desidera contrassegnare.
     - Onboarding di nuovi server nel centro sicurezza: usare il pulsante della barra degli strumenti **Aggiungi server non Azure** .
-    - Automatizzare i carichi di lavoro con app per la logica di Azure: usare il pulsante **trigger app** per la logica per eseguire un'app per la logica in una o più risorse. Le app per la logica devono essere preparate in anticipo e accettare il tipo di trigger pertinente (richiesta HTTP). [Altre informazioni sulle app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automatizzare i carichi di lavoro con app per la logica di Azure: usare il pulsante **trigger app** per la logica per eseguire un'app per la logica in una o più risorse. Le app per la logica devono essere preparate in anticipo e accettare il tipo di trigger pertinente (richiesta HTTP). [Altre informazioni sulle app per la logica](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Come funziona l'inventario asset?
 
-Asset Inventory USA [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), un servizio di Azure che offre la possibilità di eseguire query sui dati relativi alle posture di sicurezza del Centro sicurezza in più sottoscrizioni.
+Asset Inventory USA [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), un servizio di Azure che offre la possibilità di eseguire query sui dati relativi alle posture di sicurezza del Centro sicurezza in più sottoscrizioni.
 
 ARG è progettato per offrire un'efficace esplorazione delle risorse con la possibilità di eseguire query su larga scala.
 
-Usando il [linguaggio di query kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), l'inventario degli asset può produrre rapidamente informazioni approfondite incrociate facendo riferimento a ASC data con altre proprietà delle risorse.
+Usando il [linguaggio di query kusto (KQL)](/azure/data-explorer/kusto/query/), l'inventario degli asset può produrre rapidamente informazioni approfondite incrociate facendo riferimento a ASC data con altre proprietà delle risorse.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Come usare Asset Inventory
@@ -201,5 +201,5 @@ Questo articolo descrive la pagina inventario asset del Centro sicurezza di Azur
 
 Per ulteriori informazioni sugli strumenti correlati, vedere le pagine seguenti:
 
-- [Grafico delle risorse di Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Linguaggio di query Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Grafico delle risorse di Azure (ARG)](../governance/resource-graph/index.yml)
+- [Linguaggio di query Kusto (KQL)](/azure/data-explorer/kusto/query/)

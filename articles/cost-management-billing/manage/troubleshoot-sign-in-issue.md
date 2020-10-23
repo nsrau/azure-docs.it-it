@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686497"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132330"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Risolvere i problemi di accesso alla sottoscrizione di Azure
 
 Questa guida aiuta a risolvere i problemi che impediscono l'accesso al portale di Azure o al Centro account di Azure.
 
 > [!NOTE]
-> In caso di problemi di iscrizione a un nuovo account di Azure, vedere [Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> In caso di problemi di iscrizione a un nuovo account di Azure, vedere [Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure](./troubleshoot-azure-sign-up.md).
 
 ## <a name="page-hangs-in-the-loading-status"></a>La pagina resta in stato di caricamento
 
@@ -66,7 +66,7 @@ Questo problema si verifica se è stata effettuata una selezione nella directory
 Per risolvere il problema:
 
 - Verificare che sia selezionata la directory di Azure corretta selezionando l'account nell'angolo in alto a destra.
-- Se è selezionata la directory di Azure corretta, ma viene comunque visualizzato il messaggio di errore, richiedere che il proprio account venga [aggiunto come proprietario](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- Se è selezionata la directory di Azure corretta, ma viene comunque visualizzato il messaggio di errore, richiedere che il proprio account venga [aggiunto come proprietario](./add-change-subscription-administrator.md).
 
 **Scenario 2:** il messaggio di errore viene visualizzato quando si accede al [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
 
@@ -80,11 +80,11 @@ Controllare se l'account usato è l'amministratore account. Per verificare chi �
 
 Altri articoli sulla risoluzione dei problemi per la fatturazione e le sottoscrizioni di Azure
 
-- [Carta rifiutata](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemi di iscrizione alla sottoscrizione](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [Non sono state trovate sottoscrizioni](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Vista dei costi Enterprise disabilitata](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Documentazione sulla fatturazione di Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Carta rifiutata](./troubleshoot-declined-card.md)
+- [Problemi di iscrizione alla sottoscrizione](./troubleshoot-azure-sign-up.md)
+- [Non sono state trovate sottoscrizioni](./no-subscriptions-found.md)
+- [Vista dei costi Enterprise disabilitata](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Documentazione sulla fatturazione di Azure](../index.yml)
 
 ## <a name="contact-us-for-help"></a>Contattare Microsoft per richiedere assistenza
 

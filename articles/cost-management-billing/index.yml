@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
-  ms.openlocfilehash: 3c570c0c258d93086c64c463c6fea3f3bb9bd741
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 11/21/2020
+  ms.openlocfilehash: 4b3308b7475d9f1adc5446907e19d363fc4faca0
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91652160"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92367024"
 landingContent:
 - title: Analizzare i costi
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Apprendere secondo i propri ritmi
-      url: https://aka.ms/costmgmt/learn
+      url: /learn/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
     - text: Video su Gestione costi di Azure
       url: https://www.youtube.com/c/AzureCostManagement
     - text: Avviare l'analisi dei costi
@@ -37,7 +37,7 @@ landingContent:
     - text: Usare l'analisi dei costi per attività comuni
       url: costs/cost-analysis-common-uses.md
     - text: Analizzare i costi con l'app modello di Power BI
-      url: https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app
+      url: ./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md
     - text: Connettersi con Power BI Desktop
       url: /power-bi/desktop-connect-azure-cost-management
   - linkListType: tutorial
@@ -59,7 +59,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Gestire i costi con l'automazione
-      url: https://docs.microsoft.com/azure/cost-management-billing/costs/manage-automation
+      url: ./costs/manage-automation.md
     - text: Spiegazioni delle condizioni di utilizzo
       url: understand/understand-usage.md
     - text: Spiegazioni delle condizioni di fatturazione
@@ -72,14 +72,10 @@ landingContent:
     links:
     - text: Usare gli avvisi per i costi
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - text: Allocare i costi
-      url: costs/allocate-costs.md
     - text: Visualizzare e scaricare la fattura di Azure
       url: understand/download-azure-invoice.md
     - text: Visualizzare e scaricare il file dei dati di utilizzo e addebiti di Azure
       url: understand/download-azure-daily-usage.md
-    - text: Visualizzare gli addebiti per servizi esterni
-      url: understand/understand-azure-marketplace-charges.md
 - title: Ottimizzare i costi
   linkLists:
   - linkListType: concept
@@ -101,9 +97,9 @@ landingContent:
     - text: Iniziare a ottimizzare i costi
       url: https://azure.microsoft.com/overview/cost-optimization/
     - text: Stimare i costi e ottimizzare la spesa per Azure
-      url: https://docs.microsoft.com/learn/modules/predict-costs-and-optimize-spending/
+      url: /learn/modules/predict-costs-and-optimize-spending/
     - text: Microsoft Azure Well-Architected Framework - Ottimizzazione dei costi
-      url: https://docs.microsoft.com/learn/modules/azure-well-architected-cost-optimization/
+      url: /learn/modules/azure-well-architected-cost-optimization/
 - title: Configurare Gestione dei costi e fatturazione
   linkLists:
   - linkListType: concept
@@ -142,23 +138,3 @@ landingContent:
       url: understand/mca-download-tax-document.md
     - text: Pagare la fattura del Contratto del cliente Microsoft
       url: understand/pay-bill.md
-- title: Acquistare prenotazioni
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Scegliere la prenotazione da acquistare
-      url: reservations/determine-reservation-purchase.md
-    - text: Cambi e rimborsi per le prenotazioni
-      url: reservations/exchange-and-refund-azure-reservations.md
-  - linkListType: how-to-guide
-    links:
-    - text: Acquistare una prenotazione
-      url: reservations/prepare-buy-reservation.md
-    - text: Gestire le prenotazioni
-      url: reservations/manage-reserved-vm-instance.md
-    - text: Visualizzare gli acquisti di prenotazioni
-      url: reservations/view-purchase-refunds.md
-    - text: Ammortizzare i costi delle prenotazioni
-      url: reservations/charge-back-usage.md
-    - text: Esaminare le prenotazioni
-      url: reservations/reservation-renew.md

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107964"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regole di raccolta dati in monitoraggio di Azure (anteprima)
 Le regole di raccolta dati (DCR) definiscono i dati in arrivo in monitoraggio di Azure e specificano la posizione in cui devono essere inviati o archiviati i dati. Questo articolo fornisce una panoramica delle regole di raccolta dei dati, inclusi il contenuto e la struttura e il modo in cui è possibile crearli e utilizzarli.
@@ -40,7 +40,7 @@ Il diagramma seguente illustra i componenti di una regola di raccolta dati e la 
 ### <a name="data-source-types"></a>Tipi di origini dati
 Ogni origine dati ha un tipo di origine dati. Ogni tipo definisce un set univoco di proprietà che devono essere specificate per ogni origine dati. I tipi di origine dati attualmente disponibili sono illustrati nella tabella seguente.
 
-| Tipo di origine dati | Descrizione | 
+| Tipo di origine dati | Description | 
 |:---|:---|
 | estensione | Origine dati basata sull'estensione della macchina virtuale |
 | performanceCounters | Contatori delle prestazioni per Windows e Linux |
@@ -68,7 +68,7 @@ Nella tabella seguente sono elencati i limiti attualmente applicabili a ogni reg
 Esistono attualmente due metodi disponibili per creare un DCR:
 
 - [Usare il portale di Azure](data-collection-rule-azure-monitor-agent.md) per creare una regola di raccolta dati e associarla a una o più macchine virtuali.
-- Modificare direttamente la regola di raccolta dati in JSON e [inviarla usando l'API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
+- Modificare direttamente la regola di raccolta dati in JSON e [inviarla usando l'API REST](/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Regola di raccolta dati di esempio
 La regola di raccolta dati di esempio riportata di seguito è per le macchine virtuali con l'agente di gestione di Azure e include i dettagli seguenti:

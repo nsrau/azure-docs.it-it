@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5236a3be9f8908d886274764dfc0c0da5b3565bc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77462106"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104479"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Cenni preliminari sulle associazioni e sui trigger HTTP di funzioni di Azure
 
 Funzioni di Azure può essere richiamato tramite richieste HTTP per compilare API senza server e rispondere ai [webhook](https://en.wikipedia.org/wiki/Webhook).
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Eseguire una funzione da una richiesta HTTP | [Trigger](./functions-bindings-http-webhook-trigger.md) |
 | Restituire una risposta HTTP da una funzione |[Binding di output](./functions-bindings-http-webhook-output.md) |
@@ -29,7 +29,7 @@ Per impostazione predefinita, il codice in questo articolo è la sintassi di .NE
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |
@@ -38,7 +38,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x

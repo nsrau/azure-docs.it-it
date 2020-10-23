@@ -37,6 +37,8 @@
       href: concepts-route-events.md
     - name: Sicurezza per le soluzioni di Gemelli digitali di Azure
       href: concepts-security.md
+    - name: Disponibilità elevata e ripristino di emergenza
+      href: concepts-high-availability-disaster-recovery.md
 - name: Guide pratiche
   items:
     - name: Distribuire
@@ -53,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Scrivere il codice di autenticazione dell'app
           href: how-to-authenticate-client.md
+        - name: Creare la registrazione di un'app
+          href: how-to-create-app-registration.md
         - name: Spostare un'istanza in un'area diversa
           href: how-to-move-regions.md
     - name: Modelli di progettazione
@@ -130,7 +134,7 @@
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: .NET (C#) SDK - NuGet
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: .NET (C#) SDK - informazioni di riferimento
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
             - name: .NET (C#) SDK - origine
@@ -161,14 +165,16 @@
               href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
             - name: .NET (C#) SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
-            - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
-            - name: JavaScript SDK - informazioni di riferimento
-              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
             - name: Java SDK - Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
             - name: Java SDK - informazioni di riferimento
               href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+            - name: Java SDK - origine
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
+            - name: JavaScript SDK - npm
+              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+            - name: JavaScript SDK - informazioni di riferimento
+              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali
@@ -191,7 +197,7 @@
       items:
         - name: Servizio del simulatore di dispositivi
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Esempi di Gemelli digitali di Azure
+        - name: Esempi end-to-end per Gemelli digitali di Azure
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Strumento di esplorazione di Gemelli digitali di Azure (esempio)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
@@ -199,10 +205,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Esempio di integrazione di DPS e dell'hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Swagger personalizzati per Gemelli digitali di Azure
-          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Esempio di integrazione SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: Swagger personalizzati per Gemelli digitali di Azure per il connettore di App per la logica
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Strumenti di Azure
       items:
         - name: Azure Cloud Shell

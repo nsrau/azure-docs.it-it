@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 76cacbea3f98f65e290cb2722062127d2264e171
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664835"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854291"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Esempi di codice di Azure Active Directory B2C
 
@@ -54,3 +54,15 @@ Le tabelle seguenti contengono collegamenti a esempi di applicazioni per diversi
 | Esempio | Descrizione |
 |--------| ----------- |
 | [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | Applicazione di test SAML per testare Azure AD B2C configurato in modo da fungere da provider di identità SAML. |
+
+## <a name="api-connectors"></a>Connettori API
+
+Le tabelle seguenti forniscono collegamenti a esempi di codice per sfruttare le API Web nei flussi utente usando [connettori API](api-connectors-overview.md).
+
+## <a name="api-connector-azure-function-quickstarts"></a>Argomenti di avvio rapido su Funzioni di Azure per connettori API
+
+| Esempio                                                                                                                          | Descrizione                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Questo esempio di Funzioni di Azure per .NET Core illustra come limitare le iscrizioni a specifici domini di posta elettronica e convalidare le informazioni fornite dall'utente. |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Questo esempio di Funzioni di Azure per Node.js illustra come limitare le iscrizioni a specifici domini di posta elettronica e convalidare le informazioni fornite dall'utente.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Questo esempio di Funzioni di Azure per Python illustra come limitare le iscrizioni a specifici domini di posta elettronica e convalidare le informazioni fornite dall'utente.    |

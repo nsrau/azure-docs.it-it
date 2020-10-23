@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024779"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142665"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedure consigliate per la configurazione di dispositivi in una soluzione IoT
 
@@ -20,17 +20,17 @@ La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automat
 
 * **Produttore/integratore di hardware IoT**: questo ruolo include i produttori di hardware IoT, gli integratori che si occupano dell'assemblaggio di hardware da produttori diversi e i fornitori di hardware per una distribuzione IoT prodotta o integrata da altri fornitori. Coloro che svolgono questo ruolo sono coinvolti nello sviluppo e nell'integrazione di firmware, sistemi operativi incorporati e software incorporato.
 
-* **Sviluppatore di soluzioni IoT**: una soluzione IoT viene in genere realizzata da uno sviluppatore di soluzioni che può far parte di un team interno o essere un integratore di sistemi specializzato in questa attività. Lo sviluppatore di soluzioni IoT può realizzare vari componenti della soluzione IoT partendo da zero, integrare vari componenti standard o open source oppure personalizzare un [acceleratore di soluzioni IoT](/azure/iot-accelerators/).
+* **Sviluppatore di soluzioni IoT**: una soluzione IoT viene in genere realizzata da uno sviluppatore di soluzioni che può far parte di un team interno o essere un integratore di sistemi specializzato in questa attività. Lo sviluppatore di soluzioni IoT può realizzare vari componenti della soluzione IoT partendo da zero, integrare vari componenti standard o open source oppure personalizzare un [acceleratore di soluzioni IoT](../iot-accelerators/index.yml).
 
 * **Operatore di soluzioni IoT**: una volta distribuita, la soluzione IoT richiede attività di gestione, monitoraggio, aggiornamento e manutenzione a lungo termine. Queste operazioni possono essere eseguite da un team interno costituito da esperti di tecnologie informatiche, da team che svolgono operazioni hardware e attività di manutenzione, nonché da specialisti di dominio che monitorano il corretto funzionamento dell'intera infrastruttura IoT.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Informazioni sulla gestione automatica dei dispositivi per la configurazione di dispositivi IoT su larga scala
 
-La gestione automatica dei dispositivi include i numerosi vantaggi offerti dai [dispositivi gemelli](iot-hub-devguide-device-twins.md) e dai [moduli gemelli](iot-hub-devguide-module-twins.md) per sincronizzare gli stati desiderati e segnalati tra il cloud e i dispositivi. Le [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md) aggiornano automaticamente grandi set di dispositivi gemelli e riepilogano lo stato e la conformità. I seguenti passaggi generali descrivono come viene sviluppata e usata la gestione automatica dei dispositivi:
+La gestione automatica dei dispositivi include i numerosi vantaggi offerti dai [dispositivi gemelli](iot-hub-devguide-device-twins.md) e dai [moduli gemelli](iot-hub-devguide-module-twins.md) per sincronizzare gli stati desiderati e segnalati tra il cloud e i dispositivi. Le [configurazioni automatiche dei dispositivi](./iot-hub-automatic-device-management.md) aggiornano automaticamente grandi set di dispositivi gemelli e riepilogano lo stato e la conformità. I seguenti passaggi generali descrivono come viene sviluppata e usata la gestione automatica dei dispositivi:
 
 * Il **produttore/integratore di hardware IoT** implementa le funzionalità di gestione dei dispositivi all'interno di un'applicazione incorporata usando [dispositivi gemelli](iot-hub-devguide-device-twins.md). Queste funzionalità possono includere gli aggiornamenti del firmware, l'installazione e l'aggiornamento del software e la gestione delle impostazioni.
 
-* Lo **sviluppatore di soluzioni IoT** implementa il livello di gestione per le operazioni di gestione dei dispositivi usando [dispositivi gemelli](iot-hub-devguide-device-twins.md) e [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md). La soluzione deve includere la definizione di un'interfaccia per operatore per eseguire le attività di gestione dei dispositivi.
+* Lo **sviluppatore di soluzioni IoT** implementa il livello di gestione per le operazioni di gestione dei dispositivi usando [dispositivi gemelli](iot-hub-devguide-device-twins.md) e [configurazioni automatiche dei dispositivi](./iot-hub-automatic-device-management.md). La soluzione deve includere la definizione di un'interfaccia per operatore per eseguire le attività di gestione dei dispositivi.
 
 * L'**operatore di soluzioni IoT** usa la soluzione IoT per eseguire attività di gestione dei dispositivi, in particolare per raggruppare i dispositivi, avviare modifiche di configurazione, ad esempio aggiornamenti al firmware, monitorare lo stato di avanzamento e risolvere i problemi che si verificano.
 
@@ -64,7 +64,7 @@ Di seguito sono presentate le procedure consigliate per gli sviluppatori di solu
 
 * **Organizzare i dispositivi usando i tag dei dispositivi gemelli**: la soluzione deve consentire all'operatore di definire anelli di qualità o altri set di dispositivi in base alle varie strategie di distribuzione, ad esempio canary. L'organizzazione dei dispositivi può essere implementata all'interno della soluzione usando tag dei dispositivi gemelli e [query](iot-hub-devguide-query-language.md). Questa organizzazione è necessaria per un'implementazione precisa e sicura delle configurazioni.
 
-* **Implementare le [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md):** queste configurazioni distribuiscono e monitorano le modifiche di configurazione per grandi set di dispositivi IoT tramite dispositivi gemelli.
+* **Implementare le [configurazioni automatiche dei dispositivi](./iot-hub-automatic-device-management.md):** queste configurazioni distribuiscono e monitorano le modifiche di configurazione per grandi set di dispositivi IoT tramite dispositivi gemelli.
 
    Le configurazioni automatiche dei dispositivi vengono assegnate a set di dispositivi gemelli tramite la **condizione di destinazione**, che consiste in una query sulle proprietà segnalate o sui tag dei dispositivi gemelli. Il **contenuto di destinazione** è il set di proprietà desiderate che verrà impostato all'interno dei dispositivi gemelli di destinazione. Il contenuto di destinazione deve essere allineato con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT. Le **metriche** sono query sulle proprietà segnalate dal dispositivo gemello e devono anche essere allineate con la struttura del dispositivo gemello definita dal produttore o dall'integratore di hardware.
 
@@ -78,7 +78,7 @@ Di seguito sono presentate le procedure consigliate per gli operatori di soluzio
 
 * **Organizzare i dispositivi per la gestione**: la soluzione IoT deve definire o consentire la creazione di anelli di qualità o altri set di dispositivi in base alle varie strategie di distribuzione, ad esempio canary. I set di dispositivi verranno usati per implementare le modifiche di configurazione ed eseguire altre operazioni di gestione dei dispositivi su larga scala.
 
-* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica dei dispositivi](iot-hub-auto-device-config.md) e la condizione di destinazione deve essere assegnata a un set iniziale di dispositivi, ad esempio un gruppo canary. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
+* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica dei dispositivi](./iot-hub-automatic-device-management.md) e la condizione di destinazione deve essere assegnata a un set iniziale di dispositivi, ad esempio un gruppo canary. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
 
    Al termine della convalida, l'operatore aggiornerà la configurazione automatica dei dispositivi in modo da includere un set di dispositivi più ampio. L'operatore deve inoltre impostare la priorità per la configurazione in modo che sia superiore alle altre configurazioni attualmente assegnate a tali dispositivi. L'implementazione può essere monitorata tramite le metriche definite dalla configurazione automatica dei dispositivi.
 
@@ -88,6 +88,6 @@ Di seguito sono presentate le procedure consigliate per gli operatori di soluzio
 
 * Leggere altre informazioni sull'implementazione di dispositivi gemelli in [Comprendere e usare dispositivi gemelli nell'hub IoT](iot-hub-devguide-device-twins.md).
 
-* Eseguire i passaggi per creare, aggiornare o eliminare una configurazione automatica dei dispositivi in [Configurare e monitorare i dispositivi IoT su larga scala](iot-hub-auto-device-config.md).
+* Eseguire i passaggi per creare, aggiornare o eliminare una configurazione automatica dei dispositivi in [Configurare e monitorare i dispositivi IoT su larga scala](./iot-hub-automatic-device-management.md).
 
 * Implementare un modello di aggiornamento del firmware usando dispositivi gemelli e configurazioni automatiche dei dispositivi in [Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo](tutorial-firmware-update.md).

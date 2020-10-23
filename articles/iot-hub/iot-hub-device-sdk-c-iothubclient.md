@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732608"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149143"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT SDK per dispositivi per C: altre informazioni su IoTHubClient
 
@@ -28,7 +28,7 @@ Questo articolo si conclude con il riepilogo di un paio di vari argomenti, inclu
 
 Per illustrare questi argomenti, si useranno esempi dell'SDK relativi a **IoTHubClient**. Se si vuole seguire la procedura, vedere le applicazioni **iothub\_client\_sample\_http** e **iothub\_client\_sample\_amqp** incluse in Azure IoT SDK per dispositivi per C. Tutto ciò che viene descritto nelle sezioni seguenti è illustrato in questi esempi.
 
-È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>API di livello inferiore
 
@@ -157,7 +157,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Per iniziare, chiamare **IoTHubMessage\_Properties** e passare l'handle del messaggio. Verrà restituito un riferimento a **MAP\_HANDLE** che consente di iniziare ad aggiungere proprietà. Quest'ultima operazione si esegue chiamando **Map\_AddOrUpdate**, che riceve un riferimento a MAP\_HANDLE, il nome della proprietà e il valore della proprietà. Con questa API è possibile aggiungere tutte le proprietà necessarie.
 
-Quando l'evento viene letto da **Hub eventi**, il ricevitore può enumerare le proprietà e recuperare i valori corrispondenti. Ad esempio, in .NET questa operazione verrebbe eseguita con l'accesso alla [raccolta delle proprietà nell'oggetto EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
+Quando l'evento viene letto da **Hub eventi**, il ricevitore può enumerare le proprietà e recuperare i valori corrispondenti. Ad esempio, in .NET questa operazione verrebbe eseguita con l'accesso alla [raccolta delle proprietà nell'oggetto EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
 Nell'esempio precedente, le proprietà vengono collegate a un evento inviato all'hub Internet. Le proprietà possono anche essere associate ai messaggi ricevuti dall'hub IoT. Per recuperare le proprietà da un messaggio, è possibile usare codice come il seguente nella funzione di callback del messaggio:
 
@@ -277,4 +277,4 @@ Questo articolo descrive in dettaglio il comportamento della libreria **IoTHubCl
 
 Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md).

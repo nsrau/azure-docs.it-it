@@ -3,12 +3,12 @@ title: Valutare i server locali usando un file CSV importato con Valutazione ser
 description: Informazioni su come individuare server locali per la migrazione ad Azure usando un file CSV importato in Valutazione server di Azure Migrate
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604224"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308380"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Esercitazione: Valutare i server con un file CSV importato
 
@@ -203,4 +203,4 @@ In questa esercitazione:
 
 > [!div class="checklist"]
 > * È stato creato un progetto di Azure Migrate 
-> * Sono stati individuati i server usando un file CSV importato. A questo punto, eseguire una valutazione per la [migrazione di macchine virtuali VMware a macchine virtuali di Azure](tutorial-assess-vmware.md).
+> * Sono stati individuati i server usando un file CSV importato. A questo punto, eseguire una valutazione per la [migrazione di macchine virtuali VMware a macchine virtuali di Azure](./tutorial-assess-vmware-azure-vm.md).

@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400503"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279736"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso di un grafo partizionato in Azure Cosmos DB
 
 Una delle funzionalità chiave dell'API Gremlin di Azure Cosmos DB è la possibilità di gestire grafi su vasta scala tramite la scalabilità orizzontale. I contenitori possono essere ridimensionati in modo indipendente sia a livello di archiviazione che di velocità effettiva. È possibile creare contenitori in Azure Cosmos DB che possono essere ridimensionati automaticamente per archiviare i dati di un grafo. I dati vengono bilanciati automaticamente in base alla **chiave di partizione** specificata.
 
-Il **partizionamento è obbligatorio** se si prevede che il contenitore memorizzi più di 20 GB di dimensioni o se si desidera allocare più di 10.000 unità richiesta al secondo (UR). Gli stessi principi generali del [meccanismo di partizionamento Azure Cosmos DB](partition-data.md) si applicano con alcune ottimizzazioni specifiche del grafo descritte di seguito.
+Il **partizionamento è obbligatorio** se si prevede che il contenitore memorizzi più di 20 GB di dimensioni o se si desidera allocare più di 10.000 unità richiesta al secondo (UR). Gli stessi principi generali del [meccanismo di partizionamento Azure Cosmos DB](partitioning-overview.md) si applicano con alcune ottimizzazioni specifiche del grafo descritte di seguito.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Partizionamento del grafo." border="false":::
 
@@ -78,7 +78,7 @@ Usare le linee guida seguenti per garantire prestazioni e scalabilità quando si
 
 - **Usare la direzione in uscita quando si eseguono query sugli archi ogni volta che è possibile**. Come indicato in precedenza, gli archi vengono archiviati con i rispettivi vertici di origine nella direzione in uscita. Ciò significa che le probabilità di ricorrere a query tra partizioni sono ridotte al minimo quando i dati e le query sono progettati tenendo conto di questo meccanismo. Al contrario, la `in()` query sarà sempre una query di fan-out costosa.
 
-- **Scegliere una chiave di partizione che distribuisce i dati in modo uniforme tra le partizioni**. Questa decisione dipende in gran parte dal modello di dati della soluzione. Per altre informazioni sulla creazione di una chiave di partizione appropriata, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
+- **Scegliere una chiave di partizione che distribuisce i dati in modo uniforme tra le partizioni**. Questa decisione dipende in gran parte dal modello di dati della soluzione. Per altre informazioni sulla creazione di una chiave di partizione appropriata, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](partitioning-overview.md).
 
 - **Ottimizzare le query per ottenere i dati entro i limiti di una partizione**. Una strategia di partizionamento ottimale deve essere allineata ai modelli per l'esecuzione di query. Le query che ottengono dati da una singola partizione offrono le migliori prestazioni possibili.
 
@@ -86,6 +86,6 @@ Usare le linee guida seguenti per garantire prestazioni e scalabilità quando si
 
 Successivamente si può procedere alla lettura degli articoli seguenti:
 
-* Leggere le informazioni su [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
+* Leggere le informazioni su [Partizionamento e ridimensionamento in Azure Cosmos DB](partitioning-overview.md).
 * Leggere le informazioni sul [supporto di Gremlin nell'API Gremlin](gremlin-support.md).
 * Vedere l'[introduzione all'API Gremlin](graph-introduction.md).

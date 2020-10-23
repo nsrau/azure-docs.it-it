@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: d870372f418cb8873f6664d6a501e0abe0ebe374
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4f747ce424e26a50aadcc84e375da230dff36fb3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88548481"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858303"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e Python
 
@@ -53,35 +53,39 @@ In alternativa, è possibile eseguire questo argomento di avvio rapido dalla rig
 1. Aprire una finestra del prompt dei comandi.
 1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python detect-face.py`.
 
-```python
-import requests
-import json
-
-# set to your own subscription key value
-subscription_key = None
-assert subscription_key
-
-# replace <My Endpoint String> with the string from your endpoint URL
-face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
-
-image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-response = requests.post(face_api_url, params=params,
-                         headers=headers, json={"url": image_url})
-print(json.dumps(response.json()))
-```
+:::code language="python" source="~/cognitive-services-quickstart-code/python/Face/rest/detect.py" :::
 
 ## <a name="examine-the-response"></a>Esaminare i risultati
 
 Una risposta con esito positivo viene restituita in JSON.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Estrarre gli attributi del viso
+ 
+Per estrarre gli attributi del viso, usare il modello di rilevamento 1 e aggiungere il parametro di query `returnFaceAttributes`.
+
+```python
+params = {
+    'detectionModel': 'detection_01',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId': 'true'
+}
+```
+
+La risposta includerà gli attributi del viso. Ad esempio:
 
 ```json
 [

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968634"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166514"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gestire le impostazioni utente per Azure Multi-Factor Authentication
 
@@ -36,8 +36,8 @@ Se viene assegnato il ruolo di *amministratore dell'autenticazione* , è possibi
       > I metodi di autenticazione attualmente registrati dell'utente non vengono eliminati quando un amministratore richiede la ripetizione della registrazione per l'autenticazione a più fattori. Quando un utente esegue nuovamente la registrazione per l'autenticazione a più fattori, è consigliabile esaminare le informazioni di sicurezza ed eliminare eventuali metodi di autenticazione precedentemente registrati che non sono più utilizzabili.
    
    - **Revoca le sessioni** di autenticazione a più fattori consente di cancellare le sessioni di autenticazione a più fattori memorizzate dall'utente e le richiede di eseguire l'autenticazione a più fattori la volta successiva che è richiesta dal criterio sul dispositivo.
-
-   ![Gestire i metodi di autenticazione dal portale di Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gestire i metodi di autenticazione dal portale di Azure":::
 
 ## <a name="delete-users-existing-app-passwords"></a>Eliminare le password per le app esistenti degli utenti
 

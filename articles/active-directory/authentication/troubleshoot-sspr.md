@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963823"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363539"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Risolvere i problemi di reimpostazione della password self-service in Azure Active Directory
 
@@ -32,7 +32,7 @@ In caso di problemi durante la visualizzazione o la configurazione delle opzioni
 
 Se non si dispone di una licenza di Azure AD assegnata all'amministratore che esegue l'operazione, non verrà visualizzata l'opzione di menu di **reimpostazione della password** .
 
-Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>Non è possibile visualizzare un'opzione di configurazione specifica.
 
@@ -52,7 +52,7 @@ In caso di problemi con la creazione di report di SSPR nel portale di Azure, esa
 
 Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD.
 
-Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="user-registrations-show-multiple-times"></a>Le registrazioni utente vengono visualizzate più volte.
 
@@ -74,7 +74,7 @@ Nella portale di Azure modificare la configurazione della **reimpostazione della
 
 È attualmente possibile abilitare un solo gruppo di Azure AD per la reimpostazione della password self-service usando il portale di Azure. Come parte di una distribuzione più ampia della reimpostazione della password self-service, sono supportati i gruppi annidati. Verificare che agli utenti del gruppo scelto siano assegnate le licenze appropriate. Esaminare il passaggio precedente per la risoluzione dei problemi per abilitare SSPR come richiesto.
 
-Esaminare anche i passaggi per la risoluzione dei problemi per assicurarsi che l'amministratore che esegue le opzioni di configurazione disponga di una licenza assegnata. Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Esaminare anche i passaggi per la risoluzione dei problemi per assicurarsi che l'amministratore che esegue le opzioni di configurazione disponga di una licenza assegnata. Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="theres-an-error-processing-the-request"></a>Si è verificato un errore durante l'elaborazione della richiesta.
 
@@ -87,7 +87,7 @@ Se si riscontrano problemi con SSPR, vedere gli scenari di risoluzione dei probl
 | Errore | Soluzione |
 | --- | --- |
 | La directory non è abilitata per la reimpostazione della password. | Nella portale di Azure modificare la configurazione della **reimpostazione della password self-service abilitata** su *selezionato* o *tutti* , quindi selezionare **Salva**. |
-| L'utente non dispone di una licenza Azure AD assegnata. | Questo problema può verificarsi se non si ha una licenza di Azure AD assegnata all'utente desiderato. Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| L'utente non dispone di una licenza Azure AD assegnata. | Questo problema può verificarsi se non si ha una licenza di Azure AD assegnata all'utente desiderato. Per assegnare una licenza all'account amministratore in questione, attenersi alla procedura per [assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | La directory è abilitata per la reimpostazione della password, ma le informazioni di autenticazione dell'utente sono mancanti o errate. | Verificare che l'utente abbia formato correttamente i dati di contatto per il file nella directory. Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md). |
 | La directory è abilitata per la reimpostazione della password, ma per l'utente è archiviato un solo metodo di contatto mentre i criteri sono impostati in modo da richiedere due metodi di verifica. | Verificare che l'utente disponga di almeno due metodi di contatto configurati correttamente. Sono ad esempio necessari un numero di telefono cellulare *e* un numero di telefono dell'ufficio. |
 | La directory è abilitata per la reimpostazione della password, ma non è possibile contattare l'utente anche se questo è configurato correttamente. | Questo può essere il risultato di un errore temporaneo del servizio o se non sono presenti dati di contatto errati che non è possibile rilevare correttamente. <br> <br> Se l'utente attende 10 secondi, viene visualizzato un collegamento "Riprova" e "Contatta l'amministratore". Se l'utente seleziona "Riprova", ripete la chiamata. Se l'utente seleziona "Contatta l'amministratore", invia un messaggio di posta elettronica di un modulo agli amministratori che richiedono la reimpostazione della password per l'account utente. |

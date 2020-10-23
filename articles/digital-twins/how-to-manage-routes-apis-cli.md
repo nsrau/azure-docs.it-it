@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vedere come configurare e gestire gli endpoint e le route di eventi per i dati di Azure Digital gemelli.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/23/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 775b2da1b3f07897a566b6e82fa3f6b0de10bd22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047370"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428257"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92047370"
 
 Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](how-to-interpret-event-data.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita impostando innanzitutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
 
-Gli endpoint e le route possono essere gestiti con le [API EventRoutes](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Questo articolo illustra il processo di creazione di endpoint e route attraverso questi meccanismi.
+Gli endpoint e le route possono essere gestiti con le [API EventRoutes](how-to-use-apis-sdks.md), [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Questo articolo illustra il processo di creazione di endpoint e route attraverso questi meccanismi.
 
 Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.com). Per una versione di questo articolo che usa invece il portale, vedere [*How-to: Manage Endpoints and routes (Portal)*](how-to-manage-routes-portal.md).
 
@@ -29,7 +29,7 @@ Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Resource group
+    - Gruppo di risorse
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -64,7 +64,7 @@ Dopo aver creato l'argomento, è possibile collegarlo ai dispositivi gemelli dig
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#event-routes-with-apis-and-the-c-sdk) usando l'API del servizio dispositivi digitali gemelli di Azure.
+A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Creare un hub eventi o un endpoint del bus di servizio
 
@@ -86,7 +86,71 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>Route di eventi (con le API e C# SDK)
+### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
+
+Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**.
+
+Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario usare le [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per creare l'endpoint. 
+
+Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. Specificare l'URL per il contenitore durante la creazione dell'endpoint. Il messaggio non recapitabile viene fornito come URL del contenitore con un token di firma di accesso condiviso. Il token necessita solo `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Per altre informazioni sui token SAS, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview)
+
+Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events).
+
+#### <a name="configuring-the-endpoint"></a>Configurazione dell'endpoint
+
+Quando si crea un endpoint, aggiungere un `deadLetterSecret` `properties` oggetto all'oggetto nel corpo della richiesta, che contiene un URL del contenitore e un token di firma di accesso condiviso per l'account di archiviazione.
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "xxxxxxxxxxx",
+    "accessKey2": "xxxxxxxxxxx",
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+  }
+}
+```
+
+Per altre informazioni, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+
+### <a name="message-storage-schema"></a>Schema di archiviazione messaggi
+
+I messaggi non recapitabili verranno archiviati nel formato seguente nell'account di archiviazione:
+
+`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+
+I messaggi non recapitabili corrisponderanno allo schema dell'evento originale destinato a essere recapitato all'endpoint originale.
+
+Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+
+```json
+{
+  "specversion": "1.0",
+  "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "data": {
+    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "TwinData": "some sample",
+    "$metadata": {
+      "$model": "dtmi:test:deadlettermodel;1",
+      "room": {
+        "lastUpdateTime": "2020-10-14T01:11:49.3576659Z"
+      }
+    }
+  },
+  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "time": "2020-10-14T01:11:49.3667224Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
+}
+```
+
+## <a name="create-an-event-route"></a>Creare una route di eventi
 
 Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
 
@@ -99,7 +163,7 @@ Gli esempi in questa sezione usano [.NET (C#) SDK](https://www.nuget.org/package
 >
 > Se si crea uno script per questo flusso, è possibile che si voglia tenere conto di questa situazione creando in 2-3 minuti di tempo di attesa per il completamento della distribuzione del servizio endpoint prima di passare alla configurazione del routing.
 
-### <a name="create-an-event-route"></a>Creare una route di eventi
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>Creazione di codice con le API e C# SDK
 
 Le route degli eventi vengono definite usando le [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
@@ -116,7 +180,7 @@ Una route deve consentire la selezione di più notifiche e tipi di evento.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -138,7 +202,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -153,17 +217,16 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>Filtrare gli eventi
+## <a name="filter-events"></a>Filtrare gli eventi
 
 Senza filtro, gli endpoint ricevono una serie di eventi da dispositivi gemelli digitali di Azure:
 * Telemetria generata dai dispositivi [gemelli digitali](concepts-twins-graph.md) con l'API del servizio di dispositivi digitali gemelli di Azure
 * Notifiche delle modifiche delle proprietà dei dispositivi gemelli, attivate per le modifiche delle proprietà per qualsiasi dispositivo gemello nell'istanza di Azure
 * Eventi del ciclo di vita, generati quando vengono creati o eliminati gemelli o relazioni
-* Eventi di modifica del modello, generati quando i [modelli](concepts-models.md) configurati in un'istanza di Azure Digital Twins vengono aggiunti o eliminati
 
 È possibile limitare gli eventi inviati aggiungendo un **filtro** per un endpoint alla route dell'evento.
 
-Per aggiungere un filtro, è possibile usare una richiesta PUT per *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-05 -31-Preview* con il corpo seguente:
+Per aggiungere un filtro, è possibile usare una richiesta PUT per *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-10-31* con il corpo seguente:
 
 ```json  
 {

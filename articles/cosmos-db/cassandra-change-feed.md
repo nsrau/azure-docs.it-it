@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84431598"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281589"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Feed delle modifiche nell'API Azure Cosmos DB per Cassandra
 
-Il supporto del [feed delle modifiche](change-feed.md) nell'API Azure Cosmos DB per Cassandra è disponibile tramite i predicati di query del linguaggio di query Cassandra (CQL). Utilizzando queste condizioni del predicato, è possibile eseguire una query sull'API del feed delle modifiche. Le applicazioni possono ottenere le modifiche apportate a una tabella usando la chiave primaria, nota anche come chiave di partizione, come richiesto in CQL. È quindi possibile eseguire ulteriori azioni in base ai risultati. Le modifiche apportate alle righe nella tabella vengono acquisite nell'ordine in cui sono state modificate e il tipo di ordinamento è garantito per ogni chiave di partizione.
+Il supporto del [feed delle modifiche](change-feed.md) nell'API Azure Cosmos DB per Cassandra è disponibile tramite i predicati di query del linguaggio di query Cassandra (CQL). Utilizzando queste condizioni del predicato, è possibile eseguire una query sull'API del feed delle modifiche. Le applicazioni possono ottenere le modifiche apportate a una tabella usando la chiave primaria, nota anche come chiave di partizione, come richiesto in CQL. È quindi possibile eseguire ulteriori azioni in base ai risultati. Le modifiche apportate alle righe nella tabella vengono acquisite nell'ordine in cui sono stati modificati e nell'ordinamento per ogni chiave di partizione.
 
 Nell'esempio seguente viene illustrato come ottenere un feed delle modifiche in tutte le righe di una tabella API Cassandra spazio per la spaziatura con .NET. Il predicato COSMOS_CHANGEFEED_START_TIME () viene usato direttamente all'interno di CQL per eseguire query sugli elementi nel feed di modifiche da un'ora di inizio specificata (in questo caso DateTime corrente). È possibile scaricare l'esempio completo, per C# [qui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) e per Java [qui](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 

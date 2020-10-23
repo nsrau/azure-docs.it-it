@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543334"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168053"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -66,7 +66,7 @@ Con i log di monitoraggio di Azure è possibile gestire qualsiasi istanza in qua
 
 La funzionalità di base dei log di monitoraggio di Azure viene fornita da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
-| Servizio  | Descrizione|
+| Service  | Descrizione|
 | :------------- | :-------------|
 | Log di Monitoraggio di Azure | Monitora e analizza la disponibilità e le prestazioni di risorse diverse, inclusi i computer fisici e le macchine virtuali. |
 |Automazione | Automatizza i processi manuali ed applica le configurazioni per i computer fisici e le macchine virtuali. |
@@ -81,7 +81,7 @@ La funzionalità di base dei log di monitoraggio di Azure viene fornita da un se
 Questo metodo consente di consolidare i dati provenienti da diverse origini, per poter combinare i dati dei servizi di Azure con l'ambiente locale esistente. Separa anche nettamente la raccolta dei dati dall'azione eseguita su tali dati in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
 
 
-![Log di Monitoraggio di Azure](./media/operational-security/azure-operational-security-fig2.png)
+![Diagramma che mostra il consolidamento dei dati da diverse origini, in modo da poter combinare i dati dei servizi di Azure con l'ambiente locale esistente.](./media/operational-security/azure-operational-security-fig2.png)
 
 Il servizio monitoraggio di Azure gestisce i dati basati sul cloud in modo sicuro usando i metodi seguenti:
 -   separazione dei dati

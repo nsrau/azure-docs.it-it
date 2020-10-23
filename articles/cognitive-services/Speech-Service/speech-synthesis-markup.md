@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: baa8b1f302c0d8a7355f74b686ffedfb45ac22d3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096046"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207683"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -298,7 +298,7 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 | `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>Nessuno</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e `500` | Facoltativo |
 
-| Forza                      | Description |
+| Forza                      | Descrizione |
 |-------------------------------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms        |
 | x-debole                        | 250 ms      |
@@ -438,7 +438,7 @@ Per definire il modo in cui vengono lette più entità, è possibile creare un l
 
 L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` elemento contiene almeno un `grapheme` elemento e uno o più `grapheme` elementi, `alias` e `phoneme` . L' `grapheme` elemento contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Gli `alias` elementi vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L' `phoneme` elemento fornisce il testo che descrive il modo in cui `lexeme` viene pronunciato.
 
-È importante notare che non è possibile impostare direttamente la pronuncia di una frase usando il lessico personalizzato. Se è necessario impostare la pronuncia per un acronimo o un termine abbreviato, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . Esempio:
+È importante notare che non è possibile impostare direttamente la pronuncia di una frase usando il lessico personalizzato. Se è necessario impostare la pronuncia per un acronimo o un termine abbreviato, fornire innanzitutto un oggetto `alias` , quindi associarlo `phoneme` a `alias` . Ad esempio:
 
 ```xml
   <lexeme>
@@ -451,7 +451,7 @@ L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` elemen
   </lexeme>
 ```
 
-È anche possibile fornire direttamente il previsto `alias` per l'acronimo o il termine abbreviato. Esempio:
+È anche possibile fornire direttamente il previsto `alias` per l'acronimo o il termine abbreviato. Ad esempio:
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme> 
@@ -535,7 +535,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `pitch` | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio: `<prosody pitch="600Hz">some text</prosody>`.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio, `<prosody pitch="+80Hz">some text</prosody>` o `<prosody pitch="-2st">some text</prosody>`. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>low</li><li>media</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul> | Facoltativo |
-| `contour` |Contour supporta ora sia le voci neurale che quelle standard. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch` ). | Facoltativo |
+| `contour` |Contour supporta ora sia le voci neurale che quelle standard. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch` ). | Facoltativo |
 | `range` | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch` . | Facoltativo |
 | `rate` | Indica la velocità di pronuncia del testo. È possibile esprimere le seguenti operazioni `rate` :<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
 | `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. Duration supporta solo le voci standard.| Facoltativo |

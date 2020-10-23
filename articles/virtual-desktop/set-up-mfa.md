@@ -1,28 +1,28 @@
 ---
-title: Configurare Multi-Factor Authentication di Azure per desktop virtuale Windows-Azure
-description: Come configurare Multi-Factor Authentication di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
+title: Configurare l'autenticazione a più fattori di Azure per desktop virtuale Windows-Azure
+description: Come configurare l'autenticazione a più fattori di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089922"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312658"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
+# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per desktop virtuale Windows
 
 >[!IMPORTANT]
 > Se si visita questa pagina dalla documentazione di Windows Virtual Desktop (classica), assicurarsi di [tornare alla documentazione di Windows Virtual Desktop (classica)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) al termine dell'operazione.
 
 Il desktop virtuale Windows client per Windows è un'ottima opzione per l'integrazione di desktop virtuali Windows con il computer locale. Tuttavia, quando si configura l'account desktop virtuale di Windows nel client Windows, è necessario adottare alcune misure per proteggere gli utenti.
 
-Quando si accede per la prima volta, il client richiede il nome utente, la password e l'autenticazione a più fattori di Azure. Successivamente, al successivo accesso, il client memorizzerà il token dall'applicazione aziendale Azure Active Directory (AD). Quando si seleziona **memorizza**, gli utenti possono accedere dopo aver riavviato il client senza dover immettere nuovamente le credenziali.
+Quando si accede per la prima volta, il client richiede il nome utente, la password e l'autenticazione a più fattori di Azure. Successivamente, al successivo accesso, il client memorizzerà il token dall'applicazione aziendale Azure Active Directory (AD). Quando **si seleziona la** richiesta di credenziali per l'host sessione, gli utenti possono accedere dopo aver riavviato il client senza dover immettere nuovamente le credenziali.
 
-Sebbene la memorizzazione delle credenziali sia comoda, può anche rendere le distribuzioni in scenari aziendali o dispositivi personali meno sicure. Per proteggere gli utenti, è necessario assicurarsi che il client continui a richiedere le credenziali di Azure Multi-Factor Authentication (multi-factor authentication). In questo articolo viene illustrato come configurare i criteri di accesso condizionale per desktop virtuale Windows per abilitare questa impostazione.
+Sebbene la memorizzazione delle credenziali sia comoda, può anche rendere le distribuzioni in scenari aziendali o dispositivi personali meno sicure. Per proteggere gli utenti, è possibile assicurarsi che il client continui a richiedere le credenziali di autenticazione a più fattori di Azure con maggiore frequenza. In questo articolo viene illustrato come configurare i criteri di accesso condizionale per desktop virtuale Windows per abilitare questa impostazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Ecco gli elementi necessari per iniziare:
 - Abilitare l'autenticazione a più fattori di Azure per tutti gli utenti. Per ulteriori informazioni su come eseguire questa operazione, vedere [come richiedere la verifica in due passaggi per un utente](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 > [!NOTE]
-> L'impostazione seguente si applica anche al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> L'impostazione seguente si applica anche al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
@@ -64,6 +64,8 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 
    >[!IMPORTANT]
    > Non selezionare l'app denominata Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Questa app viene usata solo per recuperare il feed dell'utente e non deve avere l'autenticazione a più fattori.
+   > 
+   > Se si usa desktop virtuale di Windows (versione classica), se i criteri di accesso condizionale bloccano tutti gli accessi e escludono solo gli ID app del desktop virtuale di Windows, è possibile risolvere il problema aggiungendo l'ID app 9cdead84-A844-4324-93f2-b2e6bb768d07 al criterio. Se non si aggiunge questo ID app, si blocca l'individuazione dei feed delle risorse di desktop virtuali Windows (classiche).
 
 10. Passare a **condizioni**  >  **app client**, quindi selezionare la posizione in cui si desidera applicare il criterio:
     
@@ -83,7 +85,7 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
     >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
 
 12. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
-13. In **sessione controlli di accesso**  >  **Session**selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
+13. In **Access controls**  >  **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore sull'intervallo di tempo desiderato tra le richieste e quindi selezionare **Seleziona**. Se ad esempio si imposta il valore su **1** e l'unità su **ore**, sarà necessaria l'autenticazione a più fattori se una connessione viene avviata un'ora dopo l'ultima.
 14. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 15. Selezionare **Crea** per abilitare i criteri.
 

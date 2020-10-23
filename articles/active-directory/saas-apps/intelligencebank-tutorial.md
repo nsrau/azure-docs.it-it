@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 5956623876646d976c2c93b4953adab33e8231b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429820f41025eda262742ac9aec1de3b646b141f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IntelligenceBank
 
@@ -137,11 +137,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Authenticator** (Autenticatore) e fare clic su **Add New** (Aggiungi nuovo)
 
-    ![Configurazione di IntelligenceBank](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![Screenshot che mostra la scheda Administrator e l'icona Add New.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Seguire questa procedura:
 
-    ![Configurazione di IntelligenceBank](./media/intelligencebank-tutorial/urls.PNG)
+    ![Screenshot che mostra i campi in cui immettere le informazioni in questo passaggio.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. Nella casella di testo **Name** (Nome) immettere il nome, ad esempio `azureadsso`.
 
@@ -165,11 +165,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Passare a **Admin** -> **Users** (Amministrazione > Utenti) e selezionare l'icona **Add New User** (Aggiungi nuovo utente) per aggiungere l'**utente**.
 
-    ![Configurazione di IntelligenceBank](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![Screenshot che mostra l'icona Users selezionata nella scheda Users.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Compilare i campi necessari in base ai requisiti dell'organizzazione e fare clic su **Save** (Salva).
 
-    ![Configurazione di IntelligenceBank](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Screenshot che mostra la pagina Add New User in cui immettere le informazioni utente.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

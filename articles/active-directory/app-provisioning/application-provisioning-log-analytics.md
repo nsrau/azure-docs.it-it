@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997247"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145581"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informazioni sul modo in cui il provisioning si integra con i log di monitoraggio di Azure
 

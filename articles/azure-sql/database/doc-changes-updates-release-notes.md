@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079208"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426278"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questo articolo elenca le funzionalità del database SQL di Azure e di Azure SQL Istanza gestita attualmente disponibili in anteprima pubblica. Per gli aggiornamenti e i miglioramenti del database SQL e di SQL Istanza gestita, vedere SQL [database & sql istanza gestita Service Updates](https://azure.microsoft.com/updates/?product=sql-database). Per gli aggiornamenti e i miglioramenti apportati ad altri servizi di Azure, vedere [Aggiornamenti del servizio](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Novità
+## <a name="whats-new"></a>Quali sono le novità?
 
 La documentazione per il database SQL di Azure e Istanza gestita SQL di Azure è stata suddivisa in sezioni separate. È stato anche aggiornato il modo in cui si fa riferimento a un'istanza gestita dall' *istanza gestita di database SQL di Azure* ad *Azure SQL istanza gestita*.
 
@@ -41,7 +41,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 |**Istanza gestita di database SQL di Azure** | *Istanza gestita* di database SQL di Azure| Azure SQL Istanza gestita è il proprio prodotto all'interno della famiglia SQL di Azure, anziché semplicemente un'opzione di distribuzione nel database SQL di Azure. | 
 |**Database SQL di Azure**|Database *singolo* database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico. |
 |**Database SQL di Azure**|*Pool elastico* del database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico.  |
-|**Database SQL di Azure** |database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
+|**Database SQL di Azure** |Database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
 | **SQL di Azure**| N/D | Questo si riferisce alla famiglia di prodotti SQL Server motore di database disponibili in Azure: database SQL di Azure, Azure SQL Istanza gestita e SQL Server in macchine virtuali di Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica
@@ -100,7 +100,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |---------|---------|---------|---------|
 |[Le transazioni distribuite possono essere eseguite dopo aver rimosso Istanza gestita dal gruppo di trust del server](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 ottobre|Ha una soluzione alternativa||
 |[Non è possibile eseguire le transazioni distribuite dopo Istanza gestita operazione di ridimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 ottobre|Ha una soluzione alternativa||
-|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) nell'istruzione SQL di Azure e `BACKUP` / `RESTORE` in istanza gestita non è possibile usare Azure ad Gestisci identità per l'autenticazione in archiviazione di Azure|2020 Sep|Ha una soluzione alternativa||
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) in SQL di Azure e l' `BACKUP` / `RESTORE` istruzione in istanza gestita non possono usare Azure ad gestire l'identità per l'autenticazione in archiviazione di Azure|2020 Sep|Ha una soluzione alternativa||
 |[L'entità servizio non può accedere a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 agosto|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
 |[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
@@ -139,7 +139,7 @@ Istanza gestita operazioni di ridimensionamento che includono la modifica del li
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT e le istruzioni BACKUP/RESTOre non possono usare identità gestite per accedere ad archiviazione di Azure
 
-L'istruzione BULK INSERT non può usare `DATABASE SCOPED CREDENTIAL` with Managed Identity per l'autenticazione nell'archiviazione di Azure. Come soluzione alternativa, passare all'autenticazione della firma di accesso condiviso. L'esempio seguente non funzionerà in SQL di Azure (database e Istanza gestita):
+Le istruzioni BULK INSERT, BACKUP e RESTOre e la funzione OPENROWSET non possono usare `DATABASE SCOPED CREDENTIAL` con l'identità gestita per l'autenticazione nell'archiviazione di Azure. Come soluzione alternativa, passare all'autenticazione della firma di accesso condiviso. L'esempio seguente non funzionerà in SQL di Azure (database e Istanza gestita):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

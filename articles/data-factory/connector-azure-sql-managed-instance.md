@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da e verso Istanza gestita SQL di Azure
-description: Informazioni su come spostare i dati da e verso Istanza gestita SQL di Azure usando Azure Data Factory.
+title: Copiare e trasformare i dati in Azure SQL Istanza gestita
+description: Informazioni su come copiare e trasformare i dati in Istanza gestita SQL di Azure usando Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,31 +10,30 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 3a9216c665cfdcdaf07980ace0399fd927885262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: a8b79cea8d502222d08dd3f1f0fb40d1982f565d
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332118"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107743"
 ---
-# <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso Istanza gestita SQL di Azure usando Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Istanza gestita SQL di Azure usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e verso Istanza gestita SQL di Azure. Si basa sull'articolo [Panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale dell'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure SQL Istanza gestita e usare il flusso di dati per trasformare i dati in Istanza gestita SQL di Azure. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Questo connettore SQL Istanza gestita è supportato per le attività seguenti:
 
 - [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 
-È possibile copiare dati da SQL Istanza gestita a qualsiasi archivio dati di sink supportato. È anche possibile copiare dati da qualsiasi archivio dati di origine supportato a SQL Istanza gestita. Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
-
-In particolare, questo connettore SQL Istanza gestita supporta:
+Per l'attività di copia, questo connettore del database SQL di Azure supporta le funzioni seguenti:
 
 - Copia dei dati usando l'autenticazione SQL e l'autenticazione del token dell'applicazione Azure Active Directory (Azure AD) con un'entità servizio o identità gestite per le risorse di Azure.
 - Come origine, il recupero dei dati tramite una query SQL o un stored procedure. È anche possibile scegliere di eseguire la copia parallela da SQL MI source, vedere la sezione [copia parallela da SQL mi](#parallel-copy-from-sql-mi) per informazioni dettagliate.
@@ -638,9 +637,77 @@ Nell'esempio seguente viene illustrato come usare una stored procedure per esegu
     }
     ```
 
+## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
+
+Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere e scrivere nelle tabelle da Azure SQL Istanza gestita. Per altre informazioni, vedere la [trasformazione origine](data-flow-source.md) e la [trasformazione sink](data-flow-sink.md) nei flussi di dati per mapping.
+
+> [!NOTE]
+> Il connettore Istanza gestita SQL di Azure nel flusso di dati di mapping è attualmente disponibile come anteprima pubblica. È possibile connettersi all'endpoint pubblico di SQL Istanza gestita ma non ancora all'endpoint privato.
+
+### <a name="source-transformation"></a>Trasformazione origine
+
+La tabella seguente elenca le proprietà supportate dall'origine Istanza gestita SQL di Azure. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
+
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabella | Se si seleziona tabella come input, il flusso di dati recupera tutti i dati dalla tabella specificata nel set di dati. | No | - |- |
+| Query | Se si seleziona query come input, specificare una query SQL per recuperare i dati dall'origine, che esegue l'override di qualsiasi tabella specificata nel set di dati. L'uso delle query è un ottimo modo per ridurre le righe per il test o le ricerche.<br><br>La clausola **Order by** non è supportata, ma è possibile impostare un'istruzione SELECT from completa. È possibile usare anche funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella che è possibile utilizzare nel flusso di dati.<br>Esempio di query: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | string | query |
+| Dimensioni dei batch | Specificare le dimensioni del batch per suddividere i dati di grandi dimensioni in letture. | No | Integer | batchSize |
+| Livello di isolamento | Scegliere uno dei seguenti livelli di isolamento:<br>-Read Committed<br>-Read uncommitted (impostazione predefinita)<br>-Lettura ripetibile<br>-Serializzabile<br>-None (ignora il livello di isolamento) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NESSUNO</small> |isolationLevel |
+
+#### <a name="azure-sql-managed-instance-source-script-example"></a>Esempio di script di origine di Azure SQL Istanza gestita
+
+Quando si usa Istanza gestita SQL di Azure come tipo di origine, lo script del flusso di dati associato è:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLMISource
+```
+
+### <a name="sink-transformation"></a>Trasformazione sink
+
+La tabella seguente elenca le proprietà supportate dal sink di Istanza gestita SQL di Azure. È possibile modificare queste proprietà nella scheda **Opzioni sink** .
+
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update (metodo) | Specificare le operazioni consentite per la destinazione del database. Per impostazione predefinita, sono consentiti solo gli inserimenti.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
+| Colonne chiave | Per gli aggiornamenti, Upsert ed eliminazioni, è necessario impostare le colonne chiave per determinare la riga da modificare.<br>Il nome della colonna scelto come chiave verrà usato come parte del successivo aggiornamento, Upsert, DELETE. Pertanto, è necessario selezionare una colonna esistente nel mapping del sink. | No | Array | chiavi |
+| Ignora scrittura colonne chiave | Se non si desidera scrivere il valore nella colonna chiave, selezionare "Ignora scrittura colonne chiave". | No | `true` o `false` | skipKeyWrites |
+| azione Tabella |Determina se ricreare o rimuovere tutte le righe dalla tabella di destinazione prima della scrittura.<br>- **None**: nessuna azione verrà eseguita nella tabella.<br>- **Ricrea**: la tabella viene eliminata e ricreata. Questa opzione è obbligatoria se si crea una nuova tabella in modo dinamico.<br>- **Truncate**: tutte le righe della tabella di destinazione vengono rimosse. | No | `true` o `false` | ricreare<br/>truncate |
+| Dimensioni dei batch | Consente di specificare il numero di righe scritte in ogni batch. Dimensioni batch più grandi migliorano l'ottimizzazione della compressione e della memoria, ma rischiano di causare eccezioni di memoria insufficiente durante la memorizzazione nella cache dei dati. | No | Integer | batchSize |
+| Script pre e post SQL | Specificare gli script SQL a più righe che verrà eseguito prima (pre-elaborazione) e dopo (post-elaborazione) i dati vengono scritti nel database sink. | No | string | preSQLs<br>postSQLs |
+
+#### <a name="azure-sql-managed-instance-sink-script-example"></a>Esempio di script di sink di Azure SQL Istanza gestita
+
+Quando si usa SQL di Azure Istanza gestita come tipo di sink, lo script del flusso di dati associato è:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLMISink
+```
+
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
+
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Proprietà dell'attività GetMetadata
+
+Per altre informazioni sulle proprietà, vedere [Attività GetMetadata](control-flow-get-metadata-activity.md) 
+
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>Mapping dei tipi di dati per SQL Istanza gestita
 
-Quando i dati vengono copiati in e da SQL Istanza gestita, i mapping seguenti vengono usati dai tipi di dati SQL Istanza gestita per Azure Data Factory tipi di dati provvisori. Per informazioni su come l'attività di copia esegue il mapping dello schema e del tipo di dati di origine al sink, vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md).
+Quando i dati vengono copiati in e da SQL Istanza gestita usando l'attività di copia, i mapping seguenti vengono usati dai tipi di dati SQL Istanza gestita per Azure Data Factory i tipi di dati provvisori. Per informazioni su come l'attività di copia esegue il mapping dello schema e del tipo di dati di origine al sink, vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md).
 
 | Tipo di dati SQL Istanza gestita | Tipo di dati provvisorio di Azure Data Factory |
 |:--- |:--- |
@@ -668,9 +735,9 @@ Quando i dati vengono copiati in e da SQL Istanza gestita, i mapping seguenti ve
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| text |String, Char[] |
+| testo |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
@@ -679,14 +746,6 @@ Quando i dati vengono copiati in e da SQL Istanza gestita, i mapping seguenti ve
 
 >[!NOTE]
 > Per i tipi di dati che vengono mappati al tipo provvisorio decimale, attualmente l'attività di copia supporta la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.
-
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
-
-Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
-
-## <a name="getmetadata-activity-properties"></a>Proprietà dell'attività GetMetadata
-
-Per altre informazioni sulle proprietà, vedere [Attività GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="using-always-encrypted"></a>Uso di Always Encrypted
 

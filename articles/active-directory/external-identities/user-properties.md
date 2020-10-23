@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705470"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441369"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -104,11 +104,11 @@ In alcuni casi può essere necessario dare privilegi più elevati agli utenti gu
 ![Screenshot che mostra l'opzione utenti esterni nelle impostazioni utente](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere è **possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale** in [gestire l'accesso guest in gruppi Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere è **possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale** in [gestire l'accesso guest in gruppi Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>È possibile aggiornare l'indirizzo di posta elettronica di un utente Guest?
 
-Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'API di Microsoft Graph, l'interfaccia di amministrazione di Exchange o [PowerShell per Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modifica si rifletterà nell'oggetto utente Guest Azure AD.
+Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'API di Microsoft Graph, l'interfaccia di amministrazione di Exchange o [PowerShell per Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modifica si rifletterà nell'oggetto utente Guest Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

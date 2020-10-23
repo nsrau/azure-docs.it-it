@@ -6,26 +6,26 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 8/13/2020
-ms.openlocfilehash: 9868403f69f3dc0b56aae06be1afda2134472805
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631036"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425198"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
 
 ## <a name="metrics"></a>Metriche
-Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Description|
+|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
@@ -45,7 +45,7 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
 ## <a name="server-logs"></a>Log del server
 
-È possibile abilitare la registrazione delle query lente nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei  [log del server](concepts-server-logs.md).
+È possibile abilitare la registrazione delle query lente nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Archivio query
 
@@ -61,30 +61,13 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 ## <a name="planned-maintenance-notification"></a>Notifica di manutenzione pianificata
 
-Le **notifiche di manutenzione pianificata** consentono di ricevere avvisi per la successiva manutenzione pianificata nel database di Azure per MariaDB. Queste notifiche sono integrate con la manutenzione pianificata [dell'integrità dei servizi](../service-health/overview.md) e consentono di visualizzare tutte le operazioni di manutenzione pianificate per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai destinatari giusti per gruppi di risorse diversi, in quanto è possibile che si disponga di contatti diversi responsabili di risorse diverse. Si riceverà la notifica relativa alla manutenzione imminente di 72 ore prima dell'evento.
+Le [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) consentono di ricevere avvisi per la successiva manutenzione pianificata nel database di Azure per MariaDB. Queste notifiche sono integrate con la manutenzione pianificata [dell'integrità dei servizi](../service-health/overview.md) e consentono di visualizzare tutte le operazioni di manutenzione pianificate per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai destinatari giusti per gruppi di risorse diversi, in quanto è possibile che si disponga di contatti diversi responsabili di risorse diverse. Si riceverà la notifica relativa alla manutenzione imminente di 72 ore prima dell'evento.
 
-Durante la manutenzione pianificata, è possibile prevedere il riavvio del server e possono verificarsi [errori temporanei](concepts-connectivity.md#transient-errors) . La maggior parte di questi eventi viene attenuata automaticamente dal sistema in meno di 60 secondi. 
-
-> [!IMPORTANT]
-> Le notifiche di manutenzione pianificata sono attualmente disponibili in anteprima in tutte le aree **ad eccezione** degli Stati Uniti centro-occidentali.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
-
-1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
-2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
-3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
-4. Compilare i campi obbligatori. 
-5. Scegliere il **tipo di evento**, selezionare **manutenzione pianificata** o **selezionare tutto**
-6. Nei **gruppi di azioni** definire come si vuole ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
-7. Assicurarsi che Abilita regola al momento della creazione sia impostata su Sì.
-8. Selezionare **Crea regola di avviso** per completare l'avviso
-
-Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!Note]
-> Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di preavviso per tutti gli eventi verrà effettuato. Tuttavia, in caso di patch di sicurezza o critiche, le notifiche potrebbero essere inviate più vicino all'evento o essere omesse.
+Per altre informazioni su come configurare le notifiche, vedere il documento relativo alle [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sull'accesso alle metriche e la relativa esportazione con il portale di Azure, l'API REST o l'interfaccia della riga di comando, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-metric.md).
+- Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-metric.md).
+- Altre informazioni sulle [notifiche di manutenzione pianificata](./concepts-planned-maintenance-notification.md) sono disponibili nel database di Azure per MariaDB.
+

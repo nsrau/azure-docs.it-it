@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85412584"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461788"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
 
@@ -33,7 +33,12 @@ Analisi del sentiment nella versione 2,1 restituisce i punteggi dei sentimenti c
 
 ### <a name="rest-api"></a>API REST
 
-Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'analisi dei sentimenti. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Sarà anche necessario aggiornare l'applicazione per usare le etichette di valutazione restituite nella [risposta JSON](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'analisi dei sentimenti. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Sarà anche necessario aggiornare l'applicazione per usare le etichette di valutazione restituite nella [risposta dell'API](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+
+Per esempi della risposta JSON, vedere la documentazione di riferimento.
+* [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+* [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
+* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -60,7 +65,12 @@ Collegamento delle entità
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-Sarà anche necessario aggiornare l'applicazione per usare le categorie di [entità](named-entity-types.md) restituite nella [risposta JSON](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+Sarà anche necessario aggiornare l'applicazione per usare le categorie di [entità](named-entity-types.md) restituite nella [risposta dell'API](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+
+Per esempi della risposta JSON, vedere la documentazione di riferimento.
+* [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+* [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
+* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -77,7 +87,12 @@ La funzionalità di rilevamento della lingua non è stata modificata in V3 al di
 
 ### <a name="rest-api"></a>API REST
 
-Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per il rilevamento della lingua. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Sarà anche necessario aggiornare l'applicazione in modo da usare `ConfidenceScore` anziché `score` nella [risposta JSON](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per il rilevamento della lingua. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Sarà anche necessario aggiornare l'applicazione in modo da usare `ConfidenceScore` anziché `score` nella risposta dell' [API](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+
+Per esempi della risposta JSON, vedere la documentazione di riferimento.
+* [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
+* [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [Versione 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -96,6 +111,11 @@ La funzionalità di estrazione della frase chiave non è stata modificata in V3 
 
 Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'estrazione della frase chiave. ad esempio `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
+Per esempi della risposta JSON, vedere la documentazione di riferimento.
+* [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
+* [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
+* [Versione 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+
 ### <a name="client-libraries"></a>Librerie client
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
@@ -105,7 +125,6 @@ Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endp
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Riferimento API Analisi del testo V2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Informazioni sull'API Analisi del testo](overview.md)
 * [Lingue supportate](language-support.md)
 * [Gestione della versione dei modelli](concepts/model-versioning.md)

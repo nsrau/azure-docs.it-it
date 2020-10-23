@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190252"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332519"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ottimizzazione Azure Data Lake Storage Gen1 per le prestazioni
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1 può essere ridimensionato per offrire la velocità effet
 
 Quando si inseriscono dati da un sistema di origine a Data Lake Storage Gen1, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete per Data Lake Storage Gen1 possono costituire il collo di bottiglia.
 
-![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagramma che mostra che l'hardware di origine, l'hardware di rete di origine e la connettività di rete a Data Lake Storage Gen1 possono costituire il collo di bottiglia.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 È importante assicurarsi che lo spostamento dei dati non sia influenzato da questi fattori.
 
@@ -39,15 +39,15 @@ La connettività di rete tra i dati di origine e Data Lake Storage Gen1 può tal
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurare gli strumenti di inserimento dei dati per la massima parallelizzazione
 
-Una volta risolti i colli di bottiglia relativi all'hardware e alla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni. Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+Una volta risolti i colli di bottiglia relativi all'hardware e alla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni. Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](./data-lake-store-data-scenarios.md).
 
 | Strumento          | Impostazioni | Altre informazioni                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Unità Azure Data Lake Analytics | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Collegamento](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Unità Azure Data Lake Analytics | [Collegamento](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Collegamento](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Collegamento](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Collegamento](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Collegamento](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Strutturare il set di dati
 
@@ -100,7 +100,7 @@ All'interno di un cluster HDInsight sono presenti tre livelli che possono essere
 
 **Eseguire il cluster con più nodi e/o macchine virtuali di dimensioni maggiori.** Un cluster di dimensioni maggiori consentirà di eseguire più contenitori YARN, come illustrato nell'immagine seguente.
 
-![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagramma che illustra l'uso di più contenitori YARN.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Usare macchine virtuali con maggiore larghezza di banda di rete.** La larghezza di banda di rete può costituire un collo di bottiglia se la larghezza di banda di rete disponibile è inferiore alla velocità effettiva di Data Lake Storage Gen1. Macchine virtuali differenti avranno dimensioni variabili della larghezza di banda di rete. Scegliere un tipo di macchina virtuale con la massima larghezza di banda di rete possibile.
 
@@ -108,7 +108,7 @@ All'interno di un cluster HDInsight sono presenti tre livelli che possono essere
 
 **Usare contenitori YARN di dimensioni inferiori.** Ridurre le dimensioni di ogni contenitore YARN per creare altri contenitori con la stessa quantità di risorse.
 
-![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagramma che illustra l'uso di contenitori YARN di dimensioni minori.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima per i contenitori YARN. Se si sceglie un contenitore troppo piccolo, si verificheranno problemi di memoria insufficiente per i processi. In genere i contenitori YARN non devono essere di dimensioni inferiori a 1 GB. È frequente vedere contenitori YARN da 3 GB. Per alcuni carichi di lavoro, possono essere necessari contenitori YARN più grandi.
 
@@ -118,7 +118,7 @@ A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima pe
 
 **Usare tutti i contenitori disponibili.** Impostare il numero di attività su un valore uguale o maggiore del numero di contenitori disponibili, in modo che tutte le risorse vengano utilizzate.
 
-![Prestazioni di Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagramma che illustra l'uso di tutti i contenitori disponibili.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Le attività che non vengono eseguite correttamente sono dispendiose.** Se ogni attività deve elaborare una grande quantità di dati, l'esito negativo di un'attività ha come risultato l'esecuzione di un nuovo tentativo impegnativo in termini di risorse. Pertanto, è preferibile creare più attività, ognuna delle quali elabora una piccola quantità di dati.
 

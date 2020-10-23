@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767317"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150783"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -53,9 +53,9 @@ La tabella seguente contiene collegamenti a esempi di codice per ogni linguaggio
 | Linguaggio | Parametro del protocollo MQTT | Parametro del protocollo MQTT su Web Socket
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt esegue il fallback a MQTT su Web Socket se il protocollo MQTT dà esito negativo. Per specificare solo il protocollo MQTT su Web Socket, usare il parametro TransportType.Mqtt_WebSocket_Only |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt esegue il fallback a MQTT su Web Socket se il protocollo MQTT dà esito negativo. Per specificare solo il protocollo MQTT su Web Socket, usare il parametro TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supporta il protocollo MQTT per impostazione predefinita | Aggiungere `websockets=True` nella chiamata per creare il client |
 
 Il frammento seguente illustra come specificare il protocollo MQTT su Web Socket quando si usa l’SDK di Azure IoT per node.js:
@@ -119,7 +119,7 @@ Questo repository contiene:
 
 * DeviceTwinMQTTWin32: contiene il codice per eseguire una query e sottoscrivere gli eventi di dispositivi gemelli di un dispositivo nell'Hub IoT di Azure in un computer Windows.
 
-* PnPMQTTWin32: contiene il codice per inviare un messaggio di telemetria con le funzionalità del dispositivo Plug and Play a un hub di Azure, compilato ed eseguito in un computer Windows. Per altre informazioni, vedere [plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contiene il codice per inviare un messaggio di telemetria con le funzionalità del dispositivo Plug and Play a un hub di Azure, compilato ed eseguito in un computer Windows. Per altre informazioni, vedere [plug and Play](../iot-pnp/overview-iot-plug-and-play.md)
 
 **Per Linux:**
 
@@ -312,7 +312,7 @@ L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{device_id}/mes
 
 Nei messaggi da cloud a dispositivo, i valori nel contenitore delle proprietà sono rappresentati come nella tabella seguente:
 
-| Valore proprietà | Rappresentazione | Description |
+| Valore proprietà | Rappresentazione | Descrizione |
 |----|----|----|
 | `null` | `key` | Solo la chiave viene visualizzata nel contenitore delle proprietà |
 | stringa vuota | `key=` | Chiave seguita da un segno di uguale senza valore |
@@ -451,4 +451,4 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md)

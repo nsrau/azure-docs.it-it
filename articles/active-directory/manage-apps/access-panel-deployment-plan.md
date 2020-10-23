@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146624"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372481"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
@@ -74,11 +74,11 @@ La tabella seguente descrive i casi d'uso principali per la distribuzione di app
 
 | Area| Descrizione |
 | - | - |
-| Access| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
-|Access | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
+| Accesso| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
+|Accesso | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
 | Controllo| I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni. |
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
-| Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
+| Security| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
 | Prestazioni| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
 | Esperienza dell'utente| Gli utenti sono a conoscenza delle funzionalità delle app e di come usarle.|
 | Esperienza dell'utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
@@ -225,7 +225,7 @@ I flussi di lavoro di approvazione sono disponibili per l'approvazione esplicita
 
 È possibile consentire agli utenti di creare e gestire i propri gruppi di sicurezza o gruppi di Microsoft 365 in Azure AD. Il proprietario del gruppo può approvare o rifiutare le richieste di appartenenza e delegare il controllo dell'appartenenza al gruppo. Le funzionalità di gestione dei gruppi self-service non sono disponibili per gruppi di sicurezza abilitati alla posta elettronica o liste di distribuzione.
 
-Per pianificare l'appartenenza al gruppo self-service, determinare se si consentirà a tutti gli utenti dell'organizzazione di creare e gestire gruppi o solo un subset di utenti. Se si consente un subset di utenti, è necessario configurare un gruppo a cui aggiungere tali utenti. Per informazioni dettagliate sull'abilitazione di questi scenari, vedere [configurare la gestione dei gruppi in modalità self-service in Azure Active Directory](../users-groups-roles/groups-self-service-management.md) .
+Per pianificare l'appartenenza al gruppo self-service, determinare se si consentirà a tutti gli utenti dell'organizzazione di creare e gestire gruppi o solo un subset di utenti. Se si consente un subset di utenti, è necessario configurare un gruppo a cui aggiungere tali utenti. Per informazioni dettagliate sull'abilitazione di questi scenari, vedere [configurare la gestione dei gruppi in modalità self-service in Azure Active Directory](../enterprise-users/groups-self-service-management.md) .
 
 ## <a name="plan-reporting-and-auditing"></a>Pianificare la creazione di report e il controllo
 
@@ -299,15 +299,15 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 ## <a name="manage-your-implementation"></a>Gestire l'implementazione
 
-Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
+Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](../roles/permissions-reference.md) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
 
 | Utenti tipo| Ruoli| Ruolo di Azure AD  |
 | - | -| -|
-| Amministratore helpdesk| Supporto di livello 1| Nessuno |
+| Amministratore helpdesk| Supporto di livello 1| nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
-| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
 
 È possibile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

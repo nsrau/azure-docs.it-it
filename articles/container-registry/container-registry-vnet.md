@@ -3,12 +3,12 @@ title: Limitare l'accesso con un endpoint di servizio
 description: Limitare l'accesso a un registro contenitori di Azure usando un endpoint di servizio in una rete virtuale di Azure. L'accesso agli endpoint di servizio è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488669"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215502"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure
 
@@ -49,13 +49,11 @@ La configurazione di un endpoint di servizio del registro è disponibile nel liv
 
 ## <a name="configure-network-access-for-registry"></a>Configurare l'accesso alla rete per il registro
 
-In questa sezione, si vedrà come configurare il registro contenitori per consentire l'accesso da una subnet in una rete virtuale di Azure. Vengono forniti i passaggi equivalenti usando l'interfaccia della riga di comando di Azure e il portale di Azure.
+In questa sezione, si vedrà come configurare il registro contenitori per consentire l'accesso da una subnet in una rete virtuale di Azure. I passaggi vengono forniti usando l'interfaccia della riga di comando di Azure.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Concedere l'accesso da una rete virtuale - Interfaccia della riga di comando
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Aggiungere un endpoint di servizio a una subnet
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Aggiungere un endpoint di servizio a una subnet
-
-Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Ad esempio, se si rinomina la macchina virtuale *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Verificare questa impostazione nel portale di Azure o usando il comando [az network vnet list][az-network-vnet-list]:
+Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Per verificare questa operazione, usare il comando [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Output:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Modificare la regola predefinita di accesso al registro
+### <a name="change-default-network-access-to-registry"></a>Modificare la regola predefinita di accesso al registro
 
 Per impostazione predefinita, un registro contenitori di Azure consente le connessioni da host in qualsiasi rete. Per limitare l'accesso a una rete selezionata, modificare l'azione predefinita per negare l'accesso. Sostituire il nome del registro con nel seguente comando [az acr update][az-acr-update]:
 
@@ -109,7 +107,7 @@ Per impostazione predefinita, un registro contenitori di Azure consente le conne
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Aggiungere una regola di rete al registro
+### <a name="add-network-rule-to-registry"></a>Aggiungere una regola di rete al registro
 
 Usare il comando [az acr network-rule add][az-acr-network-rule-add] per aggiungere una regola di rete al registro che consenta l'accesso dalla subnet della macchina virtuale. Sostituire il nome del registro contenitori e l'ID della risorsa della subnet nel comando seguente: 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Ripristinare l'accesso predefinito al registro
 
-Per ripristinare il registro in modo da consentire l'accesso per impostazione predefinita, rimuovere tutte le regole di rete configurate. Impostare quindi l'azione predefinita per consentire l'accesso. Vengono forniti i passaggi equivalenti usando l'interfaccia della riga di comando di Azure e il portale di Azure.
+Per ripristinare il registro in modo da consentire l'accesso per impostazione predefinita, rimuovere tutte le regole di rete configurate. Impostare quindi l'azione predefinita per consentire l'accesso. 
 
-### <a name="restore-default-registry-access---cli"></a>Ripristinare l'accesso predefinito al registro - interfaccia della riga di comando
-
-#### <a name="remove-network-rules"></a>Rimuovere regole di rete
+### <a name="remove-network-rules"></a>Rimuovere regole di rete
 
 Per visualizzare un elenco di regole di rete configurate per il registro, eseguire il seguente comando [az acr network-rule list][az-acr-network-rule-list]:
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Consentire l'accesso
+### <a name="allow-access"></a>Consentire l'accesso
 
 Sostituire il nome del registro con nel seguente comando [az acr update][az-acr-update]:
 ```azurecli
@@ -180,8 +176,6 @@ Se tutte le risorse di Azure sono state create nello stesso gruppo di risorse e 
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Per pulire le risorse nel portale, passare al gruppo di risorse myResourceGroup. Dopo aver caricato il gruppo di risorse, fare clic su **Elimina gruppo di risorse** per rimuovere il gruppo di risorse, il registro contenitori e le immagini del contenitore archiviate nel registro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

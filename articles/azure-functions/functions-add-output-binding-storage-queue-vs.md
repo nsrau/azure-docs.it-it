@@ -4,12 +4,12 @@ description: Informazioni su come aggiungere un binding di output per connettere
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84235363"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167122"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio
 
@@ -106,7 +106,7 @@ La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di
 Quindi, è consigliabile abilitare il monitoraggio di Application Insights per l'app per le funzioni:
 
 > [!div class="nextstepaction"]
-> [Abilitare l'integrazione di Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Abilitare l'integrazione di Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [precedente argomento di avvio rapido]: functions-create-your-first-function-visual-studio.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851060"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341754"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza.
@@ -33,7 +33,7 @@ Informazioni su come configurare la protezione avanzata della rete adattiva nel 
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Che cos'è la protezione avanzata della rete adattiva?
-L'applicazione dei [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. In alcuni casi, tuttavia, è comunque possibile che il traffico effettivo che attraversa il gruppo di sicurezza di rete corrisponda a un subset delle regole del gruppo di sicurezza di rete definite. In questi casi è possibile migliorare ancora il comportamento di sicurezza applicando la protezione avanzata alle regole del gruppo di sicurezza di rete, in base ai criteri effettivi del traffico.
+L'applicazione dei [gruppi di sicurezza di rete (NSG)](../virtual-network/network-security-groups-overview.md) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. In alcuni casi, tuttavia, è comunque possibile che il traffico effettivo che attraversa il gruppo di sicurezza di rete corrisponda a un subset delle regole del gruppo di sicurezza di rete definite. In questi casi è possibile migliorare ancora il comportamento di sicurezza applicando la protezione avanzata alle regole del gruppo di sicurezza di rete, in base ai criteri effettivi del traffico.
 
 La protezione avanzata della rete adattiva fornisce consigli per rafforzare ulteriormente le regole NSG. Usa un algoritmo di Machine Learning che prende in considerazione il traffico effettivo, la configurazione attendibile nota, l'intelligence sulle minacce e altri indicatori di compromissione e quindi fornisce raccomandazioni per consentire il traffico solo da tuple di IP/porta specifiche.
 
@@ -93,7 +93,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 * Non è possibile modificare le regole "Consenti" per diventare regole "Nega". 
 
   > [!NOTE]
-  > La creazione e la modifica delle regole di "negazione" vengono eseguite direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creazione e la modifica delle regole di "negazione" vengono eseguite direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
 * Una regola **Deny all traffic** è l'unico tipo di regola "Deny" che verrebbe elencata e non può essere modificata. È tuttavia possibile eliminarla (vedere [eliminare una regola](#delete-rule)).
   > [!NOTE]
@@ -121,7 +121,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 È possibile aggiungere una regola "Consenti" non consigliata dal centro sicurezza.
 
 > [!NOTE]
-> Qui è possibile aggiungere solo le regole "Allow". Se si desidera aggiungere regole di "negazione", è possibile eseguire questa operazione direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Qui è possibile aggiungere solo le regole "Allow". Se si desidera aggiungere regole di "negazione", è possibile eseguire questa operazione direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
 *Per aggiungere una regola di protezione avanzata della rete adattiva:*
 

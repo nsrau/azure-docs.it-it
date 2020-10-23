@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048118"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367653"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -39,8 +39,8 @@ Il servizio Azure SignalR verrà collegato ai dispositivi gemelli digitali di Az
 ## <a name="download-the-sample-applications"></a>Scaricare le applicazioni di esempio
 
 Prima di tutto, scaricare le app di esempio richieste. Sono necessari entrambi gli elementi seguenti:
-* [**Esempi di dispositivi gemelli digitali di Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): questo esempio contiene un *AdtSampleApp* con due funzioni di Azure per lo spostamento dei dati in un'istanza di Azure Digital Twins. per informazioni dettagliate su questo scenario, vedere [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Contiene anche un'applicazione di esempio *DeviceSimulator* che simula un dispositivo molto, generando un nuovo valore di temperatura ogni secondo. 
-    - Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_samples.zip**_. Decomprimere la cartella.
+* [**Esempi end-to-end di Azure Digital gemelli**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): questo esempio contiene un *AdtSampleApp* con due funzioni di Azure per lo spostamento dei dati in un'istanza di dispositivi gemelli digitali di Azure. per altre informazioni su questo scenario, vedere [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Contiene anche un'applicazione di esempio *DeviceSimulator* che simula un dispositivo molto, generando un nuovo valore di temperatura ogni secondo. 
+    - Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_end_to_end_samples.zip**_. Decomprimere la cartella.
 * [**Esempio di app Web di integrazione SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): si tratta di un'app Web React di esempio che utilizzerà i dati di telemetria di Azure Digital Twins da un servizio Azure SignalR.
     -  Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Decomprimere la cartella.
 
@@ -63,7 +63,7 @@ Per prima cosa, accedere al browser in cui è aperta la portale di Azure e compl
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end. Viene illustrato il flusso di dati da un dispositivo all'hub Internet, tramite una funzione di Azure (freccia B) a un'istanza di Azure Digital gemelli (sezione A), quindi tramite griglia di eventi a un'altra funzione di Azure per l'elaborazione (freccia C). La sezione D Mostra il flusso di dati dalla stessa griglia di eventi nella freccia C a una funzione di Azure con etichetta &quot;broadcast&quot;. ' Broadcast ' comunica con un'altra funzione di Azure con etichetta ' Negotiate ' è Broadcast ' è Negotiate ' comunicano con i dispositivi computer." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Successivamente, avviare Visual Studio (o un altro editor di codice di propria scelta) e aprire la soluzione di codice nella cartella *Azure_Digital_Twins_samples > ADTSampleApp* . Eseguire quindi la procedura seguente per creare le funzioni:
+Successivamente, avviare Visual Studio (o un altro editor di codice di propria scelta) e aprire la soluzione di codice nella cartella *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Eseguire quindi la procedura seguente per creare le funzioni:
 
 1. Creare una nuova classe Sharp C# denominata **SignalRFunctions.cs** nel progetto *SampleFunctionsApp* .
 
@@ -129,7 +129,7 @@ Successivamente, avviare Visual Studio (o un altro editor di codice di propria s
     }
     ```
 
-1. Nella finestra console di *Gestione pacchetti* di Visual Studio o in qualsiasi finestra di comando nel computer nella cartella *Azure_Digital_Twins_samples \adtsampleapp\samplefunctionsapp* eseguire il comando seguente per installare il `SignalRService` pacchetto NuGet nel progetto:
+1. Nella finestra console di *Gestione pacchetti* di Visual Studio o in qualsiasi finestra di comando nel computer nella cartella *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* eseguire il comando seguente per installare il `SignalRService` pacchetto NuGet nel progetto:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -145,7 +145,7 @@ Successivamente, pubblicare la funzione in Azure usando la procedura descritta n
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end. Viene illustrato il flusso di dati da un dispositivo all'hub Internet, tramite una funzione di Azure (freccia B) a un'istanza di Azure Digital gemelli (sezione A), quindi tramite griglia di eventi a un'altra funzione di Azure per l'elaborazione (freccia C). La sezione D Mostra il flusso di dati dalla stessa griglia di eventi nella freccia C a una funzione di Azure con etichetta &quot;broadcast&quot;. ' Broadcast ' comunica con un'altra funzione di Azure con etichetta ' Negotiate ' è Broadcast ' è Negotiate ' comunicano con i dispositivi computer.":::
 
-1. Infine, aggiungere la **stringa di connessione** di Azure SignalR precedente alle impostazioni dell'app della funzione usando il comando dell'interfaccia della riga di comando di Azure seguente. Il comando può essere eseguito in [Azure cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure:
+1. Infine, aggiungere la **stringa di connessione** di Azure SignalR precedente alle impostazioni dell'app della funzione usando il comando dell'interfaccia della riga di comando di Azure seguente. Il comando può essere eseguito in [Azure cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure:
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -184,7 +184,7 @@ In questa sezione verrà visualizzato il risultato in azione. In primo luogo, ve
 
 Durante il prerequisito dell'esercitazione end-to-end, è stato [configurato il simulatore di dispositivi per l'](tutorial-end-to-end.md#configure-and-run-the-simulation) invio di dati tramite un hub Internet e l'istanza di Azure Digital gemelli.
 
-A questo punto, è sufficiente avviare il progetto del simulatore, disponibile in *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator. sln*. Se si usa Visual Studio, è possibile aprire il progetto e quindi eseguirlo con questo pulsante sulla barra degli strumenti:
+A questo punto, è sufficiente avviare il progetto del simulatore, disponibile in *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. sln*. Se si usa Visual Studio, è possibile aprire il progetto e quindi eseguirlo con questo pulsante sulla barra degli strumenti:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end. Viene illustrato il flusso di dati da un dispositivo all'hub Internet, tramite una funzione di Azure (freccia B) a un'istanza di Azure Digital gemelli (sezione A), quindi tramite griglia di eventi a un'altra funzione di Azure per l'elaborazione (freccia C). La sezione D Mostra il flusso di dati dalla stessa griglia di eventi nella freccia C a una funzione di Azure con etichetta &quot;broadcast&quot;. ' Broadcast ' comunica con un'altra funzione di Azure con etichetta ' Negotiate ' è Broadcast ' è Negotiate ' comunicano con i dispositivi computer.":::
 
@@ -195,7 +195,7 @@ Non è necessario eseguire altre operazioni in questa console, ma lasciarla in e
 ### <a name="configure-the-sample-client-web-app"></a>Configurare l'app Web client di esempio
 
 Configurare quindi l'esempio di **app Web di integrazione SignalR** con i passaggi seguenti:
-1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa scaricata nella sezione [*prerequisiti*](#prerequisites) .
+1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa [*scaricata nella sezione scaricare le applicazioni di esempio*](#download-the-sample-applications) .
 
 1. Aprire il file *src/App.js* e sostituire l'URL in `HubConnectionBuilder` con l'URL dell'endpoint HTTP della funzione **Negotiate** salvata in precedenza:
 
@@ -232,7 +232,7 @@ Verrà aperta una finestra del browser che esegue l'app di esempio, che visualiz
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle. 
 
-Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Rimuovere anche il gruppo di risorse...
+Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Rimuovere anche il gruppo di risorse...
 * istanza di Azure Digital Twins (dall'esercitazione end-to-end)
 * l'hub e la registrazione del dispositivo hub (dall'esercitazione end-to-end)
 * argomento di griglia di eventi e sottoscrizioni associate
@@ -246,13 +246,7 @@ Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale �
 az group delete --name <your-resource-group>
 ```
 
-Se si elimina l'istanza dei dispositivi gemelli digitali di Azure, è anche possibile eliminare la registrazione dell'app Azure AD creata nell'esercitazione end-to-end, usando questo comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
-Eliminare infine le cartelle di esempio del progetto scaricate nel computer locale (*Azure_Digital_Twins_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Eliminare infine le cartelle di esempio del progetto scaricate nel computer locale (*Azure_Digital_Twins_end_to_end_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

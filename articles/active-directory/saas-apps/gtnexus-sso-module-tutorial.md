@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544299"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Esercitazione: Integrazione di Azure Active Directory con GTNexus SSO System
 
@@ -101,11 +101,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con GTNexus SSO System, seg
 
     a. Fare clic su **Carica il file di metadati**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot che mostra la pagina "Configurazione SAML di base" con l'azione "Carica file di metadati" selezionata.](common/upload-metadata.png)
 
     b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Screenshot che mostra il campo "Selezionare un file" con il logo "cartella" e il pulsante "Carica" selezionati.](common/browse-upload-metadata.png)
 
     c. Al termine del caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella casella di testo della sezione di GTNexus SSO System:
 

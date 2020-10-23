@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443789"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124396"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -29,7 +29,7 @@ Il database SQL di Azure offre diversi metodi per la creazione di una copia di u
 Una copia del database è uno snapshot coerente a livello di transazione del database di origine al momento dell'avvio della richiesta di copia. È possibile selezionare lo stesso server o un server diverso per la copia. È anche possibile scegliere di conservare la ridondanza del backup, il livello di servizio e le dimensioni di calcolo del database di origine oppure usare una ridondanza di archiviazione di backup e/o una dimensione di calcolo diverse nello stesso o in un livello di servizio diverso. Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni nel database copiato vengono gestiti in modo indipendente dal database di origine. La copia viene creata usando la tecnologia di replica geografica. Al termine del seeding della replica, il collegamento di replica geografica viene terminato automaticamente. All'operazione di copia del database si applicano tutti i requisiti per l'uso della replica geografica. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
 
 > [!NOTE]
-> La ridondanza dell'archivio di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sud-orientale. Nell'anteprima, se il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, la copia del database in un server in un'area di Azure diversa non è supportata. 
+> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile a livello generale solo nell'area di Azure Asia sudorientale. Nell'anteprima, se il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, la copia del database in un server in un'area di Azure diversa non è supportata. 
 
 ## <a name="logins-in-the-database-copy"></a>Account di accesso nella copia del database
 

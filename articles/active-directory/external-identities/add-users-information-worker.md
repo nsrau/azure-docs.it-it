@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909742"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442219"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Informazioni sul modo in cui utenti nell'organizzazione possono invitare utenti guest a un'app
 
@@ -28,7 +28,7 @@ Dopo che un utente guest è stato aggiunto alla directory in Azure AD, un propri
  - Configurare l'app per la gestione self-service e assegnare il gruppo all'app
 
 > [!NOTE]
-> Questo articolo descrive come impostare la gestione self-service per le app basate su SAML e raccolte che sono state aggiunte al tenant di Azure AD. È anche possibile [configurare gruppi di Microsoft 365 self-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) in modo che gli utenti possano gestire l'accesso ai propri gruppi di Microsoft 365. Per altri modi in cui gli utenti possono condividere i file di Office e le app con gli utenti guest, vedere [accesso guest in gruppi di Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [condividere file o cartelle di SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> Questo articolo descrive come impostare la gestione self-service per le app basate su SAML e raccolte che sono state aggiunte al tenant di Azure AD. È anche possibile [configurare gruppi di Microsoft 365 self-service](../users-groups-roles/groups-self-service-management.md) in modo che gli utenti possano gestire l'accesso ai propri gruppi di Microsoft 365. Per altri modi in cui gli utenti possono condividere i file di Office e le app con gli utenti guest, vedere [accesso guest in gruppi di Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [condividere file o cartelle di SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Invitare un utente guest a un'app dal pannello di accesso
 
@@ -75,7 +75,7 @@ Dopo che un'app è stata configurata per la gestione self-service, i proprietari
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-La gestione delle app self-service richiede alcuni passaggi di configurazione iniziali, che devono essere eseguiti da un amministratore globale e da un amministratore di Azure AD. Come parte di questa configurazione, è necessario configurare l'app per la gestione self-service e assegnare un gruppo all'app che il proprietario dell'applicazione possa gestire. È anche possibile configurare il gruppo in modo da permettere a chiunque di richiedere l'appartenenza, ma per questa operazione è necessaria l'approvazione di un proprietario del gruppo. Per altre informazioni, vedere [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management). 
+La gestione delle app self-service richiede alcuni passaggi di configurazione iniziali, che devono essere eseguiti da un amministratore globale e da un amministratore di Azure AD. Come parte di questa configurazione, è necessario configurare l'app per la gestione self-service e assegnare un gruppo all'app che il proprietario dell'applicazione possa gestire. È anche possibile configurare il gruppo in modo da permettere a chiunque di richiedere l'appartenenza, ma per questa operazione è necessaria l'approvazione di un proprietario del gruppo. Per altre informazioni, vedere [Gestione gruppi self-service](../users-groups-roles/groups-self-service-management.md). 
 
 > [!NOTE]
 > Non è possibile aggiungere utenti guest a un gruppo dinamico o a un gruppo sincronizzato con Active Directory locale.
@@ -105,8 +105,8 @@ La gestione delle app self-service richiede alcuni passaggi di configurazione in
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 3. In **Gestisci** selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 4. Nell'elenco delle applicazioni individuare e aprire l'app.
-5. In **Gestisci** selezionare **Single Sign-On** e configurare l'applicazione per l'accesso Single Sign-On. Per informazioni, vedere [Gestire l'accesso Single Sign-On per le app aziendali](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
-6. In **Gestisci** selezionare **Self-service** e configurare l'accesso alle app self-service. Per informazioni, vedere [Come usare l'accesso alle app self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to). 
+5. In **Gestisci** selezionare **Single Sign-On** e configurare l'applicazione per l'accesso Single Sign-On. Per informazioni, vedere [Gestire l'accesso Single Sign-On per le app aziendali](../manage-apps/view-applications-portal.md).
+6. In **Gestisci** selezionare **Self-service** e configurare l'accesso alle app self-service. Per informazioni, vedere [Come usare l'accesso alle app self-service](../manage-apps/access-panel-manage-self-service-access.md). 
 
     > [!NOTE]
     > Per l'impostazione **Gruppo a cui devono essere aggiunti gli utenti assegnati** selezionare il gruppo creato nella sezione precedente.

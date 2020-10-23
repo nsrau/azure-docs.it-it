@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742384"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123909"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Esercitazione: Copiare i dati dal dispositivo Azure Data Box tramite SMB (anteprima)
 
@@ -82,7 +82,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
     ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -119,4 +119,3 @@ Passare all'esercitazione successiva per informazioni su come riconsegnare Data 
 
 > [!div class="nextstepaction"]
 > [Spedire Azure Data Box a Microsoft](./data-box-deploy-export-picked-up.md)
-

@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate con uno script
 description: Informazioni su come configurare un'appliance Azure Migrate con uno script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438911"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317321"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 
@@ -16,7 +16,7 @@ Seguire questo articolo per creare un' [appliance Azure migrate](./migrate-appli
 
 È possibile distribuire l'appliance per macchine virtuali VMware e Hyper-V usando uno script o un modello scaricato dal portale di Azure. L'uso di uno script è utile se non si è in grado di creare una macchina virtuale usando il modello scaricato.
 
-- Per usare un modello, seguire le esercitazioni per [VMware](tutorial-prepare-vmware.md) o [Hyper-V](tutorial-prepare-hyper-v.md).
+- Per usare un modello, seguire le esercitazioni per [VMware](./tutorial-discover-vmware.md) o [Hyper-V](./tutorial-discover-hyper-v.md).
 - Per configurare un'appliance per i server fisici, è possibile usare solo uno script. Seguire [questo articolo](how-to-set-up-appliance-physical.md).
 - Per configurare un'appliance in un cloud di Azure per enti pubblici, seguire [questo articolo](deploy-appliance-script-government.md).
 

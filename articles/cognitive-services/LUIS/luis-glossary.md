@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309490"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151972"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -23,7 +23,7 @@ La versione attiva è la [versione](luis-how-to-manage-versions.md) dell'app che
 
 L'apprendimento attivo è una tecnica di apprendimento automatico in cui viene usato il modello di apprendimento automatico per identificare nuovi esempi informativi da etichettare. In LUIS, l'apprendimento attivo si riferisce all'aggiunta di espressioni dal traffico dell'endpoint le cui stime correnti non sono chiare per migliorare il modello. Fare clic su "verifica espressioni endpoint" per visualizzare le espressioni da etichettare.
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 * [Informazioni concettuali](luis-concept-review-endpoint-utterances.md)
 * [Esercitazione per la revisione di espressioni endpoint](luis-tutorial-review-endpoint-utterances.md)
 * Come migliorare l'app LUIS esaminando gli [enunciati degli endpoint](luis-how-to-review-endpoint-utterances.md)
@@ -52,7 +52,7 @@ La risorsa di creazione ha una "tipologia" di Azure `LUIS-Authoring` .
 
 Il test batch è la possibilità di convalidare i modelli di un'app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](luis-concept-batch-test.md#batch-file-format).
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 * [Concetti](luis-concept-batch-test.md)
 * [Procedura:](luis-how-to-batch-test.md) eseguire un test batch
 * [Esercitazione](luis-tutorial-batch-testing.md) : creare ed eseguire un test batch
@@ -96,13 +96,13 @@ Uno [scopo](#intent) è un esempio di classificatore.
 
 ## <a name="collaborator"></a>Collaboratore
 
-Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con RBAC.
+Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con il controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="contributor"></a>Autore di contributi
 
 Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce il controllo degli accessi in base al ruolo di Azure (RBAC) a un'app LUIS.
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 * [Procedura:](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) aggiungere collaboratori
 
 ## <a name="descriptor"></a>Descrittore

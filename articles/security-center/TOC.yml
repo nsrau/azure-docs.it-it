@@ -44,8 +44,6 @@
         - name: Azure Defender per SQL
           displayName: database
           href: defender-for-sql-introduction.md
-        - name: Azure Defender per IoT
-          href: defender-for-iot-introduction.md
         - name: Azure Defender per Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
@@ -191,6 +189,9 @@
             - name: Gestire l'accesso JIT
               displayName: 'jit, management'
               href: security-center-just-in-time.md
+        - name: Usare la licenza della soluzione integrata Microsoft Defender per endpoint
+          displayName: 'ATP, mdatp, wdatp'
+          href: security-center-wdatp.md
         - name: Gestire i controlli applicazioni adattivi
           href: security-center-adaptive-application.md
         - name: Usare il monitoraggio dell'integrità dei file
@@ -201,8 +202,6 @@
               href: security-center-file-integrity-monitoring-baselines.md
         - name: Gestire la protezione avanzata adattiva della rete
           href: security-center-adaptive-network-hardening.md
-        - name: Integrare Microsoft Defender ATP
-          href: security-center-wdatp.md
         - name: Proteggere in modo avanzato gli host Docker
           displayName: containers
           href: harden-docker-hosts.md
@@ -254,7 +253,7 @@
 - name: Informazioni di riferimento
   items:
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+      href: /rest/api/securitycenter/
     - name: Domande frequenti su Centro sicurezza di Azure
       items:
         - name: Domande generali
@@ -282,9 +281,9 @@
     - name: Gestire i dati utente
       href: security-center-privacy.md
     - name: Documentazione di Azure Defender per IoT
-      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
+      href: /azure/asc-for-iot/
     - name: Documentazione sulla sicurezza di Azure
-      href: /azure/security/
+      href: ../security/index.yml
     - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Guida di orientamento per l'idoneità

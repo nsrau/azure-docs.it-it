@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631206"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426361"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -359,7 +359,7 @@ Per condividere un'area di lavoro con un altro utente nell’ambito della sottos
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Per altre informazioni sul controllo degli accessi in base al ruolo (RBAC) con Azure Machine Learning, vedere [Gestire utenti e ruoli](how-to-assign-roles.md).
+Per altre informazioni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure) con Azure Machine Learning, vedere [gestire utenti e ruoli](how-to-assign-roles.md).
 
 Per altre informazioni, vedere la documentazione sulla [condivisione dell’area di lavoro di Azure Machine Learning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share).
 

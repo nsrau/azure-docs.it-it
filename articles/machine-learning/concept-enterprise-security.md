@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302622"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207938"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -376,6 +376,10 @@ Di seguito sono riportati i dettagli:
 Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](/azure/governance/policy/overview).
 
 Per altre informazioni sui criteri specifici di Azure Machine Learning, vedere [Audit and Manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
+
+## <a name="resource-locks"></a>Blocchi risorse
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

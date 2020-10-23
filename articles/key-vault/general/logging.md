@@ -10,18 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a51e9a628f67269357d42bd1d3af10c1d86f301a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131174"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. A questo scopo è possibile abilitare la registrazione per Azure Key Vault, che salva le informazioni in un account di archiviazione di Azure specificato. Per tale account di archiviazione viene creato automaticamente un contenitore denominato **insights-log-auditevent**, che può essere usato per raccogliere i log relativi a più insiemi di credenziali delle chiavi.
+Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. A questo scopo è possibile abilitare la registrazione per Azure Key Vault, che salva le informazioni in un account di archiviazione di Azure specificato. Per le istruzioni dettagliate sulla configurazione, vedere [Come abilitare la registrazione di Key Vault](howto-logging.md).
 
 È possibile accedere alle informazioni di registrazione dopo massimo 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima.  La gestione dei log nell'account di archiviazione è compito dell'utente:
 
@@ -31,6 +29,8 @@ Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere uti
 Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/). Per informazioni sull'uso, vedere [Monitoraggio di Azure per Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretare i log dell'insieme di credenziali delle chiavi
+
+Quando si abilita la registrazione, per l'account di archiviazione specificato viene automaticamente creato un nuovo contenitore denominato **insights-logs-auditevent**. che può essere usato per raccogliere i log relativi a più insiemi di credenziali delle chiavi.
 
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Ecco un esempio di voce di registro. 
 
@@ -122,16 +122,15 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **CertificateNearExpiryEventGridNotification** |Evento di certificato vicino alla scadenza pubblicato |
 | **CertificateExpiredEventGridNotification** |Evento di certificato scaduto pubblicato |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Usare i log di Monitoraggio di Azure
+## <a name="use-azure-monitor-logs"></a>Usare i log di Monitoraggio di Azure
 
 È possibile usare la soluzione Key Vault nei log di Monitoraggio di Azure per esaminare i log `AuditEvent` di Key Vault. Nei log di Monitoraggio di Azure è possibile usare le query di log per analizzare i dati e ottenere le informazioni necessarie. 
 
 Per altre informazioni, anche su come configurare la soluzione, vedere [Azure Key Vault nei log di Monitoraggio di Azure](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a name="next-steps"></a><a id="next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, vedere [Usare Azure Key Vault da un'app Web](tutorial-net-create-vault-azure-web-app.md).
-
-Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](developers-guide.md).
-
-Per un elenco di cmdlet di Azure PowerShell 1.0 per Azure Key Vault, vedere [Cmdlet per Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- [Come abilitare la registrazione di Key Vault](howto-logging.md)
+- Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, vedere [Usare Azure Key Vault da un'app Web](tutorial-net-create-vault-azure-web-app.md).
+- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](developers-guide.md).
+- Per un elenco di cmdlet di Azure PowerShell 1.0 per Azure Key Vault, vedere [Cmdlet per Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

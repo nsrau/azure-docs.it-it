@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461001"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148767"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
@@ -61,21 +61,19 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
    * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **returnUrl** e **salt** ([il codice di esempio è fornito di seguito]):
      
      > HMAC(**salt** + '\n' + **returnUrl**)
-     > 
-     > 
+
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
 3. Verificare la ricezione di una richiesta di accesso o iscrizione: il parametro di query **operation** verrà impostato su "**SignIn**".
 4. Visualizzare l'interfaccia utente per eseguire l'accesso o l'iscrizione
 5. Se l'utente sta effettuando un'iscrizione, è necessario creare un account corrispondente in Gestione API. [Creare un utente] con l'API REST di Gestione API. Quando si esegue questa operazione, assicurarsi di impostare l'ID utente sullo stesso valore presente nell'archivio utenti o su un ID di cui è possibile tenere traccia.
 6. Quando l'utente viene autenticato correttamente:
    
-   * [Richiedere un token SSO (Single Sign-On)] tramite l'API REST di Gestione API
+   * [Richiedere un token di accesso condiviso] tramite l'API REST di gestione API
    * Aggiungere un parametro di query returnUrl all'URL SSO ricevuto dalla chiamata API precedente:
      
-     > ad esempio `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
-   * Reindirizzare l'utente all'URL generato in precedenza
+     > ad esempio `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
+   * Reindirizza l'utente all'URL prodotto in precedenza
 
 Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli account seguendo i passaggi precedenti e usando una delle operazioni seguenti:
 
@@ -186,7 +184,7 @@ Per altre informazioni sulla delega, vedere il video seguente:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[Richiedere un token SSO (Single Sign-On)]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Richiedere un token di accesso condiviso]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [Creare un utente]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [Chiamata dell'API REST per le sottoscrizioni]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318428"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371886"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per istruzioni end-to-end sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD), Azure AD piani di distribuzione illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità di Azure AD comuni.
@@ -54,7 +54,7 @@ Un progetto pilota consente di eseguire test con un piccolo gruppo prima di atti
 
 Nella prima ondata, è possibile indirizzare IT, usabilità e altri utenti appropriati che possono testare e fornire commenti e suggerimenti. Questo feedback dovrebbe essere usato per sviluppare ulteriormente le comunicazioni e le istruzioni inviate agli utenti e per fornire informazioni dettagliate sui tipi di problemi che possono essere visualizzati dal personale di supporto. 
 
-L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere eseguito aumentando l'ambito dei gruppi di destinazione. Questa operazione può essere eseguita tramite [l'appartenenza dinamica ai gruppi](../users-groups-roles/groups-dynamic-membership.md)o aggiungendo manualmente utenti ai gruppi di destinazione.
+L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere eseguito aumentando l'ambito dei gruppi di destinazione. Questa operazione può essere eseguita tramite [l'appartenenza dinamica ai gruppi](../enterprise-users/groups-dynamic-membership.md)o aggiungendo manualmente utenti ai gruppi di destinazione.
 
 
 ## <a name="deploy-authentication"></a>Distribuisci autenticazione
@@ -81,7 +81,7 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 | -| -|
 | [AD FS per la sincronizzazione dell'hash delle password](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Con la sincronizzazione dell'hash delle password, gli hash delle password utente vengono sincronizzati da Active Directory locali a Azure AD, consentendo Azure AD autenticare gli utenti senza alcuna interazione con la Active Directory locale |
 | [AD FS per l'autenticazione pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD autenticazione pass-through consente agli utenti di accedere alle applicazioni locali e basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, ovvero una password in meno da ricordare, e riduce i costi del supporto tecnico perché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale. |
-| [Proxy applicazione Azure AD](../manage-apps/application-proxy-deployment-plan.md) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e alle app aziendali nell'ambiente locale. Azure AD Application Proxy offre questo accesso affidabile senza reti private virtuali (VPN) o reti perimetrali costose e complesse. |
+| [Proxy dell'applicazione di Azure AD](../manage-apps/application-proxy-deployment-plan.md) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e alle app aziendali nell'ambiente locale. Azure AD Application Proxy offre questo accesso affidabile senza reti private virtuali (VPN) o reti perimetrali costose e complesse. |
 | [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale. Con questa funzionalità, gli utenti non dovranno digitare le password per accedere a Azure AD e, in genere, non dovranno immettere i propri nomi utente. Questa funzionalità consente agli utenti autorizzati di accedere agevolmente alle applicazioni basate sul cloud senza che siano necessari altri componenti locali. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuire il provisioning utenti

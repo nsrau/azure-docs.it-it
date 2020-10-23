@@ -4,12 +4,12 @@ description: Introduzione rapida ai comandi per Batch nell'interfaccia della rig
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055512"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144752"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
     
     Quando si accede ad Azure in modo interattivo, come descritto nella sezione precedente, le credenziali vengono memorizzate nella cache per accedere tramite l'interfaccia della riga di comando di Azure al proprio account Batch usando le stesse credenziali. Se si accede ad Azure usando un'entità servizio, tali credenziali vengono usate anche per accedere all'account Batch.
 
-    Uno dei vantaggi di Azure AD è che offre il controllo degli accessi in base al ruolo. Con il controllo degli accessi in base al ruolo, l'accesso dell'utente dipende dal ruolo assegnato anziché dal fatto che abbia o meno le chiavi dell'account. Anziché gestire le chiavi dell'account, è possibile gestire i ruoli di Azure e consentire Azure AD gestire l'accesso e l'autenticazione.  
+    Un vantaggio di Azure AD è che offre il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Con il controllo degli accessi in base al ruolo di Azure, l'accesso di un utente dipende dal ruolo assegnato, anziché dal fatto che dispongano o meno delle chiavi dell'account. Anziché gestire le chiavi dell'account, è possibile gestire i ruoli di Azure e consentire Azure AD gestire l'accesso e l'autenticazione.  
 
      Per accedere all'account Batch con Azure AD, chiamare il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 

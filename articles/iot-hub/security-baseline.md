@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906924"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150560"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Baseline della sicurezza di Azure per l'hub Azure
 
@@ -33,9 +33,9 @@ Si consiglia di limitare la connettività alle risorse di Azure (incluso l'hub d
 Per evitare l'accesso indesiderato, è necessario lasciare le porte hardware aperte nei dispositivi. Inoltre, i meccanismi di compilazione per prevenire o rilevare manomissioni fisiche del dispositivo.
 
 - [Supporto reti virtuali Internet](virtual-network-support.md)
-- [procedura consigliata per la rete molto](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [procedura consigliata per la rete molto](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [Panoramica del collegamento privato di Azure](../private-link/private-link-overview.md)
-- [Gruppo di sicurezza di rete di Azure](../virtual-network/security-overview.md)
+- [Gruppo di sicurezza di rete di Azure](../virtual-network/network-security-groups-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -75,7 +75,7 @@ Protezione DDoS di Azure Basic è già abilitata e disponibile senza costi aggiu
 
 - [Gestire la protezione DDoS di Azure Basic](../virtual-network/ddos-protection-overview.md)
 
-- [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/threat-protection.md)
+- [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -138,7 +138,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Linee guida**: usare i tag per le risorse di rete associate alla distribuzione dell'hub Azure Internet per organizzarle in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -148,7 +148,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate all'hub Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso all'hub delle cose di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure o Azure PowerShell o l'portale di Azure. 
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -296,7 +296,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 È anche possibile abilitare l'accesso just-in-time agli account amministrativi usando Azure AD Privileged Identity Management e Azure Resource Manager.
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -340,7 +340,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -376,9 +376,9 @@ Per l'accesso ai dispositivi e ai servizi, l'hub Internet usa i token di sicurez
 
 Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 - [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
-- [Distribuire Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Distribuire Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -392,7 +392,7 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 
 Log di diagnostica utente monitoraggio di Azure per monitorare i tentativi di connessione non autorizzati nella categoria connessioni.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Configurare i log di diagnostica per l'hub Internet](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Log di diagnostica utente monitoraggio di Azure per monitorare i tentativi di co
 
 **Indicazioni**: usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
   
-- [ Come visualizzare Azure AD accessi a rischio](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [ Come visualizzare Azure AD accessi a rischio](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [ Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Log di diagnostica utente monitoraggio di Azure per monitorare i tentativi di co
 
 **Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
  
-- [ Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -440,9 +440,9 @@ Log di diagnostica utente monitoraggio di Azure per monitorare i tentativi di co
 
 **Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
   
-- [ Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
-- [ Come creare gruppi di gestione](/azure/governance/management-groups/create)
-- [ Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
+- [ Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
+- [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -593,7 +593,7 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 **Linee guida**: applicare i tag alle risorse di Azure (non tutte le risorse supportano i tag, ma la maggior parte delle operazioni) per organizzarle logicamente in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -603,11 +603,11 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
   
-- [ Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [ Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
   
-- [ Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [ Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
   
-- [ Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -725,7 +725,7 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 È anche possibile usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure.
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate per l'hub Azure o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -830,8 +830,8 @@ Usare identità gestite insieme a Azure Key Vault per semplificare la gestione d
 - [Token di sicurezza dell'hub IoT](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Come usare le identità gestite per l'hub Internet](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Come creare un insieme di credenziali delle chiavi](/azure/key-vault/quick-create-portal)
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](/azure/key-vault/managed-identity)
+- [Come creare un insieme di credenziali delle chiavi](../key-vault/secrets/quick-create-portal.md)
+- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -940,7 +940,7 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
  
  
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
-- [Eliminazione temporanea per archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -973,7 +973,7 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
   
 - [ Avvisi di sicurezza nel centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
   
-- [ Usare i tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Usare i tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1039,5 +1039,5 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460578"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151546"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -25,7 +25,7 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 
 La manutenzione pianificata che richiede un riavvio viene pianificata in cicli. Ogni ondata ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata all'amministratore e ai coamministratori del servizio. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../service-health/alerts-activity-log-service-notifications-portal.md).  
+- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata all'amministratore e ai coamministratori della sottoscrizione. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../service-health/alerts-activity-log-service-notifications-portal.md).  
 - Una volta inviata una notifica, viene resa disponibile una *finestra Self-Service* . Durante questa finestra è possibile eseguire una query sulle macchine virtuali interessate e avviare la manutenzione in base alle proprie esigenze di pianificazione. La finestra Self-Service è in genere di circa 35 giorni.
 - Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
-**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori del servizio (un messaggio di posta elettronica per sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
+**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica all'amministratore e ai coamministratori della sottoscrizione (un messaggio di posta elettronica per sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
 
 **D: non viene visualizzata alcuna indicazione di manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
 

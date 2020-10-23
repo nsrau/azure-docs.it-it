@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014563"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104105"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -97,6 +97,10 @@ I dati nell'archivio analitico vengono partizionati in base al partizionamento o
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>È possibile personalizzare o sostituire il modo in cui i dati transazionali vengono trasformati in formato a colonne nell'archivio analitico?
 
 Attualmente, non è possibile trasformare i dati quando vengono propagati automaticamente dall'archivio transazionale all'archivio analitico. Se sono presenti scenari bloccati da questa limitazione, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>Archivio analitico supportato da bonifica?
+
+Attualmente la bonifica non supporta i contenitori di archivio analitici. Per ulteriori informazioni, vedere la pagina relativa alla [bonifica dei problemi di GitHub](https://github.com/hashicorp/terraform/issues) .
 
 ## <a name="analytical-time-to-live-ttl"></a>Durata (TTL) dei dati analitici
 

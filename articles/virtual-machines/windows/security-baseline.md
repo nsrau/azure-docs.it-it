@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978021"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205031"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -750,7 +750,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 * [Introduzione ad Automazione di Azure](../../automation/automation-intro.md)
 
-* [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/change-tracking.md)
+* [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/change-tracking/overview.md)
 
 * [Panoramica della configurazione dello stato di automazione di Azure](../../automation/automation-dsc-overview.md)
 

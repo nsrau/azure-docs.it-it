@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269761"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310043"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
 
@@ -224,7 +224,7 @@ Per ulteriori informazioni sulle definizioni di criteri di Azure, vedere gli arg
 
 * [Definizione della struttura dei criteri](../governance/policy/concepts/definition-structure.md)
 * [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
-* [Definizioni di criteri predefiniti di Criteri di Azure per App per la logica di Azure](../logic-apps/policy-samples.md)
+* [Definizioni di criteri predefiniti di Criteri di Azure per App per la logica di Azure](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -311,7 +311,7 @@ Per ulteriori informazioni sulle definizioni di criteri di Azure, vedere gli arg
 
 * [Definizione della struttura dei criteri](../governance/policy/concepts/definition-structure.md)
 * [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
-* [Definizioni di criteri predefiniti di Criteri di Azure per App per la logica di Azure](../logic-apps/policy-samples.md)
+* [Definizioni di criteri predefiniti di Criteri di Azure per App per la logica di Azure](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

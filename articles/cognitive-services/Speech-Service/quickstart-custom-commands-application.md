@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289416"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329152"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creare un assistente vocale con comandi personalizzati
 
@@ -23,14 +23,14 @@ Questa Guida introduttiva illustra come creare e testare un'applicazione di coma
 
 ## <a name="region-availability"></a>Disponibilità a livello di area
 A questo punto, i comandi personalizzati supportano le sottoscrizioni vocali create in queste aree:
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Stati Uniti occidentali 2
 * Stati Uniti orientali
 * Stati Uniti Orientali 2
 * Europa settentrionale
 * Europa occidentale
 * Stati Uniti centro-occidentali
-* Central India
+* India centrale
 * Asia orientale
 * Asia sud-orientale
 
@@ -123,7 +123,7 @@ Nell'ambito di questo articolo, si utilizzerà il client Windows Voice Assistant
 1. Avviare **VoiceAssistantClient.exe**.
 1. Creare un nuovo profilo di pubblicazione e immettere il valore per **profilo di connessione**. Nella sezione **General Settings (impostazioni generali** ) immettere Values **Subscription Key** (uguale al valore della **chiave della risorsa vocale** salvato durante la pubblicazione dell'applicazione), **area chiave della sottoscrizione** e **ID app comandi personalizzati**.
     > [!div class="mx-imgBorder"]
-    > ![WVAC Crea profilo](media/custom-commands/create-profile.png)
+    > ![Schermata che evidenzia la sezione Impostazioni generali per la creazione di un profilo WVAC.](media/custom-commands/create-profile.png)
 1. Selezionare **Salva e applica profilo**.
 1. Ora provare gli input seguenti tramite sintesi vocale/testo
     > [!div class="mx-imgBorder"]

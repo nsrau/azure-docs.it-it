@@ -2,13 +2,13 @@
 title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385756"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371444"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -26,7 +26,7 @@ Tutti i nodi di Calcolo in Batch includono anche:
 
 - Una [struttura di cartelle](files-and-directories.md) standard e le [variabili di ambiente](jobs-and-tasks.md) associate disponibili come riferimento per le attività.
 - Impostazioni **firewall** configurate per controllare l'accesso.
-- [Accesso remoto](error-handling.md#connect-to-compute-nodes) ai nodi Windows (Remote Desktop Protocol (RDP)) e Linux (Secure Shell (SSH)).
+- [Accesso remoto](error-handling.md#connect-to-compute-nodes) ai nodi Windows (Remote Desktop Protocol (RDP) e Linux (Secure Shell (SSH)), a meno che non si [crei il pool con accesso remoto disabilitato](pool-endpoint-configuration.md).
 
 Per impostazione predefinita, i nodi possono comunicare tra loro, ma non possono comunicare con macchine virtuali che non fanno parte dello stesso pool. Per consentire ai nodi di comunicare in modo sicuro con altre macchine virtuali o con una rete locale, è possibile effettuare il provisioning del pool [in una subnet di una rete virtuale di Azure (VNet)](batch-virtual-network.md). Quando si esegue questa operazione, è possibile accedere ai nodi tramite indirizzi IP pubblici. Questi indirizzi IP pubblici vengono creati da batch e possono cambiare nel corso della durata del pool. È anche possibile [creare un pool con indirizzi IP pubblici statici](create-pool-public-ip.md) da controllare, in modo da garantire che non cambino in modo imprevisto.
 

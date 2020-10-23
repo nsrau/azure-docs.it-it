@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: joflore
-ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962463"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275865"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure Active Directory Domain Services
 
@@ -141,7 +141,7 @@ Dopo che la macchina virtuale è stata registrata nel dominio gestito, configura
 
 1. Specificare un valore per il percorso della Home Directory. Per fare in modo che Home directory segua il formato di */home/user_name*, utilizzare */Home/%u*. Per ulteriori informazioni sulle possibili variabili, vedere la sezione override_homedir della pagina dell'uomo SSSD. conf ( `man 5 sssd.conf` ). *override_homedir*
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 1. Per salvare le modifiche, selezionare **OK**. Assicurarsi quindi che i valori visualizzati ora siano corretti. Per uscire dalla finestra di dialogo, selezionare **Annulla**.
 
@@ -165,7 +165,7 @@ Per aggiungere il dominio gestito usando **Winbind** e il modulo di *appartenenz
 
 1. Se si desidera modificare gli intervalli di UID e GID per gli utenti e i gruppi di Samba, selezionare *Impostazioni avanzate*.
 
-1. Configurare la sincronizzazione dell'ora NTP per il dominio gestito selezionando *configurazione NTP*. Immettere gli indirizzi IP del dominio gestito. Questi indirizzi IP vengono visualizzati nella finestra *Proprietà* della portale di Azure per il dominio gestito, ad esempio *10.0.2.4* e *10.0.2.5*.
+1. Configurare la sincronizzazione dell'ora NTP (Network Time Protocol) per il dominio gestito selezionando *configurazione NTP*. Immettere gli indirizzi IP del dominio gestito. Questi indirizzi IP vengono visualizzati nella finestra *Proprietà* della portale di Azure per il dominio gestito, ad esempio *10.0.2.4* e *10.0.2.5*.
 
 1. Selezionare **OK** e confermare l'aggiunta al dominio quando richiesto.
 
@@ -174,6 +174,127 @@ Per aggiungere il dominio gestito usando **Winbind** e il modulo di *appartenenz
     ![Schermata di esempio della richiesta di conferma della finestra di dialogo di autenticazione quando si aggiunge una macchina virtuale SLE al dominio gestito](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 Dopo aver aggiunto il dominio gestito, è possibile accedervi dalla workstation usando la gestione schermo del desktop o la console.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>Aggiungere una macchina virtuale al dominio gestito usando Winbind dall'interfaccia della riga di comando YaST
+
+Per aggiungere il dominio gestito tramite **Winbind** e l' *interfaccia della riga di comando YaST*:
+
+* Aggiungere il dominio:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Aggiungere una macchina virtuale al dominio gestito usando Winbind dal terminale
+
+Per aggiungere il dominio gestito utilizzando **Winbind** e il * `samba net` comando*:
+
+1. Installare il client Kerberos e samba-winbind:
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. Modificare i file di configurazione:
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/security/pam_winbind. conf
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Verificare che la data e l'ora in Azure AD e Linux siano sincronizzate. È possibile eseguire questa operazione aggiungendo il server Azure AD al servizio NTP:
+   
+   1. Aggiungere la riga seguente a/etc/ntp.conf:
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. Riavviare il servizio NTP:
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. Aggiungere il dominio:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Abilitare Winbind come origine di accesso nei moduli di autenticazione plug-in Linux (PAM):
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. Abilitare la creazione automatica delle home directory in modo che gli utenti possano eseguire l'accesso:
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Avviare e abilitare il servizio winbind:
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Consenti l'autenticazione tramite password per SSH
 

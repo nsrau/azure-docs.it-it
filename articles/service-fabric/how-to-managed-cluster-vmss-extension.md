@@ -3,18 +3,18 @@ title: Aggiungere un'estensione del set di scalabilità di macchine virtuali a u
 description: Di seguito viene illustrato come aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo del cluster gestito Service Fabric
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be51a03494c90ba91cddb383b62b2477fabc8fc3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410320"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309289"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo del cluster gestito Service Fabric (anteprima)
 
 Ogni tipo di nodo in un cluster gestito da Service Fabric è supportato da un set di scalabilità di macchine virtuali. In questo modo è possibile aggiungere [estensioni del set di scalabilità di macchine virtuali](../virtual-machines/extensions/overview.md) ai tipi di nodo del cluster gestito Service Fabric.
 
-È possibile aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo usando il comando di PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?view=azps-4.7.0&preserve-view=true) .
+È possibile aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo usando il comando di PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?preserve-view=true&view=azps-4.7.0) .
 
 In alternativa, è possibile un'estensione del set di scalabilità di macchine virtuali in un Service Fabric tipo di nodo del cluster gestito nel modello di Azure Resource Manager, ad esempio:
 
@@ -51,7 +51,7 @@ In alternativa, è possibile un'estensione del set di scalabilità di macchine v
 }
 ```
 
-Per ulteriori informazioni sulla configurazione di Service Fabric tipi di nodo del cluster gestito, vedere [tipo di nodo del cluster gestito](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
+Per ulteriori informazioni sulla configurazione di Service Fabric tipi di nodo del cluster gestito, vedere [tipo di nodo del cluster gestito](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

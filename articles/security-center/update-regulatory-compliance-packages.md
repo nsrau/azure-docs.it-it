@@ -1,6 +1,6 @@
 ---
-title: Come eseguire l'aggiornamento al monitoraggio dinamico della conformità alle normative nel dashboard di conformità alle normative del Centro sicurezza di Azure | Microsoft Docs
-description: Aggiornamento dei pacchetti di conformità alle normative
+title: Uso del dashboard conformità normativa nel centro sicurezza di Azure
+description: Informazioni su come aggiungere e rimuovere gli standard normativi dal dashboard conformità normativa nel centro sicurezza
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078103"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342196"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 
@@ -41,7 +41,7 @@ Microsoft tiene inoltre traccia degli standard normativi e migliora automaticame
 
 È possibile aggiungere standard come NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, Canada Federal PBMM e Azure CIS 1.1.0 (nuova versione), una rappresentazione più completa di Azure CIS 1.1.0. 
 
-Inoltre, è possibile aggiungere **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).
+Inoltre, è possibile aggiungere **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 Nel dashboard verranno supportati altri standard non appena saranno disponibili. 
 
@@ -116,6 +116,6 @@ In questo articolo si è appreso come **aggiungere pacchetti di conformità** pe
 
 Per altri materiali correlati, vedere gli articoli seguenti: 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Dashboard di conformità alle normative del Centro sicurezza](security-center-compliance-dashboard.md)
 - [Uso dei criteri di sicurezza](tutorial-security-policy.md)

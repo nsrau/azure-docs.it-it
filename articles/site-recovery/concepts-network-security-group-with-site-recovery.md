@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
-ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069680"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367975"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Gruppi di sicurezza di rete con Azure Site Recovery
 
-I gruppi di sicurezza di rete consentono di limitare il traffico di rete verso le risorse in una rete virtuale. Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md#network-security-groups) contiene un elenco di regole di sicurezza che consentono o impediscono il traffico di rete in ingresso o in uscita in base all'indirizzo IP di origine o di destinazione, alla porta e al protocollo.
+I gruppi di sicurezza di rete consentono di limitare il traffico di rete verso le risorse in una rete virtuale. Un [gruppo di sicurezza di rete (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) contiene un elenco di regole di sicurezza che consentono o impediscono il traffico di rete in ingresso o in uscita in base all'indirizzo IP di origine o di destinazione, alla porta e al protocollo.
 
 In base al modello di distribuzione Azure Resource Manager, i gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete. Quando un gruppo di sicurezza di rete è associato a una subnet, le regole si applicano a tutte le risorse connesse alla subnet. Il traffico può essere ulteriormente limitato associando un gruppo di sicurezza di rete anche a singole interfacce di rete all'interno di una subnet che ha già un NSG associato.
 
@@ -37,7 +37,7 @@ In questo esempio, per il traffico in ingresso, il NSG della subnet viene valuta
 
 Questo consente l'applicazione granulare delle regole di sicurezza. Ad esempio, può essere utile consentire l'accesso a Internet in ingresso per alcune macchine virtuali dell'applicazione (ad esempio VM front-end) all'interno di una subnet, ma limitare l'accesso a Internet in ingresso per altre macchine virtuali (ad esempio database e altre macchine virtuali back-end). In questo caso si può predisporre una regola più flessibile per il NSG della subnet, che consenta il traffico Internet, e limitare l'accesso a specifiche macchine virtuali negando l'accesso tramite il NSG della VM. Lo stesso può essere applicato al traffico in uscita.
 
-Quando si impostano configurazioni di NSG di questo tipo, assicurarsi che alle [regole di sicurezza](../virtual-network/security-overview.md#security-rules) siano applicate le priorità corrette. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.
+Quando si impostano configurazioni di NSG di questo tipo, assicurarsi che alle [regole di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules) siano applicate le priorità corrette. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.
 
 È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate visualizzando le [regole di sicurezza effettive](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) per un'interfaccia di rete. È anche possibile usare la funzionalità di [Verifica del flusso IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) in [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) per determinare se la comunicazione è consentita o da un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
 
@@ -72,7 +72,7 @@ Considerando lo [scenario di esempio](concepts-network-security-group-with-site-
 Una volta creati e configurati i NSG, è consigliabile eseguire un [failover di test](azure-to-azure-tutorial-dr-drill.md) per verificare le associazioni dei gruppi di sicurezza controllate da script e la connettività delle macchine virtuali dopo il failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
--    Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md#network-security-groups).
--    Altre informazioni sulle [regole di sicurezza](../virtual-network/security-overview.md#security-rules) NSG.
+-    Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#network-security-groups).
+-    Altre informazioni sulle [regole di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules) NSG.
 -    Altre informazioni sulle [regole di sicurezza efficaci](../virtual-network/diagnose-network-traffic-filter-problem.md) per un NSG.
 -    Leggere altre informazioni sui [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle applicazioni.

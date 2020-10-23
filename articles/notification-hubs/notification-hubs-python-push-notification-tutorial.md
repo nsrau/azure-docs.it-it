@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852328"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424852"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 
@@ -414,7 +414,7 @@ Si noti l'intestazione HTTP Tags che viene aggiunta alla richiesta HTTP (nell'es
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, dei tag di notifica del bus di servizio e dei valori di tipo X W N descritti in rosso.][3]
+![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, un tag di notifica del bus di servizio e i valori di tipo X W N indicati in rosso.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Inviare la notifica specificando più tag
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, dei tag di notifica del bus di servizio e dei valori di tipo X W N descritti in rosso.][4]
+![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, più tag di notifica del bus di servizio e valori di tipo X W N, descritti in rosso.][4]
 
 ### <a name="templated-notification"></a>Notifica basata su modelli
 

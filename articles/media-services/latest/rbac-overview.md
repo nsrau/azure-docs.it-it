@@ -1,6 +1,6 @@
 ---
-title: Controllo degli accessi in base al ruolo per gli account di servizi multimediali-Azure | Microsoft Docs
-description: Questo articolo illustra il controllo degli accessi in base al ruolo (RBAC) per gli account di servizi multimediali di Azure.
+title: Controllo degli accessi in base al ruolo di Azure per gli account di servizi multimediali-Azure | Microsoft Docs
+description: Questo articolo illustra il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d6bc37a8aaddfb48e6d06eb46d9c1648e815b5ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fba3db14c2a950dd230a4721841b4baa9f64636
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289241"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426793"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controllo degli accessi in base al ruolo (RBAC) per gli account di servizi multimediali
+# <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -27,7 +27,7 @@ Attualmente, servizi multimediali di Azure non definisce ruoli personalizzati sp
 
 ## <a name="design-principles"></a>Principi di progettazione
 
-Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. le API V3 non restituiscono segreti o credenziali per le operazioni **Get** o **List** . Le chiavi sono sempre Null, vuote o purificate dalla risposta. L'utente deve chiamare un metodo di azione separato per ottenere segreti o credenziali. Il ruolo **Reader** non può chiamare operazioni come asset. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. La presenza di azioni separate consente di impostare autorizzazioni di sicurezza RBAC più granulari in un ruolo personalizzato, se lo si desidera.
+Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. le API V3 non restituiscono segreti o credenziali per le operazioni **Get** o **List** . Le chiavi sono sempre Null, vuote o purificate dalla risposta. L'utente deve chiamare un metodo di azione separato per ottenere segreti o credenziali. Il ruolo **Reader** non può chiamare operazioni come asset. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. La presenza di azioni separate consente di impostare autorizzazioni di sicurezza RBAC di Azure più granulari in un ruolo personalizzato, se lo si desidera.
 
 Per elencare le operazioni supportate da servizi multimediali, procedere come segue:
 
@@ -42,9 +42,9 @@ L'articolo [definizioni di ruolo predefinite](../../role-based-access-control/bu
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md)
-- [Usa RBAC per gestire l'accesso](../../role-based-access-control/role-assignments-rest.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](../../role-based-access-control/role-assignments-rest.md)
 - [Operazioni del provider di risorse di servizi multimediali](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Passaggi successivi

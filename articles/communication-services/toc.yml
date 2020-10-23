@@ -5,7 +5,7 @@
   items:
     - name: Che cos'è l'offerta Servizi di comunicazione di Azure?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una risorsa di Servizi di comunicazione
@@ -34,6 +34,8 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: Usare la libreria client Chiamate
           href: quickstarts/voice-video-calling/calling-client-samples.md
+        - name: Aggiungere l'app di chiamata a una riunione di Teams
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: Esercitazioni
   expanded: false
   items:
@@ -62,6 +64,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Concetti sulle chiamate vocali e video
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Interoperabilità di Teams
+          href: concepts/voice-video-calling/teams-interop.md
     - name: Architettura client e server
       href: concepts/client-and-server-architecture.md
     - name: Flussi di chiamate
@@ -76,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Notifiche
       href: concepts/notifications.md
+    - name: Registrazione e diagnostica
+      href: concepts/logging-and-diagnostics.md
+    - name: Metriche
+      href: concepts/metrics.md
 - name: Esempi
   items:
     - name: Esempio hero di chiamata di gruppo
@@ -85,7 +93,7 @@
 - name: Riferimenti
   items:
     - name: Documentazione relativa alle API REST
-      href: 'https://docs.microsoft.com/rest/api/azure/'
+      href: 'https://docs.microsoft.com/rest/api/communication/'
     - name: Chiamata della libreria (Android/Java)
       href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
     - name: Chiamata della libreria (JavaScript)

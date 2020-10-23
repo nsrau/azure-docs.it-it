@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330588"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279599"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
@@ -288,8 +288,9 @@ Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadiment
 Scoprire di più su come gestire i conflitti di dati o passare al concetto chiave successivo di Azure Cosmos DB. Vedere gli articoli seguenti:
 
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
-* [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
 * [Partizionamento e distribuzione dei dati](partition-data.md)
+* [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
+* [Partizionamento e distribuzione dei dati](partitioning-overview.md)
 * [Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Disponibilità elevata](high-availability.md)
 * [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

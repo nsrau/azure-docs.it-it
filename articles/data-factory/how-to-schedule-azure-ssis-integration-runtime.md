@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187252"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219463"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 
@@ -149,7 +149,7 @@ Ora che le pipeline funzionano come previsto, è possibile creare trigger per es
 
 1. Sulla barra degli strumenti della pipeline fare clic su **Trigger** e selezionare **New/Edit** (Nuovo/Modifica). 
 
-   ![Creazione o modifica di un trigger](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Screenshot che evidenzia l'opzione del menu trigger-> nuovo/modifica.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. Nel riquadro **Add Triggers** (Aggiungi trigger) fare clic su **+ Nuovo**.
 
@@ -220,7 +220,7 @@ Se non si ha già un account di Automazione di Azure, crearne uno seguendo le is
 2. Accedere al [portale di Azure](https://portal.azure.com/).    
 3. Selezionare **Nuovo** nel menu a sinistra, **Monitoraggio e gestione** e quindi **Automazione**. 
 
-   ![Nuovo -> Monitoraggio e gestione -> Automazione](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Screenshot che evidenzia l'opzione di automazione Monitoraggio e gestione >.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. Nel riquadro **Aggiungi account di Automazione** eseguire le operazioni seguenti.
 
@@ -262,7 +262,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
 
 1. Passare alla scheda **Runbook** e selezionare **+ Aggiungi runbook** nella barra degli strumenti. 
 
-   ![Pulsante Aggiungi runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Schermata che evidenzia il pulsante + Aggiungi Runbook.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Selezionare **Crea un nuovo runbook** ed eseguire le operazioni seguenti: 
 
@@ -345,7 +345,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
    
 6. Nella finestra del processo selezionare il riquadro **Output**. Nella finestra di output attendere che venga visualizzato il messaggio **##### Completed #####** dopo il messaggio **##### Starting #####**. L'avvio di Azure-SSIS IR richiede circa 20 minuti. Chiudere la finestra **Processo** e visualizzare nuovamente la finestra **Runbook**.
 
-   ![Runtime di integrazione SSIS di Azure: avviato](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Schermata che evidenzia il riquadro di output.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Ripetere i due passaggi precedenti usando **STOP** come valore per **OPERATION**. Avviare nuovamente il runbook facendo clic sul pulsante **Avvia** sulla barra degli strumenti. Immettere i nomi del gruppo di risorse, di ADF e di Azure-SSIS IR. In **OPERATION** immettere **STOP**. Nella finestra di output attendere che venga visualizzato il messaggio **##### Completed #####** dopo il messaggio **##### Stopping #####**. L'arresto di Azure-SSIS IR non richiede tutto il tempo necessario per l'avvio. Chiudere la finestra **Processo** e visualizzare nuovamente la finestra **Runbook**.
 
@@ -373,7 +373,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
     
 3. Passare alla scheda **parametri e impostazioni di esecuzione** . Specificare il gruppo di risorse, il file ADF e i nomi Azure-SSIS IR. In **OPERATION** immettere **START** e fare clic su **OK**. Fare nuovamente clic su **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
 
-   ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Screenshot che evidenzia il campo Operation.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Ripetere i due passaggi precedenti per creare una pianificazione denominata **Stop IR daily**. Immettere un'ora che sia di almeno 30 minuti successiva all'ora specificata per la pianificazione **Start IR daily**. In **OPERATION** immettere **STOP** e fare clic su **OK**. Fare nuovamente clic su **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
 

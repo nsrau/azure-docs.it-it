@@ -1,17 +1,15 @@
 ---
 title: Installare il client autonomo di Service Fabric
-description: In questa esercitazione viene illustrato come installare il client autonomo di Service Fabric nel cluster creato nell'esercitazione dell'articolo precedente.
-author: dkkapur
+description: Questa esercitazione illustra come installare il client autonomo di Service Fabric nel cluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613942"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840643"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Esercitazione: Installare e creare cluster di Service Fabric
 
@@ -19,7 +17,7 @@ I cluster autonomi di Service Fabric offrono la possibilità di scegliere il pro
 
 Questa è la seconda di una serie di esercitazioni. Questa esercitazione illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
-Nella seconda parte della serie si apprenderà come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 > * Scaricare e installare il pacchetto autonomo di Service Fabric
@@ -38,7 +36,7 @@ Selezionare il file con estensione zip e aprire il menu di scelta rapida, quindi
 
 Si sta compilando un cluster Windows a tre nodi, pertanto è necessario modificare il file `ClusterConfig.Unsecure.MultiMachine.json`.
 
-Successivamente, aggiornare le tre righe ipAddress 8, 15 e 22 nel file, modificandole negli indirizzi IP per ciascuna delle istanze.
+Successivamente, aggiornare le tre righe ipAddress 8, 15 e 22 nel file, impostandole sugli indirizzi IP di ogni istanza.
 
 Dopo l'aggiornamento, i nodi vengono visualizzati come segue:
 
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-Verrà visualizzato un output simile al seguente. Se per il campo in basso "Passed" viene restituito un valore `True`, sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
+Verrà visualizzato un output simile all'esempio seguente. Se per il campo in basso "Passed" viene restituito un valore `True`, sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -101,7 +99,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>Creare il cluster
 
-Dopo aver convalidato correttamente il file di configurazione del cluster, eseguire lo script *CreateServiceFabricCluster.ps1* per distribuire il cluster di Service Fabric alle macchine virtuali nel file di configurazione.
+Dopo aver convalidato correttamente la configurazione del cluster, eseguire lo script *CreateServiceFabricCluster.ps1* per distribuire il cluster di Service Fabric nelle macchine virtuali nel file di configurazione.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Visualizzare Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>Aprire Service Fabric Explorer
 
 È ora possibile connettersi al cluster con Service Fabric Explorer direttamente da uno dei computer con http:\//localhost:19080/Explorer/index.html oppure in remoto con http:\//<*IndirizzoIPComputer*>:19080/Explorer/index.html.
 
@@ -128,7 +126,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella seconda parte della serie si è appreso come caricare grandi quantità di dati casuali in parallelo in un account di archiviazione, ad esempio come:
+In questo articolo si è appreso come caricare grandi quantità di dati casuali in parallelo in un account di archiviazione, ad esempio come:
 
 > [!div class="checklist"]
 > * Configurare la stringa di connessione

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650094"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276047"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel marketplace commerciale
 
@@ -67,7 +67,7 @@ Ora che è stato nascosto il piano con il prezzo precedente, creare una copia de
 
 1. Nel centro per i partner tornare alla **Panoramica del piano**.
 2. Selezionare **Crea nuovo piano**. Immettere un **ID piano** e un **nome piano**, quindi selezionare **Crea**.
-1. Per riutilizzare la configurazione tecnica dal piano nascosto, selezionare la casella di controllo **Riutilizza configurazione tecnica** . Per altre informazioni, vedere [Panoramica del piano](azure-vm-create-offer.md#plan-overview) .
+1. Per riutilizzare la configurazione tecnica dal piano nascosto, selezionare la casella di controllo **Riutilizza configurazione tecnica** . Per altre informazioni, vedere [creare piani per un'offerta di macchina virtuale](../azure-vm-create-plans.md) .
     > [!IMPORTANT]
     > Se si seleziona **questo piano riutilizza la configurazione tecnica da un altro piano**, non sarà più possibile smettere di vendere il piano padre in un secondo momento. Non usare questa opzione se si vuole interrompere la vendita del piano padre.
 3. Completare tutte le sezioni necessarie per il nuovo piano, incluso il nuovo prezzo.

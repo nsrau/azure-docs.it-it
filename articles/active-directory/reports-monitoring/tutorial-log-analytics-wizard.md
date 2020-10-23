@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361909"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362570"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Esercitazione: Configurare la procedura guidata di Log Analytics
 
@@ -45,7 +45,7 @@ Acquisire familiarità con questi articoli:
 
 - [Integrare i log attività con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+- [Gestire gli account di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 
 - [Riferimento rapido sul linguaggio KQL](/azure/data-explorer/kql-quick-reference)
 

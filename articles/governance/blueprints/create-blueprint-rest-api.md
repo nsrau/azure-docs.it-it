@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare un progetto con l'API REST"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85971199"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056975"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -329,7 +329,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 - `{YourMG}`: sostituire con l'ID del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
-1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID dell'entità servizio varia in funzione del tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
+1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID dell'entità servizio varia in funzione del tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazioni diverse.
 
    - URI DELL'API REST
 

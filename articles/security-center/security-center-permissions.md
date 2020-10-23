@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2a66873d558495049c97b987dfb69bbf83b4e1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439477"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340360"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -62,4 +62,4 @@ In questo articolo è stato descritto come Centro sicurezza usa PC usa il contro
 - [Gestire i suggerimenti per la sicurezza in Centro sicurezza](security-center-recommendations.md)
 - [Monitorare l'integrità della sicurezza delle risorse di Azure](security-center-monitoring.md)
 - [Gestire e rispondere agli avvisi di sicurezza in Centro sicurezza](security-center-managing-and-responding-alerts.md)
-- [Monitorare le soluzioni di sicurezza dei partner](security-center-partner-solutions.md)
+- [Monitorare le soluzioni di sicurezza dei partner](./security-center-partner-integration.md)

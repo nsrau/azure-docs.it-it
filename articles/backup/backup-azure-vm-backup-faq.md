@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056719"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172836"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -24,7 +24,7 @@ Quando si crea una macchina virtuale, è possibile abilitare il backup per le ma
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Perché il completamento del backup iniziale richiede molto tempo?
 
 Il backup iniziale è sempre un backup completo che dipende dalle dimensioni dei dati e dal momento in cui viene elaborato il backup. <br>
-Per migliorare le prestazioni del backup, vedere [procedure consigliate](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)per il backup; [Considerazioni sul backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [prestazioni di backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Per migliorare le prestazioni del backup, vedere [procedure consigliate](./backup-azure-vms-introduction.md#best-practices)per il backup; [Considerazioni sul backup](./backup-azure-vms-introduction.md#backup-and-restore-considerations) e [prestazioni di backup](./backup-azure-vms-introduction.md#backup-performance)<br>
 anche se il tempo totale di backup per i backup incrementali è inferiore a 24 ore, potrebbe non essere così per il primo backup.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Il costo del backup è incluso nel costo della macchina virtuale?
@@ -109,7 +109,7 @@ Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tram
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Le identità gestite vengono mantenute se si verifica una modifica del tenant durante il backup?
 
-Se si verificano [modifiche al tenant](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) , è necessario disabilitare e riabilitare le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per eseguire nuovamente il backup.
+Se si verificano [modifiche al tenant](/azure/devops/organizations/accounts/change-azure-ad-connection) , è necessario disabilitare e riabilitare le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) per eseguire nuovamente il backup.
 
 ## <a name="restore"></a>Restore
 
@@ -207,6 +207,6 @@ Sì, è previsto un limite di 100 VM che possono essere associate agli stessi cr
 
 Attualmente, è possibile visualizzare le impostazioni di conservazione a livello di elemento di backup (VM) in base al criterio di backup assegnato alla macchina virtuale.
 
-Per visualizzare le impostazioni di conservazione per i backup, è possibile passare al [Dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) dell'elemento di backup per la macchina virtuale, nella portale di Azure. Selezionando il collegamento ai criteri di backup è possibile visualizzare la durata di conservazione di tutti i punti di conservazione giornalieri, settimanali, mensili e annuali associati alla macchina virtuale.
+Per visualizzare le impostazioni di conservazione per i backup, è possibile passare al [Dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) dell'elemento di backup per la macchina virtuale, nella portale di Azure. Selezionando il collegamento ai criteri di backup è possibile visualizzare la durata di conservazione di tutti i punti di conservazione giornalieri, settimanali, mensili e annuali associati alla macchina virtuale.
 
-È anche possibile usare [Esplora backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) per visualizzare le impostazioni di conservazione per tutte le macchine virtuali all'interno di un singolo riquadro di vetro. Passare a backup Explorer da qualsiasi insieme di credenziali di servizi di ripristino, passare alla scheda **elementi di backup** e selezionare la visualizzazione avanzata per visualizzare informazioni dettagliate sulla conservazione per ogni macchina virtuale.
+È anche possibile usare [Esplora backup](./monitor-azure-backup-with-backup-explorer.md) per visualizzare le impostazioni di conservazione per tutte le macchine virtuali all'interno di un singolo riquadro di vetro. Passare a backup Explorer da qualsiasi insieme di credenziali di servizi di ripristino, passare alla scheda **elementi di backup** e selezionare la visualizzazione avanzata per visualizzare informazioni dettagliate sulla conservazione per ogni macchina virtuale.

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613901"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427849"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -174,7 +174,7 @@ La funzionalità di eccezione dei servizi attendibili di prima parte di Microsof
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint dell'account di archiviazione per il routing
 
-L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a un account di archiviazione mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'[identità gestita](#turn-on-managed-identity-for-iot-hub). Una volta eseguito il provisioning di un'identità gestita,attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso all'account di archiviazione.
+L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a un account di archiviazione mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'[identità gestita](#turn-on-managed-identity-for-iot-hub). Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -192,7 +192,7 @@ A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'us
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint dell'hub eventi per il routing
 
-È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi dell'hub eventi di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa dell'hub eventi mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta creata un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso all'hub eventi.
+È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi dell'hub eventi di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa dell'hub eventi mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Dopo aver creato un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità delle risorse dell'hub per accedere all'hub eventi.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'hub eventi e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -210,7 +210,7 @@ A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identit�
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint del bus di servizio per il routing
 
-È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi del bus di servizio di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso al bus di servizio.
+È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi del bus di servizio di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** del bus di servizio e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -228,7 +228,7 @@ A questo punto, il bus di servizio personalizzato è impostato per l'uso dell'id
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Connettività in uscita verso gli account di archiviazione per il caricamento dei file
 
-La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/create-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso all'account di archiviazione.
+La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/tutorial-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -248,7 +248,7 @@ A questo punto, l'endpoint di archiviazione per il caricamento dei file è impos
 
 L'hub IoT supporta la funzionalità per l'[importazione/esportazione](./iot-hub-bulk-identity-mgmt.md) in blocco delle informazioni dei dispositivi da o verso un BLOB di archiviazione fornito dal cliente. Per l'uso dell'importazione/esportazione in blocco, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione.
 
-Questa funzionalità richiede la connettività dall'hub IoT all'account di archiviazione. Per consentire l'accesso a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC all'identità della risorsa dell'hub per l'accesso al bus di servizio.
+Questa funzionalità richiede la connettività dall'hub IoT all'account di archiviazione. Per consentire l'accesso a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -256,7 +256,7 @@ Questa funzionalità richiede la connettività dall'hub IoT all'account di archi
 
 3. Passare alla scheda **Firewall e reti virtuali** dell'account di archiviazione e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 
-Ora è possibile usare le API REST di IoT di Azure per [creare processi di esportazione e importazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) per informazioni su come usare la funzionalità di importazione/esportazione in blocco. È necessario fornire il `storageAuthenticationType="identityBased"` nel corpo della richiesta e usare rispettivamente `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` come URL di input e output per l'account di archiviazione.
+Ora è possibile usare le API REST di IoT di Azure per [creare processi di esportazione e importazione](/rest/api/iothub/service/jobs/getimportexportjobs) per informazioni su come usare la funzionalità di importazione/esportazione in blocco. È necessario fornire il `storageAuthenticationType="identityBased"` nel corpo della richiesta e usare rispettivamente `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` come URL di input e output per l'account di archiviazione.
 
 Gli SDK dell'hub IoT di Azure supportano questa funzionalità anche nel gestore del Registro di sistema del client del servizio. Il frammento di codice seguente mostra come avviare un processo di importazione o esportazione usando l'SDK C#.
 
@@ -299,4 +299,4 @@ Consultare i collegamenti seguenti per altre informazioni sulle funzionalità de
 
 * [Routing dei messaggi](./iot-hub-devguide-messages-d2c.md)
 * [Caricamento file](./iot-hub-devguide-file-upload.md)
-* [Importazione/esportazione in blocco dei dispositivi](./iot-hub-bulk-identity-mgmt.md) 
+* [Importazione/esportazione in blocco dei dispositivi](./iot-hub-bulk-identity-mgmt.md)

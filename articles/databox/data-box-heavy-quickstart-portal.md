@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122824"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ Il tempo per completare questa operazione dipende dalla dimensione dei dati e da
  
 1. Copiare dati in entrambi i nodi del dispositivo usando entrambe le interfacce dati a 40 Gbps in parallelo.
 
-    - Se si usa un host di Windows, usare uno strumento di copia file compatibile con SMB, ad esempio [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - Se si usa un host di Windows, usare uno strumento di copia file compatibile con SMB, ad esempio [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - Per l'host NFS, usare il comando `cp` oppure `rsync` per copiare i dati.
 2. Connettersi alle condivisioni nel dispositivo usando il percorso:`\\<IP address of your device>\ShareName`. Per ottenere le credenziali di accesso alle condivisioni, passare alla pagina **Connetti e copia** nell'interfaccia utente Web locale di Data Box Heavy.
 3. Accertarsi che i nomi delle condivisioni e delle cartelle e i dati seguano le linee guida descritte nei [limiti dei servizi Archiviazione di Azure e Data Box Heavy](data-box-heavy-limits.md).

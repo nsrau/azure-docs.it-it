@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d4e150eddee947aa4ed6f88c122c0fa6d01a0bae
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043035"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460649"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -20,7 +20,7 @@ Dopo aver [configurato un'istanza di dispositivi gemelli digitali di Azure e l'a
 
 I dispositivi gemelli digitali di Azure eseguono l'autenticazione usando [Azure ad token di sicurezza basati su OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Per autenticare l'SDK, è necessario ottenere una bearer token con le autorizzazioni appropriate per i dispositivi gemelli digitali di Azure e passarla insieme alle chiamate API. 
 
-Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
+Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -105,9 +105,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 Il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e consente di visualizzare un browser Web per l'autenticazione. È possibile usarlo anziché `DefaultAzureCredential` nei casi in cui è necessaria l'autenticazione interattiva.
 
-Per usare le credenziali del browser interattivo, è necessaria una **registrazione dell'app** con le autorizzazioni per le API dei dispositivi gemelli digitali di Azure. Per la procedura di configurazione di questa registrazione dell'app, vedere la sezione [*configurare le autorizzazioni di accesso per le applicazioni client*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) di *procedura: configurare un'istanza e l'autenticazione*. Una volta configurata la registrazione dell'app, sarà necessario...
-* *ID applicazione (client)* della registrazione dell'app
-* *ID directory (tenant)* della registrazione dell'app
+Per usare le credenziali del browser interattivo, è necessaria una **registrazione dell'app** con le autorizzazioni per le API dei dispositivi gemelli digitali di Azure. Per i passaggi su come configurare questa registrazione per l'app, vedere [*procedura: creare una registrazione dell'*](how-to-create-app-registration.md)app. Una volta configurata la registrazione dell'app, sarà necessario...
+* *ID dell'applicazione (client)* di registrazione dell'app ([istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* *ID directory (tenant)* della registrazione dell'app ([istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * URL dell'istanza di Azure Digital Twins ([istruzioni da trovare](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Di seguito è riportato un esempio di codice per la creazione di un client SDK autenticato usando `InteractiveBrowserCredential` .

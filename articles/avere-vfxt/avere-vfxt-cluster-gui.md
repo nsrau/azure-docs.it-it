@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505614"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342434"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accedere al cluster vFXT
 
@@ -27,7 +27,7 @@ I passaggi di base sono due:
 > [!NOTE]
 > In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se si usa una VPN o ExpressRoute per l'accesso alla rete virtuale, passare a [Connetti al pannello di controllo](#connect-to-the-avere-control-panel-in-a-browser).
 
-Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se è stata usata una password anziché una chiave pubblica, verrà richiesto di immetterla quando ci si connette.
+Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](../virtual-machines/linux/ssh-from-windows.md) o per [Linux](../virtual-machines/linux/mac-create-ssh-keys.md). Se è stata usata una password anziché una chiave pubblica, verrà richiesto di immetterla quando ci si connette.
 
 ## <a name="create-an-ssh-tunnel"></a>Creazione di un tunnel SSH
 

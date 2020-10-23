@@ -1,18 +1,17 @@
 ---
 title: Eseguire processi U-SQL in Python, R e C#-Azure Data Lake Analytics
 description: Informazioni su come usare il code-behind con Python, R e C# per inviare un processo in Azure Data Lake.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
-ms.openlocfilehash: 673c8db0b7c6d3d8658d2d3b6cfd7e00f3d7d986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876207"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219973"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Eseguire lo sviluppo U-SQL con Python, R e C# per Azure Data Lake Analytics in Visual Studio Code
 Informazioni su come usare Visual Studio Code (VSCode) per scrivere file code-behind Python, R e C# con U-SQL e inviare processi al servizio Azure Data Lake. Per altre informazioni su Strumenti Azure Data Lake per VSCode, vedere [Usare gli Strumenti Azure Data Lake per Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -183,4 +182,4 @@ Un file code-behind è un file C# associato a uno script U-SQL. È possibile def
 * [Introduzione ad Analisi Data Lake di Azure mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introduzione ad Analisi Data Lake mediante il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
-* [Usare il catalogo Data Lake Analytics(U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
+* [Usare il catalogo Data Lake Analytics(U-SQL)](./data-lake-analytics-u-sql-get-started.md)

@@ -125,6 +125,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Baseline di sicurezza di Batch
       href: ../../batch/security-baseline.md
+    - name: Baseline di sicurezza di Cloud Shell
+      href: ../../cloud-shell/security-baseline.md
     - name: Baseline di sicurezza di Servizi cognitivi
       href: ../../cognitive-services/security-baseline.md
     - name: Baseline di sicurezza di Istanze di Container

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654872"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372090"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report Deployment Planner per il ripristino di emergenza di VMware in Azure
 
@@ -40,7 +40,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato che è stato selezionato:
 
@@ -102,7 +102,7 @@ Questo risultato è il numero totale di core da configurare prima del failover o
 ![Numero di core Azure necessari in Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Infrastruttura locale necessaria
-Questa cifra indica il numero totale di server di configurazione e di altri server di elaborazione da configurare in quantità sufficiente per proteggere tutte le VM compatibili. A seconda delle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components) supportate, lo strumento potrebbe consigliare altri server. L'indicazione si basa sul valore più grande tra quello della varianza giornaliera o del numero massimo di VM protette (presupponendo una media di tre dischi per VM), a seconda del valore raggiunto per primo nel server di configurazione o nel server di elaborazione aggiuntivo. I dettagli della varianza totale giornaliera e del numero totale dei dischi protetti sono disponibili nella sezione "On-premises summary" (Riepilogo ambiente locale).
+Questa cifra indica il numero totale di server di configurazione e di altri server di elaborazione da configurare in quantità sufficiente per proteggere tutte le VM compatibili. A seconda delle [dimensioni consigliate per il server di configurazione](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server) supportate, lo strumento potrebbe consigliare altri server. L'indicazione si basa sul valore più grande tra quello della varianza giornaliera o del numero massimo di VM protette (presupponendo una media di tre dischi per VM), a seconda del valore raggiunto per primo nel server di configurazione o nel server di elaborazione aggiuntivo. I dettagli della varianza totale giornaliera e del numero totale dei dischi protetti sono disponibili nella sezione "On-premises summary" (Riepilogo ambiente locale).
 
 ![Infrastruttura locale necessaria in Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -165,7 +165,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **Tipo di account di archiviazione di log**: tutti i log di replica vengono archiviati in un account di archiviazione standard.
 
-**Prefisso suggerito per l'account di archiviazione**: il prefisso di tre caratteri suggerito che può essere usato per assegnare un nome all'account di archiviazione della cache. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](https://aka.ms/storage-performance-checklist).
+**Prefisso suggerito per l'account di archiviazione**: il prefisso di tre caratteri suggerito che può essere usato per assegnare un nome all'account di archiviazione della cache. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Nome dell'account di log suggerito**: il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
@@ -178,7 +178,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **VM Name** (Nome macchina virtuale): nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes\***. **Sì** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
+**Compatibilità delle VM**: i valori sono **Yes** e **Yes \* *_. _* Yes** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -219,7 +219,7 @@ Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscon
 
 **VM Name** (Nome macchina virtuale): nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
+**VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](/en-in/azure/storage/common/scalability-targets-standard-account) pubblicati, possono essere uno dei seguenti:
 
 * Dimensioni del disco dati errate o dimensioni del disco del sistema operativo errate. [Esaminare](vmware-physical-azure-support-matrix.md#azure-vm-requirements) i limiti del supporto. 
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.

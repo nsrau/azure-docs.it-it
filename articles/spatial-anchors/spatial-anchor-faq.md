@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb02de25cfcb0dde01699c1169d03f0d822c4ae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854952"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097406"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -128,4 +128,4 @@ Iniziare a [sviluppare un'app qui](index.yml).
 
 **D: Quali porte e protocolli vengono utilizzati da Ancoraggi nello spazio di Azure?**
 
-**R:** Ancoraggi nello spazio di Azure comunica tramite porta TCP 443 usando un protocollo crittografato. Per l'autenticazione, viene utilizzata [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), che comunica tramite HTTPS sulla porta 443.
+**R:** Ancoraggi nello spazio di Azure comunica tramite porta TCP 443 usando un protocollo crittografato. Per l'autenticazione, viene utilizzata [Azure Active Directory](../active-directory/index.yml), che comunica tramite HTTPS sulla porta 443.

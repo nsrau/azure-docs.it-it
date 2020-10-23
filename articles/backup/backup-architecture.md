@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614003"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173272"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -45,7 +45,7 @@ Gli insiemi di credenziali includono le funzionalità seguenti:
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
   - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md#geo-redundant-storage)
-  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Scopri di più](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Altre informazioni](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 Gli insiemi di credenziali dei servizi di ripristino offrono le seguenti funzionalità aggiuntive:

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448400"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341890"
 ---
 # <a name="using-custom-security-policies"></a>Usare criteri di sicurezza personalizzati
 
@@ -21,7 +21,7 @@ Per semplificare la protezione dei sistemi e dell'ambiente in uso, il Centro sic
 
 Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . Si riceverà quindi una serie di raccomandazioni nel caso in cui l'ambiente non segua i criteri creati. Eventuali iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard della conformità normativa, come descritto nell'esercitazione [Migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
-Come illustrato nella [documentazione sui criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
+Come illustrato nella [documentazione sui criteri di Azure](../governance/policy/concepts/definition-structure.md#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Per aggiungere un'iniziativa personalizzata alla sottoscrizione 
 
@@ -136,7 +136,7 @@ Di seguito è riportato un esempio di criteri personalizzati con la proprietà m
 }
   ```
 
-Per un altro esempio di uso della proprietà securityCenter, vedere [questa sezione della documentazione dell'API REST](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+Per un altro esempio di uso della proprietà securityCenter, vedere [questa sezione della documentazione dell'API REST](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -146,4 +146,4 @@ In questo articolo si è appreso come creare criteri di sicurezza personalizzati
 Per altri materiali correlati, vedere gli articoli seguenti: 
 
 - [Panoramica dei criteri di sicurezza](tutorial-security-policy.md)
-- [Elenco dei criteri di sicurezza predefiniti](security-center-policy-definitions.md)
+- [Elenco dei criteri di sicurezza predefiniti](./policy-reference.md)

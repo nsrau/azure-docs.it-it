@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772720"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132551"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -25,13 +25,13 @@ PAL consente a Microsoft di identificare e riconoscere i partner che contribuisc
 
 Prima di collegare l'ID partner, il cliente deve consentire l'accesso alle risorse di Azure tramite una delle opzioni seguenti:
 
-- **Utente guest**: il cliente può aggiungere il partner come utente guest e assegnare tutti i ruoli di Azure. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utente guest**: il cliente può aggiungere il partner come utente guest e assegnare tutti i ruoli di Azure. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](../../active-directory/external-identities/what-is-b2b.md).
 
 - **Account directory**: il cliente può creare nella propria directory un account utente per il partner e assegnare qualsiasi ruolo di Azure.
 
 - **Entità servizio**: il cliente può aggiungere nella propria directory un'app o uno script dell'organizzazione del partner e assegnare qualsiasi ruolo di Azure. L'identità dell'app o dello script viene definita entità servizio.
 
-- **Azure Lighthouse**: il cliente può delegare una sottoscrizione (o un gruppo di risorse) in modo che gli utenti possano usarla all'interno del tenant. Per altre informazioni, vedere [Gestione delle risorse delegata di Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+- **Azure Lighthouse**: il cliente può delegare una sottoscrizione (o un gruppo di risorse) in modo che gli utenti possano usarla all'interno del tenant. Per altre informazioni, vedere [Gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="link-to-a-partner-id"></a>Collegamento a un ID partner
 
@@ -55,7 +55,7 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
 
 1. Installare il modulo [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) di PowerShell.
 
-2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) (Accedere con PowerShell).
+2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Sign in with PowerShell](/powershell/azure/authenticate-azureps) (Accedere con PowerShell).
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -89,7 +89,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -134,7 +134,7 @@ Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
 Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del cliente. Collegare l'ID partner in ogni tenant del cliente.
 
-Se tuttavia le risorse dei clienti vengono gestite tramite Azure Lighthouse, è consigliabile creare il collegamento nel tenant del provider di servizi, usando un account che abbia accesso a tali risorse. Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+Se tuttavia le risorse dei clienti vengono gestite tramite Azure Lighthouse, è consigliabile creare il collegamento nel tenant del provider di servizi, usando un account che abbia accesso a tali risorse. Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
 
@@ -152,9 +152,9 @@ I report sulle prestazioni dei prodotti cloud sono disponibili per i partner nel
 
 Il cliente non viene visualizzato nei report per i motivi seguenti
 
-1. L'account utente collegato non ha [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) per nessuna sottoscrizione o risorsa di Azure del cliente.
+1. L'account utente collegato non ha [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) per nessuna sottoscrizione o risorsa di Azure del cliente.
 
-2. La sottoscrizione di Azure in cui l'utente ha [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) non include dati di utilizzo.
+2. La sottoscrizione di Azure in cui l'utente ha [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) non include dati di utilizzo.
 
 **Il collegamento dell'ID partner funziona con Azure Stack?**
 
@@ -164,7 +164,7 @@ Sì, è possibile collegare l'ID partner per Azure Stack.
 
 Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente.
 
-Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Come si spiega il collegamento amministrazione partner al cliente?**
 

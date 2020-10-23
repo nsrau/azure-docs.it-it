@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589011"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427012"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoraggio e avvisi per Azure Key Vault
 
@@ -53,7 +53,7 @@ Dopo aver iniziato a usare Key Vault per archiviare i segreti di produzione, è 
 3. Selezionare le **metriche** in **monitoraggio** 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-1.png)
+> ![Schermata che evidenzia l'opzione metrica nella sezione monitoraggio.](../media/alert-1.png)
 
 4. Aggiornare il titolo del grafico a quello che si vuole visualizzare nel dashboard. 
 5. Selezionare l'ambito. In questo esempio verrà selezionato un singolo insieme di credenziali delle chiavi. 
@@ -61,7 +61,7 @@ Dopo aver iniziato a usare Key Vault per archiviare i segreti di produzione, è 
 7. Aggiornare l'intervallo di tempo alle ultime 24 ore e aggiornare la granularità dell'ora a 1 minuto. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-2.png)
+> ![Screenshot che mostra la metrica globale dell'insieme di credenziali disponibilità.](../media/alert-2.png)
 
 8. Ripetere i passaggi precedenti per la metrica dell'insieme di credenziali e la latenza dell'API del servizio. Selezionare **Aggiungi al dashboard** per salvare le metriche in un dashboard. 
 
@@ -71,19 +71,19 @@ Dopo aver iniziato a usare Key Vault per archiviare i segreti di produzione, è 
 9. Per monitorare tutti i tipi di operazioni nell'insieme di credenziali delle chiavi, usare la metrica **Totale riscontri API del servizio** e selezionare **applica suddivisione in base al tipo di attività**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-3.png)
+> ![Screenshot che mostra il pulsante Applica suddivisione.](../media/alert-3.png)
 
 10. Per monitorare i codici di errore nell'insieme di credenziali delle chiavi, usare la metrica **Totale risultati dell'API del servizio** e selezionare **applica suddivisione in base al tipo di attività**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-4.png)
+> ![Screenshot che mostra la metrica totale dei risultati dell'API del servizio selezionata.](../media/alert-4.png)
 
 A questo punto si avrà un dashboard simile al seguente. È possibile fare clic sui tre puntini nella parte superiore destra di ogni riquadro ed è possibile ridisporre e ridimensionare i riquadri in base alle esigenze. 
 
 Dopo aver salvato e pubblicato il dashboard, verrà creata una nuova risorsa nella sottoscrizione di Azure. Sarà possibile visualizzarlo in qualsiasi momento cercando "Dashboard condiviso". 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-5.png)
+> ![Screenshot che mostra il dashboard pubblicato.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Come configurare gli avvisi nel Key Vault 
 
@@ -101,20 +101,20 @@ Un gruppo di azioni è un elenco configurabile di notifiche e proprietà.
 3. Selezionare **Gestisci azioni**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-6.png)
+> ![Schermata che evidenzia il pulsante Gestisci azioni.](../media/alert-6.png)
 
 4. Selezionare **+ Aggiungi gruppo di azioni**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-7.png)
+> ![Schermata che evidenzia il pulsante + Aggiungi gruppo di azioni.](../media/alert-7.png)
 
 5. Scegliere il **tipo di azione** per il gruppo di azioni. In questo esempio verrà creato un avviso di posta elettronica.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-8.png)
+> ![Screenshot che evidenzia i campi necessari per aggiungere un gruppo di azione.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-9.png)
+> ![Screenshot che Mostra gli elementi necessari per aggiungere un messaggio di posta elettronica o un avviso di SMS.](../media/alert-9.png)
 
 6. Fare clic su **OK** nella parte inferiore della pagina. Creazione di un gruppo di azione completata. 
 
@@ -125,12 +125,12 @@ Ora che è stato configurato un gruppo di azione, verranno configurate le soglie
 1. Selezionare la risorsa dell'insieme di credenziali delle chiavi nella portale di Azure e selezionare gli **avvisi** sotto il **monitoraggio**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-10.png)
+> ![Screenshot che mostra l'opzione di menu avvisi nella sezione monitoraggio.](../media/alert-10.png)
 
 2. Seleziona **nuova regola di avviso**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-11.png)
+> ![Screenshot che mostra il pulsante + nuova regola di avviso.](../media/alert-11.png)
 
 3. Consente di selezionare l'ambito della regola di avviso. È possibile selezionare un singolo insieme di credenziali o più di un insieme di credenziali. 
 
@@ -138,7 +138,7 @@ Ora che è stato configurato un gruppo di azione, verranno configurate le soglie
 > Si noti che quando si selezionano più insiemi di credenziali per l'ambito degli avvisi, tutti gli insiemi di credenziali selezionati devono trovarsi nella stessa area. Sarà necessario configurare regole di avviso separate per gli insiemi di credenziali in aree diverse. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-12.png)
+> ![Screenshot che illustra come è possibile selezionare un insieme di credenziali.](../media/alert-12.png)
 
 4. Selezionare le condizioni per gli avvisi. È possibile scegliere uno dei segnali seguenti e definire la logica per l'invio di avvisi. Il team di Key Vault consiglia di configurare le soglie di avviso seguenti. 
 
@@ -149,13 +149,13 @@ Ora che è stato configurato un gruppo di azione, verranno configurate le soglie
     + Codici di errore totali superiori alla media (soglia dinamica) 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-13.png)
+> ![Screenshot che mostra dove è possibile selezionare le condizioni per gli avvisi.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Esempio 1: configurazione di una soglia di avviso statica per la latenza
 
 Selezionare la **latenza dell'API del servizio complessiva** come nome del segnale
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-14.png)
+> ![Screenshot che mostra il nome generale del segnale di latenza dell'API del servizio.](../media/alert-14.png)
 
 Vedere i seguenti parametri di configurazione.
 
@@ -168,14 +168,14 @@ Vedere i seguenti parametri di configurazione.
 + Selezionare **Operazione completata**  
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-15.png)
+> ![Screenshot che evidenzia la logica di avviso configurata.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Esempio 2: configurazione di una soglia di avviso dinamica per la saturazione dell'insieme di credenziali 
 
 Quando si usa un avviso dinamico, sarà possibile visualizzare i dati cronologici dell'insieme di credenziali delle chiavi selezionato. L'area blu rappresenta l'utilizzo medio dell'insieme di credenziali delle chiavi. L'area rossa mostra picchi che avrebbero attivato un avviso purché siano soddisfatti altri criteri nella configurazione degli avvisi. I punti rossi mostrano le istanze di violazioni in cui i criteri per l'avviso sono stati soddisfatti durante l'intervallo di tempo aggregato. È possibile impostare un avviso in modo che venga attivato dopo un determinato numero di violazioni entro un determinato periodo di tempo. Se non si desidera includere dati precedenti, è disponibile un'opzione che consente di escludere i dati obsoleti nelle impostazioni avanzate. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-16.png)
+> ![Screenshot che mostra un grafico della saturazione complessiva dell'insieme di credenziali.](../media/alert-16.png)
 
 Vedere i seguenti parametri di configurazione.
 
@@ -194,12 +194,12 @@ Vedere i seguenti parametri di configurazione.
 5. Aggiungere il gruppo di azioni configurato
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-18.png)
+> ![Screenshot che illustra come aggiungere un gruppo di azione.](../media/alert-18.png)
 
 6. Abilitare l'avviso e assegnare un livello di gravità
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-19.png)
+> ![Screenshot che mostra dove abilitare l'avviso e assegnare una gravità.](../media/alert-19.png)
 
 7. Creare l'avviso 
 
@@ -211,4 +211,4 @@ A questo punto, è stato creato un dashboard di monitoraggio e sono stati config
 ### <a name="example-email-alert"></a>Avviso di posta elettronica di esempio 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot di portale di Azure](../media/alert-20.png)
+> ![Screenshot che evidenzia le informazioni necessarie per configurare un avviso di posta elettronica.](../media/alert-20.png)

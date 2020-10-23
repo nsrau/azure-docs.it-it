@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447056"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316130"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -51,7 +51,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/DomainNames
 |Controlli eseguiti|
 |---|
-|<ul><li>La distribuzione degli slot di produzione è integra in tutte le istanze del ruolo?</li><li>Il ruolo è integro in tutte le istanze di VM?</li><li>Qual è lo stato di integrità di ogni macchina virtuale all'interno di un ruolo di un servizio cloud?</li><li>Lo stato della macchina virtuale è stato modificato a causa dell'operazione avviata dalla piattaforma o dal cliente?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è danneggiato e si prevede un guasto imminente?</li><li>[Altre](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) informazioni sui controlli eseguiti</li></ul>|
+|<ul><li>La distribuzione degli slot di produzione è integra in tutte le istanze del ruolo?</li><li>Il ruolo è integro in tutte le istanze di VM?</li><li>Qual è lo stato di integrità di ogni macchina virtuale all'interno di un ruolo di un servizio cloud?</li><li>Lo stato della macchina virtuale è stato modificato a causa dell'operazione avviata dalla piattaforma o dal cliente?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è danneggiato e si prevede un guasto imminente?</li><li>[Altre](../cloud-services/resource-health-for-cloud-services.md) informazioni sui controlli eseguiti</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Controlli eseguiti|
@@ -257,4 +257,4 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="next-steps"></a>Passaggi successivi
 -  Vedere [Introduzione al dashboard per l'integrità dei servizi di Azure](service-health-overview.md) e [Introduzione a Integrità risorse di Azure](resource-health-overview.md) per informazioni più specifiche. 
 -  [Domande frequenti su Integrità risorse di Azure](resource-health-faq.md)
-- Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per gli eventi di Integrità dei servizi](./alerts-activity-log-service-notifications-portal.md). 
+- Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per gli eventi di Integrità dei servizi](./alerts-activity-log-service-notifications-portal.md).

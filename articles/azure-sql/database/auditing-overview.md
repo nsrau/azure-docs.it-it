@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828043"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169413"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,17 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
   
    ![opzioni di archiviazione](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Controllo delle operazioni di supporto tecnico Microsoft (anteprima)
+
+Il controllo delle operazioni di supporto tecnico Microsoft (anteprima) per SQL Server di Azure consente di controllare le operazioni dei tecnici del supporto tecnico Microsoft quando devono accedere al server durante una richiesta di supporto. L'uso di questa funzionalità, insieme al controllo, consente una maggiore trasparenza nella forza lavoro e consente il rilevamento delle anomalie, la visualizzazione delle tendenze e la prevenzione della perdita dei dati.
+
+Per abilitare il controllo delle operazioni di supporto tecnico Microsoft (anteprima) passare a **controllo** sotto l'intestazione sicurezza nel riquadro del **server SQL di Azure** e passare al **controllo delle operazioni del supporto tecnico Microsoft (anteprima)** a **on**.
+
+  > [!IMPORTANT]
+  > Il controllo delle operazioni del supporto tecnico Microsoft (anteprima) non supporta la destinazione dell'account di archiviazione. Per abilitare la funzionalità, è necessario configurare un'area di lavoro Log Analytics o una destinazione dell'hub eventi.
+
+![Screenshot delle operazioni di supporto tecnico Microsoft](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Controllo nella destinazione di archiviazione
 
 Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
@@ -111,7 +122,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 - È possibile scrivere i log di controllo in un account di archiviazione di Azure dietro un VNet o un firewall. Per istruzioni specifiche, vedere [la pagina relativa al controllo di scrittura in un account di archiviazione dietro VNet e firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](threat-detection-overview.md).
 - Per dettagli sul formato dei log, sulla gerarchia della cartella di archiviazione e sulle convenzioni di denominazione, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
-- Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
+- Quando si utilizza Autenticazione di Azure AD, i record degli accessi non riusciti *non* verranno visualizzati nel log di controllo SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
 - Il controllo sulle [repliche di sola lettura](read-scale-out.md) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Controlla per Log Analytics destinazione

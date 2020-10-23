@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488304"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279015"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -4767,7 +4767,21 @@ xpath('<xml>', '<xpath>')
 
 Si supponga di avere questa `'items'` stringa XML: 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 In questo esempio viene passata l'espressione XPath, `'/produce/item/name'` , per trovare i nodi che corrispondono al `<name></name>` nodo nella `'items'` stringa XML e viene restituita una matrice con i valori del nodo seguenti:
 
@@ -4799,7 +4813,21 @@ Ecco il risultato: `Honeycrisp`
 
 In questo esempio si supponga `items` che la stringa XML includa anche gli attributi `expired='true'` e `expired='false'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 In questo esempio viene passata l'espressione XPath, `'//name[@expired]'` , per trovare tutti gli `name` elementi con l' `expired` attributo:
 
@@ -4811,7 +4839,21 @@ Ecco il risultato: `[ Gala, Honeycrisp ]`
 
 In questo esempio si supponga che la `items` stringa XML contenga solo questo attributo `expired = 'true'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 In questo esempio viene passata l'espressione XPath, `'//name[@expired = 'true']'` , per trovare tutti gli `name` elementi con l'attributo `expired = 'true'` :
 
@@ -4826,7 +4868,21 @@ In questo esempio si supponga che la `items` stringa XML includa anche questi at
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 In questo esempio viene passata l'espressione XPath, `'//name[price>35]'` , per trovare tutti gli `name` elementi che includono `price > 35` :
 
@@ -4838,7 +4894,21 @@ Ecco il risultato: `Honeycrisp`
 
 In questo esempio `items` si supponga che la stringa XML corrisponda a quella dell'esempio 1:
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 In questo esempio vengono individuati i nodi che corrispondono al `<count></count>` nodo e vengono aggiunti i valori del nodo con la `sum()` funzione:
 
@@ -4850,7 +4920,9 @@ Ecco il risultato: `30`
 
 In questo esempio si supponga di avere questa stringa XML, che include lo spazio dei nomi del documento XML `xmlns="http://contoso.com"` :
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 Queste espressioni usano un'espressione XPath `/*[name()="file"]/*[name()="location"]` o `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` per trovare i nodi che corrispondono al `<location></location>` nodo. Questi esempi illustrano la sintassi usata nella finestra di progettazione dell'app per la logica o nell'editor espressioni:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446110"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047812"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante il portale di Azure
 
@@ -630,5 +630,6 @@ In questo argomento di avvio rapido:
 * Sono state collegate due macchine virtuali al servizio di bilanciamento del carico.
 * È stata configurata la regola del traffico di bilanciamento del carico, il probe di integrità e quindi è stato testato il servizio di bilanciamento del carico. 
 
-Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](load-balancer-overview.md) e le [domande frequenti su Load Balancer](load-balancer-faqs.md).
-
+Per altre informazioni su Azure Load Balancer, passare a...
+> [!div class="nextstepaction"]
+> [Informazioni su Azure Load Balancer](load-balancer-overview.md) 

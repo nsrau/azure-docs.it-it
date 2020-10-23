@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306396"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458033"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report IP rischioso (anteprima pubblica)
 AD FS clienti possono esporre gli endpoint di autenticazione tramite password a Internet per fornire ai servizi di autenticazione per gli utenti finali l'accesso ad applicazioni SaaS, ad esempio Microsoft 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />
@@ -35,7 +35,7 @@ AD FS clienti possono esporre gli endpoint di autenticazione tramite password a 
 
 > [!NOTE]
 > Per usare questo report, è necessario verificare che il servizio di controllo AD FS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Per accedere all'anteprima, è necessaria un'autorizzazione di amministratore globale o di [Ruolo con autorizzazioni di lettura per la sicurezza](../../role-based-access-control/built-in-roles.md#security-reader).  
+> Per accedere all'anteprima, è necessaria un'autorizzazione di amministratore globale o di [Ruolo con autorizzazioni di lettura per la sicurezza](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Informazioni sul report
@@ -79,16 +79,16 @@ Usando la funzionalità **Scarica** è possibile esportare l'intero elenco degli
 I contatti degli amministratori del report possono essere aggiornati tramite **Impostazioni di notifica**. Per impostazione predefinita, la notifica di avviso tramite posta elettronica relativa agli indirizzi IP rischiosi è disattivata. È possibile abilitare la notifica facendo clic sul pulsante sotto "Ricevi notifiche tramite posta elettronica per gli indirizzi IP che superano la soglia di attività non riuscite nel report". Come per le impostazioni delle notifiche di avviso generiche di Connect Health, da qui è possibile personalizzare l'elenco dei destinatari designati della notifica per il report sugli indirizzi IP rischiosi. Si può anche inviare una notifica a tutti gli amministratori globali mentre si apporta la modifica. 
 
 ## <a name="configure-threshold-settings"></a>Configurare le impostazioni di soglia
-La soglia di avviso può essere aggiornata tramite le impostazioni di soglia. Per iniziare, il sistema prevede un'impostazione predefinita della soglia. Le impostazioni di soglia per il report sugli indirizzi IP rischiosi includono quattro categorie:
+La soglia di avviso può essere aggiornata tramite le impostazioni di soglia. Per iniziare, il sistema prevede un'impostazione predefinita della soglia. Di seguito sono riportati i valori predefiniti. Le impostazioni di soglia per il report sugli indirizzi IP rischiosi includono quattro categorie:
 
 ![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Elemento soglia | Descrizione |
 | --- | --- |
-| Nome utente/password non validi e blocco Extranet - Giorno  | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un **giorno**. |
-| Nome utente/password non validi e blocco Extranet - Ora | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un'**ora**. |
-| Blocco Extranet - Giorno | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di blocco Extranet supera tale valore in un **giorno**. |
-| Blocco Extranet - Ora| Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di blocco Extranet supera tale valore in un'**ora**. |
+| Nome utente/password non validi e blocco Extranet - Giorno  | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un **giorno**. Il valore predefinito è 100.|
+| Nome utente/password non validi e blocco Extranet - Ora | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un'**ora**. Il valore predefinito è 50.|
+| Blocco Extranet - Giorno | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di blocco Extranet supera tale valore in un **giorno**. Il valore predefinito è 50.|
+| Blocco Extranet - Ora| Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di blocco Extranet supera tale valore in un'**ora**. Il valore predefinito è 25|
 
 > [!NOTE]
 > - La modifica della soglia per il report verrà applicata dopo un'ora dall'impostazione. 

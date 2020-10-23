@@ -1,18 +1,17 @@
 ---
 title: Eseguire processi U-SQL in locale-Azure Data Lake SDK U-SQL
 description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132416"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215536"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -173,7 +172,7 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
-|Argomento|Descrizione|
+|Argomento|Description|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -331,13 +330,13 @@ LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|Descrizione|
+|Parametro|Type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 ### <a name="properties"></a>Proprietà
 
-|Proprietà|Type|Descrizione|
+|Proprietà|Type|Description|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|

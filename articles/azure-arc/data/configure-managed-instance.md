@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f687923f1185d848c2c4f2f40d949c71a7743d65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940635"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311117"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configurare l'istanza gestita di SQL Azure Arc abilitata
 
@@ -22,11 +22,11 @@ Questo articolo illustra come configurare l'istanza gestita di SQL Azure Arc abi
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configure-resources-for-azure-arc-enabled-sql-managed-instance"></a>Configurare le risorse per il Istanza gestita SQL abilitato per Azure Arc
+## <a name="configure-resources"></a>Configure resources
 
-### <a name="configure-using-azdata"></a>Configurare con azdata
+### <a name="configure-using-azure-data-cli-azdata"></a>Configurare con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
-È possibile modificare la configurazione delle istanze gestite di SQL Azure Arc abilitate con l'interfaccia della riga di comando `azdata` . Eseguire il comando seguente per visualizzare le opzioni di configurazione. 
+È possibile modificare la configurazione delle istanze gestite di SQL Azure Arc abilitate con il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . Eseguire il comando seguente per visualizzare le opzioni di configurazione. 
 
 ```
 azdata arc sql mi edit --help

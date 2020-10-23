@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444174"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367721"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Esercitazione: Creare utenti Azure AD con applicazioni di Azure AD
 
@@ -65,7 +65,7 @@ In questa esercitazione verranno illustrate le procedure per:
     Per altre informazioni, vedere il comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver).
 
     > [!IMPORTANT]
-    > Se per il server logico SQL di Azure è configurata un'identità Azure AD, è necessario concedere all'identità l'autorizzazione [**Ruoli con autorizzazioni di lettura nella directory**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Questo procedura verrà illustrata nella sezione seguente. **Non** ignorare questa procedura perché l'autenticazione Azure AD smetterà di funzionare.
+    > Se per il server logico SQL di Azure è configurata un'identità Azure AD, è necessario concedere all'identità l'autorizzazione [**Ruoli con autorizzazioni di lettura nella directory**](../../active-directory/roles/permissions-reference.md#directory-readers). Questo procedura verrà illustrata nella sezione seguente. **Non** ignorare questa procedura perché l'autenticazione Azure AD smetterà di funzionare.
 
     - Se è stato usato precedentemente il comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) con il parametro `AssignIdentity` per la creazione di un nuovo server SQL, sarà necessario eseguire successivamente [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) come comando separato per abilitare questa proprietà nell'infrastruttura di Azure.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400690"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370594"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
 
@@ -170,7 +170,7 @@ Per aggiungere utenti all'account del Centro per i partner già esistenti nell'[
 
 ### <a name="create-new-users"></a>Creare nuovi utenti
 
-Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](../../active-directory/roles/permissions-reference.md).
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Crea nuovi utenti**.
 1. Immettere un nome, un cognome e un nome utente per ogni nuovo utente. 
@@ -184,7 +184,7 @@ La creazione di un nuovo utente nel Centro per i partner creerà anche un accoun
 
 ### <a name="invite-new-users-by-email"></a>Invitare nuovi utenti tramite posta elettronica
 
-Per invitare tramite posta elettronica utenti che attualmente non fanno parte dell'account aziendale (tenant di Azure AD) della società, è necessario un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per invitare tramite posta elettronica utenti che attualmente non fanno parte dell'account aziendale (tenant di Azure AD) della società, è necessario un account con autorizzazioni di [**amministratore globale**](../../active-directory/roles/permissions-reference.md).
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Invitare gli utenti tramite posta elettronica**.
 2. Immettere uno o più indirizzi di posta elettronica (fino a 10), separati da virgole o punti e virgola.
@@ -204,7 +204,7 @@ Per rimuovere un utente dall'account aziendale (tenant di Azure AD), passare a *
 
 ### <a name="change-a-user-password"></a>Modificare una password utente
 
-Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). In questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al centro per i partner.
+Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](../../active-directory/roles/permissions-reference.md). In questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al centro per i partner.
 
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare il nome dell'account utente che si vuole modificare.
 2. Selezionare il pulsante **Reimposta password** nella parte inferiore della pagina.

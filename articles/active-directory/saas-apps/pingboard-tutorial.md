@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553830"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pingboard, seguire ques
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Pingboard](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le caselle di testo "Identificatore" e "URL di risposta" evidenziate e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `http://app.pingboard.com/sp`
 

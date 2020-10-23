@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628060"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165333"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -59,7 +59,7 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 
 Per caricare i dati, passare al <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale personalizzato </a>. Dal portale fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
 
-![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-select-audio.png)
+![Screenshot che evidenzia l'opzione di caricamento audio dal portale per la sintesi vocale.](./media/custom-speech/custom-speech-select-audio.png)
 
 Ogni set di dati caricato deve soddisfare i requisiti per il tipo di dati scelto. I dati devono essere formattati correttamente prima del caricamento. I dati formattati correttamente garantiscono che vengano elaborati accuratamente dal servizio Riconoscimento vocale personalizzato. I requisiti sono elencati nelle sezioni seguenti.
 

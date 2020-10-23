@@ -4,12 +4,12 @@ description: Informazioni su come individuare macchine virtuali Hyper-V locali c
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442319"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317158"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -204,7 +204,7 @@ Configurare l'appliance per la prima volta.
    
    L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web. 
-4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](tutorial-prepare-hyper-v.md#prepare-azure) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
+4. Se l'account utente di Azure usato per la registrazione ha le autorizzazioni corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
 

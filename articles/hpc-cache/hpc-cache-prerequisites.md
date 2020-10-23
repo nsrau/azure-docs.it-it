@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612983"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344016"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -65,7 +65,7 @@ Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il ser
 
 Un server DNS semplice può anche essere usato per bilanciare il carico delle connessioni client tra tutti i punti di montaggio della cache disponibili.
 
-Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del server DNS, vedere [risoluzione dei nomi per le risorse nelle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del server DNS, vedere [risoluzione dei nomi per le risorse nelle reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -73,7 +73,7 @@ Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a 
 
 * L'istanza della cache deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
 
-* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione.
+* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione.
 
   Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 
@@ -110,7 +110,7 @@ Se si usa un sistema di archiviazione NFS (ad esempio, un sistema NAS hardware l
 
 Altre informazioni sono disponibili in [risolvere i problemi relativi alla configurazione di NAS e alla destinazione di archiviazione NFS](troubleshoot-nas.md).
 
-* **Connettività di rete:** La cache HPC di Azure necessita di un accesso di rete a larghezza di banda elevata tra la subnet della cache e il data center del sistema NFS. È consigliabile usare [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o un accesso simile. Se si usa una VPN, potrebbe essere necessario configurarla in modo da bloccare la connessione MSS TCP a 1350 per assicurarsi che i pacchetti di grandi dimensioni non vengano bloccati. Per ulteriori informazioni sulla risoluzione dei problemi relativi alle impostazioni VPN, vedere [restrizioni sulle dimensioni del pacchetto VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) .
+* **Connettività di rete:** La cache HPC di Azure necessita di un accesso di rete a larghezza di banda elevata tra la subnet della cache e il data center del sistema NFS. È consigliabile usare [ExpressRoute](../expressroute/index.yml) o un accesso simile. Se si usa una VPN, potrebbe essere necessario configurarla in modo da bloccare la connessione MSS TCP a 1350 per assicurarsi che i pacchetti di grandi dimensioni non vengano bloccati. Per ulteriori informazioni sulla risoluzione dei problemi relativi alle impostazioni VPN, vedere [restrizioni sulle dimensioni del pacchetto VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) .
 
 * **Accesso alla porta:** La cache deve accedere a porte TCP/UDP specifiche sul sistema di archiviazione. Tipi diversi di archiviazione hanno requisiti di porta diversi.
 

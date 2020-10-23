@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'isolamento e della privacy della rete virtuale
+title: Panoramica dell'isolamento e della sicurezza della rete virtuale
 titleSuffix: Azure Machine Learning
 description: Usare una rete virtuale di Azure isolata con Azure Machine Learning per proteggere le risorse dell'area di lavoro e gli ambienti di calcolo.
 services: machine-learning
@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825506"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131939"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 

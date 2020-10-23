@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c840f123d74222770f1d044e085cf131f5ab708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cf2ac8cda9df18bf02b93446605ed2283562cf6b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547964"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Esercitazione: Integrazione di Azure Active Directory con OneTrust Privacy Management Software
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OneTrust Privacy Manage
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni sull'accesso Single Sign-On a URL e dominio di OneTrust Privacy Management Software](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le caselle di testo "Identificatore" e "URL di risposta" evidenziate e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `https://www.onetrust.com/saml2`
 

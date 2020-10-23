@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998544"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277037"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 
@@ -68,9 +68,9 @@ Il normale ciclo di vita di un'istanza dell'host è:
 
 Il processore dei feed di modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), il thread che elabora tale batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread verificherà quale sia l'ultimo punto nel tempo dell'archivio dei lease per l'intervallo di valori della chiave di partizione e il riavvio da tale intervallo, inviando efficacemente lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato non elabora correttamente le modifiche ed è il motivo per cui il processore dei feed di modifiche ha una garanzia di tipo "at least once", perché se il codice del delegato genera un'eccezione, vi sarà un nuovo tentativo di quel batch.
 
-Per evitare che il processore dei feed di modifiche venga bloccato continuamente durante il nuovo tentativo dello stesso batch di modifiche, è necessario aggiungere la logica nel codice del delegato per scrivere documenti, in caso di eccezione, in una coda di messaggi non recapitabili. Questa progettazione garantisce la possibilità di tenere traccia delle modifiche non elaborate continuando comunque a elaborare le modifiche future. La coda dei messaggi non recapitabili potrebbe essere semplicemente un altro contenitore Cosmos. L'archivio dati esatto non è rilevante, semplicemente le modifiche non elaborate sono persistenti.
+Per evitare che il processore dei feed di modifiche venga bloccato continuamente durante il nuovo tentativo dello stesso batch di modifiche, è necessario aggiungere la logica nel codice del delegato per scrivere documenti, in caso di eccezione, in una coda di messaggi non recapitabili. Questa progettazione garantisce la possibilità di tenere traccia delle modifiche non elaborate continuando comunque a elaborare le modifiche future. La coda dei messaggi non recapitabili può essere un altro contenitore Cosmos. L'archivio dati esatto non è rilevante, semplicemente le modifiche non elaborate sono persistenti.
 
-Inoltre, è possibile usare lo [strumento di stima del feed di modifiche](how-to-use-change-feed-estimator.md) per monitorare lo stato di avanzamento delle istanze durante la lettura del feed di modifiche. Oltre a monitorare se il processore di feed di modifiche viene bloccato continuamente durante il nuovo tentativo dello stesso batch di modifiche, è anche possibile comprendere se il processore di feed di modifiche è in ritardo a causa di risorse disponibili come CPU, memoria e larghezza di banda di rete.
+Inoltre, è possibile usare lo [strumento di stima del feed di modifiche](how-to-use-change-feed-estimator.md) per monitorare lo stato di avanzamento delle istanze durante la lettura del feed di modifiche. È possibile usare questa stima per capire se il processore del feed delle modifiche è bloccato o in ritardo a causa di risorse disponibili come CPU, memoria e larghezza di banda di rete.
 
 ## <a name="deployment-unit"></a>Unità di distribuzione
 
@@ -94,7 +94,32 @@ Inoltre, il processore di feed di modifiche può adattarsi dinamicamente alla sc
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Feed di modifiche e velocità effettiva di cui viene effettuato il provisioning
 
-Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei dati da e verso i contenitori Cosmos comporta sempre l'utilizzo di UR. Vengono addebitati i costi per le UR utilizzate dal contenitore di lease.
+Le operazioni di lettura del feed di modifiche nel contenitore monitorato utilizzeranno ur. 
+
+Le operazioni sul contenitore di lease utilizzano ur. Maggiore è il numero di istanze che usano lo stesso contenitore di lease, più alto sarà il potenziale consumo di ur. Ricordarsi di monitorare il consumo di ur nel contenitore leases se si decide di ridimensionare e incrementare il numero di istanze.
+
+## <a name="starting-time"></a>Ora di inizio
+
+Per impostazione predefinita, quando un processore di feed di modifiche viene avviato per la prima volta, Inizializza il contenitore lease e avvia il [ciclo di vita dell'elaborazione](#processing-life-cycle). Eventuali modifiche apportate nel contenitore monitorato prima che il processore del feed delle modifiche venga inizializzato per la prima volta non verranno rilevate.
+
+### <a name="reading-from-a-previous-date-and-time"></a>Lettura da una data e un'ora precedenti
+
+È possibile inizializzare il processore dei feed di modifiche in modo da leggere le modifiche a partire da una **data e ora specifiche**, passando un'istanza di `DateTime` all'estensione del generatore `WithStartTime`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+Il processore dei feed di modifiche verrà inizializzato per la data e l'ora specifiche e inizierà a leggere le modifiche che si sono verificate dopo.
+
+### <a name="reading-from-the-beginning"></a>Lettura dall'inizio
+
+In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall'**inizio della durata del contenitore**. A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+Il processore dei feed di modifiche verrà inizializzato e inizierà a leggere le modifiche dall'inizio della durata del contenitore.
+
+> [!NOTE]
+> Queste opzioni di personalizzazione funzionano solo per configurare il punto di partenza nel tempo del processore del feed delle modifiche. Una volta inizializzato il contenitore dei lease per la prima volta, modificarle non ha alcun effetto.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>Posizione in cui ospitare il processore del feed delle modifiche
 
@@ -105,7 +130,7 @@ Il processore del feed delle modifiche può essere ospitato in qualsiasi piattaf
 * Un processo in background nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * [Servizio ospitato ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-Mentre il processore del feed delle modifiche può essere eseguito in ambienti di breve durata, perché il contenitore di lease gestisce lo stato, il ciclo di avvio e arresto di questi ambienti aggiungerà un ritardo alla ricezione delle notifiche (a causa dell'overhead di avvio del processore a ogni avvio dell'ambiente).
+Mentre il processore del feed delle modifiche può essere eseguito in ambienti di breve durata, perché il contenitore di lease gestisce lo stato, il ciclo di avvio di questi ambienti aggiungerà un ritardo alla ricezione delle notifiche (a causa dell'overhead dell'avvio del processore a ogni avvio dell'ambiente).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371743"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149398"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introduzione all'account di fatturazione di Azure aggiornato
 
@@ -104,8 +104,8 @@ Se si usano API di fatturazione o gestione dei costi per eseguire query e aggior
 
 |API | Modifiche  |
 |---------|---------|
-|[Account di fatturazione - Elenco](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Nell'API di elenco degli account di fatturazione il valore di agreementType per l'account di fatturazione precedente è **MicrosoftOnlineServiceProgram**, mentre per il nuovo account di fatturazione il valore di agreementType sarà **MicrosoftCustomerAgreement**. Se è presente una dipendenza da agreementType, aggiornarne il valore. |
-|[Fatture - Elenco per sottoscrizione di fatturazione](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Questa API restituirà solo le fatture generate prima dell'aggiornamento dell'account. Per ottenere le fatture generate nel nuovo account di fatturazione, sarà necessario usare l'API illustrata in [Fatture - Elenco per account di fatturazione](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
+|[Account di fatturazione - Elenco](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Nell'API di elenco degli account di fatturazione il valore di agreementType per l'account di fatturazione precedente è **MicrosoftOnlineServiceProgram**, mentre per il nuovo account di fatturazione il valore di agreementType sarà **MicrosoftCustomerAgreement**. Se è presente una dipendenza da agreementType, aggiornarne il valore. |
+|[Fatture - Elenco per sottoscrizione di fatturazione](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Questa API restituirà solo le fatture generate prima dell'aggiornamento dell'account. Per ottenere le fatture generate nel nuovo account di fatturazione, sarà necessario usare l'API illustrata in [Fatture - Elenco per account di fatturazione](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
