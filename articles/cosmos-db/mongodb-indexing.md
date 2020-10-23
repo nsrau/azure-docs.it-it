@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282377"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425031"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -40,7 +40,10 @@ Una query usa più indici dei campi singoli, se disponibili. È possibile creare
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Indici composti (server MongoDB versione 3,6)
 
-L'API di Azure Cosmos DB per MongoDB supporta gli indici composti per gli account che usano il protocollo wire versione 3,6. È possibile includere fino a otto campi in un indice composto. **Diversamente da MongoDB, è necessario creare un indice composto solo se la query deve essere ordinata in modo efficiente su più campi in una sola volta.** Per le query con più filtri che non devono essere ordinati, creare più indici di campi singoli anziché un singolo indice composto.
+L'API di Azure Cosmos DB per MongoDB supporta gli indici composti per gli account che usano il protocollo wire versione 3,6. È possibile includere fino a otto campi in un indice composto. Diversamente da MongoDB, è necessario creare un indice composto solo se la query deve essere ordinata in modo efficiente su più campi in una sola volta. Per le query con più filtri che non devono essere ordinati, creare più indici di campi singoli anziché un singolo indice composto. 
+
+> [!NOTE]
+> Non è possibile creare indici composti in proprietà o matrici annidate.
 
 Il comando che segue crea un indice composto sui campi `name` e `age` :
 
@@ -50,7 +53,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Di seguito è riportato un esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -59,7 +62,7 @@ Tuttavia, la sequenza dei percorsi nell'indice composto deve corrispondere esatt
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Non è possibile creare indici composti in proprietà o matrici annidate.
+> Gli indici composti vengono utilizzati solo nelle query che ordinano i risultati. Per le query con più filtri che non devono essere ordinati, creare indici di campo singolo multipe.
 
 ### <a name="multikey-indexes"></a>Indici join
 
@@ -75,7 +78,7 @@ Di seguito è riportato un esempio di creazione di un indice geospaziale nel `lo
 
 ### <a name="text-indexes"></a>Indici di testo
 
-L'API di Azure Cosmos DB per MongoDB attualmente non supporta gli indici di testo. Per le query di ricerca del testo sulle stringhe, è necessario usare l'integrazione di [Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB.
+L'API di Azure Cosmos DB per MongoDB attualmente non supporta gli indici di testo. Per le query di ricerca del testo sulle stringhe, è necessario usare l'integrazione di [Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Indici con caratteri jolly
 
@@ -131,7 +134,10 @@ Ecco come è possibile creare un indice con caratteri jolly in tutti i campi:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Quando si avvia lo sviluppo, può essere utile creare un indice con caratteri jolly in tutti i campi. Con l'indicizzazione di più proprietà in un documento, l'addebito delle unità richiesta (UR) per la scrittura e l'aggiornamento del documento aumenterà. Se pertanto si dispone di un carico di lavoro con un elevato numero di operazioni di scrittura, è consigliabile scegliere i percorsi di indicizzazione singolarmente anziché utilizzare gli indici con caratteri jolly
+> [!NOTE]
+> Se si sta iniziando a sviluppare, è **consigliabile iniziare** con un indice con caratteri jolly in tutti i campi. Questo può semplificare lo sviluppo e semplificare l'ottimizzazione delle query.
+
+I documenti con molti campi possono avere un addebito per le Scritture e gli aggiornamenti. Se pertanto si dispone di un carico di lavoro con un elevato numero di operazioni di scrittura, è consigliabile scegliere i percorsi di indicizzazione singolarmente anziché utilizzare gli indici con caratteri jolly
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -335,7 +341,7 @@ Attualmente, è possibile creare indici univoci solo quando la raccolta non cont
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indicizzazione per MongoDB versione 3,2
 
-Le funzionalità di indicizzazione e le impostazioni predefinite disponibili sono diverse per gli account Azure Cosmos compatibili con la versione 3,2 del protocollo wire di MongoDB. È possibile [controllare la versione dell'account](mongodb-feature-support-36.md#protocol-support). È possibile eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Le funzionalità di indicizzazione e le impostazioni predefinite disponibili sono diverse per gli account Azure Cosmos compatibili con la versione 3,2 del protocollo wire di MongoDB. È possibile [controllare la versione dell'account](mongodb-feature-support-36.md#protocol-support) ed [eseguire l'aggiornamento alla versione 3,6](mongodb-version-upgrade.md).
 
 Se si usa la versione 3,2, in questa sezione vengono descritte le differenze principali con la versione 3,6.
 
@@ -352,11 +358,11 @@ Dopo aver eliminato gli indici predefiniti, è possibile aggiungere più indici 
 
 ### <a name="compound-indexes-version-32"></a>Indici composti (versione 3,2)
 
-Gli indici composti contengono riferimenti a più campi di un documento. Se si vuole creare un indice composto, eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Gli indici composti contengono riferimenti a più campi di un documento. Se si vuole creare un indice composto, [eseguire l'aggiornamento alla versione 3,6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Indici con caratteri jolly (versione 3,2)
 
-Se si desidera creare un indice con caratteri jolly, eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se si desidera creare un indice con caratteri jolly, [eseguire l'aggiornamento alla versione 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

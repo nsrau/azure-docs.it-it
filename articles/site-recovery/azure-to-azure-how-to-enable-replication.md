@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135781"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424789"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replica delle macchine virtuali di Azure in un'altra area di Azure
 
@@ -36,10 +36,10 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
    - **Sottoscrizione di origine**: la sottoscrizione a cui appartengono le macchine virtuali di origine. Può essere qualsiasi sottoscrizione che si trova nello stesso tenant di Azure Active Directory in cui è presente l'insieme di credenziali di Servizi di ripristino.
    - **Gruppo di risorse:** gruppo di risorse a cui appartengono le macchine virtuali di origine. Tutte le macchine virtuali nel gruppo di risorse selezionato verranno elencate per la protezione nel passaggio successivo.
 
-     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Screenshot che evidenzia i campi necessari per configurare la replica.](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. In **macchine virtuali > selezionare macchine virtuali**, fare clic e selezionare le singole VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Fare quindi clic su **OK**.
-    ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![Schermata che evidenzia la posizione in cui si selezionano le macchine virtuali.](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. In **Impostazioni** è possibile configurare le impostazioni del sito di destinazione:
 
@@ -101,7 +101,7 @@ Dopo l'esecuzione del processo di abilitazione della replica e il completamento 
     - In **Set di disponibilità** è possibile aggiungere le impostazioni del set di disponibilità per la macchina virtuale, se sono parte di un set di disponibilità nell'area di origine.
     - In **Account di archiviazione di destinazione**, selezionare l'account da usare.
 
-        ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![Screenshot che illustra come personalizzare le impostazioni della sottoscrizione di destinazione.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Fare clic su **Personalizza** per modificare le impostazioni di replica.
 4. In **coerenza**tra più macchine virtuali selezionare le macchine virtuali che si desidera replicare insieme.
     - Tutte le macchine virtuali in un gruppo di replica avranno punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando si esegue il failover.
@@ -111,7 +111,7 @@ Dopo l'esecuzione del processo di abilitazione della replica e il completamento 
     - Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gruppo di replica comunicano tra loro sulla porta 20004.
     - Assicurarsi che non sia presente alcun dispositivo firewall che blocca la comunicazione interna tra le macchine virtuali sulla porta 20004.
     - Se si vuole che le macchine virtuali Linux facciano parte di un gruppo di replica, assicurarsi che il traffico in uscita sulla porta 20004 venga aperto manualmente in base alle linee guida per la versione specifica di Linux.
-![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![Screenshot che mostra le impostazioni di coerenza tra più macchine virtuali.](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. Fare clic su **Crea risorsa di destinazione**  >  **Abilita replica**.
 6. Una volta abilitate le macchine virtuali per la replica è possibile controllare lo stato di integrità della macchina virtuale in **Elementi replicati**

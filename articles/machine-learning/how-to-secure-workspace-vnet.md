@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776044"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424991"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
@@ -34,7 +34,7 @@ In questo articolo viene illustrato come abilitare le risorse seguenti per le ar
 > - Area di lavoro di Azure Machine Learning
 > - Account di archiviazione di Azure
 > - Azure Machine Learning datastores e DataSets
-> - Insieme di credenziali chiave di Azure
+> - Azure Key Vault
 > - Registro Azure Container
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -43,12 +43,12 @@ In questo articolo viene illustrato come abilitare le risorse seguenti per le ar
 
 + Una rete virtuale e una subnet esistenti da usare con le risorse di calcolo.
 
-+ Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nei controlli degli accessi in base al ruolo (RBAC) di Azure:
++ Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nel controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
     - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa di rete virtuale.
     - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
 
-    Per ulteriori informazioni sul controllo degli accessi in base al ruolo con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking)
+    Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Proteggere l'area di lavoro con un endpoint privato
@@ -123,7 +123,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 

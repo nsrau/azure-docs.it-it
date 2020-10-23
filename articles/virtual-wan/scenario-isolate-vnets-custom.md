@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267721"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461822"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: isolamento personalizzato per reti virtuali
 
@@ -25,11 +25,11 @@ Per determinare il numero di tabelle di route necessarie, è possibile creare un
 
 | Da | Con:| *Reti virtuali blu* | *Reti virtuali rosso* | *Rami*|
 |---|---|---|---|---|
-| **Reti virtuali blu** |   &#8594;|      X        |               |       X      |
-| **Reti virtuali rosso**  |   &#8594;|              |       X       |       X      |
-| **Rami**   |   &#8594;|     X        |       X       |       X      |
+| **Reti virtuali blu** |   &#8594;|   Connessione diretta     |           |  Connessione diretta |
+| **Reti virtuali rosso**  |   &#8594;|              |   Connessione diretta  |  Connessione diretta |
+| **Rami**   |   &#8594;|   Connessione diretta     |   Connessione diretta  |  Connessione diretta |
 
-Ogni cella della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico, dove una "X" significa che la connettività viene fornita dalla rete WAN virtuale.
+Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) comunica con una destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo). In questo scenario non sono presenti firewall o appliance virtuali di rete, quindi le comunicazioni passano direttamente alla rete WAN virtuale, quindi la parola "Direct" nella tabella.
 
 Il numero di modelli di riga diversi sarà il numero di tabelle di route che saranno necessarie in questo scenario. In questo caso, tre tabelle Route route che chiameremo **RT_BLUE** e **RT_RED** per le reti virtuali e **predefinite** per i rami. Tenere presente che i rami devono sempre essere associati alla tabella di routing predefinita.
 

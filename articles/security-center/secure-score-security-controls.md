@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425352"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
 ## <a name="introduction-to-secure-score"></a>Introduzione al punteggio di sicurezza
 
-Il Centro sicurezza di Azure ha due obiettivi principali: aiutare a comprendere lo stato di sicurezza attuale e contribuire a migliorare in modo efficiente ed efficace la sicurezza. L'aspetto centrale del Centro sicurezza che consente di raggiungere questi obiettivi è il punteggio di sicurezza.
+Il Centro sicurezza di Azure ha due obiettivi principali: 
+
+- per semplificare la comprensione della situazione di sicurezza corrente
+- per contribuire a migliorare in modo efficiente e efficace la sicurezza
+
+La funzionalità centrale del Centro sicurezza che consente di raggiungere questi obiettivi è un **Punteggio sicuro**.
 
 Il Centro sicurezza valuta continuamente risorse, sottoscrizioni e organizzazione per rilevare problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato.
 
-La pagina Punteggio di sicurezza del Centro sicurezza include:
+Il Punteggio sicuro viene visualizzato nelle pagine portale di Azure come valore percentuale, ma vengono presentati chiaramente anche i valori sottostanti:
 
-- Il **punteggio**: il punteggio di sicurezza viene visualizzato come valore percentuale, ma vengono espressi anche i valori sottostanti:
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale":::
 
-    [![Punteggio di sicurezza visualizzato come valore percentuale con i numeri sottostanti espressi](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+Per aumentare la sicurezza, vedere la pagina raccomandazioni del Centro sicurezza per le azioni in attesa necessarie per aumentare il punteggio. Ogni raccomandazione include istruzioni che consentono di correggere il problema specifico.
 
-- I **controlli di sicurezza**: ogni controllo è un gruppo logico di raccomandazioni correlate alla sicurezza e riflette le superfici di attacco vulnerabili. Un controllo è un set di raccomandazioni sulla sicurezza, con istruzioni che consentono di implementare tali raccomandazioni. Il punteggio viene migliorato solo quando si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo.
+I consigli sono raggruppati in **controlli di sicurezza**. Ogni controllo è un gruppo logico di raccomandazioni sulla sicurezza correlate e riflette le superfici di attacco vulnerabili. Il punteggio viene migliorato solo quando si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo. Per verificare in che modo l'organizzazione protegga ogni singola superficie di attacco, esaminare i punteggi per ogni controllo di sicurezza.
 
-    Per verificare immediatamente in che modo l'organizzazione protegge ogni singola superficie di attacco, esaminare i punteggi per ogni controllo di sicurezza.
-
-    Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure-score-security-controls.md#how-your-secure-score-is-calculated) di seguito. 
-
-
->[!TIP]
-> Le versioni precedenti del Centro sicurezza assegnavano punti a livello di raccomandazione: quando veniva corretta una raccomandazione relativa a una singola risorsa, il punteggio di sicurezza migliorava. Attualmente, il punteggio migliora solo se si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo. Il punteggio migliora, quindi, solo quando viene migliorata la sicurezza di una risorsa.
+Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure-score-security-controls.md#how-your-secure-score-is-calculated) di seguito. 
 
 
 ## <a name="access-your-secure-score"></a>Accedi al tuo punteggio sicuro
 
-È possibile trovare il Punteggio sicuro complessivo, nonché il punteggio per ogni sottoscrizione, tramite il portale di Azure o a livello con l'API REST del Centro sicurezza di Azure.
+È possibile trovare il Punteggio sicuro complessivo, nonché il punteggio per ogni sottoscrizione, tramite il portale di Azure o a livello, come descritto nelle sezioni seguenti:
+
+- [Ottenere il Punteggio sicuro dal portale](#get-your-secure-score-from-the-portal)
+- [Ottenere il Punteggio sicuro dall'API REST](#get-your-secure-score-from-the-rest-api)
+- [Ottieni il Punteggio sicuro da Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Ottenere il Punteggio sicuro dal portale
 
-Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è la prima cosa visualizzata nella pagina panoramica. Selezionando la pagina dedicata del punteggio di sicurezza, verrà visualizzato il punteggio suddiviso in base alla sottoscrizione. Fare clic su una singola sottoscrizione per visualizzare l'elenco dettagliato delle raccomandazioni con priorità e il potenziale impatto che la correzione avrà sul punteggio della sottoscrizione.
+Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è il primo riquadro principale della pagina Panoramica del Centro sicurezza. Selezionando questo riquadro, viene visualizzata la pagina del Punteggio sicuro dedicato, in cui verrà visualizzato il Punteggio suddiviso in base alla sottoscrizione. Selezionare una singola sottoscrizione per visualizzare l'elenco dettagliato delle raccomandazioni con priorità e il potenziale impatto che il monitoraggio e l'aggiornamento avranno sul punteggio della sottoscrizione.
 
-![Punteggio sicuro complessivo come illustrato nel portale](media/secure-score-security-controls/single-secure-score-via-ui.png)
+Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nelle pagine del portale del Centro sicurezza.
+
+- In una sezione **Panoramica** del Centro sicurezza (dashboard principale):
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale":::
+
+- Nella pagina del **Punteggio sicuro** dedicato:
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale":::
+
+- Nella parte superiore della pagina **raccomandazioni** :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
@@ -62,6 +79,40 @@ Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è la pr
 ![Recupero di un singolo Punteggio sicuro tramite l'API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Per esempi di strumenti basati sull'API per il Punteggio sicuro, vedere [l'area di valutazione sicura della community di GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Ottieni il Punteggio sicuro da Azure Resource Graph (ARG)
+
+Azure Resource Graph fornisce l'accesso immediato alle informazioni sulle risorse negli ambienti cloud con potenti funzionalità di filtro, raggruppamento e ordinamento. Si tratta di un modo rapido ed efficiente di eseguire query sulle informazioni nelle sottoscrizioni di Azure a livello di codice o dall'interno del portale di Azure. [Scopri di più sul grafico delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+Per accedere al Punteggio sicuro per più sottoscrizioni con ARG:
+
+1. Dal portale di Azure aprire **Esplora grafico risorse di Azure**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale" :::
+
+1. Immettere la query kusto (usando gli esempi riportati di seguito per informazioni aggiuntive).
+
+    - Questa query restituisce l'ID sottoscrizione, il punteggio corrente in punti e come percentuale e il punteggio massimo per la sottoscrizione. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - Questa query restituisce lo stato di tutti i controlli di sicurezza. Per ogni controllo, si otterrà il numero di risorse non integre, il punteggio corrente e il punteggio massimo. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Selezionare **Esegui query**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Calcolo del Punteggio sicuro 
 
@@ -99,7 +150,7 @@ Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcol
 
 Esempio di una raccomandazione in anteprima:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale":::
 
 ## <a name="improve-your-secure-score"></a>Migliorare il punteggio di sicurezza
 

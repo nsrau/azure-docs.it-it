@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104564"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424202"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -48,7 +49,7 @@ No, questo scenario non è supportato. Le impostazioni predefinite sono le segue
 
 No, attualmente non è possibile. Il tentativo di registrazione viene sempre effettuato sul tenant principale dell'utente.
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>L'applicazione back-end è ospitata in più server Web e richiede la persistenza della sessione utente (appiccicosa). Come è possibile ottenere la persistenza della sessione? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>L'applicazione back-end è ospitata in più server Web e richiede la persistenza della sessione utente (appiccicosa). Come è possibile ottenere la persistenza della sessione? 
 
 Per indicazioni, vedere [disponibilità elevata e bilanciamento del carico delle applicazioni e dei connettori del proxy di applicazione](application-proxy-high-availability-load-balancing.md).
 

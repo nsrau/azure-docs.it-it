@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375692"
+ms.locfileid: "92424560"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory provisioning dell'applicazione: novità
 
-Ecco le novità della documentazione relativa al provisioning dell'applicazione Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi.
+Ecco le novità della documentazione relativa al provisioning dell'applicazione Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità del servizio di provisioning, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Settembre 2020
 
 ### <a name="new-articles"></a>Nuovi articoli
 
-- [Novità](whats-new-docs.md)
+- [Quali sono le novità di docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 - [Provisioning dell'applicazione in stato di quarantena](application-provisioning-quarantine-status.md)

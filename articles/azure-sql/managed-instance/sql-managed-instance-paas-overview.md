@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618136"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424236"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita di SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 
 - È stato progettato per la maggior parte delle applicazioni aziendali con requisiti di prestazioni tipici
 - Archiviazione BLOB di Azure ad alte prestazioni (8 TB)
-- [Disponibilità elevata](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) predefinita basata sull'affidabilità di Archiviazione BLOB di Azure e su [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Disponibilità elevata](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) predefinita basata sull'affidabilità di Archiviazione BLOB di Azure e su [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
 Per altre informazioni, vedere [Storage layer in the General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) (Livello Archiviazione nel livello di servizio Utilizzo generico) e [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita di SQL (Utilizzo generico)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -110,7 +110,7 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 
 - Progettato per applicazioni aziendali con le prestazioni e i requisiti di disponibilità più elevati
 - Viene fornito con l'archiviazione SSD locale estremamente rapida (fino a 1 TB nella quarta generazione e fino a 4 TB nella quinta generazione)
-- [Disponibilità elevata](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) predefinita in base ai [gruppi di disponibilità Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e ad [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Disponibilità elevata](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) predefinita in base ai [gruppi di disponibilità Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e ad [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - [Replica di database di sola lettura](../database/read-scale-out.md) integrata aggiuntiva che può essere usata per la creazione di report e altri carichi di lavoro di sola lettura
 - [OLTP in memoria](../in-memory-oltp-overview.md) che può essere usato per il carico di lavoro con requisiti di prestazioni elevate  
 

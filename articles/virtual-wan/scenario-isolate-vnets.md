@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267636"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424739"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenario: Isolating reti virtuali
 
@@ -24,12 +24,12 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 In questo scenario, il carico di lavoro all'interno di un determinato VNet rimane isolato e non è in grado di comunicare con altri reti virtuali. Tuttavia, reti virtuali sono necessari per raggiungere tutti i rami (VPN, ER e VPN utente). Per determinare il numero di tabelle di route necessarie, è possibile creare una matrice di connettività. Per questo scenario l'aspetto sarà simile alla tabella seguente, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna):
 
-| Da |   To |  *Reti virtuali* | *Rami* |
+| Da |   A |  *Reti virtuali* | *Rami* |
 | -------------- | -------- | ---------- | ---|
-| Reti virtuali     | &#8594;|           |     X    |
-| Rami   | &#8594;|    X     |     X    |
+| Reti virtuali     | &#8594;| Connessione diretta |   Connessione diretta    |
+| Rami   | &#8594;|  Connessione diretta  |   Connessione diretta    |
 
-Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo) per un flusso di traffico specifico, dove una "X" significa che la connettività viene fornita dalla rete WAN virtuale.
+Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) comunica con un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo). In questo scenario non sono presenti firewall o appliance virtuali di rete, quindi le comunicazioni passano direttamente alla rete WAN virtuale, quindi la parola "Direct" nella tabella.
 
 Questa matrice di connettività fornisce due modelli di riga diversi, che vengono convertiti in due tabelle di route. Per la rete WAN virtuale è già presente una tabella di route predefinita, quindi è necessaria un'altra tabella di route. Per questo esempio, la tabella di route verrà denominata **RT_VNET**.
 

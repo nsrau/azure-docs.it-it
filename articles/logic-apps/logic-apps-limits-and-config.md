@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169354"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424086"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -41,32 +41,31 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Durata dell'esecuzione e limiti di conservazione
+## <a name="run-duration-and-retention-history-limits"></a>Durata dell'esecuzione e limiti della cronologia di conservazione
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Durata esecuzione | 90 giorni | 366 giorni | Per calcolare la durata dell'esecuzione, si usa l'ora di inizio dell'esecuzione e il limite specificato *all'ora di inizio* dall'impostazione del flusso di lavoro [**Conservazione cronologia di esecuzione in giorni**](#change-duration). <p><p>Per modificare il limite predefinito, pari a 90 giorni, vedere [Modificare la durata dell'esecuzione](#change-duration). |
-| Conservazione esecuzioni nell'archiviazione | 90 giorni | 366 giorni | Per calcolare la conservazione dell'esecuzione, si usa l'ora di inizio dell'esecuzione e il limite specificato *all'ora corrente* dall'impostazione del flusso di lavoro [**Conservazione cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal completamento o dal timeout di un'esecuzione, per il calcolo della conservazione si usa sempre l'ora di inizio dell'esecuzione. Quando la durata di un'esecuzione supera il limite di conservazione *corrente*, l'esecuzione viene rimossa dalla cronologia delle esecuzioni. <p><p>Se si modifica questa impostazione, il limite corrente viene comunque usato per il calcolo della conservazione, indipendentemente dal limite precedente. Se, ad esempio, si riduce il limite di conservazione da 90 a 30 giorni, un'esecuzione risalente a 60 giorni prima viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 giorni a 60 giorni, un'esecuzione risalente a 20 giorni prima rimane nella cronologia delle esecuzioni per altri 40 giorni. <p><p>Per modificare il limite predefinito, pari a 90 giorni, vedere [Modificare la conservazione delle esecuzioni nell'archiviazione](#change-retention). |
+| Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio di un'esecuzione. |
+| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Quando un'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite specificato nell' *ora corrente* dall'impostazione del flusso di lavoro, il [**periodo di memorizzazione della cronologia di esecuzione in giorni**](#change-retention). Se si modifica questa impostazione, il limite *corrente* viene sempre usato per il calcolo della conservazione, indipendentemente dal limite precedente. Quando la durata di un'esecuzione supera il limite corrente, l'esecuzione viene rimossa dalla cronologia delle esecuzioni. <p><p>Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, una durata di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni. <p><p>Per modificare il limite predefinito, ovvero 90 giorni, vedere [modificare la conservazione della cronologia di esecuzione nell'archiviazione](#change-retention). |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
 
-<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Modificare la durata e la conservazione delle esecuzioni nell'archiviazione
+### <a name="change-run-history-retention-in-storage"></a>Modificare il periodo di memorizzazione della cronologia di esecuzione nell'archiviazione
 
-Per modificare il limite predefinito per la durata e la conservazione delle esecuzioni nell'archiviazione, seguire questa procedura. Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici.
+Per modificare il limite predefinito per la conservazione della cronologia di esecuzione nell'archiviazione, attenersi alla seguente procedura. Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza per requisiti specifici.
 
 > [!NOTE]
 > Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
 > Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Nella casella di ricerca del portale trovare e selezionare **App per la logica**.
+1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica**.
 
-1. Selezionare e aprire l'app per la logica in Progettazione app per la logica.
+1. Trovare e selezionare l'app per la logica. Aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
 1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro**.
 
