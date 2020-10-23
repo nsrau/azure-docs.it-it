@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123528"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424127"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
 Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
@@ -55,7 +55,7 @@ Visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/netw
 È possibile visualizzare l'ultima disponibilità a livello di area nella [pagina disponibilità dei servizi di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Quali autorizzazioni sono necessarie per usare Network Watcher?
-Vedere l'elenco delle [autorizzazioni RBAC necessarie per usare Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Per la distribuzione delle risorse, sono necessarie le autorizzazioni di collaboratore per NetworkWatcherRG (vedere di seguito).
+Vedere l'elenco delle [autorizzazioni RBAC di Azure necessarie per usare Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Per la distribuzione delle risorse, sono necessarie le autorizzazioni di collaboratore per NetworkWatcherRG (vedere di seguito).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Come si abilita Network Watcher?
 Il servizio Network Watcher viene [abilitato automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) per ogni sottoscrizione.

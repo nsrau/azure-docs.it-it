@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908941"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441454"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definire attributi personalizzati per i flussi utente (anteprima)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87908941"
 
 È possibile definire requisiti diversi per le informazioni da raccogliere durante l'iscrizione alle singole applicazioni. Azure AD include un set predefinito di informazioni archiviate in attributi, ad esempio nome, cognome, città e codice postale. Con Azure AD è possibile estendere il set di attributi archiviati in un account Guest quando l'utente esterno si iscrive tramite un flusso utente.
 
-È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_<extensions-app-id>_attributename`. Ad esempio:
+È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_<extensions-app-id>_attributename`. Ad esempio:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

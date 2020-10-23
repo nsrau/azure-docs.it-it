@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b503c7494d1b5e1821718fab5577bca88be65169
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909779"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442287"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -25,7 +25,7 @@ Un utente a cui è assegnato uno dei ruoli della directory di amministratore con
 In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito. Per informazioni sul processo di riscatto, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> È necessario seguire le procedure illustrate in [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy dell'organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
+> È necessario seguire le procedure illustrate in [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](../fundamentals/active-directory-properties-area.md) per aggiungere l'URL dell'informativa sulla privacy dell'organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -124,4 +124,3 @@ Se un utente guest non ha ancora riscattato il proprio invito, è possibile invi
 
 - Per informazioni su come gli amministratori non Azure Active Directory possono aggiungere utenti guest B2B, vedere [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](add-users-information-worker.md).
 - Per informazioni sul messaggio di posta elettronica di invito, vedere [Elementi del messaggio di posta elettronica di invito per la collaborazione B2B](invitation-email-elements.md).
-

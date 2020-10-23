@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047693"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461760"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funzionalità di richiesta di dati dei clienti di Azure Digital Twins
 
@@ -25,7 +25,7 @@ Le rappresentazioni digitali denominate dispositivi *gemelli* digitali nei dispo
 
 Molti dei gemelli digitali nei dispositivi gemelli digitali di Azure non rappresentano direttamente le entità personali, mentre gli oggetti tipici rappresentati possono essere una sala riunioni di ufficio o una fabbrica. Tuttavia, gli utenti possono considerare che alcune entità sono identificabili personalmente e a loro discrezione possono mantenere i propri metodi di rilevamento di asset o inventario che legano i gemelli digitali a singoli utenti. I dispositivi gemelli digitali di Azure gestiscono e archiviano tutti i dati associati ai dispositivi gemelli digitali come se fossero dati personali.
 
-Per visualizzare, esportare ed eliminare dati personali a cui è possibile fare riferimento in una richiesta di soggetto dati, un amministratore di dispositivi gemelli di Azure può usare la [**portale di Azure**](https://portal.azure.com/) per utenti e ruoli o le [**API REST di Azure Digital gemelli**](how-to-use-apis-sdks.md) per i dispositivi gemelli digitali. Il portale di Azure e le API REST forniscono metodi diversi per consentire agli utenti di soddisfare tali richieste di soggetto ai dati.
+Per visualizzare, esportare ed eliminare dati personali a cui è possibile fare riferimento in una richiesta di soggetto dati, un amministratore di dispositivi gemelli di Azure può usare la [**portale di Azure**](https://portal.azure.com/) per utenti e ruoli o le [**API REST di Azure Digital gemelli**](/rest/api/azure-digitaltwins/) per i dispositivi gemelli digitali. Il portale di Azure e le API REST forniscono metodi diversi per consentire agli utenti di soddisfare tali richieste di soggetto ai dati.
 
 ## <a name="identifying-customer-data"></a>Identificazione dei dati dei clienti
 

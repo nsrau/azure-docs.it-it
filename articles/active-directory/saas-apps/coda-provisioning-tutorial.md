@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: ce70a4df50be9004182e80711de449bab146a800
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa377dae5d80da39faf6ac2e70926301004024e8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455681"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Esercitazione: configurare la coda per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia in coda sia in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning degli utenti a [coda](https://coda.io/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+Questa esercitazione descrive i passaggi da eseguire sia in coda sia in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning degli utenti a [coda](https://coda.io/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
@@ -32,22 +32,22 @@ Questa esercitazione descrive i passaggi da eseguire sia in coda sia in Azure Ac
 > * Creare utenti in coda
 > * Rimuovere gli utenti in coda quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e coda
-> * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial) a coda (scelta consigliata)
+> * [Single Sign-on](./coda-tutorial.md) a coda (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-* Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md)
+* Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * Un account di amministratore dell' [organizzazione coda](https://help.coda.io/en/articles/3520174-getting-started-with-sso) .
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e coda](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determinare quali dati eseguire il [mapping tra Azure ad e coda](../app-provisioning/customize-application-attributes.md).
 
-## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare coda per supportare il provisioning con Azure AD
+## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare coda per supportare il provisioning con Azure AD
 
 1. Aprire la console di amministrazione dell'organizzazione selezionando Impostazioni organizzazione in... menu sotto l'area di lavoro.
 
@@ -58,15 +58,15 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere coda dalla raccolta di applicazioni di Azure AD
 
-Aggiungere coda dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in coda. Se in precedenza è stato configurato coda per SSO, è possibile utilizzare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Aggiungere coda dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in coda. Se in precedenza è stato configurato coda per SSO, è possibile utilizzare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning
 
-Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà eseguito il provisioning in base all'assegnazione all'applicazione e o in base agli attributi dell'utente. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile usare i [passaggi](../manage-apps/assign-user-or-group-access-portal.md) seguenti per assegnare gli utenti all'applicazione. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning basato esclusivamente sugli attributi dell'utente, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà eseguito il provisioning in base all'assegnazione all'applicazione e o in base agli attributi dell'utente. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile usare i [passaggi](../manage-apps/assign-user-or-group-access-portal.md) seguenti per assegnare gli utenti all'applicazione. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning basato esclusivamente sugli attributi dell'utente, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Quando si assegnano utenti a coda, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli.
+* Quando si assegnano utenti a coda, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli.
 
-* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti assegnati, è possibile controllarlo assegnando uno o due utenti all'app. Quando l'ambito è impostato su tutti gli utenti, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti assegnati, è possibile controllarlo assegnando uno o due utenti all'app. Quando l'ambito è impostato su tutti gli utenti, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-coda"></a>Passaggio 5. Configurare il provisioning utenti automatico in coda
@@ -103,7 +103,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a coda**.
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a coda nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in coda per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API coda supporti l'applicazione di filtri agli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a coda nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in coda per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API coda supporti l'applicazione di filtri agli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -113,7 +113,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |name.familyName|string|
 
 
-10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Per abilitare il servizio di provisioning Azure AD per coda, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -132,15 +132,15 @@ Questa operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utent
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
-1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
-3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826742"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453929"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -263,7 +263,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando si seleziona il riquadro E Sales Manager Remix nel pannello di accesso, viene automaticamente eseguito l'accesso all'applicazione E Sales Manager Remix.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -283,4 +283,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/esalesmanagerremix-tutorial/tutorial_general_201.png
 [202]: ./media/esalesmanagerremix-tutorial/tutorial_general_202.png
 [203]: ./media/esalesmanagerremix-tutorial/tutorial_general_203.png
-

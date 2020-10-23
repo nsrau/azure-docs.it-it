@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267738"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440485"
 ---
 # <a name="scenario-any-to-any"></a>Scenario: any-to-any
 
@@ -22,14 +22,14 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 ## <a name="design"></a><a name="design"></a>Progettazione
 
-Per determinare il numero di tabelle di route necessarie in uno scenario WAN virtuale, è possibile creare una matrice di connettività, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna). La matrice di connettività in questo scenario è semplice, ma è stata inclusa per essere coerente con altri scenari.
+Per determinare il numero di tabelle di route necessarie in uno scenario WAN virtuale, è possibile creare una matrice di connettività, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna).
 
-| Da |   To |  *Reti virtuali* | *Rami* |
+| Da |   A |  *Reti virtuali* | *Rami* |
 | -------------- | -------- | ---------- | ---|
-| Reti virtuali     | &#8594;|      X     |     X    |
-| Rami   | &#8594;|    X     |     X    |
+| Reti virtuali     | &#8594;| Connessione diretta | Connessione diretta |
+| Rami   | &#8594;| Connessione diretta  | Connessione diretta |
 
-Ogni cella della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico, dove una "X" significa che la connettività viene fornita dalla rete WAN virtuale.
+Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) comunica con un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo). In questo scenario non sono presenti firewall o appliance virtuali di rete, quindi la comunicazione scorre direttamente sulla rete WAN virtuale, quindi la parola "Direct" nella tabella.
 
 Poiché tutte le connessioni da reti virtuali e Branch (VPN, ExpressRoute e VPN utente) presentano gli stessi requisiti di connettività, è necessaria una singola tabella di route. Di conseguenza, tutte le connessioni verranno associate e propagate alla stessa tabella di route, ovvero la tabella di route predefinita:
 
