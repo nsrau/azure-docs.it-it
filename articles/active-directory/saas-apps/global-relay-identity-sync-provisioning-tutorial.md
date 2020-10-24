@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492196"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514402"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione dell'identità di inoltro globale per il provisioning utenti automatico
 
@@ -52,7 +52,7 @@ Per ricevere l'URL del tenant, contattare il rappresentante del Global Relay Ide
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere sincronizzazione identità inoltro globale dalla raccolta di applicazioni di Azure AD
 
-Aggiungere la sincronizzazione dell'identità del relè globale dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning nella sincronizzazione delle identità del relay globale. Se in precedenza è stata eseguita la configurazione di Global Relay Identity Sync for SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Aggiungere la sincronizzazione dell'identità del relè globale dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning nella sincronizzazione delle identità del relay globale. Altre informazioni sull'aggiunta di un'applicazione dalla raccolta sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
@@ -63,7 +63,7 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Passaggio 5. Configurare il provisioning utenti automatico in sincronizzazione identità inoltro globale 
 
-Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi nell'App Global Relay Identity Sync in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Per configurare il provisioning utenti automatico per la sincronizzazione dell'identità dell'inoltro globale in Azure AD:
 

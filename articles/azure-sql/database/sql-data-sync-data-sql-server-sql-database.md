@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371752"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503335"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -135,7 +135,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - Una chiave primaria non può contenere i tipi di dati seguenti: sql_variant, Binary, varbinary, image, XML.
 - Usare i tipi di dati che seguono come chiave primaria con la massima cautela, perché supportano solo la precisione al secondo: time, datetime, datetime2, datetimeoffset.
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
-- Un nome di tabella non può contenere caratteri stampabili:! " # $ % ' ( ) * + -
+- Un nome di tabella non può contenere caratteri stampabili:! "# $%' () * +-spazio
 - L'autenticazione Azure Active Directory non è supportata.
 - Se sono presenti tabelle con lo stesso nome ma con uno schema diverso (ad esempio, dbo. Customers e Sales. Customers), è possibile aggiungere in Sync solo una delle tabelle.
 - Le colonne con tipi di dati User-Defined non sono supportate
@@ -150,7 +150,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Esempio:
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.

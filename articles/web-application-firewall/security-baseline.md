@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021178"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516155"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Baseline della sicurezza di Azure per il firewall applicazione Web di Azure
 
@@ -355,7 +355,7 @@ Semplificare questo processo creando impostazioni di diagnostica per gli account
 
 **Linee guida**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati, ad esempio gli ambienti di sviluppo, test e produzione. 
 
-Controllare l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo Azure Active Directory (Azure AD) (RBAC di Azure).
+Controllare l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 - [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Seguire le raccomandazioni del Centro sicurezza per la crittografia dei dati ina
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: controllare l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo Azure Active Directory (Azure ad) (RBAC di Azure).
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+**Linee guida**: controllare l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

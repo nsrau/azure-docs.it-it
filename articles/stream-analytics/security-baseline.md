@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229005"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517226"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
 
@@ -248,7 +248,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida**: analisi di flusso non ha il concetto di password predefinite perché l'autenticazione viene fornita con Azure Active Directory e protetta dal controllo degli accessi in base al ruolo (RBAC) per gestire il servizio. A seconda dei servizi di flusso di inserimento e di output, è necessario ruotare le credenziali configurate nei processi.
+**Linee guida**: analisi di flusso non ha il concetto di password predefinite perché l'autenticazione viene fornita con Azure Active Directory e protetta dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire il servizio. A seconda dei servizi di flusso di inserimento e di output, è necessario ruotare le credenziali configurate nei processi.
 
 * [Ruotare le credenziali di accesso per gli input e gli output di un processo di analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -324,7 +324,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse di analisi di flusso.
+**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un controllo con granularità fine sull'accesso di un client alle risorse di analisi di flusso.
 
 * [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

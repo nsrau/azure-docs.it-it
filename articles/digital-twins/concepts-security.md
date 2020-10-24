@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485750"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503318"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -20,7 +20,7 @@ Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controll
 
 I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dati inattivi.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Concessione di autorizzazioni con RBAC di Azure
+## <a name="roles-and-permissions-with-azure-rbac"></a>Ruoli e autorizzazioni con RBAC di Azure
 
 Il controllo degli accessi in base al ruolo di Azure viene fornito ai gemelli digitali di Azure tramite l'integrazione con Azure AD [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -47,22 +47,32 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli di Azure per i dispositivi gemelli digitali di Azure
 
-Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
-* *Proprietario dei dati di Azure Digital gemelli* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
-* *Lettore dati di dispositivi gemelli di Azure* : usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
+Azure fornisce **due ruoli predefiniti di Azure** per autorizzare l'accesso alle [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis)di Azure Digital gemelli. È possibile fare riferimento ai ruoli in base al nome o all'ID:
+
+| Ruolo predefinito | Descrizione | ID | 
+| --- | --- | --- |
+| Proprietario di dati dei dispositivi gemelli digitali di Azure | Consente l'accesso completo alle risorse dei dispositivi gemelli digitali di Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Lettore dati di dispositivi gemelli digitali di Azure | Consente l'accesso in sola lettura alle risorse di Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > Questi ruoli sono stati recentemente rinominati dai nomi precedenti nell'anteprima:
 > * Il *proprietario dei dati di Azure Digital gemelli* era in precedenza *proprietario di Azure Digital gemelli (anteprima)*.
 > * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)*.
 
-Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [*definizioni di ruolo*](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [*ruoli personalizzati di Azure*](../role-based-access-control/custom-roles.md).
-
 È possibile assegnare i ruoli in due modi:
 * tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
 * tramite i comandi dell'interfaccia della riga di comando per aggiungere o rimuovere un ruolo
 
 Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi gemelli di Azure per la [*connessione di una soluzione end-to-end*](tutorial-end-to-end.md).
+
+Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [*definizioni di ruolo*](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [*ruoli personalizzati di Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automazione dei ruoli
+
+Quando si fa riferimento ai ruoli negli scenari automatici, è consigliabile fare riferimento a essi in base ai relativi **ID** anziché ai rispettivi nomi. I nomi possono variare tra le versioni, ma non gli ID, rendendoli un riferimento più stabile in automazione.
+
+> [!TIP]
+> Se si assiging ruoli con un cmdlet, ad esempio `New-AzRoleAssignment` ([riferimento](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), è possibile usare il `-RoleDefinitionId` parametro anziché `-RoleDefinitionName` per passare un ID anziché un nome per il ruolo.
 
 ### <a name="permission-scopes"></a>Ambiti delle autorizzazioni
 

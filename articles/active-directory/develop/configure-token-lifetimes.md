@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f70a11165f6433e580fd857f2d5a620deb6640c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604276"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503622"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurare i criteri di durata del token (anteprima)
-In Azure AD sono disponibili diversi scenari che permettono di creare e gestire la durata dei token per le app, le entità servizio e l'intera organizzazione. Per altre informazioni, vedere [durata del token configurabile nella piattaforma di identità Microsoft](active-directory-configurable-token-lifetimes.md). 
+In Azure AD sono disponibili diversi scenari che permettono di creare e gestire la durata dei token per le app, le entità servizio e l'intera organizzazione.  
 
 > [!IMPORTANT]
-> Dopo aver ascoltato i clienti durante l'anteprima, sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. Dopo il 30 maggio 2020 nessun nuovo tenant sarà in grado di usare i criteri di durata dei token configurabili per configurare i token di sessione e di aggiornamento. La deprecazione avverrà entro diversi mesi, il che significa che non verranno rispettati i criteri di sessione e di aggiornamento dei token esistenti. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
+> Dopo il 30 gennaio 2021, i tenant non saranno più in grado di configurare la durata del token di sessione e di aggiornamento e Azure AD smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo tale data. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.  Per altre informazioni, vedere [durata del token configurabile nella piattaforma di identità Microsoft](active-directory-configurable-token-lifetimes.md).
+> Sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](../conditional-access/howto-conditional-access-session-lifetime.md)   in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso.
 
 
 Questa sezione illustra alcuni scenari comuni relativi ai criteri che consentono di definire nuove regole per:

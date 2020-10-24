@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145265"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503811"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
@@ -37,7 +37,7 @@ Frequenza di accesso consente di definire il periodo di tempo prima che un utent
 
 La configurazione predefinita di Azure Active Directory (Azure AD) per la frequenza di accesso dell'utente è una finestra in sequenza di 90 giorni. La richiesta di credenziali da parte degli utenti è spesso un'operazione sensata, ma può essere riattiva: gli utenti che hanno eseguito il training per immettere le proprie credenziali senza pensare possono fornirli involontariamente a una richiesta di credenziali dannose.
 
-Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
+Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, in realtà qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono (senza limitazioni) una modifica della password, un dispositivo incompliant o la disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). Il Azure AD configurazione predefinita è "non richiedere agli utenti di fornire le proprie credenziali se il comportamento di sicurezza delle sessioni non è cambiato".
 
 L'impostazione della frequenza di accesso funziona con le app che hanno implementato i protocolli OAUTH2 o OIDC in base agli standard. La maggior parte delle app Microsoft native per Windows, Mac e dispositivi mobili, incluse le applicazioni Web seguenti sono conformi all'impostazione.
 
@@ -88,7 +88,7 @@ Il Azure AD predefinito per la persistenza della sessione del browser consente a
 L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza Premium. Per altre informazioni sull'accesso condizionale, vedere [che cos'è l'accesso condizionale in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se si usa la funzionalità di [durata dei token configurabile](../develop/active-directory-configurable-token-lifetimes.md) attualmente disponibile in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utenti o app: uno con questa funzionalità e un altro con funzionalità di durata dei token configurabili. Microsoft intende ritirare la funzionalità di durata dei token configurabile il 1 ° maggio 2020 e sostituirla con la funzionalità di gestione della sessione di autenticazione dell'accesso condizionale.  
+> Se si usa la funzionalità di [durata dei token configurabile](../develop/active-directory-configurable-token-lifetimes.md) attualmente disponibile in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utenti o app: uno con questa funzionalità e un altro con funzionalità di durata dei token configurabili. Microsoft prevede di ritirare la funzionalità di durata dei token configurabili per la durata dei token di aggiornamento e di sessione il 30 gennaio 2021 e sostituirla con la funzionalità di gestione della sessione di autenticazione dell'accesso condizionale.  
 >
 > Prima di abilitare la frequenza di accesso, assicurarsi che altre impostazioni di riautenticazione siano disabilitate nel tenant. Se l'autenticazione a più fattori nei dispositivi attendibili è abilitata, assicurarsi di disabilitarla prima di usare la frequenza di accesso, in quanto l'uso di queste due impostazioni può comportare la richiesta imprevista degli utenti. Per altre informazioni sulle richieste di riautenticazione e sulla durata della sessione, vedere l'articolo [ottimizzare la richiesta di riautenticazione e comprendere la durata della sessione per Azure multi-factor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155455"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516189"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Come usare le autorizzazioni nel cloud Spring di Azure
 Questo articolo illustra come creare ruoli personalizzati che delegano le autorizzazioni per le risorse cloud di Azure Spring. I ruoli personalizzati estendono i [ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) con varie autorizzazioni per le scorte.
@@ -95,7 +95,7 @@ Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
 
     [![Creare autorizzazioni ](media/spring-cloud-permissions/developer-permissions-box.png) Developler](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-9. Scegliere **Aggiungi**.
+9. Fare clic su **Aggiungi**.
 
 10. Esaminare le autorizzazioni.
 
@@ -153,7 +153,7 @@ Da **Microsoft. AppPlatform/SKU**selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/dev-ops-permissions.png) di sviluppo/op](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -187,7 +187,7 @@ Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId**selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/ops-sre-permissions.png) Ops/SRE](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -249,14 +249,14 @@ Da **Microsoft. AppPlatform/SKU**selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/pipelines-permissions-box.png) per pipeline](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
-4. Scegliere **Aggiungi**.
+4. Fare clic su **Aggiungi**.
 
 5. Esaminare le autorizzazioni.
 
 6. Fare clic su **Rivedi e crea**.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
 
 Per ulteriori informazioni su tre metodi che definiscono le autorizzazioni personalizzate, vedere:

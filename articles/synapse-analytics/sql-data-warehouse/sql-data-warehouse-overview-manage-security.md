@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629370"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516884"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in una sinapsi di Azure
 
@@ -92,7 +92,7 @@ L'esempio seguente concede l'accesso in lettura a uno schema definito dall'utent
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-La gestione di database e server dalla portale di Azure o tramite l'API Azure Resource Manager viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+La gestione di database e server dalla portale di Azure o tramite l'API Azure Resource Manager viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Crittografia
 
