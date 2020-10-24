@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716071"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486390"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ Per l'autenticazione di servizi di dominio Active Directory locale, è necessari
 
 Il diagramma seguente illustra l'autenticazione AD DS locale per le condivisioni file di Azure tramite SMB. I servizi di dominio Active Directory locali devono essere sincronizzati con Azure AD tramite Azure AD Connect sincronizzazione. Solo gli utenti ibridi presenti in servizi di dominio Active Directory e Azure AD locali possono essere autenticati e autorizzati per l'accesso alla condivisione file di Azure. Questo è dovuto al fatto che l'autorizzazione a livello di condivisione viene configurata in base all'identità rappresentata in Azure AD in cui viene applicata l'autorizzazione a livello di directory/file in servizi di dominio Active Directory. Assicurarsi di configurare correttamente le autorizzazioni con lo stesso utente ibrido.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagramma":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagramma che illustra l'autenticazione AD DS locale per le condivisioni file di Azure tramite SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ Il diagramma seguente rappresenta il flusso di lavoro per l'autenticazione Azure
 
 - In secondo luogo, è possibile autenticare e autorizzare tutti gli utenti presenti in Azure AD. L'utente può essere solo cloud o ibrido. La sincronizzazione da Azure AD a Azure AD DS viene gestita dalla piattaforma senza richiedere alcuna configurazione utente. Tuttavia, il client deve essere aggiunto a un dominio Azure AD DS, non può essere Azure AD aggiunto o registrato. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagramma":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagramma che illustra l'autenticazione AD DS locale per le condivisioni file di Azure tramite SMB.":::
 
 ### <a name="enable-identity-based-authentication"></a>Abilitare l'autenticazione basata sull'identità
 

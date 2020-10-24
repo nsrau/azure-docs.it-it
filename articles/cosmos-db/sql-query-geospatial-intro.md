@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302932"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482826"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dati della località geospaziale e GeoJSON in Azure Cosmos DB
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o nome località come città o paese/area geografica, è possibile cercare le coordinate effettive usando un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
+Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o nome località come città o paese/area geografica, è possibile cercare le coordinate effettive usando un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](/bingmaps/rest-services/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

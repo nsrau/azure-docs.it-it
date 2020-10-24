@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214010"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487008"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Indicazioni per la progettazione di tabelle distribuite nel pool SQL Synapse
 
 Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in pool Synapse SQL.
 
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL Synapse.  Per altre informazioni, vedere [Architettura di elaborazione parallela massiva (MPP) di Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati in sinapsi SQL.  Per altre informazioni, vedere [architettura di analisi delle sinapsi di Azure](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
 
@@ -32,7 +32,7 @@ Le **tabella con distribuzione hash** migliorano le prestazioni delle query nell
 
 Un'altra opzione di archiviazione delle tabelle prevede la replica di una tabella di piccole dimensioni in tutti i nodi di calcolo. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Per scegliere rapidamente tra queste tre opzioni, vedere Tabelle distribuite nell'articolo di [panoramica sulle tabelle](sql-data-warehouse-tables-overview.md).
 
-Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.    Ad esempio, considerare queste domande:
 
 - Quali sono le dimensioni della tabella?
 - Quanto spesso viene aggiornata la tabella?

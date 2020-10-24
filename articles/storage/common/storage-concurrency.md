@@ -11,46 +11,46 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2732781d32e92c8ec03116988e33ec4fbe0b2330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac54282135759f14f17ed16b9779013f849bd8d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488674"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
-Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:  
+Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Gli sviluppatori di applicazioni devono valutare con attenzione la possibilità di offrire un'esperienza utente prevedibile, in particolare quando più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:
 
-1. Concorrenza ottimistica: un'applicazione che esegue un aggiornamento verificherà, nell'ambito di tale attività, se i dati siano cambiati rispetto all'ultima lettura. Ad esempio, se due utenti che visualizzano una pagina wiki effettuano un aggiornamento alla stessa pagina, la piattaforma wiki deve garantire che il secondo aggiornamento non sovrascriva il primo e che entrambi gli utenti sappiano se il proprio aggiornamento è stato effettuato correttamente o meno. Questa strategia viene usata con maggiore frequenza nelle applicazioni Web.
-2. Concorrenza pessimistica: un'applicazione che cerca di eseguire un aggiornamento applicherà un blocco a un oggetto, impedendo ad altri utenti di aggiornare i dati fino a quando il blocco non viene rimosso. Ad esempio, in uno scenario di replica dei dati master/subordinata in cui solo il master eseguirà gli aggiornamenti, il master in genere deterrà un blocco esclusivo per un lungo periodo di tempo sui dati in modo che nessuno possa aggiornarli.
-3. Prevalenza dell'ultima scrittura: un approccio che consente di eseguire qualsiasi operazione di aggiornamento senza prima verificare se altre applicazioni abbiano aggiornato i dati rispetto alla prima lettura dei dati da parte dell'applicazione. Questa strategia (che in realtà denota la mancanza di una strategia ufficiale) è in genere usata quando i dati vengono partizionati in modo tale da escludere qualsiasi possibilità che gli utenti possano accedere agli stessi dati. Può inoltre essere utile per l'elaborazione di flussi dei dati di breve durata.  
+1. Concorrenza ottimistica: un'applicazione che esegue un aggiornamento farà parte dell'aggiornamento, verificherà se i dati sono stati modificati dall'ultima lettura dei dati da parte dell'applicazione. Se, ad esempio, due utenti che visualizzano una pagina wiki effettuano un aggiornamento alla stessa pagina, la piattaforma wiki deve garantire che il secondo aggiornamento non sovrascriva il primo aggiornamento e che entrambi gli utenti conoscano se l'aggiornamento è stato completato o meno. Questa strategia viene usata con maggiore frequenza nelle applicazioni Web.
+2. Concorrenza pessimistica: un'applicazione che cerca di eseguire un aggiornamento prenderà un blocco su un oggetto, impedendo ad altri utenti di aggiornare i dati fino a quando il blocco non viene rilasciato.
+3. Ultimo autore WINS: un approccio che consente a qualsiasi operazione di aggiornamento di continuare senza verificare se un'altra applicazione ha aggiornato i dati dopo che l'applicazione ha prima letto i dati. Questa strategia viene spesso usata quando i dati vengono partizionati, pertanto non è possibile che più utenti accedano agli stessi dati. Può inoltre essere utile per l'elaborazione di flussi dei dati di breve durata.
 
-In questo articolo viene fornita una panoramica del modo in cui la piattaforma di archiviazione di Azure semplifica lo sviluppo fornendo un supporto eccellente per tutte e tre le strategie di concorrenza descritte.  
+Questo articolo fornisce una panoramica del modo in cui archiviazione di Azure semplifica lo sviluppo supportando tutte e tre queste strategie di concorrenza.
 
 ## <a name="azure-storage-simplifies-cloud-development"></a>Archiviazione di Azure semplifica lo sviluppo cloud
 
-Il servizio di archiviazione di Azure supporta tutte e tre le strategie, sebbene si caratterizzi per la sua capacità di fornire un supporto completo per la concorrenza ottimistica e la concorrenza pessimistica. Tale servizio è stato infatti progettato per accogliere un solido modello di coerenza in grado di garantire che quando il servizio di archiviazione esegue il commit di un'operazione di inserimento o aggiornamento dei dati, tutti gli accessi successivi a tali dati visualizzeranno l'aggiornamento più recente. Le piattaforme di archiviazione che usano un modello di coerenza finale prevedono un intervallo tra il momento in cui un utente esegue una scrittura e il momento in cui i dati aggiornati possono essere visti da altri utenti, rendendo in tal modo difficile lo sviluppo di applicazioni client allo scopo di impedire che le incoerenze influiscano sugli utenti finali.  
+Archiviazione di Azure supporta tutte e tre le strategie, sebbene sia caratterizzata dalla capacità di offrire supporto completo per la concorrenza ottimistica e pessimistica. Archiviazione di Azure è stata progettata per adottare un modello di coerenza forte, garantendo che quando viene eseguito il commit di un'operazione di inserimento o aggiornamento di dati, tutti gli accessi a tali dati visualizzeranno l'aggiornamento più recente. Le piattaforme di archiviazione che usano un modello di coerenza finale presentano un ritardo tra il momento in cui una scrittura viene eseguita da un utente e il momento in cui i dati aggiornati possono essere visualizzati da altri utenti.
 
-Oltre a scegliere una strategia di concorrenza appropriata, gli sviluppatori devono inoltre conoscere il modo in cui una piattaforma di archiviazione isola le modifiche, in particolare quelle apportate allo stesso oggetto in più transazioni. Il servizio di archiviazione di Azure usa l'isolamento degli snapshot per consentire l'esecuzione simultanea di operazioni di lettura e operazioni di scrittura nell'ambito di una singola partizione. A differenza di altri livelli di isolamento, l'isolamento degli snapshot garantisce che tutte le letture vedano uno snapshot coerente dei dati persino durante l'esecuzione di aggiornamenti, essenzialmente restituendo gli ultimi valori di cui è stato eseguito il commit durante l'elaborazione di una transazione di aggiornamento.  
+Gli sviluppatori devono anche sapere come una piattaforma di archiviazione isoli la modifica, in particolare per le modifiche allo stesso oggetto tra le transazioni. Il servizio di archiviazione di Azure usa l'isolamento dello snapshot per consentire che le operazioni di lettura avvengano simultaneamente con le operazioni di scrittura all'interno di una singola partizione. A differenza di altri livelli di isolamento, l'isolamento degli snapshot garantisce che tutte le letture vedano uno snapshot coerente dei dati persino durante l'esecuzione di aggiornamenti, essenzialmente restituendo gli ultimi valori di cui è stato eseguito il commit durante l'elaborazione di una transazione di aggiornamento.
 
 ## <a name="managing-concurrency-in-blob-storage"></a>Gestione della concorrenza nell'archiviazione BLOB
 
-È possibile scegliere di usare modelli di concorrenza ottimistica o pessimistica per gestire l'accesso a BLOB e contenitori nel servizio BLOB. Se non specifica esplicitamente una strategia, per impostazione predefinita prevale l'ultima scrittura.  
+È possibile scegliere di usare modelli di concorrenza ottimistica o pessimistica per gestire l'accesso a BLOB e contenitori nel servizio BLOB. Se non si specifica in modo esplicito una strategia, l'ultima scrittura prevale è l'impostazione predefinita.
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Concorrenza ottimistica per BLOB e contenitori
 
-Il servizio di archiviazione assegna un identificatore a ogni oggetto archiviato, che viene aggiornato ogni volta che un'operazione di aggiornamento viene eseguita su un oggetto. L'identificatore viene restituito al client nell'ambito di una risposta HTTP GET mediante l'intestazione (tag di entità) ETag definita all'interno del protocollo HTTP. Un utente che esegue un aggiornamento su un oggetto di questo tipo può inviare l'ETag originale con un'intestazione condizionale per garantire che l'aggiornamento venga eseguito solo se viene soddisfatta una determinata condizione. In questo caso, la condizione è che un'intestazione "If-Match" che richiede il servizio di archiviazione per garantire che il valore ETag specificato nella richiesta di aggiornamento sia uguale a quello archiviato nel servizio di archiviazione.  
+Il servizio di archiviazione assegna un identificatore a ogni oggetto archiviato, Questo identificatore viene aggiornato ogni volta che viene eseguita un'operazione di aggiornamento su un oggetto. L'identificatore viene restituito al client nell'ambito di una risposta HTTP GET mediante l'intestazione (tag di entità) ETag definita all'interno del protocollo HTTP. Un utente che esegue un aggiornamento su tale oggetto può inviare l'ETag originale insieme a un'intestazione condizionale per garantire che un aggiornamento venga eseguito solo se è stata soddisfatta una determinata condizione, in questo caso la condizione è un'intestazione "If-Match", che richiede che il servizio di archiviazione accerti che il valore ETag specificato nella richiesta di aggiornamento sia uguale a quello archiviato nel servizio di archiviazione.
 
-Il processo è il seguente:  
+Il processo è il seguente:
 
 1. Recuperare un BLOB da un servizio di archiviazione; la risposta include un valore di intestazione HTTP ETag che identifica la versione corrente dell'oggetto nel servizio di archiviazione.
 2. Quando si aggiorna il BLOB, includere il valore ETag ricevuto al passaggio 1 nell'intestazione condizionale **If-Match** della richiesta inviata al servizio.
 3. Il servizio confronta il valore ETag nella richiesta con il valore ETag corrente del BLOB.
-4. Se il valore ETag corrente del BLOB è una versione diversa dall'ETag nell'intestazione condizionale **If-Match** , il servizio restituisce un errore 412 al client. Ciò indica al client che un altro processo ha aggiornato il BLOB rispetto a quando il client lo ha recuperato.
-5. Se il valore ETag corrente del BLOB è la stessa versione dell'Etag nell'intestazione condizionale **If-Match** nella richiesta, il servizio esegue l'operazione richiesta e aggiorna il valore Etag corrente del BLOB per indicare la creazione di una nuova versione.  
+4. Se il valore ETag corrente del BLOB è una versione diversa dall'ETag nell'intestazione condizionale **If-Match** , il servizio restituisce un errore 412 al client. Questo errore indica al client che un altro processo ha aggiornato il BLOB dopo che il client lo ha recuperato.
+5. Se il valore ETag corrente del BLOB è la stessa versione dell'Etag nell'intestazione condizionale **If-Match** nella richiesta, il servizio esegue l'operazione richiesta e aggiorna il valore Etag corrente del BLOB per indicare la creazione di una nuova versione.
 
-Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempio semplice di come costruire una **If-Match AccessCondition** in base al valore ETag al quale viene effettuato l'accesso dalle proprietà di un BLOB precedentemente recuperato o inserito. Usa quindi l'oggetto **AccessCondition** quando aggiorna il BLOB: l'oggetto **AccessCondition** aggiunge l'intestazione **If-Match** alla richiesta. Se un altro processo ha aggiornato il BLOB, il servizio BLOB restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempio semplice di come costruire una **If-Match AccessCondition** in base al valore ETag al quale viene effettuato l'accesso dalle proprietà di un BLOB precedentemente recuperato o inserito. Usa quindi l'oggetto **AccessCondition** quando aggiorna il BLOB: l'oggetto **AccessCondition** aggiunge l'intestazione **If-Match** alla richiesta. Se un altro processo ha aggiornato il BLOB, il servizio BLOB restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -82,12 +82,12 @@ catch (StorageException ex)
     }
     else
         throw;
-}  
+}
 ```
 
-Archiviazione di Azure include anche il supporto di altre intestazioni condizionale quali **If-Modified-Since**, **If-Unmodified-Since** e **If-None-Match** nonché le relative combinazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Archiviazione di Azure include anche il supporto per le intestazioni condizionali, ad esempio **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match**e le combinazioni di tali intestazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx).
 
-Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.  
+Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.
 
 | Operazione | Restituisce il valore ETag del contenitore | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
@@ -101,7 +101,7 @@ Nella tabella seguente sono riepilogate le operazioni contenitore che accettano 
 | Lease Container |Sì |Sì |
 | List Blobs |No |No |
 
-(*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.  
+(*) Le autorizzazioni definite da SetContainerACL vengono memorizzate nella cache e gli aggiornamenti a queste autorizzazioni importano 30 secondi per la propagazione durante i quali gli aggiornamenti del periodo non sono garantiti coerenti.
 
 Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.
 
@@ -124,15 +124,15 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 | Put Page |Sì |Sì |
 | Get Page Ranges |Sì |Sì |
 
-(*) Lease Blob non modifica l'ETag in un BLOB.  
+(*) Il BLOB di lease non modifica l'ETag in un BLOB.
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Concorrenza pessimistica per i BLOB
 
-Per bloccare un BLOB al fine di usarlo in modo esclusivo, è possibile acquisire un [lease](https://msdn.microsoft.com/library/azure/ee691972.aspx) su di esso. Quando si acquisisce un lease, specificarne la durata, che può essere compresa tra 15 e 60 secondi oppure essere infinita e richiedere quindi un blocco esclusivo. È possibile rinnovare un lease finito per estenderlo e rilasciare qualsiasi lease al termine dell'uso. Il servizio BLOB rilascia automaticamente i lease finiti alla scadenza.  
+Per bloccare un BLOB per l'uso esclusivo, acquisire un [lease](https://msdn.microsoft.com/library/azure/ee691972.aspx) su di esso. Quando si acquisisce un lease, si specifica un periodo di tempo per il lease. Il periodo di tempo è compreso tra 15 e 60 secondi o infinito, che equivale a un blocco esclusivo. Rinnovare un lease finito per estenderlo. Rilasciare un lease al termine dell'operazione. L'archiviazione BLOB rilascia automaticamente i lease finiti alla scadenza.
 
-I lease abilitano il supporto di strategie di sincronizzazione diverse, tra cui la scrittura esclusiva/la lettura condivisa, la scrittura esclusiva/la lettura esclusiva e la scrittura condivisa/la lettura esclusiva. In presenza di un lease il servizio di archiviazione applica scritture esclusive (operazioni Put, Set e Delete); tuttavia, garantire l'esclusività per le operazioni di lettura richiede allo sviluppatore di verificare che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease determinano letture condivise.  
+I lease consentono di supportare diverse strategie di sincronizzazione. Le strategie includono *scrittura/lettura condivisa*, *scrittura esclusiva/lettura esclusiva*e *scrittura condivisa/lettura esclusiva*. Quando esiste un lease, l'archiviazione di Azure impone Scritture esclusive (operazioni Put, set ed Delete), garantendo tuttavia che l'esclusività per le operazioni di lettura richieda allo sviluppatore di garantire che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease generano letture condivise.
 
-Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP 409 - Conflitto". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP (409) Conflict". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -158,12 +158,12 @@ catch (StorageException ex)
         Console.WriteLine("Precondition failure as expected. Blob's lease does not match");
     else
         throw;
-}  
+}
 ```
 
-Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Si noti che la richiesta ha esito negativo con un errore **412** anche se il lease scade prima di chiamare il metodo **UploadText** ma si passa comunque l'ID. Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx).  
+Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Se il lease scade prima di chiamare il metodo **Uploadtext** , ma si passa ancora l'ID lease, anche la richiesta ha esito negativo con un errore **412** . Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx).
 
-Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pessimistica:  
+Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pessimistica:
 
 * Put Blob
 * Get Blob
@@ -180,13 +180,13 @@ Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pes
 * Snapshot Blob: ID lease facoltativo se esiste un lease
 * Copy Blob: ID lease obbligatorio se esiste un lease nel BLOB di destinazione
 * Abort Copy Blob: ID lease obbligatorio se esiste un lease infinito nel BLOB di destinazione
-* Lease Blob  
+* Lease Blob
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Concorrenza pessimistica per i contenitori
 
-I lease sui contenitori abilitano il supporto delle stesse strategie di sincronizzazione dei BLOB (scrittura esclusiva/lettura condivisa, scrittura esclusiva/lettura esclusiva e scrittura condivisa/lettura esclusiva); tuttavia, a differenza dei BLOB il servizio di archiviazione applica l'esclusività solo alle operazioni Delete. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.  
+I lease sui contenitori consentono di supportare le stesse strategie di sincronizzazione dei BLOB (*scrittura esclusiva/lettura condivisa*, *scrittura esclusiva/lettura esclusiva*e *scrittura condivisa/lettura esclusiva*). Tuttavia, a differenza dei BLOB il servizio di archiviazione impone solo l'esclusività sulle operazioni di eliminazione. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.
 
-Le operazioni contenitore seguenti possono usare i lease per gestire la concorrenza pessimistica:  
+Le operazioni contenitore seguenti possono usare i lease per gestire la concorrenza pessimistica:
 
 * Delete Container
 * Get Container Properties
@@ -194,9 +194,9 @@ Le operazioni contenitore seguenti possono usare i lease per gestire la concorre
 * Set Container Metadata
 * Get Container ACL
 * Set Container ACL
-* Lease Container  
+* Lease Container
 
-Per altre informazioni, vedere:  
+Per altre informazioni, vedere:
 
 * [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
@@ -204,17 +204,17 @@ Per altre informazioni, vedere:
 
 ## <a name="managing-concurrency-in-table-storage"></a>Gestione della concorrenza nell'archiviazione tabelle
 
-Il servizio tabelle usa i controlli della concorrenza ottimistica come comportamento predefinito quando si usano entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire controlli di concorrenza ottimistica. L'altra differenza tra il servizio tabelle e il servizio BLOB risiede nel fatto che con il primo è possibile gestire solo il comportamento di concorrenza delle entità, mentre con il servizio BLOB è possibile gestire la concorrenza sia dei contenitori sia dei BLOB.  
+Il servizio tabelle usa le verifiche della concorrenza ottimistica come comportamento predefinito quando si lavora con le entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire verifiche della concorrenza ottimistica. L'altra differenza tra i servizi tabelle e BLOB è la possibilità di gestire solo il comportamento di concorrenza delle entità, ma con il servizio BLOB è possibile gestire la concorrenza di contenitori e BLOB.
 
-Per usare la concorrenza ottimistica e controllare se un altro processo ha modificato un'entità da quando questa è stata recuperata dal servizio di archiviazione tabelle, è possibile usare il valore ETag ricevuto quando il servizio tabelle restituisce un'entità. Il processo è il seguente:  
+Per usare la concorrenza ottimistica e controllare se un altro processo ha modificato un'entità da quando questa è stata recuperata dal servizio di archiviazione tabelle, è possibile usare il valore ETag ricevuto quando il servizio tabelle restituisce un'entità. Il processo è il seguente:
 
 1. Recuperare un'entità da un servizio di archiviazione tabelle; la risposta include un valore ETag che identifica l'identificatore corrente associato all'entità nel servizio di archiviazione.
 2. Quando si aggiorna l'entità, includere il valore ETag ricevuto al passaggio 1 nell'intestazione **If-Match** obbligatoria della richiesta inviata al servizio.
 3. Il servizio confronta il valore ETag nella richiesta con il valore ETag corrente dell'entità.
 4. Se il valore ETag corrente del BLOB è diverso dall'ETag nell'intestazione **If-Match** obbligatoria nella richiesta, il servizio restituisce un errore 412 al client. Ciò indica al cliente che un altro processo ha aggiornato l'entità da quando questa è stata recuperata dal client.
-5. Se il valore ETag corrente dell'entità è uguale all'ETag nell'intestazione **If-Match** obbligatoria della richiesta o se l'intestazione **If-Match** contiene il carattere jolly (*), il servizio esegue l'operazione richiesta e aggiorna il valore ETag corrente dell'entità per indicare che è stato aggiornato.  
+5. Se il valore ETag corrente dell'entità corrisponde all'ETag nell'intestazione **If-Match** obbligatoria della richiesta o se l'intestazione **If-Match** contiene il carattere jolly (*), il servizio esegue l'operazione richiesta e aggiorna il valore ETag corrente dell'entità per indicare che è stato aggiornato.
 
-Si noti che, a differenza del servizio BLOB, il servizio tabelle richiede che il client includa un'intestazione **If-Match** nelle richieste di aggiornamento. Tuttavia, è possibile forzare un aggiornamento condizionale (strategia della prevalenza dell'ultima scrittura) e ignorare i controlli della concorrenza se il client imposta l'intestazione **If-Match** sul carattere jolly (*) nella richiesta.  
+Il servizio tabelle richiede che il client includa un'intestazione **If-Match** nelle richieste di aggiornamento. Tuttavia, è possibile forzare un aggiornamento condizionale (strategia della prevalenza dell'ultima scrittura) e ignorare i controlli della concorrenza se il client imposta l'intestazione **If-Match** sul carattere jolly (*) nella richiesta.
 
 Il seguente frammento C# mostra un'entità del cliente precedentemente creata o recuperata con l'aggiornamento dell'indirizzo di posta elettronica. L'operazione iniziale di inserimento o recupero archivia il valore ETag nell'oggetto del cliente e, poiché l'esempio usa la stessa istanza di oggetto quando esegue l'operazione di sostituzione, invia automaticamente il valore ETag alla tabella, consentendo al servizio di verificare l'eventuale presenza di violazioni della concorrenza. Se un altro processo ha aggiornato l'entità nella tabella di archiviazione, il servizio restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita).  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -232,13 +232,13 @@ catch (StorageException ex)
         Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
     else
         throw;
-}  
+}
 ```
 
-Per disabilitare esplicitamente il controllo della concorrenza, è necessario impostare la proprietà **ETag** dell'oggetto **employee** su "*" prima di eseguire l'operazione di sostituzione.  
+Per disabilitare esplicitamente il controllo della concorrenza, è necessario impostare la proprietà **ETag** dell'oggetto **employee** su "*" prima di eseguire l'operazione di sostituzione.
 
 ```csharp
-customer.ETag = "*";  
+customer.ETag = "*";
 ```
 
 Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle entità di tabella usano i valori ETag:
@@ -253,45 +253,44 @@ Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle 
 | Insert or Replace Entity |Sì |No |
 | Insert or Merge Entity |Sì |No |
 
-SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity***non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
+Si noti che le operazioni di **inserimento o sostituzione** dell'entità e dell' **entità INSERT o merge** *non* eseguono alcun controllo della concorrenza perché non inviano un valore ETag al servizio tabelle.
 
-In generale gli sviluppatori che usano tabelle devono fare affidamento sulla concorrenza ottimistica quando sviluppano applicazioni scalabili. Se è necessario un blocco pessimistico, un possibile approccio che gli sviluppatori possono adottare quando effettuano l'accesso alle tabelle è di assegnare un BLOB designato per ciascuna tabella e provare ad acquisire un lease sul BLOB prima di eseguire operazioni sulla tabella. Adottando questo approccio è necessario che l'applicazione verifichi che tutti i percorsi di accesso ai dati ottengano il lease prima di eseguire operazioni sulla tabella. Occorre inoltre notare che il tempo di lease minimo è di 15 secondi, pertanto è necessario prestare una particolare attenzione alla scalabilità.  
+In generale, gli sviluppatori che utilizzano tabelle devono basarsi sulla concorrenza ottimistica. Se è necessario un blocco pessimistico durante l'accesso alle tabelle, assegnare un BLOB scelto per ogni tabella e provare a eseguire un lease sul BLOB prima di operare sulla tabella. Questo approccio richiede che l'applicazione assicuri che tutti i percorsi di accesso ai dati ottengano il lease prima di operare sulla tabella. Si noti inoltre che il tempo di lease minimo è di 15 secondi, che richiede un'attenta considerazione per la scalabilità.
 
-Per altre informazioni, vedere:  
+Per altre informazioni, vedere:
 
-* [Operazioni sulle entità](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
+* [Operazioni sulle entità](https://msdn.microsoft.com/library/azure/dd179375.aspx)
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Gestione della concorrenza nel servizio di accodamento
 
-Uno scenario in cui la concorrenza rappresenta un problema nel servizio di accodamento è quello in cui più client recuperano i messaggi da una coda. Quando un messaggio viene recuperato dalla coda, la risposta include il messaggio e un valore di ricezione POP, necessario per eliminare il messaggio. Il messaggio non viene eliminato automaticamente dalla coda, ma dopo essere stato recuperato non è visibile agli altri client per l'intervallo di tempo specificato dal parametro visibilitytimeout. Il client che recupera il messaggio lo elimina dopo che è stato elaborato e prima dell'ora specificata dall'elemento TimeNextVisible della risposta, calcolata in base al valore del parametro visibilitytimeout. Il valore di visibilitytimeout viene aggiunto all'ora in cui viene recuperato il messaggio per determinare il valore di TimeNextVisible.  
+Uno scenario in cui la concorrenza rappresenta un problema nel servizio di accodamento è quello in cui più client recuperano i messaggi da una coda. Quando un messaggio viene recuperato dalla coda, la risposta include il messaggio e un valore di ricezione POP, necessario per eliminare il messaggio. Il messaggio non viene eliminato automaticamente dalla coda, ma dopo che è stato recuperato, non è visibile agli altri client per l'intervallo di tempo specificato dal parametro di timeout di visibilità. Il client che recupera il messaggio dovrebbe eliminare il messaggio dopo che è stato elaborato e prima dell'ora specificata dall'elemento TimeNextVisible della risposta, calcolata in base al valore del parametro di timeout di visibilità. Il valore di timeout di visibilità viene aggiunto al momento in cui viene recuperato il messaggio per determinare il valore di TimeNextVisible.
 
-Il servizio di accodamento non offre il supporto della concorrenza ottimistica o pessimistica e per questo motivo i client che elaborano messaggi recuperati da una coda devono garantire che vengano recuperati in un modo idempotente. Una strategia in cui prevale l'ultima scrittura viene usata per aggiornare operazioni quali SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.  
+Il servizio di Accodamento non dispone del supporto per la concorrenza ottimistica o pessimistica e per questo motivo i client che elaborano i messaggi recuperati da una coda devono garantire che i messaggi vengano elaborati in modo idempotente. Per le operazioni di aggiornamento, ad esempio SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage, viene usata una strategia di WINS dell'ultimo writer.
 
-Per altre informazioni, vedere:  
+Per altre informazioni, vedere:
 
 * [API REST del servizio di accodamento](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)
 
 ## <a name="managing-concurrency-in-azure-files"></a>Gestione della concorrenza in File di Azure
 
-È possibile accedere al servizio file usando due diversi endpoint di protocollo: SMB e REST. Il servizio REST non presenta il supporto per il blocco ottimistico o pessimistico e tutti gli aggiornamenti seguiranno una strategia basata sulla prevalenza dell'ultima scrittura. I client SMB che montano condivisioni file possono usare meccanismi di blocco del file system per gestire l'accesso ai file condivisi, inclusa la possibilità di eseguire il blocco pessimistico. Quando un client SMB apre un file, specifica sia l'accesso al file sia la modalità di condivisione. L'impostazione di un'opzione di accesso al file "in scrittura" o "in lettura/scrittura" insieme a una modalità di condivisione file impostata su "nessuna" determinerà il blocco del file da parte di un client SMB fino alla chiusura del file. Se si prova a eseguire l'operazione REST su un file in cui un client SMB ha applicato un blocco, il servizio REST restituirà il codice di stato 409 (Conflitto) con il codice errore SharingViolation.  
+È possibile accedere al servizio file usando due diversi endpoint di protocollo: SMB e REST. Il servizio REST non supporta il blocco ottimistico o il blocco pessimistico e tutti gli aggiornamenti seguiranno la strategia di WINS dell'ultimo writer. I client SMB che montano condivisioni file possono usare file system meccanismi di blocco per gestire l'accesso ai file condivisi, inclusa la possibilità di eseguire un blocco pessimistico. Quando un client SMB apre un file, specifica sia l'accesso al file sia la modalità di condivisione. L'impostazione di un'opzione di accesso al file "in scrittura" o "in lettura/scrittura" insieme a una modalità di condivisione file impostata su "nessuna" determinerà il blocco del file da parte di un client SMB fino alla chiusura del file. Se si prova a eseguire l'operazione REST su un file in cui un client SMB ha applicato un blocco, il servizio REST restituirà il codice di stato 409 (Conflitto) con il codice errore SharingViolation.
 
-Quando un client SMB apre un file per eliminarlo, lo contrassegna come in attesa dell'eliminazione fino a quando tutti gli altri handle aperti del client SMB su tale file vengono chiusi. Quando un file viene contrassegnato come in attesa di eliminazione, qualsiasi operazione REST su tale file restituirà il codice di stato 409 (Conflitto) con codice errore SMBDeletePending. Il codice di stato 404 (Non trovato) non viene restituito perché è il client SMB può rimuovere il flag di eliminazione in sospeso prima di chiudere il file. In altre parole, il codice di stato 404 (Non trovato) è previsto solo dopo la rimozione del file. Se un file si trova in uno stato di attesa di eliminazione da parte del client SMB, non sarà incluso nei risultati degli elenchi di file. Le operazioni di eliminazione dei file REST e di eliminazione della directory REST vengono anche sottoposte a commit in modo atomico e non determinano lo stato di eliminazione in sospeso.  
+Quando un client SMB apre un file per eliminarlo, lo contrassegna come in attesa dell'eliminazione fino a quando tutti gli altri handle aperti del client SMB su tale file vengono chiusi. Quando un file viene contrassegnato come in attesa di eliminazione, qualsiasi operazione REST su tale file restituirà il codice di stato 409 (Conflitto) con codice errore SMBDeletePending. Il codice di stato 404 (non trovato) non viene restituito perché il client SMB può rimuovere il flag di eliminazione in sospeso prima di chiudere il file. In altre parole, il codice di stato 404 (Non trovato) è previsto solo dopo la rimozione del file. Se un file si trova in uno stato di attesa di eliminazione da parte del client SMB, non sarà incluso nei risultati degli elenchi di file. Le operazioni di eliminazione dei file REST e di eliminazione della directory REST vengono anche sottoposte a commit in modo atomico e non determinano lo stato di eliminazione in sospeso.
 
-Per altre informazioni, vedere:  
+Per altre informazioni, vedere:
 
-* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per l'applicazione di esempio completa alla quale si fa riferimento in questo blog, vedere:  
+Per l'applicazione di esempio completa alla quale si fa riferimento in questo blog, vedere:
 
-* [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 
-Per altre informazioni sull'archiviazione di Azure, vedere:  
+Per ulteriori informazioni sull'archiviazione di Azure, vedere:
 
 * [Home page di Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introduzione ad Archiviazione di Azure](storage-introduction.md)
 * Introduzione all'archiviazione per [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [code](../storage-dotnet-how-to-use-queues.md) e [file](../storage-dotnet-how-to-use-files.md)
-* Architettura di archiviazione – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta)
-
+* Architettura di archiviazione – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta)

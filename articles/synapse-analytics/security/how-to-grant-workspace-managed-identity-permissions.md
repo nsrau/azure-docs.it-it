@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535043"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487195"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere le autorizzazioni per l'identità gestita dell'area di lavoro (anteprima)
 
@@ -70,7 +70,7 @@ L'identità gestita deve avere accesso ai dati al contenitore (file system) forn
 
 
 Selezionare lo stesso contenitore o file system per concedere al ruolo *collaboratore dati BLOB di archiviazione* l'identità gestita.
-![Selezione del contenitore dell'account di archiviazione ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Screenshot che mostra il contenitore o file system da selezionare.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Passaggio 3: passare a controllo di accesso
 

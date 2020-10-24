@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905894"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484594"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 
@@ -30,11 +30,15 @@ Per proseguire con questa guida è necessario:
 > [!TIP]
 > Se si sta cercando di eseguire la migrazione di database di grandi dimensioni con dimensioni di database maggiori di 1 TBs, è consigliabile usare strumenti della community come il **Dumper/il caricatore** che supporta l'esportazione e l'importazione parallele. Informazioni [su come eseguire la migrazione di database MySQL di grandi dimensioni](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 
-## <a name="common-use-cases-for-dump-and-restore"></a>Casi d'uso comuni per dump e ripristino
-È possibile usare le utilità MySQL, ad esempio **mysqldump** e **mysqlpump** , per scaricare e caricare i database in un database MySQL di Azure in diversi scenari comuni. In altri scenari è invece possibile usare l'approccio di [importazione ed esportazione](concepts-migrate-import-export.md).
 
-- **Usare i dump del database quando si esegue la migrazione dell'intero database**. Questa indicazione è utile quando si sposta una grande quantità di dati di MySQL o quando si vuole ridurre al minimo l'interruzione del servizio per applicazioni o siti live.
--  **Utilizzare il dump del database se tutte le tabelle nel database utilizzano il motore di archiviazione InnoDB**. Il database di Azure per MySQL supporta solo il motore di archiviazione InnoDB e pertanto non sono supportati motori di archiviazione alternativi. Se le tabelle sono configurate con motori di archiviazione alternativi, convertirli nel formato di motore InnoDB prima della migrazione al database di Azure per MySQL.
+## <a name="common-use-cases-for-dump-and-restore"></a>Casi d'uso comuni per dump e ripristino
+
+I casi d'uso più comuni sono:
+
+- Il **passaggio da un altro provider di servizi gestiti** : la maggior parte dei provider di servizi gestiti potrebbe non consentire l'accesso al file di archiviazione fisica per motivi di sicurezza, in modo da consentire la migrazione di backup e ripristino logici.
+- **Migrazione da un ambiente locale o da una macchina virtuale** : database di Azure per MySQL non supporta il ripristino di backup fisici che rendono il backup logico e il ripristino come unico approccio.
+- **Lo spazio di archiviazione di backup dall'archiviazione con ridondanza locale a quella con ridondanza geografica** : database di Azure per MySQL consente la configurazione dell'archiviazione con ridondanza locale o con ridondanza geografica per il backup solo durante la creazione del Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup. Per spostare l'archivio di backup dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica, è possibile eseguire dump e ripristino. 
+-  **Migrazione da motori di archiviazione alternativi a InnoDB** -database di Azure per MySQL supporta solo il motore di archiviazione InnoDB e pertanto non supporta motori di archiviazione alternativi. Se le tabelle sono configurate con motori di archiviazione alternativi, convertirli nel formato di motore InnoDB prima della migrazione al database di Azure per MySQL.
 
     Se ad esempio si possiede WordPress o WebApp con le tabelle MyISAM, convertire le tabelle eseguendo la migrazione nel formato InnoDB prima del ripristino al database di Azure per MySQL. Usare la clausola `ENGINE=InnoDB` per impostare il motore usato per la creazione di una nuova tabella e quindi trasferire i dati nella tabella compatibile prima del ripristino.
 
@@ -165,3 +169,4 @@ Per problemi noti, suggerimenti e consigli, è consigliabile consultare il [blog
 ## <a name="next-steps"></a>Passaggi successivi
 - [Connettere le applicazioni a Database di Azure per MySQL](./howto-connection-string.md).
 - Per altre informazioni sulla migrazione dei database in Database di Azure per MySQL, vedere [Database Migration Guide](https://aka.ms/datamigration) (Guida alla migrazione di database).
+- Se si sta cercando di eseguire la migrazione di database di grandi dimensioni con dimensioni di database maggiori di 1 TBs, è consigliabile usare strumenti della community come il **Dumper/il caricatore** che supporta l'esportazione e l'importazione parallele. Informazioni [su come eseguire la migrazione di database MySQL di grandi dimensioni](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

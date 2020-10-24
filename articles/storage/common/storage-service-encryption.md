@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985753"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488572"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -30,7 +30,7 @@ I dati in un account di archiviazione vengono crittografati indipendentemente da
 
 Ogni BLOB in blocchi, BLOB di accodamento o BLOB di pagine che è stato scritto in archiviazione di Azure dopo il 20 ottobre 2017 è crittografato. I BLOB creati prima di questa data continuano a essere crittografati da un processo in background. Per forzare la crittografia di un blob creato prima del 20 ottobre 2017, è possibile riscrivere il BLOB. Per informazioni su come controllare lo stato di crittografia di un BLOB, vedere [controllare lo stato della crittografia di un BLOB](../blobs/storage-blob-encryption-status.md).
 
-Per altre informazioni sui moduli di crittografia sottostanti la crittografia di archiviazione di Azure, vedere [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
+Per altre informazioni sui moduli di crittografia sottostanti la crittografia di archiviazione di Azure, vedere [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
 Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed disks, vedere la pagina relativa alla [crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) per macchine virtuali Windows o [la crittografia lato server di Azure Managed](../../virtual-machines/linux/disk-encryption.md) disks per macchine virtuali Linux.
 

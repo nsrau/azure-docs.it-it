@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356367"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475916"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -50,7 +50,7 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
 
 5. **Hub eventi:** Hub eventi di Azure archivia questi eventi e li invia ad [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) per eseguire un'altra analisi.  
 
-6. **Analisi di flusso di Azure:** Analisi di flusso di Azure definisce le query per elaborare gli eventi ed eseguire analisi in tempo reale dei dati. Questi dati sono quindi inviati a [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Analisi di flusso di Azure:** Analisi di flusso di Azure definisce le query per elaborare gli eventi ed eseguire analisi in tempo reale dei dati. Questi dati sono quindi inviati a [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI viene usato per visualizzare i dati inviati da Analisi di flusso di Azure. È possibile creare una dashboard per visualizzare la modalità con cui le metriche si modificano in tempo reale.  
 
@@ -382,4 +382,4 @@ Per eliminare le risorse create durante il Lab, passare al gruppo di risorse in 
 
 ## <a name="next-steps"></a>Passaggi successivi 
   
-* Per altre informazioni sul feed di modifiche, vedere l'articolo [Uso del supporto del feed di modifiche in Azure Cosmos DB](change-feed.md) 
+* Per altre informazioni sul feed di modifiche, vedere l'articolo [Uso del supporto del feed di modifiche in Azure Cosmos DB](change-feed.md)

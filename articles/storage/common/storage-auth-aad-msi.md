@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2914a0e9b4c38cff01222ac9a9bffc99827d7162
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713671"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488742"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -28,7 +28,7 @@ Questo articolo illustra come autorizzare l'accesso ai dati di BLOB o di Accodam
 
 Prima di poter usare le identità gestite per le risorse di Azure per autorizzare l'accesso a BLOB e code dalla VM, è necessario prima di tutto abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
-- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -94,7 +94,7 @@ Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'e
 
 La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
-|Variabile di ambiente|Valore
+|Variabile di ambiente|valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
 |`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio

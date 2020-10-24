@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460548"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486940"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Progettare le tabelle nel pool SQL sinapsi
 
@@ -46,7 +46,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL, è possibile utili
 
 | Tabella WideWorldImportersDW  | Tipo di tabella. | Pool SQL |
 |:-----|:-----|:------|:-----|
-| City | Dimensione | wwi.DimCity |
+| City | Dimension | wwi.DimCity |
 | JSON | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
@@ -79,7 +79,7 @@ Il pool SQL supporta i tipi di dati usati più di frequente. Per un elenco dei t
 
 ## <a name="distributed-tables"></a>Tabelle con distribuzione
 
-Una funzionalità fondamentale del pool SQL è il modo in cui è possibile archiviare e operare sulle tabelle tra le [distribuzioni](massively-parallel-processing-mpp-architecture.md#distributions).  Il pool SQL supporta tre metodi per la distribuzione dei dati: Round Robin (impostazione predefinita), hash e replicati.
+Una funzionalità fondamentale di sinapsi SQL è il modo in cui è possibile archiviare e operare sulle tabelle tra le [distribuzioni](massively-parallel-processing-mpp-architecture.md#distributions). Sinapsi SQL supporta tre metodi per la distribuzione dei dati: Round Robin (impostazione predefinita), hash e replicati.
 
 ### <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
 
@@ -106,7 +106,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 | Categoria di tabella | Opzione di distribuzione consigliata |
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
-| Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
+| Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
 | Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480225"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -63,7 +63,7 @@ Le transazioni sono integrate in modo nativo nel modello di programmazione JavaS
 
 ### <a name="data-consistency"></a>Coerenza dei dati
 
-Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria del contenitore di Azure Cosmos DB. Questa funzionalità garantisce la [coerenza assoluta](consistency-levels-tradeoffs.md) delle letture dalle stored procedure. Le query che usano funzioni definite dall'utente possono essere eseguite nella replica primaria o in qualsiasi replica secondaria. Le stored procedure e i trigger sono progettati per supportare scritture transazionali, mentre la logica di sola lettura viene implementata meglio come logica sul lato applicazione e le query che usano gli [SDK delle API SQL di Azure Cosmos DB](sql-api-dotnet-samples.md) consentiranno di saturare la velocità effettiva del database. 
+Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria del contenitore di Azure Cosmos DB. Questa funzionalità garantisce la [coerenza assoluta](./consistency-levels.md) delle letture dalle stored procedure. Le query che usano funzioni definite dall'utente possono essere eseguite nella replica primaria o in qualsiasi replica secondaria. Le stored procedure e i trigger sono progettati per supportare scritture transazionali, mentre la logica di sola lettura viene implementata meglio come logica sul lato applicazione e le query che usano gli [SDK delle API SQL di Azure Cosmos DB](sql-api-dotnet-samples.md) consentiranno di saturare la velocità effettiva del database. 
 
 > [!TIP]
 > Le query eseguite all'interno di un stored procedure o di un trigger potrebbero non visualizzare le modifiche apportate agli elementi dalla stessa transazione di script. Questa istruzione si applica sia alle query SQL, ad esempio, sia alle `getContent().getCollection.queryDocuments()` query in linguaggio integrato, ad esempio `getContext().getCollection().filter()` .

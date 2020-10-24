@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280148"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488861"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -133,7 +133,7 @@ Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mysto
 - Archivio tabelle: `https://*mystorageaccount*.table.core.windows.net`
 - Archiviazione code: `https://*mystorageaccount*.queue.core.windows.net`
 - File di Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (USA il [driver ABFS ottimizzato in modo specifico per Big Data](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (USA il [driver ABFS ottimizzato in modo specifico per Big Data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
 
 > [!NOTE]
 > Gli account di archiviazione BLOB e BLOB in blocchi espongono solo l'endpoint del servizio BLOB.
@@ -177,7 +177,7 @@ La libreria di spostamento dei dati di Archiviazione di Azure per .NET si basa s
 
 È possibile creare un'applicazione personalizzata per eseguire la migrazione dei dati da un account di archiviazione per utilizzo generico V1 a un account di archiviazione BLOB. Usare una delle librerie client di Azure o l'API REST dei servizi di archiviazione di Azure. Archiviazione di Azure fornisce librerie client avanzate per più linguaggi e piattaforme, ad esempio .NET, Java, C++, Node.js, PHP, Ruby e Python. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
 
-Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informazioni di riferimento sulle API REST dei servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/).
+Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informazioni di riferimento sulle API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > I BLOB crittografati con la crittografia lato client archiviano i metadati correlati alla crittografia con il BLOB. Se si copia un BLOB crittografato con la crittografia lato client, verificare che l'operazione di copia mantenga i metadati del BLOB e soprattutto quelli correlati alla crittografia. Se si copia un BLOB senza i metadati di crittografia, il contenuto del BLOB non sarà più recuperabile. Per altre informazioni sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

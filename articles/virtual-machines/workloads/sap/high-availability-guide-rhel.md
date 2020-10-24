@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: a216e942d63941c19aea8fa1c07962de0744e9bd
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b4684f8d9a6bd04a11961632b616258db7344a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487569"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -499,10 +499,10 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[A]**  Configurare keep-alive
 
-   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
+   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver, se si usa ENSA1 e modificare le impostazioni di sistema di Linux `keepalive` in tutti i server SAP per ENSA1/ENSA2. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
 
    <pre><code># Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 1. **[A]** Aggiornare il file /usr/sap/sapservices

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708455"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488011"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -32,11 +32,11 @@ Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i ba
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
 
-In un subset di [aree di Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. In un giorno vengono eseguiti tre backup differenziali degli snapshot. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+In un subset di [aree di Azure](./concepts-pricing-tiers.md#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. In un giorno vengono eseguiti tre backup differenziali degli snapshot. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
 
 ### <a name="backup-retention"></a>Conservazione dei backup
 
-I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) o l' [interfaccia](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration)della riga di comando 
+I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](./howto-restore-server-portal.md#set-backup-configuration) o l' [interfaccia](./howto-restore-server-cli.md#set-backup-configuration)della riga di comando 
 
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il periodo di conservazione dei backup può essere trattato anche come una finestra di ripristino da una prospettiva di ripristino. Tutti i backup necessari per eseguire un ripristino temporizzato entro il periodo di conservazione dei backup vengono conservati nell'archivio di backup. Ad esempio, se il periodo di conservazione dei backup è impostato su 7 giorni, la finestra di ripristino viene considerata gli ultimi 7 giorni. In questo scenario vengono conservati tutti i backup necessari per ripristinare il server negli ultimi 7 giorni. Con un intervallo di conservazione dei backup di sette giorni:
 - I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
@@ -44,7 +44,7 @@ Il periodo di conservazione dei backup determina quanto è possibile tornare ind
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
-Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di Azure per PostgreSQL offre la possibilità di scegliere tra archiviazione dei backup con ridondanza locale o con ridondanza geografica. Quando vengono archiviati in un archivio di backup con ridondanza geografica, i backup non solo vengono archiviati nell'area in cui è ospitato il server, ma vengono anche replicati in un [data center abbinato](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Questo garantisce una migliore protezione e la possibilità di ripristinare il server in un'area diversa in caso di emergenza. Il livello Basic offre solo l'archiviazione dei backup con ridondanza locale.
+Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di Azure per PostgreSQL offre la possibilità di scegliere tra archiviazione dei backup con ridondanza locale o con ridondanza geografica. Quando vengono archiviati in un archivio di backup con ridondanza geografica, i backup non solo vengono archiviati nell'area in cui è ospitato il server, ma vengono anche replicati in un [data center abbinato](../best-practices-availability-paired-regions.md). Questo garantisce una migliore protezione e la possibilità di ripristinare il server in un'area diversa in caso di emergenza. Il livello Basic offre solo l'archiviazione dei backup con ridondanza locale.
 
 > [!IMPORTANT]
 > La configurazione dell'archiviazione con ridondanza locale o geografica per il backup è consentita solo durante la creazione del server. Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup.
@@ -69,7 +69,7 @@ Sono disponibili due tipi di ripristino:
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
 > [!IMPORTANT]
-> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 

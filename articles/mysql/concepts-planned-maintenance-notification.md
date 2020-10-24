@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 3a5a4b3997a9286901fc24173e57563c5abe68a1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429034"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488912"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
@@ -63,7 +63,7 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 
 Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>È possibile controllare o modificare la manutenzione pianificata per i server dopo la ricezione di un evento di notifica?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>È possibile annullare o posticipare la manutenzione pianificata?
 
 La manutenzione è necessaria per mantenere il server protetto, stabile e aggiornato. L'evento di manutenzione pianificata non può essere annullato o posticipato. Quando la notifica viene inviata a una determinata area di Azure, non è possibile apportare modifiche alla pianificazione dell'applicazione di patch per i singoli server di tale area. La patch viene implementata per l'intera area in una sola volta. Database di Azure per MySQL: il servizio server singolo è progettato per un'applicazione cloud nativa che non richiede un controllo granulare o una personalizzazione del servizio. Se si vuole avere la possibilità di pianificare la manutenzione per i server, è consigliabile prendere in considerazione [server flessibili](./flexible-server/overview.md).
 

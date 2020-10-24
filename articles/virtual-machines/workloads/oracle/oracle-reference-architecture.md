@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993567"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480429"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
 
@@ -72,7 +72,7 @@ Con Oracle Database versione 12,2 e successive, è anche possibile configurare p
 
 Il diagramma seguente è un'architettura consigliata per l'uso di Oracle Data Guard in Azure con le zone di disponibilità. Questa architettura consente di ottenere un contratto di tempo di esecuzione della macchina virtuale del 99,99%.
 
-![Oracle Database usando le zone di disponibilità con Data Guard broker-FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagramma che mostra un'architettura consigliata per l'uso di Oracle Data Guard in Azure con le zone di disponibilità.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 Nel diagramma precedente, il sistema client accede a un'applicazione personalizzata con il back-end Oracle tramite il Web. Il front-end Web è configurato in un servizio di bilanciamento del carico. Il front-end Web effettua una chiamata al server applicazioni appropriato per gestire il lavoro. Il server applicazioni esegue una query sul database Oracle primario. Il database Oracle è stato configurato usando una [macchina virtuale con ottimizzazione](../../sizes-memory.md) per la memoria con Hyper-Threading con [vCPU Core vincolati](../../../virtual-machines/constrained-vcpu.md) per risparmiare sui costi di licenza e ottimizzare le prestazioni. Per le prestazioni e la disponibilità elevata vengono usati più dischi Premium o Ultra (Managed Disks).
 

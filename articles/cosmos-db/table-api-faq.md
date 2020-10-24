@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485002"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Domande frequenti sull'API Tabella in Azure Cosmos DB
 
@@ -97,7 +97,7 @@ Per esplorare i dati si può usare il portale di Azure. È anche possibile usare
 
 ### <a name="which-tools-work-with-the-table-api"></a>Quali strumenti è possibile usare con l'API Tabelle?
 
-È possibile usare [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 La nuova API Tabelle è supportata dagli strumenti sufficientemente flessibili da accettare una stringa di connessione nel formato specificato in precedenza. Per un elenco degli strumenti di tabella, vedere la pagina [Strumenti client di Archiviazione di Azure](../storage/common/storage-explorers.md).
 
@@ -115,7 +115,7 @@ Sì. È possibile connettersi creando due istanze separate di CloudTableClient, 
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Come si esegue la migrazione di un'applicazione di archiviazione tabelle di Azure esistente a questa offerta?
 
-Sono supportati [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e l'[Utilità di migrazione dati di Azure Cosmos DB](import-data.md).
+Sono supportati [AzCopy](../storage/common/storage-use-azcopy-v10.md) e l'[Utilità di migrazione dati di Azure Cosmos DB](import-data.md).
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Come si espandono le dimensioni di archiviazione per questo servizio, se ad esempio *n* GB di dati iniziali crescono nel tempo fino a 1 TB?
 
@@ -231,7 +231,7 @@ Da .NET SDK è possibile inviare i criteri nel file app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Come piattaforma, Azure Cosmos DB offre numerose funzionalità, come l'ordinamento, le aggregazioni, la gerarchia e così via. Queste funzionalità verranno aggiunte all'API Table?
 
-L'API Tabelle offre le stesse funzionalità di query dell'archiviazione tabelle di Azure. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. Per altre informazioni, vedere [Query SQL](how-to-sql-query.md).
+L'API Tabelle offre le stesse funzionalità di query dell'archiviazione tabelle di Azure. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. Per altre informazioni, vedere [Query SQL](./sql-query-getting-started.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando è consigliabile modificare TableThroughput per l'API Tabelle?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB è un sistema basato su contratti di servizio che offre garanzie
 È possibile condividere commenti e suggerimenti in uno dei modi seguenti:
 
 * [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow è ideale per domande relative alla programmazione. Assicurarsi che la domanda sia [pertinente](https://stackoverflow.com/help/on-topic) e [specificare il numero massimo possibile di dettagli, in modo che la domanda sia chiara e sia possibile fornire una risposta](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Passaggi successivi

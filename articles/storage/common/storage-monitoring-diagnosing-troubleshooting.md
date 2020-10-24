@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43c8f3dc0df41d9322edbe2e0c763de12b787ed6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370475"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479800"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -131,7 +131,7 @@ Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità p
 >
 >
 
-Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esempio gli oggetti BLOB, vedere il post del blog [Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esempio gli oggetti BLOB, vedere il post del blog [Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitoraggio della disponibilità
 Per verificare la disponibilità dei servizi di archiviazione nell'account di archiviazione, è necessario monitorare il valore della colonna della **disponibilità** nelle tabelle delle metriche orarie o al minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonna della **disponibilità** contiene un valore percentuale che indica la disponibilità del servizio o dell'operazione API rappresentata dalla riga (il valore **RowKey** indica se la riga contiene metriche per il servizio completo o per un'operazione API specifica).
@@ -362,7 +362,7 @@ Il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per l
 #### <a name="investigating-client-performance-issues"></a>Analisi dei problemi di prestazioni del client
 I motivi possibili per cui il client risponde lentamente includono la quantità limitata di connessioni o thread disponibili oppure la limitata disponibilità di risorse quali CPU, memoria o larghezza di banda della rete. Il problema può essere risolto modificando il codice del client in modo che sia più efficiente (ad esempio usando chiamate asincrone al servizio di archiviazione) o usando una macchina virtuale più grande (con più core e più memoria).
 
-Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**. Per altre informazioni, vedere il post [Nagle's Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (Comportamento dell'algoritmo Nagle con richieste di piccole dimensioni). È possibile disabilitare l'algoritmo Nagle nel codice tramite la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente proviene dal metodo **Application_Start** in un ruolo di lavoro.
+Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**. Per altre informazioni, vedere il post [Nagle's Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (Comportamento dell'algoritmo Nagle con richieste di piccole dimensioni). È possibile disabilitare l'algoritmo Nagle nel codice tramite la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente proviene dal metodo **Application_Start** in un ruolo di lavoro.
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 

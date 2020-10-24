@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 60d73f8b3eae21ab399853e8d05b67b7b431ee5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3bb6925e11579deff914a930116d8ef464e39f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321055"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476893"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Risolvere i problemi relativi all'uso di Azure Cosmos DB Async Java SDK v2 con API SQL
 
@@ -63,13 +63,13 @@ Il numero massimo consentito di file aperti, identificati come "nofile", deve es
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
 
-Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP pubblico, per impostazione predefinita le [porte SNAT di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) stabiliscono le connessioni a qualsiasi endpoint all'esterno della macchina virtuale. Il numero di connessioni consentite dalla macchina virtuale all'endpoint di Azure Cosmos DB è limitato dalla [configurazione SNAT di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP pubblico, per impostazione predefinita le [porte SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) stabiliscono le connessioni a qualsiasi endpoint all'esterno della macchina virtuale. Il numero di connessioni consentite dalla macchina virtuale all'endpoint di Azure Cosmos DB è limitato dalla [configurazione SNAT di Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Le porte SNAT di Azure vengono usate solo quando la macchina virtuale ha un indirizzo IP privato e un processo dalla macchina virtuale prova a connettersi a un indirizzo IP pubblico. Esistono due soluzioni alternative per evitare la limitazione per le porte SNAT di Azure:
 
-* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assegnare un indirizzo IP pubblico alla macchina virtuale di Azure.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Non è possibile raggiungere il servizio - Firewall
@@ -276,5 +276,3 @@ Molte connessioni all'endpoint di Azure Cosmos DB potrebbero trovarsi nello stat
 [Enable client SDK logging]: #enable-client-sice-logging
 [Limite di connessioni nel computer host]: #connection-limit-on-host
 [Esaurimento delle porte SNAT (PAT) di Azure]: #snat
-
-

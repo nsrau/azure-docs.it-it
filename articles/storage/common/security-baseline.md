@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746deae725e9e1ca4274b2132f7c09e2548a6629
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715153"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488878"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
 La linea di base di sicurezza di Azure per archiviazione di Azure contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
@@ -32,9 +32,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 Nota: gli account di archiviazione classici non supportano firewall e reti virtuali.
 
-- [Come configurare il firewall di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
+- [Come configurare il firewall di archiviazione di Azure](/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
 
-- [Come configurare gli endpoint privati per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints)
+- [Come configurare gli endpoint privati per archiviazione di Azure](/azure/storage/common/storage-private-endpoints)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -46,13 +46,13 @@ Nota: gli account di archiviazione classici non supportano firewall e reti virtu
 
 Si noti che se sono presenti endpoint privati collegati all'account di archiviazione, non è possibile configurare regole del gruppo di sicurezza di rete (NSG) per le subnet. 
 
-- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](/azure/storage/common/storage-network-security)
 
-- [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Come abilitare i log dei flussi NSG](/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](/azure/security-center/security-center-network-recommendations)
 
-- [Informazioni sugli endpoint privati per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints#known-issues)
+- [Informazioni sugli endpoint privati per archiviazione di Azure](/azure/storage/common/storage-private-endpoints#known-issues)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -70,9 +70,9 @@ Si noti che se sono presenti endpoint privati collegati all'account di archiviaz
 
 **Linee guida**: abilitare Advanced Threat Protection per l'account di archiviazione di Azure. Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi integrati del Centro sicurezza di Azure si basano sulle attività per le quali la comunicazione di rete è stata associata a un indirizzo IP risolto correttamente, indipendentemente dal fatto che l'indirizzo IP sia un indirizzo IP rischioso noto (ad esempio, un cryptominer noto) o un indirizzo IP non riconosciuto in precedenza come rischioso. Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. 
 
-- [Come abilitare Advanced Threat Protection](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Come abilitare Advanced Threat Protection](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
-- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](/azure/security-center/security-center-alerts-service-layer)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -82,7 +82,7 @@ Si noti che se sono presenti endpoint privati collegati all'account di archiviaz
 
 **Linee guida**: Network Watcher acquisizione pacchetti consente di creare sessioni di acquisizione per tenere traccia del traffico tra l'account di archiviazione e una macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito solo il traffico desiderato. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri usi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora. La possibilità di attivare da remoto l'acquisizione di pacchetti evita di dover eseguire manualmente questa operazione su una macchina virtuale desiderata, consentendo un notevole risparmio di tempo. 
 
-- [Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale](/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -92,7 +92,7 @@ Si noti che se sono presenti endpoint privati collegati all'account di archiviaz
 
 **Linee guida**: Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi di sicurezza sono integrati con il Centro sicurezza di Azure e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce. 
 
-- [Configurare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Configurare Advanced Threat Protection per archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -112,9 +112,9 @@ Si noti che se sono presenti endpoint privati collegati all'account di archiviaz
 
 Quando è necessario definire l'ambito di accesso alla rete per gli account di archiviazione specifici, usare i criteri dell'endpoint del servizio rete virtuale.
 
-- [Per ulteriori informazioni sull'utilizzo dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Per ulteriori informazioni sull'utilizzo dei tag di servizio](/azure/virtual-network/service-tags-overview)
 
-- [Per altre informazioni sui criteri dell'endpoint del servizio rete virtuale per archiviazione di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Per altre informazioni sui criteri dell'endpoint del servizio rete virtuale per archiviazione di Azure](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -126,13 +126,13 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 È anche possibile usare le definizioni di criteri predefinite relative all'account di archiviazione, ad esempio: gli account di archiviazione devono usare un endpoint di servizio di rete virtuale 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Esempi di criteri di Azure per l'archiviazione](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#storage)
+- [Esempi di criteri di Azure per l'archiviazione](/azure/governance/policy/samples/built-in-policies#storage)
 
-- [Esempi di criteri di Azure per la rete](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/built-in-policies#network)
 
-- [Come creare un progetto di Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Come creare un progetto di Azure](/azure/governance/blueprints/create-blueprint-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -142,11 +142,11 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Indicazioni**: usare i tag per i gruppi di sicurezza di rete (NSG) e altre risorse correlate alla sicurezza di rete e al flusso del traffico. Per le regole dei singoli gruppi di sicurezza di rete, usare il campo "Descrizione" per specificare le esigenze aziendali e/o la durata (e così via) per le regole che consentono il traffico da e verso una rete. Usare una delle definizioni di criteri di Azure predefinite correlate all'assegnazione di tag, ad esempio "Richiedi tag e il relativo valore" per garantire che tutte le risorse vengano create con tag e per notificare le risorse esistenti senza tag. È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni su risorse basate sui rispettivi tag. 
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Come creare una rete virtuale](/azure/virtual-network/quick-create-portal)
 
-- [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -156,9 +156,9 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Linee guida**: usare i criteri di Azure per registrare le modifiche di configurazione per le risorse di rete. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche. 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Come creare avvisi in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -166,7 +166,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: registrazione e monitoraggio](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-resource"></a>2,1: usare la risorsa di sincronizzazione dell'ora approvata
 
@@ -180,7 +180,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Linee guida**: inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da dispositivi endpoint, risorse di rete e altri sistemi di sicurezza. In monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine/archiviazione, facoltativamente con funzionalità di sicurezza come l'archiviazione non modificabile e la conservazione applicata.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -190,7 +190,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Indicazioni**: analisi archiviazione di Azure fornisce log per BLOB, code e tabelle. È possibile usare la portale di Azure per configurare i log registrati per l'account. 
 
-- [Come configurare il monitoraggio per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
+- [Come configurare il monitoraggio per l'account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -208,9 +208,9 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Linee guida**: quando si archiviano i registri eventi di sicurezza nell'account di archiviazione di Azure o in log Analytics area di lavoro, è possibile impostare i criteri di conservazione in base ai requisiti dell'organizzazione. 
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -222,9 +222,9 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di Azure. Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi di sicurezza sono integrati con il Centro sicurezza di Azure e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce. 
 
-- [Registrare ed esaminare i dati](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
+- [Registrare ed esaminare i dati](/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
 
-- [Come abilitare Advanced Threat Protection](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Come abilitare Advanced Threat Protection](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -234,13 +234,13 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: nel centro sicurezza di Azure abilitare Advanced Threat Protection per l'account di archiviazione. Abilitare le impostazioni di diagnostica per l'account di archiviazione e inviare i log a un'area di lavoro Log Analytics. Eseguire l'onboarding dell'area di lavoro Log Analytics in Azure Sentinel perché fornisce una soluzione SOAR (Security Orchestration Automated Response). In questo modo è possibile creare playbook (soluzioni automatizzate) e usarli per risolvere i problemi di sicurezza. 
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
-- [Come gestire gli avvisi nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Come gestire gli avvisi nel centro sicurezza di Azure](/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Come inviare un avviso sui dati del log di log Analytics](/azure/azure-monitor/learn/tutorial-response)
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](/azure/storage/common/storage-analytics-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -250,7 +250,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: usare il Centro sicurezza di Azure e abilitare la protezione dalle minacce per archiviazione di Azure per rilevare i caricamenti di malware nell'archiviazione di Azure usando l'analisi della reputazione hash e l'accesso sospetto da un nodo di uscita di Tor attivo (un proxy anonime). 
 
-- [Configurare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Configurare Advanced Threat Protection per archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -260,7 +260,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Indicazioni**: la soluzione Azure analisi DNS (anteprima) in monitoraggio di Azure raccoglie informazioni dettagliate sull'infrastruttura DNS in merito a sicurezza, prestazioni e operazioni. Attualmente non supporta gli account di archiviazione di Azure, ma è possibile usare la soluzione di registrazione DNS di terze parti. 
 
-- [Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)
+- [Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)](/azure/azure-monitor/insights/dns-analytics)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -276,15 +276,15 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 ## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3,1: gestire l'inventario degli account amministrativi
 
 **Linee guida**: Azure ad dispone di ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi. 
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -294,9 +294,9 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Indicazioni**: gli account di archiviazione di Azure e Azure Active Directory hanno il concetto di password predefinite o vuote. Archiviazione di Azure implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), nonché le firme di accesso condiviso e della chiave condivisa. Una caratteristica di autenticazione con chiave condivisa e firma di accesso condiviso è che non è associata alcuna identità al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sull'autorizzazione dell'entità di sicurezza. 
 
-- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](/azure/storage/common/storage-auth)
 
-- [Informazioni sulle entità di sicurezza e sul controllo di accesso per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)
+- [Informazioni sulle entità di sicurezza e sul controllo di accesso per l'account di archiviazione di Azure](/azure/storage/common/storage-introduction)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -308,9 +308,9 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 È anche possibile abilitare un accesso just-in-time/just-enough usando Azure AD Privileged Identity Management ruoli con privilegi per i servizi Microsoft e Azure ARM. 
 
-- [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](/azure/security-center/security-center-identity-access)
 
-- [Panoramica di Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Panoramica di Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -320,11 +320,11 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: laddove possibile, utilizzare Azure Active Directory SSO anziché configurare singole credenziali autonome per servizio. Usare le raccomandazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure. 
 
-- [Informazioni su SSO con Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni su SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](/azure/storage/common/storage-auth)
 
-- [Autorizzare l'accesso a BLOB e code usando Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+- [Autorizzare l'accesso a BLOB e code usando Azure Active Directory](/azure/storage/common/storage-auth-aad)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -334,9 +334,9 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: abilitare l'autenticazione a più fattori Azure Active Directory e seguire le indicazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure per proteggere le risorse dell'account di archiviazione. 
 
-- [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Come abilitare MFA in Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](/azure/security-center/security-center-identity-access)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -346,9 +346,9 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: usare le workstation Paw (Privileged Access workstation) con autenticazione a più fattori configurata per accedere e configurare le risorse dell'account di archiviazione. 
 
-- [Informazioni sulle workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Come abilitare MFA in Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -358,11 +358,11 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: inviare avvisi di rilevamento dei rischi del Centro sicurezza di Azure in monitoraggio di Azure e configurare avvisi/notifiche personalizzati usando i gruppi di azioni. Abilitare Advanced Threat Protection per l'account di archiviazione di Azure per generare avvisi per attività sospette. Usare inoltre Azure AD i rilevamenti dei rischi per visualizzare gli avvisi e i report sul comportamento utente rischioso. 
 
-- [Come configurare Advanced Threat Protection per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Come configurare Advanced Threat Protection per l'account di archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-- [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+- [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](/azure/azure-monitor/platform/action-groups)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -372,7 +372,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: usare percorsi denominati di accesso condizionale per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche. 
 
-- [Come configurare le località denominate in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Come configurare le località denominate in Azure](/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -382,15 +382,15 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un controllo con granularità fine sull'accesso di un client alle risorse in un account di archiviazione.  Usare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché usare la chiave dell'account, che può essere compromessa più facilmente. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare firme di accesso condiviso (SAS) di delega utente quando possibile per una sicurezza superiore.
 
-- [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di Azure AD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](/azure/storage/common/authorization-resource-provider)
 
-- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](/azure/storage/common/storage-auth)
 
-- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -406,17 +406,17 @@ Esaminare anche l'accesso in lettura anonimo a contenitori e BLOB. Per impostazi
 
 Un modo efficace per ridurre il rischio di accesso all'account utente non sospetta è quello di limitare la durata dell'accesso concesso agli utenti. Gli URI di firma di accesso condiviso a tempo limitato rappresentano un modo efficace per impostare la scadenza automatica dell'accesso utente a un account di archiviazione. Inoltre, la rotazione delle chiavi dell'account di archiviazione su base frequente è un modo per garantire che l'accesso imprevisto tramite le chiavi dell'account di archiviazione abbia una durata limitata.
 
-- [Informazioni sulla creazione di report Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
 
-- [Come visualizzare e modificare l'accesso a livello di account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come visualizzare e modificare l'accesso a livello di account di archiviazione di Azure](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview)
 
-- [Gestire l'accesso in lettura anonimo a contenitori e BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources)
+- [Gestire l'accesso in lettura anonimo a contenitori e BLOB](/azure/storage/blobs/storage-manage-access-to-resources)
 
-- [Monitorare un account di archiviazione nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Monitorare un account di archiviazione nel portale di Azure](/azure/storage/common/storage-monitor-storage-account)
 
-- [Gestisci chiavi di accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Gestisci chiavi di accesso all'account di archiviazione](/azure/storage/common/storage-account-keys-manage)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -428,11 +428,11 @@ Un modo efficace per ridurre il rischio di accesso all'account utente non sospet
 
 Creare le impostazioni di diagnostica per Azure Active Directory account utente, inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro di Log Analytics. Per monitorare gli errori di autenticazione negli account di archiviazione di Azure, è possibile creare avvisi per ricevere una notifica quando sono state raggiunte determinate soglie per le metriche delle risorse di archiviazione. Usare inoltre monitoraggio di Azure per avvertire l'accesso anonimo per gli account di archiviazione usando la condizione di autenticazione anonima.
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](/azure/storage/common/storage-analytics-logging)
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -442,11 +442,11 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 **Linee guida**: usare le funzionalità di protezione delle identità e dei rischi di Azure Active Directory per configurare risposte automatiche per le azioni sospette rilevate correlate alle risorse dell'account di archiviazione. È necessario abilitare le risposte automatiche tramite Sentinel di Azure per implementare le risposte di sicurezza dell'organizzazione. 
 
-- [Come visualizzare gli accessi a rischio per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Come configurare e abilitare i criteri di rischio di Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -456,7 +456,7 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 **Linee guida**: in scenari di supporto in cui Microsoft deve accedere ai dati dei clienti, Customer Lockbox (anteprima per l'account di archiviazione) fornisce un'interfaccia per i clienti per esaminare e approvare o rifiutare le richieste di accesso ai dati dei clienti. Microsoft non richiede né richiede l'accesso ai segreti dell'organizzazione memorizzati nell'account di archiviazione.
 
-- [Informazioni Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Informazioni Customer Lockbox](/azure/security/fundamentals/customer-lockbox-overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -464,13 +464,13 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: mantenere un inventario delle informazioni riservate
 
 **Indicazioni**: usare i tag per facilitare il rilevamento delle risorse dell'account di archiviazione che archiviano o elaborano informazioni riservate. 
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -480,15 +480,15 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 **Linee guida**: implementare l'isolamento usando sottoscrizioni separate, gruppi di gestione e account di archiviazione per singoli domini di sicurezza, ad esempio l'ambiente, la riservatezza dei dati.  È possibile limitare l'account di archiviazione per controllare il livello di accesso agli account di archiviazione richiesti dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti usate. Quando le regole di rete sono configurate, solo le applicazioni che richiedono dati sul set di reti specificato possono accedere a un account di archiviazione. È possibile controllare l'accesso ad archiviazione di Azure tramite RBAC di Azure. È anche possibile configurare endpoint privati per migliorare la sicurezza perché il traffico tra la rete virtuale e il servizio attraversa la rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. 
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](/azure/storage/common/storage-network-security)
 
-- [Endpoint del servizio rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Endpoint del servizio rete virtuale](/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -500,11 +500,11 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare il traffico di rete virtuale in uscita verso gli account di archiviazione di Azure tramite l'endpoint del servizio e consentire ai exfiltration di dati solo account di archiviazione di Azure specifici.
 
-- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Criteri degli endpoint servizio di rete virtuale per Archiviazione di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Criteri degli endpoint servizio di rete virtuale per Archiviazione di Azure](/azure/private-link/create-private-endpoint-storage-portal)
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -514,9 +514,9 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: è possibile imporre l'uso di HTTPS abilitando il trasferimento sicuro necessario per l'account di archiviazione. Se l'opzione è abilitata, le connessioni che usano il protocollo HTTP verranno rifiutate. Usare inoltre il Centro sicurezza di Azure e i criteri di Azure per applicare il trasferimento sicuro per l'account di archiviazione.
 
-- [Come richiedere il trasferimento sicuro in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
+- [Come richiedere il trasferimento sicuro in archiviazione di Azure](/azure/storage/common/storage-require-secure-transfer)
 
-- [Criteri di sicurezza di Azure monitorati dal centro sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)
+- [Criteri di sicurezza di Azure monitorati dal centro sicurezza](/azure/security-center/security-center-policy-definitions)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -526,7 +526,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: le funzionalità di identificazione dei dati non sono ancora disponibili per l'account di archiviazione di Azure e le risorse correlate. Implementare una soluzione di terze parti, se necessaria ai fini della conformità. 
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -536,15 +536,15 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Archiviazione di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB o di Accodamento. 
 
-- [Come assegnare i ruoli di Azure per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
+- [Come assegnare i ruoli di Azure per l'account di archiviazione di Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
-- [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](/azure/storage/common/authorization-resource-provider)
 
-- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Come creare e configurare un'istanza di AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di AAD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autorizzazione dell'accesso ai dati in archiviazione di Azure](/azure/storage/common/storage-auth)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -562,7 +562,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Indicazioni**: la crittografia di archiviazione di Azure è abilitata per tutti gli account di archiviazione e non può essere disabilitata. Archiviazione di Azure crittografa automaticamente i dati quando vengono salvati in modo permanente nel cloud. Quando i dati vengono letti da Archiviazione di Azure, vengono decrittografati dal servizio di archiviazione prima di essere restituiti. La crittografia di archiviazione di Azure consente di proteggere i dati inattivi senza dover modificare il codice o aggiungere codice alle applicazioni. 
 
-- [Informazioni sulla crittografia di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Informazioni sulla crittografia di archiviazione di Azure](/azure/storage/common/storage-service-encryption)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -572,11 +572,11 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse dell'account di archiviazione. È anche possibile abilitare la registrazione di archiviazione di Azure per tenere traccia del modo in cui ogni richiesta effettuata nell'archiviazione di Azure è stata autorizzata I log indicano se una richiesta è stata effettuata in modo anonimo, usando un token OAuth 2,0, usando la chiave condivisa o usando una firma di accesso condiviso (SAS). Usare inoltre monitoraggio di Azure per avvertire l'accesso anonimo per gli account di archiviazione usando la condizione di autenticazione anonima.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi archiviazione di Azure](/azure/storage/common/storage-analytics-logging)
 
-- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -584,13 +584,13 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 ## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle vulnerabilità](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: eseguire strumenti di analisi automatica delle vulnerabilità
 
 **Indicazioni**: seguire le raccomandazioni del Centro sicurezza di Azure per controllare e monitorare continuamente la configurazione degli account di archiviazione. 
 
-- [Raccomandazioni sulla sicurezza: una guida di riferimento](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Raccomandazioni sulla sicurezza: una guida di riferimento](/azure/security-center/recommendations-reference)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -624,7 +624,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Indicazioni**: usare le classificazioni di rischio predefinite (Punteggio sicuro) fornite dal centro sicurezza di Azure. 
 
-- [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+- [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](/azure/security-center/security-center-secure-score)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -632,17 +632,17 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 ## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: usare l'individuazione di asset in Azure
 
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (inclusi gli account di archiviazione) nelle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (di lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni. 
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](/azure/role-based-access-control/overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -652,7 +652,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: applicare tag alle risorse dell'account di archiviazione fornendo metadati per organizzarle logicamente in una tassonomia. 
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -664,13 +664,13 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 Usare inoltre Advanced Threat Protection per archiviazione di Azure per rilevare le risorse di Azure non autorizzate. 
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Configurare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Configurare Advanced Threat Protection per archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -694,9 +694,9 @@ Usare inoltre Advanced Threat Protection per archiviazione di Azure per rilevare
 
 Usare anche Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Questo può essere utile in ambienti con sicurezza elevata, ad esempio quelli con account di archiviazione. 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -714,7 +714,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Indicazioni**: il cliente può impedire la creazione o l'utilizzo di risorse con criteri di Azure come richiesto dalle politiche aziendali del cliente. 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -735,9 +735,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 - Tipi di risorse non consentiti 
 - Tipi di risorse consentiti 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -755,7 +755,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure. Ciò può impedire la creazione e le modifiche alle risorse all'interno di un ambiente di sicurezza elevato, ad esempio quelle con account di archiviazione. 
 
-- [Come configurare l'accesso condizionale per bloccare l'accesso a ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Come configurare l'accesso condizionale per bloccare l'accesso a ARM](/azure/role-based-access-control/conditional-access-azure-management)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -779,7 +779,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: definire configurazioni sicure per tutte le risorse di Azure
 
@@ -792,9 +792,9 @@ Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 
 Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per gli account di archiviazione. 
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -812,9 +812,9 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 **Linee guida**: usare i criteri di Azure [deny] e [Deploy if not exist] per applicare impostazioni sicure tra le risorse dell'account di archiviazione. 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Informazioni sugli effetti di Criteri di Azure](/azure/governance/policy/concepts/effects)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -832,9 +832,9 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 **Linee guida**: usare Azure Repos per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, modelli di Azure Resource Manager, script di configurazione dello stato desiderato e così via. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -852,7 +852,7 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 **Linee guida**: sfruttare i criteri di Azure per inviare avvisi, controllare e applicare configurazioni di sistema per l'account di archiviazione. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri. 
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -870,7 +870,7 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 **Indicazioni**: sfruttare il Centro sicurezza di Azure per eseguire analisi di base per le risorse dell'account di archiviazione di Azure. 
 
-- [Come correggere le raccomandazioni nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Come correggere le raccomandazioni nel centro sicurezza di Azure](/azure/security-center/security-center-remediate-recommendations)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -890,9 +890,9 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per limitare l'effetto della perdita o della divulgazione delle chiavi dell'account di archiviazione.
 
-- [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](/azure/storage/common/storage-service-encryption)
 
-- [Gestisci chiavi di accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Gestisci chiavi di accesso all'account di archiviazione](/azure/storage/common/storage-account-keys-manage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -902,7 +902,7 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 **Linee guida**: autorizzare l'accesso a BLOB e code all'interno degli account di archiviazione di Azure con Azure Active Directory e identità gestite. Archiviazione di BLOB e coda di Azure supporta l'autenticazione con identità gestite di Azure Active Directory per le risorse di Azure. Le identità gestite per le risorse di Azure possono autorizzare l'accesso ai dati BLOB e di accodamento tramite Azure AD credenziali da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud. 
 
-- [Come concedere l'accesso ai dati di Accodamento e BLOB di Azure usando un'identità gestita](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come concedere l'accesso ai dati di Accodamento e BLOB di Azure usando un'identità gestita](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -920,7 +920,7 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: utilizzo del software antimalware gestito centralmente
 
@@ -936,7 +936,7 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 È anche possibile eseguire la scansione preliminare di qualsiasi contenuto per il malware prima del caricamento in risorse di Azure non di calcolo, ad esempio servizio app, Data Lake Storage, archiviazione BLOB e così via per soddisfare i requisiti dell'organizzazione.
 
-- [Configurare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Configurare Advanced Threat Protection per archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -952,7 +952,7 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 ## <a name="data-recovery"></a>Ripristino dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire l'esecuzione di backup automatici regolari
 
@@ -960,11 +960,11 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 È anche possibile abilitare automazione di Azure per eseguire snapshot regolari dei BLOB.
 
-- [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di Service-Level](/azure/storage/common/storage-redundancy)
 
-- [Creare uno snapshot di un BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
+- [Creare uno snapshot di un BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
-- [Panoramica di Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Panoramica di Automazione di Azure](/azure/automation/automation-intro)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -974,13 +974,13 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 **Linee guida**: per eseguire il backup dei dati dai servizi supportati dall'account di archiviazione, sono disponibili diversi metodi, tra cui l'uso di azcopy o di strumenti di terze parti. L'archiviazione non modificabile per BLOB di Azure consente agli utenti di archiviare oggetti dati critici per l'azienda nello stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente.
 
-- [Introduzione ad AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Introduzione ad AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 
-- [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
+- [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
 
 È possibile eseguire il backup delle chiavi gestite/fornite dal cliente nel Azure Key Vault usando l'interfaccia della riga di comando di Azure o PowerShell. 
 
-- [Come eseguire il backup di chiavi di Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -992,15 +992,15 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
-- [Come ripristinare Key Vault certificati](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Come ripristinare Key Vault certificati](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
-- [Come ripristinare chiavi di Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare chiavi di Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
-- [Come ripristinare Key Vault account di archiviazione gestiti](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
+- [Come ripristinare Key Vault account di archiviazione gestiti](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Come ripristinare Key Vault segreti](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Come ripristinare Key Vault segreti](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret)
 
-- [AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BLOB, i file e i dati di tabella in o da un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BLOB, i file e i dati di tabella in o da un account di archiviazione](/azure/storage/common/storage-use-azcopy-v10)
 
 Nota: se si vogliono copiare dati da e verso il servizio di archiviazione tabelle di Azure, installare AzCopy versione 7,3.
 
@@ -1013,11 +1013,11 @@ Nota: se si vogliono copiare dati da e verso il servizio di archiviazione tabell
 
 **Linee guida**: per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un Azure Key Vault per archiviare le chiavi. È necessario abilitare l'eliminazione temporanea e non ripulire le proprietà nell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea di Key Vault consente il ripristino di insiemi di credenziali eliminati e di oggetti insieme di credenziali, ad esempio chiavi, segreti e certificati. Se si esegue il backup dei dati dell'account di archiviazione nei BLOB di archiviazione di Azure, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. È consigliabile gestire i backup come dati sensibili e applicare i controlli di accesso e protezione dei dati rilevanti come parte di questa linea di base. Inoltre, per una protezione migliorata, è possibile archiviare oggetti dati critici per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato.
 
-- [Come usare l'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+- [Come usare l'eliminazione temporanea di Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
 
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-- [Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+- [Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](/azure/storage/blobs/storage-blob-immutable-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1025,7 +1025,7 @@ Nota: se si vogliono copiare dati da e verso il servizio di archiviazione tabell
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-incident-response-guide"></a>10,1: creare una guida alla risposta agli eventi imprevisti
 
@@ -1047,9 +1047,9 @@ Nota: se si vogliono copiare dati da e verso il servizio di archiviazione tabell
 
 Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione, tramite i tag e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
-- [Avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Avvisi di sicurezza nel Centro sicurezza di Azure](/azure/security-center/security-center-alerts-overview)
 
-- [Usare tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1069,7 +1069,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
-- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](/azure/security-center/security-center-provide-security-contact-details)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1079,9 +1079,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per contribuire a individuare i rischi per le risorse di Azure. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
 
-- [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Come configurare l'esportazione continua](/azure/security-center/continuous-export)
 
-- [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Come trasmettere gli avvisi in Azure Sentinel](/azure/sentinel/connect-azure-security-center)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1091,7 +1091,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Linee guida**: usare la funzionalità di automazione del flusso di lavoro nel centro sicurezza di Azure per attivare automaticamente le risposte tramite "app per la logica" negli avvisi di sicurezza e nei consigli per proteggere le risorse di Azure.
 
-- [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Come configurare l'automazione del flusso di lavoro e App per la logica](/azure/security-center/workflow-automation)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1099,7 +1099,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure
 
@@ -1115,5 +1115,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Vedere altre informazioni sulle [baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Benchmark di sicurezza di Azure](/azure/security/benchmarks/overview)
+- Vedere altre informazioni sulle [baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)

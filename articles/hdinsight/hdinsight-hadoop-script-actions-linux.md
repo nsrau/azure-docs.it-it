@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082251"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486311"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -319,7 +319,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 * Portale di Azure
 * Azure PowerShell
-* Modelli di Azure Resource Manager
+* Modelli di Gestione risorse di Azure
 * HDInsight .NET SDK
 
 Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -365,5 +365,5 @@ Sostituire `INFILE` con il file contenente il carattere BOM. `OUTFILE` deve esse
 ## <a name="next-steps"></a><a name="seeAlso"></a>Passaggi successivi
 
 * Informazioni su come [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
-* Per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight, vedere [Riferimento .NET per HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* Per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight, vedere [Riferimento .NET per HDInsight](/dotnet/api/overview/azure/hdinsight)
 * Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l' [API REST del provider di risorse HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) .

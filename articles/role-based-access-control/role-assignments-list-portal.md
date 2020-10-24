@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151695"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479919"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
@@ -126,7 +126,7 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
     Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dall'utente selezionata in diversi ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
 
-    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Screenshot che mostra le assegnazioni di ruolo per un'identità gestita assegnata dall'utente.](./media/shared/role-assignments-user-assigned.png)
 
 1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizione** .
 
@@ -178,7 +178,7 @@ Seguire questa procedura per scaricare le assegnazioni di ruolo in un ambito.
 
     ![Scaricare le assegnazioni di ruolo come CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Scaricare le assegnazioni di ruolo come CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Screenshot delle assegnazioni di ruolo scaricate come in formato JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

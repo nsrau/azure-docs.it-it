@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086558"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487280"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -46,7 +46,7 @@ Nel diagramma seguente le linee verdi sono richieste di risorse che terminano ne
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/).
-* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Crea configurazione rete virtuale
 
@@ -76,7 +76,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     | Campo | valore |
     | --- | --- |
     |Subscription |Selezionare la sottoscrizione appropriata.|
-    |Resource group |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
+    |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
     |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
     |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
     |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85114776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487484"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Crittografia dei dati in Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ A: le chiavi vengono gestite da Microsoft.
 A: Microsoft ha un set di linee guida interne per la rotazione della chiave di crittografia, seguite da Cosmos DB. Le linee guida specifiche non vengono pubblicate. Microsoft pubblica il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), che viene considerato un subset di linee guida interne e include procedure consigliate utili per gli sviluppatori.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>D: è possibile usare le proprie chiavi di crittografia?
-R: Sì, questa funzionalità è ora disponibile per i nuovi account di Azure Cosmos DB e questa operazione deve essere eseguita al momento della creazione dell'account. Per ulteriori informazioni, consultare il documento relativo alle [chiavi gestite dal cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) .
+R: Sì, questa funzionalità è ora disponibile per i nuovi account di Azure Cosmos DB e questa operazione deve essere eseguita al momento della creazione dell'account. Per ulteriori informazioni, consultare il documento relativo alle [chiavi gestite dal cliente](./how-to-setup-cmk.md) .
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>D: in quali aree è attiva la crittografia?
 A: la crittografia è attiva in tutte le aree di Azure Cosmos DB per tutti i dati utente.

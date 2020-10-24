@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714443"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488623"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -23,7 +23,7 @@ Questa guida riepiloga le soluzioni per i problemi che si verificano comunemente
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemi relativi alle autorizzazioni RBAC di Azure
 
-Il controllo degli accessi in base al ruolo [di Azure consente](https://docs.microsoft.com/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
+Il controllo degli accessi in base al ruolo [di Azure consente](/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Ricerca per categorie accedere alle risorse in Storage Explorer?
 
@@ -65,7 +65,7 @@ Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali 
 3. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Scegliere Avanti.
 4. Selezionare il tipo di risorsa, immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Scegliere Avanti. Fare clic su Connetti.
 
-Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 
@@ -332,7 +332,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Scaricare il file Storage Explorer. tar. gz.
-2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Scaricare il file Storage Explorer. tar. gz.
-2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Scaricare il file Storage Explorer. tar. gz.
-2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

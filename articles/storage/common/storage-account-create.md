@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333580"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488895"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
-In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), l' [interfaccia](https://docs.microsoft.com/cli/azure)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), l' [interfaccia](/cli/azure)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-No.
+Nessuno.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -147,7 +147,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 
 |Opzione di replica  |Parametro SkuName  |
 |---------|---------|
-|Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
+|Archiviazione con ridondanza locale     |Standard_LRS         |
 |Archiviazione con ridondanza della zona (ZRS)     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
@@ -190,7 +190,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 
 |Opzione di replica  |Parametro sku  |
 |---------|---------|
-|Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
+|Archiviazione con ridondanza locale     |Standard_LRS         |
 |Archiviazione con ridondanza della zona (ZRS)     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |

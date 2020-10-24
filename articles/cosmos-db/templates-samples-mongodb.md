@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0a48570dbbae3eb2841049dc184afe7a903f740c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 974ddf4e5e6353eeb53ad90a16740909466016cf
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284468"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477063"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gestire le risorse dell'API di Azure Cosmos DB per MongoDB con modelli di Azure Resource Manager
 
@@ -51,7 +51,7 @@ Questo modello creerà un account Azure Cosmos per l'API MongoDB (3.2 o 3.6) con
 
 Altre risorse:
 
-* [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
+* [Documentazione di Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
 * [Modelli di avvio rapido di Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Risolvere errori comuni durante la distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)

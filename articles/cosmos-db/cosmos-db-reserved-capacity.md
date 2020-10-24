@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90a4e86360916ba4b3dace0861fd1c6f7cd9b459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567112"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487518"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
@@ -22,7 +22,7 @@ La capacità riservata di Azure Cosmos DB consente di ridurre in modo significat
 
 La capacità riservata di Azure Cosmos DB copre la velocità effettiva con provisioning relativa alle risorse. Non copre i costi di archiviazione e rete. Non appena si acquista una prenotazione, i costi per la velocità effettiva che corrispondono agli attributi della prenotazione non vengono più addebitati alle tariffe con pagamento in base al consumo. Per altre informazioni sulle prenotazioni, vedere l'articolo [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
-È possibile acquistare capacità riservata di Azure Cosmos DB dal [portale di Azure](https://portal.azure.com). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione. Per acquistare capacità riservata:
+È possibile acquistare capacità riservata di Azure Cosmos DB dal [portale di Azure](https://portal.azure.com). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/prepare-buy-reservation.md) per acquistare la prenotazione. Per acquistare capacità riservata:
 
 * È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o singola con tariffe con pagamento in base al consumo.  
 * Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.
@@ -70,7 +70,7 @@ Questa raccomandazione per l'acquisto di una prenotazione di 30.000 UR/sec indic
 
    |Campo  |Descrizione  |
    |---------|---------|
-   |Scope   |   Opzione che controlla quante sottoscrizioni possono usare il vantaggio di fatturazione associato alla prenotazione. Controlla anche il modo in cui la prenotazione viene applicata alle sottoscrizioni specifiche. <br/><br/>  Se si seleziona **Condiviso**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB in esecuzione in qualsiasi sottoscrizione nel contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso è costituito da tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona **Sottoscrizione singola**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze Azure Cosmos DB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito della prenotazione dopo l'acquisto della capacità riservata.  |
+   |Ambito   |   Opzione che controlla quante sottoscrizioni possono usare il vantaggio di fatturazione associato alla prenotazione. Controlla anche il modo in cui la prenotazione viene applicata alle sottoscrizioni specifiche. <br/><br/>  Se si seleziona **Condiviso**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB in esecuzione in qualsiasi sottoscrizione nel contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso è costituito da tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona **Sottoscrizione singola**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze Azure Cosmos DB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito della prenotazione dopo l'acquisto della capacità riservata.  |
    |Subscription  |   Sottoscrizione usata per pagare la capacità riservata di Azure Cosmos DB. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi: <br/><br/>  Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P): per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo dell'impegno monetario di registrazione o addebitato come eccedenza. <br/><br/> Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P): per una sottoscrizione singola con tariffe con pagamento in base al consumo, i costi vengono addebitati sul metodo di pagamento con carta di credito o fatturazione per la sottoscrizione.    |
    | Gruppo di risorse | Gruppo di risorse a cui viene applicato lo sconto per la capacità riservata. |
    |Termine  |   Un anno o tre anni.   |
@@ -106,7 +106,7 @@ Lo sconto per la prenotazione si applica automaticamente alle risorse di Azure C
    * [Gestire le prenotazioni di Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
-   * [Prenotazioni di Azure nel programma CSP del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
+   * [Prenotazioni di Azure nel programma CSP del Centro per i partner](/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648689"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487263"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedure consigliate per la gestione dei cluster HDInsight
 
@@ -31,7 +31,7 @@ Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
 | Interfaccia della riga di comando di Azure | [Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Creare cluster basati su Linux in HDInsight tramite Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Creare i cluster Apache Hadoop tramite l'API REST di Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDK (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDK (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
 
 > [!Note]
 > Se si sta creando un cluster e si usa di nuovo il nome del cluster da un cluster creato in precedenza, attendere il completamento dell'eliminazione precedente del cluster prima di creare il cluster.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515021"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488827"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -67,7 +67,7 @@ Per esportare un modello con il portale di Azure:
 
 Per esportare un modello usando PowerShell:
 
-1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e seguire le istruzioni visualizzate:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ Per distribuire il modello usando PowerShell:
          }]          
     ```
 
-    È possibile ottenere i codici di area eseguendo il comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+    È possibile ottenere i codici di area eseguendo il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -176,7 +176,7 @@ Per distribuire il modello usando PowerShell:
 
 <a id="move"></a>
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Distribuire un modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 
@@ -196,7 +196,7 @@ Distribuire un modello per creare un nuovo account di archiviazione nell'area di
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Ottenere l'ID sottoscrizione in cui si vuole distribuire l'IP pubblico di destinazione con [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Ottenere l'ID sottoscrizione in cui si vuole distribuire l'IP pubblico di destinazione con [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -232,14 +232,14 @@ La tabella seguente elenca le funzionalità insieme alle indicazioni per aggiung
 
 ### <a name="move-data-to-the-new-storage-account"></a>Spostare i dati nel nuovo account di archiviazione
 
-AzCopy è lo strumento preferito per lo spostamento dei dati. È ottimizzato per le prestazioni.  Un modo più rapido consiste nel copiare i dati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato. Vedere [Introduzione ad AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy è lo strumento preferito per lo spostamento dei dati. È ottimizzato per le prestazioni.  Un modo più rapido consiste nel copiare i dati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato. Vedere [Introduzione ad AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 È anche possibile usare Azure Data Factory per spostare i dati. Fornisce un'interfaccia utente intuitiva. Per usare Azure Data Factory, vedere i collegamenti seguenti:. 
 
-  - [Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copiare dati da o verso Archiviazione file di Azure tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factor](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)y
+  - [Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copiare dati da o verso Archiviazione file di Azure tramite Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factor](/azure/data-factory/connector-azure-table-storage)y
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 In questa esercitazione è stato spostato un account di archiviazione di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](/azure/azure-resource-manager/resource-group-move-resources)
+- [Spostare macchine virtuali di Azure in un'altra area](/azure/site-recovery/azure-to-azure-tutorial-migrate)

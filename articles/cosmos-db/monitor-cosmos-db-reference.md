@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080454"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488351"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informazioni di riferimento sui dati di monitoraggio di Azure Cosmos DB
 
@@ -41,10 +41,10 @@ La tabella seguente elenca le proprietà dei log delle risorse in Azure Cosmos D
 | **duration** | **duration_d** | Durata dell'operazione, in millisecondi. |
 | **requestLength** | **requestLength_s** | Lunghezza della richiesta in byte. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Questo valore è non vuoto quando vengono usati [token di risorsa](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) per l'autenticazione. Il valore punta all'ID risorsa dell'utente. |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Questo valore è non vuoto quando vengono usati [token di risorsa](./secure-access-to-data.md#resource-tokens) per l'autenticazione. Il valore punta all'ID risorsa dell'utente. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
 
-Per un elenco di tutte le categorie di log di monitoraggio di Azure e i collegamenti agli schemi associati, vedere [categorie e schemi dei log di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-schema.md). 
+Per un elenco di tutte le categorie di log di monitoraggio di Azure e i collegamenti agli schemi associati, vedere [categorie e schemi dei log di monitoraggio di Azure](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Metriche
 Le tabelle seguenti elencano le metriche della piattaforma raccolte per Azure CosmOS DB. Tutte le metriche vengono archiviate nello spazio dei nomi **Cosmos DB metriche standard**.

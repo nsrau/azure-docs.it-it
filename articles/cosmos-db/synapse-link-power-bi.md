@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367636"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480038"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e il pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima) 
 
@@ -141,5 +141,7 @@ Dopo aver scelto queste opzioni, viene visualizzato un grafico simile allo scree
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Aggiungere uno script SQL all'area di lavoro di sinapsi Analytics":::
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+[Usare T-SQL per eseguire query sui dati Azure Cosmos DB usando il collegamento sinapsi di Azure](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 Usare il pool SQL sinapsi senza server per [analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure sinapsi Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

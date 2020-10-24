@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487892"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -144,9 +144,9 @@ Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza nec
 > [!NOTE]
 > La migrazione in tempo reale non è attualmente supportata per le condivisioni file Premium. Attualmente sono supportati solo i dati copiati o spostati manualmente.
 >
-> Gli account di archiviazione GZRS attualmente non supportano il livello archivio. Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) .
+> Gli account di archiviazione GZRS attualmente non supportano il livello archivio. Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers) .
 >
-> I dischi gestiti sono disponibili solo per con ridondanza locale e non è possibile eseguirne la migrazione a ZRS. È possibile archiviare snapshot e immagini per i dischi gestiti da unità SSD standard nell'archiviazione HDD standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Per informazioni sull'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> I dischi gestiti sono disponibili solo per con ridondanza locale e non è possibile eseguirne la migrazione a ZRS. È possibile archiviare snapshot e immagini per i dischi gestiti da unità SSD standard nell'archiviazione HDD standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Per informazioni sull'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Passa da ZRS classico
 
@@ -167,7 +167,7 @@ Per eseguire manualmente la migrazione dei dati dell'account ZRS a o da un accou
 
 Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alle impostazioni di **configurazione** dell'account e scegliere **Aggiorna**:
 
-![Aggiornare ZRS classico a ZRS nel portale](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![Eseguire l'aggiornamento da ZRS classico a ZRS nel portale](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

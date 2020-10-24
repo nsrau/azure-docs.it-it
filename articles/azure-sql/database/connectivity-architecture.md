@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325386"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479086"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Questo articolo illustra l'architettura dei vari componenti che indirizzano il t
 
 Il diagramma seguente fornisce una panoramica generale dell'architettura di connettività.
 
-![panoramica dell'architettura](./media/connectivity-architecture/connectivity-overview.png)
+![Diagramma che illustra una panoramica generale dell'architettura di connettività.](./media/connectivity-architecture/connectivity-overview.png)
 
 I passaggi seguenti descrivono come viene stabilita una connessione al database SQL di Azure:
 
@@ -63,7 +63,7 @@ Se ci si connette dall'interno di Azure, il criterio di connessione predefinito 
 
 Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di connessione `Proxy` per impostazione predefinita. Il criterio `Proxy` significa che la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e che tutti i pacchetti successivi passano attraverso il gateway. Il diagramma seguente illustra il flusso del traffico.
 
-![panoramica dell'architettura](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagramma che illustra il modo in cui la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e tutti i pacchetti successivi vengono propagati tramite il gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -118,7 +118,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Regno Unito occidentale              | 51.141.8.11        |
 | Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43        |
 | Europa occidentale          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
-| Stati Uniti Occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| Stati Uniti occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
