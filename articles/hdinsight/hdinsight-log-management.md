@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997558"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487229"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -42,7 +42,7 @@ I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'amb
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
 
-È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per ottenere informazioni sui cluster HDInsight:
+È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di [Azure](/cli/azure/) per ottenere informazioni sui cluster HDInsight:
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>

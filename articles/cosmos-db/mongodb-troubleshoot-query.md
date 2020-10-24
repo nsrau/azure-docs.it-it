@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284186"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488385"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Risolvere i problemi di query quando si usa l'API Azure Cosmos DB per MongoDB
 
@@ -116,7 +116,7 @@ L' `$explain` output del comando è lungo e contiene informazioni dettagliate su
 | `timeInclusiveMS` | Latenza query back-end |
 | `pathsIndexed` | Mostra gli indici utilizzati dalla query | 
 | `pathsNotIndexed` | Mostra gli indici che potrebbero essere stati utilizzati dalla query, se disponibili | 
-| `shardInformation` | Riepilogo delle prestazioni delle query per una determinata [partizione fisica](partition-data.md#physical-partitions) | 
+| `shardInformation` | Riepilogo delle prestazioni delle query per una determinata [partizione fisica](./partitioning-overview.md#physical-partitions) | 
 | `retrievedDocumentCount` | Numero di documenti caricati dal motore di query | 
 | `outputDocumentCount` | Numero di documenti restituiti nei risultati della query | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Latenza di query aggiuntive stimata a causa della limitazione della frequenza | 
@@ -256,13 +256,13 @@ Le procedure consigliate per l'indicizzazione nell'API Azure Cosmos DB per Mongo
 
 Gli [indici jolly](mongodb-indexing.md#wildcard-indexes) possono semplificare l'indicizzazione. Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query. Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà. L'aggiunta di un indice con caratteri jolly per tutte le proprietà rappresenta il modo più semplice per ottimizzare tutte le query.
 
-È possibile aggiungere nuovi indici in qualsiasi momento, senza alcun effetto sulla disponibilità di scrittura o lettura. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+È possibile aggiungere nuovi indici in qualsiasi momento, senza alcun effetto sulla disponibilità di scrittura o lettura. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Informazioni sulle operazioni di aggregazione che utilizzano l'indice
 
 Nella maggior parte dei casi, le operazioni di aggregazione nell'API Azure Cosmos DB per MongoDB utilizzeranno parzialmente gli indici. Il motore di query, in genere, applica prima i filtri di uguaglianza e di intervallo e usa gli indici. Dopo aver applicato questi filtri, il motore di query può valutare filtri aggiuntivi e ricorrere al caricamento dei documenti rimanenti per calcolare l'aggregazione, se necessario. 
 
-Ecco un esempio:
+Di seguito è riportato un esempio:
 
 ```
 db.coll.aggregate( [

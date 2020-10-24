@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489711"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure, API REST
 
@@ -34,7 +34,7 @@ Il server deve essere riavviato dopo una modifica di questo parametro. Intername
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- [Installare l'interfaccia della riga di comando Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installare l'interfaccia della riga di comando Azure 2,0](/cli/azure/install-azure-cli)
 - Un server di [database di Azure per PostgreSQL](quickstart-create-server-up-azure-cli.md) come server primario.
 
 
@@ -60,7 +60,7 @@ Il server deve essere riavviato dopo una modifica di questo parametro. Intername
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
 
-Il comando [AZ Postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) richiede i parametri seguenti:
+Il comando [AZ Postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) richiede i parametri seguenti:
 
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Se il parametro non è stato impostato `azure.replication_support` su **replica*
 > Prima che un'impostazione del server primario venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
 
 ### <a name="list-replicas"></a>Elencare le repliche
-È possibile visualizzare l'elenco delle repliche di un server primario usando il comando [AZ Postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
+È possibile visualizzare l'elenco delle repliche di un server primario usando il comando [AZ Postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
-È possibile arrestare la replica tra un server primario e una replica di lettura usando il comando [AZ Postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
+È possibile arrestare la replica tra un server primario e una replica di lettura usando il comando [AZ Postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) .
 
 Una volta terminata la replica in un server primario e una replica di lettura, non è possibile annullarla. La replica in lettura diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Eliminare un server primario o di replica
-Per eliminare un server primario o di replica, usare il comando [AZ Postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
+Per eliminare un server primario o di replica, usare il comando [AZ Postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) .
 
 Quando si elimina un server primario, la replica in tutte le repliche di lettura viene arrestata. Le repliche in lettura diventano server autonomi che supportano sia la lettura che la scrittura.
 

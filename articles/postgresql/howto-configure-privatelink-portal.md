@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907493"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489932"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con il portale
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato.  Questo articolo illustra come usare la portale di Azure per creare una VM in una rete virtuale di Azure e un singolo server di database di Azure per PostgreSQL con un endpoint privato di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per PostgreSQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
@@ -35,7 +35,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
@@ -222,7 +222,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
     Address:  10.1.3.4
     ```
 
-3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. Nell'esempio seguente è stato usato [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
+3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. Nell'esempio seguente è stato usato [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
 
 4. In **nuova connessione**immettere o selezionare queste informazioni:
 
@@ -252,7 +252,7 @@ Al termine dell'uso dell'endpoint privato, del server PostgreSQL e della macchin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa procedura è stata creata una VM in una rete virtuale, un database di Azure per PostgreSQL-server singolo e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una VM da Internet e la comunicazione protetta con il server PostgreSQL è stata effettuata tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [che cos'è endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+In questa procedura è stata creata una VM in una rete virtuale, un database di Azure per PostgreSQL-server singolo e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una VM da Internet e la comunicazione protetta con il server PostgreSQL è stata effettuata tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [che cos'è endpoint privato di Azure](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

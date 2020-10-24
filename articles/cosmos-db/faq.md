@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26794f0d743bc701879a161f69e374340206e5d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570358"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488470"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti sulle diverse API in Azure Cosmos DB
 
@@ -70,7 +70,7 @@ I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](ht
 
 In caso di domande tecniche, inviare un messaggio a uno di questi due forum di domande e risposte:
 
-* [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow è ideale per domande relative alla programmazione. Assicurarsi che la domanda sia [pertinente](https://stackoverflow.com/help/on-topic) e [specificare il numero massimo possibile di dettagli, in modo che la domanda sia chiara e sia possibile fornire una risposta](https://stackoverflow.com/help/how-to-ask).
 
 Per richiedere nuove funzionalità, creare una nuova richiesta sul sito di [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -179,7 +179,7 @@ L'API SQL supporta l'aggregazione a bassa latenza su qualsiasi scala con le funz
 
 L'API SQL supporta il controllo della concorrenza ottimistica tramite tag di entità HTTP o ETag. Ogni risorsa dell'API SQL ha un ETag, che viene impostato nel server ogni volta che un documento viene aggiornato. In tutti i messaggi di risposta sono inclusi l'intestazione ETag e il valore corrente. Gli ETag possono essere usati con l'intestazione If-Match per consentire al server di stabilire se una risorsa deve essere aggiornata. Il valore di If-Match è il valore ETag con cui eseguire il confronto. Se il valore ETag corrisponde al valore ETag del server, la risorsa verrà aggiornata. Se l'ETag non è aggiornato, il server rifiuta l'operazione con un codice di risposta di tipo "HTTP 412 - Precondizione non riuscita". Il client recupera quindi nuovamente la risorsa per acquisire il relativo valore ETag aggiornato. Inoltre, gli ETag possono essere usati con l'intestazione If-None-Match per stabilire se è necessario ripetere il recupero di una risorsa.
 
-Per applicare la concorrenza ottimistica in .NET, usare la classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx). Per un esempio .NET, vedere [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) nell'esempio DocumentManagement in GitHub.
+Per applicare la concorrenza ottimistica in .NET, usare la classe [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition). Per un esempio .NET, vedere [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) nell'esempio DocumentManagement in GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Come si eseguono le transazioni nell'API SQL?
 
@@ -210,7 +210,7 @@ Si tratta di una limitazione di JavaScript. JavaScript usa numeri in formato a v
 La creazione di autorizzazioni tramite ResourceToken è consentita a livello di contenitore e dei relativi discendenti, ad esempio documenti e allegati. Di conseguenza, la creazione di un'autorizzazione a livello di database o di account non è attualmente consentita.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Passaggi successivi
 

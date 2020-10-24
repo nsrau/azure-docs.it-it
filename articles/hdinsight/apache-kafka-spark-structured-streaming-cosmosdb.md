@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203463"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487331"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -64,7 +64,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 1. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
     |Subscription|Selezionare la sottoscrizione di Azure.|
     |Resource group|creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.|
@@ -86,7 +86,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 Il progetto usato in questo documento archivia i dati in Cosmos DB. Prima di eseguire il codice è necessario innanzitutto creare un _database_ e una _raccolta_ nell'istanza di Cosmos DB. È necessario recuperare anche l'endpoint documento e la _chiave_ usati per autenticare le richieste a Cosmos DB.
 
-Un modo per eseguire questa operazione consiste nell'usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Lo script seguente crea un database denominato `kafkadata` e una raccolta denominata `kafkacollection`, per poi restituire la chiave primaria.
+Un modo per eseguire questa operazione consiste nell'usare l'[interfaccia della riga di comando di Azure](/cli/azure/). Lo script seguente crea un database denominato `kafkadata` e una raccolta denominata `kafkacollection`, per poi restituire la chiave primaria.
 
 ```azurecli
 #!/bin/bash

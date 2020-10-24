@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856586"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488113"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -25,7 +25,7 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 
 * [cURL](https://curl.haxx.se/): consente di comunicare con servizi basati su Web.
 * **jq**, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli): consente di gestire in remoto i servizi di Azure.
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli): consente di gestire in remoto i servizi di Azure.
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Utenti
@@ -191,7 +191,7 @@ Esistono vari modi per accedere ai dati dall'esterno del cluster HDInsight. Di s
 
 Se si usa l' __archiviazione BLOB di Azure__, vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
 
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): uno script Python per l'uso con i BLOB in Archiviazione di Azure.
 * Vari SDK:
 

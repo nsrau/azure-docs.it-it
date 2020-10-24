@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277831"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486158"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva di ridimensionamento automatico per database o contenitore nell'API Azure Cosmos DB-SQL
 
@@ -248,7 +248,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-È possibile usare i modelli di Azure Resource Manager per eseguire il provisioning della velocità effettiva di ridimensionamento automatico per tutte le API Azure Cosmos DB di database o a livello di contenitore Per esempi, vedere [Azure Resource Manager Templates for Azure Cosmos DB](resource-manager-samples.md) .
+È possibile usare i modelli di Azure Resource Manager per eseguire il provisioning della velocità effettiva di ridimensionamento automatico per tutte le API Azure Cosmos DB di database o a livello di contenitore Per esempi, vedere [Azure Resource Manager Templates for Azure Cosmos DB](./templates-samples-sql.md) .
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

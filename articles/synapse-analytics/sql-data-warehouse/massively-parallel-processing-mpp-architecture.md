@@ -1,6 +1,6 @@
 ---
 title: Architettura di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
-description: Informazioni su come Azure Synapse Analytics (in precedenza SQL Data Warehouse) unisce l'architettura MPP (Massively Parallel Processing) con Archiviazione di Azure per raggiungere prestazioni e scalabilità elevate.
+description: Informazioni su come Azure sinapsi Analytics (in precedenza SQL DW) combina le funzionalità di elaborazione delle query distribuite con archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210967"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479341"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 
@@ -33,13 +33,13 @@ Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità 
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Componenti dell'architettura MPP di Synapse SQL
+## <a name="synapse-sql-architecture-components"></a>Componenti dell'architettura di Synapse SQL
 
 [Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) usa un'architettura scale-out per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le risorse di calcolo sono separate dall'archiviazione, è possibile ridimensionarle indipendentemente dai dati presenti nel sistema.
 
 ![Architettura di SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL usa un'architettura basata su nodi. L'applicazione si connette ed esegue comandi T-SQL in un nodo di controllo che rappresenta l'unico punto di ingresso per Synapse SQL. Il nodo di controllo esegue il motore MPP, che ottimizza le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per l'elaborazione in parallelo.
+Synapse SQL usa un'architettura basata su nodi. L'applicazione si connette ed esegue comandi T-SQL in un nodo di controllo che rappresenta l'unico punto di ingresso per Synapse SQL. Il nodo di controllo ospita il motore delle query distribuite, che ottimizza le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo.
 
 I nodi di calcolo archiviano tutti i dati utente nell'archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati.
 
@@ -60,13 +60,13 @@ Synapse SQL usa Archiviazione di Azure per proteggere i dati dell'utente.  Poich
 
 ### <a name="control-node"></a>Nodo di controllo
 
-Il nodo di controllo costituisce il componente principale dell'architettura. È il front-end che interagisce con tutte le applicazioni e le connessioni. Il motore MPP viene eseguito nel nodo di controllo per ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL, il nodo di controllo la trasforma in query che verranno eseguite in ogni distruzione in parallelo.
+Il nodo di controllo costituisce il componente principale dell'architettura. È il front-end che interagisce con tutte le applicazioni e le connessioni. Il motore di query distribuite viene eseguito sul nodo di controllo per ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL, il nodo di controllo la trasforma in query che verranno eseguite in ogni distruzione in parallelo.
 
 ### <a name="compute-nodes"></a>Nodi di calcolo
 
 I nodi di calcolo forniscono la potenza di calcolo. Viene eseguito il mapping delle distribuzioni ai nodi di calcolo per l'elaborazione. Quando si ottengono risorse di calcolo aggiuntive a pagamento, viene eseguito il mapping delle distribuzioni ai nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 e viene determinato in base al livello di servizio associato a Synapse SQL.
 
-Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco delle visualizzazioni di sistema, vedere le [visualizzazioni di sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco di queste viste di sistema, vedere [sinapsi SQL System views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146641"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490323"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -112,7 +112,7 @@ Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub In
 
 1. In **messaggistica**selezionare **routing messaggi**. Nel riquadro **routing messaggi** selezionare la scheda **endpoint personalizzati** , quindi selezionare **+ Aggiungi**. Dall'elenco a discesa selezionare **coda del bus di servizio**.
 
-   ![Aggiungere un endpoint all'hub IoT nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Schermata che evidenzia l'opzione della coda del bus di servizio.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. Nel riquadro **Aggiungi un endpoint del bus di servizio** immettere le informazioni seguenti:
 
@@ -183,7 +183,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 1. Creare una connessione per il bus di servizio.
    1. Immettere un nome di connessione e selezionare lo spazio dei nomi del bus di servizio dall'elenco. Verrà visualizzata la schermata successiva.
 
-      ![Creare una connessione del bus di servizio per l'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Schermata che evidenzia il momento in cui uno o più messaggi arrivano in un'opzione di coda (completamento automatico).](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Selezionare i criteri del bus di servizio (RootManageSharedAccessKey). Quindi selezionare  **Crea**.
 

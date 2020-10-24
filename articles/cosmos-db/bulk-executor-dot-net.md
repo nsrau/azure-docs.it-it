@@ -10,12 +10,12 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb3e2031d5656668b9971fdf357f66824179fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31baad997733c46cf3e9aa8dc92ac0613468f72f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975880"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489388"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzare la libreria .NET Executor in blocco per eseguire operazioni bulk in Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azu
 
 * Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Assicurarsi di abilitare "sviluppo Azure" durante l'installazione di Visual Studio.
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](/azure/cosmos-db/local-emulator) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticate-requests).
+* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](./local-emulator.md) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticate-requests).
 
 * Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account di database](create-sql-api-dotnet.md#create-account) dell'articolo sulla guida introduttiva per .NET.
 

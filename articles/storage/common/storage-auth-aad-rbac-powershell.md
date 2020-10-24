@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715809"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488759"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usare PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) autorizza i diritti di accesso alle risorse pr
 
 Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Questo articolo descrive come usare Azure PowerShell per elencare i ruoli predefiniti di Azure e assegnarli agli utenti. Per ulteriori informazioni sull'utilizzo di Azure PowerShell, vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Questo articolo descrive come usare Azure PowerShell per elencare i ruoli predefiniti di Azure e assegnarli agli utenti. Per ulteriori informazioni sull'utilizzo di Azure PowerShell, vedere [Panoramica di Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

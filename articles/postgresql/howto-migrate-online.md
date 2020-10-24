@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1f1af53388f177dc348c5cb805ef8e6fbe9f9436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27da5f1b731b2cdb0604f91f7f9e78b19ee2908b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710822"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489796"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migrazione del tempo di inattività minimo al database di Azure per PostgreSQL-server singolo
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
@@ -25,4 +25,4 @@ Servizio Migrazione del database di Azure esegue un caricamento iniziale di Data
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare il video [App Modernization with Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102) (Modernizzazione delle app con Microsoft Azure), che contiene una demo che mostra come eseguire la migrazione di app PostgreSQL in Database di Azure per PostgreSQL.
-- Vedere l'esercitazione [Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- Vedere l'esercitazione [Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure](../dms/tutorial-postgresql-azure-postgresql-online.md).

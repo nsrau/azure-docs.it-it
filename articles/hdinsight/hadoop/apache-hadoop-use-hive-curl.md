@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085549"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489592"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite REST
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output; in questo caso `/example/rest`. Questo indirizzo archivia l'output nella directory `example/curl` nell'archiviazione predefinita dei cluster.
 
-    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure, vedere il documento [Usa interfaccia della riga di comando di Azure con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure, vedere il documento [Usa interfaccia della riga di comando di Azure con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

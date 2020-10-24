@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939342"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488810"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -290,6 +290,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Microsoft Identity Platform](/azure/active-directory/develop/)
 - [Gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](storage-auth-aad-rbac.md)
 - [Autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)

@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290838"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487314"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Crittografia doppia di Azure HDInsight per dati inattivi
 
@@ -121,13 +121,13 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
 ![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-L'esempio seguente illustra come usare l'interfaccia della riga di comando di Azure per creare un nuovo cluster di Apache Spark con la crittografia del disco abilitata. Per altre informazioni, vedere l'interfaccia della riga di comando di [Azure AZ HDInsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+L'esempio seguente illustra come usare l'interfaccia della riga di comando di Azure per creare un nuovo cluster di Apache Spark con la crittografia del disco abilitata. Per altre informazioni, vedere l'interfaccia della riga di comando di [Azure AZ HDInsight create](/cli/azure/hdinsight#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -365,7 +365,7 @@ Per ruotare la chiave, è necessario l'URI dell'insieme di credenziali delle chi
 
 #### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-Nell'esempio seguente viene illustrato come ruotare la chiave di crittografia del disco per un cluster HDInsight esistente. Per altre informazioni, vedere l'interfaccia della riga di comando di [Azure AZ HDInsight rotate-Disk-Encryption-Key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
+Nell'esempio seguente viene illustrato come ruotare la chiave di crittografia del disco per un cluster HDInsight esistente. Per altre informazioni, vedere l'interfaccia della riga di comando di [Azure AZ HDInsight rotate-Disk-Encryption-Key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ Se il cluster perde l'accesso alla chiave, gli avvisi vengono visualizzati nel p
 
 **Come è possibile recuperare il cluster se le chiavi vengono eliminate?**
 
-Poiché sono supportate solo le chiavi abilitate per l'eliminazione temporanea, se le chiavi vengono ripristinate nell'insieme di credenziali delle chiavi, il cluster dovrebbe riottenere l'accesso alle chiavi. Per recuperare una chiave di Azure Key Vault, vedere [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [AZ-Key Vault-Key-Recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Poiché sono supportate solo le chiavi abilitate per l'eliminazione temporanea, se le chiavi vengono ripristinate nell'insieme di credenziali delle chiavi, il cluster dovrebbe riottenere l'accesso alle chiavi. Per recuperare una chiave di Azure Key Vault, vedere [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) o [AZ-Key Vault-Key-Recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **Se si aumenta la scalabilità verticale di un cluster, i nuovi nodi supporteranno le chiavi gestite dal cliente in modo uniforme?**

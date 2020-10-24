@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6514b149b057d690d37551bd0489c63852addb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b322cc0c1a50df7f8946fa1047bdc58ea92d77
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207506"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488538"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda di rete bassa o assente
  
@@ -66,6 +66,6 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 
 - Informazioni su come
 
-    - [Trasferire dati con Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Trasferire dati con Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
+    - [Trasferire dati con Data Box Disk](/azure/databox/data-box-disk-quickstart-portal).
+    - [Trasferire dati con Data Box](/azure/databox/data-box-quickstart-portal).
     - [Trasferire dati con Importazione/Esportazione](/azure/storage/common/storage-import-export-data-to-blobs).

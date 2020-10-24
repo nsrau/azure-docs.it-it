@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 662b85bb2b928cbbcfb1b88adecb2c125c9ae5df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486617"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connettersi all'API Cassandra di Azure Cosmos DB da Spark
 
@@ -22,7 +22,7 @@ Questo articolo è uno di una serie di articoli sull'integrazione dell'API Cassa
 ## <a name="prerequisites"></a>Prerequisiti
 * [Effettuare il provisioning di un account di API Cassandra Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Effettuare il provisioning dell'ambiente Spark scelto [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Altre].
+* Effettuare il provisioning dell'ambiente Spark scelto [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Altre].
 
 ## <a name="dependencies-for-connectivity"></a>Dipendenze per la connettività
 * **Connettore Spark per Cassandra:** il connettore Spark viene usato per connettersi all'API Cassandra di Azure Cosmos DB.  Identificare e usare la versione del connettore nel [repository Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatibile con le versioni di Spark e Scala dell'ambiente Spark.
@@ -43,11 +43,11 @@ La tabella seguente elenca i parametri di configurazione della velocità effetti
 | **Nome proprietà** | **Valore predefinito** | **Descrizione** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Numero di righe per ogni singolo batch. Impostare questo parametro su 1. Questo parametro viene usato per ottenere una velocità effettiva maggiore per carichi di lavoro pesanti. |
-| spark.cassandra.connection.connections_per_executor_max  | nessuno | Numero massimo di connessioni per ogni nodo per ogni executor. 10*n equivale a 10 connessioni per nodo in un cluster Cassandra con n-nodi. Pertanto, se sono necessarie 5 connessioni per nodo per ogni executor per un cluster Cassandra a 5 nodi, è necessario impostare questa configurazione su 25. Modificare questo valore in base al grado di parallelismo o al numero di executor per cui sono configurati i processi Spark.   |
+| spark.cassandra.connection.connections_per_executor_max  | Nessuna | Numero massimo di connessioni per ogni nodo per ogni executor. 10*n equivale a 10 connessioni per nodo in un cluster Cassandra con n-nodi. Pertanto, se sono necessarie 5 connessioni per nodo per ogni executor per un cluster Cassandra a 5 nodi, è necessario impostare questa configurazione su 25. Modificare questo valore in base al grado di parallelismo o al numero di executor per cui sono configurati i processi Spark.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Definisce il numero di scritture parallele che possono verificarsi per ogni executor. Dato che "batch.size.rows" è impostato su 1, assicurarsi di aumentare questo valore di conseguenza. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro. |
 | spark.cassandra.concurrent.reads |  512 | Definisce il numero di letture parallele che possono verificarsi per ogni executor. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro.  |
-| spark.cassandra.output.throughput_mb_per_sec  | nessuno | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.   |
-| spark.cassandra.input.reads_per_sec| nessuno   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nessuna | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Nessuna   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Definisce il numero di batch per ogni singola attività Spark che possono essere archiviati in memoria prima dell'invio all'API Cassandra |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Definisce il periodo di tempo fino a quando sono disponibili connessioni inutilizzate. | 
 

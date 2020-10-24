@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402503"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487781"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Che cos'è la trascrizione delle conversazioni nelle riunioni (anteprima)?
 
@@ -34,9 +34,11 @@ La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-
 > [!NOTE]
 > Anche se la trascrizione delle conversazioni non impone un limite al numero di altoparlanti presenti nella chat, è ottimizzato per 2-10 altoparlanti per sessione.
 
-## <a name="use-cases"></a>Casi d'uso
+## <a name="get-started"></a>Introduzione
 
-### <a name="inclusive-meetings"></a>Riunioni Inclusive
+Per iniziare, vedere la [Guida introduttiva](how-to-use-conversation-transcription.md) alla trascrizione di conversazioni in tempo reale.
+
+## <a name="use-cases"></a>Casi d'uso
 
 Per rendere le riunioni inclusive per tutti gli utenti, ad esempio i partecipanti che sono sordi e difficili da ascoltare, è importante avere una trascrizione in tempo reale. La trascrizione delle conversazioni in modalità in tempo reale prende la riunione audio e determina chi sta dicendo, consentendo a tutti i partecipanti della riunione di seguire la trascrizione e partecipare alla riunione senza un ritardo.
 
@@ -54,6 +56,10 @@ Si tratta di una panoramica di alto livello del funzionamento della trascrizione
 
 - **Flusso audio multicanale** : per informazioni dettagliate e di progettazione, vedere [microfono per dispositivi Microsoft Speech SDK](https://aka.ms/cts/microphone). Per ulteriori informazioni o per acquistare un kit di sviluppo, vedere la pagina relativa a come [ottenere Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 - **Esempi Voice utente** : la trascrizione delle conversazioni richiede i profili utente prima della conversazione. È necessario raccogliere le registrazioni audio da ogni utente, quindi inviare le registrazioni al servizio di [generazione della firma](https://aka.ms/cts/signaturegenservice) per convalidare l'audio e generare i profili utente.
+
+> [!NOTE]
+> Gli esempi Voice utente sono facoltativi. Senza questo input, la trascrizione mostrerà altoparlanti diversi, ma visualizzati come "Speaker1", "Speaker2" e così via, invece di riconoscere come nomi di speaker specifici pre-registrati.
+
 
 ## <a name="real-time-vs-asynchronous"></a>Confronto tra tempo reale e asincrono
 
@@ -73,9 +79,9 @@ I dati audio vengono elaborati in tempo reale per restituire l'identificatore e 
 
 ## <a name="language-support"></a>Lingue supportate
 
-Attualmente, la trascrizione delle conversazioni supporta "en-US" e "zh-CN" nelle aree seguenti: *centralus* e *eastasia*. Se è necessario un supporto aggiuntivo per le impostazioni locali, contattare la [funzionalità di trascrizione delle conversazioni](mailto:CTSFeatureCrew@microsoft.com).
+Attualmente, la trascrizione delle conversazioni supporta [tutte le lingue di riconoscimento vocale](language-support.md#speech-to-text) nelle aree seguenti:  `centralus` , `eastasia` , `eastus` , `westeurope` . Se è necessario un supporto aggiuntivo per le impostazioni locali, contattare la [funzionalità di trascrizione delle conversazioni](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Trascrivere le conversazioni in tempo reale](how-to-use-conversation-transcription-service.md)
+> [Trascrivere le conversazioni in tempo reale](how-to-use-conversation-transcription.md)

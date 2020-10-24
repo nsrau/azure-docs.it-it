@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409766"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490629"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Una soluzione di database a grafo può essere applicata in modo ottimale se le e
 
 Se i criteri precedenti vengono soddisfatti, è probabile che un approccio basato su database a grafo offrirà vantaggi in termini di **complessità delle query**, **scalabilità del modello di dati**, e **prestazioni delle query**.
 
-Il passaggio successivo consiste nel determinare se il grafo verrà usato per scopi analitici o transazionali. Se il grafo deve essere usato per carichi di lavoro ingenti di calcolo ed elaborazione dati, è consigliabile considerare il [connettore Spark per Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector) e valutare l'uso della [libreria GraphX](https://spark.apache.org/graphx/). 
+Il passaggio successivo consiste nel determinare se il grafo verrà usato per scopi analitici o transazionali. Se il grafo deve essere usato per carichi di lavoro ingenti di calcolo ed elaborazione dati, è consigliabile considerare il [connettore Spark per Cosmos DB](./spark-connector.md) e valutare l'uso della [libreria GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Come usare gli oggetti del grafo
 
@@ -47,13 +47,13 @@ Di seguito sono riportate le procedure consigliate per le proprietà negli ogget
 
 | Oggetto | Proprietà | Type | Note |
 | --- | --- | --- |  --- |
-| Vertice | ID | string | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
-| Vertice | label | string | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
+| Vertice | ID | Stringa | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
+| Vertice | label | Stringa | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
 | Vertice | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni vertice. |
 | Vertice | chiave di partizione | Stringa, booleano, intero, binario | Questa proprietà consente di definire dove verranno archiviati il vertice e i relativi archi in uscita. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). |
-| Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
-| Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
-| Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
+| Microsoft Edge | ID | Stringa | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
+| Microsoft Edge | label | Stringa | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
+| Microsoft Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
 
 > [!NOTE]
 > Con gli archi non è richiesto un valore per la chiave di partizione, perché il relativo valore viene assegnato automaticamente in base al vertice di origine. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md).

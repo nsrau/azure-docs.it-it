@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087423"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485682"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -26,7 +26,7 @@ Informazioni su come usare il servizio Azure Kubernetes con [Apache Kafka](https
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 * Una sottoscrizione di Azure.
 
 Questo documento presuppone che si abbia familiarità con la creazione e l'uso dei servizi di Azure seguenti:

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
-ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23361470fd7b1cdb5b6153580e0240ac2f6c9133
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490340"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster Azure HDInsight con azioni script
 
@@ -155,7 +155,7 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
     La tabella seguente illustra gli elementi nel modulo:
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
     | Selezionare uno script | Per usare uno script personalizzato, selezionare __personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
     | Nome |Specificare un nome per l'azione script. |
@@ -207,7 +207,7 @@ La creazione del cluster può richiedere alcuni minuti.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Usare un'azione script durante la creazione di un cluster da HDInsight .NET SDK
 
-HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight da un'applicazione .NET. Per un esempio di codice, vedere [azioni script](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
+HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight da un'applicazione .NET. Per un esempio di codice, vedere [azioni script](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
 
 ## <a name="script-action-to-a-running-cluster"></a>Azione script in un cluster in esecuzione
 
@@ -229,9 +229,9 @@ Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
 
     La tabella seguente illustra gli elementi nel modulo:
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
-    | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
+    | Selezionare uno script | Per usare uno script personalizzato, selezionare __personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
     | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
     | Head/Worker/Zookeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker**o **ZooKeeper**. |
@@ -260,7 +260,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Applicare un'azione script a un cluster in esecuzione dall'interfaccia della riga di comando di Azure
 
-Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della riga di comando di Azure. Verificare di avere l'ultima versione. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della riga di comando di Azure. Verificare di avere l'ultima versione. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 1. Eseguire l'autenticazione alla sottoscrizione di Azure:
 
@@ -274,7 +274,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    I ruoli validi sono `headnode` ,, `workernode` `zookeepernode` , `edgenode` . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio: `--roles headnode workernode`.
+    I ruoli validi sono `headnode` ,, `workernode` `zookeepernode` , `edgenode` . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio, `--roles headnode workernode`
 
     Per salvare lo script in modo permanente, aggiungere `--persist-on-success`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `az hdinsight script-action promote`.
 
@@ -323,12 +323,12 @@ Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e
 
 | Comando | Descrizione |
 | --- | --- |
-| [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Elimina un'azione script permanente specificata del cluster. Questo comando non annulla le azioni eseguite da uno script, ma rimuove solo il flag persistente.|
-|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Eseguire azioni script sul cluster HDInsight specificato.|
-| [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Elenca tutte le azioni script permanente per il cluster specificato. |
-|[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Elenca la cronologia di esecuzione di tutti gli script per il cluster specificato.|
-|[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promuove l'esecuzione di script ad hoc specificata in uno script permanente.|
-|[`az hdinsight script-action show-execution-details`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Ottiene i dettagli di esecuzione dello script per l'ID esecuzione dello script specificato.|
+| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Elimina un'azione script permanente specificata del cluster. Questo comando non annulla le azioni eseguite da uno script, ma rimuove solo il flag persistente.|
+|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Eseguire azioni script sul cluster HDInsight specificato.|
+| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Elenca tutte le azioni script permanente per il cluster specificato. |
+|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Elenca la cronologia di esecuzione di tutti gli script per il cluster specificato.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promuove l'esecuzione di script ad hoc specificata in uno script permanente.|
+|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Ottiene i dettagli di esecuzione dello script per l'ID esecuzione dello script specificato.|
 
 ### <a name="hdinsight-net-sdk"></a>HDInsight .NET SDK
 

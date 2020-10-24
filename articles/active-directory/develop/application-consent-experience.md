@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115476"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478134"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -46,7 +46,7 @@ La figura e la tabella seguenti includono informazioni sui blocchi predefiniti d
 | 1 | ID utente | Questo ID rappresenta l'utente per conto del quale l'applicazione client sta richiedendo di accedere a risorse protette. |
 | 2 | Titolo | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |
 | 3 | Logo dell'app | Questa immagine deve consentire agli utenti di avere un'indicazione visiva se l'app in questione è quella a cui intendevano accedere. L'immagine viene fornita dagli sviluppatori dell'applicazione e la relativa proprietà non è convalidata. |
-| 4 | Nome dell'app | Questo valore deve comunicare agli utenti il nome dell'applicazione che sta richiedendo l'accesso ai dati. Si noti che il nome dell'app viene fornito dagli sviluppatori e la relativa proprietà non è convalidata. |
+| 4 | Nome app | Questo valore deve comunicare agli utenti il nome dell'applicazione che sta richiedendo l'accesso ai dati. Si noti che il nome dell'app viene fornito dagli sviluppatori e la relativa proprietà non è convalidata. |
 | 5 | Dominio dell'entità di pubblicazione | Questo valore deve fornire agli utenti un dominio di cui possano essere in grado di valutare il livello di affidabilità. Il dominio dell'entità di pubblicazione viene fornito dagli sviluppatori e la relativa proprietà è convalidata. |
 | 6 | Autorizzazioni | Questo elenco contiene le autorizzazioni richieste dall'applicazione client. Gli utenti devono sempre valutare i tipi di autorizzazioni richieste per comprendere, in caso di accettazione, a quali dati l'applicazione client sarà autorizzata ad accedere per loro conto. Si consiglia agli sviluppatori di applicazioni di richiedere l'accesso alle autorizzazioni con privilegi minimi. |
 | 7 | Descrizione dell'autorizzazione | Questo valore viene fornito dal servizio che espone le autorizzazioni. Per visualizzare le descrizioni delle autorizzazioni, è necessario attivare o disattivare la freccia di espansione accanto all'autorizzazione. |
@@ -65,13 +65,13 @@ Di seguito sono illustrate le esperienze di consenso che un utente può visualiz
     
     2. Gli utenti visualizzeranno la richiesta di consenso tradizionale.
 
-        ![Richiesta di consenso per lo scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Screenshot che mostra la richiesta di consenso tradizionale.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Utenti singoli che accedono a un'app che richiede almeno un'autorizzazione non compresa nel loro ambito di autorità.
     1. Gli amministratori visualizzeranno la stessa richiesta illustrata in precedenza al punto 1.i.
     2. Gli utenti non potranno concedere il consenso all'applicazione e saranno invitati a chiedere all'amministratore di concedere l'accesso all'app. 
                 
-        ![Richiesta di consenso per lo scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Screenshot della richiesta di consenso che informa l'utente di chiedere a un amministratore di accedere all'app.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Utenti singoli che si spostano o vengono indirizzati verso il flusso di consenso amministratore.
     1. Gli utenti amministratore visualizzeranno la richiesta di consenso amministratore. In questa richiesta il titolo e le descrizioni delle autorizzazioni risultano modificati. Le modifiche evidenziano il fatto che l'accettazione di questa richiesta concederà all'app l'accesso ai dati richiesti per conto dell'intero tenant.

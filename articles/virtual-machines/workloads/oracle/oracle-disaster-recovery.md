@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996177"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480361"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
@@ -42,7 +42,7 @@ Ecco un riepilogo della configurazione di Azure:
 - Un jumpbox, un servizio dell'applicazione, un database e un gateway VPN in subnet separate
 - Gruppo di sicurezza di rete applicato nelle subnet dell'applicazione e del database
 
-![Schermata della pagina di topologia del ripristino di emergenza](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagramma che mostra i siti primari e di ripristino di emergenza in Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: Sito primario locale e sito di ripristino di emergenza in Azure
 
@@ -68,7 +68,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 - Un criterio o una regola del gruppo di sicurezza di rete per consentire la porta TCP 1521 in ingresso (o una porta definita dall'utente)
 - Un criterio o una regola del gruppo di sicurezza di rete per limitare l'accesso alla rete virtuale solo all'indirizzo IP o agli indirizzi locali (database o applicazione)
 
-![Schermata della pagina di topologia del ripristino di emergenza](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagramma che mostra le connessioni dirette tra locale e Azure, che richiedono porte TCP aperte sul firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Approccio 2: VPN da sito a sito
 La VPN da sito a sito è un approccio migliore. Per altre informazioni sulla configurazione di una VPN, vedere [Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

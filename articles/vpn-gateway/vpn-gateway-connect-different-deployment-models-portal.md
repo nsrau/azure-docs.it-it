@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487112"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -77,7 +77,7 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Stati Uniti Occidentali | RMVNetLocal (192.168.0.0/16) |
+| ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Sezione 1: Configurare le impostazioni di una rete virtuale classica
@@ -162,7 +162,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 * GatewaySubnet = 192.168.0.0/26 <br>
 * Prima configurazione IP = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -172,12 +172,12 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Stati Uniti Occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
+| ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|
 
 Il gateway di rete locale specifica l'intervallo di indirizzi e l'indirizzo IP pubblico associati alla rete virtuale classica e al relativo gateway di rete virtuale. Se si eseguono questi passaggi come esercizio, fare riferimento ai valori di esempio.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>Sezione 3: Modificare le impostazioni del sito locale della rete virtuale classica
 

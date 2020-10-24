@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000618"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488997"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig in Apache Hadoop in HDInsight
 
@@ -30,7 +30,7 @@ Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l
 
     Usare qualsiasi IDE desiderato. È consigliabile usare [Visual Studio](https://www.visualstudio.com/vs) o [Visual Studio Code](https://code.visualstudio.com/). I passaggi descritti in questo documento usano Visual Studio 2019.
 
-* Un modo per caricare i file con estensione exe nel cluster ed eseguire i processi Pig e Hive. È consigliabile [Data Lake Tools per Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure)e l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure. La procedura in questo documento usa gli strumenti Data Lake per Visual Studio per caricare i file ed eseguire l'esempio di query Hive.
+* Un modo per caricare i file con estensione exe nel cluster ed eseguire i processi Pig e Hive. È consigliabile [Data Lake Tools per Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure)e l' [interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure. La procedura in questo documento usa gli strumenti Data Lake per Visual Studio per caricare i file ed eseguire l'esempio di query Hive.
 
     Per informazioni su altri modi per eseguire query hive, vedere [che cos'è Apache hive e HiveQL in Azure HDInsight?](hdinsight-use-hive.md).
 

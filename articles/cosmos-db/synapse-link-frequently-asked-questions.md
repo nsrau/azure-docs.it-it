@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480072"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -37,13 +37,13 @@ Nella versione di anteprima, quando il collegamento sinapsi di Azure è abilitat
 
 Per i contenitori con l'archivio analitico attivato, il backup automatico e il ripristino dei dati nell'archivio analitico non sono supportati in questo momento. 
 
-Quando il collegamento sinapsi è abilitato in un account di database, Azure Cosmos DB continuerà a eseguire automaticamente i [backup](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) dei dati nell'archivio transazionale (solo) dei contenitori all'intervallo di backup pianificato, come sempre. È importante notare che quando un contenitore con archivio analitico attivato viene ripristinato in un nuovo account, il contenitore verrà ripristinato solo con l'archivio transazionale e non è abilitato alcun archivio analitico. 
+Quando il collegamento sinapsi è abilitato in un account di database, Azure Cosmos DB continuerà a eseguire automaticamente i [backup](./online-backup-and-restore.md) dei dati nell'archivio transazionale (solo) dei contenitori all'intervallo di backup pianificato, come sempre. È importante notare che quando un contenitore con archivio analitico attivato viene ripristinato in un nuovo account, il contenitore verrà ripristinato solo con l'archivio transazionale e non è abilitato alcun archivio analitico. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>È possibile disabilitare la funzionalità di collegamento di Azure sinapsi per l'account Azure Cosmos DB?
 
 Attualmente, dopo aver abilitato la funzionalità Collegamento a Synapse a livello di account, non è possibile disabilitarla. Tenere presente che, se si abilita la funzionalità Collegamento a Synapse a livello di account ma non sono disponibili contenitori abilitati per l'archivio analitico, non si verificano implicazioni in termini di fatturazione. 
 
-Se è necessario disattivare la funzionalità, sono disponibili due opzioni. Il primo consiste nell'eliminare e ricreare un nuovo account di Azure Cosmos DB, eseguendo la migrazione dei dati, se necessario. La seconda opzione consiste nell'aprire un ticket di supporto per ottenere informazioni sulla migrazione dei dati a un altro account.
+Se è necessario disattivare la funzionalità, sono disponibili due opzioni. La prima consiste nell'eliminare e ricreare un nuovo account di Azure Cosmos DB, eseguendo la migrazione dei dati, se necessario. La seconda opzione consiste nell'aprire un ticket di supporto per ottenere supporto sulla migrazione dei dati a un altro account.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Archivio analitico di Azure Cosmos DB
 
@@ -98,9 +98,9 @@ I dati nell'archivio analitico vengono partizionati in base al partizionamento o
 
 Attualmente, non è possibile trasformare i dati quando vengono propagati automaticamente dall'archivio transazionale all'archivio analitico. Se sono presenti scenari bloccati da questa limitazione, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-### <a name="is-analytical-store-supported-by-terraform"></a>Archivio analitico supportato da bonifica?
+### <a name="is-analytical-store-supported-by-terraform"></a>L'archivio analitico è supportato da Terraform?
 
-Attualmente la bonifica non supporta i contenitori di archivio analitici. Per ulteriori informazioni, vedere la pagina relativa alla [bonifica dei problemi di GitHub](https://github.com/hashicorp/terraform/issues) .
+Attualmente Terraform non supporta i contenitori di archivi analitici. Per altre informazioni, vedere [Problemi relativi a GitHub in Terraform](https://github.com/hashicorp/terraform/issues).
 
 ## <a name="analytical-time-to-live-ttl"></a>Durata (TTL) dei dati analitici
 

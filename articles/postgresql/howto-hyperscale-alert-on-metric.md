@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907432"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489864"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -28,7 +28,7 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST di Monitoraggio di Azure](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare il server di Database di Azure per PostgreSQL da monitorare.
@@ -96,4 +96,4 @@ Il monitoraggio dell'utilizzo della CPU è utile per stabilire una linea di base
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
+* Leggere una [panoramica della raccolta di metriche](../azure-monitor/platform/data-platform.md) per verificare che il servizio sia disponibile e reattivo.

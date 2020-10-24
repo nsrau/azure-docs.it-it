@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76937447"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489609"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Metriche e avvisi di DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Questo articolo descrive le metriche e gli avvisi per il servizio DNS di Azure.
@@ -57,7 +57,7 @@ La metrica *Record Set Count* (Numero di set di record) mostra il numero di reco
 ### <a name="record-set-capacity-utilization"></a>Uso della capacità di set di record
 La metrica *Record Set Capacity Utilization* (Uso della capacità di set di record) in DNS di Azure mostra la percentuale di uso della capacità del recordset per una zona DNS. Ogni zona DNS in DNS di Azure è soggetta a un limite di recordset che definisce il numero massimo di recordset consentiti per la zona (vedere [Limiti di DNS](dns-zones-records.md#limits)). Pertanto questa metrica mostra quando si sta per raggiungere il limite del recordset. Ad esempio, se nella la zona DNS sono presenti 500 recordset configurati e il limite di recordset predefinito è 5.000, la metrica RecordSetCapacityUtilization mostrerà il valore del 10%, che viene ottenuto dividendo 500 per 5.000. L'unità di misura è la **percentuale** e il tipo di **aggregazione** è **massima**. Per visualizzare questa metrica, selezionare l'esperienza di esplorazione Metriche (anteprima) nella scheda Monitoraggio del portale di Azure. Selezionare la zona DNS dall'elenco a discesa Risorsa, quindi la metrica Record Set Capacity Utilization (Uso della capacità di set di record) e selezionare Max come Aggregazione. Lo screenshot seguente illustra un esempio. Per altre informazioni sull'esperienza e i grafici di Esplora metriche, vedere [Esplora metriche di Monitoraggio di Azure](../azure-monitor/platform/metrics-charts.md). 
 
-![Numero di set di record](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Screenshot che whows un esempio di come visualizzare le metriche.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Figura: metriche Record Set Capacity Utilization (Uso della capacità di set di record) di DNS di Azure*
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707660"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489745"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per database di Azure per PostgreSQL-server singolo in un'altra area usando il portale di Azure
 
@@ -21,7 +21,7 @@ Esistono diversi scenari per lo trasferimento di un database di Azure per il ser
 Per completare lo spostamento in un'altra area, è possibile usare una [replica di lettura tra aree](concepts-read-replicas.md#cross-region-replication) di database di Azure per PostgreSQL. A tale scopo, creare prima di tutto una replica di lettura nell'area di destinazione. Arrestare quindi la replica al server di replica di lettura per renderlo un server autonomo che accetta il traffico di lettura e scrittura. 
 
 > [!NOTE]
-> Questo articolo è incentrato sullo spostare il server in un'area diversa. Per spostare il server in un gruppo di risorse o una sottoscrizione diversa, vedere l'articolo relativo allo [spostamento](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
+> Questo articolo è incentrato sullo spostare il server in un'area diversa. Per spostare il server in un gruppo di risorse o una sottoscrizione diversa, vedere l'articolo relativo allo [spostamento](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,7 +53,7 @@ Per creare un server di replica di lettura tra aree nell'area di destinazione us
 >[!NOTE]
 > Quando si crea una replica, non eredita le regole del firewall e gli endpoint di servizio VNet del server primario. Queste regole devono essere configurate in modo indipendente per la replica.
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 > [!IMPORTANT]
 > Il server autonomo non può essere di nuovo impostato come replica.

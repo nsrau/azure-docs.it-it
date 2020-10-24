@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7e7a61247c8f449291fb8ec0b91b7513ee75f6c9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072493"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488589"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -358,13 +358,13 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 
 ## <a name="exceptions"></a>Eccezioni
 
-Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In situazioni di questo tipo è possibile usare l'impostazione ***Consenti servizi Microsoft attendibili*** per consentire a questi servizi di accedere a dati, log o analisi.
+Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il **_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
 
 ### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 
 Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di questi servizi Microsoft attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili useranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Sono disponibili due modalità di accesso attendibile per i servizi Microsoft.
 
-- Le risorse di alcuni servizi, **se registrate nella sottoscrizione**, possono accedere all'account di archiviazione **nella stessa sottoscrizione** per determinate operazioni, come la scrittura di log o il backup.
+- Le risorse di alcuni servizi, _ * quando registrate nella sottoscrizione * *, possono accedere all'account **di archiviazione nella stessa sottoscrizione** per operazioni di selezione, ad esempio la scrittura di log o il backup.
 - Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione **assegnando un ruolo di Azure** all'identità gestita assegnata dal sistema.
 
 
@@ -381,8 +381,8 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, all
 | HDInsight di Azure          | Microsoft.HDInsight        | Consente di effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) |
 | Importazione/Esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in archiviazione di Azure o l'esportazione di dati da archiviazione di Azure tramite il servizio di importazione/esportazione di archiviazione di Azure. [Altre informazioni](/azure/storage/common/storage-import-export-service)  |
 | Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura di dati di monitoraggio in un account di archiviazione protetto, inclusi i log delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) |
-| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
+| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
 L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 
@@ -397,7 +397,7 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
 | Azure Synapse Analytics (in precedenza SQL Data Warehouse)       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
-| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati di Archiviazione di Azure da Synapse Analytics. |
 

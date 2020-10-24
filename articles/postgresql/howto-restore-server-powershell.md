@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fffb5998b0b6a245db3f1c8fcf16f2d576936e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489762"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per PostgreSQL con PowerShell
 
@@ -23,14 +23,14 @@ Il backup dei server di database di Azure per PostgreSQL viene eseguito periodic
 
 Per completare questa guida, è necessario:
 
-- Il [modulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
+- Il [modulo AZ PowerShell](/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
 - [Database di Azure per il server PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Poiché il modulo Az.PostgreSql di PowerShell è in fase di anteprima, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Quando il modulo Az.PostgreSql di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
-Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Il set di parametri **PointInTimeRestore** del `Restore-AzPostgreSqlServer` cmdlet richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | Nome | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
@@ -117,7 +117,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Il set di parametri **Georestore** del `Restore-AzPostgreSqlServer` cmdlet richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
 |Nome | mydemoserver-georestored | Nome del nuovo server. |

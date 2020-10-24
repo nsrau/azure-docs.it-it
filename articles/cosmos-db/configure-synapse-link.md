@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370713"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489269"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
@@ -225,7 +225,7 @@ Sinapsi SQL senza server (una funzionalità di anteprima che in precedenza era d
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Il [modello di Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) crea un collegamento sinapsi abilitato Azure Cosmos DB account per l'API SQL. Questo modello crea un account dell'API (SQL) Core in un'area con un contenitore configurato con il TTL dei dati analitici abilitato e un'opzione per usare la velocità effettiva manuale o con scalabilità automatica. Per distribuire questo modello, fare clic su **Distribuisci in Azure** nella pagina README.
+Il [modello di Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) crea un collegamento sinapsi abilitato Azure Cosmos DB account per l'API SQL. Questo modello crea un account dell'API (SQL) Core in un'area con un contenitore configurato con il TTL dei dati analitici abilitato e un'opzione per usare la velocità effettiva manuale o con scalabilità automatica. Per distribuire questo modello, fare clic su **Distribuisci in Azure** nella pagina README.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introduzione a Collegamento ad Azure Synapse - Esempi
 

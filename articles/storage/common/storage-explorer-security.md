@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714373"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488606"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guida alla sicurezza di Azure Storage Explorer
 
@@ -44,15 +44,15 @@ Questa sezione descrive le due tecnologie basate su Azure AD che possono essere 
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni di Azure possono essere gestiti dal portale di Azure.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni di Azure possono essere gestiti dal portale di Azure.
 
 Storage Explorer supporta l'accesso RBAC di Azure ad account di archiviazione, BLOB e code. Se è necessario accedere a condivisioni file o tabelle, sarà necessario assegnare i ruoli di Azure che concedono l'autorizzazione per elencare le chiavi dell'account di archiviazione.
 
 #### <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
-Gli [elenchi di controllo di accesso (ACL)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) consentono di controllare l'accesso a livello di file e cartelle in ADLS Gen2 contenitori BLOB. È possibile gestire gli ACL usando Storage Explorer.
+Gli [elenchi di controllo di accesso (ACL)](/azure/storage/blobs/data-lake-storage-access-control) consentono di controllare l'accesso a livello di file e cartelle in ADLS Gen2 contenitori BLOB. È possibile gestire gli ACL usando Storage Explorer.
 
-### <a name="shared-access-signatures-sas"></a>Firme di accesso condiviso
+### <a name="shared-access-signatures-sas"></a>Firme di accesso condiviso (SAS)
 
 Se non è possibile usare l'autenticazione di Azure AD, è consigliabile usare le firme di accesso condiviso. Con le firme di accesso condiviso è possibile:
 
@@ -102,4 +102,4 @@ Quando si Abilita l'accesso pubblico per un contenitore BLOB, è consigliabile a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Suggerimenti per la sicurezza](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Suggerimenti per la sicurezza](/azure/storage/blobs/security-recommendations)

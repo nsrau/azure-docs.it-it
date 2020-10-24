@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 828be8e790803e53b0434a71fb32a29a4a0c17bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f8aa38cf5d1667e2413f30025b554e379bd76b07
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428072"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478576"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-server singolo
 
@@ -134,7 +134,7 @@ Nota: Database di Azure per PostgreSQL usa il tag di servizio "Microsoft.Sql".
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples)
+- [Esempi di criteri di Azure per la rete](../governance/policy/samples/index.md)
 
 - [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -150,7 +150,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni su risorse basate sui rispettivi tag.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -160,7 +160,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 **Indicazioni**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle istanze di Database di Azure per PostgreSQL. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -202,7 +202,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come configurare e accedere ai log di controllo per database di Azure per PostgreSQL](concepts-audit.md)
 
-- [Come configurare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -222,7 +222,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -254,7 +254,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come configurare e accedere ai log di controllo per database di Azure per PostgreSQL](concepts-audit.md)
 
-- [Come configurare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -386,7 +386,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 - [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -420,7 +420,7 @@ Le credenziali di Azure AD possono essere usate anche per l'amministrazione a li
 
 **Indicazioni**: esaminare i log di Azure Active Directory per individuare gli account obsoleti, che possono includere quelli con ruoli amministrativi di Database di Azure per PostgreSQL. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali che possono essere usate per accedere a Database di Azure per PostgreSQL e le assegnazioni di ruoli. È consigliabile verificare regolarmente l'accesso degli utenti, ad esempio ogni 90 giorni, per assicurarsi che solo gli utenti appropriati dispongano di accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -438,7 +438,7 @@ Le credenziali di Azure AD possono essere usate anche per l'amministrazione a li
 
 - [Come configurare e accedere ai log di controllo per database di Azure per PostgreSQL](concepts-audit.md)
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -456,7 +456,7 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 - [Panoramica di Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -482,7 +482,7 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 **Indicazioni**: usare i tag per semplificare il rilevamento delle istanze di Database di Azure per PostgreSQL o delle risorse correlate che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -492,9 +492,9 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Usare una combinazione di Collegamento privato, endpoint di servizio e/o regole del firewall per isolare e limitare l'accesso in rete alle istanze di Database di Azure per PostgreSQL.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 - [Come configurare un collegamento privato per database di Azure per PostgreSQL](howto-configure-privatelink-portal.md)
 
@@ -654,7 +654,7 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -666,7 +666,7 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 **Indicazioni**: applicare i tag alle istanze di Database di Azure per PostgreSQL e ad altre risorse correlate, fornendo i metadati per organizzarle in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -676,11 +676,11 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia delle istanze di Database di Azure per PostgreSQL e delle risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -746,7 +746,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -798,7 +798,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - L'impostazione di registrazione delle connessioni deve essere abilitata per i server di database PostgreSQL
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -838,9 +838,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Indicazioni**: se si usano definizioni di Criteri di Azure personalizzate per le istanze di Database di Azure per PostgreSQL e le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -898,7 +898,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come creare una Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](/azure/key-vault/general/managed-identity)
+- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1106,5 +1106,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

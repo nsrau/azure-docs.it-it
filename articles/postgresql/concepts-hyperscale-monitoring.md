@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314811"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487994"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorare e ottimizzare database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -22,7 +22,7 @@ Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi
 
 Iperscale (CITUS) fornisce le metriche per ogni nodo in un gruppo di server. Le metriche forniscono informazioni approfondite sul comportamento delle risorse di supporto. Ogni metrica viene emessa con una frequenza di un minuto e ha una cronologia che può arrivare fino a 30 giorni.
 
-Oltre a visualizzare i grafici delle metriche, è possibile configurare gli avvisi. Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-hyperscale-alert-on-metric.md).  Altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e la cronologia di archiviazione. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Oltre a visualizzare i grafici delle metriche, è possibile configurare gli avvisi. Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-hyperscale-alert-on-metric.md).  Altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e la cronologia di archiviazione. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 

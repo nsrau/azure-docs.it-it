@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329373"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489286"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Non sono previste restrizioni per i payload dell'elemento come il numero di prop
 
 ## <a name="per-request-limits"></a>Limiti per richiesta
 
-Azure Cosmos DB supporta [operazioni di query e CRUD](/rest/api/cosmos-db/) su risorse quali contenitori, elementi e database. Supporta inoltre [richieste batch transazionali](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) rispetto a più elementi con la stessa chiave di partizione in un contenitore.
+Azure Cosmos DB supporta [operazioni di query e CRUD](/rest/api/cosmos-db/) su risorse quali contenitori, elementi e database. Supporta inoltre [richieste batch transazionali](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) rispetto a più elementi con la stessa chiave di partizione in un contenitore.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
@@ -191,7 +191,7 @@ Per una spiegazione più dettagliata della velocità effettiva e dei limiti di a
 
 ## <a name="sql-query-limits"></a>Limiti per le query SQL
 
-Cosmos DB supporta l'esecuzione di query sugli elementi tramite [SQL](how-to-sql-query.md). Nella tabella seguente vengono descritte le restrizioni relative alle istruzioni di query, ad esempio in termini di numero di clausole o di lunghezza della query.
+Cosmos DB supporta l'esecuzione di query sugli elementi tramite [SQL](./sql-query-getting-started.md). Nella tabella seguente vengono descritte le restrizioni relative alle istruzioni di query, ad esempio in termini di numero di clausole o di lunghezza della query.
 
 | Risorsa | Limite predefinito |
 | --- | --- |

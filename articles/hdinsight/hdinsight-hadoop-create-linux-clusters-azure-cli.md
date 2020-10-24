@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf292ccd185ad2c6a85cb6d2f097bb8a7fa9e173
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080704"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489660"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
+Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) per la relativa procedura.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Impostare le variabili di ambiente. L'uso delle variabili in questo articolo si basa su bash. Per altri ambienti saranno necessarie piccole modifiche. Vedere [AZ-HDInsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo dei parametri possibili per la creazione del cluster.
+2. Impostare le variabili di ambiente. L'uso delle variabili in questo articolo si basa su bash. Per altri ambienti saranno necessarie piccole modifiche. Vedere [AZ-HDInsight-create](/cli/azure/hdinsight#az-hdinsight-create) per un elenco completo dei parametri possibili per la creazione del cluster.
 
     |Parametro | Descrizione |
     |---|---|
@@ -68,7 +68,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Creare il gruppo di risorse](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) immettendo il comando seguente:
+3. [Creare il gruppo di risorse](/cli/azure/group#az-group-create) immettendo il comando seguente:
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +78,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
     Per un elenco di percorsi validi, utilizzare il `az account list-locations` comando, quindi utilizzare uno dei percorsi del `name` valore.
 
-4. Per [creare un account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) , immettere il comando seguente:
+4. Per [creare un account di archiviazione di Azure](/cli/azure/storage/account#az-storage-account-create) , immettere il comando seguente:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --sku Standard_LRS
     ```
 
-5. [Estrarre la chiave primaria dall'account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e archiviarla in una variabile immettendo il comando seguente:
+5. [Estrarre la chiave primaria dall'account di archiviazione di Azure](/cli/azure/storage/account/keys#az-storage-account-keys-list) e archiviarla in una variabile immettendo il comando seguente:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --query [0].value -o tsv)
     ```
 
-6. Per [creare un contenitore di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) , immettere il comando seguente:
+6. Per [creare un contenitore di archiviazione di Azure](/cli/azure/storage/container#az-storage-container-create) , immettere il comando seguente:
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Creare il cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) immettendo il comando seguente:
+7. [Creare il cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create) immettendo il comando seguente:
 
     ```azurecli-interactive
     az hdinsight create \

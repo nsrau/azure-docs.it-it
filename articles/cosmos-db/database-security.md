@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487467"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Panoramica sulla sicurezza in Azure Cosmos DB
 
@@ -69,7 +69,7 @@ La tabella seguente li illustra in dettaglio.
 |Backup online automatizzati|Il backup dei database di Azure Cosmos viene eseguito regolarmente e archiviato in un archivio con ridondanza geografica. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).|
 |Ripristinare i data eliminati|I backup online automatizzati possono essere usati per recuperare i dati eliminati per errore fino a circa 30 giorni dopo l'evento. <br><br>Per altre informazioni [, vedere backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md)|
 |Proteggere e isolare i dati sensibili|Tutti i dati nelle aree elencate nelle novità ora vengono crittografati.<br><br>I dati personali e altri dati riservati possono essere isolati in contenitori specifici e l'accesso in lettura/scrittura o in sola lettura può essere limitato a utenti specifici.|
-|Monitorare gli attacchi|Usando [la registrazione di controllo e i log attività](logging.md), è possibile monitorare l'account per identificare attività normali e anomale. È possibile visualizzare quali operazioni sono state eseguite sulle risorse, chi ha avviato l'operazione, quando si è verificata l'operazione, lo stato dell'operazione e molto altro come mostrato nella schermata sotto a questa tabella.|
+|Monitorare gli attacchi|Usando [la registrazione di controllo e i log attività](./monitor-cosmos-db.md), è possibile monitorare l'account per identificare attività normali e anomale. È possibile visualizzare quali operazioni sono state eseguite sulle risorse, chi ha avviato l'operazione, quando si è verificata l'operazione, lo stato dell'operazione e molto altro come mostrato nella schermata sotto a questa tabella.|
 |Rispondere agli attacchi|Dopo avere contattato il supporto di Azure per segnalare un potenziale attacco, viene avviato un processo di risposta all'evento imprevisto in 5 fasi. L'obiettivo del processo in 5 fasi è quello di ripristinare la normale sicurezza del servizio e le normali operazioni il più rapidamente possibile dopo il rilevamento di un problema e l'avvio di un indagine.<br><br>Per altre informazioni, vedere [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Risposta della sicurezza di Microsoft Azure nel cloud).|
 |Definizione del geo-fencing|Azure Cosmos DB assicura la governance dei dati per le aree sovrane, ad esempio Germania, Cina, US Gov.|
 |Strutture protette|I dati in Azure Cosmos DB vengono archiviati in unità SSD nei data center protetti di Azure.<br><br>Per altre informazioni, vedere [Data center globali Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -104,6 +104,6 @@ Oltre alle due chiavi primarie per l'account Cosmos DB, sono disponibili due chi
 
 Per altre informazioni sulle chiavi primarie e sui token delle risorse, vedere [protezione dell'accesso ai dati Azure Cosmos DB](secure-access-to-data.md).
 
-Per ulteriori informazioni sulla registrazione di controllo, vedere [Azure Cosmos DB registrazione diagnostica](logging.md).
+Per ulteriori informazioni sulla registrazione di controllo, vedere [Azure Cosmos DB registrazione diagnostica](./monitor-cosmos-db.md).
 
 Per ulteriori informazioni sulle certificazioni Microsoft, vedere [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/).

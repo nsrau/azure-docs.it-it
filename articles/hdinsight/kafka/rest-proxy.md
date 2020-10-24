@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541731"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490272"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagire con cluster di Apache Kafka in Azure HDInsight usando un proxy REST
 
@@ -97,7 +97,7 @@ Il codice esegue le azioni seguenti:
 1. Recupera un token OAuth da Azure AD.
 1. Mostra come effettuare una richiesta al proxy REST Kafka.
 
-Per altre informazioni su come ottenere i token OAuth in Python, vedere [Classe AuthenticationContext di Python](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). È possibile notare un ritardo nella visualizzazione degli elementi `topics` non creati o eliminati tramite il proxy REST Kafka. Questo ritardo è dovuto all'aggiornamento della cache.
+Per altre informazioni su come ottenere i token OAuth in Python, vedere [Classe AuthenticationContext di Python](/python/api/adal/adal.authentication_context.authenticationcontext). È possibile notare un ritardo nella visualizzazione degli elementi `topics` non creati o eliminati tramite il proxy REST Kafka. Questo ritardo è dovuto all'aggiornamento della cache.
 
 ```python
 #Required python packages

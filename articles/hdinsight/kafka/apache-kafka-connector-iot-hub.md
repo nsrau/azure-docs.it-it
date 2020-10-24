@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087385"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485546"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -162,7 +162,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
         > [!IMPORTANT]  
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+   * __Dall'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +184,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
         2. Copiare il valore della __chiave primaria__ .
         3. Copiare il valore di __Stringa di connessione - chiave primaria__.
 
-    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+    * __Dall'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
 
         1. Per ottenere il valore della chiave primaria, usare il comando seguente:
 

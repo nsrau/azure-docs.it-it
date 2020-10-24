@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331754"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485750"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -48,11 +48,13 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli di Azure per i dispositivi gemelli digitali di Azure
 
 Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
-* *Proprietario di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
-* *Lettore di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
+* *Proprietario dei dati di Azure Digital gemelli* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
+* *Lettore dati di dispositivi gemelli di Azure* : usare questo ruolo per concedere l'accesso in sola lettura alle risorse di Azure Digital gemelli.
 
-> [!TIP]
-> Il ruolo lettore di dispositivi *digitali gemelli di Azure (anteprima)* supporta ora anche le relazioni di esplorazione.
+>[!NOTE]
+> Questi ruoli sono stati recentemente rinominati dai nomi precedenti nell'anteprima:
+> * Il *proprietario dei dati di Azure Digital gemelli* era in precedenza *proprietario di Azure Digital gemelli (anteprima)*.
+> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)*.
 
 Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, vedere informazioni sulle [*definizioni di ruolo*](../role-based-access-control/role-definitions.md) nella documentazione relativa a RBAC di Azure. Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [*ruoli personalizzati di Azure*](../role-based-access-control/custom-roles.md).
 
