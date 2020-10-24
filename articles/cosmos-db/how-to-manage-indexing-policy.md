@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: f006f249fce56171f8bbf471de013e015b5c4f92
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491037"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -347,7 +347,7 @@ In Azure Cosmos DB, i criteri di indicizzazione possono essere aggiornati utiliz
 Un [aggiornamento dei criteri di indicizzazione](index-policy.md#modifying-the-indexing-policy) attiva una trasformazione dell'indice. Lo stato di avanzamento della trasformazione può essere monitorato anche dagli SDK.
 
 > [!NOTE]
-> Quando si aggiornano i criteri di indicizzazione, le Scritture in Azure Cosmos DB verranno interrotte. Altre informazioni sulle [trasformazioni di indicizzazione](indexing-policy.md#modifying-the-indexing-policy)
+> Quando si aggiornano i criteri di indicizzazione, le Scritture in Azure Cosmos DB verranno interrotte. Altre informazioni sulle [trasformazioni di indicizzazione](index-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461320"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494779"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -381,6 +381,8 @@ Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente,
 
 È possibile usare l'esempio di codice eseguibile riportato di seguito per creare un dispositivo gemello, aggiornarne i dettagli ed eliminare il dispositivo gemello. 
 
+### <a name="set-up-the-runnable-sample"></a>Configurare l'esempio eseguibile
+
 Il frammento di codice usa il [Room.jsnella](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definizione del modello da [*esercitazione: esplorare i dispositivi gemelli digitali di Azure con un'app client di esempio*](tutorial-command-line-app.md). È possibile usare questo collegamento per passare direttamente al file o scaricarlo come parte del progetto di esempio end-to-end completo [qui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
@@ -392,7 +394,12 @@ Prima di eseguire l'esempio, eseguire le operazioni seguenti:
     dotnet add package Azure.identity
     ```
 
-Eseguire quindi l'esempio.
+È inoltre necessario configurare le credenziali locali se si desidera eseguire l'esempio direttamente. La sezione successiva illustra questa procedura.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Eseguire l'esempio
+
+Dopo aver completato i passaggi precedenti, è possibile eseguire direttamente il codice di esempio seguente.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ Ecco l'output della console del programma precedente:
 ## <a name="manage-twins-with-cli"></a>Gestire i dispositivi gemelli con CLI
 
 I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins I comandi sono disponibili in [_How: usare l'interfaccia della riga di comando di Azure Digital gemelli *](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>Visualizza tutti i dispositivi gemelli digitali
 

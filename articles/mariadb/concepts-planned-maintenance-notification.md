@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9a37baaa80aadcf10f2bb2091a04fccb3fd9b504
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428871"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490833"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notifica di manutenzione pianificata nel database di Azure per MariaDB
 
@@ -63,7 +63,7 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 
 Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>È possibile controllare o modificare la manutenzione pianificata per i server dopo la ricezione di un evento di notifica?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>È possibile annullare o posticipare la manutenzione pianificata?
 
 La manutenzione è necessaria per mantenere il server protetto, stabile e aggiornato. L'evento di manutenzione pianificata non può essere annullato o posticipato. Quando la notifica viene inviata a una determinata area di Azure, non è possibile apportare modifiche alla pianificazione dell'applicazione di patch per i singoli server di tale area. La patch viene implementata per l'intera area in una sola volta. Il servizio database di Azure per MariaDB è progettato per un'applicazione cloud nativa che non richiede un controllo granulare o una personalizzazione del servizio.
 

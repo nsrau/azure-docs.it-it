@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cef787cbf8ae38b5b80b63594710fcc21e124c5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318127"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481075"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
 La linea di base di sicurezza di Azure per database di Azure per PostgreSQL-iperscala (CITUS) contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
 **Linee guida**: il firewall del server database di Azure per PostgreSQL impedisce l'accesso al nodo coordinatore CITUS (iperscale) finché non si specificano i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta. Per configurare il firewall, creare regole del firewall che specificano gli intervalli di indirizzi IP accettabili. È possibile creare regole firewall a livello di server.
 
-- [Come configurare le regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Come configurare le regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-firewall-rules.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -40,11 +40,11 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 **Indicazioni**: definire e implementare configurazioni di sicurezza standard per le impostazioni di rete e le risorse di rete associate alle istanze di Database di Azure per PostgreSQL con Criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle istanze di database di Azure per PostgreSQL.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure per la rete](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
-- [Come creare un progetto di Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -52,7 +52,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
@@ -60,11 +60,11 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 È anche possibile inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da iperscale (CITUS). Nel monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti. 
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Metriche in iperscala (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Metriche in iperscala (CITUS)](./concepts-hyperscale-monitoring.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -78,11 +78,11 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 È anche possibile inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da iperscale (CITUS). Nel monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti. 
 
-- [Metriche in iperscala (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Metriche in iperscala (CITUS)](./concepts-hyperscale-monitoring.md)
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -92,9 +92,9 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 **Linee guida**: all'interno di monitoraggio di Azure, per l'area di lavoro log Analytics usata per conservare i log di iperscalabilità (CITUS), impostare il periodo di conservazione in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
-- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -104,11 +104,11 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 **Linee guida**: analizzare e monitorare i log dalle istanze di iperscala (CITUS) per un comportamento anomalo. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Per ulteriori informazioni sull'Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Per ulteriori informazioni sull'Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -120,11 +120,11 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 Eseguire l'onboarding dell'area di lavoro Log Analytics in Azure Sentinel perché fornisce una soluzione risposta automatica di orchestrazione della sicurezza (SOAR). In questo modo è possibile creare playbook (soluzioni automatizzate) e usarle per risolvere i problemi di sicurezza.
 
-- [Metriche in iperscala (CITUS)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric)
+- [Metriche in iperscala (CITUS)](./howto-hyperscale-alert-on-metric.md)
 
-- [Come configurare le impostazioni di diagnostica per il log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -132,7 +132,7 @@ Eseguire l'onboarding dell'area di lavoro Log Analytics in Azure Sentinel perch�
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
@@ -142,15 +142,15 @@ Iperscale (CITUS) non supporta il controllo degli accessi in base al ruolo prede
 
 Inoltre, il motore PostgreSQL utilizza i ruoli per controllare l'accesso agli oggetti di database e un gruppo di server CITUS (iperscale) appena creato è dotato di diversi ruoli predefiniti. Per modificare i privilegi utente, usare i comandi standard di PostgreSQL, usando uno strumento come PgAdmin o PSQL.
 
-- [Informazioni sui ruoli personalizzati per la sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 
+- [Informazioni sui ruoli personalizzati per la sottoscrizione di Azure](../role-based-access-control/custom-roles.md) 
 
-- [Informazioni sulle operazioni del provider di risorse per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
+- [Informazioni sulle operazioni del provider di risorse per database di Azure per PostgreSQL](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
 
-- [Informazioni sulla gestione dell'accesso per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management])
+- [Informazioni sulla gestione dell'accesso per database di Azure per PostgreSQL](./concepts-security.md#access-management)
 
-- [Come creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Come creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./howto-hyperscale-create-users.md)
 
-- [Come connettersi a PostgreSQL-iperscale (CITUS) con PSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
+- [Come connettersi a PostgreSQL-iperscale (CITUS) con PSQL](./quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -169,9 +169,9 @@ Inoltre, il motore PostgreSQL utilizza i ruoli per controllare l'accesso agli og
 
 **Linee guida**: creare procedure operative standard per l'uso di account amministrativi dedicati usati per accedere alle istanze di iperscalabilità (CITUS). Gli account amministratore per la gestione della risorsa di Azure sono collegati a Azure Active Directory, anche gli account amministratore del server locale sono presenti nel gruppo di server di iperscalabilità (CITUS) per la gestione delle autorizzazioni di accesso al database. Usare la gestione delle identità e dell'accesso del Centro sicurezza di Azure per monitorare il numero di account amministrativi all'interno Azure Active Directory.
 
-- [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
+- [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](../security-center/security-center-identity-access.md) 
 
-- [Come creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Come creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./howto-hyperscale-create-users.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -181,9 +181,9 @@ Inoltre, il motore PostgreSQL utilizza i ruoli per controllare l'accesso agli og
 
 **Linee guida**: per accedere al portale di Azure abilitare Multi-Factor Authentication di Azure Active Directory e seguire le indicazioni relative alla gestione delle identità e degli accessi nel centro sicurezza di Azure.
 
-- [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -194,9 +194,9 @@ Inoltre, il motore PostgreSQL utilizza i ruoli per controllare l'accesso agli og
 
 **Indicazioni**: usare workstation con accesso con privilegi insieme al servizio Multi-Factor Authentication (MFA) configurato per l'accesso e la configurazione delle risorse di Azure.
 
-- [Informazioni sulle workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -209,9 +209,9 @@ Inoltre, il motore PostgreSQL utilizza i ruoli per controllare l'accesso agli og
 
 Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i report sul comportamento utente rischioso.
 
-- [Come distribuire Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -222,7 +222,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 **Indicazioni**: usare le località denominate di accesso condizionale per consentire l'accesso al portale e ad Azure Resource Manager solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche.
 
-- [Come configurare località denominate in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -234,9 +234,9 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 Gli utenti all'interno di un gruppo di server con iperscalabilità (CITUS) non possono essere collegati direttamente agli account Azure Active Directory. Per modificare i privilegi utente per l'accesso agli oggetti di database, usare i comandi standard di PostgreSQL con strumenti come PgAdmin o PSQL.
 
-- [Modificare i privilegi per i ruoli utente](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-modify-privileges-for-user-role)
+- [Modificare i privilegi per i ruoli utente](./howto-hyperscale-create-users.md#how-to-modify-privileges-for-user-role)
 
-- [Come creare e configurare un'istanza di AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 
 
@@ -252,9 +252,9 @@ Per gli utenti con accesso per gestire le risorse di Azure del database, esamina
 
 - [Esaminare gli utenti di PostgreSQL e i ruoli assegnati](https://www.postgresql.org/docs/current/database-roles.html)
 
-- [Informazioni sulla creazione di report Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare le verifiche di accesso alle identità di Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -266,7 +266,7 @@ Materiale sussidiario **: all'** interno di Azure Active Directory (ad), è poss
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per gli account utente di Azure Active Directory e inviando i log di controllo e di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro di Log Analytics. 
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -279,11 +279,11 @@ Materiale sussidiario **: all'** interno di Azure Active Directory (ad), è poss
 
 È anche possibile inserire i log in Azure Sentinel per un'analisi più approfondita.
 
-- [Panoramica di Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Panoramica di Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come visualizzare gli accessi a rischio per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -293,7 +293,7 @@ Materiale sussidiario **: all'** interno di Azure Active Directory (ad), è poss
 
 **Linee guida**: attualmente non disponibile; Customer Lockbox non è ancora supportata per l'iperscalabilità (CITUS).
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -301,13 +301,13 @@ Materiale sussidiario **: all'** interno di Azure Active Directory (ad), è poss
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
 **Indicazioni**: usare i tag per facilitare il rilevamento di istanze di iperscala (CITUS) o risorse correlate che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -317,13 +317,13 @@ Materiale sussidiario **: all'** interno di Azure Active Directory (ad), è poss
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Usare una combinazione di ruoli amministrativi e regole del firewall per isolare e limitare l'accesso di rete alle istanze del database di Azure per PostgreSQL.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Informazioni sulle regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Informazioni sulle regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-firewall-rules.md)
 
-- [Informazioni sui ruoli in iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Informazioni sui ruoli in iperscalabilità (CITUS)](./howto-hyperscale-create-users.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -337,9 +337,9 @@ Per tutti i server di database di Azure per PostgreSQL sottoposti a provisioning
 
 In alcuni casi, le applicazioni di terze parti richiedono un file di certificato locale generato da un file di certificato dell'autorità di certificazione (CA) attendibile per la connessione sicura.
 
-- [Come configurare TLS in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Come configurare TLS in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-ssl-connection-security.md)
 
-- [Applicazioni che richiedono la verifica del certificato per la connettività TLS](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Applicazioni che richiedono la verifica del certificato per la connettività TLS](./concepts-hyperscale-ssl-connection-security.md)
 
 
 
@@ -353,9 +353,9 @@ In alcuni casi, le applicazioni di terze parti richiedono un file di certificato
 
 Per modificare i privilegi utente a livello di database, usare i comandi standard di PostgreSQL, usando uno strumento come PgAdmin o PSQL.
 
-- [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Come configurare l'accesso utente con SQL per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Come configurare l'accesso utente con SQL per database di Azure per PostgreSQL](./howto-hyperscale-create-users.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -367,7 +367,7 @@ Per modificare i privilegi utente a livello di database, usare i comandi standar
 **Linee guida**:  
 Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL (CITUS) acquisisce backup di snapshot dei file di dati e del log delle transazioni del database. I backup consentono di ripristinare un server in qualsiasi punto nel tempo entro il periodo di conservazione. Il periodo di memorizzazione è attualmente di 35 giorni per tutti i cluster. Tutti i backup vengono crittografati con la crittografia AES a 256 bit. L'offerta CITUS (PostgreSQL iperscale) USA chiavi gestite da Microsoft per la crittografia.
 
-- [Informazioni sulla crittografia per i backup di Azure PostgreSQL-overscale (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Informazioni sulla crittografia per i backup di Azure PostgreSQL-overscale (CITUS)](./concepts-hyperscale-backup.md)
 
 
 
@@ -379,7 +379,7 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di iperscala (CITUS) e altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -387,13 +387,13 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
 **Linee guida**: attualmente non disponibile; Il Centro sicurezza di Azure non supporta ancora la valutazione della vulnerabilità per database di Azure per PostgreSQL-iperscalabilità (CITUS).
 
-- [Copertura delle funzionalità per i servizi PaaS di Azure nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Copertura delle funzionalità per i servizi PaaS di Azure nel centro sicurezza di Azure](../security-center/features-paas.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -401,17 +401,17 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (incluse le istanze di iperscala (CITUS)) nelle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (di lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -421,7 +421,7 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 **Linee guida**: applicare tag alle istanze di iperscalabilità (CITUS) e ad altre risorse correlate fornendo metadati per organizzarle in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -431,11 +431,11 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia delle istanze di iperscala (CITUS) e delle risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -451,9 +451,9 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 Usare anche Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -469,9 +469,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 Usare anche Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -484,9 +484,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -496,7 +496,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure. Ciò può impedire la creazione e le modifiche alle risorse all'interno di un ambiente di sicurezza elevato, ad esempio istanze di iperscala (CITUS) che contengono informazioni riservate.
 
-- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -504,7 +504,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
@@ -512,11 +512,11 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per garantire che le configurazioni soddisfino o superino i requisiti di sicurezza per l'organizzazione. 
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esportazione di una singola e più risorse in un modello in portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal) 
+- [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md) 
 
 
 
@@ -528,11 +528,11 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Linee guida**: usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare impostazioni sicure nelle risorse di Azure.  Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
 
-- [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-- [Creare e gestire i criteri per applicare la conformità](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-- [Panoramica sui modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Panoramica sui modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -544,9 +544,9 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Linee guida**: se si usano definizioni personalizzate di criteri di Azure per le istanze di iperscalabilità (CITUS) e le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -556,11 +556,11 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Linee guida**: usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare impostazioni sicure nelle risorse di Azure.  Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
 
-- [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-- [Creare e gestire i criteri per applicare la conformità](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-- [Panoramica sui modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Panoramica sui modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -572,7 +572,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Indicazioni**: usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft. DBforPostgreSQL" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Usare i criteri di Azure [audit], [deny] e [Deploy if not exist] per applicare automaticamente le configurazioni per le istanze del database di Azure per PostgreSQL e le risorse correlate.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -582,9 +582,9 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 **Linee guida**: database di Azure per PostgreSQL-iperscalabilità (CITUS) attualmente non supporta direttamente le identità gestite. Durante la creazione del database di Azure per il server PostgreSQL, è necessario fornire le credenziali per un utente amministratore. È possibile creare altri ruoli utente nell'interfaccia portale di Azure.
 
-- [Creare un Database di Azure per PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Creare un Database di Azure per PostgreSQL - Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
 
-- [Creazione di ruoli utente aggiuntivi](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-create-additional-user-roles)
+- [Creazione di ruoli utente aggiuntivi](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
@@ -603,7 +603,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
@@ -617,13 +617,13 @@ Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
 **Linee guida**: database di Azure per PostgreSQL – iperscalabilità (CITUS) crea automaticamente i backup di ogni nodo e li archivia nell'archiviazione con ridondanza locale. I backup possono essere usati per ripristinare il cluster iperscalabile (CITUS) a un tempo specificato.
 
-- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-backup.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -635,7 +635,7 @@ Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non
 
 Nelle aree di Azure che supportano le zone di disponibilità, gli snapshot di backup vengono archiviati in tre zone di disponibilità. Fino a quando almeno una zona di disponibilità è online, il cluster iperscalabile (CITUS) è ripristinabile.
 
-- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-backup.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -648,7 +648,7 @@ Nelle aree di Azure che supportano le zone di disponibilità, gli snapshot di ba
 
 Le impostazioni del firewall e i parametri del server PostgreSQL non vengono conservati dal gruppo di server originale; vengono ripristinati i valori predefiniti. Il firewall eviterà tutte le connessioni. Sarà necessario modificare manualmente queste impostazioni dopo il ripristino.
 
-- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-backup.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -658,7 +658,7 @@ Le impostazioni del firewall e i parametri del server PostgreSQL non vengono con
 
 **Linee guida**: non è possibile ripristinare i cluster CITUS (overscale) eliminati. Se si elimina il cluster, tutti i nodi appartenenti al cluster vengono eliminati e non possono essere recuperati. Per proteggere le risorse del cluster dopo la distribuzione da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i blocchi di gestione.
 
-- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Come eseguire il backup e il ripristino in database di Azure per PostgreSQL-iperscalabilità (CITUS)](./concepts-hyperscale-backup.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -666,13 +666,13 @@ Le impostazioni del firewall e i parametri del server PostgreSQL non vengono con
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
 **Indicazioni**: creare una guida per rispondere agli eventi imprevisti per la propria organizzazione. Assicurasi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi di gestione degli eventi imprevisti, dal rilevamento alla verifica post-evento imprevisto. 
 
-- [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) 
+- [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](../security-center/security-center-planning-and-operations-guide.md) 
 
 - [Indicazioni per la creazione di un processo di risposta agli eventi imprevisti di sicurezza](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
@@ -708,7 +708,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente.  Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti. 
 
-- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -718,9 +718,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi in Sentinel. 
 
-- [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [Come configurare l'esportazione continua](../security-center/continuous-export.md) 
 
-- [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -730,7 +730,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite App per la logica negli avvisi di sicurezza e nelle raccomandazioni. 
 
-- [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -738,7 +738,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -752,5 +752,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

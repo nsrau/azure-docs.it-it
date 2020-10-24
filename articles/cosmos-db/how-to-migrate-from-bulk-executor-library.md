@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022480"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491020"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria Executor bulk al supporto bulk in Azure Cosmos DB .NET V3 SDK
 
@@ -20,13 +20,13 @@ Questo articolo descrive i passaggi necessari per eseguire la migrazione del cod
 
 ## <a name="enable-bulk-support"></a>Abilita supporto bulk
 
-Abilitare il supporto bulk nell' `CosmosClient` istanza tramite la configurazione [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
+Abilitare il supporto bulk nell' `CosmosClient` istanza tramite la configurazione [AllowBulkExecution](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
 ## <a name="create-tasks-for-each-operation"></a>Crea attività per ogni operazione
 
-Il supporto bulk in .NET SDK funziona sfruttando il [Task Parallel Library](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) e le operazioni di raggruppamento che si verificano simultaneamente. 
+Il supporto bulk in .NET SDK funziona sfruttando il [Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl) e le operazioni di raggruppamento che si verificano simultaneamente. 
 
 Non esiste un singolo metodo nell'SDK che consentirà l'elenco dei documenti o delle operazioni come parametro di input, ma è necessario creare un'attività per ogni operazione che si desidera eseguire in blocco, quindi è sufficiente attendere che vengano completate.
 
@@ -38,11 +38,11 @@ Se si desidera eseguire l'importazione bulk (simile all'utilizzo di BulkExecutor
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se si desidera eseguire l' *aggiornamento* in blocco (simile all'utilizzo di [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), è necessario disporre di chiamate simultanee al `ReplaceItemAsync` metodo dopo l'aggiornamento del valore dell'elemento. Ad esempio:
+Se si desidera eseguire l' *aggiornamento* in blocco (simile all'utilizzo di [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), è necessario disporre di chiamate simultanee al `ReplaceItemAsync` metodo dopo l'aggiornamento del valore dell'elemento. Ad esempio:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Se si desidera eseguire l' *eliminazione* in blocco (simile all'utilizzo di [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), è necessario disporre di chiamate simultanee a `DeleteItemAsync` , con la `id` chiave di partizione e di ogni elemento. Ad esempio:
+Se si desidera eseguire l' *eliminazione* in blocco (simile all'utilizzo di [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), è necessario disporre di chiamate simultanee a `DeleteItemAsync` , con la `id` chiave di partizione e di ogni elemento. Ad esempio:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -68,7 +68,7 @@ Il `ExecuteAsync` Metodo resterà in attesa fino al completamento di tutte le op
 
 ## <a name="capture-statistics"></a>Acquisisci statistiche
 
-Il codice precedente attende il completamento di tutte le operazioni e calcola le statistiche richieste. Queste statistiche sono simili a quelle del [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse)della libreria dell'executor di massa.
+Il codice precedente attende il completamento di tutte le operazioni e calcola le statistiche richieste. Queste statistiche sono simili a quelle del [BulkImportResponse](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse)della libreria dell'executor di massa.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
@@ -81,14 +81,14 @@ Il codice precedente attende il completamento di tutte le operazioni e calcola l
 
 ## <a name="retry-configuration"></a>Riprova configurazione
 
-Per la libreria dell'esecutore bulk sono state [fornite indicazioni](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) per impostare `MaxRetryWaitTimeInSeconds` e `MaxRetryAttemptsOnThrottledRequests` di [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) su `0` per delegare il controllo alla libreria.
+Per la libreria dell'esecutore bulk sono state [fornite indicazioni](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) per impostare `MaxRetryWaitTimeInSeconds` e `MaxRetryAttemptsOnThrottledRequests` di [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) su `0` per delegare il controllo alla libreria.
 
-Per il supporto bulk in .NET SDK, non esiste alcun comportamento nascosto. È possibile configurare le opzioni di ripetizione dei tentativi direttamente tramite [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+Per il supporto bulk in .NET SDK, non esiste alcun comportamento nascosto. È possibile configurare le opzioni di ripetizione dei tentativi direttamente tramite [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > Nei casi in cui le unità richiesta di cui è stato effettuato il provisioning sono molto inferiori a quelle previste in base alla quantità di dati, è consigliabile impostare tali unità su valori elevati. L'operazione bulk avrà più tempo, ma avrà una maggiore probabilità di essere completata a causa dei tentativi più elevati.
 
-## <a name="performance-improvements"></a>Miglioramenti alle prestazioni
+## <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 
 Come per le altre operazioni con .NET SDK, l'uso delle API di flusso comporta prestazioni migliori ed evita la serializzazione non necessaria. 
 

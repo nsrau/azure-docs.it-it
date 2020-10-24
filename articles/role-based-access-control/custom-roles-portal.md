@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481330"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure
 
@@ -331,7 +331,7 @@ Per visualizzare i ruoli personalizzati, seguire questa procedura.
 
 1. Fare clic sui puntini di sospensione (**..**.) per il ruolo personalizzato che si desidera eliminare e quindi fare clic su **Elimina**.
 
-    ![Menu ruolo personalizzato](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot che mostra un elenco di ruoli personalizzati che è possibile selezionare per l'eliminazione.](./media/custom-roles-portal/delete-menu.png)
 
     Potrebbero essere necessari alcuni minuti prima che il ruolo personalizzato venga eliminato completamente.
 

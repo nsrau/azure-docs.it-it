@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504339"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491258"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
  
@@ -55,9 +55,9 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | N/D                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
-| Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Sì                                                           |
 | Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                            |
 | Trasferimento da altri cloud                    | No                         | No                       | Sì                                                           |
@@ -66,8 +66,8 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Trasferire i dati con AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Altre informazioni sul trasferimento dei dati con le API REST di Archiviazione](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- [Altre informazioni sul trasferimento dei dati con le API REST di Archiviazione](/dotnet/api/overview/azure/storage).
 - Informazioni su come:
-    - [Trasferire dati con Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Trasformare i dati con Data Box Edge prima dell'invio ad Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Informazioni su come trasferire dati con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Trasferire dati con Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Trasformare i dati con Data Box Edge prima dell'invio ad Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Informazioni su come trasferire dati con Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).

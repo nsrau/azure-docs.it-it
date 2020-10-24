@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d560a415aa6ee0da5304a1a9900c30b32e3be18
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077899"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488929"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -43,9 +43,9 @@ La tabella seguente illustra i diversi metodi che possono essere usati per crear
 |[Interfaccia della riga di comando di Azure versione 1.0](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight)||||X|
+|[SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight)||||X|
 |[Modelli di Gestione risorse di Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Per altre informazioni, vedere l'articolo [Tipi di cluster in HDInsight](../hadoop/apache-hadoop-introduction.md).
@@ -103,11 +103,11 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
-- Eseguire il `ANALYZE TABLE` comando come richiesto per generare statistiche per tabelle e colonne. Ad esempio: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Eseguire il `ANALYZE TABLE` comando come richiesto per generare statistiche per tabelle e colonne. Ad esempio, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 
-- Provare a usare il cluster LLAP per le query hive interattive con tempi di risposta migliorati [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)   è una nuova funzionalità di hive 2,0 che consente la memorizzazione nella cache delle query in memoria. LLAP rende molto più veloci le query Hive, in alcuni casi fino a  [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Provare a usare il cluster LLAP per le query hive interattive con tempi di risposta migliorati [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) è una nuova funzionalità di hive 2,0 che consente la memorizzazione nella cache delle query in memoria. LLAP rende molto più veloci le query Hive, in alcuni casi fino a [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Prendere in considerazione l'uso di processi Spark al posto dei processi Hive.
 - È consigliabile sostituire le query basate su impala con query LLAP.
 - È consigliabile sostituire processi MapReduce con processi Spark.

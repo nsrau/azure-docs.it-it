@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489405"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495839"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -283,7 +283,7 @@ No. Gli spazi indirizzi non devono sovrapporsi per consentire il peering reti vi
 Non sono previsti addebiti per la creazione di una connessione peering di reti virtuali. Viene addebitato il trasferimento dei dati tra connessioni peering. [Vedere qui](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Il traffico peering di rete virtuale è crittografato?
-Quando il traffico di peering VNET viene spostato tra i Data Center, i limiti fisici esterni non controllati da o per conto di Microsoft-- [MACsec Data-Link Layer Encryption](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) viene usato nell'hardware di rete sottostante.
+Quando il traffico di Azure si sposta tra i Data Center (al di fuori dei limiti fisici non controllati da Microsoft o per conto di Microsoft), [MACsec Data-Link Layer Encryption](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) viene usato nell'hardware di rete sottostante.  Questa operazione è applicabile al traffico peering VNet.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Perché la connessione peering è in uno stato *disconnesso* ?
 Le connessioni peering di rete virtuale passano allo stato *Disconnesso* quando viene eliminato un collegamento di peering della rete virtuale. È necessario eliminare entrambi i collegamenti per ristabilire una connessione peering.

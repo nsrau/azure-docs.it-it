@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118951"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489354"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Schemi progettuali dei feed di modifiche in Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Oltre a leggere dal feed di modifiche di un contenitore Cosmos, è anche possibi
 
 ### <a name="high-availability"></a>Disponibilità elevata
 
-Azure Cosmos DB offre una disponibilità massima in lettura e scrittura del 99,999%. A differenza di molte code di messaggi, i dati di Azure Cosmos DB possono essere distribuiti e configurati facilmente a livello globale con un [obiettivo del tempo di ripristino (RTO)](consistency-levels-tradeoffs.md#rto) uguale a zero.
+Azure Cosmos DB offre una disponibilità massima in lettura e scrittura del 99,999%. A differenza di molte code di messaggi, i dati di Azure Cosmos DB possono essere distribuiti e configurati facilmente a livello globale con un [obiettivo del tempo di ripristino (RTO)](./consistency-levels.md#rto) uguale a zero.
 
 Dopo aver elaborato gli elementi nel feed di modifiche, è possibile creare una vista materializzata e mantenere i valori aggregati in Azure Cosmos DB. Se si usa Azure Cosmos DB per creare un gioco, è ad esempio possibile usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
 
@@ -73,7 +73,7 @@ Quando è necessario [denormalizzare i dati tra partizioni e contenitori](how-to
 
 ## <a name="event-sourcing"></a>Origine degli eventi
 
-Lo [schema di origine degli eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) prevede l'uso di un archivio di solo accodamento per registrare la serie completa di azioni nei dati. Il feed di modifiche di Azure Cosmos DB è un'ottima scelta come archivio dati centrale nelle architetture di origine degli eventi in cui tutti gli inserimenti dati vengono modellati come scritture (senza aggiornamenti o eliminazioni). In questo caso, ogni scrittura in Azure Cosmos DB è un "evento" e nel feed di modifiche sono registrati tutti gli eventi passati. Gli eventi pubblicati dall'archivio eventi centrale vengono solitamente usati per la gestione delle viste materializzate o per l'integrazione con sistemi esterni. Poiché non esiste alcun limite di tempo per la conservazione nel feed di modifiche, è possibile riprodurre tutti gli eventi passati leggendo dall'inizio il feed di modifiche del contenitore Cosmos.
+Lo [schema di origine degli eventi](/azure/architecture/patterns/event-sourcing) prevede l'uso di un archivio di solo accodamento per registrare la serie completa di azioni nei dati. Il feed di modifiche di Azure Cosmos DB è un'ottima scelta come archivio dati centrale nelle architetture di origine degli eventi in cui tutti gli inserimenti dati vengono modellati come scritture (senza aggiornamenti o eliminazioni). In questo caso, ogni scrittura in Azure Cosmos DB è un "evento" e nel feed di modifiche sono registrati tutti gli eventi passati. Gli eventi pubblicati dall'archivio eventi centrale vengono solitamente usati per la gestione delle viste materializzate o per l'integrazione con sistemi esterni. Poiché non esiste alcun limite di tempo per la conservazione nel feed di modifiche, è possibile riprodurre tutti gli eventi passati leggendo dall'inizio il feed di modifiche del contenitore Cosmos.
 
 È possibile che [più consumer eseguano una sottoscrizione allo stesso feed di modifiche del contenitore](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Indipendentemente dalla velocità effettiva con provisioning del [contenitore del lease](change-feed-processor.md#components-of-the-change-feed-processor), non viene addebitato alcun costo per l'utilizzo del feed di modifiche. Il feed di modifiche è disponibile in ogni contenitore indipendentemente dal fatto che venga usato.
 

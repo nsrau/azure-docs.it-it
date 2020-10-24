@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458107"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495770"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 Il frammento di codice eseguibile seguente usa le operazioni relative alle relazioni di questo articolo per creare un grafico gemello da gemelli digitali e relazioni.
 
+### <a name="set-up-the-runnable-sample"></a>Configurare l'esempio eseguibile
+
 Il frammento di codice usa il [*Room.js*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) e [*Floor.jsnelle*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definizioni di modello da [*esercitazione: esplorare i dispositivi gemelli digitali di Azure con un'app client di esempio*](tutorial-command-line-app.md). È possibile usare questi collegamenti per passare direttamente ai file o scaricarli come parte del progetto di esempio end-to-end completo [qui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
@@ -232,7 +234,12 @@ Prima di eseguire l'esempio, eseguire le operazioni seguenti:
     dotnet add package Azure.identity
     ```
 
-Eseguire quindi l'esempio.
+È inoltre necessario configurare le credenziali locali se si desidera eseguire l'esempio direttamente. La sezione successiva illustra questa procedura.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Eseguire l'esempio
+
+Dopo aver completato i passaggi precedenti, è possibile eseguire direttamente il codice di esempio seguente.
 
 ```csharp 
 using System;

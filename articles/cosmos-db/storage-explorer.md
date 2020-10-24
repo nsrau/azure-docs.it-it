@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987743"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480599"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB tramite Azure Storage Explorer
 
@@ -20,7 +20,7 @@ ms.locfileid: "90987743"
 
 Usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. È possibile gestire Azure Cosmos DB entità, manipolare i dati, aggiornare stored procedure e trigger insieme ad altre entità di Azure, ad esempio BLOB di archiviazione e code.
 
-Azure Storage Explorer supporta gli account Cosmos configurati per le API SQL, MongoDB, Graph e Table. Per ulteriori informazioni, vedere [Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) .
+Azure Storage Explorer supporta gli account Cosmos configurati per le API SQL, MongoDB, Graph e Table. Per ulteriori informazioni, vedere [Azure Cosmos DB in Azure Storage Explorer]() .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,7 +74,7 @@ Per installare i bit di Azure Storage Explorer più recenti, vedere [Azure Stora
 
 Usare la procedura seguente per connettersi a un Azure Cosmos DB con un emulatore. Questo metodo supporta solo gli account SQL.
 
-1. Installare Cosmos DB Emulator, quindi aprirlo. Per informazioni sull'installazione dell'emulatore, vedere [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+1. Installare Cosmos DB Emulator, quindi aprirlo. Per informazioni sull'installazione dell'emulatore, vedere [Cosmos DB Emulator](./local-emulator.md).
 
 1. Trovare **locale e collegato** nell'albero a sinistra, fare clic con il pulsante destro del mouse su **account Cosmos DB**, quindi selezionare **Connetti a Cosmos DB emulatore**.
 
@@ -173,7 +173,7 @@ Per gestire un account Azure Cosmos DB, utilizzare le operazioni seguenti:
 
 #### <a name="query-for-documents"></a>Eseguire query per documenti
 
-* Per modificare il filtro del documento, immettere una [query SQL](how-to-sql-query.md)e quindi selezionare **applica**.
+* Per modificare il filtro del documento, immettere una [query SQL](./sql-query-getting-started.md)e quindi selezionare **applica**.
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
 
@@ -353,4 +353,4 @@ Provare i suggerimenti seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Guardare questo video per informazioni su come usare Azure Cosmos DB in Azure Storage Explorer: [usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Per altre informazioni su Storage Explorer e per connettersi ad altri servizi, vedere [Guida introduttiva a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Per altre informazioni su Storage Explorer e per connettersi ad altri servizi, vedere [Guida introduttiva a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).

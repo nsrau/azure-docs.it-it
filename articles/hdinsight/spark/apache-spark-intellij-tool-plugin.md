@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85d9da10650028b0f04458ea3553d010e5589ffd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085345"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491377"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -39,7 +39,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 * IntelliJ IDEA. Questo articolo usa [IntelliJ IDEA Community versione  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installare il plug-in Scala per IntelliJ IDEA
 
@@ -188,7 +188,7 @@ L'utente può [accedere alla sottoscrizione di Azure](#sign-in-to-your-azure-sub
 
     * **Cluster HDInsight**  
   
-        |Proprietà |Valore |
+        |Proprietà |valore |
         |----|----|
         |Tipo di risorsa di collegamento|Selezionare **HDInsight Cluster** nell'elenco a discesa.|
         |Nome/URL del cluster| Immettere il nome del cluster.|
@@ -200,12 +200,12 @@ L'utente può [accedere alla sottoscrizione di Azure](#sign-in-to-your-azure-sub
 
     * **Livy Service**  
   
-        |Proprietà |Valore |
+        |Proprietà |valore |
         |----|----|
         |Tipo di risorsa di collegamento|Selezionare **Livy Service** nell'elenco a discesa.|
         |Livy Endpoint| Inserire Livy Endpoint|
         |Cluster Name| Immettere il nome del cluster.|
-        |Yarn Endpoint|Facoltativa.|
+        |Yarn Endpoint|Facoltativo.|
         |Tipo di autenticazione| Lasciare come **autenticazione di base**|
         |Nome utente| Immettere il nome utente del cluster, il cui valore predefinito è admin.|
         |Password| Immettere la password per il nome utente.|

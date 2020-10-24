@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469882"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490238"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurare l'autenticazione Azure Active Directory per un cluster Azure Red Hat OpenShift 4 (portale)
 
@@ -62,7 +62,7 @@ Si configurerà OpenShift per usare l'attestazione e si eseguirà il `email` fal
 
 Passare a **configurazione token (anteprima)** e fare clic su **Aggiungi attestazione facoltativa**. Selezionare **ID** , quindi controllare le attestazioni di **posta elettronica** e **UPN** .
 
-![Creare un segreto](media/aro4-ad-tokens.png)
+![Screenshot che mostra le attestazioni di posta elettronica e UPN aggiunte.](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Assegnare utenti e gruppi al cluster (facoltativo)
 

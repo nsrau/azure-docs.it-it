@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709199"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489677"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hosting di zone DNS di ricerca inversa in DNS di Azure
 
@@ -48,7 +48,7 @@ Il nome di una zona di ricerca inversa IPv4 è basato sull'intervallo da essa ra
 
 L'esempio seguente mostra come creare una zona del DNS inverso di tipo classe C con nome `2.0.192.in-addr.arpa` in DNS di Azure tramite il portale di Azure:
 
- ![Riquadro "Crea zona DNS" con caselle compilate](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Screenshot che illustra come creare una zona DNS inversa di classe C denominata 2.0.192.in-addr. arpa nel servizio DNS di Azure tramite il portale di Azure.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **Località del gruppo di risorse** definisce la località per il gruppo di risorse. Non incide sulla zona DNS. La località della zona DNS è sempre "globale" e non viene visualizzata.
 
@@ -117,7 +117,7 @@ L'esempio seguente illustra la procedura di creazione di un record PTR in una zo
 
 1. Nella parte superiore della pagina **Zona DNS** selezionare **+ Set di record** per aprire il riquadro **Aggiungi set di record**.
 
-   ![Pulsante per la creazione di un set di record](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Screenshot del riquadro zona DNS con una freccia che punta al pulsante + set di record.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. Il nome del set di record per un record PTR deve corrispondere al resto dell'indirizzo IPv4 in ordine inverso. 
 
@@ -162,7 +162,7 @@ L'esempio seguente fornisce indicazioni dettagliate sul processo di creazione di
 4. In **Nome dominio** immettere il nome di dominio completo della risorsa che usa l'indirizzo IP.
 5. Selezionare **OK** nella parte inferiore del riquadro per creare il record DNS.
 
-![Riquadro "Aggiungi set di record" con caselle compilate](./media/dns-reverse-dns-hosting/figure7.png)
+![Screenshot che mostra il riquadro "Aggiungi set di record" con una freccia che punta al valore nel campo tipo.](./media/dns-reverse-dns-hosting/figure7.png)
 
 Gli esempi seguenti mostrano come completare questa attività con PowerShell o l'interfaccia della riga di comando di Azure.
 

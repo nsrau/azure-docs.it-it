@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345fd486788cfbb69454be488d771d9b4ea394ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83195245"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488640"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione
 
@@ -101,9 +101,9 @@ Se si ricevono errori correlati alla chiave gestita dal cliente, usare la tabell
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | L'accesso alla chiave gestita dal cliente è stato revocato.                                                       | Sì, controllare se: <ol><li>L'insieme di credenziali delle chiavi ha ancora il file MSI nei criteri di accesso.</li><li>Per i criteri di accesso sono abilitate le autorizzazioni Get, wrap e unwrap.</li><li>Se l'insieme di credenziali delle chiavi si trova in una VNet dietro il firewall, verificare che l'opzione **Consenti servizi attendibili Microsoft** sia abilitata.</li><li>Controllare se l'identità del servizio gestito della risorsa del processo è stata reimpostata `None` usando le API.<br>In caso affermativo, impostare il valore di nuovo su `Identity = SystemAssigned` . Viene ricreata l'identità per la risorsa processo.<br>Una volta creata la nuova identità, abilitare le `Get` `Wrap` autorizzazioni, e `Unwrap` per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | La chiave gestita dal cliente è disabilitata.                                         | Sì, abilitando la versione della chiave     |
-| CmkErrorKeyNotFound      | Impossibile trovare la chiave gestita dal cliente. | Sì, se la chiave è stata eliminata ma è ancora entro la durata dell'eliminazione, usando [Annulla la rimozione della chiave](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval)dell'insieme di credenziali delle chiavi.<br>Altro <ol><li>Sì, se il cliente ha il backup della chiave e lo ripristina.</li><li>No, in caso contrario.</li></ol>
-| CmkErrorVaultNotFound |Non è possibile trovare l'insieme di credenziali delle chiavi della chiave gestita dal cliente. |   Se l'insieme di credenziali delle chiavi è stato eliminato:<ol><li>Sì, se è in fase di ripulitura-protezione, usando la procedura descritta in [ripristinare un](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)insieme di credenziali delle chiavi.</li><li>No, se il superamento della durata della protezione da ripulitura.</li></ol><br>Altrimenti, se l'insieme di credenziali delle chiavi è stato migrato in un tenant diverso, sì, può essere recuperato usando uno dei passaggi seguenti:<ol><li>Ripristinare l'insieme di credenziali delle chiavi al tenant precedente.</li><li>Impostare `Identity = None` , quindi impostare di nuovo il valore su `Identity = SystemAssigned` . Questa operazione consente di eliminare e ricreare l'identità una volta creata la nuova identità. Abilitare `Get` `Wrap` `Unwrap` le autorizzazioni, e per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi.</li></ol>|
+| CmkErrorKeyNotFound      | Impossibile trovare la chiave gestita dal cliente. | Sì, se la chiave è stata eliminata ma è ancora entro la durata dell'eliminazione, usando [Annulla la rimozione della chiave](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval)dell'insieme di credenziali delle chiavi.<br>Altro <ol><li>Sì, se il cliente ha il backup della chiave e lo ripristina.</li><li>No, in caso contrario.</li></ol>
+| CmkErrorVaultNotFound |Non è possibile trovare l'insieme di credenziali delle chiavi della chiave gestita dal cliente. |   Se l'insieme di credenziali delle chiavi è stato eliminato:<ol><li>Sì, se è in fase di ripulitura-protezione, usando la procedura descritta in [ripristinare un](/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)insieme di credenziali delle chiavi.</li><li>No, se il superamento della durata della protezione da ripulitura.</li></ol><br>Altrimenti, se l'insieme di credenziali delle chiavi è stato migrato in un tenant diverso, sì, può essere recuperato usando uno dei passaggi seguenti:<ol><li>Ripristinare l'insieme di credenziali delle chiavi al tenant precedente.</li><li>Impostare `Identity = None` , quindi impostare di nuovo il valore su `Identity = SystemAssigned` . Questa operazione consente di eliminare e ricreare l'identità una volta creata la nuova identità. Abilitare `Get` `Wrap` `Unwrap` le autorizzazioni, e per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi.</li></ol>|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Che cos'è Azure Key Vault](/azure/key-vault/key-vault-overview)?

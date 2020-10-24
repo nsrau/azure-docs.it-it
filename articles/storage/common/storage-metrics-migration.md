@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802838"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490765"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transizione alle metriche in monitoraggio di Azure
 
-Il **31 agosto 2023** analisi archiviazione metriche, dette anche *metriche classiche* , verranno ritirate. Per ulteriori informazioni, vedere l' [annuncio ufficiale](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se si usano metriche classiche, assicurarsi di passare alle metriche in monitoraggio di Azure prima di tale data. Questo articolo consente di eseguire la transizione. 
+Il **31 agosto 2023** analisi archiviazione metriche, dette anche *metriche classiche* , verranno ritirate. Per altre informazioni, consultare l'[annuncio ufficiale](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se si usano le metriche classiche, assicurarsi di passare alle metriche in Monitoraggio di Azure prima di tale data. Questo articolo consente di eseguire la transizione. 
 
 ## <a name="steps-to-complete-the-transition"></a>Passaggi per completare la transizione
 
@@ -30,12 +30,12 @@ Per passare alle metriche in monitoraggio di Azure, è consigliabile usare l'app
 
 3. Identificare le [metriche in monitoraggio di Azure che](#metrics-mapping-between-old-metrics-and-new-metrics) forniscono gli stessi dati delle metriche attualmente in uso. 
    
-4. Creare [grafici](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) o [Dashboard](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) per visualizzare i dati delle metriche.
+4. Creare [grafici](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) o [Dashboard](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) per visualizzare i dati delle metriche.
 
    > [!NOTE]
    > Le metriche in monitoraggio di Azure sono abilitate per impostazione predefinita, quindi non è necessario eseguire alcuna operazione per iniziare l'acquisizione delle metriche. È tuttavia necessario creare grafici o dashboard per visualizzare tali metriche. 
  
-5. Se sono state create regole di avviso basate su metriche di archiviazione classiche, [creare regole di avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) basate sulle metriche in monitoraggio di Azure. 
+5. Se sono state create regole di avviso basate su metriche di archiviazione classiche, [creare regole di avviso](/azure/azure-monitor/platform/alerts-overview) basate sulle metriche in monitoraggio di Azure. 
 
 6. Dopo aver potuto visualizzare tutte le metriche in monitoraggio di Azure, è possibile disattivare la registrazione classica. 
 
@@ -53,7 +53,7 @@ Per quanto riguarda il supporto delle metriche, le metriche classiche forniscono
 
 Se l'attività nell'account non attiva una metrica, le metriche classiche visualizzeranno un valore pari a zero (0) per la metrica. Le metriche in monitoraggio di Azure ometteranno interamente i dati, con conseguente ripulitura dei report. Con le metriche classiche, ad esempio, se non vengono segnalati errori di timeout del server, il `ServerTimeoutError` valore nella tabella Metrics viene impostato su 0. Il monitoraggio di Azure non restituisce dati quando si esegue una query sul valore della metrica `Transactions` con dimensione `ResponseType` uguale a `ServerTimeoutError` . 
 
-Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](/azure/azure-monitor/platform/data-platform-metrics).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

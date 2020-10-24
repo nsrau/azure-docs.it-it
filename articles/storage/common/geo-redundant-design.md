@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013062"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480684"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata
 
@@ -24,7 +24,7 @@ Una funzionalità comune delle infrastrutture basate su cloud come archiviazione
 
 Archiviazione di Azure offre due opzioni per la replica con ridondanza geografica. L'unica differenza tra queste due opzioni è il modo in cui i dati vengono replicati nell'area primaria:
 
-* [Archiviazione con ridondanza geografica (GZRS)](storage-redundancy.md): i dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l' *archiviazione con ridondanza della zona (ZRS)*, quindi replicate in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+* [Archiviazione con ridondanza geografica (GZRS)](storage-redundancy.md): i dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l' *archiviazione con ridondanza della zona (ZRS)*, quindi replicate in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
 
     Microsoft consiglia di usare GZRS/RA-GZRS per scenari che richiedono la massima disponibilità e durabilità.
 
@@ -146,7 +146,7 @@ La soglia degli errori usata per determinare quando passare alla modalità di so
 
 Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativi nell'area primaria per determinare quando passare all'area secondaria e attivare la modalità di sola lettura per l'applicazione.
 
-* Aggiungere un gestore per l'evento [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
+* Aggiungere un gestore per l'evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     };
     ```
 
-* Nel metodo [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
+* Nel metodo [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
