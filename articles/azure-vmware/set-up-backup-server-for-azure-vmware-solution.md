@@ -1,27 +1,27 @@
 ---
 title: Configurare server di Backup di Azure per la soluzione VMware di Azure
-description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
+description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali con server di Backup di Azure.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 37fd74f9859813061ff5653fd2c2b0b6cad319e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580513"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517379"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
 
-Server di Backup di Azure è un sistema di backup e ripristino aziendale affidabile che contribuisce alla strategia di continuità aziendale e ripristino di emergenza (BCDR). Durante l'anteprima della soluzione VMware di Azure, è possibile configurare solo il backup a livello di macchina virtuale (VM) usando server di Backup di Azure. 
+Server di Backup di Azure contribuisce alla strategia di continuità aziendale e ripristino di emergenza (BCDR). Con la soluzione VMware di Azure è possibile configurare un backup a livello di macchina virtuale (VM) solo usando server di Backup di Azure. 
 
 Server di Backup di Azure possibile archiviare i dati di backup in:
 
 - **Disco**: per l'archiviazione a breve termine, server di backup di Azure esegue il backup dei dati nei pool di dischi.
 - **Azure**: per l'archiviazione a breve e a lungo termine in locale, è possibile eseguire il backup dei dati server di backup di Azure archiviati nei pool di dischi nel cloud Microsoft Azure con backup di Azure.
 
-Quando si verificano interruzioni e i dati di origine non sono disponibili, è possibile usare server di Backup di Azure per ripristinare facilmente i dati nell'origine o in un percorso alternativo. In questo modo, se i dati originali non sono disponibili a causa di problemi pianificati o imprevisti, è possibile ripristinare facilmente i dati in un percorso alternativo.
+Usare server di Backup di Azure per ripristinare i dati nell'origine o in un percorso alternativo. In questo modo, se i dati originali non sono disponibili a causa di problemi pianificati o imprevisti, è possibile ripristinare i dati in un percorso alternativo.
 
-Questo articolo illustra come preparare l'ambiente della soluzione VMware di Azure per eseguire il backup delle macchine virtuali usando server di Backup di Azure. Vengono illustrati i passaggi per: 
+Questo articolo illustra come preparare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure. Vengono illustrati i passaggi per: 
 
 > [!div class="checklist"]
 > * Determinare le dimensioni e il tipo di disco della macchina virtuale consigliati da usare.
@@ -34,7 +34,7 @@ Questo articolo illustra come preparare l'ambiente della soluzione VMware di Azu
 - **Backup senza agenti:** Server di Backup di Azure non richiede l'installazione di un agente nel server vCenter o ESXi per eseguire il backup della macchina virtuale. Al contrario, è sufficiente fornire l'indirizzo IP o il nome di dominio completo (FQDN) e le credenziali di accesso usate per autenticare il server VMware con server di Backup di Azure.
 - **Backup integrato nel cloud:** Server di Backup di Azure protegge i carichi di lavoro su disco e nel cloud. Il flusso di lavoro di backup e ripristino di server di Backup di Azure consente di gestire la conservazione a lungo termine e il backup fuori sede.
 - **Rilevare e proteggere le macchine virtuali gestite da vCenter:** Server di Backup di Azure rileva e protegge le macchine virtuali distribuite in un server vCenter o ESXi. Server di Backup di Azure rileva anche le macchine virtuali gestite da vCenter, in modo che sia possibile proteggere le distribuzioni di grandi dimensioni.
-- **Protezione con sicurezza a livello di cartella:** vCenter consente di organizzare le macchine virtuali in cartelle VM. Server di Backup di Azure rileva queste cartelle ed è possibile usarle per proteggere le macchine virtuali a livello di cartella, incluse tutte le sottocartelle. Quando si proteggono le cartelle, server di Backup di Azure non solo protegge le VM presenti in tale cartella, ma protegge anche le VM aggiunte in un secondo momento. Server di Backup di Azure rileva le nuove macchine virtuali quotidianamente e le protegge automaticamente. Quando si organizzano le macchine virtuali in cartelle ricorsive, server di Backup di Azure rileva e protegge automaticamente le nuove macchine virtuali distribuite nelle cartelle ricorsive.
+- **Protezione automatica a livello di cartella:** vCenter consente di organizzare le macchine virtuali in cartelle VM. Server di Backup di Azure rileva queste cartelle. È possibile usarlo per proteggere le macchine virtuali a livello di cartella, incluse tutte le sottocartelle. Quando si proteggono le cartelle, server di Backup di Azure protegge le macchine virtuali in tale cartella e protegge le VM aggiunte in un secondo momento. Server di Backup di Azure rileva le nuove macchine virtuali quotidianamente e le protegge automaticamente. Quando si organizzano le macchine virtuali in cartelle ricorsive, server di Backup di Azure rileva e protegge automaticamente le nuove macchine virtuali distribuite nelle cartelle ricorsive.
 - **Server di backup di Azure continua a proteggere le macchine virtuali vMotion all'interno del cluster:** Poiché le macchine virtuali sono vMotion per il bilanciamento del carico all'interno del cluster, server di Backup di Azure rileva automaticamente e continua la protezione delle macchine virtuali.
 - **Ripristinare i file necessari più velocemente:** Server di Backup di Azure possibile ripristinare i file o le cartelle da una VM Windows senza ripristinare l'intera macchina virtuale.
 
@@ -66,11 +66,11 @@ Considerare i consigli in questa sezione quando si installa server di Backup di 
 
 Assicurarsi di [configurare la rete per il cloud privato VMware in Azure](tutorial-configure-networking.md).
 
-### <a name="determine-the-size-of-the-virtual-machine"></a>Determinare le dimensioni della macchina virtuale
+### <a name="determine-the-size-of-the-vm"></a>Determinare le dimensioni della macchina virtuale
 
-È necessario creare una macchina virtuale Windows nella rete virtuale creata nel passaggio precedente. Quando si sceglie un server per l'esecuzione di server di Backup di Azure, iniziare con un'immagine della raccolta di Windows Server 2019 datacenter. L'esercitazione [creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md) consente di iniziare con la VM consigliata in Azure, anche se non si è mai usato Azure.
+Seguire le istruzioni riportate nell'esercitazione [creare la prima VM Windows nell'portale di Azure](../virtual-machines/windows/quick-create-portal.md) .  La VM verrà creata nella rete virtuale creata nel passaggio precedente. Iniziare con un'immagine della raccolta di Windows Server 2019 datacenter per eseguire il server di Backup di Azure. 
 
-La tabella seguente riepiloga il numero massimo di carichi di lavoro protetti per ogni server di Backup di Azure dimensioni della macchina virtuale. Le informazioni si basano su test di prestazioni e scalabilità interni con valori canonici per dimensioni e varianza dei carichi di lavoro. Le dimensioni effettive del carico di lavoro possono essere maggiori, ma devono essere gestite dai dischi collegati alla macchina virtuale server di Backup di Azure.
+La tabella riepiloga il numero massimo di carichi di lavoro protetti per ogni server di Backup di Azure dimensioni della macchina virtuale. Le informazioni si basano su test di prestazioni e scalabilità interni con valori canonici per dimensioni e varianza dei carichi di lavoro. Le dimensioni effettive del carico di lavoro possono essere maggiori, ma devono essere gestite dai dischi collegati alla macchina virtuale server di Backup di Azure.
 
 | Numero massimo di carichi di lavoro protetti | Dimensioni medie del carico di lavoro | Varianza media del carico di lavoro (giornaliera) | IOPS di archiviazione minima | Dimensioni/tipo di disco consigliati      | Dimensione VM consigliata |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
@@ -90,7 +90,7 @@ La tabella seguente riepiloga il numero massimo di carichi di lavoro protetti pe
 
 ### <a name="disks-and-storage"></a>Dischi e archiviazione
 
-Server di Backup di Azure richiede dischi per l'installazione, inclusi i file di sistema, i file di installazione, i prerequisiti software, i file di database e i dischi dedicati per il pool di archiviazione.
+Server di Backup di Azure richiede dischi per l'installazione. 
 
 | Requisito                      | Dimensioni consigliate  |
 |----------------------------------|-------------------------|
@@ -104,12 +104,12 @@ Per informazioni su come alleghi un nuovo disco dati gestito a una macchina virt
 
 ### <a name="store-backup-data-on-local-disk-and-in-azure"></a>Archiviare i dati di backup in un disco locale e in Azure
 
-L'archiviazione dei dati di backup in Azure riduce l'infrastruttura di backup nella macchina virtuale server di Backup di Azure. Per il ripristino operativo (backup), server di Backup di Azure archivia i dati di backup nei dischi di Azure collegati alla macchina virtuale. Quando i dischi e lo spazio di archiviazione sono collegati alla macchina virtuale, server di Backup di Azure gestisce automaticamente l'archiviazione. La quantità di archiviazione dei dati di backup dipende dal numero e dalle dimensioni dei dischi collegati a ogni macchina virtuale di Azure. Ogni dimensione della macchina virtuale di Azure ha un numero massimo di dischi che possono essere collegati. Ad esempio, a2 è quattro dischi, a3 è otto dischi e a4 è 16 dischi. Anche in questo caso, le dimensioni e il numero di dischi determinano la capacità totale del pool di archiviazione di backup.
+L'archiviazione dei dati di backup in Azure riduce l'infrastruttura di backup nella macchina virtuale server di Backup di Azure. Per il ripristino operativo (backup), server di Backup di Azure archivia i dati di backup nei dischi di Azure collegati alla macchina virtuale. Quando i dischi e lo spazio di archiviazione sono collegati alla macchina virtuale, server di Backup di Azure gestisce automaticamente l'archiviazione. La quantità di spazio di archiviazione dipende dal numero e dalle dimensioni dei dischi collegati a ogni macchina virtuale di Azure. Ogni dimensione della macchina virtuale di Azure ha un numero massimo di dischi che possono essere collegati. Ad esempio, a2 è quattro dischi, a3 è otto dischi e a4 è 16 dischi. Anche in questo caso, le dimensioni e il numero di dischi determinano la capacità totale del pool di archiviazione di backup.
 
 > [!IMPORTANT]
 > *Non* è consigliabile mantenere i dati di ripristino operativo nei dischi collegati a server di backup di Azure per più di cinque giorni. Se i dati sono più vecchi di cinque giorni, archiviarli in un insieme di credenziali di servizi di ripristino.
 
-Per archiviare i dati di backup in Azure, creare o usare un insieme di credenziali di Servizi di ripristino. Quando si prepara il backup del carico di lavoro server di Backup di Azure, si configura l'insieme di credenziali di [servizi di ripristino](#create-a-recovery-services-vault). Una volta configurata, ogni volta che viene eseguito un processo di backup online, viene creato un punto di ripristino nell'insieme di credenziali. Ogni insieme di credenziali di servizi di ripristino include fino a 9.999 punti di ripristino. A seconda del numero di punti di ripristino creati e del tempo di conservazione, è possibile conservare i dati di backup per molti anni. Ad esempio, è possibile creare punti di ripristino mensili e conservarli per cinque anni.
+Per archiviare i dati di backup in Azure, creare o usare un insieme di credenziali di Servizi di ripristino. Quando si prepara il backup del carico di lavoro server di Backup di Azure, si configura l'insieme di credenziali di [servizi di ripristino](#create-a-recovery-services-vault). Una volta configurata, ogni volta che viene eseguito un processo di backup online, viene creato un punto di ripristino nell'insieme di credenziali. Ogni insieme di credenziali di servizi di ripristino include fino a 9.999 punti di ripristino. A seconda del numero di punti di ripristino creati e del tempo mantenuto, è possibile mantenere i dati di backup per molti anni. Ad esempio, è possibile creare punti di ripristino mensili e mantenerli per cinque anni.
 
 > [!IMPORTANT]
 > Indipendentemente dal fatto che i dati di backup vengano inviati ad Azure o conservati localmente, è necessario registrare server di Backup di Azure con un insieme di credenziali di servizi di ripristino.
@@ -128,9 +128,9 @@ Per la macchina virtuale deve essere installato .NET Framework 3,5 SP1 o version
 
 ### <a name="join-a-domain"></a>Aggiunta a un dominio
 
-Il server di Backup di Azure macchina virtuale deve essere aggiunto a un dominio e un utente di dominio con privilegi di amministratore per la macchina virtuale deve installare server di Backup di Azure.
+Il server di Backup di Azure macchina virtuale deve essere aggiunto a un dominio. Un utente di dominio con privilegi di amministratore per la macchina virtuale deve installare server di Backup di Azure.
 
-Sebbene non sia supportata al momento della versione di anteprima, server di Backup di Azure distribuite in una macchina virtuale di Azure può eseguire il backup dei carichi di lavoro nelle macchine virtuali della soluzione VMware di Azure. I carichi di lavoro devono trovarsi nello stesso dominio per abilitare l'operazione di backup.
+Server di Backup di Azure distribuite in una macchina virtuale di Azure può eseguire il backup dei carichi di lavoro nelle macchine virtuali della soluzione VMware di Azure. I carichi di lavoro devono trovarsi nello stesso dominio per abilitare l'operazione di backup.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -167,13 +167,13 @@ Un insieme di credenziali di servizi di ripristino è un'entità di archiviazion
 
    ![Creare l'insieme di credenziali di servizi di ripristino.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   La creazione dell'insieme di credenziali di Servizi di ripristino può richiedere del tempo. Monitorare le notifiche di stato nell'area **notifiche** nell'angolo superiore destro del portale. Dopo essere stato creato, l'insieme di credenziali, sarà visualizzabile nell'insieme di credenziali di Servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
+   La creazione dell'insieme di credenziali di Servizi di ripristino può richiedere del tempo. Monitorare le notifiche di stato nell'area **notifiche** nell'angolo superiore destro del portale. Dopo aver creato l'insieme di credenziali, l'insieme di credenziali è visibile nell'elenco degli insiemi di credenziali dei servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
 
    ![Aggiornare l'elenco degli insiemi di credenziali di backup.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-L'opzione di replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica (impostazione predefinita) e l'archiviazione con ridondanza locale. L'archiviazione con ridondanza geografica copia i dati nell'account di archiviazione in un'area secondaria, rendendo i dati durevoli. L'archiviazione con ridondanza locale è un'opzione più economica che non è durevole. Per altre informazioni sulle opzioni di archiviazione con ridondanza geografica e con ridondanza locale, vedere [ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md).
+L'opzione di replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica (impostazione predefinita) e l'archiviazione con ridondanza locale. L'archiviazione con ridondanza geografica copia i dati nell'account di archiviazione in un'area secondaria, rendendo durevoli i dati. L'archiviazione con ridondanza locale è un'opzione più economica che non è durevole. Per altre informazioni sulle opzioni di archiviazione con ridondanza geografica e con ridondanza locale, vedere [ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 > [!IMPORTANT]
 > La modifica dell'impostazione del **tipo di replica di archiviazione localmente ridondante/con ridondanza geografica** per un insieme di credenziali di servizi di ripristino deve essere eseguita prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato i backup, l'opzione per modificarla è disabilitata e non è possibile modificare il tipo di replica di archiviazione.
@@ -192,9 +192,9 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio successivo. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto, ma ci si trova nel portale di Azure, scegliere **Sfoglia**dal menu principale.
+1. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio successivo. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto e ci si trova nella portale di Azure, scegliere **Sfoglia**dal menu principale.
 
-   1. Nell'elenco di risorse digitare **Servizi di ripristino**.
+   1. Nell'elenco delle risorse immettere **servizi di ripristino**.
 
    1. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
 
@@ -214,7 +214,7 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
    ![Selezionare Backup per aprire la procedura guidata Introduzione.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-1. Nella finestra che viene visualizzata eseguire le operazioni seguenti:
+1. Nella finestra che viene visualizzata:
 
    1. Dal menu **dove è in esecuzione il carico di lavoro?** selezionare **locale**.
 
@@ -226,11 +226,11 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
       :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.":::
 
-1. Nella finestra **prepara infrastruttura** visualizzata eseguire le operazioni seguenti:
+1. Nella finestra **prepara infrastruttura** visualizzata:
 
    1. Selezionare il collegamento **download** per installare server di backup di Azure.
 
-   1. Scaricare le credenziali dell'insieme di credenziali selezionando la casella di controllo **già scaricato o usando l'installazione server di backup di Azure più recente** , quindi selezionare **Scarica**. Usare le credenziali dell'insieme di credenziali durante la registrazione di server di Backup di Azure nell'insieme di credenziali di servizi di ripristino. I collegamenti consentono di passare all'area download, in cui è possibile scaricare il pacchetto software.
+   1. 1. Selezionare **già scaricato o usare l'installazione server di backup di Azure più recente** e quindi **scaricare** per scaricare le credenziali dell'insieme di credenziali. Queste credenziali verranno usate quando si registra il server di Backup di Azure nell'insieme di credenziali di servizi di ripristino. I collegamenti consentono di passare all'area download, in cui è possibile scaricare il pacchetto software.
 
    :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.":::
 
@@ -243,14 +243,14 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
 ### <a name="extract-the-software-package"></a>Estrarre il pacchetto software
 
-Se il pacchetto software è stato scaricato in un server diverso, copiare i file nella macchina virtuale creata per la distribuzione di server di Backup di Azure.
+Se il pacchetto software è stato scaricato in un altro server, copiare i file nella macchina virtuale creata per la distribuzione di server di Backup di Azure.
 
 > [!WARNING]
 > Per estrarre i file di installazione sono necessari almeno 4 GB di spazio disponibile.
 
 1. Dopo aver scaricato tutti i file, fare doppio clic su **MicrosoftAzureBackupInstaller.exe** per aprire l'installazione guidata di **backup di Microsoft Azure** , quindi selezionare **Avanti**.
 
-1. Selezionare la località in cui estrarre i file e fare clic su **Avanti**.
+1. Selezionare il percorso in cui estrarre i file e selezionare **Avanti**.
 
 1. Selezionare **Estrai** per avviare il processo di estrazione.
 
@@ -269,28 +269,28 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
 1. Nella schermata **iniziale** selezionare **Avanti** per passare alla pagina controlli dei **prerequisiti** .
 
-1. Selezionare di **nuovo controlla** per determinare se i prerequisiti hardware e software per server di backup di Azure sono soddisfatti. Se l'operazione è stata completata, fare clic su **Avanti**.
+1. Selezionare di **nuovo verifica** per determinare se l'hardware e il software soddisfano i prerequisiti per server di backup di Azure. Se l'operazione è stata completata, fare clic su **Avanti**.
 
-   ![ Selezionare di nuovo controlla per determinare se i prerequisiti hardware e software per server di Backup di Azure sono soddisfatti. Se l'operazione è stata completata, fare clic su Avanti.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Selezionare di nuovo verifica per determinare se l'hardware e il software soddisfano i prerequisiti per server di Backup di Azure. Se l'operazione è stata completata, fare clic su Avanti.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Il pacchetto di installazione di server di Backup di Azure viene fornito con i file binari SQL Server appropriati necessari. Quando si avvia una nuova installazione di server di Backup di Azure, selezionare l'opzione **installa nuova istanza di SQL Server con questa impostazione** . Selezionare quindi **Controlla e installa**.
 
    ![Il pacchetto di installazione di server di Backup di Azure viene fornito con i file binari SQL Server appropriati necessari.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
-   > Se si vuole usare un'istanza di SQL Server personalizzata, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017. Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit. Server di Backup di Azure non funziona con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale. Se si utilizza un'istanza di SQL Server esistente per server di Backup di Azure, il programma di installazione di supporta solo l'utilizzo di *istanze denominate* di SQL Server.
+   > Se si vuole usare un'istanza di SQL Server personalizzata, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017. Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit. L'istanza utilizzata da server di Backup di Azure deve essere solo locale; non può essere remoto. Se si utilizza un'istanza di SQL Server esistente per server di Backup di Azure, il programma di installazione di supporta solo l'utilizzo di *istanze denominate* di SQL Server.
 
-   Se si verifica un errore con una raccomandazione per riavviare il computer, fare clic su **Verifica di nuovo**. Se si verificano problemi di configurazione SQL Server, riconfigurare SQL Server in base alle linee guida SQL Server. Quindi riprovare a installare o aggiornare server di Backup di Azure usando l'istanza esistente di SQL Server.
+   Se si verifica un errore con una raccomandazione per riavviare il computer, eseguire questa operazione e selezionare di **nuovo verifica**. Per eventuali problemi di configurazione di SQL Server, riconfigurare SQL Server in base alle linee guida SQL Server. Quindi riprovare a installare o aggiornare server di Backup di Azure usando l'istanza esistente di SQL Server.
 
    **Configurazione manuale**
 
-   Quando si usa un'istanza personalizzata di SQL Server, assicurarsi di aggiungere builtin\Administrators al ruolo sysadmin nel database master.
+   Quando si usa un'istanza di SQL Server personalizzata, assicurarsi di aggiungere builtin\Administrators al ruolo sysadmin al ruolo sysadmin del database master.
 
-   **Configurazione di SSRS con SQL Server 2017**
+   **Configurare Reporting Services con SQL Server 2017**
 
-   Quando si usa un'istanza personalizzata di SQL Server 2017, è necessario configurare manualmente SQL Server 2017 Reporting Services (SSRS). Dopo la configurazione di SSRS, verificare che la proprietà di **inizializzazione** di SSRS sia impostata su **true**. Quando questa proprietà è impostata su **true**, server di backup di Azure presuppone che SSRS sia già configurato e ignori la configurazione di SSRS.
+   Se si usa l'istanza di SQL Server 2017, è necessario configurare manualmente SQL Server 2017 Reporting Services (SSRS). Dopo la configurazione di SSRS, assicurarsi di impostare la proprietà di **inizializzazione** di SSRS su **true**. Se impostato su **true**, server di backup di Azure presuppone che SSRS sia già configurato e ignori la configurazione di SSRS.
 
-   Per controllare lo stato di configurazione di SSRS, eseguire il comando seguente:
+   Per controllare lo stato di configurazione di SSRS, eseguire:
 
    ```powershell
    $configset =Get-WmiObject –namespace 
@@ -310,14 +310,14 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
    [Altre informazioni](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) sulla configurazione di SSRS.
 
    > [!NOTE]
-   > Le [condizioni di Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) regolano la gestione delle licenze per SQL Server usato come database per server di backup di Azure. Secondo OST, SQL Server in bundle con server di Backup di Azure può essere usato solo come database per server di Backup di Azure.
+   > Le [condizioni di Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) regolano la gestione delle licenze per SQL Server usato come database per server di backup di Azure. In base a OST, usare solo SQL Server in bundle con server di Backup di Azure come database per server di Backup di Azure.
 
 1. Una volta completata l'installazione, fare clic su **Avanti**.
 
 1. Specificare un percorso per l'installazione dei file di Backup di Microsoft Azure server e selezionare **Avanti**.
 
    > [!NOTE]
-   > Il percorso dei file temporanei è obbligatorio per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione del disco, è necessario configurare dischi separati dopo aver completato l'installazione. Per altre informazioni sui pool di archiviazione, vedere [configurare i pool di archiviazione e l'archiviazione su disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
+   > Il percorso dei file temporanei è obbligatorio per il backup in Azure. Verificare che il percorso dei file temporanei sia pari almeno al 5% dei dati pianificati per il backup nel cloud. Per la protezione del disco, i dischi separati devono essere configurati al termine dell'installazione. Per altre informazioni sui pool di archiviazione, vedere [configurare i pool di archiviazione e l'archiviazione su disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Specificare un percorso per l'installazione dei file di Backup di Microsoft Azure server e selezionare Avanti.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -334,19 +334,22 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
 1. Esaminare il **Riepilogo delle impostazioni**e selezionare **Installa**.
 
-   L'installazione avviene a fasi. La prima fase consente di installare l'agente di Servizi di ripristino di Microsoft Azure e la seconda fase verifica la connettività Internet. Se è disponibile la connettività Internet, è possibile continuare l'installazione. In caso contrario, è necessario specificare i dettagli del proxy per la connessione a Internet. La fase finale controlla i prerequisiti software. Se non è installato, il software mancante verrà installato insieme all'agente Servizi di ripristino di Microsoft Azure.
+   L'installazione avviene a fasi. 
+   - La prima fase consente di installare l'agente di Servizi di ripristino di Microsoft Azure.
+   - La seconda fase verifica la connettività Internet. Se disponibile, è possibile continuare l'installazione. Se non è disponibile, è necessario specificare i dettagli del proxy per la connessione a Internet. 
+   - La fase finale controlla i prerequisiti software. Se non è installato, il software mancante verrà installato insieme all'agente Servizi di ripristino di Microsoft Azure.
 
 1. Selezionare **Sfoglia** per individuare le credenziali dell'insieme di credenziali per registrare il computer nell'insieme di credenziali di servizi di ripristino e quindi fare clic su **Avanti**.
 
-1. Scegliere una passphrase per crittografare o decrittografare i dati inviati tra Azure e la propria sede.
+1. Selezionare una passphrase per crittografare o decrittografare i dati inviati tra Azure e la propria sede.
 
    > [!TIP]
-   > È possibile generare automaticamente una passphrase o fornire una passphrase personalizzata con un minimo di 16 caratteri.
+   > È possibile generare automaticamente una passphrase o fornire una passphrase di 16 caratteri minima.
 
 1. Immettere il percorso in cui salvare la passphrase, quindi selezionare **Avanti** per registrare il server.
 
    > [!IMPORTANT]
-   > Salvare la passphrase in una posizione sicura diversa da quella del server locale. Si consiglia di usare Azure Key Vault per archiviare la passphrase.
+   > Salvare la passphrase in una posizione sicura diversa da quella del server locale. È consigliabile usare la Azure Key Vault per archiviare la passphrase.
 
    Al termine dell'installazione dell'agente di Servizi di ripristino di Microsoft Azure, il passaggio di installazione passa all'installazione e alla configurazione dei componenti di SQL Server e server di Backup di Azure.
 
@@ -356,7 +359,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
 ### <a name="install-update-rollup-1"></a>Installare l'aggiornamento cumulativo 1
 
-L'installazione dell'aggiornamento cumulativo 1 per server di Backup di Azure V3 è obbligatoria prima che sia possibile proteggere i carichi di lavoro. Per visualizzare l'elenco delle correzioni di bug e le istruzioni di installazione per l'aggiornamento cumulativo 1 di server di Backup di Azure V3, vedere l'articolo della Knowledge base [4534062](https://support.microsoft.com/en-us/help/4534062/).
+L'installazione dell'aggiornamento cumulativo 1 per server di Backup di Azure V3 è obbligatoria prima che sia possibile proteggere i carichi di lavoro.  Le correzioni di bug e le istruzioni di installazione sono disponibili nell' [articolo della Knowledge base](https://support.microsoft.com/en-us/help/4534062/).
 
 ## <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -369,7 +372,7 @@ Server di Backup di Azure V3 supporta Modern Backup Storage che offre:
 
 ### <a name="volumes-in-azure-backup-server"></a>Volumi in server di Backup di Azure
 
-Aggiungere i dischi dati con la capacità di archiviazione necessaria alla macchina virtuale server di Backup di Azure se non sono già stati aggiunti.
+Se non è già stato aggiunto, aggiungere i dischi dati con la capacità di archiviazione necessaria della macchina virtuale server di Backup di Azure.
 
 Server di Backup di Azure V3 accetta solo i volumi di archiviazione. Quando si aggiunge un volume, server di Backup di Azure formatta il volume in Resilient file System (ReFS), che Modern Backup Storage richiede.
 
@@ -381,13 +384,12 @@ Server di Backup di Azure V3 accetta solo i volumi di archiviazione. Quando si a
 
 1. Dopo aver aggiunto i volumi disponibili, assegnare loro un nome descrittivo per facilitarne la gestione. 
 
-1. Selezionare **OK** per formattare questi volumi in refs in modo che server di backup di Azure possa usare i vantaggi di Modern backup storage.
+1. Selezionare **OK** per formattare questi volumi in refs in modo che server di backup di Azure possa usare Modern backup storage vantaggi.
 
-![Aggiungi volumi disponibili](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Passare all'esercitazione successiva per informazioni su come configurare il backup di macchine virtuali VMware in esecuzione in una soluzione VMware di Azure usando server di Backup di Azure.
+Passare all'esercitazione successiva per informazioni su come configurare un backup di macchine virtuali VMware in esecuzione nella soluzione VMware di Azure usando server di Backup di Azure.
 
 > [!div class="nextstepaction"]
 > [Configurare il backup di macchine virtuali della soluzione VMware di Azure](backup-azure-vmware-solution-virtual-machines.md)

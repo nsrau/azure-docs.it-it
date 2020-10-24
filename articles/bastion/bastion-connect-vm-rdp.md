@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 708bd1f61da2f3973333f8e68cabdceee0717bee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077644"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521536"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Connettersi a una macchina virtuale Windows con Azure Bastion
 
@@ -28,11 +28,11 @@ Prima di iniziare, verificare che siano soddisfatti i criteri seguenti:
 
    Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in cui si trova la VM. Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale nella rete virtuale. Per configurare un host Bastion di Azure, vedere [creare un host Bastion](tutorial-create-host-portal.md#createhost).
 * Una macchina virtuale Windows nella rete virtuale.
-* I ruoli necessari seguenti:
-  * Ruolo lettore nella macchina virtuale.
-  * Ruolo lettore nella scheda di interfaccia di rete con indirizzo IP privato della macchina virtuale.
-  * Ruolo lettura per la risorsa di Azure Bastion.
-* Porte: per connettersi alla macchina virtuale Windows, è necessario che le porte seguenti siano aperte nella macchina virtuale Windows:
+* I ruoli obbligatori seguenti:
+  * Ruolo Lettore nella macchina virtuale.
+  * Ruolo Lettore nella scheda di interfaccia di rete con l'indirizzo IP privato della macchina virtuale.
+  * Ruolo Lettore nella risorsa Azure Bastion.
+* Porte: per connettersi alla VM Windows, devono essere aperte le porte seguenti nella VM:
   * Porte in ingresso: RDP (3389)
 
 ## <a name="connect"></a><a name="rdp"></a>Connettersi
