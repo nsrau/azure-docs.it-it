@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bba8a0898c11cf1af150f4824d9bef5e9e03576e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370883"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514390"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
-Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.
+Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Al termine di tale intervallo di 30 giorni, viene avviato automaticamente il processo di eliminazione permanente.
 
 È possibile visualizzare gli utenti da ripristinare, ripristinare un utente eliminato o eliminare definitivamente un utente con Azure Active Directory (Azure AD) nel portale di Azure.
 
@@ -80,7 +80,7 @@ Quando un account utente viene eliminato dall'organizzazione, l'account è in un
     ![Utenti-pagina utenti eliminati, con l'opzione Elimina utente evidenziata](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver ripristinato o eliminato gli utenti, è possibile eseguire i processi di base seguenti:
+Dopo aver eseguito il ripristino o l'eliminazione degli utenti, è possibile:
 
 - [Aggiungere o eliminare utenti](add-users-azure-active-directory.md)
 

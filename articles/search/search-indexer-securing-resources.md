@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101257"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503488"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accesso dell'indicizzatore al contenuto protetto dalle funzionalità di sicurezza di rete di Azure (Azure ricerca cognitiva)
 
@@ -87,7 +87,7 @@ Questa funzionalità è disponibile solo nei servizi di ricerca fatturabili, con
 
 I clienti devono chiamare l'operazione di gestione di ricerca, l' [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) su una **risorsa di collegamento privato condiviso**, per creare una connessione all'endpoint privato alla propria risorsa protetta, ad esempio un account di archiviazione. Il traffico che supera questa connessione all'endpoint privato (in uscita) verrà originato solo dalla rete virtuale presente nell'ambiente di esecuzione dell'indicizzatore "privato" specifico del servizio di ricerca.
 
-Azure ricerca cognitiva convaliderà che i chiamanti di questa API dispongono delle autorizzazioni RBAC per approvare le richieste di connessione all'endpoint privato alla risorsa protetta. Se ad esempio si richiede una connessione a un endpoint privato a un account di archiviazione con autorizzazioni di sola lettura, la chiamata verrà rifiutata.
+Azure ricerca cognitiva convaliderà che i chiamanti di questa API hanno le autorizzazioni RBAC di Azure per approvare le richieste di connessione all'endpoint privato alla risorsa protetta. Se ad esempio si richiede una connessione a un endpoint privato a un account di archiviazione con autorizzazioni di sola lettura, la chiamata verrà rifiutata.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Passaggio 2: approvare la connessione all'endpoint privato
 

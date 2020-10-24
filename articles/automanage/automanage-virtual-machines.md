@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816824"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519657"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -58,7 +58,7 @@ Per abilitare Gestione automatica usando un account di Gestione automatica esist
 
 Vedere [gestione automatica di Azure per le procedure consigliate per le macchine virtuali](virtual-machines-best-practices.md) per l'elenco completo dei servizi di Azure partecipanti, oltre ai profili di configurazione supportati.
 
- L'utente verrà automaticamente caricato in questi servizi partecipanti. Sono essenziali per le procedure consigliate white paper, che è possibile trovare nel [Framework di adozione del cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ L'utente verrà automaticamente caricato in questi servizi partecipanti. Sono essenziali per le procedure consigliate white paper, che è possibile trovare nel [Framework di adozione del cloud](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 Per tutti questi servizi, verrà eseguito automaticamente il caricamento, la configurazione automatica, il monitoraggio della deviazione e la mediazione se viene rilevata la deriva.
 

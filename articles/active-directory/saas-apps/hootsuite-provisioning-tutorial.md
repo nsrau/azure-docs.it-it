@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443223"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503760"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurare Hootsuite per il provisioning utenti automatico
 
@@ -49,7 +49,7 @@ Contattare dev.support@hootsuite.com per ottenere un token segreto di lunga dura
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere HootSuite dalla raccolta di applicazioni di Azure AD
 
-Aggiungere Hootsuite dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Hootsuite. Se Hootsuite è stato configurato in precedenza per l'accesso SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Hootsuite dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Hootsuite. Se in precedenza è stato configurato HootSuite per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
@@ -108,18 +108,30 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |displayName|string|
    |preferredLanguage|string|
    |timezone|string|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|string|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|string|
+   |name.givenName|string|
+   |name.familyName|string|
 
-10. Per abilitare il servizio di provisioning di Azure AD per Hootsuite, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
+10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi**.
+
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a HootSuite nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in HootSuite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+
+      |Attributo|Type|
+      |---|---|
+      |displayName|string|
+      |externalId|string|
+      |Membri di|Informazioni di riferimento|
+
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Per abilitare il servizio di provisioning di Azure AD per Hootsuite, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-11. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Hootsuite selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
+14. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Hootsuite selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-12. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
@@ -132,6 +144,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 * Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## <a name="change-log"></a>Registro delle modifiche
+
+* 10/22/2020-è stato aggiunto il supporto per gli attributi utente "Name. GIVENAME" e "Name. FamilyName". Gli attributi di estensione personalizzati "organizationIds" e "teamIds" sono stati rimossi per gli utenti.
+Aggiunta del supporto per gli attributi di gruppo "displayName", "members" e "externalId".
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626259"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518186"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Baseline della sicurezza di Azure per il gateway VPN
 
@@ -178,7 +178,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: il controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Linee guida**: i gateway VPN hanno istanze di VM dedicate per ogni rete virtuale del cliente. Implementare l'isolamento usando reti virtuali, sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di riservatezza dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite Azure Active Directory il controllo degli accessi in base al ruolo.
+**Linee guida**: i gateway VPN hanno istanze di VM dedicate per ogni rete virtuale del cliente. Implementare l'isolamento usando reti virtuali, sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di riservatezza dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 - [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Responsabilità**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare Azure ad RBAC per controllare l'accesso ai dati e alle risorse; in caso contrario, usare metodi di controllo di accesso specifici del servizio. Usare ruoli predefiniti di controllo degli accessi in base al ruolo, ad esempio proprietario, collaboratore o collaboratore rete, e quindi assegnare il ruolo all'ambito appropriato. Assegnare autorizzazioni specifiche per un subset di funzionalità della rete virtuale creando un ruolo personalizzato e assegnando le autorizzazioni specifiche necessarie per le reti virtuali, le subnet, i gateway VPN, le interfacce di rete, i gruppi di sicurezza di rete e le tabelle di routing al ruolo.
+**Indicazioni**: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio. Usare ruoli predefiniti come proprietario, collaboratore o collaboratore rete e quindi assegnare il ruolo all'ambito appropriato. Assegnare autorizzazioni specifiche per un subset di funzionalità della rete virtuale creando un ruolo personalizzato e assegnando le autorizzazioni specifiche necessarie per le reti virtuali, le subnet, i gateway VPN, le interfacce di rete, i gruppi di sicurezza di rete e le tabelle di routing al ruolo.
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Pianificare le reti virtuali](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 

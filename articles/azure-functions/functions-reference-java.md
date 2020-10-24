@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519623"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -17,7 +17,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Gli sviluppatori Java, se non si ha familiarità con funzioni di Azure, si consiglia di leggere prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| 
+| Introduzione | Concetti| 
 | -- | -- |  
 | <ul><li>[Funzione Java con Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Funzione Java/Maven con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Funzione Java con Gradle](functions-create-first-java-gradle.md)</li><li>[Funzione Java con Eclipse](functions-create-maven-eclipse.md)</li><li>[Funzione Java con IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> |
 
@@ -134,8 +134,6 @@ ecco il file `function.json` corrispondente generato da [azure-functions-maven-p
 
 ## <a name="java-versions"></a>Versioni Java
 
-_Il supporto per Java 11 è attualmente in fase di anteprima_
-
 La versione di Java usata quando si crea l'app per le funzioni in cui vengono eseguite le funzioni in Azure è specificata nel file di pom.xml. L'archetipo Maven genera attualmente una pom.xml per Java 8, che è possibile modificare prima di pubblicare. La versione di Java in pom.xml deve corrispondere alla versione in cui è stata sviluppata e testata localmente l'app. 
 
 ### <a name="supported-versions"></a>Versioni supportate
@@ -144,14 +142,14 @@ La tabella seguente mostra le versioni Java supportate correnti per ogni version
 
 | Versione di Funzioni | Versioni Java (Windows) | Versioni Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (anteprima)<br/>8 | 11 (anteprima)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/d |
 
 A meno che non si specifichi una versione Java per la distribuzione, l'archetipo di Maven viene impostato su Java 8 durante la distribuzione in Azure.
 
 ### <a name="specify-the-deployment-version"></a>Specificare la versione della distribuzione
 
-È possibile controllare la versione di Java a cui è destinato l'archetipo Maven usando il `-DjavaVersion` parametro. Il valore di questo parametro può essere `8` o `11` . Il supporto Java 11 è attualmente in fase di anteprima. 
+È possibile controllare la versione di Java a cui è destinato l'archetipo Maven usando il `-DjavaVersion` parametro. Il valore di questo parametro può essere `8` o `11` . 
 
 L'archetipo Maven genera un pom.xml destinato alla versione Java specificata. Gli elementi seguenti in pom.xml indicano la versione di Java da usare:
 

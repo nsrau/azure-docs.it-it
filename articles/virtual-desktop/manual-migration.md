@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039047"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516172"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Eseguire la migrazione manuale da desktop virtuale di Windows (versione classica)
 
@@ -35,7 +35,7 @@ Nonostante il problema, la migrazione dalla versione classica è ancora importan
 - Gestire il desktop virtuale di Windows tramite il portale di Azure.
 - Assegnare i gruppi di utenti Azure Active Directory (AD) ai gruppi di applicazioni.
 - Utilizzare la funzionalità Log Analytics migliorata per risolvere i problemi relativi alla distribuzione.
-- Usare i controlli di accesso Role-Based nativi di Azure per gestire l'accesso amministrativo.
+- Usare il controllo degli accessi in base al ruolo nativo di Azure (RBAC di Azure) per gestire l'accesso amministrativo.
 
 ## <a name="when-should-i-migrate"></a>Quando è necessario eseguire la migrazione?
 

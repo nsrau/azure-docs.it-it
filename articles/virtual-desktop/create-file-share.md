@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287322"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519440"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
 
@@ -86,7 +86,7 @@ Per configurare le autorizzazioni a livello di condivisione, assegnare a ogni ut
 >[!NOTE]
 >Gli account o i gruppi a cui si assegnano le autorizzazioni devono essere stati creati nel dominio e sincronizzati con Azure AD. Gli account creati in Azure AD non funzioneranno.
 
-Per assegnare le autorizzazioni di controllo degli accessi in base al ruolo (RBAC):
+Per assegnare le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
 1. Aprire il Portale di Azure.
 
@@ -106,7 +106,7 @@ Per assegnare le autorizzazioni di controllo degli accessi in base al ruolo (RBA
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Assegnare autorizzazioni agli utenti per la condivisione file di Azure
 
-Dopo aver assegnato le autorizzazioni di Controllo degli accessi in base al ruolo agli utenti, è necessario configurare le autorizzazioni NTFS.
+Dopo aver assegnato le autorizzazioni RBAC di Azure agli utenti, è necessario configurare le autorizzazioni NTFS.
 
 Per iniziare, è necessario sapere due elementi dal portale di Azure:
 

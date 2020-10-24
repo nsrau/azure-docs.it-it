@@ -3,12 +3,12 @@ title: Completare un ripristino di emergenza di macchine virtuali
 description: Questo articolo illustra come completare un ripristino di emergenza di macchine virtuali usando la soluzione VMware di Azure
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 2ccb6546b9b01255e4a28aed79fd0d3ccbc4516c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580183"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508435"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare un ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
 
@@ -20,7 +20,7 @@ VMware HCX fornisce varie operazioni che forniscono controllo e granularità pre
 
 - **Pausa** : sospende i criteri di replica correnti associati alla macchina virtuale selezionata.
 
-- **Resume** : sospende il criterio di replica corrente associato alla macchina virtuale selezionata.
+- **Resume** : riprende il criterio di replica corrente associato alla macchina virtuale selezionata.
 
 - **Rimuovi** : rimuovere il criterio di replica corrente associato alla macchina virtuale selezionata.
 

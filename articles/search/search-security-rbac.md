@@ -1,26 +1,26 @@
 ---
 title: Impostare i ruoli di Azure per l'accesso amministrativo di Azure
 titleSuffix: Azure Cognitive Search
-description: Controllo degli accessi in base al ruolo (RBAC) nell'portale di Azure per il controllo e la delega delle attività amministrative per la gestione ricerca cognitiva di Azure.
+description: Controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nella portale di Azure per il controllo e la delega delle attività amministrative per la gestione ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 2f9f979e5871a4888978ff14362a7fb0082917d5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151192"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519500"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli di Azure per l'accesso amministrativo ad Azure ricerca cognitiva
 
 Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-based-access-control/role-assignments-portal.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli proprietario, collaboratore e lettore determinano il livello di *amministrazione del servizio* per Active Directory utenti, gruppi e entità di sicurezza assegnati a ogni ruolo. 
 
 > [!Note]
-> Non esiste alcun controllo degli accessi in base al ruolo (RBAC) per la protezione del contenuto nel servizio. Si userà una chiave API di amministrazione o una chiave API di query per le richieste autenticate al servizio stesso. Per gli accessi in base al ruolo sui risultati della ricerca è possibile creare filtri di sicurezza per vagliare i risultati in base all'identità, rimuovendo eventuali documenti a cui il richiedente non dovrebbe avere accesso. Per altre informazioni, vedere [filtri di sicurezza](search-security-trimming-for-azure-search.md).
+> Non è disponibile alcun controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per la protezione del contenuto nel servizio. Si userà una chiave API di amministrazione o una chiave API di query per le richieste autenticate al servizio stesso. Per gli accessi in base al ruolo sui risultati della ricerca è possibile creare filtri di sicurezza per vagliare i risultati in base all'identità, rimuovendo eventuali documenti a cui il richiedente non dovrebbe avere accesso. Per altre informazioni, vedere [filtri di sicurezza](search-security-trimming-for-azure-search.md).
 
 ## <a name="management-tasks-by-role"></a>Attività di gestione in base al ruolo
 
@@ -38,22 +38,22 @@ I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni
 
 Nella tabella seguente sono riepilogate le operazioni consentite in Azure ricerca cognitiva e la chiave che sblocca l'accesso a una determinata operazione.
 
-Le autorizzazioni RBAC si applicano alle operazioni del portale e alla gestione dei servizi (creazione, eliminazione o modifica di un servizio o delle relative chiavi API). Le chiavi API vengono create dopo l'esistenza di un servizio e si applicano alle operazioni sul contenuto nel servizio. Inoltre, per le operazioni correlate al contenuto nel portale, ad esempio la creazione o l'eliminazione di oggetti, un proprietario o un collaboratore RBAC interagisce con il servizio con una chiave API di amministrazione implicita.
+Le autorizzazioni RBAC di Azure si applicano alle operazioni del portale e alla gestione dei servizi (creare, eliminare o modificare un servizio o le relative chiavi API). Le chiavi API vengono create dopo l'esistenza di un servizio e si applicano alle operazioni sul contenuto nel servizio. Inoltre, per le operazioni correlate al contenuto nel portale, ad esempio la creazione o l'eliminazione di oggetti, un proprietario o un collaboratore RBAC di Azure interagisce con il servizio con una chiave API di amministrazione implicita.
 
 | Operazione | Controllato da |
 |-----------|-------------------------|
-| Creare un servizio | Autorizzazioni RBAC: proprietario o collaboratore |
-| Ridimensionare un servizio | Autorizzazioni RBAC: proprietario o collaboratore|
-| Eliminare un servizio | Autorizzazioni RBAC: proprietario o collaboratore |
-| Gestisci chiavi di amministratore o di query | Autorizzazioni RBAC: proprietario o collaboratore|
-| Visualizzare le informazioni sul servizio nel portale o in un'API di gestione | Autorizzazioni RBAC: proprietario, collaboratore o lettore  |
-| Visualizzare le informazioni sugli oggetti e le metriche nel portale o in un'API di gestione | Autorizzazioni RBAC: proprietario o collaboratore |
-| Creare, modificare, eliminare oggetti nel servizio: <br>Indici e parti componenti (incluse definizioni analizzatore, profili di punteggio, opzioni CORS), indicizzatori, origini dati, sinonimi, suggerimenti | Chiave di amministrazione se si usa un'API, un proprietario o un collaboratore RBAC se si usa il portale |
-| Eseguire una query su un indice | Amministratore o chiave di query se si usa un'API, un proprietario o un collaboratore RBAC se si usa il portale |
-| Eseguire query sulle informazioni di sistema relative a oggetti, ad esempio la restituzione di statistiche, conteggi ed elenchi di oggetti | Chiave di amministrazione se si usa un'API, un proprietario o un collaboratore RBAC se si usa il portale |
+| Creare un servizio | Autorizzazioni RBAC di Azure: proprietario o collaboratore |
+| Ridimensionare un servizio | Autorizzazioni RBAC di Azure: proprietario o collaboratore|
+| Eliminare un servizio | Autorizzazioni RBAC di Azure: proprietario o collaboratore |
+| Gestisci chiavi di amministratore o di query | Autorizzazioni RBAC di Azure: proprietario o collaboratore|
+| Visualizzare le informazioni sul servizio nel portale o in un'API di gestione | Autorizzazioni RBAC di Azure: proprietario, collaboratore o lettore  |
+| Visualizzare le informazioni sugli oggetti e le metriche nel portale o in un'API di gestione | Autorizzazioni RBAC di Azure: proprietario o collaboratore |
+| Creare, modificare, eliminare oggetti nel servizio: <br>Indici e parti componenti (incluse definizioni analizzatore, profili di punteggio, opzioni CORS), indicizzatori, origini dati, sinonimi, suggerimenti | Chiave amministratore se si usa un'API, un proprietario o un collaboratore RBAC di Azure se si usa il portale |
+| Eseguire una query su un indice | Amministratore o chiave di query se si usa un'API, un proprietario o un collaboratore RBAC di Azure se si usa il portale |
+| Eseguire query sulle informazioni di sistema relative a oggetti, ad esempio la restituzione di statistiche, conteggi ed elenchi di oggetti | Chiave amministratore se si usa un'API, un proprietario o un collaboratore RBAC di Azure se si usa il portale |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Gestire usando PowerShell](search-manage-powershell.md) 
 + [Prestazioni e ottimizzazione in Azure ricerca cognitiva](search-performance-optimization.md)
-+ [Introduzione al Controllo degli accessi in base al ruolo di Azure nel portale di Azure](../role-based-access-control/overview.md).
++ [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).

@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un gruppo di contenitori in una re
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303009"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518127"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -40,7 +40,7 @@ Dopo aver distribuito il primo gruppo di contenitori con questo metodo, è possi
 
 ### <a name="example"></a>Esempio
 
-Il comando [AZ container create][az-container-create] seguente specifica le impostazioni per una nuova rete virtuale e una nuova subnet. Specificare il nome di un gruppo di risorse creato in un'area in cui sono [disponibili](container-instances-region-availability.md#availability---virtual-network-deployment)le distribuzioni dei gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo Node.js server Web che serve una pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
+Il comando [AZ container create][az-container-create] seguente specifica le impostazioni per una nuova rete virtuale e una nuova subnet. Specificare il nome di un gruppo di risorse creato in un'area in cui sono [disponibili](container-instances-region-availability.md)le distribuzioni dei gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo Node.js server Web che serve una pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
 
 ```azurecli
 az container create \

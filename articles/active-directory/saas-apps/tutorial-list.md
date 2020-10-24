@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751207"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521947"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory
 
@@ -25,7 +25,7 @@ Per semplificare l'integrazione delle applicazioni [software come un servizio (S
 
 Per un elenco di tutte le app SaaS già integrate in Azure AD, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Usare il [portale di rete delle applicazioni](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) per richiedere l'aggiunta di un'applicazione abilitata per [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) alla raccolta per il provisioning automatico o un'applicazione SAML/OIDC abilitata per l'aggiunta alla raccolta per SSO.
+Usare il [portale di rete delle applicazioni](../azuread-dev/howto-app-gallery-listing.md) per richiedere l'aggiunta di un'applicazione abilitata per [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) alla raccolta per il provisioning automatico o un'applicazione SAML/OIDC abilitata per l'aggiunta alla raccolta per SSO.
 
 ## <a name="quick-links"></a>Collegamenti rapidi
 
@@ -34,7 +34,7 @@ Usare il [portale di rete delle applicazioni](https://docs.microsoft.com/azure/a
 | ![logo-cloud Atlassian](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian cloud-provisioning utenti](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - Provisioning utenti](servicenow-provisioning-tutorial.md)|
 | ![logo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Provisioning utente](slack-provisioning-tutorial.md)|
-| ![logo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-provisioning utenti](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-provisioning utenti](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![logo-giornata lavorativa](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - Provisioning utente](workday-inbound-tutorial.md)|
 
 Per trovare altre esercitazioni, usare il sommario a sinistra.
@@ -47,7 +47,7 @@ Per trovare altre esercitazioni, usare il sommario a sinistra.
 | ![logo-servizio cloud alibaba (ruolo basato su SSO)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Servizio cloud alibaba (ruolo basato su SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logo-Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Provisioning dell'utente Google Cloud Platform](google-apps-provisioning-tutorial.md) |
 | ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Sandbox Salesforce - Provisioning utente](salesforce-provisioning-tutorial.md) |
-| ![logo-SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Piattaforma SAP Cloud Identity](saphana-tutorial.md)|[Piattaforma SAP Cloud Identity-provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logo-SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Piattaforma SAP Cloud Identity](saphana-tutorial.md)|[Piattaforma SAP Cloud Identity-provisioning](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>SSO OneClick
 
@@ -83,7 +83,7 @@ Per trovare altre esercitazioni, usare il sommario a sinistra.
 | ![logo-Help Scout](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
 | ![logo-filartela](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logo-HRworks Single Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
-| ![logo-JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo-JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF Pro](jamfprosamlconnector-tutorial.md)|
 | ![logo-Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo-Knowledge Anywhere](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|

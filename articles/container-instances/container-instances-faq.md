@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818487"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516971"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
@@ -61,7 +61,7 @@ Usare l'immagine più piccola che soddisfa i requisiti. Per Linux, è possibile 
 
 Questo dipende in realtà dal carico di lavoro. Avviare piccole e prestazioni di test per verificare il funzionamento dei contenitori. [Monitorare l'utilizzo delle risorse di CPU e memoria](container-instances-monitor.md)e quindi aggiungere core o memoria in base al tipo di processi distribuiti nel contenitore.
 
-Assicurarsi anche di controllare la [disponibilità delle risorse](container-instances-region-availability.md#availability---general) per l'area in cui si esegue la distribuzione per i limiti superiori nei core CPU e la memoria disponibile per gruppo di contenitori. 
+Assicurarsi anche di controllare la [disponibilità delle risorse](container-instances-region-availability.md) per l'area in cui si esegue la distribuzione per i limiti superiori nei core CPU e la memoria disponibile per gruppo di contenitori. 
 
 > [!NOTE]
 > Una piccola quantità di risorse di un gruppo di contenitori viene utilizzata dall'infrastruttura sottostante del servizio. I contenitori saranno in grado di accedere alla maggior parte, ma non a tutte le risorse allocate al gruppo. Per questo motivo, pianificare un buffer delle risorse di piccole dimensioni quando si richiedono risorse per i contenitori del gruppo.
@@ -80,7 +80,7 @@ Non ancora. Attualmente, questi sono i valori massimi per un gruppo di contenito
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quando ACI si trova in un'area specifica?
 
-La disponibilità dell'area corrente è pubblicata [qui](container-instances-region-availability.md#availability---general). Se si ha un requisito per un'area specifica, contattare il supporto tecnico di Azure.
+La disponibilità dell'area corrente è pubblicata [qui](container-instances-region-availability.md). Se si ha un requisito per un'area specifica, contattare il supporto tecnico di Azure.
 
 ## <a name="features-and-scenarios"></a>Funzionalità e scenari
 

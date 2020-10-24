@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287204"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518569"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Esercitazione: configurare il software OfficeSpace per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Prima di configurare il software OfficeSpace per il provisioning utenti automati
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in OfficeSpace software in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per il software OfficeSpace seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di OfficeSpace software](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per il software OfficeSpace seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di OfficeSpace software](./officespace-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Per configurare il provisioning utenti automatico per il software OfficeSpace in Azure AD:
 
@@ -117,7 +117,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a OfficeSpace software**.
 
@@ -153,4 +153,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

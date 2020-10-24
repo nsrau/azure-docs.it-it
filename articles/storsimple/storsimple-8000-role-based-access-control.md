@@ -1,5 +1,5 @@
 ---
-title: Usare il controllo degli accessi in base al ruolo per StorSimple | Microsoft Docs
+title: Usare il controllo degli accessi in base al ruolo di Azure per StorSimple | Microsoft Docs
 description: Viene descritto come usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nel contesto di StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920416"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518977"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
+# <a name="azure-role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo di Azure per StorSimple
 
-Questo articolo fornisce una breve descrizione del modo in cui il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) può essere usato per il dispositivo StorSimple. Il controllo degli accessi in base al ruolo consente la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo consente di concedere agli utenti di StorSimple il livello di accesso appropriato in base al tipo di attività che devono svolgere, anziché concedere loro un accesso illimitato. Per le nozioni di base sulla gestione degli accessi in Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
+Questo articolo fornisce una breve descrizione del modo in cui il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) può essere usato per il dispositivo StorSimple. Il controllo degli accessi in base al ruolo di Azure offre una gestione degli accessi granulare Usare il controllo degli accessi in base al ruolo di Azure per concedere solo la giusta quantità di accesso agli utenti di StorSimple per svolgere il proprio lavoro anziché concedere a tutti l'accesso illimitato. Per altre informazioni sulle nozioni di base sulla gestione degli accessi in Azure, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o successivo in esecuzione nel portale di Azure.
 
@@ -31,7 +31,7 @@ Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o
 
 ## <a name="azure-roles-for-storsimple"></a>Ruoli di Azure per StorSimple
 
-Il controllo degli accessi in base al ruolo può essere assegnato in funzione dei ruoli, che assicurano determinati livelli di autorizzazione in base alle risorse disponibili nell'ambiente. Esistono due tipi di ruoli tra cui gli utenti di StorSimple possono scegliere: predefiniti o personalizzati.
+È possibile assegnare RBAC di Azure in base ai ruoli. che assicurano determinati livelli di autorizzazione in base alle risorse disponibili nell'ambiente. Esistono due tipi di ruoli tra cui gli utenti di StorSimple possono scegliere: predefiniti o personalizzati.
 
 * **Ruoli predefiniti**: possono essere i ruoli di proprietario, collaboratore, lettore o amministratore Accesso utenti. Per altre informazioni, vedere [ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
 

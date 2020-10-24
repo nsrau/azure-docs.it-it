@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823591"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521051"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Trasformazione UnPivot nel flusso di dati di mapping
 
@@ -28,27 +28,27 @@ Utilizzare UnPivot nel flusso di dati del mapping di ADF per trasformare un set 
 
 ![Trasformazione UnPivot](media/data-flow/unpivot5.png "Opzioni UnPivot 2")
 
-Impostare prima di tutto le colonne in base alle quali si desidera eseguire il raggruppamento per l'aggregazione di Pivot. Impostare una o più colonne per la separazione usando il segno + accanto all'elenco di colonne.
+Per prima cosa, impostare le colonne da deraggruppare per l'aggregazione UNPIVOT. Impostare una o più colonne per la separazione usando il segno + accanto all'elenco di colonne.
 
 ## <a name="unpivot-key"></a>Unpivot Key (Chiave UnPivot)
 
 ![Trasformazione UnPivot](media/data-flow/unpivot6.png "Opzioni UnPivot 3")
 
-La chiave Pivot è la colonna in base alla quale Azure Data Factory eseguirà la trasformazione tramite Pivot da riga a colonna. Per impostazione predefinita, ogni valore univoco nel set di dati per questo campo verrà trasformato tramite Pivot in una colonna. Tuttavia, è facoltativamente possibile immettere i valori dal set di dati che si desidera trasformare tramite Pivot in valori di colonna.
+La chiave UnPivot è la colonna da cui verrà applicata la trasformazione ADF dalla colonna alla riga. Per impostazione predefinita, ogni valore univoco nel set di dati per questo campo verrà trasformato in una riga. Tuttavia, facoltativamente, è possibile immettere i valori del set di dati che si desidera trasformare in valori di riga.
 
 ## <a name="unpivoted-columns"></a>Colonne trasformate tramite UnPivot
 
 ![Trasformazione UnPivot](media/data-flow//unpivot7.png "Opzioni UnPivot 4")
 
-Scegliere infine l'aggregazione che si desidera usare per i valori trasformati tramite Pivot e la modalità di visualizzazione per le colonne nella nuova proiezione di output dalla trasformazione.
+Infine, scegliere il nome della colonna per archiviare i valori per le colonne trasformate tramite UnPivot che vengono trasformate in righe.
 
-(Facoltativo) È possibile impostare un criterio di denominazione con prefisso, valore intermedio e suffisso da aggiungere a ogni nuovo nome di colonna dai valori di riga.
+Opzionale È possibile eliminare righe con valori null.
 
-Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati semplicemente nuovi valori di colonna da ogni valore delle vendite. Ad esempio: "25", "50", "1000",... Tuttavia, se si imposta un valore di prefisso "Sales", "Sales" sarà anteposto ai valori.
+Ad esempio, SumCost è il nome della colonna scelto nell'esempio condiviso sopra.
 
 ![Immagine che mostra le colonne PO, vendor e Fruit prima e dopo una trasformazione unipivot usando la colonna Fruit come chiave unipivot.](media/data-flow/unpivot3.png)
 
-Impostare la disposizione delle colonne "Normal" (Normale) per raggruppare insieme tutte le colonne trasformate tramite Pivot con i relativi valori aggregati. La disposizione delle colonne "Lateral" (Laterale) consentirà di alternare colonna e valore.
+Impostando la disposizione delle colonne su "Normal", tutte le nuove colonne trasformate tramite UnPivot vengono raggruppate in base a un singolo valore. Impostando la disposizione delle colonne su "laterale" si raggruppano le nuove colonne trasformate tramite UnPivot generate da una colonna esistente.
 
 ![Trasformazione UnPivot](media/data-flow//unpivot7.png "Opzioni UnPivot 5")
 

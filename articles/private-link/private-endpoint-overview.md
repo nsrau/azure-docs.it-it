@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277514"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508030"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -133,15 +133,16 @@ La tabella seguente contiene un elenco di limitazioni note quando si usano gli e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un endpoint privato per il database SQL tramite il portale ](create-private-endpoint-portal.md)
-- [Creare un endpoint privato per il database SQL con PowerShell ](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
-- [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
-- [Creare un endpoint privato per l'account Azure Cosmos con il portale ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Creare un endpoint privato per il database SQL usando il portale](create-private-endpoint-portal.md)
+- [Creare un endpoint privato per il database SQL con PowerShell](create-private-endpoint-powershell.md)
+- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando](create-private-endpoint-cli.md)
+- [Creare un endpoint privato per l'account di archiviazione usando il portale](create-private-endpoint-storage-portal.md)
+- [Creare un endpoint privato per l'account Azure Cosmos usando il portale](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)
-- [Creare il proprio collegamento privato per Database di Azure per PostgreSQL - Server singolo tramite il portale](../postgresql/howto-configure-privatelink-portal.md)
+- [Creare il proprio collegamento privato per database di Azure per PostgreSQL-server singolo con il portale](../postgresql/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando](../postgresql/howto-configure-privatelink-cli.md)
-- [Creare il proprio collegamento privato per Database di Azure per MySQL tramite il portale](../mysql/howto-configure-privatelink-portal.md)
+- [Creare il proprio collegamento privato per database di Azure per MySQL usando il portale](../mysql/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per MySQL tramite l'interfaccia della riga di comando](../mysql/howto-configure-privatelink-cli.md)
-- [Creare il proprio collegamento privato per Database di Azure per MariaDB tramite il portale](../mariadb/howto-configure-privatelink-portal.md)
+- [Creare il proprio collegamento privato per database di Azure per MariaDB usando il portale](../mariadb/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per MariaDB tramite l'interfaccia della riga di comando](../mariadb/howto-configure-privatelink-cli.md)
+- [Creare il proprio collegamento privato per Azure Key Vault usando il portale e l'interfaccia della riga di comando](../key-vault/general/private-link-service.md)

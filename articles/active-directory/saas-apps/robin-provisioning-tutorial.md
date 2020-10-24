@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299988"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520728"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Esercitazione: configurare Robin per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Prima di configurare Robin per il provisioning utenti automatico con Azure AD, �
 Questa sezione illustra i passaggi necessari per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Robin in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Robin, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Robin, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Robin](./robin-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Robin in Azure AD:
 
@@ -117,7 +117,7 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Robin**.
 
@@ -163,4 +163,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

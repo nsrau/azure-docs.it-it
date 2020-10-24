@@ -3,18 +3,18 @@ title: Servizi di messaggistica di Azure-Service Manager Gestione risorse
 description: Questo articolo fornisce il mapping dell'API REST di Azure Service Manager deprecata & cmdlet di PowerShell per Gestione risorse API REST & cmdlet di PowerShell.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761176"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518790"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Deprecazione del supporto di Azure Service Manager per il bus di servizio, l'inoltro e hub eventi di Azure
 
 Gestione risorse, lo stack dell'infrastruttura cloud di nuova generazione, sostituisce completamente il modello di gestione dei servizi di Azure classico (modello di distribuzione classica). Di conseguenza, le API REST del modello di distribuzione classica e il supporto per Service Bus, Relay e hub eventi verranno ritirati il 1 ° novembre 2021. Questa deprecazione è stata annunciata per la prima volta in un [annuncio Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), ma recentemente abbiamo deciso di estendere il periodo di deprecazione altri due anni dal momento dell'annuncio originale. Per facilitarne l'identificazione, le API hanno un `management.core.windows.net` URI. Vedere la tabella seguente per un elenco delle API deprecate e la relativa versione API Azure Resource Manager che è ora necessario usare.
 
-Per continuare a usare Service Bus, Relay e hub eventi, passare a Gestione risorse entro il 31 ottobre 2021. Invitiamo tutti i clienti che usano ancora le API obsolete per sfruttare al meglio i vantaggi offerti da Gestione risorse, tra cui il raggruppamento di risorse, i tag, un processo di distribuzione e gestione semplificato e un controllo di accesso con granularità fine tramite il controllo degli accessi in base al ruolo (RBAC).
+Per continuare a usare Service Bus, Relay e hub eventi, passare a Gestione risorse entro il 31 ottobre 2021. Invitiamo tutti i clienti che usano ancora le API obsolete per sfruttare al meglio i vantaggi offerti da Gestione risorse, tra cui il raggruppamento di risorse, i tag, un processo di distribuzione e gestione semplificato e un controllo di accesso con granularità fine tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 Per ulteriori informazioni su Azure Resource Manager Service Manager di Azure, vedere il [blog TechNet](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
 

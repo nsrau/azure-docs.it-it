@@ -3,18 +3,18 @@ title: Autenticazione e autorizzazione del bus di servizio di Azure | Documentaz
 description: Autenticare le app sul bus di servizio usando l'autenticazione con firma di accesso condiviso (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066862"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517281"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
 Esistono due modi per autenticare e autorizzare l'accesso alle risorse del bus di servizio di Azure: Azure Activity directory (Azure AD) e le firme di accesso condiviso (SAS). Questo articolo fornisce informazioni dettagliate sull'uso di questi due tipi di meccanismi di sicurezza. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Azure AD integrazione per le risorse del bus di servizio fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa del bus di servizio (coda, argomento e così via).
+Azure AD integrazione per le risorse del bus di servizio fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa del bus di servizio (coda, argomento e così via).
 
 Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:
 

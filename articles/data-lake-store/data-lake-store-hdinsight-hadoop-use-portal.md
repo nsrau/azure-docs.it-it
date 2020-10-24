@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484985"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521017"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -95,7 +95,7 @@ Per usare un'entità servizio esistente dal portale di Azure:
 1. Selezionare **entità servizio**, quindi selezionare un'entità servizio.
 1. Caricare il certificato (file PFX) associato all'entità servizio selezionata e quindi immettere la password del certificato.
 
-[Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
+    ![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Selezionare **accesso** per configurare l'accesso alla cartella.  Vedere [Configurare le autorizzazioni file](#configure-file-permissions).
 

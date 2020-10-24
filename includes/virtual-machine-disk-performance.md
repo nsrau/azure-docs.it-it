@@ -8,40 +8,60 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540011"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518066"
 ---
-Questo articolo consente di chiarire le prestazioni del disco e il relativo funzionamento con quando si combinano macchine virtuali di Azure e dischi di Azure. Viene inoltre descritto come è possibile diagnosticare i colli di bottiglia per l'IO del disco e le modifiche che è possibile apportare per ottimizzare le prestazioni.
+Questo articolo consente di chiarire le prestazioni del disco e il suo funzionamento quando si combinano macchine virtuali di Azure e dischi di Azure. Viene inoltre descritto come è possibile diagnosticare i colli di bottiglia per l'IO del disco e le modifiche che è possibile apportare per ottimizzare le prestazioni.
 
 ## <a name="how-does-disk-performance-work"></a>Come funzionano le prestazioni del disco?
-Le macchine virtuali di Azure hanno limiti di prestazioni per IOPS e velocità effettiva in base al tipo e alle dimensioni della macchina virtuale. I dischi del sistema operativo e i dischi dati, che possono essere collegati alle macchine virtuali, hanno limiti di velocità effettiva e IOPs. Quando l'applicazione in esecuzione nelle macchine virtuali richiede più IOPS o velocità effettiva rispetto a quanto assegnato per la macchina virtuale o i dischi collegati, le prestazioni dell'applicazione vengono limitate. Quando si verifica questa situazione, l'applicazione presenta prestazioni non ottimali e può causare alcune conseguenze negative, ad esempio un aumento della latenza. Di seguito sono riportati alcuni esempi per consolidare questa operazione. Per semplificare il following di questi esempi, verranno esaminati solo i IOPs, ma la stessa logica si applica anche alla velocità effettiva.
+Le macchine virtuali di Azure dispongono di operazioni di input/output al secondo (IOPS) e limiti di prestazioni della velocità effettiva in base al tipo e alle dimensioni della macchina virtuale. I dischi del sistema operativo e i dischi dati possono essere collegati alle macchine virtuali. I dischi hanno limiti di velocità effettiva e IOPS.
+
+Le prestazioni dell'applicazione vengono limitate quando richiede più IOPS o velocità effettiva rispetto a quelle assegnate per le macchine virtuali o i dischi collegati. Quando il limite è limitato, le prestazioni dell'applicazione sono non ottimali. Questo può causare conseguenze negative, ad esempio un aumento della latenza. Di seguito vengono illustrati alcuni esempi per chiarire questo concetto. Per semplificare il following di questi esempi, verranno esaminate solo le operazioni di IOPS. Tuttavia, la stessa logica si applica alla velocità effettiva.
 
 ## <a name="disk-io-capping"></a>Limitazione IO disco
-Configurazione:
-- Standard_D8s_v3 
-    - IOPS non memorizzati nella cache: 12.800
+
+**Installazione**
+
+- Standard_D8s_v3
+  - IOPS non memorizzati nella cache: 12.800
 - Disco del sistema operativo E30
-    - IOPS: 500 
-- 2 dischi dati E30
-    - IOPS: 500
+  - IOPS: 500
+- Due dischi dati E30 × 2
+  - IOPS: 500
 
-![Limitazione a livello di disco](media/vm-disk-performance/disk-level-throttling.jpg)
+![Diagramma che mostra la limitazione a livello di disco.](media/vm-disk-performance/disk-level-throttling.jpg)
 
-L'applicazione in esecuzione nella macchina virtuale effettua una richiesta che richiede 10.000 IOPs alla macchina virtuale. Tutti i quali sono consentiti dalla VM perché la macchina virtuale Standard_D8s_v3 può eseguire fino a 12.800 IOPs. Queste richieste di IOPs 10.000 vengono quindi suddivise in tre diverse richieste a dischi diversi. 1.000 IOPs vengono richiesti al disco del sistema operativo e 4.500 IOPs vengono richiesti a ogni disco dati. Poiché tutti i dischi collegati sono dischi E30 e possono gestire solo 500 IOPs, rispondono con 500 IOPs ciascuno. Le prestazioni dell'applicazione vengono quindi limitate dai dischi collegati e possono solo elaborare 1.500 IOPs. Potrebbe funzionare con prestazioni ottimali con 10.000 IOPS se venivano usati dischi migliori, ad esempio SSD Premium dischi P30.
+L'applicazione in esecuzione nella macchina virtuale effettua una richiesta che richiede 10.000 IOPS alla macchina virtuale. Tutti i quali sono consentiti dalla VM perché la macchina virtuale Standard_D8s_v3 può eseguire fino a 12.800 IOPS.
+
+Le richieste di IOPS 10.000 vengono suddivise in tre richieste diverse per i diversi dischi:
+
+- 1.000 IOPS vengono richiesti al disco del sistema operativo.
+- 4.500 IOPS vengono richiesti a ogni disco dati.
+
+Tutti i dischi collegati sono dischi E30 e sono in grado di gestire solo 500 IOPS. Quindi, rispondono con 500 IOPS ciascuno. Le prestazioni dell'applicazione sono limitate dai dischi collegati e possono solo elaborare 1.500 IOPS. L'applicazione potrebbe funzionare con prestazioni ottimali con 10.000 IOPS se vengono usati dischi con prestazioni migliori, ad esempio SSD Premium dischi P30.
 
 ## <a name="virtual-machine-io-capping"></a>Limitazione delle operazioni di i/o della macchina virtuale
-Configurazione:
-- Standard_D8s_v3 
-    - IOPS non memorizzati nella cache: 12.800
+
+**Installazione**
+
+- Standard_D8s_v3
+  - IOPS non memorizzati nella cache: 12.800
 - Disco del sistema operativo P30
-    - IOPS: 5.000 
-- 2 dischi dati P30 
-    - IOPS: 5.000
+  - IOPS: 5.000
+- Due dischi dati P30 × 2
+  - IOPS: 5.000
 
-![Limitazione a livello di macchina virtuale](media/vm-disk-performance/vm-level-throttling.jpg)
+![Diagramma che mostra la limitazione a livello di macchina virtuale.](media/vm-disk-performance/vm-level-throttling.jpg)
 
-L'applicazione in esecuzione nella macchina virtuale effettua una richiesta che richiede 15.000 IOPs. Sfortunatamente, viene eseguito il provisioning della macchina virtuale Standard_D8s_v3 per gestire 12.800 IOPs. Da questo, l'applicazione è limitata dai limiti della macchina virtuale e deve quindi allocare gli IOPs 12.800 assegnati. Questi 12.800 IOPs richiesti vengono quindi suddivisi in tre richieste diverse per i diversi dischi. 4.267 IOPs vengono richiesti al disco del sistema operativo e 4.266 IOPs vengono richiesti a ogni disco dati. Poiché tutti i dischi collegati sono dischi P30, che possono gestire 5.000 IOPs, rispondono con gli importi richiesti.
+L'applicazione in esecuzione nella macchina virtuale effettua una richiesta che richiede 15.000 IOPS. Sfortunatamente, viene eseguito il provisioning della macchina virtuale Standard_D8s_v3 per gestire 12.800 IOPS. L'applicazione è limitata dai limiti della macchina virtuale ed è necessario allocare gli IOPS 12.800 assegnati.
+
+Questi 12.800 IOPS richiesti sono suddivisi in tre richieste diverse per i diversi dischi:
+
+- 4.267 IOPS vengono richiesti al disco del sistema operativo.
+- 4.266 IOPS vengono richiesti a ogni disco dati.
+
+Tutti i dischi collegati sono dischi P30 in grado di gestire 5.000 IOPS. Quindi, rispondono con gli importi richiesti.

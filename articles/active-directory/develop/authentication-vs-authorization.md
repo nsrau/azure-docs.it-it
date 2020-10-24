@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320debcf2b744e949faf7b29dd72ed334fe0feea
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252114"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503726"
 ---
 # <a name="authentication-vs-authorization"></a>Confronto tra autenticazione e autorizzazione
 
@@ -35,6 +35,8 @@ L'**autorizzazione** è la concessione del permesso di eseguire determinate oper
 ## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Autenticazione e autorizzazione con Microsoft Identity Platform
 
 Invece di creare app che gestiscono le proprie informazioni relative a nome utente e password, il che comporta un carico amministrativo quando è necessario aggiungere o rimuovere utenti in più app, le app possono delegare tale responsabilità a un provider di identità centralizzato.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Azure Active Directory (Azure AD) è un provider di identità centralizzato su cloud. Scegliere di delegare autenticazione e autorizzazione al provider di identità consente di usare criteri di accesso condizionale in base alle quali l'utente deve trovarsi in una posizione specifica, di usare l'[autenticazione a più fattori](../authentication/concept-mfa-howitworks.md) (a volte chiamata autenticazione a due fattori o 2FA) e di consentire agli utenti di accedere una sola volta e poi sempre automaticamente alle app Web che condividono la stessa directory centralizzata. Questa funzionalità si chiama **Single Sign On (SSO)** .
 
