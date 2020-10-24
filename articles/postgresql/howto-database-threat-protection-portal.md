@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5583e8423f0909936d9e55c6d87593835eded8f7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708221"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489898"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection per database di Azure per PostgreSQL-server singolo
 
@@ -62,5 +62,5 @@ Fare clic su **Avvisi di sicurezza** sotto **PROTEZIONE DALLE MINACCE** per avvi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/)  
+* Altre informazioni sul [Centro sicurezza di Azure](../security-center/security-center-introduction.md)
+* Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/)

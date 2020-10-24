@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408233"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490595"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Come usare il passaggio del profilo di esecuzione per valutare le query Gremlin
 
@@ -155,7 +155,7 @@ La risposta di una funzione executionProfile () produrrà una gerarchia di ogget
     - `storeOps.count`: Rappresenta il numero di risultati restituiti da questa operazione di archiviazione.
     - `storeOps.size`: Rappresenta le dimensioni in byte del risultato di un'operazione di archiviazione specificata.
 
-Operatore di runtime Cosmos DB Gremlin|Description
+Operatore di runtime Cosmos DB Gremlin|Descrizione
 ---|---
 `GetVertices`| Questo passaggio consente di ottenere un set predicato di oggetti dal livello di persistenza. 
 `GetEdges`| Questo passaggio consente di ottenere i bordi adiacenti a un set di vertici. Questo passaggio può comportare una o più operazioni di archiviazione.
@@ -220,8 +220,8 @@ Si supponga che la risposta del profilo di esecuzione seguente da un **grafo par
 
 È possibile effettuare le seguenti conclusioni:
 - La query è una singola ricerca ID, perché l'istruzione Gremlin segue il modello `g.V('id')` .
-- A giudicare dalla `time` metrica, la latenza di questa query sembra essere elevata perché è [più di 10 ms per una singola operazione di lettura del punto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Se esaminiamo l' `storeOps` oggetto, possiamo notare che `fanoutFactor` è `5` , il che significa che l'operazione ha avuto accesso a [5 partizioni](https://docs.microsoft.com/azure/cosmos-db/partition-data) .
+- A giudicare dalla `time` metrica, la latenza di questa query sembra essere elevata perché è [più di 10 ms per una singola operazione di lettura del punto](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Se esaminiamo l' `storeOps` oggetto, possiamo notare che `fanoutFactor` è `5` , il che significa che l'operazione ha avuto accesso a [5 partizioni](./partitioning-overview.md) .
 
 Come conclusione di questa analisi, è possibile determinare che la prima query accede a più partizioni del necessario. È possibile risolvere il problema specificando la chiave di partizionamento nella query come predicato. In questo modo si otterrà una minore latenza e un costo minore per ogni query. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). Una query più ottimale è `g.V('tt0093640').has('partitionKey', 't1001')` .
 

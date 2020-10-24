@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 8e2b74f95f24e107cb395686fe6dd1c96566bb08
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490476"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Come configurare la registrazione e la connettività con il trigger di funzioni di Azure per Cosmos DB
 
@@ -43,7 +43,7 @@ Dopo la distribuzione di Funzioni di Azure con la configurazione aggiornata, ver
 
 ### <a name="query-the-logs"></a>Eseguire query sui log
 
-Eseguire la query seguente sui log generati dal trigger di Funzioni di Azure per Cosmos DB in [Analisi di Azure Application Insights](../azure-monitor/app/analytics.md):
+Eseguire la query seguente sui log generati dal trigger di Funzioni di Azure per Cosmos DB in [Analisi di Azure Application Insights](../azure-monitor/log-query/log-query-overview.md):
 
 ```sql
 traces

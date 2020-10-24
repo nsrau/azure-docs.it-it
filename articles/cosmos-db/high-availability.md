@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 85f358d205a4a14874e520efdace5345de837588
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276276"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490544"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 
@@ -58,7 +58,7 @@ Come database distribuito a livello globale, Azure Cosmos DB offre contratti di 
 
 Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce che il database sia sempre a disponibilità elevata. I dettagli seguenti acquisiscono Azure Cosmos DB comportamento durante un'interruzione, a seconda della configurazione dell'account Azure Cosmos:
 
-* Con Azure Cosmos DB, prima che un'operazione di scrittura venga riconosciuta al client, i dati vengono sottoposte a commit durevole da un quorum di repliche all'interno dell'area che accetta le operazioni di scrittura. Per altri dettagli, vedere [livelli di coerenza e velocità effettiva](consistency-levels-tradeoffs.md#consistency-levels-and-throughput)
+* Con Azure Cosmos DB, prima che un'operazione di scrittura venga riconosciuta al client, i dati vengono sottoposte a commit durevole da un quorum di repliche all'interno dell'area che accetta le operazioni di scrittura. Per altri dettagli, vedere [livelli di coerenza e velocità effettiva](./consistency-levels.md#consistency-levels-and-throughput)
 
 * Gli account in più aree configurati con aree a scrittura multipla rimarranno a disponibilità elevata sia per le operazioni di scrittura che per le operazioni di lettura. I failover a livello di area vengono rilevati e gestiti nel client di Azure Cosmos DB. Sono anche istantanee e non richiedono alcuna modifica da parte dell'applicazione.
 
@@ -89,7 +89,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Durante il failover e il join di un'area precedentemente non riuscita, le garanzie di coerenza di lettura continuano a essere rispettate dal Azure Cosmos DB.
 
-* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza (*k* o *t*) in cui k = 100000 aggiornamenti e T = 5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
+* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza (*k* o *t*) in cui k = 100000 aggiornamenti e T = 5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Supporto per la zona di disponibilità
 
@@ -131,7 +131,7 @@ Zone di disponibilità possono essere abilitati tramite:
 
 * [Interfaccia della riga di comando di Azure](manage-with-cli.md#add-or-remove-regions)
 
-* [Modelli di Gestione risorse di Azure](manage-sql-with-resource-manager.md)
+* [Modelli di Gestione risorse di Azure](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Compilazione di applicazioni a disponibilità elevata
 
@@ -143,15 +143,15 @@ Zone di disponibilità possono essere abilitati tramite:
 
 * Anche se l'account Azure Cosmos è a disponibilità elevata, è possibile che l'applicazione non sia progettata correttamente per restare a disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, durante il test delle applicazioni o il ripristino di emergenza, disabilitare temporaneamente il failover automatico per l'account, richiamare il [failover manuale usando PowerShell, l'interfaccia della riga di comando di Azure o portale di Azure](how-to-manage-database-account.md#manual-failover), quindi monitorare il failover dell'applicazione. Al termine, è possibile eseguire il failback nell'area primaria e ripristinare il failover automatico per l'account.
 
-* All'interno di un ambiente di database distribuito a livello globale, esiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
+* All'interno di un ambiente di database distribuito a livello globale, esiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Successivamente si possono leggere gli articoli seguenti:
 
-* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](./consistency-levels.md)
 
-* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](./request-units.md)
 
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 

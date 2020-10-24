@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020015"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490442"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertire i formati di token di sessione in .NET SDK
 
@@ -111,6 +111,6 @@ else
 Leggere gli articoli seguenti:
 
 * [Usare token di sessione per gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Coerenza, disponibilità e compromessi delle prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](./consistency-levels.md)
+* [Coerenza, disponibilità e compromessi delle prestazioni in Azure Cosmos DB](./consistency-levels.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](./consistency-levels.md)

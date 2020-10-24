@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: c3834b1890cb20b717462c4cb8ed1f779570c675
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 29001b02cb62fc28c94c7b404bd35b22e263f9de
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275211"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487756"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ ms.locfileid: "92275211"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Risorsa  |Collegamento  |
 |---------|---------|
 |Download dell'SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|Documentazione sull'API  |  [Documentazione di riferimento per JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest&preserve-view=true)
+|Documentazione sull'API  |  [Documentazione di riferimento per JavaScript SDK](/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
 |Istruzioni per l'installazione dell'SDK  |  [Istruzioni di installazione](https://github.com/Azure/azure-sdk-for-js)
 |Contribuire all'SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Esempi | [Esempi di codice Node.js](sql-api-nodejs-samples.md)
@@ -476,4 +476,3 @@ Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per a
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-

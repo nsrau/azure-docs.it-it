@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331574"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490782"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
 
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configurazione del certificato (HTTPS)
 
-**Facoltativo** : per impostazione predefinita, azzurrite usa il protocollo http. Abilitare la modalità HTTPS specificando il percorso di un file di certificato di Privacy Enhanced Mail (con estensione PEM) o di [scambio di informazioni personali (con estensione pfx](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) ) al `--cert` commutatore.
+**Facoltativo** : per impostazione predefinita, azzurrite usa il protocollo http. Abilitare la modalità HTTPS specificando il percorso di un file di certificato di Privacy Enhanced Mail (con estensione PEM) o di [scambio di informazioni personali (con estensione pfx](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) ) al `--cert` commutatore.
 
 Quando `--cert` viene fornito per un file PEM, è necessario specificare un' `--key` opzione corrispondente.
 

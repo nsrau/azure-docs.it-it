@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984107"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478321"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate
 
@@ -79,7 +79,7 @@ Rispetto ad altre opzioni di ottimizzazione, ad esempio il ridimensionamento e l
 
 **Necessità di una strategia di distribuzione dei dati diversa per velocizzare le prestazioni delle query**
 
-Il pool SQL è un sistema MPP (Massively Parallel Processing).   I dati in una tabella del pool SQL vengono distribuiti tra 60 nodi usando una delle tre possibili [strategie di distribuzione](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round robin o replicata).  
+Sinapsi SQL è un sistema di elaborazione delle query distribuito.  I dati in una tabella SQL vengono distribuiti tra 60 nodi usando una delle tre [strategie di distribuzione](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicati).   
 
 La distribuzione dei dati si specifica al momento della creazione della tabella e resta invariata finché la tabella non viene eliminata. Poiché la vista materializzata è una tabella virtuale su disco, supporta le distribuzioni dei dati hash e round robin.  Gli utenti possono scegliere una distribuzione dei dati diversa rispetto alle tabelle di base, ma ottimale per le prestazioni delle query che usano maggiormente le viste.  
 

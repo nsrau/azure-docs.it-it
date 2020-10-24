@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 5c82c7a3fbe931042c1ae817d2f5b6c9ae6989ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427746"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480735"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -44,12 +44,15 @@ Il periodo di conservazione dei backup determina quanto è possibile tornare ind
 - I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
 -   I server con archiviazione fino a 16 TB manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
 
+#### <a name="long-term-retention-of-backups"></a>Backup con conservazione a lungo termine
+La conservazione a lungo termine dei backup oltre 35 giorni non è ancora supportata in modo nativo dal servizio. È possibile usare mysqldump per eseguire i backup e archiviarli per la conservazione a lungo termine. Il team di supporto ha bloggato un [articolo dettagliato](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) per condividere il modo in cui è possibile ottenerlo. 
+
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
 Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di Azure per MariaDB offre la possibilità di scegliere tra archiviazione dei backup con ridondanza locale o con ridondanza geografica. Quando vengono archiviati in un archivio di backup con ridondanza geografica, i backup non solo vengono archiviati nell'area in cui è ospitato il server, ma vengono anche replicati in un [data center abbinato](../best-practices-availability-paired-regions.md). Questo garantisce una migliore protezione e la possibilità di ripristinare il server in un'area diversa in caso di emergenza. Il livello Basic offre solo l'archiviazione dei backup con ridondanza locale.
 
-> [!IMPORTANT]
-> La configurazione dell'archiviazione con ridondanza locale o geografica per il backup è consentita solo durante la creazione del server. Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passaggio dall'archiviazione con ridondanza locale al backup con ridondanza geografica
+La configurazione dell'archiviazione con ridondanza locale o geografica per il backup è consentita solo durante la creazione del server. Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup. Per spostare l'archivio di backup dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica, la creazione di un nuovo server e la migrazione dei dati tramite [dump e Restore](howto-migrate-dump-restore.md) sono l'unica opzione supportata.
 
 ### <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279747"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490510"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Per proteggere i dati archiviati nell'account, Azure Cosmos DB supporta un model
 
 Per impostazione predefinita, un account Azure Cosmos è accessibile da Internet purché la richiesta sia accompagnata da un token di autorizzazione valido. Per configurare il controllo di accesso IP basato su criteri, l'utente deve fornire il set di indirizzi IP o di intervalli di indirizzi IP in formato CIDR (Classless Inter-Domain Routing), in modo che venga incluso come elenco di IP client consentiti per l'accesso a un determinato account Azure Cosmos. Se viene applicata questa configurazione, tutte le richieste provenienti da computer non inclusi in questo elenco ricevono una risposta 403 (Accesso negato). Quando si usa il firewall IP, è consigliabile consentire al portale di Azure di accedere all'account. In questo modo, infatti, è possibile usare Esplora dati e recuperare le metriche relative all'account visualizzate nel portale di Azure. Quando si usa Esplora dati, oltre a consentire portale di Azure di accedere all'account, è necessario aggiornare anche le impostazioni del firewall per aggiungere l'indirizzo IP corrente alle regole del firewall. Si noti che le modifiche al firewall potrebbero richiedere fino a 15 minuti per la propagazione.
 
-È possibile combinare il firewall basato su IP con il controllo dell'accesso basato su subnet e rete virtuale, in modo da limitare l'accesso a qualsiasi origine che abbia un indirizzo IP pubblico e/o da una subnet specifica all'interno della rete virtuale. Per altre informazioni sull'uso del controllo dell'accesso basato su subnet e rete virtuale, vedere [Accedere a risorse di Azure Cosmos DB da reti virtuali](vnet-service-endpoint.md).
+È possibile combinare il firewall basato su IP con il controllo dell'accesso basato su subnet e rete virtuale, in modo da limitare l'accesso a qualsiasi origine che abbia un indirizzo IP pubblico e/o da una subnet specifica all'interno della rete virtuale. Per altre informazioni sull'uso del controllo dell'accesso basato su subnet e rete virtuale, vedere [Accedere a risorse di Azure Cosmos DB da reti virtuali](./how-to-configure-vnet-service-endpoint.md).
 
 Per riepilogare, è sempre necessario un token di autorizzazione per accedere a un account Azure Cosmos. Se il firewall IP e gli elenchi di controllo di accesso della rete virtuale non sono configurati, è possibile accedere all'account Azure Cosmos con il token di autorizzazione. Dopo aver configurato il firewall IP e/o gli elenchi di controllo di accesso della rete virtuale nell'account Azure Cosmos, solo le richieste provenienti dalle origini specificate (e con il token di autorizzazione) ottengono risposte valide. 
 
@@ -47,7 +47,7 @@ Quando il controllo dell'accesso IP è attivato, il portale di Azure offre la po
 
 Quando si abilitano i criteri di controllo di accesso IP a livello di codice, è necessario aggiungere l'indirizzo IP per il portale di Azure alla proprietà **ipRangeFilter** per mantenere l'accesso. Gli indirizzi IP del portale sono i seguenti:
 
-|Area|Indirizzo IP|
+|Region|Indirizzo IP|
 |------|----------|
 |Germania|51.4.229.218|
 |Cina|139.217.8.252|
@@ -91,7 +91,7 @@ Quando si aumenta il numero di istanze del servizio cloud aggiungendo istanze de
 
 ### <a name="requests-from-virtual-machines"></a>Richieste da macchine virtuali
 
-Per ospitare servizi di livello intermedio con Azure Cosmos DB è possibile usare anche [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) o [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Per configurare l'account Cosmos DB in modo che consenta l'accesso da macchine virtuali, è necessario configurare gli indirizzi IP pubblici della macchina virtuale e/o del set di scalabilità di macchine virtuali come uno degli indirizzi IP consentiti per l'account di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy).
+Per ospitare servizi di livello intermedio con Azure Cosmos DB è possibile usare anche [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) o [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md). Per configurare l'account Cosmos DB in modo che consenta l'accesso da macchine virtuali, è necessario configurare gli indirizzi IP pubblici della macchina virtuale e/o del set di scalabilità di macchine virtuali come uno degli indirizzi IP consentiti per l'account di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy).
 
 È possibile recuperare gli indirizzi IP per le macchine virtuali nel portale di Azure, come mostrato nello screenshot seguente:
 
@@ -105,7 +105,7 @@ Quando si accede a un account di Azure Cosmos DB da un computer in Internet, l'i
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurare un firewall IP usando un modello di Resource Manager
 
-Per configurare il controllo di accesso per l'account Azure Cosmos DB, assicurarsi che il modello di Gestione risorse specifichi la proprietà **ipRules** con una matrice di intervalli di indirizzi IP consentiti. Se si configura il firewall IP per un account Cosmos già distribuito, assicurarsi che la matrice `locations` corrisponda a quella attualmente distribuita. Non è possibile modificare contemporaneamente la matrice `locations` e altre proprietà. Per ulteriori informazioni ed esempi di modelli di Azure Resource Manager per Azure Cosmos DB vedere [Azure Resource Manager modelli per Azure Cosmos DB](resource-manager-samples.md)
+Per configurare il controllo di accesso per l'account Azure Cosmos DB, assicurarsi che il modello di Gestione risorse specifichi la proprietà **ipRules** con una matrice di intervalli di indirizzi IP consentiti. Se si configura il firewall IP per un account Cosmos già distribuito, assicurarsi che la matrice `locations` corrisponda a quella attualmente distribuita. Non è possibile modificare contemporaneamente la matrice `locations` e altre proprietà. Per ulteriori informazioni ed esempi di modelli di Azure Resource Manager per Azure Cosmos DB vedere [Azure Resource Manager modelli per Azure Cosmos DB](./templates-samples-sql.md)
 
 > [!IMPORTANT]
 > La proprietà **ipRules** è stata introdotta con l'API versione 2020-04-01. Nelle versioni precedenti venivano invece esposte una proprietà **ipRangeFilter** , ovvero un elenco di indirizzi IP delimitati da virgole.
@@ -221,7 +221,7 @@ Quando si accede a risorse di Azure Cosmos DB usando gli SDK da computer che non
 
 ### <a name="source-ips-in-blocked-requests"></a>IP di origine nelle richieste bloccate
 
-Abilitare la registrazione diagnostica nell'account Azure Cosmos DB. Questi log mostrano ogni richiesta e risposta. I messaggi relativi al firewall vengono registrati con un codice di errore 403. Filtrando questi messaggi, è possibile visualizzare gli IP di origine per le richieste bloccate. Vedere [Registrazione diagnostica di Azure Cosmos DB](logging.md).
+Abilitare la registrazione diagnostica nell'account Azure Cosmos DB. Questi log mostrano ogni richiesta e risposta. I messaggi relativi al firewall vengono registrati con un codice di errore 403. Filtrando questi messaggi, è possibile visualizzare gli IP di origine per le richieste bloccate. Vedere [Registrazione diagnostica di Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Richieste provenienti da una subnet con endpoint di servizio per Azure Cosmos DB abilitato
 

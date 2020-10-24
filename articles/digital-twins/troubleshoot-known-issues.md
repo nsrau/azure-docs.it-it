@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311660"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489014"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -34,7 +34,7 @@ In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione della portale di Azure con l'icona ' Cloud Shell ' evidenziata e la Cloud Shell visualizzata nella parte inferiore della finestra del portale":::
 
-Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
+Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 
 ### <a name="possible-causes"></a>Possibili cause
 
@@ -46,7 +46,9 @@ Questo non influisce sui comandi di Azure Digital gemelli dei `az dt` `az dt end
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Assegnazione di ruolo mancante dopo l'installazione tramite script
 
-Alcuni utenti potrebbero riscontrare problemi con la parte dell'assegnazione di ruolo di [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md). Lo script non indica errori, ma il ruolo *proprietario (anteprima) di Azure Digital Twins* non è stato assegnato correttamente all'utente e questo problema influirà sulla capacità di creare altre risorse.
+Alcuni utenti potrebbero riscontrare problemi con la parte dell'assegnazione di ruolo di [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md). Lo script non indica errori, ma il ruolo di *proprietario dei dati di dispositivi digitali gemelli di Azure* non è stato assegnato correttamente all'utente e questo problema influirà sulla capacità di creare altre risorse.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Per determinare se l'assegnazione di ruolo è stata configurata correttamente dopo l'esecuzione dello script, seguire le istruzioni riportate nella sezione [*verificare l'assegnazione del ruolo utente*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) dell'articolo di installazione. Se l'utente non viene visualizzato con questo ruolo, questo problema ha effetto.
 
@@ -64,7 +66,7 @@ Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personal
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problemi con l'autenticazione interattiva del browser
 
-Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) **, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
 Questa non è la versione più recente della libreria. La versione più recente è la **1.2.2**.
 

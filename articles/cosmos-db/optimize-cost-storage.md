@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dca046df68b10853752b0de65c48c2b8f83afb31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020899"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475482"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differen
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 
-Lo spazio di archiviazione viene fatturato in GB. Lo spazio di archiviazione locale basato su unità SSD viene usato dai dati e dall'indicizzazione. Lo spazio di archiviazione totale usato è uguale allo spazio di archiviazione richiesto dai dati e dagli indici usati in tutte le aree in cui si usa Azure Cosmos DB. Se si replica a livello globale un account Azure Cosmos in tre aree, si pagherà il costo di archiviazione totale in ognuna di queste tre aree. Per stimare i requisiti di archiviazione, vedere lo strumento [Capacity Planner](https://www.documentdb.com/capacityplanner). Il costo dell'archiviazione in Azure Cosmos DB è di $0,25 GB/mese. Per gli ultimi aggiornamenti, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). È possibile impostare gli avvisi per determinare lo spazio di archiviazione usato dal contenitore Azure Cosmos. Per monitorare lo spazio di archiviazione, vedere l'articolo [Monitorare Azure Cosmos DB](monitor-accounts.md).
+Lo spazio di archiviazione viene fatturato in GB. Lo spazio di archiviazione locale basato su unità SSD viene usato dai dati e dall'indicizzazione. Lo spazio di archiviazione totale usato è uguale allo spazio di archiviazione richiesto dai dati e dagli indici usati in tutte le aree in cui si usa Azure Cosmos DB. Se si replica a livello globale un account Azure Cosmos in tre aree, si pagherà il costo di archiviazione totale in ognuna di queste tre aree. Per stimare i requisiti di archiviazione, vedere lo strumento [Capacity Planner](https://www.documentdb.com/capacityplanner). Il costo dell'archiviazione in Azure Cosmos DB è di $0,25 GB/mese. Per gli ultimi aggiornamenti, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). È possibile impostare gli avvisi per determinare lo spazio di archiviazione usato dal contenitore Azure Cosmos. Per monitorare lo spazio di archiviazione, vedere l'articolo [Monitorare Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ## <a name="optimize-cost-with-item-size"></a>Ottimizzare i costi con le dimensioni dell'elemento
 
@@ -28,7 +28,7 @@ Per prestazioni ottimali e vantaggi economici Azure Cosmos DB prevede che le dim
 
 ## <a name="optimize-cost-with-indexing"></a>Ottimizzare i costi con l'indicizzazione
 
-Per impostazione predefinita, i dati vengono indicizzati automaticamente, il che può aumentare lo spazio di archiviazione totale utilizzato. Tuttavia, è possibile applicare alcuni criteri di indicizzazione personalizzati per ridurre questo sovraccarico. L'indicizzazione automatica che non è stata ottimizzata tramite i criteri è pari a circa il 10-20% delle dimensioni dell'elemento. Rimuovendo o personalizzando i criteri di indicizzazione, non si pagano costi aggiuntivi per le scritture e non si richiede una capacità di elaborazione aggiuntiva. Per configurare i criteri di indicizzazione personalizzati, vedere [Indicizzazione in Azure Cosmos DB](indexing-policies.md). Se in precedenza si è lavorato con i database relazionali, si potrebbe pensare che "indicizzare tutto" significhi raddoppiare se non di più lo spazio di archiviazione. Tuttavia, nel caso medio in Azure Cosmos DB lo spazio di archiviazione utilizzato risulta essere molto più basso. In Azure Cosmos DB, l'overhead di archiviazione dell'indice è in genere basso (10-20%) anche con l'indicizzazione automatica, perché è progettato per occupare uno spazio di archiviazione ridotto. Grazie alla gestione dei criteri di indicizzazione, è possibile controllare il compromesso di spazio occupato per gli indici e prestazioni delle query in modo più dettagliato.
+Per impostazione predefinita, i dati vengono indicizzati automaticamente, il che può aumentare lo spazio di archiviazione totale utilizzato. Tuttavia, è possibile applicare alcuni criteri di indicizzazione personalizzati per ridurre questo sovraccarico. L'indicizzazione automatica che non è stata ottimizzata tramite i criteri è pari a circa il 10-20% delle dimensioni dell'elemento. Rimuovendo o personalizzando i criteri di indicizzazione, non si pagano costi aggiuntivi per le scritture e non si richiede una capacità di elaborazione aggiuntiva. Per configurare i criteri di indicizzazione personalizzati, vedere [Indicizzazione in Azure Cosmos DB](index-policy.md). Se in precedenza si è lavorato con i database relazionali, si potrebbe pensare che "indicizzare tutto" significhi raddoppiare se non di più lo spazio di archiviazione. Tuttavia, nel caso medio in Azure Cosmos DB lo spazio di archiviazione utilizzato risulta essere molto più basso. In Azure Cosmos DB, l'overhead di archiviazione dell'indice è in genere basso (10-20%) anche con l'indicizzazione automatica, perché è progettato per occupare uno spazio di archiviazione ridotto. Grazie alla gestione dei criteri di indicizzazione, è possibile controllare il compromesso di spazio occupato per gli indici e prestazioni delle query in modo più dettagliato.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Ottimizzare i costi con la durata e il feed di modifiche
 
@@ -40,7 +40,7 @@ Se si vogliono archiviare tipi di dati multimediali avanzati, ad esempio video, 
 
 ## <a name="check-storage-consumed"></a>Controllare lo spazio di archiviazione utilizzato
 
-Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si usa .NET SDK, è possibile usare le proprietà [le](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) per ottenere lo spazio di archiviazione utilizzato.
+Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si usa .NET SDK, è possibile usare le proprietà [le](/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](/previous-versions/azure/dn850324(v=azure.100)) per ottenere lo spazio di archiviazione utilizzato.
 
 ## <a name="using-sdk"></a>Uso dell'SDK
 
@@ -59,6 +59,5 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
+* Altre informazioni sull'[ottimizzazione del costo delle query](./optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
-

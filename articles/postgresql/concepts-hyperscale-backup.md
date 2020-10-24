@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314931"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485376"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -39,7 +39,7 @@ Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabi
 
 
 > [!IMPORTANT]
-> Non è possibile ripristinare i cluster CITUS (overscale) eliminati. Se si elimina il cluster, tutti i nodi appartenenti al cluster vengono eliminati e non possono essere recuperati. Per proteggere le risorse del cluster, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i [blocchi di gestione](/azure/azure-resource-manager/management/lock-resources).
+> Non è possibile ripristinare i cluster CITUS (overscale) eliminati. Se si elimina il cluster, tutti i nodi appartenenti al cluster vengono eliminati e non possono essere recuperati. Per proteggere le risorse del cluster, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore-pitr"></a>Ripristino temporizzato (ripristino temporizzato)
 
@@ -65,5 +65,5 @@ Dopo un ripristino da uno dei due meccanismi di ripristino, è necessario esegui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [zone di disponibilità di Azure](/azure/availability-zones/az-overview).
-* Impostare [avvisi suggeriti](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts) per i gruppi di server iperscalare (CITUS).
+* Informazioni sulle [zone di disponibilità di Azure](../availability-zones/az-overview.md).
+* Impostare [avvisi suggeriti](./howto-hyperscale-alert-on-metric.md#suggested-alerts) per i gruppi di server iperscalare (CITUS).

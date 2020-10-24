@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802931"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476978"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Con **time to Live** o TTL, Azure Cosmos DB consente di eliminare automaticament
 
 L'eliminazione degli elementi scaduti è un'attività in background che utilizza le [unità richiesta](request-units.md)rimaste, ovvero le unità richiesta che non sono state utilizzate dalle richieste dell'utente. Anche dopo la scadenza della durata (TTL), se il contenitore viene sottoposta a overload con le richieste e se non è disponibile un numero sufficiente di UR, l'eliminazione dei dati viene posticipata. I dati vengono eliminati quando sono disponibili ur sufficienti per eseguire l'operazione di eliminazione. Anche se l'eliminazione dei dati viene posticipata, i dati non vengono restituiti da alcuna query (da alcuna API) dopo la scadenza della durata (TTL).
 
-> Questo contenuto è correlato a Azure Cosmos DB TTL dell'archivio transazionale. Se si sta cercando analitica Store TTL, che Abilita gli scenari NoETL HTAP tramite il [collegamento sinapsi di Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), fare clic [qui](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Questo contenuto è correlato a Azure Cosmos DB TTL dell'archivio transazionale. Se si sta cercando analitica Store TTL, che Abilita gli scenari NoETL HTAP tramite il [collegamento sinapsi di Azure](./synapse-link.md), fare clic [qui](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durata (TTL) per contenitori ed elementi
 
@@ -74,7 +74,7 @@ TTL sul contenitore è impostato su-1 (DefaultTimeToLive =-1)
 |TTL = 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
 
 
-### <a name="example-3"></a>Esempio 3
+### <a name="example-3"></a>Esempio 3:
 
 TTL sul contenitore è impostato su 1000 (DefaultTimeToLive = 1000)
 

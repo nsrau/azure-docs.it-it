@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490799"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
 
@@ -46,7 +46,7 @@ Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e l
 | **File di Azure** |Offre condivisioni file cloud completamente gestite a cui è possibile accedere da qualsiasi luogo tramite il protocollo SMB (Server Message Block) standard di settore.<br><br>È possibile montare condivisioni file di Azure da distribuzioni cloud o locali di Windows, Linux e macOS. | Si vuole "sollevare e spostare" un'applicazione nel cloud che usa già le API file system native per condividere i dati tra l'IT e altre applicazioni in esecuzione in Azure.<br/><br/>Si desidera sostituire o integrare i file server o i dispositivi NAS locali.<br><br> Si intende archiviare gli strumenti di sviluppo e di debug a cui deve essere possibile accedere da molte macchine virtuali. |
 | **BLOB di Azure** | Consente di archiviare e accedere ai dati non strutturati su vasta scala nei BLOB in blocchi.<br/><br/>Supporta anche [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) per le soluzioni aziendali di analisi di Big Data. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi.<br/><br/>Si vuole compilare un Data Lake aziendale in Azure ed eseguire l'analisi dei Big Data. |
 | **Dischi di Azure** | Consente di archiviare e accedere in modo permanente ai dati da un disco rigido virtuale collegato. | Si vuole spostare le applicazioni che usano API file system native per leggere e scrivere i dati nei dischi permanenti.<br/><br/>Si intende archiviare i dati a cui non è necessario accedere dall'esterno della macchina virtuale a cui è collegato il disco. |
-| **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelle di Azure** | Consente di archiviare dati NoSQL strutturati nel cloud, offrendo un archivio di chiavi/attributi con una progettazione senza schema. | Si desidera archiviare set di dati flessibili come i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. <br/><br/>Per indicazioni su quando usare l'archiviazione tabelle rispetto alla Azure Cosmos DB API Tabella, vedere [sviluppo con Azure Cosmos DB API tabella e archiviazione tabelle di Azure](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Archiviazione BLOB
@@ -61,7 +61,7 @@ L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft p
 - Archiviazione di dati per backup e ripristino, ripristino di emergenza e archiviazione.
 - Archiviazione di dati a scopo di analisi da parte di un servizio locale o ospitato in Azure.
 
-È possibile accedere agli oggetti nell'archivio BLOB da ogni parte del mondo tramite HTTP o HTTPS. Gli utenti o le applicazioni client possono accedere ai BLOB tramite URL, l'[API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage) oppure una libreria client di Archiviazione di Azure. Le librerie client di archiviazione sono disponibili per molti linguaggi, tra cui [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
+È possibile accedere agli oggetti nell'archivio BLOB da ogni parte del mondo tramite HTTP o HTTPS. Gli utenti o le applicazioni client possono accedere ai BLOB tramite URL, l'[API REST di Archiviazione di Azure](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), l'[interfaccia della riga di comando di Azure](/cli/azure/storage) oppure una libreria client di Archiviazione di Azure. Le librerie client di archiviazione sono disponibili per molti linguaggi, tra cui [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Per altre informazioni sull'archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB](../blobs/storage-blobs-introduction.md).
 
@@ -113,7 +113,7 @@ Ogni richiesta ad archiviazione di Azure deve essere autorizzata. Archiviazione 
 
 - **Integrazione di Azure Active Directory (Azure AD) per i dati di BLOB e di Accodamento.** Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure AD per i servizi BLOB e di accodamento tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). L'autorizzazione delle richieste con Azure AD è consigliata per una maggiore sicurezza e semplicità d'uso. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
 - **Azure AD autorizzazione su SMB per File di Azure.** File di Azure supporta l'autorizzazione basata sull'identità su SMB (Server Message Block) tramite Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locali (anteprima). Le macchine virtuali di Windows appartenenti a un dominio possono accedere alle condivisioni file di Azure usando le credenziali Azure AD. Per ulteriori informazioni, vedere la [Panoramica del supporto per l'autenticazione file di Azure basata sull'identità per l'accesso SMB](../files/storage-files-active-directory-overview.md) e [la pianificazione di una distribuzione di file di Azure](../files/storage-files-planning.md#identity).
-- **Autorizzazione con chiave condivisa.** I servizi BLOB del servizio di archiviazione di Azure, file, coda e tabella supportano l'autorizzazione con la chiave condivisa. Un client che usa l'autorizzazione della chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
+- **Autorizzazione con chiave condivisa.** I servizi BLOB del servizio di archiviazione di Azure, file, coda e tabella supportano l'autorizzazione con la chiave condivisa. Un client che usa l'autorizzazione della chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 - **Autorizzazione mediante le firme di accesso condiviso (SAS).** Una firma di accesso condiviso è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula vincoli quali le autorizzazioni e l'intervallo di accesso. Per altre informazioni, vedere [uso delle firme di accesso condiviso (SAS)](storage-sas-overview.md).
 - **Accesso anonimo a contenitori e BLOB.** Un contenitore e i relativi BLOB possono essere disponibili pubblicamente. Quando si specifica che un contenitore o un BLOB è pubblico, chiunque può leggerlo in modo anonimo; non è necessaria alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
 
@@ -147,10 +147,10 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Informazioni di riferimento su librerie e API di dati di Archiviazione di Azure
 
-- [API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
-- [Libreria client di archiviazione di Azure per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [API REST di Archiviazione di Azure](/rest/api/storageservices/)
+- [Libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage)
+- [Libreria client di archiviazione di Azure per Java/Android](/java/api/overview/azure/storage)
+- [Libreria client di archiviazione di Azure per Node.js](/javascript/api/overview/azure/storage-overview)
 - [Libreria client di archiviazione di Azure per Python](https://github.com/Azure/azure-storage-python)
 - [Libreria client di archiviazione di Azure per PHP](https://github.com/Azure/azure-storage-php)
 - [Libreria client di archiviazione di Azure per Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Informazioni di riferimento su librerie e API di gestione di Archiviazione di Azure
 
-- [API REST del provider di risorse di archiviazione](https://docs.microsoft.com/rest/api/storagerp/)
-- [Libreria client del provider di risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [API REST del provider di risorse di archiviazione](/rest/api/storagerp/)
+- [Libreria client del provider di risorse di archiviazione per .NET](/dotnet/api/overview/azure/storage/management)
 - [API REST di gestione del servizio di archiviazione (classico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Informazioni di riferimento su librerie e API di spostamento dati di Archiviazione di Azure
 
-- [API REST del servizio di importazione/esportazione dell'archiviazione](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [API REST del servizio di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport/)
 - [Libreria client di spostamento dei dati di archiviazione per .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Strumenti e utilità
 
-- [Cmdlet di Azure PowerShell per Archiviazione](https://docs.microsoft.com/powershell/module/az.storage)
-- [Cmdlet dell'interfaccia della riga di comando di Azure per Archiviazione](https://docs.microsoft.com/cli/azure/storage)
+- [Cmdlet di Azure PowerShell per Archiviazione](/powershell/module/az.storage)
+- [Cmdlet dell'interfaccia della riga di comando di Azure per Archiviazione](/cli/azure/storage)
 - [Utilità da riga di comando di AzCopy](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un'app autonoma gratuita di Microsoft che consente di interagire visivamente con i dati di Archiviazione di Azure in Windows, macOS e Linux.
 - [Modelli di Azure Resource Manager per archiviazione di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

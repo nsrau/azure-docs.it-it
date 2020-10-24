@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019522"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490986"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria del processore dei feed delle modifiche al Azure Cosmos DB .NET V3 SDK
 
@@ -23,7 +23,7 @@ Questo articolo descrive i passaggi necessari per eseguire la migrazione del cod
 .NET V3 SDK presenta diverse modifiche di rilievo. di seguito sono riportati i passaggi principali per eseguire la migrazione dell'applicazione:
 
 1. Convertire le `DocumentCollectionInfo` istanze in `Container` riferimenti per i contenitori monitorati e lease.
-1. Le personalizzazioni che usano `WithProcessorOptions` devono essere aggiornate per usare `WithLeaseConfiguration` e `WithPollInterval` per gli intervalli, `WithStartTime` [per l'ora di inizio](how-to-configure-change-feed-start-time.md)e `WithMaxItems` per definire il numero massimo di elementi.
+1. Le personalizzazioni che usano `WithProcessorOptions` devono essere aggiornate per usare `WithLeaseConfiguration` e `WithPollInterval` per gli intervalli, `WithStartTime` [per l'ora di inizio](./change-feed-processor.md#starting-time)e `WithMaxItems` per definire il numero massimo di elementi.
 1. Impostare `processorName` on `GetChangeFeedProcessorBuilder` in modo che corrisponda al valore configurato in `ChangeFeedProcessorOptions.LeasePrefix` oppure utilizzare `string.Empty` in caso contrario.
 1. Poiché le modifiche non vengono più recapitate come `IReadOnlyList<Document>` , invece, si tratta di un `IReadOnlyCollection<T>` `T` tipo in cui è necessario definire, non esiste più una classe di elementi di base.
 1. Per gestire le modifiche, non è più necessaria un'implementazione, bensì è necessario [definire un delegato](change-feed-processor.md#implementing-the-change-feed-processor). Il delegato può essere una funzione statica o, se è necessario mantenere lo stato tra le esecuzioni, è possibile creare una classe personalizzata e passare un metodo di istanza come delegato.
@@ -60,4 +60,4 @@ Il processore di feed di modifiche di SDK V3 rileverà qualsiasi stato della lib
 
 * [Panoramica del processore di feed di modifiche](change-feed-processor.md)
 * [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
-* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)
+* [Ora di avvio del processore di feed di modifiche](./change-feed-processor.md#starting-time)

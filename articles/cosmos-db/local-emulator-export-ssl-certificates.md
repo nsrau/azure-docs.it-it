@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445275"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490408"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Esportare i certificati dell'emulatore Azure Cosmos DB per l'uso con app Java, Python e Node.js
 
@@ -66,7 +66,7 @@ Questo articolo illustra come esportare i certificati TLS/SSL da usare in lingua
 
 Quando si eseguono applicazioni Java o applicazioni MongoDB che usano un client basato su Java, è più semplice installare il certificato nell'archivio certificati predefinito Java rispetto al passaggio dei `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flag. Ad esempio, l'applicazione demo Java inclusa ( `https://localhost:8081/_explorer/index.html` ) dipende dall'archivio certificati predefinito.
 
-Per importare il certificato X. 509 nell'archivio certificati Java predefinito, seguire le istruzioni riportate nell' [Archivio dei certificati per l'aggiunta di un certificato all'archivio Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) . Tenere presente che si lavorerà nella directory *% JAVA_HOME%* quando si esegue lo strumento. Dopo aver importato il certificato nell'archivio certificati, i client per l'API SQL e Azure Cosmos DB per MongoDB saranno in grado di connettersi all'emulatore di Azure Cosmos.
+Per importare il certificato X. 509 nell'archivio certificati Java predefinito, seguire le istruzioni riportate nell' [Archivio dei certificati per l'aggiunta di un certificato all'archivio Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) . Tenere presente che si lavorerà nella directory *% JAVA_HOME%* quando si esegue lo strumento. Dopo aver importato il certificato nell'archivio certificati, i client per l'API SQL e Azure Cosmos DB per MongoDB saranno in grado di connettersi all'emulatore di Azure Cosmos.
 
 In alternativa, è possibile eseguire lo script bash seguente per importare il certificato:
 
@@ -106,4 +106,3 @@ Se il certificato è stato installato nell'archivio certificati Java o è stato 
 
 * [Usare i parametri della riga di comando e i comandi di PowerShell per controllare l'emulatore](emulator-command-line-parameters.md)
 * [Problemi di debug con l'emulatore](troubleshoot-local-emulator.md)
-

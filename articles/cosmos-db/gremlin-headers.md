@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409528"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490578"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Intestazioni di risposta del server Azure Cosmos DB Gremlin
 Questo articolo illustra le intestazioni che il server Gremlin di Cosmos DB restituisce al chiamante al momento dell'esecuzione della richiesta. Queste intestazioni sono utili per la risoluzione dei problemi relativi alle prestazioni delle richieste, per la compilazione di applicazioni che si integrano in modo nativo con il servizio Cosmos DB e per semplificare il supporto clienti.
 
 Tenere presente che la dipendenza da queste intestazioni consente di limitare la portabilità dell'applicazione ad altre implementazioni Gremlin. In cambio, si ottiene un'integrazione più stretta con Cosmos DB Gremlin. Queste intestazioni non sono standard TinkerPop.
 
-## <a name="headers"></a>Headers
+## <a name="headers"></a>Intestazioni
 
-| Intestazione | Type | Valore di esempio | Quando incluso | Spiegazione |
+| Intestazione | Tipo | Valore di esempio | Quando incluso | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata in [unità richiesta (UR/s o UR)](request-units.md) per un messaggio di risposta parziale. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Riflette il costo di un determinato blocco di risposta. Solo per le richieste che sono costituite da un singolo blocco di risposta questa intestazione corrisponde al costo totale di attraversamento. Tuttavia, per la maggior parte degli attraversamenti complessi, questo valore rappresenta un costo parziale. |
 | **x-ms-Total-request-charge** | double | 423,987 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata nelle [unità richiesta (UR/s o UR)](request-units.md) per l'intera richiesta. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Indica un addebito cumulativo dall'inizio della richiesta. Il valore di questa intestazione nell'ultimo blocco indica un addebito completo della richiesta. |
@@ -29,7 +29,7 @@ Tenere presente che la dipendenza da queste intestazioni consente di limitare la
 | **x-ms-Total-Server-time-MS** | double | 130,512 | Success and Failure | Tempo totale, in millisecondi, impiegato per l'esecuzione di un intero attraversamento da Cosmos DB server Gremlin. Questa intestazione è inclusa in ogni risposta parziale. Rappresenta il tempo di esecuzione cumulativo dall'avvio della richiesta. L'ultima risposta indica il tempo di esecuzione totale. Questa intestazione è utile per distinguere tra client e server come origine della latenza. È possibile confrontare il tempo di esecuzione di attraversamento del client con il valore di questa intestazione. |
 | **x-ms-status-code** | long | 200 | Success and Failure | L'intestazione indica la causa interna del completamento o della terminazione della richiesta. Si consiglia all'applicazione di esaminare il valore di questa intestazione e intraprendere un'azione correttiva. |
 | **x-ms-SubStatus-code** | long | 1003 | Solo errore | Cosmos DB è un database multimodello basato sul livello di archiviazione unificato. Questa intestazione contiene informazioni aggiuntive sulla causa dell'errore quando si verifica un errore all'interno di livelli inferiori dello stack di disponibilità elevata. È consigliabile archiviare questa intestazione e usarla quando si contatta Cosmos DB supporto tecnico. Il valore di questa intestazione è utile per Cosmos DB Engineer per la risoluzione rapida dei problemi. |
-| **x-ms-Retry-After-MS** | stringa (TimeSpan) | "00:00:03.9500000" | Solo errore | Questa intestazione è una rappresentazione di stringa di un tipo .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) . Questo valore verrà incluso solo nelle richieste non riuscite a causa dell'esaurimento della velocità effettiva con provisioning. L'applicazione deve inviare nuovamente l'attraversamento dopo il periodo di tempo indicato. |
+| **x-ms-Retry-After-MS** | stringa (TimeSpan) | "00:00:03.9500000" | Solo errore | Questa intestazione è una rappresentazione di stringa di un tipo .NET [TimeSpan](/dotnet/api/system.timespan) . Questo valore verrà incluso solo nelle richieste non riuscite a causa dell'esaurimento della velocità effettiva con provisioning. L'applicazione deve inviare nuovamente l'attraversamento dopo il periodo di tempo indicato. |
 | **x-ms-Activity-ID** | stringa (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success and Failure | L'intestazione contiene un identificatore univoco del lato server di una richiesta. A ogni richiesta viene assegnato un identificatore univoco da parte del server a scopo di verifica. Le applicazioni devono registrare gli identificatori di attività restituiti dal server per le richieste a cui i clienti possono rivolgersi per contattare il supporto tecnico. Cosmos DB il personale di supporto può trovare richieste specifiche da tali identificatori nella telemetria del servizio Cosmos DB. |
 
 ## <a name="status-codes"></a>Codici di stato

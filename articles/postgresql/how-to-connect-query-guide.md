@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938812"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490017"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Panoramica di connessione ed esecuzione di query per database di Azure per PostgreSQL-server singolo
 
@@ -23,11 +23,11 @@ Il documento seguente include collegamenti ad esempi che illustrano come connett
 | Guida introduttiva | Descrizione |
 |---|---|
 |[PgAdmin](https://www.pgadmin.org/)|È possibile utilizzare pgAdmin per connettersi al server e semplificare la creazione, la manutenzione e l'utilizzo di oggetti di database.|
-|[PSQL in Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|Questo articolo illustra come eseguire [**PSQL**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per connettersi al server e quindi eseguire istruzioni per eseguire query e inserire, aggiornare ed eliminare dati nel database. È possibile eseguire **PSQL** se installato nell'ambiente di sviluppo|
+|[PSQL in Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|Questo articolo illustra come eseguire [**PSQL**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure cloud Shell](../cloud-shell/overview.md) per connettersi al server e quindi eseguire istruzioni per eseguire query e inserire, aggiornare ed eliminare dati nel database. È possibile eseguire **PSQL** se installato nell'ambiente di sviluppo|
 |[PostgreSQL con VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|L'estensione database di Azure per VS Code (anteprima) consente di esplorare ed eseguire query sul server PostgreSQL in locale e nel cloud usando gli album con IntelliSense avanzato. |
 |[PHP](connect-php.md)|Questa Guida introduttiva illustra come usare PHP per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[Java](connect-java.md)|Questa Guida introduttiva illustra come usare Java per connettersi a un database e quindi usare il lavoro con oggetti di database per eseguire query sui dati.|
-|[Node.JS](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
+|[Node.js](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[.NET (C#)](connect-csharp.md)|Questa Guida introduttiva illustra come use.NET (C#) per creare un programma C# per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[Go](connect-go.md)|Questa guida di avvio rapido illustra come usare Go per connettersi a un database. Vengono illustrate anche istruzioni Transact-SQL per eseguire query e modificare i dati.|
 |[Python](connect-python.md)|Questa Guida introduttiva illustra come usare Python per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati. |
@@ -42,10 +42,10 @@ Transport Layer Security (TLS) viene usato da tutti i driver forniti o supportat
 ## <a name="postgresql-extensions"></a>Estensioni PostgreSQL
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni creano un bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo essere stato caricate nel database, le estensioni si comportano come le funzionalità predefinite.
 
-- [Estensioni Postgres 11](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Estensioni Postgres 10](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Estensioni Postgres 9,6](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Estensioni Postgres 9,5](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Estensioni Postgres 11](./concepts-extensions.md#postgres-11-extensions)
+- [Estensioni Postgres 10](./concepts-extensions.md#postgres-10-extensions)
+- [Estensioni Postgres 9,6](./concepts-extensions.md#postgres-96-extensions)
+- [Estensioni Postgres 9,5](./concepts-extensions.md#postgres-95-extensions)
 
 Per altri dettagli, vedere [come usare le estensioni di PostgreSQL in un server singolo](concepts-extensions.md).
 

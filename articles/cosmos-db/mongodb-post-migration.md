@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409698"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475601"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di ottimizzazione post-migrazione quando si usa l'API di Azure Cosmos DB per MongoDB
 
@@ -53,12 +53,12 @@ Per distribuire i dati a livello globale, vedere [distribuire i dati a livello g
 
 ## <a name="set-consistency-level"></a>Imposta livello di coerenza
 
-Azure Cosmos DB offre cinque [livelli di coerenza](consistency-levels.md)ben definiti. Per informazioni sul mapping tra MongoDB e Azure Cosmos DB livelli di coerenza, vedere [livelli di coerenza di lettura e api Azure Cosmos DB](consistency-levels-across-apis.md). Il livello di coerenza predefinito è il livello di coerenza della sessione. Modificare il livello di coerenza è facoltativo ed è possibile ottimizzarlo per l'app. Per modificare il livello di coerenza utilizzando portale di Azure:
+Azure Cosmos DB offre cinque [livelli di coerenza](consistency-levels.md)ben definiti. Per informazioni sul mapping tra MongoDB e Azure Cosmos DB livelli di coerenza, vedere [livelli di coerenza di lettura e api Azure Cosmos DB](./consistency-levels.md). Il livello di coerenza predefinito è il livello di coerenza della sessione. Modificare il livello di coerenza è facoltativo ed è possibile ottimizzarlo per l'app. Per modificare il livello di coerenza utilizzando portale di Azure:
 
 1. Passare al pannello **coerenza predefinito** in impostazioni.
 2. Selezionare il [livello di coerenza](consistency-levels.md)
 
-La maggior parte degli utenti lascia il proprio livello di coerenza in base all'impostazione predefinita della coerenza di sessione. Esistono tuttavia [compromessi in merito a disponibilità e prestazioni per diversi livelli di coerenza](consistency-levels-tradeoffs.md).
+La maggior parte degli utenti lascia il proprio livello di coerenza in base all'impostazione predefinita della coerenza di sessione. Esistono tuttavia [compromessi in merito a disponibilità e prestazioni per diversi livelli di coerenza](./consistency-levels.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

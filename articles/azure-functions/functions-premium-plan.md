@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578037"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490748"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -104,7 +104,7 @@ Se l'app richiede istanze che superano le istanze sempre pronte, può continuare
 È anche possibile aumentare il limite massimo di picchi dall'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 Il valore minimo per ogni piano sarà almeno un'istanza.  Il numero minimo effettivo di istanze verrà configurato automaticamente in base alle istanze sempre pronte richieste dalle app del piano.  Ad esempio, se l'app A richiede cinque istanze sempre pronte e l'app B richiede due istanze sempre pronte nello stesso piano, le dimensioni minime del piano verranno calcolate come cinque.  L'app A verrà eseguita in tutti i 5 e l'app B verrà eseguita solo su 2.
@@ -117,7 +117,7 @@ Nella maggior parte dei casi questo valore minimo calcolato automaticamente dovr
 L'aumento del valore minimo calcolato per un piano può essere eseguito usando l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>SKU di istanze disponibili
@@ -178,7 +178,7 @@ Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.c
 |Europa occidentale| 100 | 20 |
 |India occidentale| 100 | 20 |
 |Stati Uniti centro-occidentali| 100 | 20 |
-|Stati Uniti Occidentali| 100 | 20 |
+|Stati Uniti occidentali| 100 | 20 |
 |West US 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi

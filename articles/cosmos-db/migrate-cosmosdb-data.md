@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480922"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Eseguire la migrazione di centinaia di terabyte di dati ad Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Molti di questi limiti sono corretti per strumenti come Azure Data Factory, serv
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Strumento personalizzato con la libreria dell'executor bulk 
 
-Per risolvere i problemi descritti nella sezione precedente, è possibile usare uno strumento personalizzato che può essere facilmente scalato orizzontalmente in più istanze ed è resiliente agli errori temporanei. Inoltre, lo strumento personalizzato può sospendere e riprendere la migrazione in vari checkpoint. Azure Cosmos DB fornisce già la [libreria di esecuzioni bulk](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) che incorpora alcune di queste funzionalità. Ad esempio, la libreria dell'executor bulk dispone già della funzionalità per gestire gli errori temporanei e può scalare in orizzontale i thread in un singolo nodo per utilizzare circa 500 unità richiesta per nodo. La libreria dell'esecutore bulk esegue anche il partizionamento del set di dati di origine in micro batch gestiti in modo indipendente come una forma di checkpoint.  
+Per risolvere i problemi descritti nella sezione precedente, è possibile usare uno strumento personalizzato che può essere facilmente scalato orizzontalmente in più istanze ed è resiliente agli errori temporanei. Inoltre, lo strumento personalizzato può sospendere e riprendere la migrazione in vari checkpoint. Azure Cosmos DB fornisce già la [libreria di esecuzioni bulk](./bulk-executor-overview.md) che incorpora alcune di queste funzionalità. Ad esempio, la libreria dell'executor bulk dispone già della funzionalità per gestire gli errori temporanei e può scalare in orizzontale i thread in un singolo nodo per utilizzare circa 500 unità richiesta per nodo. La libreria dell'esecutore bulk esegue anche il partizionamento del set di dati di origine in micro batch gestiti in modo indipendente come una forma di checkpoint.  
 
 Lo strumento personalizzato usa la libreria dell'esecutore bulk e supporta la scalabilità orizzontale tra più client e per tenere traccia degli errori durante il processo di inserimento. Per utilizzare questo strumento, i dati di origine devono essere partizionati in file distinti in Azure Data Lake Storage (ADLS) in modo che i diversi ruoli di lavoro della migrazione possano acquisire ogni file e inserirli in Azure Cosmos DB. Lo strumento personalizzato si avvale di una raccolta separata che archivia i metadati relativi all'avanzamento della migrazione per ogni singolo file di origine in ADLS e tiene traccia degli eventuali errori associati.  
 
@@ -152,4 +152,4 @@ Sebbene sia possibile seguire questa guida per eseguire correttamente la migrazi
 
 * Per altre informazioni, provare le applicazioni di esempio che utilizzano la libreria Executor in blocco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * Per altre informazioni, [Azure Cosmos DB](spark-connector.md) vedere l'articolo relativo al connettore Spark per la libreria di esecuzioni bulk in Cosmos DB.  
-* Per ulteriori informazioni sulle migrazioni su larga scala, contattare il team del prodotto Azure Cosmos DB aprendo un ticket di supporto con il tipo di problema "generale consultivo" e "migrazioni di grandi dimensioni (TB +)". 
+* Per ulteriori informazioni sulle migrazioni su larga scala, contattare il team del prodotto Azure Cosmos DB aprendo un ticket di supporto con il tipo di problema "generale consultivo" e "migrazioni di grandi dimensioni (TB +)".

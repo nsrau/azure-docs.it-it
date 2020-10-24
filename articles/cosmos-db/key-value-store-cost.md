@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262821"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488453"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 
-Azure Cosmos DB è un servizio di database multimodello distribuito a livello globale che consente di compilare con facilità applicazioni su larga scala e a disponibilità elevata. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente e in modo efficiente tutti i dati inseriti. In questo modo è possibile eseguire query [SQL](how-to-sql-query.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) veloci e coerenti sui dati. 
+Azure Cosmos DB è un servizio di database multimodello distribuito a livello globale che consente di compilare con facilità applicazioni su larga scala e a disponibilità elevata. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente e in modo efficiente tutti i dati inseriti. In questo modo è possibile eseguire query [SQL](./sql-query-getting-started.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) veloci e coerenti sui dati. 
 
 L'articolo descrive il costo di Azure Cosmos DB per semplici operazioni di lettura e scrittura, quando usato come archivio di chiavi/valori. Le operazioni di scrittura includono inserimenti, sostituzioni, eliminazioni e Upsert di elementi di dati. Oltre a garantire un contratto di servizio con disponibilità del 99,999% per tutti gli account in più aree, Azure Cosmos DB garantisce una latenza <10 ms per le letture e per le Scritture (indicizzate) al 99 ° percentile. 
 
@@ -48,4 +48,3 @@ La maggior parte dei servizi di archivi di oggetti o BLOB di base addebita 0,40 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Usare [ur Calculator](https://cosmos.azure.com/capacitycalculator/) per stimare la velocità effettiva per i carichi di lavoro.
-

@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425031"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487382"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -78,7 +78,7 @@ Di seguito è riportato un esempio di creazione di un indice geospaziale nel `lo
 
 ### <a name="text-indexes"></a>Indici di testo
 
-L'API di Azure Cosmos DB per MongoDB attualmente non supporta gli indici di testo. Per le query di ricerca del testo sulle stringhe, è necessario usare l'integrazione di [Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB. 
+L'API di Azure Cosmos DB per MongoDB attualmente non supporta gli indici di testo. Per le query di ricerca del testo sulle stringhe, è necessario usare l'integrazione di [Azure ricerca cognitiva](../search/search-howto-index-cosmosdb.md) con Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Indici con caratteri jolly
 

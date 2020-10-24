@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084824"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488419"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -137,7 +137,7 @@ Nei passaggi seguenti viene creato uno schema per i dati in uno o più contenito
 
 1. Creare un'origine dati del sistema come descritto nel [Passaggio 2](#connect), denominata, ad esempio `SDS Name`.
 
-1. [Installare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e connettersi al server. 
+1. [Installare SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e connettersi al server. 
 
 1. Nell'editor di query di SSMS creare un oggetto server collegato `DEMOCOSMOS` per l'origine dati con i comandi seguenti. Sostituire `DEMOCOSMOS` con il nome del server collegato e `SDS Name` con il nome dell'origine dati del sistema.
 
@@ -195,7 +195,7 @@ Quindi eseguire le operazioni seguenti nella finestra **Definizioni visualizzazi
 
 1. Fare clic su **Nuova**, immettere un nome per la visualizzazione, ad esempio EmployeesfromSeattleView, e fare clic su **OK**.
 
-1. Nella finestra **Modifica visualizzazione** inserire una query di Azure Cosmos DB. Deve essere una [query SQL di Azure Cosmos DB](how-to-sql-query.md), ad esempio `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, quindi fare clic su **OK**.
+1. Nella finestra **Modifica visualizzazione** inserire una query di Azure Cosmos DB. Deve essere una [query SQL di Azure Cosmos DB](./sql-query-getting-started.md), ad esempio `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, quindi fare clic su **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Amministrazione origine dati ODBC di Azure Cosmos DB":::
 

@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884646"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489507"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Collegamento privato per il database di Azure per il server PostgreSQL-Single
 
 Collegamento privato consente di creare endpoint privati per database di Azure per PostgreSQL-server singolo e di conseguenza fornisce servizi di Azure all'interno della rete virtuale privata (VNet). L'endpoint privato espone un indirizzo IP privato che è possibile usare per connettersi al server di database proprio come qualsiasi altra risorsa in VNet.
 
-Per un elenco dei servizi PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione](https://docs.microsoft.com/azure/private-link/index)del collegamento privato. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e una subnet specifiche.
+Per un elenco dei servizi PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione](../private-link/index.yml)del collegamento privato. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
 
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per PostgreSQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
@@ -28,7 +28,7 @@ L'ex-filtraggio dei dati nel server singolo del database di Azure per PostgreSQL
 
 Si consideri uno scenario con un utente che esegue PGAdmin all'interno di una macchina virtuale (VM) di Azure che si connette a un server singolo di database di Azure per PostgreSQL con provisioning negli Stati Uniti occidentali. L'esempio seguente mostra come limitare l'accesso con gli endpoint pubblici nel database di Azure per il server singolo PostgreSQL usando i controlli di accesso alla rete.
 
-* Disabilitare tutto il traffico del servizio di Azure nel server singolo del database di Azure per PostgreSQL tramite l'endpoint pubblico impostando *Consenti i servizi di Azure* su disattivato. Assicurarsi che non siano consentiti indirizzi IP o intervalli per accedere al server tramite [le regole del firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) o gli [endpoint di servizio della rete virtuale](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Disabilitare tutto il traffico del servizio di Azure nel server singolo del database di Azure per PostgreSQL tramite l'endpoint pubblico impostando *Consenti i servizi di Azure* su disattivato. Assicurarsi che non siano consentiti indirizzi IP o intervalli per accedere al server tramite [le regole del firewall](./concepts-firewall-rules.md) o gli [endpoint di servizio della rete virtuale](./concepts-data-access-and-security-vnet.md).
 
 * Consentire solo il traffico al database di Azure per il server singolo PostgreSQL usando l'indirizzo IP privato della macchina virtuale. Per altre informazioni, vedere gli articoli sulle regole del firewall per [endpoint di servizio](concepts-data-access-and-security-vnet.md) e [VNet.](howto-manage-vnet-using-portal.md)
 
@@ -45,7 +45,7 @@ Con collegamento privato, è ora possibile configurare controlli di accesso alla
 
 Quando ci si connette all'endpoint pubblico da computer locali, è necessario aggiungere l'indirizzo IP al firewall basato su IP usando una regola del firewall a livello di server. Questo modello è adatto per consentire l'accesso ai singoli computer per i carichi di lavoro di sviluppo o test, ma è difficile da gestire in un ambiente di produzione.
 
-Con il collegamento privato, è possibile abilitare l'accesso cross-premise all'endpoint privato usando [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), il peering privato o il [tunnel VPN](https://docs.microsoft.com/azure/vpn-gateway/). Possono quindi disabilitare tutti gli accessi tramite endpoint pubblico e non usare il firewall basato su IP.
+Con il collegamento privato, è possibile abilitare l'accesso cross-premise all'endpoint privato usando [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), il peering privato o il [tunnel VPN](../vpn-gateway/index.yml). Possono quindi disabilitare tutti gli accessi tramite endpoint pubblico e non usare il firewall basato su IP.
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per PostgreSQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
@@ -57,8 +57,8 @@ Con il collegamento privato, è possibile abilitare l'accesso cross-premise all'
 
 Per abilitare il collegamento privato sono necessari endpoint privati. Questa operazione può essere eseguita usando le guide alle procedure seguenti.
 
-* [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
+* [Azure portal](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Processo di approvazione
 Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore di PostgreSQL può gestire la connessione all'endpoint privato (PEC) al database di Azure per PostgreSQL. Questa separazione dei compiti tra l'amministratore di rete e l'amministratore di database è utile per la gestione della connettività del database di Azure per PostgreSQL. 
@@ -89,17 +89,17 @@ I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con pe
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare il portale dell'endpoint privato":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connessione da una VM di Azure in una rete virtuale con peering
-Configurare il [peering VNet](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) per stabilire la connettività al database di Azure per PostgreSQL: server singolo da una macchina virtuale di Azure in un VNet con peering.
+Configurare il [peering VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) per stabilire la connettività al database di Azure per PostgreSQL: server singolo da una macchina virtuale di Azure in un VNet con peering.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Connessione da una VM di Azure in un ambiente da rete virtuale a rete virtuale
-Configurare la [connessione gateway VPN da VNet a VNet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) per stabilire la connettività a un database di Azure per PostgreSQL: server singolo da una macchina virtuale di Azure in un'area o in una sottoscrizione diversa.
+Configurare la [connessione gateway VPN da VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) per stabilire la connettività a un database di Azure per PostgreSQL: server singolo da una macchina virtuale di Azure in un'area o in una sottoscrizione diversa.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Connessione da un ambiente locale tramite VPN
 Per stabilire la connettività da un ambiente locale al database di Azure per PostgreSQL-server singolo, scegliere e implementare una delle opzioni seguenti:
 
-* [Connessione da punto a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Connessione VPN da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Connessione VPN da sito a sito](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Collegamento privato combinato con le regole del firewall
 
@@ -128,11 +128,11 @@ Per informazioni su come impostare l' **accesso negato alla rete pubblica** per 
 
 Per altre informazioni sulle funzionalità di sicurezza a server singolo di database di Azure per PostgreSQL, vedere gli articoli seguenti:
 
-* Per configurare un firewall per il server singolo del database di Azure per PostgreSQL, vedere [supporto del firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Per configurare un firewall per il server singolo del database di Azure per PostgreSQL, vedere [supporto del firewall](./concepts-firewall-rules.md).
 
-* Per informazioni su come configurare un endpoint di servizio di rete virtuale per il server singolo del database di Azure per PostgreSQL, vedere [configurare l'accesso da reti virtuali](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Per informazioni su come configurare un endpoint di servizio di rete virtuale per il server singolo del database di Azure per PostgreSQL, vedere [configurare l'accesso da reti virtuali](./concepts-data-access-and-security-vnet.md).
 
-* Per una panoramica della connettività a server singolo di database di Azure per PostgreSQL, vedere [architettura di connettività per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+* Per una panoramica della connettività a server singolo di database di Azure per PostgreSQL, vedere [architettura di connettività per database di Azure per PostgreSQL](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

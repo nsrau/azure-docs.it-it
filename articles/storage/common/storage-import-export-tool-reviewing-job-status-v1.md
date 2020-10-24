@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be421cc0bb00018b32ee63f2b486c11300627a01
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056323"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488555"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Esame dello stato del processo di Importazione/Esportazione di Azure con i file di log di copia
-Quando il servizio Importazione/Esportazione di Microsoft Azure elabora le unità associate a un processo di importazione o esportazione, i file di log di copia vengono scritti nell'account di archiviazione usato per importare o esportare i BLOB. Il file di log contiene lo stato dettagliato di ogni file importato o esportato. Il servizio restituisce l'URL per ogni file di log di copia quando si esegue una query sullo stato di un processo completato. Per ulteriori informazioni, vedere [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  
+Quando il servizio Importazione/Esportazione di Microsoft Azure elabora le unità associate a un processo di importazione o esportazione, i file di log di copia vengono scritti nell'account di archiviazione usato per importare o esportare i BLOB. Il file di log contiene lo stato dettagliato di ogni file importato o esportato. Il servizio restituisce l'URL per ogni file di log di copia quando si esegue una query sullo stato di un processo completato. Per ulteriori informazioni, vedere [Get Job](/rest/api/storageimportexport/Jobs/Get).  
 
 ## <a name="example-urls"></a>URL di esempio
 

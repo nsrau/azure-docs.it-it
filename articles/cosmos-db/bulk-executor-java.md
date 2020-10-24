@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968173"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489337"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azu
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.  
 
-* Puoi [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) gratuitamente senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticate-requests).  
+* Puoi [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) gratuitamente senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](./local-emulator.md) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticate-requests).  
 
 * [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.  
@@ -215,5 +215,3 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
     
 ## <a name="next-steps"></a>Passaggi successivi
 * Per i dettagli del pacchetto Maven e le note sulla versione della libreria Java dell'executor bulk, vedere i [dettagli sull'SDK dell'executor bulk](sql-api-sdk-bulk-executor-java.md).
-
-
