@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541289"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520235"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -311,7 +311,7 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 Per effettuare il provisioning in Active Directory locale, è necessario installare un agente di provisioning in un server con .NET Framework 4.7.1 e versioni successive e con accesso alla rete ai domini di Active Directory richiesti.
 
 > [!TIP]
-> È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se il server non dispone di .NET 4.7.1 o versioni successive, è possibile scaricarlo da [qui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Trasferire il programma di installazione dell'agente scaricato nell'host del server e seguire i passaggi indicati di seguito per completare la configurazione dell'agente.
@@ -410,7 +410,7 @@ In questo passaggio viene stabilita la connettività con Workday e Active Direct
    * **Messaggio di posta elettronica di notifica:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
 
      > [!NOTE]
-     > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+     > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](../app-provisioning/application-provisioning-quarantine-status.md).
 
    * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che le credenziali di Workday e Active Directory configurate nel programma di installazione dell'agente siano valide.
 
@@ -594,7 +594,7 @@ No, la soluzione non gestisce una cache di profili utente. Il servizio di provis
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>La soluzione supporta l'assegnazione in locale di gruppi di AD all'utente?
 
-Questa funzionalità non è attualmente supportata. La soluzione consigliata è l'implementazione di uno script di PowerShell che esegue query sull'endpoint dell'API Microsoft Graph per i [dati del log di controllo](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e li usa per attivare scenari come l'assegnazione dei gruppi. Questo script di PowerShell può essere collegato a un'utilità di pianificazione e distribuito nella stessa finestra in cui è in esecuzione l'agente di provisioning.  
+Questa funzionalità non è attualmente supportata. La soluzione consigliata è l'implementazione di uno script di PowerShell che esegue query sull'endpoint dell'API Microsoft Graph per i [dati del log di controllo](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e li usa per attivare scenari come l'assegnazione dei gruppi. Questo script di PowerShell può essere collegato a un'utilità di pianificazione e distribuito nella stessa finestra in cui è in esecuzione l'agente di provisioning.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Quali API di Workday vengono usate dalla soluzione per eseguire query e aggiornare i profili dei ruoli di lavoro in Workday?
 
@@ -679,7 +679,7 @@ Sostituire le variabili [server proxy] e [proxy-port] con il nome del server pro
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Come garantire che l'agente di provisioning sia in grado di comunicare con il tenant di Azure AD e che nessun firewall blocchi le porte richieste dall'agente?
 
-È inoltre possibile controllare se tutte le [porte necessarie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) sono aperte.
+È inoltre possibile controllare se tutte le [porte necessarie](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) sono aperte.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Un agente di provisioning può essere configurato per effettuare il provisioning di più domini di Active Directory?
 
@@ -1157,4 +1157,4 @@ Per quanto riguarda la conservazione dei dati, il servizio di provisioning di Az
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 * [Informazioni su come configurare l'accesso Single Sign-On tra Workday e Azure Active Directory](workday-tutorial.md)
 * [Informazioni sull'integrazione di altre applicazioni SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni su come usare le API Microsoft Graph per gestire le configurazioni di provisioning](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Informazioni su come usare le API Microsoft Graph per gestire le configurazioni di provisioning](/graph/api/resources/synchronization-overview)

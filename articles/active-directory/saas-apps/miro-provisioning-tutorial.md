@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 164b2915d3085ff765635b10e97f7552df1bf4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 786e99cec4999eef0af92fe2be18bcf0e48ed379
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256359"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518994"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Esercitazione: configurare Miro per il provisioning utenti automatico
 
@@ -79,7 +79,7 @@ Prima di configurare Miro per il provisioning utenti automatico con Azure AD, è
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Miro in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Miro, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Miro, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Miro](./miro-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di Miro, vedere [questo](https://help.miro.com/hc/en-us/articles/360036777814)articolo.
@@ -110,7 +110,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Miro**.
 
@@ -158,4 +158,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

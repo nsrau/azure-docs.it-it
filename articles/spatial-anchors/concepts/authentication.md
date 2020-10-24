@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328539"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516920"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per Ancoraggi nello spazio di Azure
 
-Questo articolo illustra i diversi modi in cui è possibile eseguire l'autenticazione a ancoraggi spaziali di Azure dall'app o dal servizio Web. Verranno inoltre fornite informazioni sui modi in cui è possibile utilizzare il controllo degli accessi in base al ruolo in Azure Active Directory (Azure AD) per controllare l'accesso agli account di ancoraggio spaziali.
+Questo articolo illustra i diversi modi in cui è possibile eseguire l'autenticazione a ancoraggi spaziali di Azure dall'app o dal servizio Web. Verranno inoltre fornite informazioni sui modi in cui è possibile utilizzare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in Azure Active Directory (Azure AD) per controllare l'accesso agli account di ancoraggio spaziali.
 
 ## <a name="overview"></a>Panoramica
 
@@ -108,7 +108,7 @@ Per le applicazioni destinate Azure Active Directory utenti, si consiglia di usa
    1.    Passare alla risorsa ancoraggi spaziali nella portale di Azure.
    2.    Passare alla scheda **controllo di accesso (IAM)** .
    3.    Selezionare **Aggiungi un'assegnazione di ruolo**.
-   1.    [Selezionare un ruolo](#role-based-access-control).
+   1.    [Selezionare un ruolo](#azure-role-based-access-control).
    2.    Nella casella **Seleziona** immettere i nomi degli utenti, i gruppi e/o le applicazioni a cui si desidera assegnare l'accesso.
    3.    Selezionare **Salva**.
 
@@ -182,7 +182,7 @@ Il token di accesso Azure AD viene recuperato tramite [MSAL](../../active-direct
         1.    Passare alla risorsa ancoraggi spaziali nella portale di Azure.
         2.    Passare alla scheda **controllo di accesso (IAM)** .
         3.    Selezionare **Aggiungi un'assegnazione di ruolo**.
-        1.    [Selezionare un ruolo](#role-based-access-control).
+        1.    [Selezionare un ruolo](#azure-role-based-access-control).
         2.    Nella casella **Seleziona** immettere il nome o i nomi delle applicazioni a cui si desidera assegnare l'accesso. Se si vuole che gli utenti dell'app abbiano ruoli diversi rispetto all'account degli ancoraggi spaziali, registrare più applicazioni nel Azure AD e assegnare un ruolo separato a ciascuna di esse. Quindi implementare la logica di autorizzazione in modo che venga usato il ruolo degli utenti corretto.
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
 Per consentire di controllare il livello di accesso concesso a applicazioni, servizi o Azure AD utenti del servizio, è possibile assegnare questi ruoli preesistenti in base alle esigenze per gli account di ancoraggio spaziali di Azure:
 

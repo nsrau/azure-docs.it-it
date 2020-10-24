@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ecb4d249c8c2167ec61740eb9515fd1937230b0
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312333"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519742"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler private Access (ZPA) per il provisioning utenti automatico
 
@@ -114,7 +114,7 @@ Prima di configurare zScaler private Access (ZPA) per il provisioning utenti aut
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in zScaler private Access (ZPA) in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per zScaler private Access (ZPA) seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on a zScaler private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per zScaler private Access (ZPA) seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on a zScaler private Access (ZPA)](./zscalerprivateaccess-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di zScaler private Access, vedere [questo](https://www.zscaler.com/partners/microsoft)articolo.
@@ -145,7 +145,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a zScaler private Access (ZPA)**.
 
@@ -189,4 +189,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

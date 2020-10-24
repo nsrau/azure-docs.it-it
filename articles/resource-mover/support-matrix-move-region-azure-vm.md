@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945914"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521306"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -107,7 +107,7 @@ Immagini della raccolta di Azure (pubblicate da Microsoft) | Supportato | Suppor
 Immagini della raccolta di Azure (pubblicate da terze parti)  | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate (pubblicate da terze parti)| Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali con Site Recovery | Non supportato | Spostare le risorse tra aree per le macchine virtuali, usando Site Recovery nel back-end. Se si sta già usando Site Recovery, disabilitare la replica e quindi avviare il processo di preparazione.
-Criteri di controllo degli accessi in base al ruolo | Non supportate | I criteri di controllo degli accessi in base al ruolo (RBAC) nelle VM non vengono copiati nella macchina virtuale nell'area di destinazione.
+Criteri RBAC di Azure | Non supportato | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono copiati nella macchina virtuale nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina virtuale nell'area di destinazione. Installarli manualmente al termine dello spostamento.
 
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323023"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518807"
 ---
 # <a name="face-recognition-concepts"></a>Concetti relativi al riconoscimento del viso
 
@@ -45,7 +45,7 @@ L'operazione [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 L'operazione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) accetta un ID faccia da DetectedFace o PersistedFace e da un facet o una matrice di altri ID Face. Con un oggetto Facet, viene restituito un facet più piccolo di visi simili alla faccia specificata. Con una matrice di ID viso, restituisce in modo analogo una matrice più piccola.
 
-### <a name="group"></a>Gruppo
+### <a name="group"></a>Group
 
 L'operazione di [raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) accetta una matrice di ID viso assortiti da DetectedFace o PersistedFace e restituisce gli stessi ID raggruppati in diverse matrici più piccole. Ogni matrice "groups" contiene ID facciali simili. Una singola matrice "messyGroup" contiene ID viso per i quali non sono state trovate analogie.
 
@@ -58,7 +58,7 @@ L'operazione di [Identificazione](https://westus.dev.cognitive.microsoft.com/doc
 Usare i suggerimenti seguenti per assicurarsi che le immagini di input forniscano i risultati di riconoscimento più accurati:
 
 * I formati di immagine di input supportati sono JPEG, PNG, GIF (il primo frame), BMP.
-* Le dimensioni del file di immagine non devono essere superiori a 4 MB.
+* Le dimensioni del file di immagine non devono essere superiori a 6 MB.
 * Quando si creano oggetti Person, usare foto che presentano diversi tipi di angoli e illuminazione.
 * Alcuni visi potrebbero non essere riconosciuti a causa di problemi tecnici, ad esempio:
   * Immagini con illuminazione eccessiva, ad esempio, backlighting grave.

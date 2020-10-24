@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
       href: quick-create-cli.md
@@ -343,7 +343,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -1024,8 +1024,6 @@
               href: disks-benchmarks.md
             - name: Ottimizzazione delle prestazioni
               href: optimization.md
-            - name: Configurare RAID software
-              href: configure-raid.md
             - name: Configurare la LVM
               href: configure-lvm.md
         - name: Trovare dischi non collegati - Interfaccia della riga di comando

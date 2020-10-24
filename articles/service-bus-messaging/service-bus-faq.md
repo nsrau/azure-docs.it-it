@@ -3,12 +3,12 @@ title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894533"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518756"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -83,7 +83,7 @@ Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario ese
     > L'indirizzo IP restituito dal `nslookup` comando non è un indirizzo IP statico. Tuttavia rimane costante fino a quando la distribuzione sottostante non viene eliminata o spostata in un cluster diverso.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Dove è possibile trovare l'indirizzo IP del client che invia o riceve messaggi da e verso uno spazio dei nomi? 
-Gli indirizzi IP dei client che inviano o ricevono messaggi da e verso lo spazio dei nomi non vengono registrati. Rigenerare le chiavi in modo che tutti i client esistenti non siano in grado di autenticare e rivedere le[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)impostazioni di controllo degli accessi in base al ruolo per garantire che solo gli utenti o le applicazioni consentite abbiano accesso allo spazio dei nomi. 
+Gli indirizzi IP dei client che inviano o ricevono messaggi da e verso lo spazio dei nomi non vengono registrati. Rigenerare le chiavi in modo che tutti i client esistenti non siano in grado di autenticare ed esaminare le impostazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)per garantire che solo gli utenti o le applicazioni consentite abbiano accesso allo spazio dei nomi 
 
 Se si usa uno spazio dei nomi **Premium** , usare il [filtro IP](service-bus-ip-filtering.md), gli [endpoint di servizio della rete virtuale](service-bus-service-endpoints.md)e gli [endpoint privati](private-link-service.md) per limitare l'accesso allo spazio dei nomi. 
 

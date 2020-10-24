@@ -3,7 +3,7 @@ title: Indicizzazione di file multimediali con Azure Media Indexer
 description: Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 10/21/2020
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018958"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518841"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> Il processore di contenuti multimediali **Azure Media Indexer** verrà ritirato. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md). [Servizi multimediali di Azure video Indexer](../video-indexer/index.yml) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](migrate-indexer-v1-v2.md).
+> [!IMPORTANT]
+> Si consiglia ai clienti di eseguire la migrazione dall'indicizzatore V1 e dall'indicizzatore V2 a usando la [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyzing-video-audio-files-concept.md). Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) e i processori di [Azure Media Indexer 2 Preview](./legacy-components.md) sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.  
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021154"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518736"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di Analisi archiviazione di Azure (versione classica)
 
@@ -176,7 +176,10 @@ Questi dati di esempio mostrano tutti i record per un solo minuto (a partire dal
 >
 
 ## <a name="access-metrics-data-programmatically"></a>Accedere ai dati delle metriche a livello di codice  
-Nell'elenco riportato di seguito viene illustrato il codice C# di esempio che consente l'accesso alle metriche al minuto per un intervallo di minuti. I risultati vengono visualizzati in una finestra della console. Il codice di esempio usa la libreria client di Archiviazione di Azure versione 4.x o successiva che include la classe **CloudAnalyticsClient**, in grado di semplificare l'accesso alle tabelle di metrica nell'archiviazione.  
+Nell'elenco riportato di seguito viene illustrato il codice C# di esempio che consente l'accesso alle metriche al minuto per un intervallo di minuti. I risultati vengono visualizzati in una finestra della console. Il codice di esempio usa la libreria client di Archiviazione di Azure versione 4.x o successiva che include la classe **CloudAnalyticsClient**, in grado di semplificare l'accesso alle tabelle di metrica nell'archiviazione. 
+
+> [!NOTE]
+> La classe **CloudAnalyticsClient** non è inclusa nella libreria client di archiviazione BLOB di Azure V12 per .NET. Il **31 agosto 2023** analisi archiviazione metriche, dette anche *metriche classiche* , verranno ritirate. Per altre informazioni, consultare l'[annuncio ufficiale](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se si usano metriche classiche, è consigliabile passare alle metriche in monitoraggio di Azure prima di tale data. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

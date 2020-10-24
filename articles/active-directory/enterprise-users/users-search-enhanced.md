@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcef70d821c7148cb926bd9357bbe656ceae35fe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375705"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517176"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Miglioramenti alla gestione degli utenti (anteprima) in Azure Active Directory
 
@@ -29,7 +29,7 @@ Questo articolo descrive come usare l'anteprima di miglioramenti per la gestione
 Le modifiche nell'anteprima includono:
 
 - Proprietà utente più visibili, tra cui ID oggetto, stato di sincronizzazione della directory, tipo di creazione e autorità emittente di identità
-- La ricerca consente ora la ricerca combinata di nomi, messaggi di posta elettronica e ID oggetto
+- La ricerca consente ora la ricerca di sottostringhe e la ricerca combinata di nomi, messaggi di posta elettronica e ID oggetto
 - Filtro migliorato per tipo di utente (membro, Guest, nessuno), stato di sincronizzazione della directory, tipo di creazione, nome della società e nome di dominio
 - Nuove funzionalità di ordinamento per proprietà quali nome e nome dell'entità utente
 - Un nuovo numero totale di utenti che si aggiorna con ricerche o filtri
@@ -59,7 +59,7 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 
 - Nome: il nome visualizzato dell'utente.
 - Nome entità utente: nome dell'entità utente (UPN) dell'utente.
-- Tipo di utente: il tipo di utente utente, membro o Guest.
+- Tipo di utente: membro, Guest, nessuno.
 - Directory sincronizzata: indica se l'utente è sincronizzato da una directory locale.
 - Autorità emittente di identità: autorità emittenti dell'identità usata per accedere a un account utente.
 - ID oggetto: ID oggetto dell'utente.
@@ -67,6 +67,7 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 - Nome della società: il nome della società a cui è associato l'utente.
 - Stato invito: stato dell'invito per un utente Guest.
 - Mail: il messaggio di posta elettronica dell'utente.
+- Ultimo accesso: la data dell'ultimo accesso dell'utente. Questa proprietà è visibile solo agli utenti autorizzati a leggere i log di controllo (Reporting_ApplicationAuditLogs_Read)
 
 ![nuove proprietà utente visualizzate in tutte le pagine utenti e utenti eliminati](./media/users-search-enhanced/user-properties.png)
 
@@ -75,7 +76,10 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 Nella pagina **utenti eliminati** sono incluse tutte le colonne disponibili nella pagina **tutti gli utenti** e alcune colonne aggiuntive, ovvero:
 
 - Data di eliminazione: la data in cui l'utente è stato eliminato per la prima volta dall'organizzazione (l'utente è ripristinabile).
-- Data di eliminazione permanente: la data in cui l'utente è stato eliminato definitivamente dall'organizzazione.
+- Data di eliminazione permanente: la data in cui inizia automaticamente il processo di eliminazione definitiva dell'utente dall'organizzazione. 
+
+> [!NOTE]
+> Le date di eliminazione vengono visualizzate in formato UTC (Coordinated Universal Time).
 
 Alcune colonne vengono visualizzate per impostazione predefinita. Per aggiungere altre colonne, selezionare le **colonne** nella pagina, selezionare i nomi di colonna che si desidera aggiungere e selezionare **OK** per salvare le preferenze.
 
@@ -88,7 +92,7 @@ Selezionare una voce nella colonna **emittente identità** per qualsiasi utente 
 
 ## <a name="user-list-search"></a>Ricerca elenco utenti
 
-Quando si immette una stringa di ricerca, la ricerca utilizza la ricerca "inizia con", che ora può corrispondere ai nomi, ai messaggi di posta elettronica o agli ID oggetto in una singola ricerca. È possibile immettere uno di questi attributi nella casella di ricerca e la ricerca verrà automaticamente esaminata in tutte queste proprietà per restituire i risultati corrispondenti. È possibile eseguire la stessa ricerca nelle pagine **tutti gli utenti** e **gli utenti eliminati** .
+Quando si immette una stringa di ricerca, la ricerca USA ora "inizia con" e la ricerca di sottostringhe per trovare la corrispondenza con i nomi, i messaggi di posta elettronica o gli ID oggetto in una singola ricerca. È possibile immettere uno di questi attributi nella casella di ricerca e la ricerca analizza automaticamente tutte queste proprietà per restituire i risultati corrispondenti. La ricerca della sottostringa viene eseguita solo su parole intere. È possibile eseguire la stessa ricerca nelle pagine **tutti gli utenti** e **gli utenti eliminati** .
 
 ## <a name="user-list-filtering"></a>Filtro elenco utenti
 
@@ -133,10 +137,10 @@ La pagina **utenti eliminati** contiene filtri aggiuntivi non presenti nella pag
 
 Domanda | Risposta
 -------- | ------
+Perché l'utente eliminato è ancora visualizzato quando è stata superata la data di eliminazione permanente? | La data di eliminazione permanente viene visualizzata nel fuso orario UTC, pertanto potrebbe non corrispondere al fuso orario corrente. Questa data è inoltre la prima data in cui l'utente verrà eliminato definitivamente dall'organizzazione, pertanto potrebbe essere ancora in corso l'elaborazione. Gli utenti eliminati definitivamente verranno automaticamente rimossi dall'elenco.
 Che cosa accade alle funzionalità bulk per utenti e Guest? | Le operazioni bulk sono sempre disponibili per gli utenti e i guest, inclusi creazione bulk, invito bulk, eliminazione bulk e download degli utenti. Sono state appena unite in un menu denominato **operazioni bulk**. È possibile trovare le opzioni per **operazioni bulk** nella parte superiore della pagina **tutti gli utenti** .
 Cosa è successo alla colonna di origine? | La colonna di **origine** è stata sostituita con altre colonne che forniscono informazioni simili, consentendo al contempo di filtrare i valori in modo indipendente. Tra gli esempi sono inclusi il **tipo di creazione**, la **sincronizzazione delle directory** e l'emittente di **identità**.
 Cosa è successo alla colonna nome utente? | La colonna del **nome utente** è ancora presente, ma è stata rinominata come **nome dell'entità utente**. Ciò riflette meglio le informazioni contenute in tale colonna. Si noterà anche che il nome completo dell'entità utente è ora visualizzato per i guest B2B. Corrisponde a ciò che si otterrebbe in MS Graph.  
-Perché è possibile eseguire una ricerca "inizia con" e non una ricerca "Contains"? | Esistono alcune limitazioni che impediscono di consentire l'esecuzione di una ricerca "Contains". Il feedback è stato aggiornato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

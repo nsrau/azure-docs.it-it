@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495839"
+ms.locfileid: "92518008"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -326,7 +326,7 @@ Esistono due passaggi per proteggere una risorsa del servizio di Azure tramite g
 1. Attivare gli endpoint di servizio per il servizio di Azure.
 2. Configurare elenchi di controllo di accesso di rete virtuale nel servizio di Azure.
 
-Il primo passaggio è un'operazione sul lato rete e il secondo passaggio è un'operazione sul lato risorsa del servizio. Entrambi i passaggi possono essere eseguiti dallo stesso amministratore o da amministratori diversi in base alle autorizzazioni di Controllo degli accessi in base al ruolo concesse al ruolo amministratore. È consigliabile attivare gli endpoint di servizio per la rete virtuale prima di configurare gli elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure. Di conseguenza, i passaggi devono essere eseguiti nella sequenza elencata in precedenza per configurare gli endpoint del servizio VNet.
+Il primo passaggio è un'operazione sul lato rete e il secondo passaggio è un'operazione sul lato risorsa del servizio. Entrambi i passaggi possono essere eseguiti dallo stesso amministratore o da amministratori diversi, in base alle autorizzazioni RBAC di Azure concesse al ruolo di amministratore. È consigliabile attivare gli endpoint di servizio per la rete virtuale prima di configurare gli elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure. Di conseguenza, i passaggi devono essere eseguiti nella sequenza elencata in precedenza per configurare gli endpoint del servizio VNet.
 
 >[!NOTE]
 > Entrambe le operazioni descritte in precedenza devono essere completate prima di poter limitare l'accesso al servizio di Azure alla rete virtuale e alla subnet consentite. Se si attivano esclusivamente gli endpoint di servizio per il servizio di Azure sul lato rete, non è possibile limitare l'accesso. È inoltre necessario configurare elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure.
