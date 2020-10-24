@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289770"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474853"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurare Azure Defender per l'archiviazione
 
@@ -37,7 +37,7 @@ Nell'elenco seguente viene riepilogata la disponibilità di Azure Defender per l
 
 - Stato della versione:
   - [Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) (disponibilità generale)
-  - [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilità generale)
+  - [File di Azure](/azure/storage/files/storage-files-introduction) (disponibilità generale)
   - Azure Data Lake Storage Gen2 (disponibilità generale)
 - Cloud:<br>
     ✔ Cloud commerciali<br>
@@ -98,16 +98,16 @@ Usare un criterio di Azure per abilitare Azure Defender tra gli account di archi
 
 Usare i comandi dell'API REST per creare, aggiornare o ottenere l'impostazione di Azure Defender per un account di archiviazione specifico.
 
-- [Advanced Threat Protection-crea](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Advanced Threat Protection-Ottieni](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Advanced Threat Protection-crea](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Advanced Threat Protection-Ottieni](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Usare i cmdlet di PowerShell seguenti:
 
-- [Abilita Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Ottenere Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Disabilitare Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Abilita Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Ottenere Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Disabilitare Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281055"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475465"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitame
 
 Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un'eccezione `RequestRateTooLargeException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `RequestRateTooLargeException` codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -112,7 +112,7 @@ Inoltre, se si usa Azure Cosmos DB e si sa che non verranno effettuate ricerche 
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Ottimizzare modificando i criteri di indicizzazione 
 
-Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà di ogni record. Questa operazione è stata progettata per semplificare lo sviluppo e garantire prestazioni ottimali in molti tipi diversi di query ad hoc. Se si dispone di record di grandi dimensioni con migliaia di proprietà, potrebbe non essere utile corrispondere il costo della velocità effettiva per indicizzare ogni proprietà, in particolare se si eseguono query solo in 10 o 20 di queste proprietà. Man mano che ci si avvicina a un carico di lavoro specifico, è consigliabile perfezionare i criteri di indicizzazione. I dettagli completi sui criteri di indicizzazione di Azure Cosmos DB sono disponibili [qui](indexing-policies.md). 
+Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà di ogni record. Questa operazione è stata progettata per semplificare lo sviluppo e garantire prestazioni ottimali in molti tipi diversi di query ad hoc. Se si dispone di record di grandi dimensioni con migliaia di proprietà, potrebbe non essere utile corrispondere il costo della velocità effettiva per indicizzare ogni proprietà, in particolare se si eseguono query solo in 10 o 20 di queste proprietà. Man mano che ci si avvicina a un carico di lavoro specifico, è consigliabile perfezionare i criteri di indicizzazione. I dettagli completi sui criteri di indicizzazione di Azure Cosmos DB sono disponibili [qui](index-policy.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitoraggio della velocità effettiva con provisioning e utilizzata 
 
@@ -156,7 +156,7 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 1. Se il provisioning della velocità effettiva tra contenitori e database è notevolmente superiore, esaminare il rapporto tra UR con provisioning e UR utilizzate e perfezionare i carichi di lavoro.  
 
-2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](optimize-cost-queries.md). 
+2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](./optimize-cost-reads-writes.md). 
 
 3. Un altro modo per ottenere le operazioni e i relativi costi in ur è l'abilitazione dei log di monitoraggio di Azure, che consente di ottenere la suddivisione dell'operazione/durata e l'addebito della richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
 
@@ -182,6 +182,5 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
 * Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
+* Altre informazioni sull'[ottimizzazione del costo delle query](./optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
-

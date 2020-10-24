@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476995"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 
 * **Pagamento in base all'ora:** Per i carichi di lavoro su larga scala, che devono essere ridimensionati in qualsiasi momento, l'addebito viene addebitato solo in base all'ora. I carichi di lavoro di un'applicazione, in genere, variano a seconda dei periodi dell'anno e dei dati sottoposti a query. Con Azure Cosmos DB, passare a un piano superiore o inferiore in base alle proprie esigenze e pagare solo per ciò che serve. Con i sistemi ospitati in locale o in IaaS, non è possibile trovare la corrispondenza con questo modello, perché non esiste un modo per rimuovere l'hardware ogni ora. In questi casi, con Azure Cosmos DB è possibile risparmiare in media da 10 a 14 volte.
 
-* **È possibile ottenere numerose funzionalità gratuite:** In Azure Cosmos DB, i carichi di lavoro di scrittura sono sostanzialmente più convenienti rispetto ai servizi di database alternativi. Inoltre, Azure Cosmos DB offre funzionalità come l'[indicizzazione automatica](indexing-policies.md), la [durata (TTL)](time-to-live.md), il [feed di modifiche](change-feed.md) e altre senza costi aggiuntivi, mentre in genere vengono addebitate con altri servizi di database.
+* **È possibile ottenere numerose funzionalità gratuite:** In Azure Cosmos DB, i carichi di lavoro di scrittura sono sostanzialmente più convenienti rispetto ai servizi di database alternativi. Inoltre, Azure Cosmos DB offre funzionalità come l'[indicizzazione automatica](index-policy.md), la [durata (TTL)](time-to-live.md), il [feed di modifiche](change-feed.md) e altre senza costi aggiuntivi, mentre in genere vengono addebitate con altri servizi di database.
 
 * **Usa la valuta unificata per carichi di lavoro diversi:** Diversamente dalle offerte alternative, in Azure Cosmos DB non è necessario segmentare i carichi di lavoro, ad esempio in letture e scritture. oppure effettuare il provisioning della velocità effettiva in base a ciascun tipo di carico di lavoro a seconda che si tratti della velocità effettiva di lettura o di scrittura. In Azure Cosmos DB, la velocità effettiva di cui viene effettuato il provisioning viene riservata usando una valuta unificata e normalizzata in termini di unità richiesta o UR/sec. Azure Cosmos DB non impone di assegnare una priorità ai carichi di lavoro, di eseguire la pianificazione della capacità o di pagare separatamente per ogni tipo di capacità. Tale approccio consente di scambiare facilmente la stessa UR/s tra varie operazioni e tipi di carico di lavoro.
 
@@ -63,6 +63,6 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 * Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
+* Altre informazioni sull'[ottimizzazione del costo delle query](./optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Cosmos multi-area](optimize-cost-regions.md)
 * Altre informazioni sul [costo totale di non proprietà di un servizio cloud di database NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

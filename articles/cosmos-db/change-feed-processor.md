@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277037"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475805"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 
@@ -125,10 +125,10 @@ Il processore dei feed di modifiche verrà inizializzato e inizierà a leggere l
 
 Il processore del feed delle modifiche può essere ospitato in qualsiasi piattaforma che supporti processi o attività a esecuzione prolungata:
 
-* Una processo Web di [Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)con esecuzione continua.
-* Un processo in una [macchina virtuale di Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* Un processo in background nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* [Servizio ospitato ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* Una processo Web di [Azure](/learn/modules/run-web-app-background-task-with-webjobs/)con esecuzione continua.
+* Un processo in una [macchina virtuale di Azure](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Un processo in background nel [servizio Azure Kubernetes](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* [Servizio ospitato ASP.NET](/aspnet/core/fundamentals/host/hosted-services).
 
 Mentre il processore del feed delle modifiche può essere eseguito in ambienti di breve durata, perché il contenitore di lease gestisce lo stato, il ciclo di avvio di questi ambienti aggiungerà un ritardo alla ricezione delle notifiche (a causa dell'overhead dell'avvio del processore a ogni avvio dell'ambiente).
 
@@ -147,4 +147,4 @@ Mentre il processore del feed delle modifiche può essere eseguito in ambienti d
 * [Modello di pull del feed di modifiche](change-feed-pull-model.md)
 * [Come eseguire la migrazione della libreria del processore di feed di modifiche](how-to-migrate-from-change-feed-library.md)
 * [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
-* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)
+* [Ora di avvio del processore di feed di modifiche](#starting-time)

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424461"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496022"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -123,7 +123,7 @@ Esistono due approcci per isolare il traffico da e verso il cluster AKS alla ret
 * Servizio di __bilanciamento del carico interno di AKS__: questo approccio consente di configurare l'endpoint per le distribuzioni in AKS per usare un indirizzo IP privato all'interno della rete virtuale.
 
 > [!WARNING]
-> **Usare l'AKS privato o il servizio di bilanciamento del carico interno, ma non entrambi**.
+> Il servizio di bilanciamento del carico interno non funziona con un cluster AKS che usa kubenet. Se si vuole usare un servizio di bilanciamento del carico interno e un cluster AKS privato allo stesso tempo, configurare il cluster AKS privato con l'interfaccia di rete del contenitore di Azure (CNI). Per altre informazioni, vedere [configurare la rete CNI di Azure nel servizio Kubernetes di Azure](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Cluster AKS privato
 
@@ -134,7 +134,7 @@ Dopo aver creato il cluster AKS privato, [associare il cluster alla rete virtual
 > [!IMPORTANT]
 > Prima di usare un cluster AKS abilitato per il collegamento privato con Azure Machine Learning, è necessario aprire un evento imprevisto di supporto per abilitare questa funzionalità. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Servizio di bilanciamento del carico interno AKS
+### <a name="internal-aks-load-balancer"></a>Servizio di bilanciamento del carico interno AKS
 
 Per impostazione predefinita, le distribuzioni AKS usano un servizio di [bilanciamento del carico pubblico](../aks/load-balancer-standard.md). In questa sezione viene illustrato come configurare AKS per l'uso di un servizio di bilanciamento del carico interno. Viene usato un servizio di bilanciamento del carico interno (o privato) in cui sono consentiti solo indirizzi IP privati come front-end. I bilanciamento del carico interno vengono usati per bilanciare il carico del traffico all'interno di una rete virtuale
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320898"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482231"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso di Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB
 
@@ -134,4 +134,4 @@ Per correggere le risorse non conformi, vedere [How to remediate Resources with 
 
 - [Esaminare le definizioni dei criteri personalizzati di esempio per Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), anche per i criteri di filtro VNet e di più posizioni di scrittura illustrati in precedenza.
 - [Creare un'assegnazione di criteri nel portale di Azure](../governance/policy/assign-policy-portal.md)
-- [Esaminare le definizioni di Criteri di Azure predefinite per Azure Cosmos DB](./policy-samples.md)
+- [Esaminare le definizioni di Criteri di Azure predefinite per Azure Cosmos DB](./policy-reference.md)

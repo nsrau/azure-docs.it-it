@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276091"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485036"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginazione in Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Se la query restituisce un token di continuazione, sono presenti ulteriori risul
 
 Nell'API REST di Azure Cosmos DB è possibile gestire i token di continuazione con l' `x-ms-continuation` intestazione. Come per le query con .NET o Java SDK, se l' `x-ms-continuation` intestazione della risposta non è vuota, significa che la query presenta risultati aggiuntivi.
 
-Fino a quando si usa la stessa versione SDK, i token di continuazione non scadono mai. Facoltativamente, è possibile [limitare le dimensioni di un token di continuazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Indipendentemente dalla quantità di dati o dal numero di partizioni fisiche nel contenitore, le query restituiscono un singolo token di continuazione.
+Fino a quando si usa la stessa versione SDK, i token di continuazione non scadono mai. Facoltativamente, è possibile [limitare le dimensioni di un token di continuazione](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Indipendentemente dalla quantità di dati o dal numero di partizioni fisiche nel contenitore, le query restituiscono un singolo token di continuazione.
 
 Non è possibile usare i token di continuazione per le query con [Group by](sql-query-group-by.md) o [Distinct](sql-query-keywords.md#distinct) perché queste query richiedono l'archiviazione di una quantità significativa di stato. Per le query con `DISTINCT` , è possibile utilizzare i token di continuazione se si aggiungono `ORDER BY` alla query.
 

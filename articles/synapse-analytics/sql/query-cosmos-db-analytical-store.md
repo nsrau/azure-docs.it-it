@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474904"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB con pool SQL senza server nel collegamento sinapsi di Azure (anteprima)
 
@@ -247,7 +247,7 @@ Gli account Azure Cosmos DB dell'API SQL (Core) supportano i tipi di proprietà 
 | Boolean | bit |
 | Integer | bigint |
 | Decimal | float |
-| string | varchar (regole di confronto del database UTF8) |
+| Stringa | varchar (regole di confronto del database UTF8) |
 | Data/ora (stringa formattata ISO) | varchar (30) |
 | Data/ora (timestamp Unix) | bigint |
 | Null | `any SQL type` 
@@ -277,5 +277,6 @@ Nella tabella seguente sono elencati i possibili errori e le azioni per la risol
 
 Per altre informazioni, vedere gli articoli seguenti:
 
+- [Usare Power BI e il pool SQL sinapsi senza server con il collegamento a sinapsi di Azure](../../cosmos-db/synapse-link-power-bi.md)
 - [Procedura: creare e usare le visualizzazioni in SQL su richiesta](create-use-views.md) 
 - [Esercitazione sulla creazione di visualizzazioni su richiesta SQL su Azure Cosmos DB e sulla connessione a modelli di Power BI tramite DirectQuery](./tutorial-data-analyst.md)

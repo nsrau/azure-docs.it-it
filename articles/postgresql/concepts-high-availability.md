@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707932"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485444"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Disponibilità elevata in database di Azure per PostgreSQL-server singolo
 Il servizio database di Azure per PostgreSQL-server singolo offre un livello di disponibilità elevato garantito con il contratto di servizio con supporto finanziario del [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) di tempo di indisponibilità. Database di Azure per PostgreSQL offre disponibilità elevata durante gli eventi pianificati, ad esempio l'operazione di calcolo con scalabilità dell'utente avviate da, e anche quando si verificano eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti. Il database di Azure per PostgreSQL è in grado di eseguire rapidamente il ripristino dalla maggior parte delle circostanze critiche, garantendo al tempo stesso il tempo di inattività dell'applicazione
@@ -40,8 +40,8 @@ Di seguito sono riportati alcuni scenari di manutenzione pianificata:
 | ------------ | ----------- |
 | <b>Scalabilità verticale/orizzontale di calcolo | Quando l'utente esegue un'operazione di aumento/riduzione del livello di calcolo, viene eseguito il provisioning di un nuovo server di database usando la configurazione di calcolo ridimensionata. Nel server di database precedente, i checkpoint attivi possono essere completati, le connessioni client vengono svuotate, tutte le transazioni di cui non è stato eseguito il commit vengono annullate e quindi arrestate. Lo spazio di archiviazione viene quindi scollegato dal server di database precedente e collegato al nuovo server di database. Quando l'applicazione client ritenta la connessione o tenta di creare una nuova connessione, il gateway indirizza la richiesta di connessione al nuovo server di database.|
 | <b>Ridimensionamento dell'archiviazione | La scalabilità verticale dell'archiviazione è un'operazione online che non interrompe il server di database.|
-| <b>Nuova distribuzione software (Azure) | Le nuove funzionalità di implementazione o correzioni di bug avvengono automaticamente nell'ambito della manutenzione pianificata del servizio. Per ulteriori informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
-| <b>Aggiornamenti della versione secondaria | Database di Azure per PostgreSQL applica automaticamente patch ai server di database alla versione secondaria determinata da Azure. Questa operazione viene eseguita come parte della manutenzione pianificata del servizio. Questo potrebbe comportare un breve periodo di inattività in termini di secondi e il server di database viene riavviato automaticamente con la nuova versione secondaria. Per ulteriori informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
+| <b>Nuova distribuzione software (Azure) | Le nuove funzionalità di implementazione o correzioni di bug avvengono automaticamente nell'ambito della manutenzione pianificata del servizio. Per ulteriori informazioni, vedere la [documentazione](./concepts-monitoring.md#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
+| <b>Aggiornamenti della versione secondaria | Database di Azure per PostgreSQL applica automaticamente patch ai server di database alla versione secondaria determinata da Azure. Questa operazione viene eseguita come parte della manutenzione pianificata del servizio. Questo potrebbe comportare un breve periodo di inattività in termini di secondi e il server di database viene riavviato automaticamente con la nuova versione secondaria. Per ulteriori informazioni, vedere la [documentazione](./concepts-monitoring.md#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Mitigazione del tempo di inattività non pianificato
@@ -68,12 +68,12 @@ Di seguito sono riportati alcuni scenari di errore che richiedono l'intervento d
 
 | **Scenario** | **Piano di ripristino** |
 | ---------- | ---------- |
-| <b> Errore area | L'errore di un'area è un evento raro. Tuttavia, se è necessaria la protezione da un errore dell'area, è possibile configurare una o più repliche di lettura in altre aree per il ripristino di emergenza. Per informazioni dettagliate, vedere [questo articolo](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) sulla creazione e la gestione di repliche di lettura. In caso di errore a livello di area, è possibile alzare di livello manualmente la replica di lettura configurata nell'altra area come server di database di produzione. |
-| <b> Errori logici/utente | Il ripristino da errori dell'utente, ad esempio le tabelle eliminate accidentalmente o i dati aggiornati in modo errato, comporta l'esecuzione di un [ripristino temporizzato](https://docs.microsoft.com/azure/postgresql/concepts-backup) (ripristino temporizzato), mediante il ripristino e il recupero dei dati fino al momento precedente all'errore.<br> <br>  Se si desidera ripristinare solo un subset di database o tabelle specifiche anziché tutti i database nel server di database, è possibile ripristinare il server di database in una nuova istanza, esportare le tabelle tramite [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), quindi utilizzare [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) per ripristinare le tabelle nel database. |
+| <b> Errore area | L'errore di un'area è un evento raro. Tuttavia, se è necessaria la protezione da un errore dell'area, è possibile configurare una o più repliche di lettura in altre aree per il ripristino di emergenza. Per informazioni dettagliate, vedere [questo articolo](./howto-read-replicas-portal.md) sulla creazione e la gestione di repliche di lettura. In caso di errore a livello di area, è possibile alzare di livello manualmente la replica di lettura configurata nell'altra area come server di database di produzione. |
+| <b> Errori logici/utente | Il ripristino da errori dell'utente, ad esempio le tabelle eliminate accidentalmente o i dati aggiornati in modo errato, comporta l'esecuzione di un [ripristino temporizzato](./concepts-backup.md) (ripristino temporizzato), mediante il ripristino e il recupero dei dati fino al momento precedente all'errore.<br> <br>  Se si desidera ripristinare solo un subset di database o tabelle specifiche anziché tutti i database nel server di database, è possibile ripristinare il server di database in una nuova istanza, esportare le tabelle tramite [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), quindi utilizzare [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) per ripristinare le tabelle nel database. |
 
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Database di Azure per PostgreSQL offre funzionalità di riavvio rapido dei server di database, archiviazione ridondante e routing efficiente dal gateway. Per la protezione dei dati aggiuntiva, è possibile configurare i backup con replica geografica e distribuire anche una o più repliche di lettura in altre aree. Con le funzionalità intrinseche di disponibilità elevata, database di Azure per PostgreSQL protegge i database dalla maggior parte delle interruzioni più comuni e offre un [contratto di tempo di](https://azure.microsoft.com/support/legal/sla/postgresql)attività leader del settore con supporto finanziario pari al 99,99%. Tutte queste funzionalità di disponibilità e affidabilità consentono ad Azure di essere la piattaforma ideale per l'esecuzione di applicazioni cruciali.
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282050"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475074"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Mentre si stima il numero di ur utilizzate dal carico di lavoro, considerare i f
 
   La stessa query sugli stessi dati costerà sempre lo stesso numero di ur sulle esecuzioni ripetute.
 
-- **Utilizzo di script**: come per le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni eseguite. Durante lo sviluppo dell'applicazione, controllare l'[intestazione per l'addebito delle richieste](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) per comprendere meglio quanta capacità in termini di UR viene utilizzata da ogni operazione.
+- **Utilizzo di script**: come per le query, le stored procedure e i trigger utilizzano le UR in base alla complessità delle operazioni eseguite. Durante lo sviluppo dell'applicazione, controllare l'[intestazione per l'addebito delle richieste](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) per comprendere meglio quanta capacità in termini di UR viene utilizzata da ogni operazione.
 
 ## <a name="request-units-and-multiple-regions"></a>Unità richiesta e più aree
 
@@ -76,12 +76,12 @@ La scelta del [modello di coerenza](consistency-levels.md) influisca anche sulla
 
 - Altre informazioni su come [effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos](set-throughput.md).
 - Scopri di più [su Azure Cosmos DB senza server](serverless.md).
-- [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
-- [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+- [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](./partitioning-overview.md)
+- [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning]()
 - [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 - [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
 - Informazioni su come [trovare l'addebito delle unità richiesta per un'operazione](find-request-unit-charge.md).
 - Informazioni su come [ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md).
 - Informazioni su come [ottimizzare i costi di lettura e scrittura in Azure Cosmos DB](optimize-cost-reads-writes.md).
-- Informazioni su come [ottimizzare i costi delle query in Azure Cosmos DB](optimize-cost-queries.md).
+- Informazioni su come [ottimizzare i costi delle query in Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Informazioni su come [usare le metriche per monitorare la velocità effettiva](use-metrics.md).

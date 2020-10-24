@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628195"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496065"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedura: distribuire un'applicazione Web per il conteggio di persone
 
@@ -63,14 +63,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Distribuire il contenitore in Azure IoT Edge nel computer host
 
-Distribuire il contenitore di analisi spaziale come modulo di Internet delle cose nel computer host usando l'interfaccia della riga di comando di Azure. Il processo di distribuzione richiede un file manifesto di distribuzione che descrive i contenitori, le variabili e le configurazioni necessari per la distribuzione. È possibile trovare un [manifesto di distribuzione](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) di esempio in GitHub, che include una configurazione di distribuzione di base per il contenitore di *analisi spaziale* . 
+Distribuire il contenitore di analisi spaziale come modulo di Internet delle cose nel computer host usando l'interfaccia della riga di comando di Azure. Il processo di distribuzione richiede un file manifesto di distribuzione che descrive i contenitori, le variabili e le configurazioni necessari per la distribuzione. In GitHub è disponibile un esempio di un [manifesto di distribuzione specifico di Azure stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , oltre a un [manifesto di distribuzione specifico di un bordo non Azure stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) , che include una configurazione di distribuzione di base per il contenitore di *analisi spaziale* . 
 
 > [!NOTE] 
-> I contenitori *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* sono facoltativi. È possibile decidere di rimuoverli dalla *DeploymentManifest.jssu* file. Per altre informazioni, vedere l'articolo [telemetria e risoluzione dei problemi](./spatial-analysis-logging.md) . È possibile trovare un *DeploymentManifest.jsdi esempio su* file [in GitHub](https://go.microsoft.com/fwlink/?linkid=2142179) 
+> I contenitori *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* sono facoltativi. È possibile decidere di rimuoverli dalla *DeploymentManifest.jssu* file. Per altre informazioni, vedere l'articolo [telemetria e risoluzione dei problemi](./spatial-analysis-logging.md) . È possibile trovare dueDeploymentManifest.jsdi esempio * sui* file in GitHub, per un [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
-La maggior parte delle **variabili di ambiente** per il modulo IOT Edge sono già impostate nell' *DeploymentManifest.js* di esempio nel file collegato sopra. Nel file cercare le `BILLING_ENDPOINT` variabili di ambiente e `API_KEY` , mostrate di seguito. Sostituire i valori con l'URI dell'endpoint e la chiave API creata in precedenza. Verificare che il valore EULA sia impostato su "Accetto". 
+La maggior parte delle **variabili di ambiente** per il modulo IOT Edge sono già impostate nell' *DeploymentManifest.js* di esempio sui file collegati in precedenza. Nel file cercare le `BILLING_ENDPOINT` variabili di ambiente e `API_KEY` , mostrate di seguito. Sostituire i valori con l'URI dell'endpoint e la chiave API creata in precedenza. Verificare che il valore EULA sia impostato su "Accetto". 
 
 ```json
 "EULA": { 
@@ -89,7 +89,7 @@ La maggior parte delle **variabili di ambiente** per il modulo IOT Edge sono gi�
 
 Ora che la configurazione iniziale del contenitore di *analisi spaziale* è stata completata, il passaggio successivo consiste nel configurare i parametri delle operazioni e aggiungerli alla distribuzione. 
 
-Il primo passaggio consiste nell'aggiornare il [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) di esempio e configurare OperationId per `cognitiveservices.vision.spatialanalysis-personcount` come illustrato di seguito:
+Il primo passaggio consiste nell'aggiornare il manifesto di distribuzione di esempio collegato in precedenza e configurare operationId per `cognitiveservices.vision.spatialanalysis-personcount` come illustrato di seguito:
 
 
 ```json
@@ -107,7 +107,7 @@ Il primo passaggio consiste nell'aggiornare il [manifesto di distribuzione](http
 },
 ```
 
-Al termine dell'aggiornamento del [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) , seguire le istruzioni del produttore della fotocamera per installare la fotocamera, configurare l'URL della fotocamera e configurare il nome utente e la password. 
+Al termine dell'aggiornamento del manifesto di distribuzione, seguire le istruzioni del produttore della fotocamera per installare la fotocamera, configurare l'URL della fotocamera e configurare il nome utente e la password. 
 
 Impostare quindi sull' `VIDEO_URL` URL RTSP della fotocamera e le credenziali per la connessione alla fotocamera.
 
@@ -122,7 +122,7 @@ Si tratta di un frame video di esempio che Mostra come vengono calcolate le coor
 
 ### <a name="execute-the-deployment"></a>Eseguire la distribuzione
 
-Ora che il [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) è completo, usare questo comando nell'interfaccia della riga di comando di Azure per distribuire il contenitore nel computer host come modulo IOT Edge.
+Ora che il manifesto di distribuzione è completo, usare questo comando nell'interfaccia della riga di comando di Azure per distribuire il contenitore nel computer host come modulo IoT Edge.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Individuare lo *stato di runtime* nelle impostazioni del modulo IOT Edge per il 
 
 ![Esempio di verifica della distribuzione](./media/spatial-analysis/deployment-verification.png)
 
-A questo punto, il contenitore di analisi spaziale esegue l'operazione. Emette informazioni dettagliate di intelligenza artificiale per l' `cognitiveservices.vision.spatialanalysis-personcount` operazione e instrada tali informazioni come dati di telemetria all'istanza dell'hub Azure. Per configurare altre fotocamere, è possibile aggiornare il file [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) ed eseguire di nuovo la distribuzione.
+A questo punto, il contenitore di analisi spaziale esegue l'operazione. Emette informazioni dettagliate di intelligenza artificiale per l' `cognitiveservices.vision.spatialanalysis-personcount` operazione e instrada tali informazioni come dati di telemetria all'istanza dell'hub Azure. Per configurare altre fotocamere, è possibile aggiornare il file manifesto di distribuzione ed eseguire di nuovo la distribuzione.
 
 ## <a name="person-counting-web-application"></a>Applicazione Web di conteggio persone
 
@@ -156,7 +156,7 @@ Questa utente che conta l'applicazione Web consente di configurare rapidamente u
 Un modulo contenitore di questa app disponibile nel Container Registry di Azure. Usare il comando docker pull seguente per scaricarlo. Contattare Microsoft all'indirizzo projectarchon@microsoft.com per il token di accesso.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

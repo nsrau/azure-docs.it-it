@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476094"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie di caricamento dei dati per il pool Synapse SQL
 
-I pool SQL SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL, Extract, Transform, Load) per il caricamento dei dati. Il pool Synapse SQL, all'interno di Azure Synapse Analytics, ha un'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e archiviazione.
+I pool SQL SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL, Extract, Transform, Load) per il caricamento dei dati. Sinapsi SQL, all'interno di Azure sinapsi Analytics, usa l'architettura di elaborazione delle query distribuite che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione.
 
-L'uso di un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) si basa sull'elaborazione MPP ed elimina le risorse necessarie per la trasformazione dei dati prima del caricamento.
+L'uso di un processo di estrazione, caricamento e trasformazione (ELT) sfrutta le funzionalità di elaborazione delle query distribuite predefinite ed Elimina le risorse necessarie per la trasformazione dei dati prima del caricamento.
 
 Sebbene il pool SQL supporti molti metodi di caricamento, tra cui le opzioni di SQL Server più diffuse, ad esempio [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e l' [API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), il modo più rapido e scalabile per caricare i dati è tramite le tabelle esterne di base e l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

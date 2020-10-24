@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372379"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494521"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -193,7 +193,7 @@ Anche se il servizio Azure Kubernetes include meccanismi di resilienza per tolle
 
 ## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
 
-No, AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare componenti personalizzati e così via, sfruttare le API e i meccanismi di Kubernetes. Ad esempio, usare DaemonSet per installare i componenti necessari.
+L'agente di Log Analytics è supportato perché è un'estensione gestita da Microsoft. In caso contrario, AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati e così via, usare i meccanismi e le API Kubernetes. Ad esempio, usare gli elementi daemonset per installare i componenti richiesti.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS archivia i dati dei clienti al di fuori dell'area del cluster?
 

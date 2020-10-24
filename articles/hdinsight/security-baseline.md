@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484611"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -146,9 +146,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 Come visualizzare gli alias dei criteri di Azure disponibili:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Come configurare e gestire i criteri di Azure:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Come configurare e gestire i criteri di Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ Inoltre, è possibile usare le raccomandazioni sulla gestione delle identità e 
 
 Come ottenere un ruolo della directory in Azure AD con PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Come monitorare l'identità e l'accesso con il Centro sicurezza di Azure:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Come visualizzare le sottoscrizioni di Azure:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Informazioni su RBAC di Azure:
 
@@ -942,7 +940,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 Come visualizzare gli alias dei criteri di Azure disponibili:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Come configurare e gestire i criteri di Azure:
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Come archiviare il codice in Azure DevOps: 
+[Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Documentazione Azure Repos:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. HDInsight" per creare criteri personalizzati per controllare o applicare la configurazione del cluster HDInsight.
 
-Come visualizzare gli alias dei criteri di Azure disponibili:
+[Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Come configurare e gestire i criteri di Azure:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Come eseguire il backup di chiavi di Key Vault in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Come ripristinare le chiavi di Key Vault in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1234,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Indicazioni**: con cadenza regolare, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi. Identificare i punti deboli e i gap e rivedere il piano in base alle esigenze. Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formazione e esercizio per i piani IT e le funzionalità:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Linee guida**: eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare. Identificare i punti deboli e i gap e rivedere il piano in base alle esigenze. Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formazione e esercizio per i piani IT e le funzionalità:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

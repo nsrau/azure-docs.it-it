@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 420efd653ef6218b5a1d5a8c70ca268b7185fc30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103544"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484985"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -85,18 +85,11 @@ In questa sezione è possibile configurare l'accesso a Data Lake Storage Gen1 da
 Dal portale di Azure è possibile usare un'entità servizio esistente o crearne una nuova.
 
 Per creare un'entità servizio dal portale di Azure:
-
-1. Selezionare **accesso data Lake Store** dal pannello archiviazione.
-1. Nel pannello **accesso data Lake storage Gen1** selezionare **Crea nuovo**.
-1. Selezionare **entità servizio**, quindi seguire le istruzioni per creare un'entità servizio.
-1. Scaricare il certificato se si decide di usarlo ancora in futuro. Il download del certificato è un'operazione utile se in futuro si vorrà usare la stessa entità servizio per creare altri cluster HDInsight.
-
-    ![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png)
-
-1. Selezionare **accesso** per configurare l'accesso alla cartella.  Vedere [Configurare le autorizzazioni file](#configure-file-permissions).
+1. Vedere [creare un'entità servizio e certificati](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
 
 Per usare un'entità servizio esistente dal portale di Azure:
 
+1. L'entità servizio deve avere le autorizzazioni di proprietario per l'account di archiviazione. Vedere [impostare le autorizzazioni per l'entità servizio come proprietario dell'account di archiviazione](#configure-serviceprincipal-permissions).
 1. Selezionare **Data Lake Store accesso**.
 1. Nel pannello **accesso data Lake storage Gen1** selezionare **Usa esistente**.
 1. Selezionare **entità servizio**, quindi selezionare un'entità servizio.
@@ -105,6 +98,10 @@ Per usare un'entità servizio esistente dal portale di Azure:
 [Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Selezionare **accesso** per configurare l'accesso alla cartella.  Vedere [Configurare le autorizzazioni file](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurare le autorizzazioni per l'entità servizio come proprietario nell'account di archiviazione
+1. Nel pannello controllo di accesso (IAM) dell'account di archiviazione fare clic su Aggiungi un'assegnazione di ruolo. 
+2. Nel pannello Aggiungi assegnazione ruolo selezionare ruolo come ' proprietario ', quindi selezionare il nome SPN e fare clic su Salva.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurare le autorizzazioni file
 

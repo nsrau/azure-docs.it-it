@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057706"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494921"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usare Machine Learning automatiche in una pipeline Azure Machine Learning in Python
 
@@ -73,7 +73,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-Il Code First accede all'area di lavoro Azure Machine Learning definita in **config.json** . per una spiegazione, vedere [esercitazione: Introduzione alla creazione del primo esperimento ml con Python SDK](tutorial-1st-experiment-sdk-setup.md). Se non è già presente un set di dati denominato `'titanic_ds'` registered, ne crea uno. Il codice Scarica i dati CSV dal Web, li usa per creare un'istanza di `TabularDataset` e quindi registra il set di dati con l'area di lavoro. Infine, la funzione `Dataset.get_by_name()` assegna `Dataset` a `titanic_ds` . 
+Il Code First accede all'area di lavoro Azure Machine Learning definita in **config.json** . per una spiegazione, vedere [creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace). Se non è già presente un set di dati denominato `'titanic_ds'` registered, ne crea uno. Il codice Scarica i dati CSV dal Web, li usa per creare un'istanza di `TabularDataset` e quindi registra il set di dati con l'area di lavoro. Infine, la funzione `Dataset.get_by_name()` assegna `Dataset` a `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Configurare la destinazione di calcolo e archiviazione
 

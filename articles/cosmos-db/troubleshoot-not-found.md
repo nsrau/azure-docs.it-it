@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802397"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496095"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB eccezioni non trovate
 Il codice di stato HTTP 404 indica che la risorsa non esiste più.
@@ -28,7 +28,7 @@ Sono presenti più istanze del client SDK e la lettura è stata eseguita prima d
 
 #### <a name="solution"></a>Soluzione:
 1. La coerenza di account predefinita per Azure Cosmos DB è la coerenza di sessione. Quando viene creato o aggiornato un elemento, la risposta restituisce un token di sessione che può essere passato tra le istanze SDK per garantire che la richiesta di lettura legga da una replica con tale modifica.
-1. Modificare il [livello di coerenza](consistency-levels-choosing.md) a un [livello più](consistency-levels-tradeoffs.md)avanzato.
+1. Modificare il [livello di coerenza](./consistency-levels.md) a un [livello più](./consistency-levels.md)avanzato.
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinazione di chiave di partizione e ID non valida
 La combinazione di chiave di partizione e ID non è valida.
@@ -37,7 +37,7 @@ La combinazione di chiave di partizione e ID non è valida.
 Correzione della logica dell'applicazione che causa la combinazione non corretta. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Carattere non valido in un ID elemento
-Un elemento viene inserito in Azure Cosmos DB con un [carattere non valido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) nell'ID elemento.
+Un elemento viene inserito in Azure Cosmos DB con un [carattere non valido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) nell'ID elemento.
 
 #### <a name="solution"></a>Soluzione:
 Modificare l'ID impostando un valore diverso che non contiene i caratteri speciali. Se la modifica dell'ID non è un'opzione, è possibile codificare l'ID in base 64 per eseguire l'escape dei caratteri speciali.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Tempo di ripulitura in tempo reale
-Per l'elemento è stata impostata la proprietà [TTL (time to Live)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) . L'elemento è stato eliminato perché la proprietà TTL è scaduta.
+Per l'elemento è stata impostata la proprietà [TTL (time to Live)](./time-to-live.md) . L'elemento è stato eliminato perché la proprietà TTL è scaduta.
 
 #### <a name="solution"></a>Soluzione:
 Modificare la proprietà TTL per impedire che l'elemento venga eliminato.
@@ -94,11 +94,11 @@ Attendere che l'indicizzazione aggiorni o modifichi i criteri di indicizzazione.
 Il database o il contenitore in cui è presente l'elemento è stato eliminato.
 
 #### <a name="solution"></a>Soluzione:
-1. [Ripristinare](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) la risorsa padre oppure ricreare le risorse.
+1. [Ripristinare](./online-backup-and-restore.md#request-data-restore-from-a-backup) la risorsa padre oppure ricreare le risorse.
 1. Creare una nuova risorsa per sostituire la risorsa eliminata.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. i nomi di contenitore/raccolta fanno distinzione tra maiuscole e minuscole
-I nomi di contenitore/raccolta sono case-sesnsitive in Cosmos DB.
+I nomi di contenitore/raccolta fanno distinzione tra maiuscole e minuscole in Cosmos DB.
 
 #### <a name="solution"></a>Soluzione:
 Assicurarsi di usare il nome esatto durante la connessione al Cosmos DB.

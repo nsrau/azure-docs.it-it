@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369982"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475227"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 
@@ -85,13 +85,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 * **Abilitare la rete accelerata nella macchina virtuale di Azure per una latenza più bassa**
 
-Per ottimizzare le prestazioni, è consigliabile seguire le istruzioni per abilitare la rete accelerata nella macchina virtuale di Azure con [Windows (fare clic per istruzioni)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) o [Linux (fare clic per istruzioni)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+Per ottimizzare le prestazioni, è consigliabile seguire le istruzioni per abilitare la rete accelerata nella macchina virtuale di Azure con [Windows (fare clic per istruzioni)](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux (fare clic per istruzioni)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 Senza rete accelerata, le operazioni di IO che transitano tra la macchina virtuale di Azure e le altre risorse di Azure potrebbero essere instradate inutilmente attraverso un host e un commutatore virtuale posizionato tra la macchina virtuale e la relativa scheda di rete. La presenza dell'host e del commutatore virtuale inline nel percorso dei dati non solo aumenta la latenza e l'instabilità nel canale di comunicazione, ma sottrae anche cicli della CPU alla macchina virtuale. Grazie alla rete accelerata, la macchina virtuale si interfaccia direttamente con la scheda di interfaccia di rete senza intermediari. Tutti i dettagli dei criteri di rete gestiti dall'host e dal commutatore virtuale vengono ora gestiti nell'hardware della scheda di interfaccia di rete. L'host e il commutatore virtuale vengono ignorati. Quando si abilita la rete accelerata, è in genere possibile prevedere una latenza più bassa e una velocità effettiva più elevata, oltre a una maggiore latenza *coerente* e a un minore utilizzo della CPU.
 
 Limitazioni: la rete accelerata deve essere supportata nel sistema operativo della macchina virtuale e può essere abilitata solo quando la macchina virtuale viene arrestata e deallocata. La macchina virtuale non può essere distribuita con Azure Resource Manager.
 
-Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) e [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) e [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## <a name="sdk-usage"></a>Uso dell'SDK
 * **Installare l'SDK più recente**
@@ -311,7 +311,7 @@ _ **Scalabilità orizzontale del carico di lavoro del client**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
+    Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](index-policy.md).
 
 ## <a name="throughput"></a>Velocità effettiva
 <a id="measure-rus"></a>

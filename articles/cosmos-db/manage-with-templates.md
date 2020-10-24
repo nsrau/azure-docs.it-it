@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 02e9fbbe98458e4f9ba39e971b2c5fe50fd8fa4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 380cd174e1e71ed4bd63e168503ced7888b5b34f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284196"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482384"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gestire le risorse dell'API Core (SQL) di Azure Cosmos DB con modelli di Azure Resource Manager
 
@@ -82,7 +82,7 @@ Questo modello consente di creare un account e un database Azure Cosmos per il l
 
 Altre risorse:
 
-* [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
+* [Documentazione di Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
 * [Modelli di avvio rapido di Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Risolvere errori comuni durante la distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)

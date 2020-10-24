@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483729"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474666"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Progettare una strategia di caricamento dei dati di base per il pool SQL di sinapsi di Azure
 
-I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Il pool SQL di Azure è un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. L'uso di un processo di estrazione, caricamento e trasformazione (ELT) può trarre vantaggio da MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento.
+I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Il pool SQL di Azure è un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. L'uso di un processo di estrazione, caricamento e trasformazione (ELT) può sfruttare le funzionalità di elaborazione delle query distribuite predefinite ed eliminare le risorse necessarie per trasformare i dati prima del caricamento.
 
 Sebbene il pool SQL supporti molti metodi di caricamento, tra cui opzioni non di base quali BCP e l'API BulkCopy SQL, il modo più rapido e scalabile per caricare la data è tramite la polibase.  una tecnologia che accede ai dati archiviati esterni in Archiviazione BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL.
 
@@ -112,7 +112,7 @@ Per formattare i file di testo:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. caricare i dati nelle tabelle di staging del pool SQL utilizzando la polibase
 
-È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre inoltre la possibilità di usare MPP del pool SQL per le trasformazioni dei dati prima di inserire i dati nelle tabelle di produzione.
+È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre inoltre la possibilità di usare le funzionalità di elaborazione delle query distribuite predefinite del pool SQL per le trasformazioni dei dati prima di inserire i dati nelle tabelle di produzione.
 
 ### <a name="options-for-loading-with-polybase"></a>Opzioni per il caricamento con PolyBase
 
