@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 173ca296689bbdb8d574930ec2549e82839c47e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e71566ea7cd2e8953c84d58128e3380a782ba40
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428457"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516716"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Esercitazione: configurare l'autenticazione utente Netskope per il provisioning utenti automatico
 
@@ -97,7 +97,7 @@ Prima di configurare l'autenticazione utente di Netskope per il provisioning ute
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Netskope autenticazione utente in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'autenticazione utente Netskope seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di autenticazione utente di Netskope](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'autenticazione utente Netskope seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di autenticazione utente di Netskope](./netskope-cloud-security-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM dell'autenticazione utente di Netskope, vedere [questo](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon)articolo.
@@ -172,4 +172,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

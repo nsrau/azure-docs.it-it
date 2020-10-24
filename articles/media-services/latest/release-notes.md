@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426812"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514487"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -37,6 +37,15 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 > È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare [Asset](assets-concept.md) e processi V3, ottenere informazioni sull'accesso alle API, crittografare il contenuto. Per tutte le altre attività di gestione (ad esempio, gestione di trasformazioni e processi), usare l' [API REST](/rest/api/media/accountfilters), l' [interfaccia](/cli/azure/ams)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 >
 > Per informazioni dettagliate, vedere: [limitazioni portale di Azure per servizi multimediali V3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+## <a name="october-2020"></a>Ottobre 2020
+
+### <a name="basic-audio-analysis"></a>Analisi audio di base
+Il set di impostazioni di analisi audio include ora un piano tariffario in modalità di base. La nuova modalità di analisi audio di base offre un'opzione a basso costo per estrarre la trascrizione vocale e formattare didascalie e sottotitoli di output. Questa modalità esegue la trascrizione di sintesi vocale e la generazione di un file sottotitolo/didascalia VTT. L'output di questa modalità include un file JSON di Insights che include solo le parole chiave, la trascrizione e le informazioni di temporizzazione. Il rilevamento automatico della lingua e la loro relatore non sono inclusi in questa modalità. Vedere l'elenco delle [lingue supportate.](analyzing-video-audio-files-concept.md#built-in-presets)
+
+I clienti che usano Indexer V1 e Indexer V2 devono eseguire la migrazione al set di impostazioni di base di analisi audio.
+
+Per ulteriori informazioni sulla modalità di base dell'analizzatore audio, vedere [analisi dei file audio e video](analyzing-video-audio-files-concept.md).  Per informazioni sull'uso della modalità di base dell'analizzatore audio con l'API REST, vedere [come creare una trasformazione audio di base](how-to-create-basic-audio-transform.md).
 
 ## <a name="august-2020"></a>Agosto 2020
 

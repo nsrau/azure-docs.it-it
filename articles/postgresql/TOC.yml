@@ -104,7 +104,7 @@
         - name: Interfaccia della riga di comando di Azure
           href: sample-scripts-azure-cli.md
         - name: Criteri di Azure predefiniti
-          href: policy-samples.md
+          href: ./policy-reference.md
     - name: Concetti
       items:
         - name: Server
@@ -542,7 +542,7 @@
           displayName: 'samples, azure cli'
         - name: Criteri di Azure predefiniti
           displayName: 'samples, policies, definitions'
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: Concetti
       items:
         - name: Dati distribuiti
@@ -640,7 +640,7 @@
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
+      href: /answers/topics/azure-database-postgresql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Video

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: faf66b9a261fd4e8f63779b3d254de4c44d1d731
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428410"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92513903"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Netsuite per il provisioning utenti automatico
 
@@ -36,7 +36,7 @@ Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate,
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Netsuite. Dopo averlo stabilito, è possibile assegnare gli utenti all'app Netsuite seguendo le istruzioni riportate in:
 
-[Assegnare un utente o gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Suggerimenti importanti per l'assegnazione di utenti a Netsuite OneWorld
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743060"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504130"
 ---
 # <a name="face-detection-and-attributes"></a>Rilevamento viso e attributi
 
@@ -35,7 +35,7 @@ I punti di interesse della faccia sono un set di punti di facile individuazione 
 
 Le coordinate dei punti vengono restituite in unità di pixel.
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 Gli attributi sono un set di funzionalità che possono essere rilevate facoltativamente dall'API di [rilevamento facciale](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . È possibile rilevare gli attributi seguenti:
 
@@ -47,7 +47,7 @@ Gli attributi sono un set di funzionalità che possono essere rilevate facoltati
 * **Sesso**. Il sesso stimato del viso specificato. I valori possibili sono Malé, Female e Gender.
 * **Occhiali**. Indica se il viso specificato ha occhiali. I valori possibili sono noglasses, ReadingGlasses, Sunglasses e occhiali da nuoto.
 * **Capelli**. Tipo di capelli della faccia. Questo attributo indica se il pelo è visibile, se viene rilevata la calvizie e quali colori dei capelli vengono rilevati.
-* **Responsabile**. Orientamento della faccia nello spazio 3D. Questo attributo è descritto dagli angoli pitch, roll e imbardata in gradi. Gli intervalli di valori sono da-90 gradi a 90 gradi, da-180 gradi a 180 gradi e da-90 gradi rispettivamente a 90 °. Vedere il diagramma seguente per i mapping degli angoli:
+* **Responsabile**. Orientamento della faccia nello spazio 3D. Questo attributo è descritto dagli angoli pitch, roll e imbardata in gradi. Gli intervalli di valori sono da-90 gradi a 90 gradi, da-90 gradi a 90 gradi e da-90 gradi rispettivamente a 90 °. Vedere il diagramma seguente per i mapping degli angoli:
 
     ![Una testa con gli assi pitch, roll e imbardata con etichetta](../Images/headpose.1.jpg)
 * **Trucco**. Indica se il viso è truccato. Questo attributo restituisce un valore booleano per eyeMakeup e lipMakeup.
@@ -63,7 +63,7 @@ Gli attributi sono un set di funzionalità che possono essere rilevate facoltati
 Usare i suggerimenti seguenti per assicurarsi che le immagini di input forniscano i risultati di rilevamento più accurati:
 
 * I formati di immagine di input supportati sono JPEG, PNG, GIF per il primo frame e BMP.
-* Le dimensioni del file di immagine non devono essere superiori a 4 MB.
+* Le dimensioni del file di immagine non devono essere superiori a 6 MB.
 * L'intervallo di dimensioni del volto rilevabili va da 36 x 36 a 4096 x 4096 pixel. Non verranno rilevati visi esterni a questo intervallo.
 * Alcuni visi potrebbero non essere rilevati a causa di problemi tecnici. Gli angoli dei volti estremi (la forma Head) o l'occlusione della faccia (oggetti come occhiali da sole o mani che bloccano parte della faccia) possono influire sul rilevamento. I visi frontali e quasi frontali offrono i risultati migliori.
 

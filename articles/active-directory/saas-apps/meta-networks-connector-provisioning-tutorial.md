@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fe0d8e6ad2056a244ec0d811f1b2dcb67e7bd84
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849249"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516805"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Esercitazione: configurare il connettore meta Networks per il provisioning utenti automatico
 
@@ -115,7 +115,7 @@ Prima di configurare il connettore meta Networks per il provisioning utenti auto
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi nel connettore di meta Networks in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per il connettore meta Networks seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on per il connettore meta Networks](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per il connettore meta Networks seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on per il connettore meta Networks](./metanetworksconnector-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Per configurare il provisioning utenti automatico per il connettore meta Networks in Azure AD:
 
@@ -143,7 +143,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a connettore meta Networks**.
 
@@ -187,4 +187,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

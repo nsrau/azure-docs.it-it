@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543983"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515680"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
 
@@ -67,7 +67,7 @@ Il plug-in supporta le versioni seguenti di Jira e Confluence:
 
 * Jira Core e Software: da 6.0 a 7.12
 * Jira Service Desk: da 3.0.0 a 3.5.0
-* JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: da 5.0 a 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -185,7 +185,7 @@ Il plug-in supporta queste versioni:
 
 * Jira Core e Software: da 6.0 a 7.12
 * Jira Service Desk: da 3.0.0 a 3.5.0
-* JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: da 5.0 a 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1

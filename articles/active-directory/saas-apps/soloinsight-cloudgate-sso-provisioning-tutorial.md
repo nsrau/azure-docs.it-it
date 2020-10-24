@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: aa9ed0954cbfa2d83eeed1c70f40beedcf4f44cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab23183fa42b87dad68da1d7ef9b1a2f6145750
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285935"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514793"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Esercitazione: configurare Soloinsight-CloudGate SSO per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Prima di configurare Soloinsight-CloudGate SSO per il provisioning utenti automa
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Soloinsight-CloudGate SSO in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per Soloinsight-CloudGate SSO, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on SSO Soloinsight-CloudGate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per Soloinsight-CloudGate SSO, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on SSO Soloinsight-CloudGate](./soloinsight-cloudgate-sso-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Soloinsight-CloudGate SSO in Azure AD:
 
@@ -117,7 +117,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti per Soloinsight-CloudGate SSO**.
 
@@ -161,4 +161,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

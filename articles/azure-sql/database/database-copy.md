@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460955"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516206"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -108,7 +108,7 @@ Accedere al database master con l'account di accesso dell'amministratore del ser
 
 Questo comando copia Database1 in un nuovo database denominato Database2 in un pool elastico denominato pool1. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
 
-Database1 può essere un database singolo o in pool, ma pool1 deve essere lo stesso livello di servizio di Database1. 
+Database1 può essere un database singolo o in pool. La copia tra pool di livelli diversi è supportata, ma alcune copie tra livelli non riusciranno. Ad esempio, è possibile copiare un database standard singolo o elastico in un pool di utilizzo generico, ma non è possibile copiare un database elastico standard in un pool Premium. 
 
    ```sql
    -- execute on the master database to start copying

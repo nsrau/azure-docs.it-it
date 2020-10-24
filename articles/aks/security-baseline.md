@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201699"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504372"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Baseline della sicurezza di Azure per il servizio Azure Kubernetes
 
@@ -949,7 +949,7 @@ Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gl
 
 Implementare lo spazio dei nomi in Kubernetes per creare un limite di isolamento logico. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. servizio contenitore" per creare criteri personalizzati per controllare o applicare la configurazione delle istanze del servizio Kubernetes di Azure (AKS). 
 
-Esaminare e implementare le funzionalità e le considerazioni aggiuntive di Kubernetes per l'isolamento e la multi-tenant includono le aree seguenti: pianificazione, rete, autenticazione/autorizzazione e contenitori. Usare inoltre sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Separare i cluster AKS con le reti virtuali, le subnet contrassegnate in modo appropriato e protette con un Web Application Firewall (WAF).
+Esaminare e implementare le funzionalità e le considerazioni aggiuntive di Kubernetes per l'isolamento e la multi-tenant per includere le informazioni seguenti: pianificazione, rete, autenticazione/autorizzazione e contenitori. Usare inoltre sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Separare i cluster AKS con le reti virtuali, le subnet contrassegnate in modo appropriato e protette con un Web Application Firewall (WAF).
 
 - [Informazioni sulle procedure consigliate per l'isolamento del cluster in AKS](operator-best-practices-cluster-isolation.md)
 

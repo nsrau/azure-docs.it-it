@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426106"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503216"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -36,7 +36,7 @@ Vedere gli altri articoli di questa serie:
 
 
 > [!IMPORTANT]
-> Sebbene la maggior parte dello studio funzioni con i dati archiviati in una rete virtuale, i notebook integrati __non lo__supportano. I notebook integrati non supportano l'uso di archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo]() .
+> Se l'area di lavoro si trova in un __cloud sovrano__, ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -74,7 +74,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Database SQL di Azure
+* database SQL di Azure
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita
 
@@ -127,7 +127,7 @@ La finestra di progettazione USA l'account di archiviazione collegato all'area d
 Per impostare una nuova risorsa di archiviazione predefinita per una pipeline:
 
 1. In una bozza di pipeline selezionare l' **icona dell'ingranaggio impostazioni** accanto al titolo della pipeline.
-1. Selezionare **Seleziona archivio dati predefinito**.
+1. Selezionare l' **archivio dati predefinito**.
 1. Consente di specificare un nuovo archivio dati.
 
 È anche possibile eseguire l'override dell'archivio dati predefinito in base al modulo. Questo consente di controllare il percorso di archiviazione per ogni singolo modulo.

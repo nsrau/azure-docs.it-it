@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629744"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514442"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Baseline della sicurezza di Azure per la rete virtuale
 
@@ -118,7 +118,7 @@ Usare i gruppi di sicurezza delle applicazioni per semplificare la configurazion
 
 Vedere i criteri predefiniti per il Centro sicurezza che contengono le raccomandazioni sulla sicurezza disponibili correlate alle reti virtuali.
 
-USA i progetti di Azure per semplificare le distribuzioni su larga scala di Azure creando pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, assegnazioni di controllo degli accessi in base al ruolo (RBAC di Azure) e criteri in un'unica definizione di progetto. È possibile applicare Azure Blueprint alle nuove sottoscrizioni per un controllo e una gestione ottimizzati tramite il controllo delle versioni. 
+USA i progetti di Azure per semplificare le distribuzioni su larga scala di Azure con la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, le assegnazioni di controllo degli accessi in base al ruolo di Azure (RBAC) e i criteri, in una singola definizione di progetto. È possibile applicare Azure Blueprint alle nuove sottoscrizioni per un controllo e una gestione ottimizzati tramite il controllo delle versioni. 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,13 +408,13 @@ Inoltre, la "crittografia per impostazione predefinita" con MACsec (uno standard
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-manage-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse 
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso ai dati e alle risorse. In caso contrario, usare i metodi di controllo di accesso specifici del servizio. 
 
 Scegliere ruoli predefiniti come proprietario, collaboratore o collaboratore rete e assegnare il ruolo all'ambito appropriato. Ad esempio, è possibile assegnare un subset di funzionalità della rete virtuale con le autorizzazioni specifiche necessarie per le reti virtuali a uno di questi ruoli. 
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Pianificare le reti virtuali](virtual-network-vnet-plan-design-arm.md#permissions)
 

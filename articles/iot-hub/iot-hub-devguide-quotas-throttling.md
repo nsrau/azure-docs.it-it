@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797803"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504075"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -59,7 +59,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Numero massimo di flussi di dispositivi connessi simultaneamente<sup>1</sup> | 50 | 50 | 50 |
 | Numero massimo di dati di flusso del dispositivo<sup>1</sup> (volume aggregato al giorno) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup> La dimensione del contatore delle limitazioni è 4 KB.
+<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup> La dimensione del contatore delle limitazioni è 4 KB. La limitazione si basa solo sulle dimensioni del payload della richiesta.
 
 ### <a name="throttling-details"></a>Dettagli limitazione
 

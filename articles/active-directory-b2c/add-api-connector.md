@@ -5,19 +5,22 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102273"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504112"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Aggiungere un connettore API a un flusso utente di iscrizione (anteprima)
+
+> [!IMPORTANT]
+> Connettori API per l'iscrizione è una funzionalità di anteprima pubblica di Azure AD B2C. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Per usare un [connettore API](api-connectors-overview.md), è necessario innanzitutto creare il connettore API e quindi abilitarlo in un flusso utente.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,7 +83,7 @@ Inoltre, l'attestazione delle **impostazioni locali dell'interfaccia utente (' u
 > Se un'attestazione non dispone di un valore nel momento in cui viene chiamato l'endpoint dell'API, l'attestazione non verrà inviata all'API. L'API deve essere progettata per controllare in modo esplicito e gestire il caso in cui un'attestazione non è presente nella richiesta.
 
 > [!TIP] 
-> le [**identità (' identità')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e l' **indirizzo di posta elettronica (' email ')** attestazioni possono essere usate dall'API per identificare un utente prima che dispongano di un account nel tenant. L'attestazione "identità" viene inviata quando un utente esegue l'autenticazione con un provider di identità, ad esempio Google o Facebook. ' email ' viene sempre inviato.
+> le [**identità (' identità')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e l' **indirizzo di posta elettronica (' email ')** attestazioni possono essere usate dall'API per identificare un utente prima che dispongano di un account nel tenant. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Abilitare il connettore API in un flusso utente
 
@@ -100,7 +103,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Dopo aver eseguito l'accesso con un provider di identità
 
-Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la ***pagina raccolta attributi***, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
+Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_*_, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Richiesta di esempio inviata all'API in questo passaggio
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -234,11 +237,11 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Tipo              | Obbligatorio | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come attestazione dell'applicazione _ * * *.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione non deve contenere `_<extensions-app-id>_` . I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Esempio di una risposta di blocco
@@ -255,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Tipo   | Obbligatoria | Descrizione                                                                |
+| Parametro   | Tipo   | Obbligatorio | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
 | action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
@@ -281,14 +284,15 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Tipo    | Obbligatoria | Descrizione                                                                |
+| Parametro   | Tipo    | Obbligatorio | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
 | action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
 | status      | Integer | Sì      | Deve essere `400` un valore per una risposta ValidationError.                        |
 | userMessage | string  | Sì      | Messaggio da visualizzare all'utente.                                            |
 
-*Nota:* Il codice di stato HTTP deve essere "400" oltre al valore "status" nel corpo della risposta.
+> [!NOTE]
+> Il codice di stato HTTP deve essere "400" oltre al valore "status" nel corpo della risposta.
 
 **Esperienza dell'utente finale con una risposta di errore di convalida**
 
@@ -318,4 +322,4 @@ In generale, è utile usare gli strumenti di registrazione abilitati dal servizi
 
 ## <a name="next-steps"></a>Passaggi successivi
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Per iniziare, vedere gli [esempi di avvio rapido di funzioni di Azure](code-samples.md#api-connectors).
+- Inizia a usare gli [esempi](code-samples.md#api-connectors).
