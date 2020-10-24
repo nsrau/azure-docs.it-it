@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277225"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475159"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 
@@ -42,7 +42,7 @@ Se quindi si sta provando a migliorare le prestazioni del database, prendere in 
 
 Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. Per impostazione predefinita, nei seguenti tipi di applicazioni viene utilizzata l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit, attenersi alla procedura seguente, in base al tipo di applicazione:
 
-- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
+- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
 
 - Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test**di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
@@ -56,7 +56,7 @@ Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64
     
 **Attivare Garbage Collection sul lato server (GC)**
 
-In alcuni casi, la riduzione della frequenza di Garbage Collection può risultare utile. In .NET impostare [gcserver](https://msdn.microsoft.com/library/ms229357.aspx) su `true` .
+In alcuni casi, la riduzione della frequenza di Garbage Collection può risultare utile. In .NET impostare [gcserver](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element) su `true` .
 
 **Scalabilità orizzontale del carico di lavoro del client**
 
@@ -90,8 +90,8 @@ Quando è in esecuzione sul protocollo TCP, il client ottimizza la latenza usand
 
 Negli scenari in cui si dispone dell'accesso di tipo sparse e si nota un numero di connessioni superiore rispetto all'accesso in modalità Gateway, è possibile:
 
-* Configurare la proprietà [ConnectionPolicy. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) su `PrivatePortPool` (effetto con la versione del Framework>= 4.6.1 e .net core versione >= 2,0): questa proprietà consente all'SDK di usare un piccolo pool di porte temporanee per endpoint di destinazione Azure Cosmos DB diversi.
-* Configurare la proprietà [ConnectionPolicy. idleconnectiontimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) deve essere maggiore o uguale a 10 minuti. I valori consigliati sono compresi tra 20 minuti e 24 ore.
+* Configurare la proprietà [ConnectionPolicy. PortReuseMode](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) su `PrivatePortPool` (effetto con la versione del Framework>= 4.6.1 e .net core versione >= 2,0): questa proprietà consente all'SDK di usare un piccolo pool di porte temporanee per endpoint di destinazione Azure Cosmos DB diversi.
+* Configurare la proprietà [ConnectionPolicy. idleconnectiontimeout](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) deve essere maggiore o uguale a 10 minuti. I valori consigliati sono compresi tra 20 minuti e 24 ore.
 
 **Chiamare OpenAsync per evitare la latenza di avvio alla prima richiesta**
 
@@ -109,7 +109,7 @@ Quando possibile, inserire tutte le applicazioni che chiamano Azure Cosmos DB ne
 **Aumentare il numero di thread/attività**
 <a id="increase-threads"></a>
 
-Poiché le chiamate a Azure Cosmos DB vengono effettuate sulla rete, potrebbe essere necessario variare il grado di parallelismo delle richieste in modo che l'applicazione client spenda tempo minimo di attesa tra le richieste. Se ad esempio si usa il [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx).NET, creare in base all'ordine di centinaia di attività che leggono o scrivono Azure Cosmos DB.
+Poiché le chiamate a Azure Cosmos DB vengono effettuate sulla rete, potrebbe essere necessario variare il grado di parallelismo delle richieste in modo che l'applicazione client spenda tempo minimo di attesa tra le richieste. Se ad esempio si usa il [Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl).NET, creare in base all'ordine di centinaia di attività che leggono o scrivono Azure Cosmos DB.
 
 **Abilita rete accelerata**
  
@@ -127,7 +127,7 @@ Ogni `DocumentClient` istanza è thread-safe ed esegue una gestione efficiente d
 
 **Aumentare System.Net MaxConnections per host quando si usa la modalità gateway**
 
-Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST. Sono soggette al limite di connessione predefinito per ogni nome host o indirizzo IP. Potrebbe essere necessario impostare `MaxConnections` su un valore più alto (da 100 a 1.000), in modo che la libreria client possa usare più connessioni simultanee per Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50. Per modificare il valore, è possibile impostare [Documents. client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore superiore.
+Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST. Sono soggette al limite di connessione predefinito per ogni nome host o indirizzo IP. Potrebbe essere necessario impostare `MaxConnections` su un valore più alto (da 100 a 1.000), in modo che la libreria client possa usare più connessioni simultanee per Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) è 50. Per modificare il valore, è possibile impostare [Documents. client. ConnectionPolicy. MaxConnectionLimit](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) su un valore superiore.
 
 **Ottimizzare le query parallele per le raccolte partizionate**
 
@@ -135,19 +135,19 @@ SQL .NET SDK 1.9.0 e versioni successive supportano le query parallele, che cons
 - `MaxDegreeOfParallelism` Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
 - `MaxBufferedItemCount` Controlla il numero di risultati prerecuperati.
 
-***Ottimizzazione del grado di parallelismo***
+**_Ottimizzazione del grado di parallelismo_*_
 
 La query parallela funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxDegreeOfParallelism` [SDK v2](sql-api-sdk-dotnet.md) sul numero di partizioni ha la possibilità migliore di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato. Il sistema sceglierà il numero minimo di partizioni, ovvero l'input fornito dall'utente, come grado di parallelismo.
 
 Le query parallele producono i maggiori vantaggi se i dati vengono distribuiti uniformemente tra tutte le partizioni rispetto alla query. Se la raccolta partizionata è partizionata in modo che tutti o la maggior parte dei dati restituiti da una query siano concentrati in poche partizioni (una partizione è il caso peggiore), tali partizioni faranno un collo di bottiglia delle prestazioni della query.
 
-***Ottimizzazione di MaxBufferedItemCount***
+_*_Ottimizzazione di MaxBufferedItemCount_*_
     
 La query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. Il recupero preliminare consente di migliorare la latenza complessiva di una query. Il `MaxBufferedItemCount` parametro limita il numero di risultati prerecuperati. Impostare sul `MaxBufferedItemCount` numero previsto di risultati restituiti (o un numero più elevato) per consentire alla query di ricevere il vantaggio massimo dal recupero preliminare.
 
 Il recupero preliminare funziona allo stesso modo, indipendentemente dal grado di parallelismo, ed esiste un solo buffer per i dati di tutte le partizioni.  
 
-**Implementare il backoff in corrispondenza di intervalli RetryAfter**
+_*Implementare backoff a intervalli di RetryAfter**
 
 Durante i test delle prestazioni, è necessario aumentare il carico fino a quando non viene limitata una piccola frequenza di richieste. Se le richieste sono limitate, l'applicazione client deve essere disattivata in caso di limitazione per l'intervallo tra tentativi specificato dal server. Il rispetto del backoff garantisce una quantità minima di tempo di attesa tra i tentativi. 
 
@@ -156,7 +156,7 @@ Il supporto dei criteri di ripetizione dei tentativi è incluso in questi SDK:
 - Versione 1.9.0 e successive di [Node.js SDK per SQL](sql-api-sdk-node.md) e [Python SDK per SQL](sql-api-sdk-python.md)
 - Tutte le versioni supportate degli SDK di [.NET Core](sql-api-sdk-dotnet-core.md) 
 
-Per ulteriori informazioni, vedere [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+Per ulteriori informazioni, vedere [RetryAfter](/dotnet/api/microsoft.azure.documents.documentclientexception.retryafter).
     
 Nella versione 1,19 e successive di .NET SDK è disponibile un meccanismo per la registrazione di informazioni di diagnostica aggiuntive e la risoluzione dei problemi di latenza, come illustrato nell'esempio seguente. È possibile registrare la stringa di diagnostica per le richieste che hanno una latenza di lettura più elevata. La stringa di diagnostica acquisita consentirà di comprendere il numero di volte in cui sono stati ricevuti 429 errori per una determinata richiesta.
 

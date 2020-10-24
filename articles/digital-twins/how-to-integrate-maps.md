@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045126"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496034"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -50,12 +50,12 @@ Le istanze dei dispositivi gemelli digitali di Azure possono generare eventi di 
 Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo Internet delle cose, che offre la flessibilità necessaria per modificare l'origine dati sottostante per la temperatura senza dover aggiornare la logica di mapping. Ad esempio, è possibile aggiungere più termometrie o impostare questa stanza per condividere un termometro con un'altra stanza, senza dover aggiornare la logica della mappa.
 
 1. Creare un argomento di griglia di eventi, che riceverà gli eventi dall'istanza di Azure Digital gemelli.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Creare un endpoint per collegare l'argomento di griglia di eventi ai dispositivi gemelli digitali di Azure.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,9 +64,9 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
     >[!NOTE]
     >Esiste attualmente un **problema noto** in Cloud Shell che interessa questi gruppi di comandi: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Per risolverlo, eseguire `az login` in Cloud Shell prima di eseguire il comando oppure usare l'[interfaccia della riga di comando locale](/cli/azure/install-azure-cli?view=azure-cli-latest) anziché Cloud Shell. Per informazioni dettagliate, vedere [*Risoluzione dei problemi: problemi noti in Gemelli digitali di Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Per risolverlo, eseguire `az login` in Cloud Shell prima di eseguire il comando oppure usare l'[interfaccia della riga di comando locale](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) anziché Cloud Shell. Per informazioni dettagliate, vedere [*Risoluzione dei problemi: problemi noti in Gemelli digitali di Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 È necessario impostare due variabili di ambiente nell'app per le funzioni. Una è la [chiave di sottoscrizione primaria di Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e l'altra è l' [ID degli Stati di Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

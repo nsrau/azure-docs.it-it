@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205491"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478851"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -75,7 +75,7 @@ Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'porta
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
 Nella pagina *Aggiungi assegnazione ruolo* , inserire i valori (che devono essere completati da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
-* **Ruolo**: selezionare il *proprietario di Azure Digital gemelli (anteprima)* dal menu a discesa
+* **Ruolo**: selezionare il *proprietario dei dati di Azure Digital gemelli* dal menu a discesa
 * **Assegnare l'accesso a**: selezionare *Azure ad utente, gruppo o entità servizio* dal menu a discesa
 * **Select**: consente di cercare il nome o l'indirizzo di posta elettronica dell'utente da assegnare. Quando si seleziona il risultato, l'utente viene visualizzato nella sezione *membri selezionati* .
 
@@ -91,7 +91,7 @@ Al termine dell'immissione dei dettagli, fare clic sul pulsante *Salva* .
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
-È possibile visualizzare l'assegnazione di ruolo configurata in *controllo di accesso (IAM) > assegnazioni di ruolo*. L'utente dovrebbe essere visualizzato nell'elenco con un ruolo di proprietario dei dispositivi *gemelli digitali di Azure (anteprima)*. 
+È possibile visualizzare l'assegnazione di ruolo configurata in *controllo di accesso (IAM) > assegnazioni di ruolo*. L'utente dovrebbe essere visualizzato nell'elenco con un ruolo di *proprietario dei dati di Azure Digital gemelli*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 

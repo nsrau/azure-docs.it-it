@@ -1,6 +1,6 @@
 ---
 title: Architettura di SQL Synapse
-description: Informazioni su come Azure Synapse SQL unisce l'architettura MPP (Massively Parallel Processing) con Archiviazione di Azure per raggiungere prestazioni e scalabilità elevate.
+description: Informazioni su come Azure sinapsi SQL combina le funzionalità di elaborazione delle query distribuite con archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046865"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476009"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architettura di Azure Synapse SQL 
 
@@ -35,7 +35,7 @@ Per SQL su richiesta, non essendo presente alcun server, il ridimensionamento vi
 
 Synapse SQL usa un'architettura basata su nodi. L'applicazione si connette ed esegue comandi T-SQL in un nodo di controllo che rappresenta l'unico punto di ingresso per Synapse SQL. 
 
-Il nodo di controllo del pool SQL utilizza un motore MPP per ottimizzare le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo, che eseguiranno l'elaborazione in parallelo. 
+Il nodo di controllo SQL di Azure sinapsi usa un motore di query distribuito per ottimizzare le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo. 
 
 Il nodo di controllo di SQL su richiesta utilizza un motore di elaborazione distribuita delle query (DQP) per ottimizzare e orchestrare l'esecuzione distribuita di una query utente. Tale query viene divisa in query di dimensioni più piccole che verranno eseguite nei nodi di calcolo. Ognuna delle query più piccole è definita attività e rappresenta un'unità di esecuzione distribuita. Tale attività legge i file nelle risorse di archiviazione, unisce i risultati generati da altre attività e raggruppa o ordina i dati recuperati da altre attività. 
 
@@ -61,7 +61,7 @@ SQL su richiesta consente di eseguire query sui file nel data lake in modalità 
 
 Il nodo di controllo costituisce il componente principale dell'architettura. È il front-end che interagisce con tutte le applicazioni e le connessioni. 
 
-Nel pool SQL il motore MPP viene eseguito nel nodo di controllo al fine di ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL al pool SQL, il nodo di controllo la trasforma in query che verranno eseguite in ogni distruzione in parallelo.
+In sinapsi SQL, il motore delle query distribuite viene eseguito sul nodo di controllo per ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL al pool SQL, il nodo di controllo la trasforma in query che verranno eseguite in ogni distruzione in parallelo.
 
 In SQL su richiesta il motore DQP viene eseguito nel nodo di controllo al fine di ottimizzare e coordinare l'esecuzione distribuita di una query utente. Tale query viene suddivisa in query di dimensioni più piccole, che verranno eseguite nei nodi di calcolo. Il motore assegna anche set di file che devono essere elaborati in ogni nodo.
 
@@ -69,7 +69,7 @@ In SQL su richiesta il motore DQP viene eseguito nel nodo di controllo al fine d
 
 I nodi di calcolo forniscono la potenza di calcolo. 
 
-Nel pool SQL viene eseguito il mapping delle distribuzioni ai nodi di calcolo per l'elaborazione. Quando si ottengono risorse di calcolo aggiuntive a pagamento, il pool esegue di nuovo il mapping delle distribuzioni nei nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 e viene determinato in base al livello di servizio associato al pool SQL. Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco delle visualizzazioni di sistema, vedere le [visualizzazioni di sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Nel pool SQL viene eseguito il mapping delle distribuzioni ai nodi di calcolo per l'elaborazione. Quando si ottengono risorse di calcolo aggiuntive a pagamento, il pool esegue di nuovo il mapping delle distribuzioni nei nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 e viene determinato in base al livello di servizio associato al pool SQL. Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco di queste viste di sistema, vedere [sinapsi SQL System views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 In SQL su richiesta a ogni nodo di calcolo vengono assegnati un'attività e il set di file in cui eseguire tale attività. L'attività corrisponde a un'unità di esecuzione della query distribuita, che costituisce una parte effettiva della query utente inviata. Il ridimensionamento automatico è attivato per verificare che venga usato un numero di nodi di calcolo sufficiente per eseguire la query utente.
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: 2ded60f8c57d8c9db374bf77efe6dfd1a71690bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367687"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482928"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entità servizio di Azure Active Directory con Azure SQL
 
@@ -34,7 +34,7 @@ Quando un'applicazione Azure AD viene registrata usando il portale di Azure o un
 - Un oggetto applicazione
 - Un oggetto entità servizio
 
-Per altre informazioni sulle applicazioni Azure AD, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) e [creare un'entità servizio di Azure con Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.2.0).
+Per altre informazioni sulle applicazioni Azure AD, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) e [creare un'entità servizio di Azure con Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps).
 
 Il database SQL, la sinapsi di Azure e SQL Istanza gestita supportano gli oggetti di Azure AD seguenti:
 
@@ -72,14 +72,16 @@ Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinap
     - Per verificare se l'identità del server è assegnata al server, eseguire il comando Get-AzSqlServer.
 
     > [!NOTE]
-    > È possibile assegnare l'identità del server anche usando i comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere [AZ SQL Server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) e [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
+    > È possibile assegnare l'identità del server anche usando i comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere [AZ SQL Server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) e [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
 
 2. Concedere l'autorizzazione Azure AD [**directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) all'identità del server creata o assegnata al server.
     - Per concedere questa autorizzazione, seguire la descrizione utilizzata per SQL Istanza gestita disponibile nell'articolo relativo al [Provisioning Azure ad amministratore (SQL istanza gestita)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance) .
     - L'utente Azure AD che concede questa autorizzazione deve far parte del ruolo amministratore **globale** Azure ad o amministratore **ruoli con privilegi** .
 
 > [!IMPORTANT]
-> I passaggi 1 e 2 devono essere eseguiti nell'ordine precedente. Prima di tutto, creare o assegnare l'identità del server, quindi concedere l'autorizzazione per i [**lettori di directory**](../../active-directory/roles/permissions-reference.md#directory-readers) . Se si omette uno di questi passaggi, si verificherà un errore di esecuzione durante la creazione di un oggetto Azure AD in Azure SQL per conto di un'applicazione Azure AD. Per istruzioni dettagliate su come creare un utente Azure AD per conto di un'applicazione Azure AD, vedere [esercitazione: creare Azure ad utenti che usano applicazioni Azure ad](authentication-aad-service-principal-tutorial.md).
+> I passaggi 1 e 2 devono essere eseguiti nell'ordine precedente. Prima di tutto, creare o assegnare l'identità del server, quindi concedere l'autorizzazione per i [**lettori di directory**](../../active-directory/roles/permissions-reference.md#directory-readers) . Se si omette uno di questi passaggi, si verificherà un errore di esecuzione durante la creazione di un oggetto Azure AD in Azure SQL per conto di un'applicazione Azure AD.
+>
+> Se si usa l'entità servizio per impostare o annullare l'Azure AD amministratore, l'applicazione deve avere anche l'autorizzazione [Directory. Read. All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API in Azure ad. Per altre informazioni sulle [autorizzazioni necessarie per impostare un amministratore Azure ad](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin)e istruzioni dettagliate per creare un utente Azure ad per conto di un'applicazione Azure ad, vedere [esercitazione: creare Azure ad utenti che usano applicazioni Azure ad](authentication-aad-service-principal-tutorial.md).
 >
 > Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando la necessità di un amministratore **globale** o di **ruoli con privilegi** per concedere il ruolo dei **lettori di directory** . Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -92,7 +94,7 @@ Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinap
       - Per l'errore precedente, seguire la procedura per [assegnare un'identità al server logico SQL di Azure](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) e [assegnare le autorizzazioni per i lettori di directory all'identità del server logico SQL](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > I messaggi di errore indicati in precedenza verranno modificati prima della funzionalità GA per identificare chiaramente i requisiti di installazione mancanti per Azure AD il supporto dell'applicazione.
-- L'impostazione dell'applicazione Azure AD come amministratore Azure AD per SQL Istanza gestita è supportata solo con il comando CLI e con il comando PowerShell con [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) o versione successiva. Per ulteriori informazioni, vedere i comandi [AZ SQL mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) e [set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) . 
+- L'impostazione dell'applicazione Azure AD come amministratore Azure AD per SQL Istanza gestita è supportata solo con il comando CLI e con il comando PowerShell con [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) o versione successiva. Per ulteriori informazioni, vedere i comandi [AZ SQL mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create&preserve-view=true) e [set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) . 
     - Se si vuole usare la portale di Azure per SQL Istanza gestita per impostare l'amministratore Azure AD, una possibile soluzione alternativa consiste nel creare un gruppo di Azure AD. Aggiungere quindi l'entità servizio (Azure AD applicazione) a questo gruppo e impostare questo gruppo come amministratore Azure AD per il Istanza gestita SQL.
     - L'impostazione dell'entità servizio (Azure AD applicazione) come amministratore Azure AD per il database SQL e la sinapsi di Azure è supportata tramite i comandi portale di Azure, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)e [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) .
 - L'uso di un'applicazione Azure AD con un'entità servizio da un altro tenant di Azure AD avrà esito negativo durante l'accesso al database SQL o al Istanza gestita SQL creato in un tenant diverso. Un'entità servizio assegnata a questa applicazione deve provenire dallo stesso tenant del server logico SQL o Istanza gestita.

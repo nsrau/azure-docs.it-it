@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50884a45e60826f09fffcc9f86992563e473424d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603051"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478049"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB
 
@@ -31,10 +31,10 @@ ms.locfileid: "90603051"
 > Per Cosmos DB API Cassandra, usare il [connettore Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
-* Per configurare un account di Cosmos DB e popolare alcuni dati, seguire la procedura descritta in [Introduzione a Java SDK](sql-api-async-java-get-started.md) .
-* Seguire la procedura descritta in [Azure Databricks Introduzione](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) alla configurazione di un'area di lavoro Azure Databricks e di un cluster.
+* Per configurare un account di Cosmos DB e popolare alcuni dati, seguire la procedura descritta in [Introduzione a Java SDK](./create-sql-api-java.md) .
+* Seguire la procedura descritta in [Azure Databricks Introduzione](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) alla configurazione di un'area di lavoro Azure Databricks e di un cluster.
 * È ora possibile creare nuovi notebook e importare la libreria del connettore Cosmos DB. Per informazioni dettagliate su come configurare l'area di lavoro, passare all' [uso del connettore Cosmos DB](#bk_working_with_connector) .
 * La sezione seguente contiene frammenti di codice su come leggere e scrivere usando il connettore.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482605"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Domande frequenti sulla API Cassandra in Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Quando si supera questa capacità, viene ricevuto il messaggio di errore seguent
 
 Sono disponibili metriche che mostrano come viene usata la velocità effettiva in ore, in giorni e per sette giorni, tra le partizioni o in modo aggregato. Per altre informazioni, vedere [Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB](use-metrics.md).
 
-I log di diagnostica sono illustrati nell'articolo [Registrazione diagnostica di Azure Cosmos DB](logging.md).
+I log di diagnostica sono illustrati nell'articolo [Registrazione diagnostica di Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La chiave primaria corrisponde al concetto di chiave di partizione di Azure Cosmos DB?
 
@@ -133,11 +133,11 @@ Sì, la Durata (TTL) è supportata.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Come è possibile monitorare l'infrastruttura insieme alla velocità effettiva?
 
-Azure Cosmos DB è un servizio di piattaforma che consente di incrementare la produttività, senza doversi preoccupare della gestione e del monitoraggio dell'infrastruttura. Ad esempio, non è necessario monitorare lo stato dei nodi, lo stato della replica, GC e i parametri del sistema operativo in precedenza con diversi strumenti. È sufficiente occuparsi della velocità effettiva disponibile nelle metriche del portale per verificare se la velocità effettiva è limitata e quindi aumentare o ridurre la velocità effettiva. è possibile:
+Azure Cosmos DB è un servizio di piattaforma che consente di incrementare la produttività, senza doversi preoccupare della gestione e del monitoraggio dell'infrastruttura. Ad esempio, non è necessario monitorare lo stato dei nodi, lo stato della replica, GC e i parametri del sistema operativo in precedenza con diversi strumenti. È sufficiente occuparsi della velocità effettiva disponibile nelle metriche del portale per verificare se la velocità effettiva è limitata e quindi aumentare o ridurre la velocità effettiva. È possibile:
 
-- Monitorare i [contratti](monitor-accounts.md) di contratto
+- Monitorare i [contratti](./monitor-cosmos-db.md) di contratto
 - Usare le [metriche](use-metrics.md)
-- Usare i [log di diagnostica](logging.md)
+- Usare i [log di diagnostica](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Quali SDK client possono funzionare con la API Cassandra?
 
@@ -187,7 +187,7 @@ Per informazioni sulle opzioni di migrazione, vedere l'esercitazione [eseguire l
 Fornire feedback sul sito del [feedback User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Passaggi successivi
 

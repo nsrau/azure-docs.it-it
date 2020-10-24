@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75933943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484764"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
@@ -58,7 +58,7 @@ Esempi di attività che è possibile eseguire con Visual Studio e gli strumenti 
 È possibile usare Visual Studio con .NET SDK per gestire i cluster e sviluppare applicazioni Big Data. È possibile usare altri IDE per le attività seguenti, ma gli esempi presentati sono in Visual Studio.
 
 Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
-* [Azure HDINSIGHT SDK per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+* [Azure HDINSIGHT SDK per .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 * [Eseguire query Apache hive usando .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Usare le funzioni definite dall'utente C# con lo streaming di Apache hive e Apache Pig su Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
@@ -90,7 +90,7 @@ Se si incontra una situazione in cui è necessario usare uno strumento o una tec
 
 ## <a name="cross-platform-tools"></a>Strumenti multipiattaforma
 
-L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.  Per ulteriori informazioni, vedere interfaccia della riga di comando di [Command-Line Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.  Per ulteriori informazioni, vedere interfaccia della riga di comando di [Command-Line Azure (CLI)](/cli/azure/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869440"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478372"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -78,7 +78,7 @@ Sincronizzare un'intera directory, incluse le relative sottodirectory (si noti c
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-oppure
+o
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -151,24 +151,24 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: `INFO` (tutte le richieste e risposte), `WARNING` (risposte lente), `ERROR` (solo richieste non riuscite) e `NONE` (nessun log di output). (impostazione predefinita `INFO` ). 
 
-**--Preserve-SMB-info**     False per impostazione predefinita.Conserva le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit degli attributi) tra le risorse in grado di riconoscere SMB (Windows e File di Azure).Questo flag si applica sia a file che a cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, include-pattern).Le informazioni trasferite per le cartelle sono identiche a quelle dei file, ad eccezione dell'ora dell'ultima scrittura non conservate per le cartelle.
+**--Preserve-SMB-info**   False per impostazione predefinita. Conserva le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit degli attributi) tra le risorse in grado di riconoscere SMB (Windows e File di Azure). Questo flag si applica sia a file che a cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, include-pattern). Le informazioni trasferite per le cartelle sono identiche a quelle dei file, ad eccezione dell'ora dell'ultima scrittura non conservate per le cartelle.
 
-**--Preserve-SMB-autorizzazioni**     False per impostazione predefinita.Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure).Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file (ad esempio,  `include-pattern` ).
+**--Preserve-SMB-autorizzazioni**   False per impostazione predefinita. Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure). Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, `include-pattern` ).
 
 **--put-MD5**     Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.
 
 **--ricorsivo** `True` per impostazione predefinita, esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory.     (impostazione predefinita `True` ). 
 
-**--S2S-Preserve-livello di accesso**  Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ). 
+**--S2S-Preserve-livello di accesso**  Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-|Opzione|Description|
+|Opzione|Descrizione|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 |--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

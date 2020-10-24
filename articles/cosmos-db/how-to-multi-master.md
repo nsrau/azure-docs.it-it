@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570672"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486141"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurare Scritture in più aree nelle applicazioni che usano Azure Cosmos DB
 
@@ -129,8 +129,8 @@ Leggere gli articoli seguenti:
 * [Tipi di conflitto e criteri di risoluzione in Azure Cosmos DB](conflict-resolution-policies.md)
 * [Disponibilità elevata in Azure Cosmos DB](high-availability.md)
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
-* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Coerenza, disponibilità e compromessi delle prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
-* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](./consistency-levels.md)
+* [Coerenza, disponibilità e compromessi delle prestazioni in Azure Cosmos DB](./consistency-levels.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](./consistency-levels.md)
+* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](./request-units.md)
 * [Distribuzione globale: dietro le quinte](global-dist-under-the-hood.md)

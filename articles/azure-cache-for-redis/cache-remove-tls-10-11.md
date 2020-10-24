@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423922"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496057"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1.0 and 1.1 per l'uso con cache di Azure per Redis
 
@@ -19,10 +19,14 @@ In tutto il settore si assiste a una spinta verso l'uso esclusivo della versione
 
 In tale contesto, verranno apportate le modifiche seguenti alla cache di Azure per Redis:
 
-* **Fase 1:** la versione TLS minima predefinita verrà configurata su 1.2 per le istanze della cache appena create (in precedenza TLS 1.0).  A questo punto le istanze della cache esistenti non verranno aggiornate. Se necessario, sarà possibile [modificare la versione minima di TLS](cache-configure.md#access-ports) in 1.0 o 1.1 per la compatibilità con le versioni precedenti. Questa modifica può essere eseguita tramite il portale di Azure o altre API di gestione.
-* **Fase 2:** le versioni TLS 1.0 e 1.1 non saranno più supportate. Dopo questa modifica, l'applicazione dovrà usare TLS 1.2 o una versione successiva per comunicare con la cache.
+* **Fase 1:** Verrà configurata la versione minima predefinita di TLS come 1,2 per le istanze di cache appena create (in precedenza era TLS 1,0). A questo punto le istanze della cache esistenti non verranno aggiornate. È comunque possibile usare la portale di Azure o altre API di gestione per [modificare la versione minima di TLS](cache-configure.md#access-ports) in 1,0 o 1,1 per la compatibilità con le versioni precedenti, se necessario.
+* **Fase 2:** Il supporto di TLS 1,1 e TLS 1,0 verrà interrotto. Dopo questa modifica, l'applicazione deve usare TLS 1,2 o versione successiva per comunicare con la cache. Il servizio cache di Azure per il servizio Redis dovrebbe essere disponibile mentre viene eseguita la migrazione per supportare solo TLS 1,2 o versione successiva.
 
-Inoltre, nell'ambito di questa modifica, verrà rimosso il supporto per i pacchetti di crittografia meno recenti e non sicuri.  Quando la cache è configurata con una versione minima di TLS 1.2, i pacchetti di crittografia supportati saranno limitati ai seguenti.
+  > [!NOTE]
+  > La fase 2 è pianificata provvisoriamente per iniziare non prima del 31 dicembre 2020. Tuttavia, è consigliabile iniziare a pianificare questa modifica ora e aggiornare in modo proattivo i client per il supporto di TLS 1,2 o versione successiva. 
+  >
+
+Come parte di questa modifica, verrà rimosso anche il supporto per i gruppi di crittografia precedenti che non sono sicuri. I gruppi di crittografia supportati saranno limitati ai gruppi seguenti quando la cache è configurata con un minimo di TLS 1,2:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ Le date di entrata in vigore di queste modifiche sono:
 
 | Cloud                | Data di inizio della fase 1 | Data di inizio della fase 2         |
 |----------------------|--------------------|----------------------------|
-| Azure (globale)       |  13 gennaio 2020  | Posticipato a causa di COVID 19  |
-| Azure Government     |  13 marzo 2020    | Posticipato a causa di COVID 19  |
-| Azure Germania        |  13 marzo 2020    | Posticipato a causa di COVID 19  |
-| 21Vianet per Azure Cina |  13 marzo 2020    | Posticipato a causa di COVID 19  |
+| Azure (globale)       |  13 gennaio 2020  | Posticipato a causa di COVID-19  |
+| Azure Government     |  13 marzo 2020    | Posticipato a causa di COVID-19  |
+| Azure Germania        |  13 marzo 2020    | Posticipato a causa di COVID-19  |
+| 21Vianet per Azure Cina |  13 marzo 2020    | Posticipato a causa di COVID-19  |
 
-Nota: nuova data per la fase 2 non ancora determinata
+> [!NOTE]
+> La fase 2 è pianificata provvisoriamente per iniziare non prima del 31 dicembre 2020. Questo articolo verrà aggiornato quando vengono impostate date specifiche.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verificare se l'applicazione è già conforme
 

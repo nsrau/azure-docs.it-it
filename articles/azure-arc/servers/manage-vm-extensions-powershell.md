@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale usando Azure PowerShell
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando Azure PowerShell.
-ms.date: 10/19/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631aa323fee8db712acc975336bdbf9436833240
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d2408f75c7b6d81ba297de6dcdb85a712cd8908f
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462931"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495445"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Abilitare le estensioni VM di Azure usando Azure PowerShell
 
@@ -35,14 +35,14 @@ L'esempio seguente abilita l'estensione della macchina virtuale Log Analytics in
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachine -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
 ```
 
 Nell'esempio seguente viene abilitata l'estensione di script personalizzato in un server abilitato per Arc:
 
 ```powershell
 PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
-PS C:\> New-AzConnectedMachine -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
+PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
 ## <a name="list-extensions-installed"></a>Elenca estensioni installate

@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021936"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476927"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnosticare e risolvere i problemi relativi alle eccezioni di timeout della richiesta Azure Cosmos DB .NET SDK
 Si verifica l'errore HTTP 408 se l'SDK non è riuscito a completare la richiesta prima che si verifichi il limite di timeout.
@@ -28,7 +28,7 @@ La `CosmosClientOptions.RequestTimeout` configurazione (o `ConnectionPolicy.Requ
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Tutte le operazioni asincrone nell'SDK hanno un parametro CancellationToken facoltativo. Questo parametro [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) viene usato durante l'intera operazione, in tutte le richieste di rete. Tra le richieste di rete, il token di annullamento può essere controllato e un'operazione annullata se il token correlato è scaduto. Il token di annullamento deve essere usato per definire un timeout previsto approssimativo nell'ambito dell'operazione.
+Tutte le operazioni asincrone nell'SDK hanno un parametro CancellationToken facoltativo. Questo parametro [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) viene usato durante l'intera operazione, in tutte le richieste di rete. Tra le richieste di rete, il token di annullamento può essere controllato e un'operazione annullata se il token correlato è scaduto. Il token di annullamento deve essere usato per definire un timeout previsto approssimativo nell'ambito dell'operazione.
 
 > [!NOTE]
 > Il `CancellationToken` parametro è un meccanismo in cui la libreria verificherà l'annullamento quando non [provocherà uno stato non valido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). È possibile che l'operazione non venga annullata esattamente quando l'ora definita nell'annullamento è attiva. Al contrario, quando il tempo è attivo, viene annullato quando è sicuro.

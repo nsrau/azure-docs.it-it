@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498855"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485104"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 
-Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. Se si desidera ottenere la query SQL convertita da LINQ, utilizzare il metodo nell' `ToString()` `IQueryable` oggetto generato. La descrizione seguente presuppone una conoscenza di base di [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. Se si desidera ottenere la query SQL convertita da LINQ, utilizzare il metodo nell' `ToString()` `IQueryable` oggetto generato. La descrizione seguente presuppone una conoscenza di base di [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 Il sistema di tipi del provider di query supporta solo i tipi primitivi JSON: numeric, Boolean, String e null.
 

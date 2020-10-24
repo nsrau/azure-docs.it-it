@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277302"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475329"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -39,7 +39,7 @@ Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è di
 
 Per impostazione predefinita, i quattro tipi di applicazione elencati di seguito utilizzano l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit per il tipo di applicazione, eseguire le operazioni seguenti:
 
-- **Per le applicazioni eseguibili**: nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) su **x64**.
+- **Per le applicazioni eseguibili**: nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64**.
 
 - **Per i progetti di test basati su VSTest**: nel menu **test** di Visual Studio **selezionare**  >  **impostazioni test**test, quindi impostare **architettura del processore predefinita** su **x64**.
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, i quattro tipi di applicazione elencati di seguito
     
 **Attivare Garbage Collection lato server**
 
-In alcuni casi, la riduzione della frequenza di Garbage Collection può risultare utile. In .NET impostare [gcserver](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) su `true` .
+In alcuni casi, la riduzione della frequenza di Garbage Collection può risultare utile. In .NET impostare [gcserver](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) su `true` .
 
 **Scalabilità orizzontale del carico di lavoro del client**
 
@@ -86,8 +86,8 @@ Quando è in esecuzione sul protocollo TCP, il client ottimizza la latenza usand
 
 Negli scenari in cui si dispone dell'accesso sparse e si nota un numero di connessioni superiore rispetto all'accesso in modalità Gateway, è possibile:
 
-* Configurare la proprietà [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) su `PrivatePortPool` (efficace con le versioni di Framework 4.6.1 e versioni successive e .NET Core 2,0 e versioni successive). Questa proprietà consente all'SDK di usare un piccolo pool di porte temporanee per diversi endpoint di destinazione Azure Cosmos DB.
-* Configurare la proprietà [CosmosClientOptions. idleconnectiontimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) su un valore maggiore o uguale a 10 minuti. I valori consigliati sono compresi tra 20 minuti e 24 ore.
+* Configurare la proprietà [CosmosClientOptions. PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) su `PrivatePortPool` (efficace con le versioni di Framework 4.6.1 e versioni successive e .NET Core 2,0 e versioni successive). Questa proprietà consente all'SDK di usare un piccolo pool di porte temporanee per diversi endpoint di destinazione Azure Cosmos DB.
+* Configurare la proprietà [CosmosClientOptions. idleconnectiontimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) su un valore maggiore o uguale a 10 minuti. I valori consigliati sono compresi tra 20 minuti e 24 ore.
 
 <a id="same-region"></a>
 
@@ -103,7 +103,7 @@ Per ottenere la latenza più bassa possibile, è possibile verificare che l'appl
 
 **Aumentare il numero di thread/attività**
 
-Poiché le chiamate a Azure Cosmos DB vengono effettuate sulla rete, potrebbe essere necessario variare il grado di concorrenza delle richieste in modo che l'applicazione client spenda tempo minimo di attesa tra le richieste. Se ad esempio si usa il [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx).NET, creare in base all'ordine di centinaia di attività che leggono o scrivono Azure Cosmos DB.
+Poiché le chiamate a Azure Cosmos DB vengono effettuate sulla rete, potrebbe essere necessario variare il grado di concorrenza delle richieste in modo che l'applicazione client spenda tempo minimo di attesa tra le richieste. Se ad esempio si usa il [Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl).NET, creare in base all'ordine di centinaia di attività che leggono o scrivono Azure Cosmos DB.
 
 **Abilita rete accelerata**
  
@@ -146,7 +146,7 @@ Per *gli scenari in cui* il carico di lavoro richiede una quantità elevata di v
 
 **Aumentare System.Net MaxConnections per host quando si usa la modalità gateway**
 
-Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST. Esse sono soggette al limite di connessione predefinito per nome host o indirizzo IP. Potrebbe essere necessario impostare `MaxConnections` su un valore più alto (da 100 a 1.000) in modo che la libreria client possa usare più connessioni simultanee per Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50. Per modificare il valore, è possibile impostare [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più alto.
+Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST. Esse sono soggette al limite di connessione predefinito per nome host o indirizzo IP. Potrebbe essere necessario impostare `MaxConnections` su un valore più alto (da 100 a 1.000) in modo che la libreria client possa usare più connessioni simultanee per Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) è 50. Per modificare il valore, è possibile impostare [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) su un valore più alto.
 
 **Ottimizzare le query parallele per le raccolte partizionate**
 
@@ -170,7 +170,7 @@ Le query parallele forniscono due parametri che è possibile ottimizzare per sod
 
 Durante i test delle prestazioni, è necessario aumentare il carico fino a quando non viene limitata una piccola frequenza di richieste. Se le richieste sono limitate, l'applicazione client deve disattivare la limitazione per l'intervallo tra tentativi specificato dal server. Il rispetto dei backoff contribuisce a garantire una quantità minima di tempo di attesa tra i tentativi. 
 
-Per ulteriori informazioni, vedere [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Per ulteriori informazioni, vedere [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 È disponibile un meccanismo per la registrazione di ulteriori informazioni di diagnostica e la risoluzione dei problemi di latenza, come illustrato nell'esempio seguente. È possibile registrare la stringa di diagnostica per le richieste con una latenza di lettura più elevata. La stringa di diagnostica acquisita consentirà di comprendere il numero di volte in cui si è ricevuto un errore *429* per una determinata richiesta.
 

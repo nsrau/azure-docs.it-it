@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71ebc90834083def5b82e16dc387a6e61943206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021749"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475091"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Ottenere le metriche di esecuzione delle query SQL e analizzare le prestazioni delle query con .NET SDK
 
-Questo articolo illustra come profilare le prestazioni delle query SQL in Azure Cosmos DB. Questa profilatura può essere eseguita usando `QueryMetrics` recuperato da .NET SDK ed è descritta in dettaglio qui. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) è un oggetto fortemente tipizzato con informazioni sull'esecuzione di query back-end. Queste metriche sono documentate più dettagliatamente nell'articolo [ottimizzare le prestazioni delle query](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Questo articolo illustra come profilare le prestazioni delle query SQL in Azure Cosmos DB. Questa profilatura può essere eseguita usando `QueryMetrics` recuperato da .NET SDK ed è descritta in dettaglio qui. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) è un oggetto fortemente tipizzato con informazioni sull'esecuzione di query back-end. Queste metriche sono documentate più dettagliatamente nell'articolo [ottimizzare le prestazioni delle query](./sql-api-query-metrics.md) .
 
 ## <a name="set-the-feedoptions-parameter"></a>Impostare il parametro FeedOptions
 
-Tutti gli overload di [DocumentClient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) accettano un parametro facoltativo [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) . Questa opzione consente di ottimizzare e parametrizzare l'esecuzione delle query. 
+Tutti gli overload di [DocumentClient. CreateDocumentQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) accettano un parametro facoltativo [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) . Questa opzione consente di ottimizzare e parametrizzare l'esecuzione delle query. 
 
-Per raccogliere le metriche di esecuzione delle query SQL, è necessario impostare il parametro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) su `true` . Se si imposta `PopulateQueryMetrics` su true, l'oggetto conterrà `FeedResponse` l'oggetto pertinente `QueryMetrics` . 
+Per raccogliere le metriche di esecuzione delle query SQL, è necessario impostare il parametro [PopulateQueryMetrics](/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) su `true` . Se si imposta `PopulateQueryMetrics` su true, l'oggetto conterrà `FeedResponse` l'oggetto pertinente `QueryMetrics` . 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>Ottenere le metriche di query con AsDocumentQuery ()
-Nell'esempio di codice seguente viene illustrato come recuperare le metriche quando si usa il metodo [AsDocumentQuery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
+Nell'esempio di codice seguente viene illustrato come recuperare le metriche quando si usa il metodo [AsDocumentQuery ()](/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) :
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -63,7 +63,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>Aggregazione di QueryMetrics
 
-Nella sezione precedente si noti che erano presenti più chiamate al metodo [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Ogni chiamata ha restituito un `FeedResponse` oggetto con un dizionario di `QueryMetrics` ; uno per ogni continuazione della query. Nell'esempio seguente viene illustrato come aggregare questi elementi `QueryMetrics` utilizzando LINQ:
+Nella sezione precedente si noti che erano presenti più chiamate al metodo [ExecuteNextAsync](/dotnet/api/microsoft.azure.documents.linq.idocumentquery-1.executenextasync) . Ogni chiamata ha restituito un `FeedResponse` oggetto con un dizionario di `QueryMetrics` ; uno per ogni continuazione della query. Nell'esempio seguente viene illustrato come aggregare questi elementi `QueryMetrics` utilizzando LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -130,7 +130,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Query dispendiose
 
-È possibile acquisire le unità richiesta utilizzate da ogni query per analizzare le query o le query dispendiose che utilizzano una velocità effettiva elevata. È possibile ottenere l'addebito per le richieste usando la proprietà [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) in `FeedResponse`. Per altre informazioni su come ottenere l'addebito per le richieste usando il portale di Azure e diversi SDK, vedere l'articolo [trovare l'addebito delle unità richiesta](find-request-unit-charge.md) .
+È possibile acquisire le unità richiesta utilizzate da ogni query per analizzare le query o le query dispendiose che utilizzano una velocità effettiva elevata. È possibile ottenere l'addebito per le richieste usando la proprietà [RequestCharge](/dotnet/api/microsoft.azure.documents.client.feedresponse-1.requestcharge) in `FeedResponse`. Per altre informazioni su come ottenere l'addebito per le richieste usando il portale di Azure e diversi SDK, vedere l'articolo [trovare l'addebito delle unità richiesta](find-request-unit-charge.md) .
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -232,11 +232,11 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 È ora possibile servire questa query dall'indice.
 
-Per altre informazioni sull'ottimizzazione delle prestazioni delle query, vedere l'articolo Ottimizzazione [delle prestazioni delle query](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Per altre informazioni sull'ottimizzazione delle prestazioni delle query, vedere l'articolo Ottimizzazione [delle prestazioni delle query](./sql-api-query-metrics.md) .
 
 ## <a name="references"></a><a id="References"></a>Riferimenti
 
-- [Specifica SQL di Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Specifica SQL di Azure Cosmos DB](./sql-query-getting-started.md)
 - [SQL 2011 ANSI](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254075"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496106"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
@@ -23,9 +23,9 @@ L'analisi spaziale include un set di funzionalità per monitorare l'integrità d
 
 ## <a name="enable-visualizations"></a>Abilita visualizzazioni
 
-Per abilitare una visualizzazione degli eventi di intelligenza artificiale in un frame video, è necessario usare la `.debug` versione di un' [operazione di analisi spaziale](spatial-analysis-operations.md). Sono disponibili quattro operazioni di debug.
+Per abilitare una visualizzazione degli eventi di intelligenza artificiale in un frame video, è necessario usare la `.debug` versione di un' [operazione di analisi spaziale](spatial-analysis-operations.md) in un computer desktop. La visualizzazione non è possibile nei dispositivi Azure Stack Edge. Sono disponibili quattro operazioni di debug.
 
-Modificare il [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) in modo da usare il valore corretto per la `DISPLAY` variabile di ambiente. Deve corrispondere alla `$DISPLAY` variabile nel computer host. Dopo aver aggiornato il manifesto di distribuzione, ridistribuire il contenitore.
+Se il dispositivo non è un dispositivo Azure Stack Edge, modificare il file manifesto di distribuzione per i [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) in modo da usare il valore corretto per la `DISPLAY` variabile di ambiente. Deve corrispondere alla `$DISPLAY` variabile nel computer host. Dopo aver aggiornato il manifesto di distribuzione, ridistribuire il contenitore.
 
 Al termine della distribuzione, potrebbe essere necessario copiare il `.Xauthority` file dal computer host al contenitore e riavviarlo. Nell'esempio seguente `peopleanalytics` è il nome del contenitore nel computer host.
 
@@ -39,7 +39,7 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Raccolta dati di telemetria sull'integrità del sistema
 
-Telegraf è un'immagine open source che funziona con l'analisi spaziale ed è disponibile nel Container Registry Microsoft. Accetta gli input seguenti e li invia a monitoraggio di Azure. Il modulo Telegraf può essere compilato con gli input e gli output personalizzati desiderati. La configurazione del modulo Telegraf nell'analisi spaziale fa parte del [manifesto della distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179). Questo modulo è facoltativo e può essere rimosso dal manifesto, se non è necessario. 
+Telegraf è un'immagine open source che funziona con l'analisi spaziale ed è disponibile nel Container Registry Microsoft. Accetta gli input seguenti e li invia a monitoraggio di Azure. Il modulo Telegraf può essere compilato con gli input e gli output personalizzati desiderati. La configurazione del modulo Telegraf nell'analisi spaziale fa parte del manifesto di distribuzione (collegato in precedenza). Questo modulo è facoltativo e può essere rimosso dal manifesto, se non è necessario. 
 
 Input: 
 1. Metriche di analisi spaziale
@@ -68,14 +68,14 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-Nel [manifesto della distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179)cercare il modulo *Telegraf* e sostituire i valori seguenti con le informazioni sull'entità servizio del passaggio precedente e ridistribuire.
+Nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare il modulo *Telegraf* e sostituire i valori seguenti con le informazioni sull'entità servizio del passaggio precedente e ridistribuire.
 
 ```json
 
 "telegraf": { 
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
 "env": {
@@ -105,19 +105,19 @@ Una volta distribuito il modulo Telegraf, è possibile accedere alle metriche se
 
 | Nome evento | Descrizione|
 |------|---------|
-|archon_exit    |Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
-|archon_error   |Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.  |
-|InputRate  |Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti. | 
-|OutputRate     |Velocità con cui il grafo genera informazioni dettagliate di intelligenza artificiale. Segnalato ogni 5 minuti. |
-|archon_allGraphsStarted | Inviato al termine dell'avvio di tutti i grafici. |
-|archon_configchange    | Inviato quando viene modificata una configurazione del grafo. |
-|archon_graphCreationFailed     |Inviato quando il grafico con l'oggetto restituito `graphId` non viene avviato. |
-|archon_graphCreationSuccess    |Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente. |
-|archon_graphCleanup    | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso. |
-|archon_graphHeartbeat  |Heartbeat inviato ogni minuto per ogni grafico di una competenza. |
+|archon_exit    |Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
+|archon_error   |Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.  |
+|InputRate  |Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti. | 
+|OutputRate     |Velocità con cui il grafo genera informazioni dettagliate di intelligenza artificiale. Segnalato ogni 5 minuti. |
+|archon_allGraphsStarted | Inviato al termine dell'avvio di tutti i grafici. |
+|archon_configchange    | Inviato quando viene modificata una configurazione del grafo. |
+|archon_graphCreationFailed     |Inviato quando il grafico con l'oggetto restituito `graphId` non viene avviato. |
+|archon_graphCreationSuccess    |Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente. |
+|archon_graphCleanup    | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso. |
+|archon_graphHeartbeat  |Heartbeat inviato ogni minuto per ogni grafico di una competenza. |
 |archon_apiKeyAuthFail |Inviato quando la chiave della risorsa Visione artificiale non riesce ad autenticare il contenitore per più di 24 ore, a causa dei motivi seguenti: fuori quota, non valido, offline. |
-|VideoIngesterHeartbeat     |Inviato ogni ora per indicare che il video è trasmesso dall'origine video, con il numero di errori in quell'ora. Segnalato per ogni grafico. |
-|VideoIngesterState | Report *interrotti* o *avviati* per lo streaming video.Segnalato per ogni grafico. |
+|VideoIngesterHeartbeat     |Inviato ogni ora per indicare che il video è trasmesso dall'origine video, con il numero di errori in quell'ora. Segnalato per ogni grafico. |
+|VideoIngesterState | Report *interrotti* o *avviati* per lo streaming video. Segnalato per ogni grafico. |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Risoluzione dei problemi relativi a un dispositivo IoT Edge
 
@@ -129,22 +129,17 @@ Una volta distribuito il modulo Telegraf, è possibile accedere alle metriche se
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Raccogliere i file di log con il contenitore di diagnostica
 
-L'analisi spaziale genera log di debug Docker che è possibile usare per diagnosticare i problemi di runtime o includere nei ticket di supporto. Il modulo di diagnostica di analisi spaziale è disponibile nel Container Registry Microsoft da scaricare. Nel [manifesto di distribuzione di esempio](https://go.microsoft.com/fwlink/?linkid=2142179)cercare il modulo *Diagnostics (diagnostica* ).
+L'analisi spaziale genera log di debug Docker che è possibile usare per diagnosticare i problemi di runtime o includere nei ticket di supporto. Il modulo di diagnostica di analisi spaziale è disponibile nel Container Registry Microsoft da scaricare. Nel file di distribuzione del manifesto per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare il modulo *diagnostica* .
 
 Nella sezione "ENV" aggiungere la configurazione seguente:
 
 ```json
-"diagnostics": {  
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
-  }
+"diagnostics": {  
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
+  }
 ```    
-
->[!NOTE]
-> Se non è in esecuzione in un ambiente del servizio app Kubernetes, sostituire le opzioni di creazione del contenitore per il modulo di registrazione come riportato di seguito:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
 Per ottimizzare i log caricati in un endpoint remoto, ad esempio archiviazione BLOB di Azure, è consigliabile mantenere una dimensione di file ridotta. Vedere l'esempio seguente per la configurazione consigliata per i log di Docker.
 
@@ -193,13 +188,13 @@ Può anche essere impostato tramite il documento di IoT Edge modulo gemello a li
 > Il `diagnostics` modulo non influisce sul contenuto di registrazione, ma solo per la raccolta, il filtraggio e il caricamento dei log esistenti.
 > Per usare questo modulo, è necessario avere l'API Docker versione 1,40 o successiva.
 
-Il file [manifesto di distribuzione di esempio](https://go.microsoft.com/fwlink/?linkid=2142179) include un modulo denominato `diagnostics` che raccoglie e carica i log. Questo modulo è disabilitato per impostazione predefinita e deve essere abilitato tramite la configurazione del modulo IoT Edge quando è necessario accedere ai log. 
+Il file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  include un modulo denominato `diagnostics` che raccoglie e carica i log. Questo modulo è disabilitato per impostazione predefinita e deve essere abilitato tramite la configurazione del modulo IoT Edge quando è necessario accedere ai log. 
 
 La `diagnostics` raccolta è su richiesta e controllata tramite un metodo diretto IOT Edge e può inviare i log a un archivio BLOB di Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurare le destinazioni di caricamento di diagnostica
 
-Dal portale di IoT Edge selezionare il dispositivo e quindi il modulo di **diagnostica** . Nel file di esempio [*DeploymentManifest.js*](https://go.microsoft.com/fwlink/?linkid=2142179), cercare la sezione **variabili di ambiente** per diagnostica, denominata ' env ', e aggiungere le informazioni seguenti:
+Dal portale di IoT Edge selezionare il dispositivo e quindi il modulo di **diagnostica** . Nel file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o altri [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare la sezione **variabili di ambiente** per diagnostica, denominata `env` e aggiungere le informazioni seguenti:
 
 **Configurare il caricamento nell'archiviazione BLOB di Azure**
 
@@ -221,9 +216,9 @@ I log vengono caricati su richiesta con il `getRTCVLogs` metodo IOT Edge, nel `d
 
 
 1. Andare alla pagina del portale dell'hub Internet delle cose, selezionare **dispositivi perimetrali**, quindi selezionare il dispositivo e il modulo di diagnostica. 
-2. Passare alla pagina dei dettagli del modulo e fare clic sulla scheda ***metodo diretto*** .
+2. Passare alla pagina dei dettagli del modulo e fare clic sulla scheda **_metodo diretto_*.
 3. Digitare `getRTCVLogs` sul nome del metodo e una stringa di formato JSON nel payload. È possibile immettere `{}` , che è un payload vuoto. 
-4. Impostare i timeout di connessione e metodo, quindi fare clic su **Richiama metodo**.
+4. Impostare i timeout di connessione e metodo, quindi fare clic su _ * richiama metodo * *.
 5. Selezionare il contenitore di destinazione e compilare una stringa JSON di payload usando i parametri descritti nella sezione relativa alla **sintassi di registrazione** . Fare clic su **Richiama metodo** per eseguire la richiesta.
 
 >[!NOTE]
@@ -250,7 +245,7 @@ Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 
 | Parola chiave | Descrizione|
 |--|--|
-|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni in modo ***sincrono***. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log in ***modo asincrono***.|
+|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni * in modo**sincrono**_. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log in _*_modo asincrono_*_.|
 |TimeFilter| Filtro temporale applicato ai log.|
 |ValueFilters| I filtri delle parole chiave applicati ai log. |
 |TimeStamp| Ora di inizio dell'esecuzione del metodo. |
@@ -303,7 +298,7 @@ Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 }
 ```
 
-Controllare le righe, i tempi e le dimensioni del ***log di recupero*** , se queste impostazioni sembrano corrette, sostituire la prima volta `true` con e che effettueranno il push dei log con gli stessi filtri alle destinazioni. 
+Controllare le righe, i tempi e le dimensioni del _*_log di recupero_*_ , se queste impostazioni sembrano corrette, sostituire la prima volta `true` con e che effettueranno il push dei log con gli stessi filtri alle destinazioni. 
 
 È possibile esportare i log dall'archiviazione BLOB di Azure durante la risoluzione dei problemi. 
 
@@ -319,9 +314,9 @@ Per altre informazioni, vedere [richiedere l'approvazione per eseguire il conten
 
 La sezione seguente è disponibile per informazioni sul debug e la verifica dello stato del dispositivo Azure Stack Edge.
 
-### <a name="access-the-kubernetes-api-endpoint"></a>Accedere all'endpoint API Kubernetes. 
+### <a name="access-the-kubernetes-api-endpoint"></a>Accedere all'endpoint API Kubernetes. 
 
-1. Nell'interfaccia utente locale del dispositivo andare alla pagina **dispositivi** . 
+1. Nell'interfaccia utente locale del dispositivo andare alla pagina _*Devices** (dispositivi). 
 2. In **endpoint dispositivo**copiare l'endpoint del servizio API Kubernetes. Questo endpoint è una stringa nel formato seguente: `https://compute..[device-IP-address]`.
 3. Salvare la stringa dell'endpoint. Questa operazione verrà usata in un secondo momento durante la configurazione `kubectl` di per accedere al cluster Kubernetes.
 
@@ -336,7 +331,7 @@ Connettersi in remoto da un client Windows. Dopo la creazione del cluster Kubern
 1. Eseguire una sessione di Windows PowerShell come amministratore. 
     1. Verificare che il servizio Gestione remota Windows sia in esecuzione nel client. Al prompt dei comandi digitare `winrm quickconfig`.
 
-2. Assegnare una variabile per l'indirizzo IP del dispositivo. Ad esempio: `$ip = "<device-ip-address>"`.
+2. Assegnare una variabile per l'indirizzo IP del dispositivo. Ad esempio, `$ip = "<device-ip-address>"`
 
 3. Usare il comando seguente per aggiungere l'indirizzo IP del dispositivo all'elenco di host attendibili del client. 
 

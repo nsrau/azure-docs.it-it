@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057536"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484560"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -38,7 +38,7 @@ I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
 L'archiviazione per utilizzo generico è l'archiviazione back-end che supporta [per utilizzo generico](concepts-pricing-tiers.md) e il server di [livello con ottimizzazione](concepts-pricing-tiers.md) per la memoria Per i server con archiviazione per utilizzo generico fino a 4 TB, i backup completi si verificano una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. I backup in archiviazione per utilizzo generico fino a 4 TB di archiviazione non sono basati su snapshot e utilizzano la larghezza di banda di i/o al momento del backup. Per database di grandi dimensioni (> 1 TB) nell'archiviazione da 4 TB, è consigliabile prendere in considerazione 
 
 - Provisioning di più IOPs per tenere conto del backup di IOs o
-- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione se la infrastruttura di archiviazione sottostante è disponibile nelle [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure. 
+- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione se l'infrastruttura di archiviazione sottostante è disponibile nelle [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 16 TB
 In un sottoinsieme di [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning sono in grado di supportare l'archiviazione per utilizzo generico fino a 16 TB. In altre parole, l'archiviazione per utilizzo generico predefinito per tutte le [aree](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) in cui è supportata è l'archiviazione fino a 16 TB. I backup in questi server di archiviazione da 16 TB sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. 
@@ -55,12 +55,16 @@ Il periodo di conservazione dei backup determina quanto è possibile tornare ind
 - I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
 -   I server con archiviazione fino a 16 TB manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
 
+#### <a name="long-term-retention"></a>Conservazione a lungo termine
+La conservazione a lungo termine dei backup oltre 35 giorni non è ancora supportata in modo nativo dal servizio. È possibile usare mysqldump per eseguire i backup e archiviarli per la conservazione a lungo termine. Il team di supporto ha bloggato un [articolo dettagliato](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) per condividere il modo in cui è possibile ottenerlo. 
+
+
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
 Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di Azure per MySQL offre la possibilità di scegliere tra archiviazione dei backup con ridondanza locale o con ridondanza geografica. Quando vengono archiviati in un archivio di backup con ridondanza geografica, i backup non solo vengono archiviati nell'area in cui è ospitato il server, ma vengono anche replicati in un [data center abbinato](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Questo garantisce una migliore protezione e la possibilità di ripristinare il server in un'area diversa in caso di emergenza. Il livello Basic offre solo l'archiviazione dei backup con ridondanza locale.
 
-> [!IMPORTANT]
-> La configurazione dell'archiviazione con ridondanza locale o geografica per il backup è consentita solo durante la creazione del server. Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passaggio dall'archiviazione con ridondanza locale al backup con ridondanza geografica
+La configurazione dell'archiviazione con ridondanza locale o geografica per il backup è consentita solo durante la creazione del server. Dopo il provisioning del server, non è possibile modificare l'opzione di ridondanza per l'archivio di backup. Per spostare l'archivio di backup dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica, la creazione di un nuovo server e la migrazione dei dati tramite [dump e Restore](concepts-migrate-dump-restore.md) sono l'unica opzione supportata.
 
 ### <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277292"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496117"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versione 1.0.8. Per scaricare la versione corretta, attenersi alla procedura seguente:
+Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
 
 Server Ubuntu 18,04:
 ```bash
@@ -286,10 +286,10 @@ Aggiornare gli elenchi di pacchetti nel dispositivo.
 sudo apt-get update
 ```
 
-Installare la versione di 1.0.8:
+Installare la versione di 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -314,11 +314,11 @@ Usare i passaggi seguenti per distribuire il contenitore usando l'interfaccia de
 
 ### <a name="iot-deployment-manifest"></a>Manifesto della distribuzione di Internet delle cose
 
-Per semplificare la distribuzione di contenitori in più computer host, è possibile creare un file manifesto di distribuzione per specificare le opzioni di creazione del contenitore e le variabili di ambiente. È possibile trovare un esempio di [manifesto di distribuzione in GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+Per semplificare la distribuzione di contenitori in più computer host, è possibile creare un file manifesto di distribuzione per specificare le opzioni di creazione del contenitore e le variabili di ambiente. È possibile trovare un esempio di un manifesto di distribuzione [per Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) e  [altre macchine desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) su GitHub.
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | Valore | Descrizione|
+| Nome dell'impostazione | valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -335,17 +335,16 @@ La tabella seguente illustra le diverse variabili di ambiente usate dal modulo I
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Dopo aver aggiornato ilDeploymentManifest.jsdi esempio [ nel](https://go.microsoft.com/fwlink/?linkid=2142179) file con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) seguente per distribuire il contenitore nel computer host, come modulo di IOT Edge.
+Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o [un computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) seguente per distribuire il contenitore nel computer host, come modulo di IOT Edge.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parametro  |Descrizione  |
 |---------|---------|
-| `--deployment-id` | Nuovo nome per la distribuzione. |
 | `--hub-name` | Nome dell'hub Azure. |
 | `--content` | Nome del file di distribuzione. |
 | `--target-condition` | Nome del dispositivo IoT Edge per il computer host. |
@@ -386,7 +385,7 @@ Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizz
 
 Fare clic su **genera token SAS e URL** e copiare l'URL SAS BLOB. Sostituire l'oggetto iniziando `https` con `http` e testare l'URL in un browser che supporta la riproduzione video.
 
-Sostituire `VIDEO_URL` nel [manifesto di distribuzione](https://go.microsoft.com/fwlink/?linkid=2142179) con l'URL creato per tutti i grafici. Impostare `VIDEO_IS_LIVE` su `false` e ridistribuire il contenitore di analisi spaziale con il manifesto aggiornato. Vedere l'esempio seguente.
+Sostituire `VIDEO_URL` nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con l'URL creato per tutti i grafici. Impostare `VIDEO_IS_LIVE` su `false` e ridistribuire il contenitore di analisi spaziale con il manifesto aggiornato. Vedere l'esempio seguente.
 
 Il modulo di analisi spaziale inizierà a utilizzare il file video e continuerà a riprodursi automaticamente.
 
@@ -419,7 +418,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

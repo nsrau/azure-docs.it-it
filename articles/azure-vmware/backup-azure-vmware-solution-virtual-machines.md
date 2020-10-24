@@ -3,16 +3,16 @@ title: Eseguire il backup di macchine virtuali della soluzione VMware di Azure c
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893017"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495695"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 
-In questo articolo vengono illustrate le procedure per eseguire il backup di macchine virtuali VMware in esecuzione in una soluzione VMware di Azure usando server di Backup di Azure. Prima di iniziare, assicurarsi di eseguire accuratamente [la configurazione di backup di Microsoft Azure server per la soluzione VMware di Azure](set-up-backup-server-for-azure-vmware-solution.md).
+In questo articolo verrà eseguito il backup di macchine virtuali VMware in esecuzione su una soluzione VMware di Azure con server di Backup di Azure. Per prima cosa, vedere [la pagina relativa alla configurazione di backup di Microsoft Azure server per la soluzione VMware di Azure](set-up-backup-server-for-azure-vmware-solution.md).
 
 Quindi, verranno esaminate tutte le procedure necessarie per:
 
@@ -162,7 +162,11 @@ In VMware 6,7 in poi è stato abilitato TLS come protocollo di comunicazione.
 
    ![Pagina Fine](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Il server vCenter verrà elencato in server di **produzione** con il tipo come **server VMware** e **lo stato dell'agente** come **OK**. Se lo **stato dell'agente** è **sconosciuto**, selezionare **Aggiorna**.
+   Il server vCenter viene visualizzato in **server di produzione** con:
+   - Digitare come **server VMware** 
+   - Stato agente come **OK** 
+   
+      Se lo **stato dell'agente** è **sconosciuto**, selezionare **Aggiorna**.
 
 ## <a name="configure-a-protection-group"></a>Configurazione di un gruppo protezione dati
 
@@ -202,7 +206,7 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
    - Le allocazioni di dischi consigliate sono basate sull'intervallo di conservazione specificato, il tipo di carico di lavoro e le dimensioni dei dati protetti. Apportare le modifiche necessarie e quindi fare clic su **Avanti**.
    - **Dimensione dati:** la dimensione dei dati nel gruppo protezione dati.
-   - **Spazio su disco:** Quantità di spazio su disco consigliata per il gruppo protezione dati. Se si vuole modificare questa impostazione, allocare uno spazio totale leggermente superiore rispetto alla quantità stimata per la crescita di ogni origine dati.
+   - **Spazio su disco:** Quantità di spazio su disco consigliata per il gruppo protezione dati. Se si vuole modificare questa impostazione, selezionare spazio leggermente maggiore rispetto alla quantità stimata per la crescita di ogni origine dati.
    - **Dettagli pool di archiviazione:** Mostra lo stato del pool di archiviazione, che include le dimensioni totali e rimanenti del disco.
 
    :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Client Web vSphere":::
@@ -229,14 +233,14 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
    ![Specifica i dati da proteggere online](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1. Nella pagina **specificare la pianificazione del backup online** indicare la frequenza con cui si vuole eseguire il backup dei dati dalla risorsa di archiviazione locale in Azure e quindi fare clic su **Avanti**. 
+1. Nella pagina **specificare la pianificazione del backup online** indicare la frequenza con cui si vuole eseguire il backup dei dati dalla risorsa di archiviazione locale ad Azure. 
 
    - Punti di ripristino cloud per i dati da generare in base alla pianificazione. 
    - Dopo la generazione del punto di ripristino, questo viene trasferito nell'insieme di credenziali di servizi di ripristino in Azure.
 
    ![Specificare la pianificazione dei backup online](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. Nella pagina **specificare i criteri di conservazione online** indicare per quanto tempo si vogliono mantenere i punti di ripristino creati dai backup giornalieri, settimanali, mensili o annuali in Azure e quindi fare clic su **Avanti**.
+1. Nella pagina **specificare i criteri di conservazione online** indicare per quanto tempo si vogliono mantenere i punti di ripristino creati dai backup in Azure.
 
    - Non esiste un limite di tempo per la conservazione dei dati in Azure.
    - L'unico limite è che non è possibile avere più di 9.999 punti di ripristino per ogni istanza protetta. In questo esempio l'istanza protetta è il server VMware.
@@ -251,8 +255,9 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
 Dopo aver configurato il gruppo protezione dati per eseguire il backup delle macchine virtuali della soluzione VMware di Azure, è possibile monitorare lo stato del processo di backup e l'avviso utilizzando la console di server di Backup di Azure. Ecco cosa è possibile monitorare.
 
-- Nella scheda **avvisi** del riquadro **monitoraggio** è possibile monitorare errori, avvisi e informazioni generali per un gruppo protezione dati, per un computer protetto specifico o per gravità del messaggio. È possibile visualizzare gli avvisi attivi e inattivi e configurare le notifiche di posta elettronica.
-- Nella scheda **processi** del riquadro **monitoraggio** è possibile visualizzare i processi avviati da server di backup di Azure per un'origine dati protetta specifica o un gruppo protezione dati. È possibile seguire lo stato di avanzamento del processo o controllare le risorse utilizzate dai processi.
+- Nell'area attività **monitoraggio** :
+   - In **avvisi**è possibile monitorare gli errori, gli avvisi e le informazioni generali.  È possibile visualizzare gli avvisi attivi e inattivi e configurare le notifiche di posta elettronica.
+   - In **processi**è possibile visualizzare i processi avviati da server di backup di Azure per un'origine dati protetta o un gruppo protezione dati specifico. È possibile seguire lo stato di avanzamento del processo o controllare le risorse utilizzate dai processi.
 - Nell'area attività **protezione** dati è possibile controllare lo stato dei volumi e delle condivisioni nel gruppo protezione dati. È anche possibile controllare le impostazioni di configurazione, ad esempio le impostazioni di ripristino, l'allocazione dei dischi e la pianificazione del backup.
 - Nell'area attività **gestione** è possibile visualizzare le schede **dischi, online**e **agenti** per verificare lo stato dei dischi nel pool di archiviazione, la registrazione in Azure e lo stato dell'agente DPM distribuito.
 
@@ -263,18 +268,18 @@ Dopo aver configurato il gruppo protezione dati per eseguire il backup delle mac
 Nella server di Backup di Azure Console di amministrazione sono disponibili due modi per trovare i dati ripristinabili. È possibile cercare o esplorare. Quando si ripristinano i dati, è possibile che si desideri o meno ripristinare i dati o una macchina virtuale nello stesso percorso. Per questo motivo, server di Backup di Azure supporta tre opzioni di ripristino per i backup di macchine virtuali VMware:
 
 - **Ripristino del percorso originale (OLR)**: usare OLR per ripristinare una macchina virtuale protetta nel percorso originale. È possibile ripristinare una macchina virtuale nel percorso originale solo se non è stato aggiunto o eliminato alcun disco dopo che è stato eseguito il backup. Se i dischi sono stati aggiunti o eliminati, è necessario utilizzare il ripristino del percorso alternativo.
-- **Ripristino in un percorso alternativo (ALR)**: quando la macchina virtuale originale non è presente o non si vuole disturbare la VM originale, ripristinare la macchina virtuale in un percorso alternativo. Per ripristinare una macchina virtuale in un percorso alternativo, è necessario specificare il percorso di un host ESXi, il pool di risorse, la cartella, nonché l'archivio dati e il percorso di archiviazione. Per distinguere la macchina virtuale ripristinata dalla VM originale, server di Backup di Azure aggiunge "-recovered" al nome della macchina virtuale.
+- **Ripristino in un percorso alternativo (ALR)**: usare quando manca la VM originale oppure non si vuole disturbare la VM originale. Specificare il percorso di un host ESXi, un pool di risorse, una cartella e l'archivio dati e il percorso di archiviazione. Per distinguere la macchina virtuale ripristinata dalla VM originale, server di Backup di Azure aggiunge *"-recovered"* al nome della macchina virtuale.
 - **Ripristino del percorso dei singoli file (ILR)**: se la macchina virtuale protetta è una macchina virtuale Windows Server, è possibile ripristinare singoli file o cartelle all'interno della macchina virtuale usando la funzionalità ILR di server di backup di Azure. Per ripristinare singoli file, vedere la procedura più avanti in questo articolo. Il ripristino di un singolo file da una macchina virtuale è disponibile solo per i punti di ripristino di macchine virtuali e dischi Windows.
 
 ### <a name="restore-a-recovery-point"></a>Ripristinare un punto di ripristino
 
 1. Nella Console di amministrazione server di Backup di Azure selezionare la visualizzazione **ripristino** . 
 
-1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro **punti di ripristino** vengono visualizzati i punti di ripristino disponibili.
+1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro * * punti di ripristino per vengono visualizzati i punti di ripristino disponibili.
 
    ![Punti di ripristino disponibili](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
-1. Nel riquadro **punti di ripristino per** usare il calendario e i menu a discesa per selezionare una data in cui è stato effettuato un punto di ripristino. Per le date visualizzate in grassetto nel calendario sono disponibili punti di ripristino. In alternativa, è possibile fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare **Mostra tutti i punti di ripristino** , quindi selezionare il punto di ripristino dall'elenco.
+1. Nel riquadro **punti di ripristino per** selezionare una data in cui è stato effettuato un punto di ripristino. Per le date visualizzate in grassetto nel calendario sono disponibili punti di ripristino. In alternativa, è possibile fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare **Mostra tutti i punti di ripristino** , quindi selezionare il punto di ripristino dall'elenco.
 
    > [!NOTE] 
    > Per la protezione dati a breve termine, selezionare un punto di ripristino su disco per un ripristino più veloce. Dopo che i punti di ripristino a breve termine scadono, vengono visualizzati solo i punti di ripristino **online** da ripristinare.
@@ -292,7 +297,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
    > [!NOTE]
    > I carichi di lavoro VMware non supportano l'abilitazione della limitazione della larghezza di banda.
 
-1. Nella pagina **Selezione tipo di ripristino** scegliere se eseguire il ripristino nell'istanza originale o in una nuova posizione, quindi selezionare **Avanti**.
+1. Nella pagina **Selezione tipo di ripristino** ripristinare l'istanza originale o una nuova posizione.
 
    - Se si sceglie **Ripristina nell'istanza originale** non è necessario effettuare altre selezioni nella procedura guidata. Vengono usati i dati per l'istanza originale.
    - Se si sceglie **Ripristina come macchina virtuale in qualsiasi host**, nella schermata **Specifica destinazione** specificare le informazioni per **Host ESXi**, **Pool di risorse**, **Cartella** e **Percorso**.
@@ -312,7 +317,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Nella Console di amministrazione server di Backup di Azure selezionare la visualizzazione **ripristino** .
 
-1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro **punti di ripristino** vengono visualizzati i punti di ripristino disponibili.
+1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro * * punti di ripristino per vengono visualizzati i punti di ripristino disponibili.
 
    ![Punti di ripristino disponibili](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
@@ -341,7 +346,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Nella schermata **Selezione tipo di ripristino** selezionare **Avanti**. È possibile ripristinare solo i file o le cartelle in una cartella di rete.
 
-1. Nella schermata **specifica destinazione** selezionare **Sfoglia** per trovare un percorso di rete per i file o le cartelle. Server di Backup di Azure crea una cartella in cui vengono copiati tutti gli elementi ripristinati. Il nome della cartella ha il prefisso MABS_day-month-year. Quando si seleziona un percorso per i file o la cartella ripristinati, vengono forniti i dettagli relativi a tale percorso, ad esempio **destinazione**, **percorso di destinazione**e **spazio disponibile**.
+1. Nella schermata **specifica destinazione** selezionare **Sfoglia** per trovare un percorso di rete per i file o le cartelle. Server di Backup di Azure crea una cartella in cui vengono copiati tutti gli elementi ripristinati. Il nome della cartella ha il prefisso MABS_day-month-year. Quando si seleziona un percorso per i file o la cartella ripristinati, vengono forniti i dettagli per tale percorso.
 
    ![Specificare il percorso per il ripristino dei file](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 

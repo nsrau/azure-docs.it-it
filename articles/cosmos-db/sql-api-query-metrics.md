@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280526"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477828"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
-Azure Cosmos DB fornisce un'[API SQL per le query sui dati](how-to-sql-query.md), senza che siano necessari schemi o indici secondari. In questo articolo vengono fornite le seguenti informazioni per gli sviluppatori:
+Azure Cosmos DB fornisce un'[API SQL per le query sui dati](./sql-query-getting-started.md), senza che siano necessari schemi o indici secondari. In questo articolo vengono fornite le seguenti informazioni per gli sviluppatori:
 
 * Informazioni generali sull'esecuzione delle query SQL di Azure Cosmos DB
 * Dettagli sulle intestazioni di richiesta e risposta delle query e le opzioni SDK client
@@ -275,6 +275,4 @@ Di seguito sono riportate alcune query di esempio, con informazioni su come inte
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](sql-query-getting-started.md). 
 * Per informazioni sulle unità richiesta, vedere [Unità richiesta](request-units.md).
-* Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](index-policy.md) 
-
-
+* Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](index-policy.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850705"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478151"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 
@@ -216,9 +216,9 @@ Poiché si usa Azure Cosmos DB, è possibile implementare facilmente un motore d
 
 Perché questo processo è così semplice?
 
-Azure ricerca cognitiva implementa gli [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx), i processi in background che si agganciano ai repository di dati e aggiungono, aggiornano o rimuovono gli oggetti negli indici in automagici. Supportano gli [indicizzatori di database SQL di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), gli [indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure Cosmos DB](../search/search-howto-index-documentdb.md). La transizione delle informazioni dal Cosmos DB al ricerca cognitiva di Azure è semplice. Entrambe le tecnologie archiviano le informazioni in formato JSON, pertanto è sufficiente [creare l'indice](../search/search-create-index-portal.md) ed eseguire il mapping degli attributi dai documenti da indicizzare. La procedura è terminata. A seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca entro pochi minuti dalla soluzione di ricerca distribuita come servizio migliore nell'infrastruttura cloud.
+Azure ricerca cognitiva implementa gli [indicizzatori](/rest/api/searchservice/Indexer-operations), i processi in background che si agganciano ai repository di dati e aggiungono, aggiornano o rimuovono gli oggetti negli indici in automagici. Supportano gli [indicizzatori di database SQL di Azure](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), gli [indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure Cosmos DB](../search/search-howto-index-cosmosdb.md). La transizione delle informazioni dal Cosmos DB al ricerca cognitiva di Azure è semplice. Entrambe le tecnologie archiviano le informazioni in formato JSON, pertanto è sufficiente [creare l'indice](../search/search-what-is-an-index.md) ed eseguire il mapping degli attributi dai documenti da indicizzare. La procedura è terminata. A seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca entro pochi minuti dalla soluzione di ricerca distribuita come servizio migliore nell'infrastruttura cloud.
 
-Per ulteriori informazioni su Azure ricerca cognitiva, è possibile visitare la [Guida per la ricerca tramite l'Autostoppier](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Per ulteriori informazioni su Azure ricerca cognitiva, è possibile visitare la [Guida per la ricerca tramite l'Autostoppier](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>Conoscenza sottostante
 
@@ -260,7 +260,7 @@ Quando si replicano i dati a livello globale, è necessario assicurarsi che i cl
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Diagramma che illustra un modello relazionale relativo" border="false":::
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Questo articolo mette in luce alcune alternative per la creazione di social network interamente in Azure con servizi a costo contenuto. Viene promosso l'uso di una soluzione di archiviazione e distribuzione dei dati su più livelli detta "a gradini".
 

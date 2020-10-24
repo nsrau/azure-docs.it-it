@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428058"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477590"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione delle tabelle per archiviazione tabelle di Azure: tabelle scalabili con prestazioni avanzate
 
@@ -24,7 +24,7 @@ Per progettare tabelle scalabili ed efficienti, è necessario prendere in consid
 Archiviazione tabelle è progettato per supportare applicazioni con scalabilità cloud che possono contenere miliardi di entità di dati, dette "righe" nella terminologia dei database relazionali, o per set di dati che devono supportare volumi di transazioni elevati. È quindi necessario considerare diversamente la modalità di archiviazione dei dati e comprendere il funzionamento di archiviazione tabelle. Un archivio dati NoSQL ben progettato offre alla soluzione una scalabilità decisamente più elevata e a un costo inferiore rispetto a una soluzione che usa un database relazionale. Questa guida illustra proprio questi argomenti.  
 
 ## <a name="about-azure-table-storage"></a>Informazioni su archiviazione tabelle di Azure
-Questa sezione evidenzia alcune funzionalità chiave di archiviazione tabelle, di particolare importanza per la progettazione a livello di prestazioni e scalabilità. Se non si ha familiarità con Archiviazione di Azure e con archiviazione tabelle, prima di leggere questo articolo, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md) e [Introduzione all'archiviazione tabelle di Azure con .NET](table-storage-how-to-use-dotnet.md). Anche se l'argomento principale di questa guida è l'archiviazione tabelle, sono incluse alcune informazioni sull'archiviazione code e l'archiviazione BLOB di Azure e su come è possibile usarli con archiviazione tabelle in una soluzione.  
+Questa sezione evidenzia alcune funzionalità chiave di archiviazione tabelle, di particolare importanza per la progettazione a livello di prestazioni e scalabilità. Se non si ha familiarità con Archiviazione di Azure e con archiviazione tabelle, prima di leggere questo articolo, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md) e [Introduzione all'archiviazione tabelle di Azure con .NET](./tutorial-develop-table-dotnet.md). Anche se l'argomento principale di questa guida è l'archiviazione tabelle, sono incluse alcune informazioni sull'archiviazione code e l'archiviazione BLOB di Azure e su come è possibile usarli con archiviazione tabelle in una soluzione.  
 
 Archiviazione tabelle usa un formato tabulare per archiviare i dati. In base alla terminologia standard, ogni riga della tabella rappresenta un'entità le cui diverse proprietà sono archiviate nelle colonne. Ogni entità ha una coppia di chiavi che la identificano in modo univoco e una colonna timestamp usata da archiviazione tabelle per tenere traccia dell'ultimo aggiornamento dell'entità. Il campo timestamp viene aggiunto automaticamente e non è possibile sovrascriverlo manualmente con un valore arbitrario. Archiviazione tabelle usa il timestamp dell'ultima modifica per gestire la concorrenza ottimistica.  
 
@@ -123,7 +123,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </table>
 
 
-Fino ad ora questo progetto è simile alle tabelle in un database relazionale. Le principali differenze sono le colonne obbligatorie e la possibilità di archiviare più tipi di entità nella stessa tabella. Inoltre ogni proprietà definita dall'utente, come **FirstName** o **Age** ha un tipo di dati, ad esempio numero intero o stringa, proprio come una colonna in un database relazionale. A differenza di un database relazionale, tuttavia, essendo l'archiviazione tabelle priva di schema, una proprietà non deve avere lo stesso tipo di dati in ogni entità. Per archiviare tipi di dati complessi in una sola proprietà, è necessario usare un formato serializzato come JSON o XML. Per altre informazioni, vedere [Informazioni sul modello di dati di archiviazione tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Fino ad ora questo progetto è simile alle tabelle in un database relazionale. Le principali differenze sono le colonne obbligatorie e la possibilità di archiviare più tipi di entità nella stessa tabella. Inoltre ogni proprietà definita dall'utente, come **FirstName** o **Age** ha un tipo di dati, ad esempio numero intero o stringa, proprio come una colonna in un database relazionale. A differenza di un database relazionale, tuttavia, essendo l'archiviazione tabelle priva di schema, una proprietà non deve avere lo stesso tipo di dati in ogni entità. Per archiviare tipi di dati complessi in una sola proprietà, è necessario usare un formato serializzato come JSON o XML. Per altre informazioni, vedere [Informazioni sul modello di dati di archiviazione tabelle](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 La scelta di `PartitionKey` e `RowKey` è fondamentale per la progettazione ottimale di una tabella. Ogni entità archiviata in una tabella deve avere una combinazione univoca di `PartitionKey` e `RowKey`. Come con le chiavi in una tabella di database relazionale, i valori di `PartitionKey` e `RowKey` vengono indicizzati per creare un indice cluster che consenta di eseguire ricerche veloci. Archiviazione tabelle, tuttavia, non crea indici secondari, quindi queste sono le uniche due proprietà indicizzate. Alcuni criteri descritti più avanti mostrano come ovviare a questa apparente limitazione.  
 
@@ -134,7 +134,7 @@ Il nome dell'account, il nome tabella e `PartitionKey` insieme identificano la p
 
 In archiviazione tabelle un solo nodo gestisce una o più partizioni complete e il servizio è scalabile grazie al bilanciamento dinamico del carico delle partizioni tra i nodi. Se un nodo ha un carico insufficiente, archiviazione tabelle può suddividere l'intervallo di partizioni gestite da tale nodo su diversi nodi. Quando il traffico diminuisce, archiviazione tabelle può unire gli intervalli di partizione di nodi con carichi ridotti a un singolo nodo.  
 
-Per altre informazioni sui dettagli interni di archiviazione tabelle, in particolare sulla gestione delle partizioni, vedere il documento [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza assoluta](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+Per altre informazioni sui dettagli interni di archiviazione tabelle, in particolare sulla gestione delle partizioni, vedere il documento [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza assoluta](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transazioni di gruppi di entità
 In archiviazione tabelle, le transazioni di gruppi di entità sono l'unico meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni dei gruppi di entità sono chiamate anche *transazioni batch*. Le transazioni dei gruppi di entità possono agire solo su entità archiviate nella stessa partizione, ovvero che condividono la stessa chiave di partizione in una determinata tabella, quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella multipla per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni dei gruppi di entità simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano usate con entità che sono comuni tra le transazioni dei gruppi di entità, altrimenti l'elaborazione potrebbe subire ritardi.
@@ -156,7 +156,7 @@ La tabella seguente include alcuni valori chiave da tenere presenti quando si pr
 | Dimensioni di `RowKey` |Stringa con dimensioni fino a 1 kB. |
 | Dimensioni di una transazione di gruppi di entità |Una transazione può includere al massimo 100 entità e le dimensioni del payload devono essere inferiori a 4 MB. Una transazione EGT può aggiornare una sola entità per volta. |
 
-Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).  
 
 ### <a name="cost-considerations"></a>Considerazioni sul costo
 Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi, sia per l'utilizzo della capacità che per la quantità di transazioni, nella valutazione delle soluzioni che usano archiviazione tabelle. Tuttavia in molti scenari, l'archiviazione dei dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un valido approccio. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  
@@ -202,7 +202,7 @@ Gli esempi seguenti presuppongono che in archiviazione tabelle vengano archiviat
 | `Age` |Integer |
 | `EmailAddress` |string |
 
-Ecco alcune linee guida generali per la progettazione delle query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Ecco alcune linee guida generali per la progettazione delle query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](/rest/api/storageservices/Query-Entities).  
 
 * Una *query di puntamento* è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per individuare in modo efficiente una singola entità specificando entrambi i valori per `PartitionKey` e `RowKey`. Ad esempio: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
 * La seconda query in termini di efficienza è la *query di intervallo*, che usa `PartitionKey` e applica un filtro in base a un intervallo di valori `RowKey` per restituire più di un'entità. Il valore di `PartitionKey` identifica una partizione specifica e i valori di `RowKey` identificano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
@@ -410,7 +410,7 @@ Nelle sezioni precedenti è stato illustrato come ottimizzare la progettazione d
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Immagine che mostra un'entità reparto e un'entità dipendente":::
 
-La mappa dei criteri evidenzia alcune relazioni tra i criteri (blu) e gli anti-criteri (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per archiviazione tabelle è l'uso del [criterio di vista materializzata](https://msdn.microsoft.com/library/azure/dn589782.aspx) del criterio [separazione di responsabilità per query e comandi](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
+La mappa dei criteri evidenzia alcune relazioni tra i criteri (blu) e gli anti-criteri (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per archiviazione tabelle è l'uso del [criterio di vista materializzata](/previous-versions/msp-n-p/dn589782(v=pandp.10)) del criterio [separazione di responsabilità per query e comandi](/previous-versions/msp-n-p/jj554200(v=pandp.10)).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Modello per indice secondario intrapartizione
 Archivia più copie di ogni entità usando valori di `RowKey` diversi nella stessa partizione. Questo consente ricerche rapide ed efficienti e ordinamenti alternativi con valori di `RowKey` diversi. È possibile mantenere la coerenza negli aggiornamenti tra copie usando le transazioni dei gruppi di entità.  
@@ -437,7 +437,7 @@ Se si esegue una query su un intervallo di entità dipendente, è possibile spec
 * Per trovare tutti i dipendenti nel reparto vendite con un ID dipendente compreso tra 000100 e 000199 usare: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" usare: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-La sintassi di filtro usata negli esempi precedenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La sintassi di filtro usata negli esempi precedenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -497,7 +497,7 @@ Se si esegue una query su un intervallo di entità dipendente, è possibile spec
 * Per trovare tutti i dipendenti del reparto vendite con un ID dipendente nell'intervallo compreso tra **000100** e **000199** ordinati in base all'ID dipendente, usare: $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con "a" ordinati in base all'indirizzo di posta elettronica usare: $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Si noti che la sintassi di filtro usata negli esempi precedenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Si noti che la sintassi di filtro usata negli esempi precedenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -557,7 +557,7 @@ In questo esempio, il passaggio 4 del diagramma inserisce il dipendente nella ta
 #### <a name="recover-from-failures"></a>Ripristino da errori
 È importante che le operazioni nei passaggi 4-5 del diagramma siano *idempotenti* nei casi in cui il ruolo di lavoro deve riavviare l'operazione di archiviazione. Se si sta usando archiviazione tabelle, per il passaggio 4 usare un'operazione "insert or replace"; per il passaggio 5, usare un'operazione "delete if exists" nella libreria client in uso. Se si sta usando un altro sistema di archiviazione, usare un'operazione idempotente appropriata.  
 
-Se il ruolo di lavoro non completa mai il passaggio 6 nel diagramma, dopo un timeout il messaggio ricompare nella coda, pronto per una nuova elaborazione da parte del ruolo di lavoro. Il ruolo di lavoro può controllare il numero di volte in cui un messaggio nella coda è stato letto e, se necessario, contrassegnarlo come messaggio non elaborabile da analizzare inviandolo a una coda separata. Per altre informazioni sulla lettura dei messaggi in coda e la verifica del numero di rimozioni dalla coda, vedere [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se il ruolo di lavoro non completa mai il passaggio 6 nel diagramma, dopo un timeout il messaggio ricompare nella coda, pronto per una nuova elaborazione da parte del ruolo di lavoro. Il ruolo di lavoro può controllare il numero di volte in cui un messaggio nella coda è stato letto e, se necessario, contrassegnarlo come messaggio non elaborabile da analizzare inviandolo a una coda separata. Per altre informazioni sulla lettura dei messaggi in coda e la verifica del numero di rimozioni dalla coda, vedere [Get Messages](/rest/api/storageservices/Get-Messages).  
 
 Alcuni errori di archiviazione tabelle e archiviazione code sono temporanei e l'applicazione client deve includere la logica di ripetizione dei tentativi appropriata per gestirli.  
 
@@ -1009,7 +1009,7 @@ Una query su archiviazione tabelle può restituire un massimo di 1.000 entità c
 - La query non è stata completata entro cinque secondi.
 - La query supera il limite della partizione. 
 
-Per altre informazioni sul funzionamento dei token di continuazione, vedere [Timeout e paginazione delle query](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Per altre informazioni sul funzionamento dei token di continuazione, vedere [Timeout e paginazione delle query](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 La libreria client di archiviazione può gestire automaticamente i token di continuazione per l'utente in quanto restituisce entità di archiviazione tabelle. L'esempio di codice C# seguente gestisce automaticamente i token di continuazione se archiviazione tabelle li restituisce in una risposta:  
 
@@ -1415,7 +1415,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 * È possibile ripartire le operazioni eseguite dai ruoli Web e di lavoro durante la gestione delle entità. È possibile ripartire il carico di lavoro ai dispositivi client, ad esempio computer degli utenti finali e dispositivi mobili.  
 * È possibile assegnare un set vincolato e limitato nel tempo di autorizzazioni a un client, ad esempio, l'accesso di sola lettura a risorse specifiche.  
 
-Per altre informazioni sull'uso dei token SAS con archiviazione tabelle, vedere [Uso delle firme di accesso condiviso (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Per altre informazioni sull'uso dei token SAS con archiviazione tabelle, vedere [Uso delle firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md).  
 
 Tuttavia, è comunque necessario generare i token SAS che concedono un'applicazione client alle entità in archiviazione tabelle. Eseguire questa operazione in un ambiente con accesso protetto alle chiavi dell'account di archiviazione. In genere, è possibile usare un ruolo Web o di lavoro per generare i token delle firme di accesso condiviso e distribuirli alle applicazioni client che richiedono l'accesso alle entità. Poiché la generazione e la distribuzione dei token delle firme di accesso condiviso ai client comportano comunque un sovraccarico, è consigliabile valutare il modo migliore di ridurre tale sovraccarico, soprattutto in scenari con volumi elevati.  
 
@@ -1512,5 +1512,4 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 * La firma del metodo include ora il modificatore `async` e restituisce un'istanza `Task`.  
 * Anziché chiamare il metodo `Execute` per aggiornare l'entità, il metodo chiama ora il metodo `ExecuteAsync`. Il metodo usa il modificatore `await` per recuperare i risultati in modo asincrono.  
 
-L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo viene eseguita su un thread separato.  
-
+L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo viene eseguita su un thread separato.

@@ -2,13 +2,13 @@
 title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/23/2020
+ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424187"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495226"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -181,27 +181,12 @@ In un'offerta multi-tenant le unità elaborate possono aumentare fino a 40 (è p
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Che cosa sono i cluster Hub eventi Dedicato?
 I cluster Hub eventi Dedicato offrono distribuzioni a tenant singolo per i clienti con i requisiti più rigorosi. Questa offerta crea un cluster basato sulla capacità non vincolato da unità elaborate. Ciò significa che è possibile usare il cluster per inserire e trasmettere i dati in base all'uso della CPU e della memoria del cluster. Per altre informazioni, vedere la [panoramica dei cluster Hub eventi Dedicato](event-hubs-dedicated-overview.md).
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Quanto permette di conseguire una singola unità di capacità?
-Per un cluster dedicato, la quantità di dati che è possibile inserire e trasmettere dipende da vari fattori, ad esempio i producer, i consumer, la velocità di inserimento ed elaborazione e altro ancora. 
-
-La tabella seguente mostra i risultati dei benchmark ottenuti durante i test:
-
-| Forma del payload | Destinatari | Larghezza di banda in ingresso| Messaggi in ingresso | Larghezza di banda in uscita | Messaggi in uscita | Unità elaborate totali | Unità elaborate per unità di capacità |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400.000 messaggi/sec | 800 MB/sec | 800.000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
-| Batch di 10 x 10 KB | 2 | 666 MB/sec | 66.600 messaggi/sec | 1,33 GB/sec | 133.000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
-| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34.000 messaggi/sec | 1,05 GB/sec | 34.000 messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
-
-Nei test sono stati usati i criteri seguenti:
-
-- È stato usato un cluster Hub eventi Dedicato con quattro unità di capacità. 
-- L'hub eventi usato per l'inserimento aveva 200 partizioni. 
-- I dati inseriti da tutte le partizioni vengono ricevuti da due applicazioni riceventi.
-
-I risultati danno un'idea di cosa è possibile ottenere con un cluster Hub eventi Dedicato. In un cluster dedicato, inoltre, la funzionalità di acquisizione di Hub eventi è abilitata per gli scenari per gli scenari di micro-batch e conservazione a lungo termine.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Come si crea un cluster Hub eventi Dedicato?
-Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di aumento di quota](https://portal.azure.com/#create/Microsoft.Support) o contattare il [team di Hub eventi](mailto:askeventhubs@microsoft.com). La distribuzione del cluster per l'uso da parte dell'utente richiede in genere circa due settimane. Questo processo è temporaneo finché non viene reso disponibile un self-service completo tramite il portale di Azure.
+Per istruzioni dettagliate e altre informazioni sulla configurazione di un cluster dedicato di hub eventi, vedere la [Guida introduttiva: creare un cluster di hub eventi dedicato usando portale di Azure](event-hubs-dedicated-cluster-create-portal.md). 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## <a name="best-practices"></a>Procedure consigliate
 

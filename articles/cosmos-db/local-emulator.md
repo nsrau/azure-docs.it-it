@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173794"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482622"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore di Azure Cosmos per lo sviluppo e il test locali
 
@@ -369,7 +369,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>API di tabella
 
-Dopo aver eseguito l'emulatore di Azure Cosmos sul desktop, è possibile usare il [Azure Cosmos DB API tabella SDK](table-storage-how-to-use-dotnet.md) per interagire con l'emulatore. Avviare l'emulatore dal [prompt dei comandi](emulator-command-line-parameters.md) come amministratore con "/EnableTableEndpoint". quindi eseguire il codice seguente per connettersi all'account dell'API Tabella:
+Dopo aver eseguito l'emulatore di Azure Cosmos sul desktop, è possibile usare il [Azure Cosmos DB API tabella SDK](./tutorial-develop-table-dotnet.md) per interagire con l'emulatore. Avviare l'emulatore dal [prompt dei comandi](emulator-command-line-parameters.md) come amministratore con "/EnableTableEndpoint". quindi eseguire il codice seguente per connettersi all'account dell'API Tabella:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;

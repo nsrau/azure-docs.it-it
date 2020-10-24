@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: c451c49555e9c4c9214780bd936c17e9a30df776
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893782"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495535"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione online di PostgreSQL al database di Azure per PostgreSQL con il Servizio Migrazione del database tramite il portale di Azure
 
@@ -211,7 +211,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 2. Nella schermata **Servizi Migrazione del database di Azure** cercare il nome dell'istanza di Servizio Migrazione del database di Azure appena creata, selezionare l'istanza e quindi selezionare + **Nuovo progetto di migrazione**.
 
-3. Nella schermata **Nuovo progetto di migrazione** specificare il nome del progetto, nella casella di testo **Tipo del server di origine** selezionare **PostgresSQL** e nella casella di testo **Tipo del server di destinazione** selezionare **Database di Azure per PostgreSQL**.
+3. Nella schermata **Nuovo progetto di migrazione** specificare il nome del progetto, nella casella di testo **Tipo del server di origine** selezionare **PostgreSQL** e nella casella di testo **Tipo del server di destinazione** selezionare **Database di Azure per PostgreSQL**.
 
 4. Nella sezione **Scegli il tipo di attività** selezionare **Migrazione dei dati online**.
 

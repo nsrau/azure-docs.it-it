@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205556"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495011"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -43,7 +43,7 @@ Questo articolo usa un esempio di codice per i dispositivi gemelli digitali di A
 
 Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
 1. Passare a una finestra [Azure cloud Shell](https://shell.azure.com/) nel browser. Accedere con questo comando:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso di Azure. In caso contrario, aprire una pagina del browser all'indirizzo *https://aka.ms/devicelogin* e immettere il codice di autorizzazione visualizzato nel terminale.
@@ -62,11 +62,11 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
 
 4. Eseguire lo script inviando il `./deploy.ps1` comando nella finestra cloud Shell. È possibile copiare il comando seguente (ricordare che per incollare in Cloud Shell, è possibile usare **Ctrl + Maiusc + v** in Windows e Linux o **cmd + Maiusc + v** in MacOS. È inoltre possibile utilizzare il menu di scelta rapida.
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    Lo script creerà un'istanza di dispositivi gemelli digitali di Azure e assegnerà all'utente di Azure il ruolo *proprietario (anteprima) di Azure Digital gemelli* nell'istanza.
+    Lo script creerà un'istanza di Azure Digital Twins e assegnerà all'utente di Azure il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza.
 
     Quando lo script viene eseguito tramite la procedura di installazione automatica, verrà richiesto di passare i valori seguenti:
     * Per l'istanza: *ID sottoscrizione* della sottoscrizione di Azure da usare
@@ -83,10 +83,10 @@ Di seguito è riportato un estratto del log di output dello script:
 Se lo script viene completato correttamente, la stampa finale dirà `Deployment completed successfully` . In caso contrario, risolvere il messaggio di errore ed eseguire nuovamente lo script. Ignorerà i passaggi già completati e inizierà a richiedere nuovamente l'input nel momento in cui è stato interrotto.
 
 > [!NOTE]
-> Lo script assegna attualmente il ruolo di gestione necessario nei dispositivi gemelli digitali di Azure (*proprietario di Azure Digital gemelli (anteprima)*) allo stesso utente che esegue lo script da cloud Shell. Se è necessario assegnare questo ruolo a un altro utente che gestirà l'istanza, è possibile farlo ora tramite il portale di Azure ([istruzioni](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o l'interfaccia della riga di comando ([istruzioni](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Lo script assegna attualmente il ruolo di gestione necessario nei dispositivi gemelli digitali di Azure (*proprietario dei dati di Azure Digital gemelli*) allo stesso utente che esegue lo script da cloud Shell. Se è necessario assegnare questo ruolo a un altro utente che gestirà l'istanza, è possibile farlo ora tramite il portale di Azure ([istruzioni](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o l'interfaccia della riga di comando ([istruzioni](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Attualmente esiste un **problema noto** con la configurazione con script, in cui alcuni utenti (in particolare gli utenti degli [account Microsoft personali (MSAS)](https://account.microsoft.com/account)) potrebbero trovare l' **assegnazione di ruolo al _proprietario di Azure Digital gemelli (anteprima)_ non è stato creato**.
+>Attualmente esiste un **problema noto** con la configurazione con script, in cui alcuni utenti (in particolare gli utenti degli [account Microsoft personali (MSAS)](https://account.microsoft.com/account)) potrebbero trovare l' **assegnazione di ruolo al _proprietario dei dati di Azure Digital gemelli_ non è stato creato**.
 >
 >È possibile verificare l'assegnazione di ruolo con la sezione [*verificare l'assegnazione del ruolo utente*](#verify-user-role-assignment) più avanti in questo articolo e, se necessario, configurare manualmente l'assegnazione di ruolo usando il [portale di Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o l' [interfaccia](how-to-set-up-instance-cli.md#set-up-user-access-permissions)della riga di comando.
 >

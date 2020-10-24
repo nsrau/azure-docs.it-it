@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801852"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476281"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usare i comandi e le funzionalità predefiniti dei notebook Python in Azure Cosmos DB (anteprima)
 
@@ -167,7 +167,7 @@ Vedere gli [esempi dell'SDK Python](https://github.com/Azure/azure-sdk-for-pytho
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Creare un'istanza personalizzata di ``cosmos_client``
 Per una maggiore flessibilità, è possibile creare un'istanza personalizzata di ``cosmos_client`` per:
 
-- Personalizzare i [criteri di connessione](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
+- Personalizzare i [criteri di connessione](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview)
 - Eseguire operazioni su un account Azure Cosmos diverso da quello corrente
 
 È possibile accedere alla stringa di connessione e alla chiave primaria dell'account corrente tramite le [variabili di ambiente](#access-the-account-endpoint-and-primary-key-env-variables). 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaccd0559439ce228325205f5845151f0e76bcae
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708663"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484526"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Connettività e concetti di rete per database di Azure per MySQL-server flessibile (anteprima)
 
@@ -73,6 +73,8 @@ Di seguito sono riportati alcuni concetti con cui si ha familiarità con l'uso d
 
 Informazioni su come abilitare l'accesso privato (VNET Integration) usando l'interfaccia della riga di comando di [portale di Azure](how-to-manage-virtual-network-portal.md) o [Azure](how-to-manage-virtual-network-cli.md).
 
+> [!NOTE]
+> Se si usa il server DNS personalizzato, è necessario usare un server di trasmissione DNS per risolvere il nome di dominio completo del server di database di Azure per MySQL-flexible. Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) .
 
 ## <a name="public-access-allowed-ip-addresses"></a>Accesso pubblico (indirizzi IP consentiti)
 Le caratteristiche del metodo di accesso pubblico includono:
