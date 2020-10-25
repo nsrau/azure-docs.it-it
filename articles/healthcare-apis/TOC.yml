@@ -19,6 +19,7 @@
         - name: Uso dell'interfaccia della riga di comando
           href: fhir-paas-cli-quickstart.md
         - name: Uso di un modello di Resource Manager
+          displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
     - name: Distribuire il connettore Azure IoT per FHIR (anteprima) - Portale
       href: iot-fhir-portal-quickstart.md

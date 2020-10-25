@@ -194,7 +194,7 @@
                   items:
                     - name: 'Domande frequenti: Volumi aggiunti in locale'
                       href: storsimple-8000-local-volume-faq.md
-                - name: Controllo degli accessi in base al ruolo
+                - name: Controllo degli accessi in base al ruolo di Azure
                   href: storsimple-8000-role-based-access-control.md
                 - name: Gestire i record di controllo di accesso
                   href: storsimple-8000-manage-acrs.md

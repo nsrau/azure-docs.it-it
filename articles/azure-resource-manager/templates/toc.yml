@@ -108,6 +108,8 @@
               href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Integrazione
           items:
+            - name: API per FHIR
+              href: ../../healthcare-apis/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Griglia di eventi
               href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: App per la logica
