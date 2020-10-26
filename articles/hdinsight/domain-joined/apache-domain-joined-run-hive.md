@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397828"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544937"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -21,7 +21,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster HDInsight con Enterprise Security Package. Vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
+* Un cluster HDInsight con Enterprise Security Package. Vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Una workstation con Microsoft 365 app per Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 autonomo o Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
@@ -49,10 +49,10 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 **Per creare criteri di Ranger**
 
 1. Aprire l'interfaccia utente di amministrazione di Ranger. Consultare la sezione Connettersi all'interfaccia utente di amministrazione di Apache Ranger.
-2. Selezionare **CLUSTERNAME_Hive**, in **hive**. Verranno visualizzati due criteri preconfigurati.
-3. Selezionare **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
+2. Selezionare **CLUSTERNAME_Hive** , in **hive** . Verranno visualizzati due criteri preconfigurati.
+3. Selezionare **Aggiungi nuovo criterio** , quindi immettere i valori seguenti:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-all|
     |Database hive|default|
@@ -70,7 +70,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
 5. Ripetere gli ultimi due passaggi per creare un altro criterio con le proprietà seguenti:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-devicemake|
     |Database hive|default|
@@ -87,8 +87,8 @@ Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/a
  | --- | --- |
  | Data Source Name | Assegnare un nome all'origine dati |
  | Host | Immettere CLUSTERNAME.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
- | Porta | Utilizzare **443**. Questa porta è passata da 563 a 443. |
- | Database | Usare il **valore predefinito**. |
+ | Porta | Utilizzare **443** . Questa porta è passata da 563 a 443. |
+ | Database | Usare il **valore predefinito** . |
  | Hive Server Type | Selezionare **Hive Server 2** |
  | Mechanism | Selezionare **Azure HDInsight Service** |
  | HTTP Path | Lasciare vuoto. |
@@ -103,21 +103,21 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
 1. Aprire una cartella di lavoro nuova o esistente in Excel.
 
-1. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC**.
+1. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC** .
 
     ![Aprire la Connessione guidata dati](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
+1. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK** .
 
 1. Per il primo utilizzo, viene visualizzata una finestra di dialogo del **driver ODBC** . Selezionare **Windows** dal menu a sinistra. Selezionare quindi **Connetti** per aprire la finestra **strumento di navigazione** .
 
 1. Attendere l'apertura della finestra di dialogo **Seleziona database e tabella** . Questa operazione potrebbe richiedere alcuni secondi.
 
-1. Selezionare **hivesampletable**e quindi fare clic su **Avanti**.
+1. Selezionare **hivesampletable** e quindi fare clic su **Avanti** .
 
-1. Selezionare **Fine**.
+1. Selezionare **Fine** .
 
-1. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A tale scopo, selezionare **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
+1. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A tale scopo, selezionare **Proprietà** . Questa operazione potrebbe richiedere alcuni secondi.
 
 1. Selezionare la scheda **definizione** . Il testo del comando è:
 
@@ -131,7 +131,7 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
 1. Selezionare **OK** per chiudere la finestra di dialogo **Importa dati** .  
 
-1. Reimmettere la password per hiveuser1, quindi fare clic su **OK**. L'importazione dei dati in Excel potrebbe richiedere alcuni secondi. Al termine, verranno visualizzate 11 colonne di dati.
+1. Reimmettere la password per hiveuser1, quindi fare clic su **OK** . L'importazione dei dati in Excel potrebbe richiedere alcuni secondi. Al termine, verranno visualizzate 11 colonne di dati.
 
 Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'ultima sezione
 
@@ -158,7 +158,7 @@ Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per configurare un cluster HDInsight con Enterprise Security Package, vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
+* Per configurare un cluster HDInsight con Enterprise Security Package, vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Per gestire un cluster HDInsight con ESP, vedere [Gestire i cluster HDInsight con ESP](apache-domain-joined-manage.md).
 * Per eseguire query Hive usando SSH nei cluster HDInsight con ESP, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Per connettere Hive usando Hive JDBC, vedere [Connettersi ad Apache Hive in Azure HDInsight con il driver Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

@@ -20,7 +20,7 @@ ms.locfileid: "91977868"
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi*. Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
+Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi* . Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
 
 Le librerie client del servizio non sono ancora disponibili e forniscono l'accesso ai piani dati vocali e video non elaborati, adatti per l'integrazione con i bot e altri servizi.
 
@@ -64,7 +64,7 @@ La tabella seguente rappresenta il set di versioni e browser supportati attualme
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Libreria client per le chiamate** | Chrome*, nuovo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Libreria client per le chiamate** | Chrome*, nuovo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *Si noti che la versione più recente di Chrome è supportata in aggiunta alle due versioni precedenti.<br/>

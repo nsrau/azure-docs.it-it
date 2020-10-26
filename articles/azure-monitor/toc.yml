@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -1026,6 +1026,8 @@
           href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: Monitorare distribuzioni e HPA (Horizontal Pod Autoscaler)
           href: insights/container-insights-deployment-hpa-metrics.md
+        - name: Monitorare i volumi persistenti
+          href: insights/container-insights-persistent-volumes.md
         - name: Visualizzare i dati dinamici
           items:
             - name: Panoramica dei dati dinamici (anteprima)

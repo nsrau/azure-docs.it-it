@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682214"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535315"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selezione delle dimensioni di macchina virtuale corrette per il cluster HDInsight di Azure
 
@@ -32,7 +32,7 @@ Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di 
 
 - RAM: le dimensioni della macchina virtuale determinano anche la quantità di RAM disponibile nella macchina virtuale. Per i carichi di lavoro che archiviano i dati in memoria per essere elaborati, anziché leggerli dal disco, accertarsi che i nodi di lavoro abbiano memoria sufficiente per contenere i dati.
 
-- Rete: per la maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovino in un disco locale, ma piuttosto in un servizio di archiviazione esterno, ad esempio Data Lake Storage o archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Rete: per la maggior parte dei tipi di cluster, i dati elaborati dal cluster non si trovino in un disco locale, ma piuttosto in un servizio di archiviazione esterno, ad esempio Data Lake Storage o archiviazione di Azure. È necessario quindi tenere conto della larghezza di banda di rete e della velocità effettiva tra la macchina virtuale del nodo e il servizio di archiviazione. In genere, la larghezza di banda di rete disponibile per una macchina virtuale aumenta in caso di macchine di grandi dimensioni. Per informazioni dettagliate, vedere [Panoramica delle dimensioni di VM](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Informazioni sull'ottimizzazione delle macchine virtuali
 
@@ -40,10 +40,10 @@ Le famiglie di macchine virtuali in Azure sono ottimizzate per adattarsi a diver
 
 | Type                     | Dimensioni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [A livello di voce](../virtual-machines/linux/sizes-general.md)          | A, AV2  | Sono disponibili configurazioni di memoria e prestazioni della CPU più adatte per carichi di lavoro a livello di voce quali sviluppo e test. Sono convenienti e offrono un'opzione a basso costo per iniziare a usare Azure. |
-| [Utilizzo generico](../virtual-machines/linux/sizes-general.md)          | D, DSv2, dv2  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
-| [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md)        | F           | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
-| [Ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md)         | Esv3, EV3  | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [A livello di voce](../virtual-machines/sizes-general.md)          | A, AV2  | Sono disponibili configurazioni di memoria e prestazioni della CPU più adatte per carichi di lavoro a livello di voce quali sviluppo e test. Sono convenienti e offrono un'opzione a basso costo per iniziare a usare Azure. |
+| [Utilizzo generico](../virtual-machines/sizes-general.md)          | D, DSv2, dv2  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
+| [Ottimizzate per il calcolo](../virtual-machines/sizes-compute.md)        | F           | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
+| [Ottimizzate per la memoria](../virtual-machines/sizes-memory.md)         | Esv3, EV3  | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 
 - Per informazioni sui prezzi delle istanze di VM disponibili nelle aree HDInsight supportate, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -74,4 +74,4 @@ Per altre informazioni sul benchmarking per gli SKU di VM e le dimensioni dei cl
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurazioni di nodi supportate da Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Dimensioni delle macchine virtuali Linux in Azure](../virtual-machines/linux/sizes.md)
+- [Dimensioni delle macchine virtuali Linux in Azure](../virtual-machines/sizes.md)

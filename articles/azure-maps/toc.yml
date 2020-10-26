@@ -95,6 +95,8 @@
   items:
     - name: Gestire gli account di Mappe
       items:
+        - name: Creare un account con un modello di Resource Manager
+          href: how-to-create-template.md
         - name: Gestisci account
           href: how-to-manage-account-keys.md
         - name: Gestire l'autenticazione

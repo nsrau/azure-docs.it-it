@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961477"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544750"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP
 
@@ -109,8 +109,8 @@ La configurazione avrà un aspetto simile al seguente:
 4. Creare regole del gruppo di sicurezza di rete per limitare l'accesso a specifici endpoint pubblici. Se è già presente un gruppo di sicurezza di rete, è possibile modificarlo. L'esempio seguente illustra come consentire l'accesso all'API di gestione di Azure: 
    1. Passare al gruppo di sicurezza di rete
    1. Fare clic su Regole di sicurezza in uscita
-   1. Aggiungere una regola per **Negare** tutti gli accessi in uscita a **Internet**.
-   1. Aggiungere una regola a **Consentire** l'accesso ad **AzureCloud**, con priorità inferiore rispetto alla priorità della regola che nega l'accesso a Internet.
+   1. Aggiungere una regola per **Negare** tutti gli accessi in uscita a **Internet** .
+   1. Aggiungere una regola a **Consentire** l'accesso ad **AzureCloud** , con priorità inferiore rispetto alla priorità della regola che nega l'accesso a Internet.
 
 
    Le regole di sicurezza in uscita avranno un aspetto simile al seguente: 
@@ -147,14 +147,14 @@ L'architettura avrà un aspetto analogo al seguente:
    1. Fare clic su Aggiungi subnet. Specificare **AzureFirewallSubnet** come nome. Immettere l'intervallo di indirizzi appropriato. Salvare.  
 3. Creare il servizio Firewall di Azure.  
    1. Nel portale di Azure selezionare Tutte le risorse e fare clic su Aggiungi, Firewall, Crea. Selezionare Gruppo di risorse (selezionare lo stesso gruppo di risorse in cui si trova la rete virtuale).  
-   1. Immettere il nome per la risorsa Firewall di Azure, ad esempio **MyAzureFirewall**.  
+   1. Immettere il nome per la risorsa Firewall di Azure, ad esempio **MyAzureFirewall** .  
    1. Selezionare Area di Azure e almeno due zone di disponibilità, allineate con le zone di disponibilità in cui sono distribuite le macchine virtuali.  
    1. Selezionare la rete virtuale in cui sono distribuite le macchine virtuali SAP e Load Balancer Standard di Azure.  
-   1. Indirizzo IP pubblico: Fare clic su Crea e immettere un nome, ad esempio **MyFirewallPublicIP**.  
+   1. Indirizzo IP pubblico: Fare clic su Crea e immettere un nome, ad esempio **MyFirewallPublicIP** .  
 4. Creare una regola del Firewall di Azure per consentire la connettività in uscita verso specifici endpoint pubblici. L'esempio seguente illustra come consentire all'API di gestione di Azure di accedere a un endpoint pubblico.  
    1. Selezionare Regole, Raccolta regole di rete e fare clic su Aggiungi raccolta regole di rete.  
-   1. Nome: **MyOutboundRule**, specificare la priorità e selezionare l'azione **Consenti**.  
-   1. Servizio: Nome **ToAzureAPI**.  Protocollo: selezionare **Tutti**. Indirizzo di origine: immettere l'intervallo relativo alla subnet in cui sono distribuite le macchine virtuali e Load Balancer Standard, ad esempio: **11.97.0.0/24**. Porte di destinazione: digitare <b>*</b>.  
+   1. Nome: **MyOutboundRule** , specificare la priorità e selezionare l'azione **Consenti** .  
+   1. Servizio: Nome **ToAzureAPI** .  Protocollo: selezionare **Tutti** . Indirizzo di origine: immettere l'intervallo relativo alla subnet in cui sono distribuite le macchine virtuali e Load Balancer Standard, ad esempio: **11.97.0.0/24** . Porte di destinazione: digitare <b>*</b>.  
    1. Salvare
    1. Quando si è ancora all'interno del servizio Firewall di Azure, selezionare Panoramica. Prendere nota dell'indirizzo IP privato del Firewall di Azure.  
 5. Creare una route al Firewall di Azure  
@@ -162,11 +162,11 @@ L'architettura avrà un aspetto analogo al seguente:
    1. Immettere il nome MyRouteTable e selezionare la sottoscrizione, il gruppo di risorse e il percorso (corrispondente al percorso della rete virtuale e del firewall).  
    1. Salvare  
 
-   La regola del firewall avrà un aspetto simile al seguente: ![Connessione in uscita con il Firewall di Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   La regola del firewall sarà simile a: ![ diagramma che mostra l'aspetto del firewall.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. Creare una route definita dall'utente dalla subnet delle macchine virtuali all'indirizzo IP privato di **MyAzureFirewall**.
+6. Creare una route definita dall'utente dalla subnet delle macchine virtuali all'indirizzo IP privato di **MyAzureFirewall** .
    1. Dalla tabella di routing fare clic su Route. Selezionare Aggiungi. 
-   1. Nome della route: ToMyAzureFirewall; prefisso dell'indirizzo: **0.0.0.0/0**. Tipo hop successivo: selezionare Appliance virtuale. Indirizzo hop successivo: immettere l'indirizzo IP privato del firewall configurato: **11.97.1.4**.  
+   1. Nome della route: ToMyAzureFirewall; prefisso dell'indirizzo: **0.0.0.0/0** . Tipo hop successivo: selezionare Appliance virtuale. Indirizzo hop successivo: immettere l'indirizzo IP privato del firewall configurato: **11.97.1.4** .  
    1. Salvare
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Uso del proxy per le chiamate di Pacemaker all'API di gestione di Azure
@@ -185,7 +185,7 @@ L'architettura avrà un aspetto analogo al seguente:
 
 ### <a name="pacemaker-configuration-with-proxy"></a>Configurazione di Pacemaker con un proxy 
 
-Sono disponibili molte soluzioni proxy sul mercato. Istruzioni dettagliate per la distribuzione del proxy esulano quindi dall'ambito di questo documento. Nell'esempio seguente si presuppone che il proxy stia rispondendo a **MyProxyService** e ascoltando la porta **MyProxyPort**.  
+Sono disponibili molte soluzioni proxy sul mercato. Istruzioni dettagliate per la distribuzione del proxy esulano quindi dall'ambito di questo documento. Nell'esempio seguente si presuppone che il proxy stia rispondendo a **MyProxyService** e ascoltando la porta **MyProxyPort** .  
 Per consentire a Pacemaker di comunicare con l'API di gestione di Azure, seguire questa procedura in tutti i nodi del cluster:  
 
 1. Modificare il file di configurazione di Pacemaker /etc/sysconfig/pacemaker e aggiungere le righe seguenti (tutti i nodi del cluster):

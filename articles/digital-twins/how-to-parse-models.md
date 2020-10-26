@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cc60af26754eddbe8699019ae8d906a4c1e9e62
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f560f16c6437b219dd1e7017d70976ff4650c2c0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057689"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544359"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analizzare e convalidare i modelli con la libreria del parser DTDL
 
@@ -36,7 +36,7 @@ Dopo aver compilato un pacchetto autonomo e aver aggiunto il file eseguibile al 
 DTDLValidator
 ```
 
-Con le opzioni predefinite, nell'esempio vengono cercati i `*.json` file nella directory corrente e in tutte le sottodirectory. È anche possibile aggiungere l'opzione seguente per fare in modo che l'esempio esegua la ricerca nella directory indicata e in tutte le sottodirectory per i file con estensione *dtdl*:
+Con le opzioni predefinite, nell'esempio vengono cercati i `*.json` file nella directory corrente e in tutte le sottodirectory. È anche possibile aggiungere l'opzione seguente per fare in modo che l'esempio esegua la ricerca nella directory indicata e in tutte le sottodirectory per i file con estensione *dtdl* :
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -77,32 +77,50 @@ Le funzionalità del parser includono:
 
 Per supportare l'esempio di codice di parser riportato di seguito, prendere in considerazione diversi modelli definiti in un'istanza di Azure Digital Twins:
 
-> [!TIP] 
-> Il `dtmi:com:contoso:coffeeMaker` modello utilizza la sintassi del *modello di funzionalità* , che significa che è stato installato nel servizio mediante la connessione di un dispositivo PNP che espone tale modello.
-
 ```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
+[
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMaker;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "coffeeMaker",
+        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "waterTemp",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeBar;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "foo",
+        "target": "dtmi:com:contoso:coffeeMaker;1"
+      },
+      {
+        "@type": "Property",
+        "name": "capacity",
+        "schema": "integer"
+      }
+    ]
+  }
+]
 ```
 
 Il codice seguente illustra un esempio di come usare la libreria del parser per riflettere queste definizioni in C#:

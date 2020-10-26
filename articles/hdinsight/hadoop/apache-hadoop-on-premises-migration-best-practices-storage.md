@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: cd27babee4b78d22bbd49ab53c1ed2fe5a54a0da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856688"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544869"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
 
@@ -25,7 +25,7 @@ La struttura di directory Apache Hadoop file system locale (HDFS) può essere ri
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-I cluster HDInsight possono usare il contenitore BLOB in Archiviazione di Azure come file system predefinito o come file system aggiuntivo.L'account di archiviazione di livello Standard è supportato per l'uso con i cluster HDInsight. Il livello Premier non è supportato. Il contenitore BLOB predefinito archivia informazioni specifiche del cluster come i log e la cronologia processo.La condivisione di un contenitore BLOB come file system predefinito per più cluster non è supportata.
+I cluster HDInsight possono usare il contenitore BLOB in Archiviazione di Azure come file system predefinito o come file system aggiuntivo. L'account di archiviazione di livello Standard è supportato per l'uso con i cluster HDInsight. Il livello Premier non è supportato. Il contenitore BLOB predefinito archivia informazioni specifiche del cluster come i log e la cronologia processo. La condivisione di un contenitore BLOB come file system predefinito per più cluster non è supportata.
 
 Gli account di archiviazione definiti nel processo di creazione e le rispettive chiavi vengono archiviati in `%HADOOP_HOME%/conf/core-site.xml` nei nodi del cluster. Tali account sono accessibili anche nella sezione "Custom core site" nella configurazione HDFS dell'interfaccia utente di Ambari. La chiave dell'account di archiviazione viene crittografata per impostazione predefinita e uno script di decrittografia personalizzato viene usato per decrittografare le chiavi prima di essere passate al daemon Hadoop. I processi, inclusi Hive, MapReduce, lo streaming Hadoop e Pig, includono una descrizione degli account di archiviazione e dei metadati associati.
 
@@ -33,19 +33,19 @@ Archiviazione di Azure può essere replicata geograficamente. Sebbene la replica
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-|Formato di accesso ai dati |Description |
+|Formato di accesso ai dati |Descrizione |
 |---|---|
 |`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
 |`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
-|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usato durante la comunicazione con un account di archiviazione non predefinito. |
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usato durante la comunicazione con un account di archiviazione non predefinito. |
 
 [Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md) elenca i limiti correnti per gli account di archiviazione di Azure. Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, l'applicazione può essere creata per usare più account di archiviazione e quindi partizionare gli oggetti dati tra tali account.
 
-[Analisi archiviazione di Azure](../../storage/storage-analytics.md)   fornisce le metriche per tutti i servizi di archiviazione e portale di Azure può essere configurato per raccogliere le metriche da visualizzare tramite i grafici. È possibile creare avvisi per inviare una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
+[Analisi archiviazione di Azure](../../storage/common/storage-analytics.md) fornisce le metriche per tutti i servizi di archiviazione e portale di Azure può essere configurato per raccogliere le metriche da visualizzare tramite i grafici. È possibile creare avvisi per inviare una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
-Archiviazione di Azure offre l' [eliminazione temporanea per gli oggetti BLOB](../../storage/blobs/storage-blob-soft-delete.md) che consentono di ripristinare i dati quando vengono accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione.
+Archiviazione di Azure offre l' [eliminazione temporanea per gli oggetti BLOB](../../storage/blobs/soft-delete-blob-overview.md) che consentono di ripristinare i dati quando vengono accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione.
 
-È possibile creare [snapshot di BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Uno snapshot è una versione di sola lettura di un BLOB e viene acquisito in un determinato momento per eseguire il backup di un BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
+È possibile creare [snapshot di BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob). Uno snapshot è una versione di sola lettura di un BLOB e viene acquisito in un determinato momento per eseguire il backup di un BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
 > [!Note]
 > Per le versioni precedenti di distribuzioni di Hadoop locali che non dispongono del certificato "wasbs", è necessario che il certificato venga importato nell'archivio di attendibilità di Java.
@@ -75,7 +75,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Usare archiviazione di Azure con i cluster HDInsight di Azure](../hdinsight-hadoop-use-blob-storage.md)
 - [Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md)
 - [Obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../../storage/blobs/scalability-targets.md)
-- [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../../storage/common/storage-performance-checklist.md)
+- [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../../storage/blobs/storage-performance-checklist.md)
 - [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorare un account di archiviazione nel portale di Azure](../../storage/common/storage-monitor-storage-account.md)
 
@@ -92,21 +92,21 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 Azure Data Lake Storage Gen2 è l'offerta di archiviazione più recente. Unifica le funzionalità principali dalla prima generazione di Azure Data Lake Storage Gen1 con un endpoint file system compatibile con Hadoop direttamente integrato nell'archiviazione BLOB di Azure. Questo miglioramento combina i vantaggi in termini di scalabilità e di costi dell'archiviazione di oggetti con l'affidabilità e le prestazioni associate in genere a file system locali.
 
-Azure Data Lake Storage generazione 2 è basata sull' [archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md) e consente di interfacciarsi con i dati usando i paradigmi di archiviazione di file System e di oggetti. Le funzionalità di  [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), ad esempio la semantica dei file system, la sicurezza a livello di file e la scalabilità, vengono combinate con un'archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza e un SDK/ecosistema di strumenti di grandi dimensioni derivati da  [Archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 offre non solo tutte le qualità dell'archiviazione di oggetti, ma anche i vantaggi di un'interfaccia di file system ottimizzata per i carichi di lavoro di analisi.
+Azure Data Lake Storage generazione 2 è basata sull' [archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md) e consente di interfacciarsi con i dati usando i paradigmi di archiviazione di file System e di oggetti. Le funzionalità di [Azure Data Lake storage Gen1](../../data-lake-store/index.yml), ad esempio la semantica di file System, la sicurezza a livello di file e la scalabilità, sono combinate con l'archiviazione a più livelli, le funzionalità di disponibilità elevata/ripristino di emergenza e un ecosistema di SDK/strumenti di grandi dimensioni dall' [archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 offre non solo tutte le qualità dell'archiviazione di oggetti, ma anche i vantaggi di un'interfaccia di file system ottimizzata per i carichi di lavoro di analisi.
 
-Una funzionalità fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../../storage/data-lake-storage/namespace.md)   al servizio di archiviazione BLOB, che consente di organizzare gli oggetti e i file in una gerarchia di directory per l'accesso ai dati ad alte prestazioni.La struttura gerarchica consente che operazioni quali la ridenominazione o l'eliminazione di una directory siano singole operazioni atomiche sui metadati della directory anziché operazioni di enumerazione ed elaborazione di tutti gli oggetti che condividono il prefisso del nome della directory.
+Una funzionalità fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../../storage/blobs/data-lake-storage-namespace.md) al servizio di archiviazione BLOB, che consente di organizzare gli oggetti e i file in una gerarchia di directory per l'accesso ai dati ad alte prestazioni. La struttura gerarchica consente che operazioni quali la ridenominazione o l'eliminazione di una directory siano singole operazioni atomiche sui metadati della directory anziché operazioni di enumerazione ed elaborazione di tutti gli oggetti che condividono il prefisso del nome della directory.
 
 In passato, le analisi basate sul cloud imponevano il raggiungimento di un compromesso tra prestazioni, gestione e sicurezza. Le funzionalità principale di Azure Data Lake Storage (ADLS) Gen2 sono le seguenti:
 
-- **Accesso compatibile con Hadoop**: Azure Data Lake Storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un  [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver ABFS](../../storage/data-lake-storage/abfs-driver.md)   è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
+- **Accesso compatibile con Hadoop** : Azure Data Lake storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un [Hadoop Distributed file System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
 
-- **Un superset di autorizzazioni POSIX**: il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
+- **Un superset di autorizzazioni POSIX** : il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
 
-- **Economicamente conveniente**: Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Durante il ciclo di vita completo dei dati, le tariffe di fatturazione vengono modificate per ridurre i costi tramite le funzionalità predefinite, ad esempio il  [ciclo di vita di Archiviazione BLOB di Azure](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Economicamente conveniente** : Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Con la transizione dei dati attraverso il ciclo di vita completo, le tariffe di fatturazione cambiano per ridurre i costi tramite funzionalità predefinite, ad esempio il [ciclo di vita dell'archiviazione BLOB di Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Funziona con strumenti di archiviazione BLOB, framework e app**: Data Lake Storage Gen2 continua a funzionare con l'ampia gamma di strumenti, framework e app attualmente esistenti per l'archiviazione BLOB di Azure.
+- **Funziona con strumenti di archiviazione BLOB, framework e app** : Data Lake Storage Gen2 continua a funzionare con l'ampia gamma di strumenti, framework e app attualmente esistenti per l'archiviazione BLOB di Azure.
 
-- **Driver ottimizzato**: il driver ABFS (Azure BLOB Filesystem) è  [ottimizzato in modo specifico](../../storage/data-lake-storage/abfs-driver.md) per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
+- **Driver ottimizzato** : il driver del file System BLOB di Azure (ABFS) è [ottimizzato in modo specifico](../../storage/blobs/data-lake-storage-abfs-driver.md) per Big Data Analytics. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
 
 Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati seguenti.
 - `abfs:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
@@ -114,8 +114,8 @@ Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati segu
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Introduzione ad Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
-- [Driver ABFS (Azure Blob File System): un driver di Archiviazione di Azure dedicato per Hadoop](../../storage/data-lake-storage/abfs-driver.md)
+- [Introduzione ad Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
+- [Driver ABFS (Azure Blob File System): un driver di Archiviazione di Azure dedicato per Hadoop](../../storage/blobs/data-lake-storage-abfs-driver.md)
 - [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Proteggere le chiavi di Archiviazione di Azure nella configurazione di cluster Hadoop locali
@@ -144,7 +144,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 > La proprietà del percorso del provider può anche essere aggiunta anche alla riga di comando distcp anziché archiviare la chiave a livello di cluster nel file core-site.xml, come indicato di seguito:
 
 ```bash
-hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
+hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
 ## <a name="restrict-azure-storage-data-access-using-sas"></a>Limitare l'accesso ai dati di archiviazione di Azure con SAS
@@ -155,7 +155,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
 
-    |Proprietà token|Description|
+    |Proprietà token|Descrizione|
     |---|---|
     |policy_name|nome da usare per i criteri archiviati da creare.|
     |storage_account_name|nome dell'account di archiviazione.|
@@ -171,9 +171,9 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 5. Per limitare l'accesso a un contenitore con firma di accesso condiviso, aggiungere una voce personalizzata alla configurazione core-site per il cluster nella proprietà Ambari HDFS Configs Advanced Custom core-site Add.
 
-6. Usare i valori seguenti per i campi **Key** e **Value**:
+6. Usare i valori seguenti per i campi **Key** e **Value** :
 
-    **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valore**: chiave SAS restituita dall'applicazione Python del passaggio 4 precedente.
+    **Chiave** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valore** : chiave SAS restituita dall'applicazione Python del passaggio 4 precedente.
 
 7. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
@@ -193,14 +193,14 @@ Per altre informazioni, vedere [Usare le firme di accesso condiviso di Archiviaz
 
 ## <a name="use-data-encryption-and-replication"></a>Usare la crittografia e la replica dei dati
 
-Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la  [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md). I dati nell'account di archiviazione di Azure vengono sempre replicati per la disponibilità elevata.Quando si crea un account di archiviazione, è possibile scegliere una delle opzioni di replica seguenti:
+Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md). I dati nell'account di archiviazione di Azure vengono sempre replicati per la disponibilità elevata. Quando si crea un account di archiviazione, è possibile scegliere una delle opzioni di replica seguenti:
 
-- [Archiviazione con ridondanza locale (LRS)](../../storage/common/storage-redundancy-lrs.md)
-- [Archiviazione con ridondanza della zona (ZRS)](../../storage/common/storage-redundancy-zrs.md)
-- [Archiviazione con ridondanza geografica (GRS)](../../storage/common/storage-redundancy-grs.md)
+- [Archiviazione con ridondanza locale (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage)
+- [Archiviazione con ridondanza della zona (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage)
+- [Archiviazione con ridondanza geografica (GRS)](../../storage/common/storage-redundancy.md#geo-redundant-storage)
 - [Archiviazione con ridondanza geografica e accesso in lettura](../../storage/common/storage-redundancy.md)
 
-Archiviazione di Azure fornisce l'archiviazione con ridondanza locale (con ridondanza locale), ma è anche necessario copiare i dati critici in un altro account di archiviazione di Azure in un'altra area con una frequenza allineata alle esigenze del piano di ripristino di emergenza.Esistono diversi metodi per copiare i dati, tra cui [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md).È anche consigliabile applicare i criteri di accesso per l'account di archiviazione di Azure per evitare l'eliminazione accidentale.
+Archiviazione di Azure fornisce l'archiviazione con ridondanza locale (con ridondanza locale), ma è anche necessario copiare i dati critici in un altro account di archiviazione di Azure in un'altra area con una frequenza allineata alle esigenze del piano di ripristino di emergenza. Esistono diversi metodi per copiare i dati, tra cui [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). È anche consigliabile applicare i criteri di accesso per l'account di archiviazione di Azure per evitare l'eliminazione accidentale.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -216,7 +216,7 @@ Altri account di archiviazione possono essere aggiunti in uno in modi seguenti:
 - Usare l'[azione script](../hdinsight-hadoop-add-storage.md) passando il nome e la chiave dell'account di archiviazione
 
 > [!Note]
-> Nei casi di uso validi i limiti sull'archiviazione di Azure possono essere aumentati tramite una richiesta inviata al  [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+> Nei casi d'uso validi, i limiti di archiviazione di Azure possono essere aumentati tramite una richiesta effettuata al [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 Per altre informazioni, vedere [Aggiungere altri account di archiviazione a HDInsight](../hdinsight-hadoop-add-storage.md).
 

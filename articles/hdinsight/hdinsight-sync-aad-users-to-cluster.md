@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504656"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535179"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizzare gli utenti di Azure Active Directory con un cluster HDInsight
 
-I [cluster HDInsight con Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) possono usare l'autenticazione avanzata con gli utenti di Azure Active Directory (Azure ad), oltre a usare i criteri di *controllo degli accessi in base al ruolo di Azure (RBAC)* . Quando si aggiungono utenti e gruppi a Azure AD, è possibile sincronizzare gli utenti che devono accedere al cluster.
+I [cluster HDInsight con Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) possono usare l'autenticazione avanzata con gli utenti di Azure Active Directory (Azure ad), oltre a usare i criteri di *controllo degli accessi in base al ruolo di Azure (RBAC)* . Quando si aggiungono utenti e gruppi a Azure AD, è possibile sincronizzare gli utenti che devono accedere al cluster.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non esiste già, [creare un cluster HDInsight con Enterprise Security Package](hdinsight-domain-joined-configure.md).
+Se non esiste già, [creare un cluster HDInsight con Enterprise Security Package](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="add-new-azure-ad-users"></a>Aggiungere nuovi utenti di Azure AD
 
@@ -29,15 +29,15 @@ Per visualizzare gli host, aprire l'interfaccia utente Web di Ambari. Ogni nodo 
 
 1. Dal [portale di Azure](https://portal.azure.com)passare alla directory Azure ad associata al cluster ESP.
 
-2. Selezionare **Tutti gli utenti** nel menu a sinistra e quindi selezionare **Nuovo utente**.
+2. Selezionare **Tutti gli utenti** nel menu a sinistra e quindi selezionare **Nuovo utente** .
 
     ![portale di Azure utenti e gruppi tutti](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Completare il modulo del nuovo utente. Selezionare i gruppi creati per l'assegnazione delle autorizzazioni basate sui cluster. In questo esempio, creare un gruppo denominato "HiveUsers", a cui è possibile assegnare nuovi utenti. Le [istruzioni di esempio](hdinsight-domain-joined-configure.md) per la creazione di un cluster ESP includono l'aggiunta di due gruppi, `HiveUsers` e `AAD DC Administrators`.
+3. Completare il modulo del nuovo utente. Selezionare i gruppi creati per l'assegnazione delle autorizzazioni basate sui cluster. In questo esempio, creare un gruppo denominato "HiveUsers", a cui è possibile assegnare nuovi utenti. Le [istruzioni di esempio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) per la creazione di un cluster ESP includono l'aggiunta di due gruppi, `HiveUsers` e `AAD DC Administrators`.
 
     ![portale di Azure selezionare i gruppi nel riquadro utente](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. Selezionare **Crea**.
+4. Selezionare **Crea** .
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Usare l'API REST di Apache Ambari per sincronizzare gli utenti
 
@@ -120,10 +120,10 @@ Il metodo seguente usa POST con l'API REST di Ambari. Per altre informazioni, ve
     }
     ```
 
-1. Questo risultato indica che lo stato è **completo**, che è stato creato un nuovo utente e che all'utente è stata assegnata un'appartenenza. In questo esempio, l'utente viene assegnato al gruppo LDAP sincronizzato "HiveUsers", dato che è stato aggiunto allo stesso gruppo in Azure AD.
+1. Questo risultato indica che lo stato è **completo** , che è stato creato un nuovo utente e che all'utente è stata assegnata un'appartenenza. In questo esempio, l'utente viene assegnato al gruppo LDAP sincronizzato "HiveUsers", dato che è stato aggiunto allo stesso gruppo in Azure AD.
 
     > [!NOTE]  
-    > Il metodo precedente Sincronizza solo i gruppi di Azure AD specificati nella proprietà **gruppo utenti di accesso** delle impostazioni del dominio durante la creazione del cluster. Per altre informazioni, vedere la procedura per [creare un cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
+    > Il metodo precedente Sincronizza solo i gruppi di Azure AD specificati nella proprietà **gruppo utenti di accesso** delle impostazioni del dominio durante la creazione del cluster. Per altre informazioni, vedere la procedura per [creare un cluster HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Verificare l'utente di Azure AD appena aggiunto
 
@@ -146,8 +146,8 @@ Aprire l'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambar
 Quando il nuovo utente (o qualsiasi altro utente di dominio) accede ad Ambari, usa le credenziali complete di nome utente e dominio di Azure AD.  Ambari visualizza un alias dell'utente, ovvero il nome visualizzato dell'utente in Azure AD.
 Il nuovo utente di esempio ha il nome utente `hiveuser3@contoso.com`. In Ambari, il nuovo utente viene visualizzato come `hiveuser3` ma l'utente accede ad Ambari come `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-* [Configurare criteri Apache Hive in HDInsight con ESP](hdinsight-domain-joined-run-hive.md)
-* [Gestire i cluster HDInsight con ESP](hdinsight-domain-joined-manage.md)
+* [Configurare criteri Apache Hive in HDInsight con ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gestire i cluster HDInsight con ESP](./domain-joined/apache-domain-joined-manage.md)
 * [Autorizzare gli utenti per le viste di Apache Ambari](hdinsight-authorize-users-to-ambari.md)

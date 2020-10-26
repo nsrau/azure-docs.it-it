@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e48d14fae4f62b92b5a8d08f83fea6d2e2ed3fe
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c8bb8ad4baec4c59a78afd6a92d69e94240c056a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424954"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542625"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -23,7 +23,7 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- [Installare l'interfaccia della riga di comando Azure 2,0](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installare l'interfaccia della riga di comando Azure 2,0](/cli/azure/install-azure-cli)
 - Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server di origine. 
 
 > [!IMPORTANT]

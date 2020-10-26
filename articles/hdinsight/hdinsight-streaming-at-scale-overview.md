@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435389"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535230"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming su larga scala in HDInsight
 
 Le soluzioni Big Data in tempo reale agiscono sui dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
 
-In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso*, tecnica nota anche come *accodamento degli eventi*, eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi*, come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
+In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso* , tecnica nota anche come *accodamento degli eventi* , eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi* , come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
 
 ![Modelli di flusso di Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Informazioni su Apache Storm in Azure HDInsight]
 
 Spark Streaming è un'estensione di Spark, che consente di riutilizzare lo stesso codice usato per l'elaborazione batch. È possibile combinare sia query in batch che interattive nella stessa applicazione. A differenza di Storm, Spark streaming fornisce una semantica di elaborazione con stato esattamente una volta. Quando viene usato in combinazione con l' [API diretta Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), che garantisce che tutti i dati Kafka vengano ricevuti da Spark streaming esattamente una volta, è possibile ottenere una garanzia end-to-end esattamente una volta. Uno dei punti di forza di Spark Streaming è il supporto della tolleranza di errore, con ripristino rapido dei nodi con errori quando si usano più nodi all'interno del cluster.
 
-Per altre informazioni, vedere [Informazioni su Apache Spark Streaming](hdinsight-spark-streaming-overview.md).
+Per altre informazioni, vedere [Informazioni su Apache Spark Streaming](./spark/apache-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Scalabilità di un cluster
 

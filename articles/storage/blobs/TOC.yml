@@ -13,7 +13,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Usare i BLOB
           items:
@@ -235,10 +235,13 @@
                   href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Importare dati nei BLOB
                   href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Importare dati nei file
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Esportare dati dai BLOB
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Procedure
                   items:
                     - name: Usare una chiave gestita dal cliente
@@ -654,7 +657,7 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: data-lake-storage-quickstart-create-databricks-account.md

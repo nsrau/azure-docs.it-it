@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1a6aabe7ef3500a114525fe6c8bc993826295e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afbf80810f45f616eac40de16889bbebb1cf4964
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275354"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544801"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
 
@@ -32,7 +32,7 @@ Un database di Azure per il server MySQL:
 - Fornisce l'ambito per i criteri di gestione applicati ai database: account di accesso, firewall, utenti, ruoli, configurazioni e così via.
 - È disponibile in più versioni. Per altre informazioni, vedere [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md) (Database di Azure supportato per le diverse versioni del database MySQL).
 
-In un database di Azure per il server MySQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o per creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione di piano tariffario, vCore e archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-service-tiers.md).
+In un database di Azure per il server MySQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o per creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione di piano tariffario, vCore e archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Come connettersi ed eseguire l'autenticazione a un database di Azure per il server MySQL?
 
@@ -67,5 +67,5 @@ Nel momento in cui il server viene arrestato, non è possibile eseguire alcuna o
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica del servizio, vedere [Azure Database for MySQL Overview](./overview.md) (Database di Azure per una panoramica di MySQL)
-- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-service-tiers.md)
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al piano **tariffario** , vedere [piani tariffari](./concepts-pricing-tiers.md)
 - Per informazioni sulla connessione al servizio, vedere [Raccolte connessioni per il database di Azure per MySQL](./concepts-connection-libraries.md).

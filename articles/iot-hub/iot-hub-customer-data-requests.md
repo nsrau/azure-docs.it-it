@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142244"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535791"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funzionalità di richiesta dei dati del cliente per i dispositivi dell'hub Azure
 
@@ -30,7 +30,7 @@ Se si usa la funzionalità di routing del servizio Hub IoT di Azure per l'inoltr
 
 Se si usa la funzionalità di integrazione di Griglia di eventi di Azure del servizio Hub IoT di Azure, allora le richieste di dati devono essere eseguite da amministratore tenant per ogni sottoscrittore di questi eventi. Per altre informazioni, vedere [Rispondere agli eventi dell'hub IoT usando Griglia di eventi](iot-hub-event-grid.md).
 
-Se si usa la funzionalità di integrazione di Monitoraggio di Azure del servizio Hub IoT di Azure per creare log di diagnostica, allora le richieste di dati devono essere eseguite da amministratore tenant dai log archiviati. Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure](iot-hub-monitor-resource-health.md).
+Se si usa la funzionalità di integrazione di monitoraggio di Azure del servizio Hub Azure per creare i log delle risorse, le richieste di dati devono essere eseguite dall'amministratore del tenant nei log archiviati. Per altre informazioni, vedere [monitorare l'hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 

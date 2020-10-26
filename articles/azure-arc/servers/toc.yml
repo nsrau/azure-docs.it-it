@@ -18,7 +18,7 @@
       href: ./learn/tutorial-enable-vm-insights.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
@@ -41,8 +41,18 @@
           href: onboard-powershell.md
     - name: Gestione
       items:
-        - name: Gestire e usare le estensioni di macchina virtuale di Azure
-          href: manage-vm-extensions.md
+        - name: Estensioni di VM di Azure
+          items:
+            - name: Panoramica
+              href: manage-vm-extensions.md
+            - name: Gestire le estensioni dal portale
+              href: manage-vm-extensions-portal.md
+            - name: Gestire le estensioni con l'interfaccia della riga di comando
+              href: manage-vm-extensions-cli.md
+            - name: Gestire le estensioni con PowerShell
+              href: manage-vm-extensions-powershell.md
+            - name: Distribuire le estensioni con un modello di Resource Manager
+              href: manage-vm-extensions-template.md
         - name: Gestire l'agente
           href: manage-agent.md
     - name: Risoluzione dei problemi
@@ -55,8 +65,22 @@
   items:
     - name: Residenza dei dati
       href: data-residency.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: policy-reference.md

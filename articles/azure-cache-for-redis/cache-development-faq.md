@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211308"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544512"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Domande frequenti sullo sviluppo per cache di Azure per Redis
 
 Questo articolo fornisce le risposte alle domande comuni su come sviluppare per la cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande e risposte comuni
+## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Come si procede per iniziare a usare Cache Redis di Azure?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,8 +55,8 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
 
 * **Tentativi**
   * Per ConnectRetry e ConnectTimeout è in genere consigliabile fallire e rispondere immediatamente agli errori e riprovare, in base al carico di lavoro specifico e al tempo mediamente necessario per il rilascio di un comando Redis da parte del client e la ricezione di una risposta.
-  * Permettere la connessione automatica di StackExchange.Redis invece di controllare lo stato di connessione ed eseguire manualmente la riconnessione. **Evitare di usare la proprietà ConnectionMultiplexer.IsConnected**.
-  * In alcuni casi è possibile che si verifichi un problema che genera nuovi tentativi a catena, senza recupero. In questo caso è consigliabile prendere in considerazione l'uso di un algoritmo di nuovi tentativi con backoff esponenziale, come illustrato in [Indicazioni generali per la ripetizione di tentativi](../best-practices-retry-general.md) pubblicato dal gruppo Microsoft Patterns & Practices.
+  * Permettere la connessione automatica di StackExchange.Redis invece di controllare lo stato di connessione ed eseguire manualmente la riconnessione. **Evitare di usare la proprietà ConnectionMultiplexer.IsConnected** .
+  * In alcuni casi è possibile che si verifichi un problema che genera nuovi tentativi a catena, senza recupero. In questo caso è consigliabile prendere in considerazione l'uso di un algoritmo di nuovi tentativi con backoff esponenziale, come illustrato in [Indicazioni generali per la ripetizione di tentativi](/azure/architecture/best-practices/transient-faults) pubblicato dal gruppo Microsoft Patterns & Practices.
   
 * **Valori di timeout**
   * Esaminare il carico di lavoro e impostare valori adeguati. Se si archiviano valori di grandi dimensioni, impostare il timeout su un valore più elevato.
@@ -109,7 +109,7 @@ Facoltativamente, è possibile configurare un file [redis.conf](https://redis.io
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta TLS seguendo le istruzioni nell'articolo [Come usare lo strumento da riga di comando Redis con Cache Redis di Azure](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool).
+> Gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta TLS seguendo le istruzioni nell'articolo [Come usare lo strumento da riga di comando Redis con Cache Redis di Azure](./cache-how-to-redis-cli-tool.md).
 >
 >
 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488912"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544835"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
@@ -46,22 +46,22 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Controllare la notifica di manutenzione pianificata da portale di Azure
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare integrità del **servizio**.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare integrità del **servizio** .
 2. Selezionare la scheda **manutenzione pianificata**
-3. Selezionare **sottoscrizione**, * * area e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
+3. Selezionare **sottoscrizione** , * * area e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
 
-1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
-2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
+1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio** .
+2. Nella sezione **Avvisi** selezionare **Avvisi integrità** .
 3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
 4. Compilare i campi obbligatori. 
-5. Scegliere il **tipo di evento**, selezionare **manutenzione pianificata** o **selezionare tutto**
+5. Scegliere il **tipo di evento** , selezionare **manutenzione pianificata** o **selezionare tutto**
 6. Nei **gruppi di azioni** definire come si vuole ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
 7. Assicurarsi che Abilita regola al momento della creazione sia impostata su Sì.
 8. Selezionare **Crea regola di avviso** per completare l'avviso
 
-Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
+Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio** , vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>È possibile annullare o posticipare la manutenzione pianificata?
 
