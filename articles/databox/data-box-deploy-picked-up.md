@@ -47,7 +47,7 @@ In questa esercitazione si apprenderà come:
 Prima di iniziare, verificare che:
 
 * Sia stata completata l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
-* I processi di copia sono stati completati e non sono presenti errori nella pagina **Connetti e copia**. Se i processi di copia sono in corso o se sono presenti errori nella pagina **Connetti e copia**, non è possibile procedere con la preparazione per la spedizione.
+* I processi di copia sono stati completati e non sono presenti errori nella pagina **Connetti e copia** . Se i processi di copia sono in corso o se sono presenti errori nella pagina **Connetti e copia** , non è possibile procedere con la preparazione per la spedizione.
 
 ## <a name="prepare-to-ship"></a>Preparare per la spedizione
 
@@ -92,7 +92,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     * Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
 
     Anziché pianificare il ritiro, è anche possibile consegnare Data Box al più vicino punto di consegna.
-4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
+4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato** . Viene visualizzato anche un ID di traccia.
 
 ::: zone target="chromeless"
 

@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959843"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542608"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Query salvate in monitoraggio di Azure Log Analytics
 
@@ -38,7 +38,7 @@ Questo comportamento è coerente per tutti gli ambiti di Log Analytics. Se non v
 
 ### <a name="example-query-dialog"></a>Finestra di dialogo query di esempio
 
-Quando si accede per la prima volta all'esperienza Log Analytics, viene visualizzata automaticamente la *finestra di dialogo query di esempio* .  È anche possibile accedervi facendo clic nella parte superiore destra della schermata sulle **query di esempio**.
+Quando si accede per la prima volta all'esperienza Log Analytics, viene visualizzata automaticamente la *finestra di dialogo query di esempio* .  È anche possibile accedervi facendo clic nella parte superiore destra della schermata sulle **query di esempio** .
 
 ![Barra laterale](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Ogni query di esempio è rappresentata da una scheda. È possibile analizzare ra
 
 È possibile accedere a tutte le funzionalità dell'esperienza di dialogo dal riquadro query sul lato sinistro della barra laterale di Log Analytics. È possibile passare il puntatore del mouse su un nome di query per ottenere la descrizione della query e la funzionalità aggiuntiva.
 
-![Barra laterale](media/saved-queries/sidebar-3.png)
+![Screenshot che mostra il riquadro query.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Ricerca e filtro di query
 
@@ -80,13 +80,13 @@ Per modificare il raggruppamento delle query, fare clic sull'elenco a discesa *R
 La finestra di dialogo supporta il raggruppamento per:
 
 - **Tipo di risorsa** : una risorsa definita in Azure, ad esempio una macchina virtuale. Vedere le informazioni di [riferimento sulla tabella di monitoraggio](/azure/azure-monitor/reference/tables/tables-resourcetype) di Azure per un mapping completo dei log di monitoraggio di Azure/tabelle log Analytics al tipo di risorsa.  
-- **Categoria** : tipo di informazioni, ad esempio *sicurezza* o *controllo*. Le categorie sono identiche alle categorie definite nel riquadro laterale tabelle. Per un elenco completo delle categorie, vedere informazioni di [riferimento sulla tabella di monitoraggio di Azure](/azure/azure-monitor/reference/tables/tables-category) .  
+- **Categoria** : tipo di informazioni, ad esempio *sicurezza* o *controllo* . Le categorie sono identiche alle categorie definite nel riquadro laterale tabelle. Per un elenco completo delle categorie, vedere informazioni di [riferimento sulla tabella di monitoraggio di Azure](/azure/azure-monitor/reference/tables/tables-category) .  
 - **Soluzione** : una soluzione di monitoraggio di Azure associata alle query
-- **Argomento** : l'argomento della query di esempio, ad esempio i *log attività* o i *log delle app*. La proprietà topic è univoca per le query di esempio e può variare a seconda del tipo di risorsa specifico.
+- **Argomento** : l'argomento della query di esempio, ad esempio i *log attività* o i *log delle app* . La proprietà topic è univoca per le query di esempio e può variare a seconda del tipo di risorsa specifico.
 
 Anche i valori di raggruppamento fungono da un sommario attivo. Facendo clic su uno dei valori sul lato sinistro dello schermo, la visualizzazione query viene visualizzata a destra dell'elemento selezionato.
 
-### <a name="filter"></a>Filtra
+### <a name="filter"></a>Filtro
 
 È anche possibile filtrare le query in base ai valori di GroupBy citati in precedenza. Nella finestra di dialogo query di esempio, i filtri si trovano nella parte superiore.
 

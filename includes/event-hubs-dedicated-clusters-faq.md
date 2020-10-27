@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: Includere file
+description: Includere file
 services: event-hubs
 author: spelluru
 ms.service: event-hubs

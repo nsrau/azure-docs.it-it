@@ -68,7 +68,7 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 Prima che l'applicazione Web possa accedere a un archivio BLOB dal client, l'account deve essere configurato per abilitare la [condivisione di risorse tra le origini](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS).
 
-Selezionare l'account di archiviazione nel portale di Azure. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e selezionare **CORS**. Per questa guida introduttiva viene creata una regola CORS aperta:
+Selezionare l'account di archiviazione nel portale di Azure. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e selezionare **CORS** . Per questa guida introduttiva viene creata una regola CORS aperta:
 
 ![Impostazioni CORS dell'account di archiviazione BLOB di Azure](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
 
@@ -77,12 +77,12 @@ La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per 
 |Impostazione  |valore  | Descrizione |
 |---------|---------|---------|
 | **ORIGINI CONSENTITE** | **\*** | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
-| **METODI CONSENTITI** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** e **PUT** | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
+| **METODI CONSENTITI** | **DELETE** , **GET** , **HEAD** , **MERGE** , **POST** , **OPTIONS** e **PUT** | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
 | **INTESTAZIONI CONSENTITE** | **\*** | Definisce un elenco di intestazioni della richiesta (comprese le intestazioni con prefisso) consentite per l'account di archiviazione. Impostando il valore su `*`, tutte le intestazioni potranno accedere. |
 | **INTESTAZIONI ESPOSTE** | **\*** | Elenca le intestazioni di risposta consentite dall'account. Impostando il valore su `*`, l'account potrà inviare qualsiasi intestazione. |
 | **VALIDITÀ MASSIMA** | **86400** | Periodo massimo di memorizzazione in secondi della richiesta OPTIONS preliminare nella cache di un browser. Il valore *86400* consente la conservazione della cache per un giorno intero. |
 
-Dopo aver compilato i campi con i valori di questa tabella, fare clic sul pulsante **Salva**.
+Dopo aver compilato i campi con i valori di questa tabella, fare clic sul pulsante **Salva** .
 
 > [!IMPORTANT]
 > Verificare che le impostazioni usate nell'ambiente di produzione espongano l'accesso minimo necessario all'account di archiviazione per mantenere un accesso sicuro. Le impostazioni CORS descritte in questo documento sono appropriate per una guida introduttiva perché definiscono criteri di sicurezza flessibili. Queste impostazioni, tuttavia, non sono consigliate per un contesto reale.
@@ -94,10 +94,10 @@ La firma di accesso condiviso viene usata dal codice in esecuzione nel browser p
 Per ottenere l'URL di firma di accesso condiviso del servizio BLOB, seguire questa procedura:
 
 1. Selezionare l'account di archiviazione nel portale di Azure.
-2. Passare alla sezione **Impostazioni** e selezionare **Firma di accesso condiviso**.
-3. Scorrere verso il basso e fare clic sul pulsante **Genera firma di accesso condiviso e stringa di connessione**.
+2. Passare alla sezione **Impostazioni** e selezionare **Firma di accesso condiviso** .
+3. Scorrere verso il basso e fare clic sul pulsante **Genera firma di accesso condiviso e stringa di connessione** .
 4. Scorrere ulteriormente verso il basso e individuare il campo **URL di firma di accesso condiviso del servizio BLOB**
-5. Fare clic sul pulsante **Copia negli Appunti** all'estremità destra del campo **URL di firma di accesso condiviso del servizio BLOB**.
+5. Fare clic sul pulsante **Copia negli Appunti** all'estremità destra del campo **URL di firma di accesso condiviso del servizio BLOB** .
 6. Salvare l'URL copiato nella posizione desiderata perché sarà necessario in un passaggio successivo.
 
 ### <a name="add-the-azure-blob-storage-client-library"></a>Aggiungere la libreria client di Archiviazione BLOB di Azure
@@ -130,7 +130,7 @@ In Visual Studio Code aprire il file *package.json* e aggiungere un elemento `br
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
-Salvare il file *package.json*.
+Salvare il file *package.json* .
 
 ### <a name="import-the-azure-blob-storage-client-library"></a>Importare la libreria client di Archiviazione BLOB di Azure
 
@@ -138,7 +138,7 @@ Per usare le librerie di Azure SDK all'interno di JavaScript, importare il pacch
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-Salvare il file come *index.js* nella directory *azure-blobs-js-browser*.
+Salvare il file come *index.js* nella directory *azure-blobs-js-browser* .
 
 ### <a name="implement-the-html-page"></a>Implementare la pagina HTML
 
@@ -146,7 +146,7 @@ Creare un nuovo file in Visual Studio Code e aggiungere il codice HTML seguente.
 
 :::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html":::
 
-Salvare il file come *index.html* nella cartella *azure-blobs-js-browser*.
+Salvare il file come *index.html* nella cartella *azure-blobs-js-browser* .
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -160,15 +160,15 @@ L'esempio di codice illustra come eseguire le attività seguenti con la libreria
 * [Caricare i BLOB](#upload-blobs)
 * [Eliminare i BLOB](#delete-blobs)
 
-Il codice verrà eseguito dopo aver aggiunto tutti i frammenti al file *index.js*.
+Il codice verrà eseguito dopo aver aggiunto tutti i frammenti al file *index.js* .
 
 ### <a name="declare-fields-for-ui-elements"></a>Dichiarare i campi per gli elementi dell'interfaccia utente
 
-Aggiungere il codice seguente alla fine del file *index.js*.
+Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="JavaScript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 Questo codice dichiara i campi per ogni elemento HTML e implementa una funzione `reportStatus` per visualizzare l'output.
 
@@ -176,57 +176,57 @@ Nelle sezioni seguenti aggiungere ogni nuovo blocco di codice JavaScript dopo il
 
 ### <a name="add-your-storage-account-info"></a>Aggiungere le informazioni sull'account di archiviazione
 
-Aggiungere il codice per accedere all'account di archiviazione. Sostituire il segnaposto con l'URL di firma di accesso condiviso del servizio BLOB generato in precedenza. Aggiungere il codice seguente alla fine del file *index.js*.
+Aggiungere il codice per accedere all'account di archiviazione. Sostituire il segnaposto con l'URL di firma di accesso condiviso del servizio BLOB generato in precedenza. Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 ### <a name="create-client-objects"></a>Creare oggetti client
 
-Creare gli oggetti [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) e [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) per interagire con il servizio di archiviazione BLOB di Azure. Aggiungere il codice seguente alla fine del file *index.js*.
+Creare gli oggetti [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) e [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) per interagire con il servizio di archiviazione BLOB di Azure. Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 ### <a name="create-and-delete-a-storage-container"></a>Creare ed eliminare un contenitore di archiviazione
 
-Creare ed eliminare il contenitore di archiviazione facendo clic sul pulsante corrispondente sulla pagina Web. Aggiungere il codice seguente alla fine del file *index.js*.
+Creare ed eliminare il contenitore di archiviazione facendo clic sul pulsante corrispondente sulla pagina Web. Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 ### <a name="list-blobs"></a>Elencare i BLOB
 
-Elencare il contenuto del contenitore di archiviazione facendo clic sul pulsante **Elenca file**. Aggiungere il codice seguente alla fine del file *index.js*.
+Elencare il contenuto del contenitore di archiviazione facendo clic sul pulsante **Elenca file** . Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 Questo codice chiama la funzione [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-), quindi usa un iteratore per recuperare il nome di ogni elemento [BlobItem](/javascript/api/@azure/storage-blob/blobitem) restituito. Per ogni elemento `BlobItem`, aggiorna l'elenco di **File** con il valore della proprietà [name](/javascript/api/@azure/storage-blob/blobitem#name).
 
 ### <a name="upload-blobs"></a>Caricare i BLOB
 
-Caricare i file nel contenitore di archiviazione facendo clic sul pulsante **Select and upload files** (Seleziona e carica file). Aggiungere il codice seguente alla fine del file *index.js*.
+Caricare i file nel contenitore di archiviazione facendo clic sul pulsante **Select and upload files** (Seleziona e carica file). Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
 Questo codice connette il pulsante **Select and upload files** (Seleziona e carica file) all'elemento `file-input` nascosto. L'evento `click` del pulsante attiva l'evento `click` di input file e visualizza la selezione file. Dopo aver selezionato i file e chiuso la finestra di dialogo, si verifica l'evento `input` e viene chiamata la funzione `uploadFiles`. Questa funzione crea un oggetto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient), quindi chiama la funzione specifica del browser [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) per ogni file selezionato. Ogni chiamata restituisce un elemento `Promise`. Ogni elemento `Promise` viene aggiunto a un elenco per un'attesa comune, determinando così il caricamento dei file in parallelo.
 
 ### <a name="delete-blobs"></a>Eliminare BLOB
 
-Eliminare i file dal contenitore di archiviazione facendo clic sul pulsante **Delete selected files** (Elimina file selezionati ). Aggiungere il codice seguente alla fine del file *index.js*.
+Eliminare i file dal contenitore di archiviazione facendo clic sul pulsante **Delete selected files** (Elimina file selezionati ). Aggiungere il codice seguente alla fine del file *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
 
-Salvare il file *index.js*.
+Salvare il file *index.js* .
 
-Questo codice chiama la funzione [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) per rimuovere ogni file selezionato nell'elenco. Chiama quindi la funzione `listFiles` mostrata in precedenza per aggiornare il contenuto dell'elenco **File**.
+Questo codice chiama la funzione [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) per rimuovere ogni file selezionato nell'elenco. Chiama quindi la funzione `listFiles` mostrata in precedenza per aggiornare il contenuto dell'elenco **File** .
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
@@ -237,13 +237,13 @@ Per eseguire il codice all'interno del debugger di Visual Studio Code, configura
 Per configurare l'estensione del debugger in Visual Studio Code:
 
 1. Selezionare **Esegui > Aggiungi configurazione**
-2. Selezionare **Microsoft Edge**, **Chrome** o **Firefox**, a seconda dell'estensione installata nella sezione [Prerequisiti](#prerequisites) precedente.
+2. Selezionare **Microsoft Edge** , **Chrome** o **Firefox** , a seconda dell'estensione installata nella sezione [Prerequisiti](#prerequisites) precedente.
 
 L'aggiunta di una nuova configurazione crea un file *launch.json* e lo apre nell'editor. Modificare quindi il file *launch.json* in modo che il valore `url` corrisponda a `http://localhost:1234/index.html`, come mostrato di seguito:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
-Dopo l'aggiornamento, salvare il file *launch.json*. Questa configurazione indica a Visual Studio Code quale browser aprire e quale URL caricare.
+Dopo l'aggiornamento, salvare il file *launch.json* . Questa configurazione indica a Visual Studio Code quale browser aprire e quale URL caricare.
 
 ### <a name="launch-the-web-server"></a>Avviare il server Web
 
@@ -255,7 +255,7 @@ parcel index.html
 
 Parcel aggrega il codice e avvia un server di sviluppo locale per la pagina all'indirizzo `http://localhost:1234/index.html`. Le modifiche apportate a *index.js* verranno automaticamente compilate e si rifletteranno nel server di sviluppo ogni volta che si salva il file.
 
-Se viene visualizzato un messaggio che indica che **non è stato possibile usare la porta 1234 configurata**, è possibile modificare la porta eseguendo il comando `parcel -p <port#> index.html`. Nel file *launch.json* aggiornare la porta nel percorso URL in modo che corrisponda.
+Se viene visualizzato un messaggio che indica che **non è stato possibile usare la porta 1234 configurata** , è possibile modificare la porta eseguendo il comando `parcel -p <port#> index.html`. Nel file *launch.json* aggiornare la porta nel percorso URL in modo che corrisponda.
 
 ### <a name="start-debugging"></a>Consente di iniziare il debug
 
@@ -269,27 +269,27 @@ Per verificare i risultati delle chiamate API nel [portale di Azure](https://por
 
 #### <a name="step-1---create-a-container"></a>Passaggio 1: Creare un contenitore
 
-1. Nell'app Web selezionare **Crea contenitore**. Lo stato indica che è stato creato un contenitore.
-2. Per verificare nel portale di Azure, selezionare l'account di archiviazione. In **Servizio BLOB** selezionare **Contenitori**. Verificare che venga visualizzato il nuovo contenitore. Potrebbe essere necessario fare clic su **Aggiorna**.
+1. Nell'app Web selezionare **Crea contenitore** . Lo stato indica che è stato creato un contenitore.
+2. Per verificare nel portale di Azure, selezionare l'account di archiviazione. In **Servizio BLOB** selezionare **Contenitori** . Verificare che venga visualizzato il nuovo contenitore. Potrebbe essere necessario fare clic su **Aggiorna** .
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>Passaggio 2: Caricare un BLOB nel contenitore
 
-1. Nel computer locale creare e salvare un file di test, ad esempio *test.txt*.
+1. Nel computer locale creare e salvare un file di test, ad esempio *test.txt* .
 2. Nell'app Web fare clic su **Select and upload files** (Seleziona e carica file).
-3. Passare al file di test e quindi selezionare **Apri**. Lo stato indica che il file è stato caricato e che è stato recuperato l'elenco dei file.
+3. Passare al file di test e quindi selezionare **Apri** . Lo stato indica che il file è stato caricato e che è stato recuperato l'elenco dei file.
 4. Nel portale di Azure selezionare il nome del nuovo contenitore creato in precedenza. Verificare che venga visualizzato il file di test.
 
 #### <a name="step-3---delete-the-blob"></a>Passaggio 3: Eliminare il BLOB
 
-1. Nell'app Web selezionare il file di test in **File**.
+1. Nell'app Web selezionare il file di test in **File** .
 2. Selezionare **Delete selected files** (Elimina file selezionati). Lo stato indica che il file è stato eliminato e che il contenitore non contiene file.
-3. Selezionare **Aggiorna** nel portale di Azure. Verificare che venga visualizzato il messaggio **Non sono stati trovati BLOB**.
+3. Selezionare **Aggiorna** nel portale di Azure. Verificare che venga visualizzato il messaggio **Non sono stati trovati BLOB** .
 
 #### <a name="step-4---delete-the-container"></a>Passaggio 4: Eliminare il contenitore
 
-1. Nell'app Web selezionare **Elimina contenitore**. Questo stato indica che il contenitore è stato eliminato.
+1. Nell'app Web selezionare **Elimina contenitore** . Questo stato indica che il contenitore è stato eliminato.
 2. Nel portale di Azure selezionare il collegamento **\<account-name\> | Contenitori** in alto a sinistra nel riquadro del portale.
-3. Selezionare **Aggiorna**. Il nuovo contenitore non sarà più visualizzato.
+3. Selezionare **Aggiorna** . Il nuovo contenitore non sarà più visualizzato.
 4. Chiudere l'app Web.
 
 ### <a name="clean-up-resources"></a>Pulire le risorse

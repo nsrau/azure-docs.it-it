@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-reward-gateway"></a>Assegnazione di utenti a reward gateway 
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni* . Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a reward gateway. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a reward gateway seguendo le istruzioni riportate in [assegnare un utente o un gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -51,15 +51,15 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 ## <a name="setup-reward-gateway--for-provisioning"></a>Configurare Reward gateway per il provisioning
 Prima di configurare Reward gateway per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM su Reward gateway.
 
-1. Accedere alla console di [amministrazione di Reward gateway](https://rewardgateway.photoshelter.com/login/). Fare clic su **Integrations**.
+1. Accedere alla console di [amministrazione di Reward gateway](https://rewardgateway.photoshelter.com/login/). Fare clic su **Integrations** .
 
     ![Screenshot della console di amministrazione di Reward gateway con l'opzione Integrations denominata.](media/reward-gateway-provisioning-tutorial/image00.png)
 
-2.  Selezionare **integrazione personale**.
+2.  Selezionare **integrazione personale** .
 
     ![Screenshot delle due opzioni di integrazione con l'opzione delle integrazioni My denominata.](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  Copiare i valori dell' **URL SCIM (v2)** e del **token di porta OAuth**. Questi valori verranno immessi nel campo URL tenant e token segreto nella scheda provisioning dell'applicazione Reward gateway nel portale di Azure.
+3.  Copiare i valori dell' **URL SCIM (v2)** e del **token di porta OAuth** . Questi valori verranno immessi nel campo URL tenant e token segreto nella scheda provisioning dell'applicazione Reward gateway nel portale di Azure.
 
     ![Screenshot del pannello integrazioni personali con la casella di testo token di porta OAuth, denominata.](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -69,11 +69,11 @@ Per configurare Reward gateway per il provisioning utenti automatico con Azure A
 
 **Per aggiungere Reward gateway dalla raccolta di applicazioni di Azure AD, seguire questa procedura:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** .
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Per configurare Reward gateway per il provisioning utenti automatico con Azure A
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Reward gateway**, selezionare **Reward gateway** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **Reward gateway** , selezionare **Reward gateway** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Reward Gateway nell'elenco risultati](common/search-new-app.png)
 
@@ -94,19 +94,19 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Reward gateway in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Reward Gateway**.
+2. Nell'elenco delle applicazioni selezionare **Reward Gateway** .
 
     ![Collegamento di Reward Gateway nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning**.
+3. Selezionare la scheda **Provisioning** .
 
     ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico** .
 
     ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
@@ -114,13 +114,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore** .
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Salva** .
 
-8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to reward gateway**.
+8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to reward gateway** .
 
     ![Screenshot della sezione mapping con l'opzione Sincronizza Azure Active Directory utenti a reward gateway denominata.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
@@ -138,11 +138,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva** .
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad su Reward gateway.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad su Reward gateway.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 

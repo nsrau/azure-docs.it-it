@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999942"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543152"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (anteprima)
 
@@ -43,7 +43,7 @@ In questo diagramma, il client, ovvero un browser o un'app, deve prima acquisire
 
 Potrebbero essere presenti molte applicazioni legacy che supportano solo l'autenticazione di base, ovvero nome utente e password. Per questi scenari, è comunque possibile usare l'autenticazione di base HTTP per connettersi ai gateway del cluster. In questa configurazione è necessario garantire la connettività di rete dai nodi del gateway all'endpoint Active Directory Federation Services (AD FS) per garantire una linea di visione diretta dai nodi del gateway.
 
-Il diagramma seguente illustra il flusso di autenticazione di base per gli utenti federati. In primo luogo, il gateway tenta di completare l'autenticazione usando il [flusso ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). Se non sono stati sincronizzati gli hash delle password per Azure AD, viene rilevata l'individuazione dell'endpoint AD FS e viene completata l'autenticazione accedendo all'endpoint di AD FS.
+Il diagramma seguente illustra il flusso di autenticazione di base per gli utenti federati. In primo luogo, il gateway tenta di completare l'autenticazione usando il [flusso ROPC](../../active-directory/develop/v2-oauth-ropc.md). Se non sono stati sincronizzati gli hash delle password per Azure AD, viene rilevata l'individuazione dell'endpoint AD FS e viene completata l'autenticazione accedendo all'endpoint di AD FS.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramma che mostra il flusso di autenticazione con HDInsight ID Broker.":::
 
@@ -54,7 +54,7 @@ Per creare un cluster Enterprise Security Package con HDInsight ID Broker abilit
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Seguire i passaggi di creazione di base per un cluster Enterprise Security Package. Per altre informazioni, vedere [creare un cluster HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Selezionare **Enable HDINSIGHT ID Broker**.
+1. Selezionare **Enable HDINSIGHT ID Broker** .
 
 La funzionalità HDInsight ID Broker aggiunge una macchina virtuale aggiuntiva al cluster. Questa macchina virtuale è il nodo HDInsight ID Broker e include i componenti server per supportare l'autenticazione. Il nodo HDInsight ID Broker è aggiunto al dominio Azure AD DS.
 
@@ -103,7 +103,7 @@ Se si aggiunge un nuovo ruolo denominato `idbrokernode` con gli attributi seguen
 
 ## <a name="tool-integration"></a>Integrazione degli strumenti
 
-Gli strumenti HDInsight vengono aggiornati per il supporto nativo di OAuth. Usare questi strumenti per l'accesso moderno basato su OAuth ai cluster. Il [plug-in HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) può essere usato per le applicazioni basate su Java, ad esempio scala. È possibile usare [gli strumenti Spark e hive per Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) per i processi PySpark e hive. Gli strumenti supportano entrambi i processi batch e Interactive.
+Gli strumenti HDInsight vengono aggiornati per il supporto nativo di OAuth. Usare questi strumenti per l'accesso moderno basato su OAuth ai cluster. Il [plug-in HDInsight IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) può essere usato per le applicazioni basate su Java, ad esempio scala. È possibile usare [gli strumenti Spark e hive per Visual Studio Code](../hdinsight-for-vscode.md) per i processi PySpark e hive. Gli strumenti supportano entrambi i processi batch e Interactive.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Accesso SSH senza un hash della password in Azure AD DS
 
@@ -117,11 +117,11 @@ Per SSH a una macchina virtuale aggiunta a un dominio o per eseguire il `kinit` 
 
 Se l'organizzazione non esegue la sincronizzazione degli hash delle password per Azure AD DS, è consigliabile creare un utente solo cloud nella Azure AD. Quindi assegnarlo come amministratore del cluster quando si crea il cluster e usarlo a scopo di amministrazione. È possibile usarlo per ottenere l'accesso alla radice alle macchine virtuali tramite SSH.
 
-Per risolvere i problemi di autenticazione, vedere [questa guida](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Per risolvere i problemi di autenticazione, vedere [questa guida](./domain-joined-authentication-issues.md).
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Client che usano OAuth per connettersi a un gateway HDInsight con HDInsight ID Broker
 
-Nel programma di installazione di HDInsight ID Broker, è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. Per acquisire il token con le informazioni seguenti, attenersi alla procedura descritta in [questo documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) :
+Nel programma di installazione di HDInsight ID Broker, è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. Per acquisire il token con le informazioni seguenti, attenersi alla procedura descritta in [questo documento](../../storage/common/storage-auth-aad-app.md) :
 
 *   URI risorsa OAuth: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-F040-46cc-875f-831a1ef6a28a

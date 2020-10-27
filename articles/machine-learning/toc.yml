@@ -235,7 +235,7 @@
           displayName: policy
     - name: Creare e gestire aree di lavoro
       items:
-        - name: Usare il portale di Azure
+        - name: Usare il portale di Azure o Python SDK
           href: how-to-manage-workspace.md
         - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: how-to-manage-workspace-cli.md

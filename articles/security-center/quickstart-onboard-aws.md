@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449033"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428110"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connettere gli account AWS a Centro sicurezza di Azure
 
@@ -66,22 +66,22 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
 
 È possibile consentire in due modi al Centro sicurezza di eseguire l'autenticazione in AWS:
 
-- **Creare un ruolo di gestione delle identità e degli accessi per il Centro sicurezza**: questo è il metodo più sicuro ed è il metodo consigliato
-- **Utente di AWS per il Centro sicurezza**: opzione meno sicura nel caso in cui la gestione delle identità e degli accessi non sia abilitata
+- **Creare un ruolo di gestione delle identità e degli accessi per il Centro sicurezza** : questo è il metodo più sicuro ed è il metodo consigliato
+- **Utente di AWS per il Centro sicurezza** : opzione meno sicura nel caso in cui la gestione delle identità e degli accessi non sia abilitata
 
 #### <a name="create-an-iam-role-for-security-center"></a>Creare un ruolo di gestione delle identità e degli accessi per il Centro sicurezza
-1. In **Security, Identity & Compliance** (Sicurezza, identità e conformità) nella console di Amazon Web Services selezionare **IAM**.
+1. In **Security, Identity & Compliance** (Sicurezza, identità e conformità) nella console di Amazon Web Services selezionare **IAM** .
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
 
 1. Selezionare **Roles** (Ruoli) e **Create role** (Crea ruolo).
 1. Selezionare **Another AWS account** (Un altro account AWS).
 1. Immettere i dettagli seguenti:
 
-    - **Account ID**  (ID account): immettere l'ID account Microsoft (**158177204117**) indicato nella pagina del connettore AWS nel Centro sicurezza.
+    - **Account ID**  (ID account): immettere l'ID account Microsoft ( **158177204117** ) indicato nella pagina del connettore AWS nel Centro sicurezza.
     - **Require External ID** (Richiedi ID esterno): questa opzione deve essere selezionata.
     - **External ID** (ID esterno): immettere l'ID della sottoscrizione indicato nella pagina del connettore AWS nel Centro sicurezza. 
 
-1. Selezionare **Avanti**.
+1. Selezionare **Avanti** .
 1. Nella sezione **Attach permission policies** (Allega criteri di autorizzazione) selezionare i criteri seguenti:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
     - AWSSecurityHubReadOnlyAccess
 
 1. Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
-1. Selezionare **Avanti**.
+1. Selezionare **Avanti** .
 
 1. Nell'elenco di ruoli scegliere il ruolo creato
 
@@ -104,7 +104,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
     - AmazonSSMAutomationRole
     - AWSSecurityHubReadOnlyAccess
     
-1. Selezionare **Avanti: Tag**. Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
+1. Selezionare **Avanti: Tag** . Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
 1. Selezionare **Review** (Verifica).
 1. Salvare il file CSV generato con **Access key ID** (ID chiave di accesso) e **Secret access key** (Chiave di accesso segreta) per un momento successivo.
 1. Controllare il riepilogo e fare clic su **Create user** (Crea utente).
@@ -118,37 +118,41 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
 - [Installazione e configurazione di SSM Agent in istanze Linux di Amazon EC2](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>Passaggio 4. Creare un'entità servizio per l'onboarding su larga scala
+### <a name="step-4-complete-azure-arc-prerequisites"></a>Passaggio 4. Completare i prerequisiti di Azure Arc
+1. Assicurarsi che siano registrati i [provider di risorse di Azure](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) appropriati:
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-Come **Proprietario** della sottoscrizione da usare per l'onboarding, creare un'entità servizio per l'onboarding di Azure Arc, come illustrato in [Creare un'entità servizio per l'onboarding su larga scala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+1. Creare un'entità servizio per l'onboarding su larga scala. Come **Proprietario** della sottoscrizione da usare per l'onboarding, creare un'entità servizio per l'onboarding di Azure Arc, come illustrato in [Creare un'entità servizio per l'onboarding su larga scala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Passaggio 5. Connettere AWS al Centro sicurezza
 
-1. Dal menu del Centro sicurezza selezionare **Connettori per più cloud**.
-1. Selezionare **Aggiungi un account AWS**.
+1. Dal menu del Centro sicurezza selezionare **Connettori per più cloud** .
+1. Selezionare **Aggiungi un account AWS** .
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
-1. Configurare le opzioni disponibili nella scheda **Autenticazione AWS**:
+1. Configurare le opzioni disponibili nella scheda **Autenticazione AWS** :
     1. Immettere un **Nome visualizzato** per il connettore.
     1. Verificare che la sottoscrizione sia corretta. Si tratta della sottoscrizione che includerà il connettore e le raccomandazioni di AWS Security Hub.
     1. In base all'opzione di autenticazione scelta in [Passaggio 2. Configurare l'autenticazione per il Centro sicurezza in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Selezionare **Assumi il ruolo** e incollare il valore ARN da [Creare un ruolo di gestione delle identità e degli accessi per il Centro sicurezza](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
+        - Selezionare **Assumi il ruolo** e incollare il file ARN come descritto in [Creare un ruolo di IAM per il Centro sicurezza](#create-an-iam-role-for-security-center).
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
 
             OR
 
         - Selezionare **Credenziali** e incollare la **chiave di accesso** e la **chiave privata** dal file CSV salvato in [Creare un utente AWS per il Centro sicurezza](#create-an-aws-user-for-security-center).
-1. Selezionare **Avanti**.
-1. Configurare le opzioni disponibili nella scheda **Configurazione di Azure Arc**:
+1. Selezionare **Avanti** .
+1. Configurare le opzioni disponibili nella scheda **Configurazione di Azure Arc** :
 
     Il Centro sicurezza individua le istanze di EC2 nell'account AWS connesso e usa SSM per eseguirne l'onboarding in Azure Arc. 
 
     > [!TIP]
-    > Per un elenco di sistemi operativi supportati, vedere le domande frequenti disponibili più avanti.
+    > Per l'elenco dei sistemi operativi supportati, vedere [Quali sistemi operativi sono supportati per le istanze di EC2?](#what-operating-systems-for-my-ec2-instances-are-supported) nelle domande frequenti.
 
-    1. Selezionare il **Gruppo di risorse** e l'**Area di Azure** in cui verrà eseguito l'onboarding delle istanze individuate di AWS EC2 nella sottoscrizione selezionata.
-    1. Immettere l'**ID entità servizio** e il **Segreto client entità servizio** per Azure Arc come illustrato in [Creare un'entità servizio per l'onboarding su larga scala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+    1. Selezionare il **Gruppo di risorse** e l' **Area di Azure** in cui verrà eseguito l'onboarding delle istanze individuate di AWS EC2 nella sottoscrizione selezionata.
+    1. Immettere l' **ID entità servizio** e il **Segreto client entità servizio** per Azure Arc come illustrato in [Creare un'entità servizio per l'onboarding su larga scala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
     1. Se il computer si connette a Internet tramite un server proxy, specificare l'indirizzo IP del server proxy o il nome e il numero di porta usati dal computer per comunicare con il server proxy. Immettere il valore nel formato ```http://<proxyURL>:<proxyport>```
-    1. Selezionare **Rivedi e crea**.
+    1. Selezionare **Rivedi e crea** .
 
         Verificare le informazioni di riepilogo
 

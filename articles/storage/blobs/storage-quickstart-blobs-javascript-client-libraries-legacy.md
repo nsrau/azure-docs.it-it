@@ -37,7 +37,7 @@ In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando 
 
 Prima che l'applicazione Web possa accedere a un archivio BLOB dal client, l'account deve essere configurato per abilitare la [condivisione di risorse tra le origini](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS).
 
-Tornare al portale di Azure e selezionare l'account di archiviazione. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e fare clic sul collegamento **CORS**. Fare quindi clic sul pulsante **Aggiungi** per aprire la finestra **Aggiungi regola CORS**. Per questa guida di avvio rapido viene creata una regola CORS aperta:
+Tornare al portale di Azure e selezionare l'account di archiviazione. Per definire una nuova regola CORS, passare alla sezione **Impostazioni** e fare clic sul collegamento **CORS** . Fare quindi clic sul pulsante **Aggiungi** per aprire la finestra **Aggiungi regola CORS** . Per questa guida di avvio rapido viene creata una regola CORS aperta:
 
 ![Impostazioni CORS dell'account di archiviazione BLOB di Azure](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -86,9 +86,9 @@ La serie di valori dopo ogni parametro può risultare di difficile interpretazio
 
 | Parametro        | valore   | Descrizione  |
 |------------------|---------|---------|
-| *autorizzazioni*    | racwdl  | Questa firma di accesso condiviso consente operazioni di *lettura*, *accodamento*, *creazione*, *scrittura*, *eliminazione* ed *elenco*. |
-| *resource-types* | sco     | Le risorse interessate dalla firma di accesso condiviso sono il *servizio*, il *contenitore* e l'*oggetto*. |
-| *services*       | b       | Il servizio interessato dalla firma di accesso condiviso è il servizio *BLOB*. |
+| *autorizzazioni*    | racwdl  | Questa firma di accesso condiviso consente operazioni di *lettura* , *accodamento* , *creazione* , *scrittura* , *eliminazione* ed *elenco* . |
+| *resource-types* | sco     | Le risorse interessate dalla firma di accesso condiviso sono il *servizio* , il *contenitore* e l' *oggetto* . |
+| *services*       | b       | Il servizio interessato dalla firma di accesso condiviso è il servizio *BLOB* . |
 
 Una volta generata la firma di accesso condiviso, copiare il valore restituito e salvarlo dove si preferisce per usarlo in un passaggio successivo. Se la firma di accesso condiviso è stata generata con un metodo diverso dall'interfaccia della riga di comando di Azure, è necessario rimuovere il carattere `?` iniziale, se presente. Questo carattere è un separatore di URL già fornito nel modello di URL in cui viene usata la firma di accesso condiviso, più avanti in questo argomento.
 
@@ -101,7 +101,7 @@ In questa sezione si creerà una pagina Web di base e si configurerà Visual Stu
 
 ### <a name="set-up-the-web-application"></a>Configurare l'applicazione Web
 
-Creare prima di tutto una nuova cartella denominata *azure-blobs-javascript* e aprirla in VS Code. Creare quindi un nuovo file in VS Code, aggiungere l'HTML seguente e salvarlo con il nome *index.html* nella cartella *azure-blobs-javascript*.
+Creare prima di tutto una nuova cartella denominata *azure-blobs-javascript* e aprirla in VS Code. Creare quindi un nuovo file in VS Code, aggiungere l'HTML seguente e salvarlo con il nome *index.html* nella cartella *azure-blobs-javascript* .
 
 ```html
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ Creare prima di tutto una nuova cartella denominata *azure-blobs-javascript* e a
 
 ### <a name="configure-the-debugger"></a>Configurare il debugger
 
-Per configurare l'estensione del debugger in VS Code, selezionare **Debug > Aggiungi configurazione**, quindi selezionare **Chrome** o **Edge** a seconda dell'estensione installata nella sezione Prerequisiti in precedenza. Questa azione crea un file *launch.json* e lo apre nell'editor.
+Per configurare l'estensione del debugger in VS Code, selezionare **Debug > Aggiungi configurazione** , quindi selezionare **Chrome** o **Edge** a seconda dell'estensione installata nella sezione Prerequisiti in precedenza. Questa azione crea un file *launch.json* e lo apre nell'editor.
 
 Modificare quindi il file *launch.json* in modo che il valore `url` includa `/index.html`, come mostrato di seguito:
 
@@ -167,11 +167,11 @@ Per avviare *index.html* nel browser con il debugger di VS Code associato, selez
 
 L'interfaccia utente visualizzata non esegue ancora alcuna azione, ma nella prossima sezione si aggiungerà il codice JavaScript per implementare ogni funzione illustrata. È quindi possibile impostare punti di interruzione e interagire con il debugger quando viene messo in pausa nel codice.
 
-Quando si apportano modifiche a *index.html*, assicurarsi di ricaricare la pagina per visualizzare le modifiche nel browser. In VS Code si può anche selezionare **Debug > Riavvia debug** o premere CTRL+MAIUSC+F5.
+Quando si apportano modifiche a *index.html* , assicurarsi di ricaricare la pagina per visualizzare le modifiche nel browser. In VS Code si può anche selezionare **Debug > Riavvia debug** o premere CTRL+MAIUSC+F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Aggiungere la libreria client di archiviazione BLOB
 
-Per abilitare le chiamate all'API di archiviazione BLOB, prima di tutto [scaricare la libreria client Azure Storage SDK per JavaScript - Blob](https://aka.ms/downloadazurestoragejsblob), estrarre il contenuto del file ZIP e inserire il file *azure-storage-blob.js* nella cartella *azure-blobs-javascript*.
+Per abilitare le chiamate all'API di archiviazione BLOB, prima di tutto [scaricare la libreria client Azure Storage SDK per JavaScript - Blob](https://aka.ms/downloadazurestoragejsblob), estrarre il contenuto del file ZIP e inserire il file *azure-storage-blob.js* nella cartella *azure-blobs-javascript* .
 
 Quindi, incollare l'HTML seguente in *index.html* dopo il tag di chiusura `</body>`, sostituendo il commento del segnaposto.
 
@@ -183,7 +183,7 @@ Quindi, incollare l'HTML seguente in *index.html* dopo il tag di chiusura `</bod
 </script>
 ```
 
-Questo codice aggiunge un riferimento al file di script e fornisce una posizione per il codice JavaScript dell'utente. Ai fini di questa guida di avvio rapido, si userà il file di script *azure-storage-blob.js* in modo che sia possibile aprirlo in VS Code, leggerne il contenuto e impostare punti di interruzione. In ambiente di produzione è consigliabile usare il file *azure-storage.blob.min.js*, più compatto, anch'esso disponibile nel file ZIP.
+Questo codice aggiunge un riferimento al file di script e fornisce una posizione per il codice JavaScript dell'utente. Ai fini di questa guida di avvio rapido, si userà il file di script *azure-storage-blob.js* in modo che sia possibile aprirlo in VS Code, leggerne il contenuto e impostare punti di interruzione. In ambiente di produzione è consigliabile usare il file *azure-storage.blob.min.js* , più compatto, anch'esso disponibile nel file ZIP.
 
 Per altre informazioni su ogni funzione di archiviazione BLOB, vedere la [documentazione di riferimento](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Tenere presente che alcune delle funzioni dell'SDK sono disponibili solo in Node.js o solo nel browser.
 
@@ -261,7 +261,7 @@ Questo codice chiama le funzioni di ContainerURL [create](https://docs.microsoft
 
 ### <a name="list-blobs"></a>Elencare i BLOB
 
-Aggiungere quindi il codice per elencare il contenuto del contenitore di archiviazione quando si seleziona il pulsante **Elenca file**.
+Aggiungere quindi il codice per elencare il contenuto del contenitore di archiviazione quando si seleziona il pulsante **Elenca file** .
 
 ```javascript
 const listFiles = async () => {
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Questo codice chiama la funzione [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) in un ciclo per assicurare che vengano recuperati tutti i segmenti. Per ogni segmento, scorre in ciclo l'elenco di elementi BLOB che contiene e aggiorna l'elenco **File**.
+Questo codice chiama la funzione [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) in un ciclo per assicurare che vengano recuperati tutti i segmenti. Per ogni segmento, scorre in ciclo l'elenco di elementi BLOB che contiene e aggiorna l'elenco **File** .
 
 ### <a name="upload-blobs"></a>Caricare i BLOB
 
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Questo codice chiama la funzione [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) per rimuovere ogni file selezionato nell'elenco. Chiama quindi la funzione `listFiles` mostrata in precedenza per aggiornare il contenuto dell'elenco **File**.
+Questo codice chiama la funzione [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) per rimuovere ogni file selezionato nell'elenco. Chiama quindi la funzione `listFiles` mostrata in precedenza per aggiornare il contenuto dell'elenco **File** .
 
 ### <a name="run-and-test-the-web-application"></a>Eseguire e testare l'applicazione Web
 

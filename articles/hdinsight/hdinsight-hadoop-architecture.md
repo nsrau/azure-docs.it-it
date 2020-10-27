@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: cbd1303417f008da476356a274dde30d7d02d36f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389aee77ac56407f3a116d42ad62fbd94de1bb4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505506"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541945"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
 
@@ -37,7 +37,7 @@ Quando un'applicazione MapReduce viene eseguita in un cluster, il ResourceManage
 
 Il ResourceManager esegue anche un processo di server Web che fornisce un'interfaccia utente Web utilizzabile per monitorare lo stato delle applicazioni.
 
-Quando un utente invia un'applicazione MapReduce per l'esecuzione nel cluster, l'applicazione viene inviata al ResourceManager. A sua volta, il ResourceManager alloca un contenitore sui nodi NodeManager disponibili. I nodi NodeManager sono la posizione in cui viene effettivamente eseguita l'applicazione. Il primo contenitore allocato esegue un'applicazione speciale denominata ApplicationMaster. Questo ApplicationMaster è responsabile dell'acquisizione delle risorse, sotto forma di contenitori successivi, necessarie per eseguire l'applicazione inviata. L'ApplicationMaster esamina le fasi dell'applicazione, ad esempio la fase di mapping e fase di riduzione e calcola la quantità di dati che devono essere elaborati. ApplicationMaster richiede quindi (*negozia*) le risorse dal ResourceManager per conto dell'applicazione. Il ResourceManager concede a sua volta le risorse dai NodeManager nel cluster all'ApplicationMaster, in modo che possa usarle per l'esecuzione dell'applicazione.
+Quando un utente invia un'applicazione MapReduce per l'esecuzione nel cluster, l'applicazione viene inviata al ResourceManager. A sua volta, il ResourceManager alloca un contenitore sui nodi NodeManager disponibili. I nodi NodeManager sono la posizione in cui viene effettivamente eseguita l'applicazione. Il primo contenitore allocato esegue un'applicazione speciale denominata ApplicationMaster. Questo ApplicationMaster è responsabile dell'acquisizione delle risorse, sotto forma di contenitori successivi, necessarie per eseguire l'applicazione inviata. L'ApplicationMaster esamina le fasi dell'applicazione, ad esempio la fase di mapping e fase di riduzione e calcola la quantità di dati che devono essere elaborati. ApplicationMaster richiede quindi ( *negozia* ) le risorse dal ResourceManager per conto dell'applicazione. Il ResourceManager concede a sua volta le risorse dai NodeManager nel cluster all'ApplicationMaster, in modo che possa usarle per l'esecuzione dell'applicazione.
 
 I NodeManager eseguono le attività che costituiscono l'applicazione, quindi segnalano l'avanzamento e lo stato all'ApplicationMaster. A sua volta, l'ApplicationMaster segnala lo stato dell'applicazione al ResourceManager. Il ResourceManager restituisce gli eventuali risultati al client.
 
@@ -53,12 +53,12 @@ Per annullare l'eliminazione di un file dall'account di archiviazione, vedere:
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-* [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/storage-blob-soft-delete.md)
-* [Annulla l'eliminazione del BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/soft-delete-blob-overview.md)
+* [Annulla l'eliminazione del BLOB](/rest/api/storageservices/undelete-blob)
 
 ### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+[Restore-AzDataLakeStoreDeletedItem](/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 

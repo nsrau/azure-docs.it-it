@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440519"
 ---
 # <a name="azure-key-vault-backup"></a>Backup di Azure Key Vault
 
@@ -30,6 +30,9 @@ Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automatic
 Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limitazioni
+
+> [!IMPORTANT]
+> Key Vault non supporta la possibilità di eseguire il backup di più di 500 versioni passate di un oggetto chiave, segreto o certificato. Il tentativo di eseguire il backup di un oggetto chiave, segreto o certificato può generare un errore. Non è possibile eliminare le versioni precedenti di una chiave, un segreto o un certificato.
 
 Azure Key Vault attualmente non offre un modo per eseguire il backup di un intero insieme di credenziali delle chiavi in un'unica operazione. Qualsiasi tentativo di usare i comandi elencati in questo documento per eseguire un backup automatico di un insieme di credenziali delle chiavi può generare errori per i quali non si riceverà assistenza da Microsoft o dal team di Azure Key Vault. 
 
@@ -64,11 +67,11 @@ Per eseguire il backup e il ripristino di oggetti usando il portale di Azure, se
     ![Screenshot che mostra dove selezionare l'impostazione Chiavi e un oggetto in un insieme di credenziali delle chiavi.](../media/backup-1.png)
 
 4. Selezionare l'oggetto.
-5. Selezionare **Scarica il backup**.
+5. Selezionare **Scarica il backup** .
 
     ![Screenshot che mostra dove selezionare il pulsante Scarica il backup in un insieme di credenziali delle chiavi.](../media/backup-2.png)
     
-6. Selezionare **Download**.
+6. Selezionare **Download** .
 
     ![Screenshot che mostra dove selezionare il pulsante Scarica in un insieme di credenziali delle chiavi.](../media/backup-3.png)
     
@@ -79,12 +82,12 @@ Per eseguire il backup e il ripristino di oggetti usando il portale di Azure, se
 1. Accedere al portale di Azure.
 2. Selezionare l'insieme di credenziali delle chiavi.
 3. Passare al tipo di oggetto (segreto, chiave o certificato) di cui si vuole eseguire il ripristino.
-4. Selezionare **Ripristina il backup**.
+4. Selezionare **Ripristina il backup** .
 
     ![Screenshot che mostra dove selezionare il pulsante Ripristina il backup in un insieme di credenziali delle chiavi.](../media/backup-4.png)
     
 5. Passare al percorso in cui è stato archiviato il BLOB crittografato.
-6. Selezionare **OK**.
+6. Selezionare **OK** .
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Eseguire il backup e il ripristino dall'interfaccia della riga di comando di Azure
 

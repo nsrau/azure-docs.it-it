@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116779"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499199"
 ---
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -46,6 +46,8 @@ La tabella seguente illustra i limiti che possono essere diversi per i livelli B
 
 ### <a name="dedicated-tier"></a>Livello dedicato
 L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità e limiti su scala aziendale per i clienti con carichi di lavoro intensi. 
+
+Fare riferimento a questo [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) per informazioni su come creare un cluster di Hub eventi dedicato usando il portale di Azure.
 
 | Funzionalità | Limiti |
 | --- | ---|

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168223"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533955"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure
 
@@ -61,7 +61,8 @@ Gli endpoint di servizio non possono essere usati per limitare l'accesso alle ap
 Con gli endpoint di servizio è possibile configurare l'app con gateway applicazione o altri dispositivi WAF. È anche possibile configurare applicazioni multilivello con backend protetti. Per altri dettagli su alcune delle possibilità, vedere [funzionalità di rete e integrazione del servizio app](networking-features.md) e del [gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> Gli endpoint di servizio non sono attualmente supportati per le app Web che usano IP SSL IP virtuale (VIP). 
+> - Gli endpoint di servizio non sono attualmente supportati per le app Web che usano IP SSL IP virtuale (VIP).
+> - È previsto un limite di 512 righe di restrizioni dell'endpoint di servizio o IP. Se sono necessarie oltre 512 righe di restrizioni, si consiglia di esaminare un prodotto di sicurezza autonomo, ad esempio il front-end di Azure, il gateway app Azure o un Web Application Firewall (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Gestione delle regole di restrizione dell'accesso
@@ -74,7 +75,7 @@ Quando si modifica una regola, non è possibile modificare il tipo tra una regol
 
 ![Screenshot della finestra di dialogo Modifica restrizione IP in portale di Azure che mostra le impostazioni per una regola della rete virtuale.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Per eliminare una regola, fare clic su **...** nella regola, quindi fare clic su **Rimuovi**.
+Per eliminare una regola, fare clic su **...** nella regola, quindi fare clic su **Rimuovi** .
 
 ![Elimina regola di restrizione accesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -111,7 +112,7 @@ I valori possono essere impostati anche manualmente con un'operazione di inserim
 
 Il percorso per questa informazione in Gestione risorse è:
 
-management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/ **subscription ID** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **web app name** /config/web?api-version=2018-02-01
 
 La sintassi JSON per l'esempio precedente è:
 ```json

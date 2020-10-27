@@ -4,12 +4,12 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143996"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543411"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
@@ -55,7 +55,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Automazione di Azure |[Log Analytics per automazione di Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registrazione Azure Batch](../../batch/batch-diagnostics.md) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
-| Registro contenitori | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Registro Container | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rete per la distribuzione di contenuti (CDN) | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Registrazione di Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorare le data factory con monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -70,7 +70,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Express Route | Lo schema non è disponibile. |
 | Firewall di Azure | Lo schema non è disponibile. |
 | Frontdoor | [Registrazione per lo sportello anteriore](../../frontdoor/front-door-diagnostics.md) |
-| Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../../key-vault/general/logging.md) |
 | Servizio Kubernetes |[Registrazione di Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |

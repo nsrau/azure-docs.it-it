@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436895"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532548"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Domande frequenti su Apache Kafka in Azure HDInsight
 
@@ -68,7 +68,7 @@ Per aumentare la quantità di spazio disponibile per i messaggi Kafka, è possib
 
 ## <a name="can-a-kafka-cluster-work-with-databricks"></a>Un cluster Kafka può funzionare con databricks? 
 
-Sì, i cluster Kafka possono funzionare con databricks purché si trovino nello stesso VNet. Per usare un cluster Kafka con databricks, creare una VNet con un cluster HDInsight Kafka, quindi specificare VNet quando si crea l'area di lavoro di databricks e si usa VNet injection. Per altre informazioni, vedere [Distribuire Azure Databricks nella rete virtuale di Azure (inserimento in rete virtuale)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Quando si crea l'area di lavoro di databricks, sarà necessario fornire i nomi del broker di bootstrap del cluster Kafka. Per informazioni sul recupero dei nomi del broker Kafka, vedere [ottenere le informazioni sull'host di Apache Zookeeper e broker](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Sì, i cluster Kafka possono funzionare con databricks purché si trovino nello stesso VNet. Per usare un cluster Kafka con databricks, creare una VNet con un cluster HDInsight Kafka, quindi specificare VNet quando si crea l'area di lavoro di databricks e si usa VNet injection. Per altre informazioni, vedere [Distribuire Azure Databricks nella rete virtuale di Azure (inserimento in rete virtuale)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Quando si crea l'area di lavoro di databricks, sarà necessario fornire i nomi del broker di bootstrap del cluster Kafka. Per informazioni sul recupero dei nomi del broker Kafka, vedere [ottenere le informazioni sull'host di Apache Zookeeper e broker](./apache-kafka-get-started.md#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Come è possibile ottenere la durabilità massima dei dati?
 

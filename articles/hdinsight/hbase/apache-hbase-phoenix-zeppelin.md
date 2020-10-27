@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079429"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542795"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Usare Apache Zeppelin per eseguire query Apache Phoenix su Apache HBase in Azure HDInsight
 
@@ -31,7 +31,7 @@ Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./ap
 
 1. Nell'URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` seguente sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi l'URL in un Web browser. Immettere il nome utente e la password dell'account di accesso del cluster.
 
-1. Dalla pagina Zeppelin selezionare **Crea nuova nota**.
+1. Dalla pagina Zeppelin selezionare **Crea nuova nota** .
 
     ![Zeppelin Interactive Query HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
@@ -40,13 +40,13 @@ Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./ap
     - Nome Nota: immettere un nome per la nota.
     - Interprete predefinito: selezionare **JDBC** dall'elenco a discesa.
 
-    Quindi selezionare **Crea nota**.
+    Quindi selezionare **Crea nota** .
 
 1. Verificare che l'intestazione del notebook mostri uno stato connesso. È indicato da un punto verde nell'angolo superiore destro.
 
     ![Stato di notebook Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stato di notebook Zeppelin")
 
-1. Creare una tabella HBase. Immettere il comando seguente e quindi premere **MAIUSC + INVIO**:
+1. Creare una tabella HBase. Immettere il comando seguente e quindi premere **MAIUSC + INVIO** :
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Apache Phoenix ora supporta Zeppelin in Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix ora supporta Zeppelin in Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Grammatica Apache Phoenix](https://phoenix.apache.org/language/index.html)

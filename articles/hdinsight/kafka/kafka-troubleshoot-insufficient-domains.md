@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 8be7e05ac85ce0b1b10edf18d3885a07e016b9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 070ba5ecb6f151099c13082eee650c5720e63b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895021"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532595"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scenario: la creazione del cluster non è riuscita a causa di `not sufficient fault domains in region` in Azure HDInsight
 
@@ -26,7 +26,7 @@ Viene visualizzato un messaggio di errore simile a `not sufficient fault domains
 
 Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
-Ogni area di Azure include un numero specifico di domini di errore. Per un elenco di domini e per il numero di domini di errore che contengono, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/windows/manage-availability.md).
+Ogni area di Azure include un numero specifico di domini di errore. Per un elenco di domini e per il numero di domini di errore che contengono, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/manage-availability.md).
 
 In HDInsight è necessario eseguire il provisioning dei cluster Kafka in un'area con almeno tre domini di errore.
 
@@ -42,4 +42,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

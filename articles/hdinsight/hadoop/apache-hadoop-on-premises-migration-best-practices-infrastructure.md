@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083101"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542302"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -27,7 +27,7 @@ Le opzioni principali per la pianificazione della capacità dei cluster HDInsigh
 L'area di Azure determina la posizione in cui viene effettuato il provisioning fisico del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi nella stessa area dei dati.
 
 **Posizione e dimensioni di archiviazione**  
-La risorsa di archiviazione predefinita deve trovarsi nella stessa area del cluster.Per un cluster a 48 nodi, è consigliabile avere un account di archiviazione da 4 a 8. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
+La risorsa di archiviazione predefinita deve trovarsi nella stessa area del cluster. Per un cluster a 48 nodi, è consigliabile avere un account di archiviazione da 4 a 8. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
 
 **Dimensioni e tipo della VM (supporta ora la serie G)**  
 Ogni tipo di cluster contiene un set di tipi di nodo, a cui sono associate opzioni specifiche per il tipo e la dimensione della macchina virtuale. Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di elaborazione della CPU, alle dimensioni della RAM e alla latenza di rete. È possibile usare un carico di lavoro simulato per determinare il tipo e le dimensioni ottimali della macchina virtuale per ogni tipo di nodo.
@@ -52,35 +52,35 @@ Le applicazioni o i componenti disponibili in cluster locali ma che non fanno pa
 |**Applicazione**|**Integrazione**
 |---|---|
 |Flusso d'aria|Nodo IaaS o HDInsight Edge
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|Nessuna (solo HDP)
 |Datameer|Nodo HDInsight Edge
-|Datastax (Cassandra)|IaaS (CosmosDB come alternativa in Azure)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|Datastax (Cassandra)|IaaS (CosmosDB come alternativa in Azure)
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS (CosmosDB come alternativa in Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|Nodo IaaS o HDInsight Edge
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW come alternativa in Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Waterline|Nodo HDInsight Edge
-|StreamSets|HDInsight Edge 
-|Palantir|IaaS 
-|Sailpoint|IaaS 
+|StreamSets|HDInsight Edge 
+|Palantir|IaaS 
+|Sailpoint|IaaS 
 
 Per altre informazioni, vedere l'articolo [Componenti di Apache Hadoop disponibili con diverse versioni di HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalizzare i cluster HDInsight con azioni script
 
-HDInsight offre un metodo di configurazione del cluster denominato **azione script**. Un'azione script è uno script Bash in esecuzione nei nodi di un cluster HDInsight e può essere usato per installare componenti aggiuntivi e modificare le impostazioni di configurazione.
+HDInsight offre un metodo di configurazione del cluster denominato  **azione script** . Un'azione script è uno script Bash in esecuzione nei nodi di un cluster HDInsight e può essere usato per installare componenti aggiuntivi e modificare le impostazioni di configurazione.
 
 Le azioni script devono essere archiviate in un URI accessibile dal cluster HDInsight. Possono essere usate durante o dopo la creazione del cluster e la loro esecuzione può essere limitata a determinati tipi di nodi.
 
@@ -109,7 +109,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalizzare configurazioni HDInsight tramite Bootstrap
 
-È possibile apportare modifiche alle configurazioni nel file di configurazione, ad esempio `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, mediante Bootstrap. Lo script seguente è un esempio di uso di PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+È possibile apportare modifiche alle configurazioni nel file di configurazione, ad esempio `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, mediante Bootstrap. Lo script seguente è un esempio di uso di PowerShell [AZ Module](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration

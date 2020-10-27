@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826919"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203875"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novità di Azure Key Vault
 
@@ -27,7 +27,7 @@ Ecco le novità di Azure Key Vault. Le nuove funzionalità e i miglioramenti ven
 
 ### <a name="soft-delete-on-by-default"></a>Eliminazione temporanea attivata per impostazione predefinita
 
-Entro la fine del 2020, **l'eliminazione temporanea sarà attivata per impostazione predefinita per tutti gli insiemi di credenziali delle chiavi**, sia nuovi che preesistenti. Per informazioni dettagliate su questa modifica di rilievo, oltre che sulla procedura per trovare gli insiemi di credenziali delle chiavi interessati e aggiornarli in anticipo, vedere l'articolo[L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi](soft-delete-change.md). 
+Entro la fine del 2020, **l'eliminazione temporanea sarà attivata per impostazione predefinita per tutti gli insiemi di credenziali delle chiavi** , sia nuovi che preesistenti. Per informazioni dettagliate su questa modifica di rilievo, oltre che sulla procedura per trovare gli insiemi di credenziali delle chiavi interessati e aggiornarli in anticipo, vedere l'articolo[L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi](soft-delete-change.md). 
 
 ### <a name="azure-tls-certificate-changes"></a>Modifiche ai certificati TLS di Azure  
 
@@ -37,7 +37,7 @@ Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi
 
 - La transizione dei servizi di [Azure Active Directory](/azure/active-directory) (Azure AD) inizia il 7 luglio 2020.
 - Tutti gli endpoint TLS/SSL di Azure appena creati contengono certificati aggiornati concatenati alle nuove CA radice.
-- La transizione degli endpoint di Azure esistenti verrà avviata in fasi a partire dal 13 agosto 2020 e verrà completata entro il 26 ottobre 2020.
+- Per gli endpoint di Azure esistenti verrà avviata una transizione in fasi a partire dal 13 agosto 2020.
 - L'[hub IoT di Azure](https://azure.microsoft.com/services/iot-hub) e il [servizio Device Provisioning](/azure/iot-dps/) rimarranno di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. Per i dettagli completi, vedere il post di blog [Azure IoT TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - I servizio [Archiviazione di Azure](/azure/storage) rimarrà di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. Per i dettagli completi, vedere il post di blog [Azure Storage TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
@@ -71,7 +71,7 @@ Se questa data cambia, si riceverà un avviso sulla nuova data di revoca.
 
 ### <a name="will-this-change-affect-me"></a>Quali sono gli effetti di questa modifica? 
 
-Si prevede che la modifica **non influirà sulla maggior parte dei clienti di Azure non**.  Tuttavia, le applicazioni potrebbero essere interessate se specificano esplicitamente un elenco di CA accettabili. Questa procedura è nota come associazione di certificati.
+Si prevede che la modifica **non influirà sulla maggior parte dei clienti di Azure non** .  Tuttavia, le applicazioni potrebbero essere interessate se specificano esplicitamente un elenco di CA accettabili. Questa procedura è nota come associazione di certificati.
 
 Ecco come rilevare se un'applicazione è interessata:
 
@@ -80,11 +80,11 @@ Ecco come rilevare se un'applicazione è interessata:
 - Se un'applicazione si integra con API di Azure o con altri servizi di Azure e non si sa se usa l'associazione di certificati, contattare il fornitore dell'applicazione.
 
 - Per sistemi operativi e runtime di linguaggi diversi che comunicano con i servizi di Azure può essere necessario eseguire passaggi aggiuntivi per creare correttamente la catena di certificati con queste nuove radici:
-    - **Linux**: per molte distribuzioni è necessario aggiungere le CA e in /etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
-    - **Java**: verificare che l'archivio chiavi Java contenga le CA elencate sopra.
-    - **Windows in esecuzione in ambienti disconnessi**: per i sistemi in esecuzione in ambienti disconnessi sarà necessario aggiungere le nuove radici all'archivio di autorità di certificazione radice attendibili e le CA intermedie all'archivio di autorità di certificazione intermedie.
-    - **Android**: controllare la documentazione relativa al dispositivo e alla versione di Android.
-    - **Altri dispositivi hardware, soprattutto IoT**: contattare il produttore del dispositivo.
+    - **Linux** : per molte distribuzioni è necessario aggiungere le CA e in /etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
+    - **Java** : verificare che l'archivio chiavi Java contenga le CA elencate sopra.
+    - **Windows in esecuzione in ambienti disconnessi** : per i sistemi in esecuzione in ambienti disconnessi sarà necessario aggiungere le nuove radici all'archivio di autorità di certificazione radice attendibili e le CA intermedie all'archivio di autorità di certificazione intermedie.
+    - **Android** : controllare la documentazione relativa al dispositivo e alla versione di Android.
+    - **Altri dispositivi hardware, soprattutto IoT** : contattare il produttore del dispositivo.
 
 - Se l'ambiente include regole del firewall impostate per consentire le chiamate in uscita solo a specifiche posizioni CRL (Certificate Revocation List) e/o OCSP (Online Certificate Status Protocol), sarà necessario autorizzare gli URL CRL e OCSP seguenti:
 

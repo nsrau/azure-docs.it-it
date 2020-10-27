@@ -16,7 +16,7 @@ ms.locfileid: "92503318"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
-Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**. [Qui](../role-based-access-control/overview.md)è possibile leggere i principi generali di controllo degli accessi in base al ruolo di Azure.
+Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo di Azure (RBAC di Azure)** . [Qui](../role-based-access-control/overview.md)è possibile leggere i principi generali di controllo degli accessi in base al ruolo di Azure.
 
 I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dati inattivi.
 
@@ -24,13 +24,13 @@ I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dat
 
 Il controllo degli accessi in base al ruolo di Azure viene fornito ai gemelli digitali di Azure tramite l'integrazione con Azure AD [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 
-È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un' *entità di sicurezza*, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
+È possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un' *entità di sicurezza* , che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD e riceve un token OAuth 2,0 in return. Questo token può essere usato per autorizzare una richiesta di accesso a un'istanza di Azure Digital gemelli.
 
 ### <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
-Con Azure AD, l'accesso è un processo in due passaggi. Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di accedere ai dispositivi gemelli digitali di Azure, è necessario *autenticare* e *autorizzare*la richiesta. 
+Con Azure AD, l'accesso è un processo in due passaggi. Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di accedere ai dispositivi gemelli digitali di Azure, è necessario *autenticare* e *autorizzare* la richiesta. 
 
-1. In primo luogo, l'identità dell'entità di sicurezza viene *autenticata*e viene restituito un token OAuth 2,0.
+1. In primo luogo, l'identità dell'entità di sicurezza viene *autenticata* e viene restituito un token OAuth 2,0.
 2. Successivamente, il token viene passato come parte di una richiesta al servizio Azure Digital Twins, per *autorizzare* l'accesso alla risorsa specificata.
 
 Il passaggio di autenticazione richiede che qualsiasi richiesta dell'applicazione contenga un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione è in esecuzione all'interno di un'entità di Azure, ad esempio un'app [funzioni di Azure](../azure-functions/functions-overview.md) , può usare un' **identità gestita** per accedere alle risorse. Per altre informazioni sulle identità gestite, vedere la sezione successiva.
@@ -56,8 +56,8 @@ Azure fornisce **due ruoli predefiniti di Azure** per autorizzare l'accesso alle
 
 >[!NOTE]
 > Questi ruoli sono stati recentemente rinominati dai nomi precedenti nell'anteprima:
-> * Il *proprietario dei dati di Azure Digital gemelli* era in precedenza *proprietario di Azure Digital gemelli (anteprima)*.
-> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)*.
+> * Il *proprietario dei dati di Azure Digital gemelli* era in precedenza *proprietario di Azure Digital gemelli (anteprima)* .
+> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)* .
 
 È possibile assegnare i ruoli in due modi:
 * tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
@@ -95,7 +95,7 @@ I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inat
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
 
-I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
+I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)** . Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
 
 Per risolvere questo errore, esegui una delle operazioni seguenti:
 * Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 
