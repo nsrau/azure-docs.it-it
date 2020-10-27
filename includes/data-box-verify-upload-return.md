@@ -12,11 +12,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/01/2020
 ms.locfileid: "91631538"
 ---
-Quando Microsoft riceve e analizza il dispositivo, lo stato dell'ordine diventa **Ricevuto**. Il dispositivo viene quindi sottoposto a una verifica fisica per rilevare eventuali danni o segni di manomissione.
+Quando Microsoft riceve e analizza il dispositivo, lo stato dell'ordine diventa **Ricevuto** . Il dispositivo viene quindi sottoposto a una verifica fisica per rilevare eventuali danni o segni di manomissione.
 
 Al termine della verifica, il Data Box viene connesso alla rete nel data center di Azure. La copia dei dati viene avviata automaticamente. A seconda delle dimensioni dei dati, l'operazione di copia potrebbe richiedere da alcune ore a giorni per il completamento. È possibile monitorare lo stato di avanzamento del processo di copia nel portale.
 
-Al termine della copia, lo stato dell'ordine diventa **Completato**.
+Al termine della copia, lo stato dell'ordine diventa **Completato** .
 
 Verificare che i dati siano stati caricati in Azure prima di eliminarli dall'origine. I dati possono trovarsi in:
 
