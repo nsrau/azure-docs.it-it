@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362266"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541282"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
 
@@ -36,11 +36,15 @@ Quando è abilitata la memorizzazione nella cache dei set di risultati, Synapse 
 
 Dopo l'attivazione della memorizzazione nella cache dei set di risultati per un database, i risultati vengono memorizzati nella cache per tutte le query fino al riempimento della cache, ad eccezione delle query seguenti:
 
-- Query che usano funzioni non deterministiche come DateTime.Now()
+- Query con funzioni predefinite o espressioni di runtime che non sono deterministiche anche quando non sono presenti modifiche nei dati o nella query delle tabelle di base. Ad esempio DateTime. Now (), GETDATE ().
 - Query che usano funzioni definite dall'utente
 - Query che usano tabelle con la sicurezza a livello di riga o a livello di colonna abilitata
 - Query che restituiscono dati con dimensioni di riga maggiori di 64 KB
 - Query che restituiscono dati di grandi dimensioni (maggiori di 10 GB) 
+>[!NOTE]
+> - Alcune funzioni non deterministiche e espressioni di runtime possono essere deterministiche per eseguire query ripetitive sugli stessi dati. Ad esempio, ROW_NUMBER ().  
+> - Utilizzare ORDER BY nella query se l'ordine o la sequenza di righe nel set di risultati della query è importante per la logica dell'applicazione.
+> - Se i dati nelle colonne ORDER BY non sono univoci, non esiste alcun ordine di riga garantito per le righe con gli stessi valori nelle colonne ORDER BY, indipendentemente dal fatto che la memorizzazione nella cache del set di risultati sia abilitata o disabilitata.
 
 > [!IMPORTANT]
 > Le operazioni per creare la cache dei set di risultati e recuperare i dati dalla cache vengono eseguite nel nodo di controllo di un'istanza del pool Synapse SQL.

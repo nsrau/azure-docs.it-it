@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654163"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536794"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Disponibilità elevata per cache di Azure per Redis
 
 Cache di Azure per Redis ha una disponibilità elevata incorporata. L'obiettivo dell'architettura a disponibilità elevata è garantire che l'istanza di redis gestita funzioni anche quando le macchine virtuali (VM) sottostanti sono interessate da interruzioni pianificate o non pianificate. Offre percentuali molto più grandi rispetto a quelle ottenibili dall'hosting di redis in una singola macchina virtuale.
 
-Cache di Azure per Redis implementa la disponibilità elevata usando più macchine virtuali, denominate *nodi*, per una cache. Configura questi nodi in modo che la replica dei dati e il failover avvengano in modo coordinato. Orchestra anche le operazioni di manutenzione, ad esempio l'applicazione di patch di Redis. Sono disponibili diverse opzioni di disponibilità elevata nei livelli standard e Premium:
+Cache di Azure per Redis implementa la disponibilità elevata usando più macchine virtuali, denominate *nodi* , per una cache. Configura questi nodi in modo che la replica dei dati e il failover avvengano in modo coordinato. Orchestra anche le operazioni di manutenzione, ad esempio l'applicazione di patch di Redis. Sono disponibili diverse opzioni di disponibilità elevata nei livelli standard e Premium:
 
 | Opzione | Descrizione | Disponibilità | Standard | Premium |
 | ------------------- | ------- | ------- | :------: | :---: |
@@ -28,7 +28,7 @@ Cache di Azure per Redis implementa la disponibilità elevata usando più macchi
 
 ## <a name="standard-replication"></a>Replica standard
 
-Per impostazione predefinita, una cache di Azure per Redis nel livello standard o Premium viene eseguita in una coppia di server Redis. I due server sono ospitati in macchine virtuali dedicate. Redis Open Source consente a un solo server di gestire le richieste di scrittura dei dati. Questo server è il nodo *primario* , mentre l'altra *replica*. Dopo aver eseguito il provisioning dei nodi del server, cache di Azure per Redis assegna i ruoli di replica e primario. Il nodo primario è in genere responsabile della manutenzione della scrittura e delle richieste di lettura da parte dei client Redis. In un'operazione di scrittura, viene eseguito il commit di una nuova chiave e di un aggiornamento della chiave nella memoria interna e le risposte vengono immediatamente inviate al client. L'operazione viene quindi trasmessa alla replica in modo asincrono.
+Per impostazione predefinita, una cache di Azure per Redis nel livello standard o Premium viene eseguita in una coppia di server Redis. I due server sono ospitati in macchine virtuali dedicate. Redis Open Source consente a un solo server di gestire le richieste di scrittura dei dati. Questo server è il nodo *primario* , mentre l'altra *replica* . Dopo aver eseguito il provisioning dei nodi del server, cache di Azure per Redis assegna i ruoli di replica e primario. Il nodo primario è in genere responsabile della manutenzione della scrittura e delle richieste di lettura da parte dei client Redis. In un'operazione di scrittura, viene eseguito il commit di una nuova chiave e di un aggiornamento della chiave nella memoria interna e le risposte vengono immediatamente inviate al client. L'operazione viene quindi trasmessa alla replica in modo asincrono.
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Configurazione della replica dei dati":::
    
@@ -37,7 +37,7 @@ Per impostazione predefinita, una cache di Azure per Redis nel livello standard 
 >
 >
 
-Se il nodo primario in una cache Redis non è disponibile, la replica si promuoverà automaticamente per diventare il nuovo primario. Questo processo è denominato *failover*. La replica resterà in attesa per un periodo di tempo sufficientemente lungo prima di assumere la precedenza nel caso in cui il nodo primario si recuperi rapidamente. Quando si verifica un failover, cache di Azure per Redis effettua il provisioning di una nuova macchina virtuale e la aggiunge alla cache come nodo di replica. La replica esegue una sincronizzazione completa dei dati con il database primario, in modo che disponga di un'altra copia dei dati della cache.
+Se il nodo primario in una cache Redis non è disponibile, la replica si promuoverà automaticamente per diventare il nuovo primario. Questo processo è denominato *failover* . La replica resterà in attesa per un periodo di tempo sufficientemente lungo prima di assumere la precedenza nel caso in cui il nodo primario si recuperi rapidamente. Quando si verifica un failover, cache di Azure per Redis effettua il provisioning di una nuova macchina virtuale e la aggiunge alla cache come nodo di replica. La replica esegue una sincronizzazione completa dei dati con il database primario, in modo che disponga di un'altra copia dei dati della cache.
 
 Un nodo primario può uscire dal servizio come parte di un'attività di manutenzione pianificata, ad esempio il software Redis o l'aggiornamento del sistema operativo. Può inoltre smettere di funzionare a causa di eventi non pianificati, ad esempio errori di hardware, software o rete sottostanti. Il [failover e l'applicazione di patch per cache di Azure per Redis](cache-failover.md) forniscono una spiegazione dettagliata sui tipi di failover di Redis. Una cache di Azure per Redis passerà a molti failover durante il ciclo di vita. L'architettura a disponibilità elevata è progettata per apportare queste modifiche all'interno di una cache in modo trasparente ai propri client.
 
@@ -57,7 +57,7 @@ Cache di Azure per Redis consente nodi di replica aggiuntivi nel livello Premium
 >
 >
 
-Cache di Azure per Redis supporta le configurazioni con ridondanza della zona nel livello Premium. Una [cache con ridondanza della zona](cache-how-to-zone-redundancy.md) può inserire i nodi tra [zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) diversi nella stessa area. Elimina Data Center o AZ Failure come singolo punto di errore e aumenta la disponibilità complessiva della cache.
+Cache di Azure per Redis supporta le configurazioni con ridondanza della zona nel livello Premium. Una [cache con ridondanza della zona](cache-how-to-zone-redundancy.md) può inserire i nodi tra [zone di disponibilità di Azure](../availability-zones/az-overview.md) diversi nella stessa area. Elimina Data Center o AZ Failure come singolo punto di errore e aumenta la disponibilità complessiva della cache.
 
 Il diagramma seguente illustra la configurazione con ridondanza della zona:
 

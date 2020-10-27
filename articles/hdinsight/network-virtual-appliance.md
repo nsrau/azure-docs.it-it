@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127421"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545923"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurare l'appliance virtuale di rete in Azure HDInsight
 
 > [!Important]
-> Le informazioni seguenti sono necessarie **solo** se si vuole configurare un'appliance virtuale di rete diversa dal [firewall di Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic).
+> Le informazioni seguenti sono necessarie **solo** se si vuole configurare un'appliance virtuale di rete diversa dal [firewall di Azure](./hdinsight-restrict-outbound-traffic.md).
 
 Il tag FQDN del firewall di Azure viene configurato automaticamente per consentire il traffico per molti degli FQDN importanti comuni. Se si usa un'altra appliance virtuale di rete, sarà necessario configurare una serie di funzionalità aggiuntive. Quando si configura l'appliance virtuale di rete, tenere presenti i seguenti fattori:
 
 * Gli endpoint di servizio che supportano i servizi possono essere configurati con gli endpoint di servizio, causando il bypass dell'appliance virtuale di dispositivo, in genere per considerazioni su costi o prestazioni
-* Se ResourceProviderConnection è impostato su in *uscita*, è possibile usare endpoint privati per l'archiviazione e i server SQL per i Metastore e non è necessario aggiungerli all'appliance virtuale di sistema.
+* Se ResourceProviderConnection è impostato su in *uscita* , è possibile usare endpoint privati per l'archiviazione e i server SQL per i Metastore e non è necessario aggiungerli all'appliance virtuale di sistema.
 * Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP e UDP).
 * Gli endpoint HTTP/HTTPS FQDN possono essere approvati nel dispositivo NVA.
 * Assegnare la tabella di route creata alla subnet HDInsight.
@@ -41,7 +41,7 @@ Facoltativamente, è possibile abilitare uno o più degli endpoint di servizio s
 
 | **Endpoint** | **Dettagli** |
 |---|---|
-| Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Questi indirizzi IP sono per il provider di risorse HDInsight e devono essere inclusi nella UDR per evitare il routing asimmetrico. Questa regola è necessaria solo se ResourceProviderConnection è impostato su in *ingresso*. Se ResourceProviderConnection è impostato su in *uscita* , questi IP non sono necessari in UdR.  |
+| Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Questi indirizzi IP sono per il provider di risorse HDInsight e devono essere inclusi nella UDR per evitare il routing asimmetrico. Questa regola è necessaria solo se ResourceProviderConnection è impostato su in *ingresso* . Se ResourceProviderConnection è impostato su in *uscita* , questi IP non sono necessari in UdR.  |
 | Indirizzi IP privati di AAD-DS | Necessaria solo per i cluster ESP, se non è stato reti virtuali il peering.|
 
 

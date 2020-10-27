@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004862"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536743"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
 
@@ -21,7 +21,7 @@ Le metriche per le istanze di Cache Redis di Azure vengono raccolte tramite il c
 
 <a name="view-cache-metrics"></a>
 
-Per visualizzare le metriche della cache, [cercare](cache-configure.md#configure-azure-cache-for-redis-settings) l'istanza della cache nel [portale di Azure](https://portal.azure.com).  Cache Redis di Azure offre alcuni grafici incorporati nei pannelli **Panoramica** e **Metriche di Redis**. Ogni grafico può essere personalizzata aggiungendo o rimuovendo le metriche e modificando l'intervallo di report.
+Per visualizzare le metriche della cache, [cercare](cache-configure.md#configure-azure-cache-for-redis-settings) l'istanza della cache nel [portale di Azure](https://portal.azure.com).  Cache Redis di Azure offre alcuni grafici incorporati nei pannelli **Panoramica** e **Metriche di Redis** . Ogni grafico può essere personalizzata aggiungendo o rimuovendo le metriche e modificando l'intervallo di report.
 
 ![Metriche Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
@@ -34,13 +34,13 @@ Il pannello **Panoramica** include i grafici preconfigurati seguenti relativi al
 
 ### <a name="monitoring-charts"></a>Grafici di monitoraggio
 
-La sezione **Monitoraggio** del pannello **Panoramica** include i grafici **Riscontri e mancati riscontri**, **Recuperi e impostazioni**, **Connessioni** e **Totale comandi**.
+La sezione **Monitoraggio** del pannello **Panoramica** include i grafici **Riscontri e mancati riscontri** , **Recuperi e impostazioni** , **Connessioni** e **Totale comandi** .
 
 ![Grafici di monitoraggio](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Grafici di utilizzo
 
-La sezione **Utilizzo** del pannello **Panoramica** include i grafici **Carico server Redis**, **Utilizzo memoria**, **Larghezza di banda di rete** e **Utilizzo CPU** nonché **Piano tariffario** per l'istanza della cache.
+La sezione **Utilizzo** del pannello **Panoramica** include i grafici **Carico server Redis** , **Utilizzo memoria** , **Larghezza di banda di rete** e **Utilizzo CPU** nonché **Piano tariffario** per l'istanza della cache.
 
 ![Grafici di utilizzo](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,27 +48,27 @@ In **Livello di prezzo** è possibile visualizzare il livello di prezzo della ca
 
 ## <a name="view-metrics-with-azure-monitor"></a>Visualizzare le metriche con Monitoraggio di Azure
 
-Per visualizzare le metriche di Redis e creare grafici personalizzati usando Monitoraggio di Azure, scegliere **Metriche** dal menu **Risorsa**, quindi personalizzare il grafico usando le metriche desiderate, l'intervallo di report, il tipo di grafico e altri elementi appropriati per le esigenze specifiche.
+Per visualizzare le metriche di Redis e creare grafici personalizzati usando Monitoraggio di Azure, scegliere **Metriche** dal menu **Risorsa** , quindi personalizzare il grafico usando le metriche desiderate, l'intervallo di report, il tipo di grafico e altri elementi appropriati per le esigenze specifiche.
 
 ![Metriche Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Per altre informazioni sull'uso delle metriche con Monitoraggio di Azure, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Per altre informazioni sull'uso delle metriche con Monitoraggio di Azure, vedere [Panoramica delle metriche in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Esportare le metriche della cache
 
-Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-platform-metrics.md) e quindi vengono eliminate. Per salvare in modo permanente le metriche della cache per un periodo superiore a 30 giorni, è possibile [designare un account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md) e specificare un criterio di **Conservazione (giorni)** per le metriche della cache. 
+Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-platform-metrics.md) e quindi vengono eliminate. Per salvare in modo permanente le metriche della cache per un periodo superiore a 30 giorni, è possibile [designare un account di archiviazione](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) e specificare un criterio di **Conservazione (giorni)** per le metriche della cache. 
 
 Per configurare un account di archiviazione per le metriche della cache:
 
-1. Nell'intestazione **monitoraggio** della pagina **cache di Azure per Redis** selezionare **diagnostica**.
-2. Fare clic su **+ Aggiungi impostazione di diagnostica**.
+1. Nell'intestazione **monitoraggio** della pagina **cache di Azure per Redis** selezionare **diagnostica** .
+2. Fare clic su **+ Aggiungi impostazione di diagnostica** .
 3. Denominare le impostazioni.
-4. Selezionare **Archivia in un account di archiviazione**. Per l'invio della diagnostica a un account di archiviazione, verranno addebitate le normali tariffe dati per l'archiviazione e le transazioni.
+4. Selezionare **Archivia in un account di archiviazione** . Per l'invio della diagnostica a un account di archiviazione, verranno addebitate le normali tariffe dati per l'archiviazione e le transazioni.
 4. Selezionare **Configure (Configura** ) per scegliere l'account di archiviazione in cui archiviare le metriche della cache.
-5. Sotto la **metrica**dell'intestazione della tabella selezionare la casella di controllo accanto alle voci che si desidera archiviare, ad esempio **AllMetrics**. Specificare un criterio di **conservazione (giorni)** . La conservazione massima dei giorni che è possibile specificare è di **365 giorni**. Tuttavia, se si desidera conservare i dati di metrica per sempre, impostare **conservazione (giorni)** su **0**.
-6. Fare clic su **Save**.
+5. Sotto la **metrica** dell'intestazione della tabella selezionare la casella di controllo accanto alle voci che si desidera archiviare, ad esempio **AllMetrics** . Specificare un criterio di **conservazione (giorni)** . La conservazione massima dei giorni che è possibile specificare è di **365 giorni** . Tuttavia, se si desidera conservare i dati di metrica per sempre, impostare **conservazione (giorni)** su **0** .
+6. Fare clic su **Save** .
 
 
 ![Diagnostica di Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Per accedere alle metriche, è possibile visualizzarli nel portale di Azure, com
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Metriche disponibili e intervalli di report
 
-Le metriche di cache vengono restituite in base a diversi intervalli di reporting, tra cui **Ora precedente**, **Oggi**, **Settimana precedente** e **Personalizzato**. Il pannello **Metrica** di ogni grafico delle metriche visualizza i valori medio, minimo e massimo per ciascuna metrica inclusa nel grafico e per alcune metriche viene mostrato un totale relativo all'intervallo di reporting. 
+Le metriche di cache vengono restituite in base a diversi intervalli di reporting, tra cui **Ora precedente** , **Oggi** , **Settimana precedente** e **Personalizzato** . Il pannello **Metrica** di ogni grafico delle metriche visualizza i valori medio, minimo e massimo per ciascuna metrica inclusa nel grafico e per alcune metriche viene mostrato un totale relativo all'intervallo di reporting. 
 
 In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per l'intera cache e, per le cache che usano il [clustering](cache-how-to-premium-clustering.md), una seconda versione della metrica che include `(Shard 0-9)` nel nome misura le prestazioni per una singola partizione in una cache. Se ad esempio una cache ha quattro partizioni, `Cache Hits` è il numero totale di riscontri per l'intera cache e `Cache Hits (Shard 3)` rappresenta solo i riscontri per tale partizione della cache.
 
@@ -103,7 +103,7 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 | Scrittura nella cache |La quantità di dati scritti nella cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. Questo valore corrisponde alla larghezza di banda della rete relativa ai dati inviati alla cache dal client. |
 | Client connessi |Il numero di connessioni client alla cache durante l'intervallo di report specificato. Questo numero esegue il mapping a `connected_clients` dal comando info di Redis. Una volta raggiunto il [limite di connessione](cache-configure.md#default-redis-server-configuration) , i successivi tentativi di connessione alla cache avranno esito negativo. Anche se non sono presenti applicazioni client attive, è possibile che vi siano ancora alcune istanze di client connessi a causa di processi e connessioni interni. |
 | CPU |L'utilizzo della CPU del server Cache Redis di Azure in percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Errors | Errori specifici e problemi di prestazioni che la cache potrebbe riscontrare durante un intervallo di report specificato. Questa metrica ha otto dimensioni che rappresentano diversi tipi di errore, ma potrebbero venirne aggiunte altre in futuro. I tipi di errore rappresentati ora sono i seguenti: <br/><ul><li>**Failover** : quando viene eseguito il failover di una cache (subordinata promuove al database primario)</li><li>**Perdita** di dati: in caso di perdita di dati nella cache</li><li>**UnresponsiveClients**: i client non leggono i dati dal server abbastanza velocemente</li><li>**AOF**: si verifica un problema correlato alla persistenza AOF</li><li>**RDB**: si verifica un problema correlato alla persistenza RDB</li><li>**Import**: si verifica un problema correlato a importazione RDB</li><li>**Export**: si verifica un problema correlato a esportazione RDB</li></ul> |
+| Errors | Errori specifici e problemi di prestazioni che la cache potrebbe riscontrare durante un intervallo di report specificato. Questa metrica ha otto dimensioni che rappresentano diversi tipi di errore, ma potrebbero venirne aggiunte altre in futuro. I tipi di errore rappresentati ora sono i seguenti: <br/><ul><li>**Failover** : quando viene eseguito il failover di una cache (subordinata promuove al database primario)</li><li>**Perdita** di dati: in caso di perdita di dati nella cache</li><li>**UnresponsiveClients** : i client non leggono i dati dal server abbastanza velocemente</li><li>**AOF** : si verifica un problema correlato alla persistenza AOF</li><li>**RDB** : si verifica un problema correlato alla persistenza RDB</li><li>**Import** : si verifica un problema correlato a importazione RDB</li><li>**Export** : si verifica un problema correlato a esportazione RDB</li></ul> |
 | Chiavi rimosse |Il numero di elementi rimossi dalla cache durante l'intervallo di report specificato a causa del limite `maxmemory` . Questo numero esegue il mapping a `evicted_keys` dal comando info di Redis. |
 | Chiavi scadute |Il numero di elementi nella cache durante l'intervallo di report specificato. Questo valore esegue il mapping a `expired_keys` dal comando INFO di Redis.|
 | Operazioni Get |Il numero di operazioni Get nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`, ed è equivalente alla somma dei riscontri e dei mancati riscontri nella cache durante l'intervallo di report. |
@@ -125,11 +125,11 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 * Chiamare un webhook
 * Richiamare un'app per la logica di Azure
 
-Per configurare le regole di avviso per la cache, scegliere **Regole di avviso** dal menu **Risorsa**.
+Per configurare le regole di avviso per la cache, scegliere **Regole di avviso** dal menu **Risorsa** .
 
 ![Monitoraggio](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Per altre informazioni sulla configurazione e sull'uso degli avvisi, vedere [Panoramica degli avvisi](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Per altre informazioni sulla configurazione e sull'uso degli avvisi, vedere [Panoramica degli avvisi](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Log attività
 I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle istanze di Cache Redis di Azure. In precedenza erano noti come "log di controllo" o "log operativi". L'uso dei log attività consente di acquisire informazioni dettagliate ("cosa, chi, quando") per tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle istanze di Cache Redis di Azure. 
@@ -138,6 +138,6 @@ I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle
 > I log attività non includono le operazioni di lettura (GET).
 >
 
-Per visualizzare i log attività per la cache, scegliere **Log attività** dal menu **Risorsa**.
+Per visualizzare i log attività per la cache, scegliere **Log attività** dal menu **Risorsa** .
 
 Per altre informazioni sui log attività, vedere [Panoramica del log attività di Azure](../azure-monitor/platform/platform-logs-overview.md).

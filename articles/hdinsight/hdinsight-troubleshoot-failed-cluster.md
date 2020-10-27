@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 98e062b159b2df639923cb3cd3aac286f6051016
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490901"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535094"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi di un processo lento o in errore in un cluster HDInsight
 
@@ -90,8 +90,8 @@ HDInsight si basa su diversi servizi di Azure. Esegue i server virtuali in Azure
 
 #### <a name="check-azure-service-usage-limits"></a>Controllare i limiti di utilizzo del servizio Azure
 
-Se si avvia un cluster di grandi dimensioni o sono stati avviati più cluster simultaneamente, possono verificarsi errori in un cluster se è stato superato un limite del servizio Azure. I limiti del servizio variano a seconda della sottoscrizione di Azure. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-È possibile chiedere a Microsoft di aumentare il numero di risorse di HDInsight disponibili (ad esempio, core delle VM e istanze delle VM) con una [richiesta di aumento della quota di core per Resource Manager](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Se si avvia un cluster di grandi dimensioni o sono stati avviati più cluster simultaneamente, possono verificarsi errori in un cluster se è stato superato un limite del servizio Azure. I limiti del servizio variano a seconda della sottoscrizione di Azure. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+È possibile chiedere a Microsoft di aumentare il numero di risorse di HDInsight disponibili (ad esempio, core delle VM e istanze delle VM) con una [richiesta di aumento della quota di core per Resource Manager](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Controllare la versione di rilascio
 
@@ -115,7 +115,7 @@ Il [Dashboard dell'interfaccia utente di Ambari](#view-cluster-configuration-set
 
 ### <a name="check-your-webhcat-service"></a>Controllare il servizio WebHCat
 
-Uno scenario comune per i processi Apache Hive, Apache Pig o Apache Sqoop non riusciti è un errore del servizio [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (o *Templeton*). WebHCat è un'interfaccia REST per l'esecuzione di processi remoti, ad esempio Hive, Pig, Scoop e MapReduce. WebHCat converte le richieste di invio dei processi nelle applicazioni YARN di Apache Hadoop e restituisce uno stato derivato dallo stato delle applicazioni YARN.  Le sezioni seguenti descrivono i codici di stato HTTP WebHCat comuni.
+Uno scenario comune per i processi Apache Hive, Apache Pig o Apache Sqoop non riusciti è un errore del servizio [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (o *Templeton* ). WebHCat è un'interfaccia REST per l'esecuzione di processi remoti, ad esempio Hive, Pig, Scoop e MapReduce. WebHCat converte le richieste di invio dei processi nelle applicazioni YARN di Apache Hadoop e restituisce uno stato derivato dallo stato delle applicazioni YARN.  Le sezioni seguenti descrivono i codici di stato HTTP WebHCat comuni.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (codice di stato 502)
 
@@ -172,7 +172,7 @@ A livello di YARN si verificano due tipi di timeout:
 
     Se si apre il file di log `/var/log/webhcat/webhcat.log` e si cerca "queued job", si potrebbero notare più voci in cui il tempo di esecuzione è eccessivamente lungo (>2000 ms), con voci indicanti tempi di attesa crescenti.
 
-    Il tempo necessario per i processi in coda continua ad aumentare perché la velocità con cui i nuovi processi vengono inviati è maggiore della velocità con cui venivano completati i processi precedenti. Quando la memoria di YARN è usata al 100%, la *coda joblauncher* non può più prendere in prestito capacità dalla *coda predefinita*, quindi nessun altro nuovo processo può essere accettato nella coda joblauncher. Questo comportamento può prolungare sempre di più il tempo di attesa, causando un errore di timeout seguito in genere da molti altri.
+    Il tempo necessario per i processi in coda continua ad aumentare perché la velocità con cui i nuovi processi vengono inviati è maggiore della velocità con cui venivano completati i processi precedenti. Quando la memoria di YARN è usata al 100%, la *coda joblauncher* non può più prendere in prestito capacità dalla *coda predefinita* , quindi nessun altro nuovo processo può essere accettato nella coda joblauncher. Questo comportamento può prolungare sempre di più il tempo di attesa, causando un errore di timeout seguito in genere da molti altri.
 
     L'immagine seguente illustra la coda joblauncher usata al 714,4%. Questo uso eccessivo è accettabile purché nella coda predefinita sia ancora disponibile capacità da prendere in prestito. Quando tuttavia il cluster è completamente utilizzato e la memoria di YARN è al 100% della capacità, i nuovi processi devono attendere e alla fine si verificano i timeout.
 
@@ -262,7 +262,7 @@ Per diagnosticare l'origine di un errore del cluster, avviare un nuovo cluster c
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)
+* [Analizzare i log di HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Accesso all'applicazione Apache Hadoop YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Problemi noti del cluster Apache Spark in HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Problemi noti del cluster Apache Spark in HDInsight](./spark/apache-spark-known-issues.md)

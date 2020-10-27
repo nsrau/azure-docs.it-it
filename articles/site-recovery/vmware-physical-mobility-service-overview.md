@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530064"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547657"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -52,7 +52,7 @@ Durante un'installazione push del servizio Mobility, vengono eseguiti i passaggi
    - Se vengono soddisfatti tutti i prerequisiti, viene avviata l'installazione.
    - L'installazione non riesce se uno o più [prerequisiti](vmware-physical-azure-support-matrix.md) non vengono soddisfatti.
 1. Nell'ambito dell'installazione dell'agente, viene installato il provider Servizio Copia Shadow del volume (VSS) per Azure Site Recovery. Il provider VSS viene utilizzato per generare punti di ripristino coerenti con l'applicazione. Se l'installazione del provider VSS ha esito negativo, questo passaggio viene ignorato e l'installazione dell'agente continua.
-1. Se l'installazione dell'agente ha esito positivo ma l'installazione del provider VSS ha esito negativo, lo stato del processo è contrassegnato come **avviso**. Questo non incide sulla generazione del punto di ripristino coerente con l'arresto anomalo.
+1. Se l'installazione dell'agente ha esito positivo ma l'installazione del provider VSS ha esito negativo, lo stato del processo è contrassegnato come **avviso** . Questo non incide sulla generazione del punto di ripristino coerente con l'arresto anomalo.
 
     - Per generare punti di ripristino coerenti con l'applicazione, fare riferimento alle [linee guida](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) per completare un'installazione manuale del provider Site Recovery VSS.
     - Se non si desidera generare punti di ripristino coerenti con l'applicazione, [modificare i criteri di replica](vmware-azure-set-up-replication.md#create-a-policy) per disattivare i punti di ripristino coerenti con l'applicazione.
@@ -79,15 +79,15 @@ Durante un'installazione push del servizio Mobility, vengono eseguiti i passaggi
 
 1. Copiare il file di installazione nella macchina ed eseguirlo.
 1. In **Opzioni di installazione** selezionare **Install Mobility Service** (Installare il servizio Mobility).
-1. Scegliere il percorso di installazione e selezionare **Installa**.
+1. Scegliere il percorso di installazione e selezionare **Installa** .
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
-1. Monitorare il processo di installazione in **Stato dell'installazione**. Al termine dell'installazione, selezionare **Proceed to Configuration** (Procedi con la configurazione) per registrare il servizio nel server di configurazione.
+1. Monitorare il processo di installazione in **Stato dell'installazione** . Al termine dell'installazione, selezionare **Proceed to Configuration** (Procedi con la configurazione) per registrare il servizio nel server di configurazione.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
-1. In **Dettagli del server di configurazione**specificare l'indirizzo IP e la passphrase configurati.
+1. In **Dettagli del server di configurazione** specificare l'indirizzo IP e la passphrase configurati.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
@@ -104,7 +104,7 @@ Durante un'installazione push del servizio Mobility, vengono eseguiti i passaggi
 
 ### <a name="windows-machine"></a>Computer Windows
 
-- Al prompt dei comandi eseguire i comandi seguenti per copiare il programma di installazione in una cartella locale, ad esempio _C:\Temp_, nel server che si desidera proteggere. Sostituire il nome file del programma di installazione con il nome del file effettivo.
+- Al prompt dei comandi eseguire i comandi seguenti per copiare il programma di installazione in una cartella locale, ad esempio _C:\Temp_ , nel server che si desidera proteggere. Sostituire il nome file del programma di installazione con il nome del file effettivo.
 
   ```cmd
   cd C:\Temp
@@ -134,8 +134,8 @@ Sintassi | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location>
 Log di installazione | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `/InstallLocation`| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
-`/Platform` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility: <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
-`/Silent`| Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`/Platform` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility: <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware** .
+`/Silent`| facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 
@@ -175,7 +175,7 @@ Sintassi | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `-d` | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: `/usr/local/ASR` .
 `-v` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility. <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.
-`-q` | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`-q` | facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 
@@ -187,12 +187,12 @@ Sintassi | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<
 
 ## <a name="azure-virtual-machine-agent"></a>Agente di macchina virtuale di Azure
 
-- **Macchine virtuali Windows**: dalla versione 9.7.0.0 del servizio Mobility, l'[agente di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) viene installata dal programma di installazione del servizio Mobility. In questo modo, quando viene eseguito il failover della macchina in Azure, la VM di Azure soddisfa il prerequisito di installazione dell'agente per l'uso di qualsiasi estensione della macchina virtuale.
-- **Macchine virtuale Linux**: l'istanza di [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
+- **Macchine virtuali Windows** : dalla versione 9.7.0.0 del servizio Mobility, l' [agente di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) viene installata dal programma di installazione del servizio Mobility. In questo modo, quando viene eseguito il failover della macchina in Azure, la VM di Azure soddisfa il prerequisito di installazione dell'agente per l'uso di qualsiasi estensione della macchina virtuale.
+- **Macchine virtuale Linux** : l'istanza di [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
 
 ## <a name="locate-installer-files"></a>Individuare i file del programma di installazione
 
-Nel server di configurazione passare alla cartella _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_. Verificare il programma di installazione necessario in base al sistema operativo. Nella tabella seguente vengono riepilogati i file del programma di installazione per ogni macchina virtuale VMware e sistema operativo server fisico. Prima di iniziare, è possibile esaminare i [sistemi operativi supportati](vmware-physical-azure-support-matrix.md#replicated-machines).
+Nel server di configurazione passare alla cartella _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_ . Verificare il programma di installazione necessario in base al sistema operativo. Nella tabella seguente vengono riepilogati i file del programma di installazione per ogni macchina virtuale VMware e sistema operativo server fisico. Prima di iniziare, è possibile esaminare i [sistemi operativi supportati](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 > [!NOTE]
 > I nomi file usano la sintassi illustrata nella tabella seguente con la _versione_ e la _Data_ come segnaposto per i valori reali. I nomi dei file effettivi sono simili a questi esempi:
@@ -232,7 +232,7 @@ Come **prerequisito per aggiornare o proteggere i computer SUSE Linux Enterprise
 3. Passare al server di configurazione, copiare il programma di installazione dell'agente SUSE Linux Enterprise Server 11 SP3 nel percorso-INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Dopo aver copiato il programma di installazione più recente, riavviare il servizio Inmage PushInstall. 
 1. Passare quindi a server di elaborazione con scalabilità orizzontale associati, ripetere i passaggi 3 e 4.
-1. Se, **ad esempio**, il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
+1. Se, **ad esempio** , il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
     1. C:\Programmi (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### <a name="rhel-5-or-centos-5-server"></a>Server RHEL 5 o CentOS 5
@@ -244,7 +244,7 @@ Come **prerequisito per aggiornare o proteggere i computer RHEL 5** dalla versio
 3. Passare al server di configurazione, copiare il programma di installazione dell'agente RHEL 5 o CentOS 5 nel percorso INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Dopo aver copiato il programma di installazione più recente, riavviare il servizio Inmage PushInstall. 
 1. Passare quindi a server di elaborazione con scalabilità orizzontale associati, ripetere i passaggi 3 e 4.
-1. Se, **ad esempio**, il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
+1. Se, **ad esempio** , il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
     1. C:\Programmi (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="debian-7-server"></a>Server Debian 7
@@ -256,7 +256,7 @@ Come **prerequisito per l'aggiornamento o la protezione dei computer Debian 7** 
 3. Passare al server di configurazione, copiare il programma di installazione dell'agente Debian 7 nel percorso INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. Dopo aver copiato il programma di installazione più recente, riavviare il servizio Inmage PushInstall. 
 1. Passare quindi a server di elaborazione con scalabilità orizzontale associati, ripetere i passaggi 3 e 4.
-1. Se, **ad esempio**, il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
+1. Se, **ad esempio** , il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
     1. C:\Programmi (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>Passaggi successivi

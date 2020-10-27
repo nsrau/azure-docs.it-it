@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673a76417739fa59a91979cca7c6807a584868f0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758719"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538256"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -24,15 +24,15 @@ Questo articolo descrive le cause e le soluzioni per gli errori di **404104 Devi
 
 ### <a name="symptom-1"></a>Sintomo 1
 
-I dispositivi si disconnettono a intervalli regolari (ad esempio, ogni 65 minuti) e vengono visualizzati **404104 DeviceConnectionClosedRemotely** nei log di diagnostica dell'hub Internet. In alcuni casi, vengono visualizzati anche **401003 IoTHubUnauthorized** e un evento di connessione del dispositivo riuscito meno di un minuto dopo.
+I dispositivi si disconnettono a intervalli regolari (ad esempio, ogni 65 minuti) e vengono visualizzati **404104 DeviceConnectionClosedRemotely** nei log delle risorse dell'hub Internet. In alcuni casi, vengono visualizzati anche **401003 IoTHubUnauthorized** e un evento di connessione del dispositivo riuscito meno di un minuto dopo.
 
 ### <a name="symptom-2"></a>Sintomo 2
 
-I dispositivi si disconnettono in modo casuale e viene visualizzato **404104 DeviceConnectionClosedRemotely** nei log di diagnostica dell'hub Internet.
+I dispositivi si disconnettono in modo casuale e viene visualizzato **404104 DeviceConnectionClosedRemotely** nei log delle risorse dell'hub Internet.
 
 ### <a name="symptom-3"></a>Sintomo 3
 
-Molti dispositivi si disconnettono contemporaneamente, viene visualizzato un DIP nella [metrica dispositivi connessi](iot-hub-metrics.md)e sono presenti più **404104** [errori interni](iot-hub-troubleshoot-error-500xxx-internal-errors.md) DeviceConnectionClosedRemotely e 500xxx nei log di diagnostica del solito.
+Molti dispositivi si disconnettono contemporaneamente, viene visualizzato un DIP nella [metrica dispositivi connessi (connectedDeviceCount)](monitor-iot-hub-reference.md)e sono presenti più **404104** [errori interni](iot-hub-troubleshoot-error-500xxx-internal-errors.md) DeviceConnectionClosedRemotely e 500Xxx nei log di monitoraggio di Azure.
 
 ## <a name="causes"></a>Cause
 

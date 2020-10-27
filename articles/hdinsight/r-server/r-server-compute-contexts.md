@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087606"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536335"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
 
@@ -23,18 +23,18 @@ Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services in Azure HDInsight
 
-[ML Services in Azure HDInsight](r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore Apache Hadoop HDFS nell'account di archiviazione [BLOB di Azure](../../storage/common/storage-introduction.md "Archiviazione BLOB di Azure") , in un data Lake Store o nel file system Linux locale. Poiché i servizi ML sono basati su R Open Source, le applicazioni basate su R compilate possono applicare i pacchetti R Open Source di 8000 +. Possono anche usare le routine di [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), il pacchetto di analisi dei Big Data di Microsoft incluso in ML Services.  
+[ML Services in Azure HDInsight](r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore Apache Hadoop HDFS nell'account di archiviazione [BLOB di Azure](../../storage/common/storage-introduction.md "Archiviazione BLOB di Azure") , in un data Lake Store o nel file system Linux locale. Poiché i servizi ML sono basati su R Open Source, le applicazioni basate su R compilate possono applicare i pacchetti R Open Source di 8000 +. Possono anche usare le routine di [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), il pacchetto di analisi dei Big Data di Microsoft incluso in ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contesti di calcolo per un nodo perimetrale
 
 In generale, uno script R eseguito nel cluster ML Services nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione RevoScaleR. Le chiamate RevoScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di RevoScaleR.  Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono:
 
-- sequenziale locale (*local*)
-- parallelo locale (*localpar*)
+- sequenziale locale ( *local* )
+- parallelo locale ( *localpar* )
 - MapReduce
 - Spark
 
-Le opzioni *local* e *localpar* differiscono solo per la modalità di esecuzione delle chiamate **rxExec**. Entrambe eseguono chiamate ad altre funzioni di ricezione in modo parallelo tra le memorie centrali disponibili, se non diversamente specificato, mediante l'uso dell'opzione RevoScaleR **numCoresToUse**, ad esempio `rxOptions(numCoresToUse=6)`. Le opzioni di esecuzione parallela offrono prestazioni ottimali.
+Le opzioni *local* e *localpar* differiscono solo per la modalità di esecuzione delle chiamate **rxExec** . Entrambe eseguono chiamate ad altre funzioni di ricezione in modo parallelo tra le memorie centrali disponibili, se non diversamente specificato, mediante l'uso dell'opzione RevoScaleR **numCoresToUse** , ad esempio `rxOptions(numCoresToUse=6)`. Le opzioni di esecuzione parallela offrono prestazioni ottimali.
 
 Nella tabella seguente vengono riepilogate le varie opzioni di contesto di calcolo per impostare l'esecuzione delle chiamate:
 
@@ -59,8 +59,8 @@ Dati questi principi, la sezione seguente illustra alcune regole generali per la
 
 ### <a name="local"></a>Locale
 
-- Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar*.
-- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar*.
+- Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar* .
+- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar* .
 
 ### <a name="apache-spark"></a>Apache Spark
 
@@ -77,7 +77,7 @@ Per altre informazioni ed esempi di contesti di calcolo di RevoScaleR, vedere la
 > ?rxSetComputeContext
 ```
 
-È anche possibile fare riferimento alla [panoramica sull'elaborazione distribuita](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) nella [documentazione di Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
+È anche possibile fare riferimento alla [panoramica sull'elaborazione distribuita](/machine-learning-server/r/how-to-revoscaler-distributed-computing) nella [documentazione di Microsoft Machine Learning Server](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

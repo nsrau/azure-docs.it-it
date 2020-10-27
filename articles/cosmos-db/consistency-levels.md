@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487807"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547079"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
@@ -49,14 +49,14 @@ Azure Cosmos DB garantisce che il 100% delle richieste di lettura soddisfi la ga
 
 La semantica dei cinque livelli di coerenza è descritta qui:
 
-- **Forte**: la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
+- **Forte** : la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
   Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="La coerenza come spettro" può essere configurato in due modi:
 
-- Numero di versioni (*K*) dell'elemento
-- Le letture dell'intervallo di tempo (*T*) potrebbero ritardare dietro le Scritture
+- Numero di versioni ( *K* ) dell'elemento
+- Le letture dell'intervallo di tempo ( *T* ) potrebbero ritardare dietro le Scritture
 
 Per un account a singola area, il valore minimo di *K* e *T* è 10 operazioni di scrittura o 5 secondi. Per gli account in più aree il valore minimo di *K* e *T* è 100.000 operazioni di scrittura o 300 secondi.
 
@@ -84,7 +84,7 @@ I client al di fuori della sessione che esegue le Scritture vedranno le garanzie
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="La coerenza come spettro":::
 
-- **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
+- **Prefisso coerente** : gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
 
 Se le Scritture sono state eseguite nell'ordine `A, B, C` , un client può vedere `A` , `A,B` o `A,B,C` , ma non le permutazioni non ordinate come `A,C` o `B,A,C` . Il prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di ordine che soddisfano le esigenze degli scenari in cui l'ordine è importante.
 
@@ -99,7 +99,7 @@ Il grafico seguente illustra la coerenza del prefisso di coerenza con le note mu
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="La coerenza come spettro":::
 
-- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
+- **Eventuale** : non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
 La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="La coerenza come spettro":::
@@ -108,7 +108,7 @@ La coerenza finale è la forma di coerenza più debole, perché un client può l
 
 In pratica, è possibile che si ottengano spesso garanzie di coerenza più complesse. Per un'operazione di lettura, le garanzie di coerenza corrispondono al livello di aggiornamento e ordinamento dello stato del database richiesto. La coerenza di lettura è associata all'ordinamento e alla propagazione delle operazioni di scrittura/aggiornamento.  
 
-Se non sono presenti operazioni di scrittura nel database, è probabile che un'operazione di lettura con livelli di coerenza **finale**, **sessione**o **prefisso coerente** produca gli stessi risultati di un'operazione di lettura con un livello di coerenza forte.
+Se non sono presenti operazioni di scrittura nel database, è probabile che un'operazione di lettura con livelli di coerenza **finale** , **sessione** o **prefisso coerente** produca gli stessi risultati di un'operazione di lettura con un livello di coerenza forte.
 
 Se l'account Azure Cosmos è configurato con un livello di coerenza diverso da quello della coerenza assoluta, è possibile determinare la probabilità che i client ottengano letture solide e coerenti per i carichi di lavoro esaminando la metrica di *obsolescenza* (PBS) con decadimento ristretto. Questa metrica viene esposta nel portale di Azure. Per altre informazioni, vedere [Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -148,7 +148,7 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Livelli di coerenza e durabilità dei dati
 
-All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** (**RPO**).
+All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** ( **RTO** ). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** ( **RPO** ).
 
 La tabella seguente definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile avere un database distribuito con un RPO e RTO zero a causa del [teorema Cap](https://en.wikipedia.org/wiki/CAP_theorem).
 
@@ -187,8 +187,6 @@ Per altre informazioni sui concetti di coerenza, vedere gli articoli seguenti:
 
 Per altre informazioni sui livelli di coerenza in Azure Cosmo DB, vedere gli articoli seguenti:
 
-- [Scegliere il livello di coerenza ottimale per la propria applicazione]()
-- [Livelli di coerenza nelle API di Azure Cosmos DB]()
 - [Configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Sostituire il livello di coerenza predefinito](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

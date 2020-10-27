@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496057"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545311"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1.0 and 1.1 per l'uso con cache di Azure per Redis
 
@@ -65,7 +65,7 @@ Per impostazione predefinita, i client .NET Redis usano la versione più recente
 
 Per impostazione predefinita, i client .NET Core Redis usano la versione di TLS predefinita del sistema operativo che ovviamente dipende da quest'ultimo. 
 
-A seconda della versione del sistema operativo e di eventuali patch applicate, la versione valida di TLS predefinita può variare. Sebbene esista un'unica fonte di informazioni su questo argomento, di [seguito](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) è riportato un articolo per Windows. 
+A seconda della versione del sistema operativo e di eventuali patch applicate, la versione valida di TLS predefinita può variare. Sebbene esista un'unica fonte di informazioni su questo argomento, di [seguito](/dotnet/framework/network-programming/tls#support-for-tls-12) è riportato un articolo per Windows. 
 
 Tuttavia, se si usa un sistema operativo precedente o si vuole semplicemente assicurarsi, è consigliabile configurare manualmente la versione di TLS preferita tramite il client.
 

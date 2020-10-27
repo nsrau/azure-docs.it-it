@@ -1,5 +1,5 @@
 ---
-title: Esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
+title: Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
 description: Questo articolo illustra come esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
 services: healthcare-apis
 author: msjasteppe
@@ -8,14 +8,14 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210035"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558551"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
 
 In questo articolo si apprenderà come esportare il connettore Azure per i log delle metriche FHIR *. La funzionalità che consente la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) nell'portale di Azure. 
 
@@ -58,7 +58,7 @@ L'accesso ai log delle metriche è essenziale per il monitoraggio e la risoluzio
 Vedere le domande frequenti sul connettore Azure per FHIR.
 
 >[!div class="nextstepaction"]
->[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
 *Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 

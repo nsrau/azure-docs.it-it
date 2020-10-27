@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087640"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536284"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
@@ -21,7 +21,7 @@ Questo articolo illustra come gestire un cluster di servizi di gestione delle ri
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
+* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster** .
 
 * Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [usare SSH con HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -31,8 +31,8 @@ Questo articolo illustra come gestire un cluster di servizi di gestione delle ri
 
 ![Parametri di accesso portale di Azure HDI](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **Nome utente dell'account di accesso del cluster**: utente HTTP per l'autenticazione tramite il gateway HDInsight usato per proteggere i cluster HDInsight creati. Questo utente HTTP viene usato per accedere all'interfaccia utente di Apache Ambari, all'interfaccia utente di Apache Hadoop YARN e ad altri componenti di interfaccia utente.
-- **Nome utente Secure Shell (SSH)**: utente SSH per accedere al cluster tramite Secure Shell. È un utente del sistema Linux per tutti i nodi head, di lavoro e perimetrali. È così possibile usare Secure Shell per accedere a qualsiasi nodo di un cluster remoto.
+- **Nome utente dell'account di accesso del cluster** : utente HTTP per l'autenticazione tramite il gateway HDInsight usato per proteggere i cluster HDInsight creati. Questo utente HTTP viene usato per accedere all'interfaccia utente di Apache Ambari, all'interfaccia utente di Apache Hadoop YARN e ad altri componenti di interfaccia utente.
+- **Nome utente Secure Shell (SSH)** : utente SSH per accedere al cluster tramite Secure Shell. È un utente del sistema Linux per tutti i nodi head, di lavoro e perimetrali. È così possibile usare Secure Shell per accedere a qualsiasi nodo di un cluster remoto.
 
 La versione RStudio Server Community usata nel cluster ML Services in HDInsight accetta solo un nome utente e una password Linux come meccanismo di accesso. Non supporta il passaggio di token. Quando dunque si prova ad accedere a R Studio per la prima volta in un cluster ML Services, è necessario eseguire l'accesso due volte.
 
@@ -74,7 +74,7 @@ Quando viene richiesto di immettere la password Kerberos corrente, è sufficient
 
 Accedere a RStudio da `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Se si sta eseguendo il primo accesso dopo la creazione del cluster, immettere le credenziali amministratore del cluster seguite dalle credenziali utente SSH create. Se non si tratta del primo accesso, immettere solo le credenziali per l'utente SSH create.
 
-Si può anche accedere simultaneamente da un'altra finestra del browser con le credenziali originali (per impostazione predefinita, *sshuser*).
+Si può anche accedere simultaneamente da un'altra finestra del browser con le credenziali originali (per impostazione predefinita, *sshuser* ).
 
 Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice nel sistema Linux, ma hanno lo stesso accesso a tutti i file nella risorsa di archiviazione HDFS e WASB remota.
 
@@ -106,7 +106,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Server as an Apache Hadoop Client" (Uso di Microsoft Machine Learning Server come client Apache Hadoop) in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Come usare RevoScaleR in un contesto di calcolo per Apache Spark)
+Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Server as an Apache Hadoop Client" (Uso di Microsoft Machine Learning Server come client Apache Hadoop) in [How to use RevoScaleR in an Apache Spark compute context](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Come usare RevoScaleR in un contesto di calcolo per Apache Spark)
 
 ## <a name="use-a-compute-context"></a>Usare un contesto di calcolo
 
@@ -195,17 +195,17 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
 1. Seguire i passaggi in [Personalizzare i cluster con l'azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
-3. Immettere le informazioni seguenti per **Invia azione script**:
+3. Immettere le informazioni seguenti per **Invia azione script** :
 
-   * Per **Tipo di script** selezionare **Personalizzato**.
+   * Per **Tipo di script** selezionare **Personalizzato** .
 
    * Per **Nome** specificare un nome per l'azione script.
 
      * Per **URI script Bash** immettere `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Questo è lo script che installa i pacchetti R aggiuntivi nel nodo di lavoro
 
-   * Selezionare la casella di controllo solo per **Lavoro**.
+   * Selezionare la casella di controllo solo per **Lavoro** .
 
-   * **Parametri**: i pacchetti R da installare. Ad esempio: `bitops stringr arules`
+   * **Parametri** : i pacchetti R da installare. Ad esempio: `bitops stringr arules`
 
    * Selezionare la casella di controllo **Persist this script action** (Salva questa azione script in modo permanente).  
 

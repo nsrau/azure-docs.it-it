@@ -8,12 +8,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893646"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546943"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuità aziendale di Azure HDInsight
 
@@ -39,7 +39,7 @@ In questa sezione vengono illustrate alcune procedure consigliate da prendere in
 
 * Usare gli strumenti di monitoraggio di Azure in HDInsight per rilevare un comportamento anomalo nel cluster e impostare le notifiche di avviso corrispondenti. È possibile distribuire le soluzioni di gestione specifiche per i cluster HDInsight preconfigurate che raccolgono importanti metriche delle prestazioni del tipo di cluster specifico. Per altre informazioni, vedere [monitoraggio di Azure per HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Sottoscrivere gli avvisi di integrità di Azure per ricevere notifiche relative a problemi di servizio, manutenzione pianificata, avvisi di integrità e sicurezza per una sottoscrizione, un servizio o un'area. Le notifiche di integrità che includono la causa del problema e l'ETA risoluto consentono di eseguire al meglio failover e i failback. Per altre informazioni, vedere la [documentazione sull'integrità dei servizi di Azure](/azure/service-health/).
+* Sottoscrivere gli avvisi di integrità di Azure per ricevere notifiche relative a problemi di servizio, manutenzione pianificata, avvisi di integrità e sicurezza per una sottoscrizione, un servizio o un'area. Le notifiche di integrità che includono la causa del problema e l'ETA risoluto consentono di eseguire al meglio failover e i failback. Per altre informazioni, vedere la [documentazione sull'integrità dei servizi di Azure](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Disponibilità in una singola area
 

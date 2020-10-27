@@ -3,15 +3,15 @@ title: Criteri di integrazione Dapr di gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri di gestione API di Azure per interagire con le estensioni di microservizi Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343028"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558398"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Criteri di integrazione Dapr di gestione API
 
@@ -83,19 +83,19 @@ Nell'esempio seguente viene illustrato come richiamare il metodo denominato "bac
 
 ### <a name="elements"></a>Elementi
 
-| Elemento             | Descrizione  | Obbligatoria |
+| Elemento             | Descrizione  | Obbligatorio |
 |---------------------|--------------|----------|
 | set-backend-service | Elemento radice | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo        | Descrizione                     | Obbligatoria | Predefinito |
+| Attributo        | Descrizione                     | Obbligatorio | Valore predefinito |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Deve essere impostato su "dapr"           | Sì      | N/D     |
 | dapr-App-ID      | Nome del microservizio di destinazione. Esegue il mapping al parametro [AppID](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
 | dapr-metodo      | Nome del metodo o URL da richiamare nel microservizio di destinazione. Esegue il mapping al parametro del [nome di metodo](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Usage
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -104,14 +104,14 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Invia messaggio a pub/argomento secondario
 
-Questo criterio indica al gateway di gestione API di inviare un messaggio a un argomento di pubblicazione/sottoscrizione Dapr. Il criterio esegue questa operazione effettuando una richiesta HTTP POST per `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` sostituire i parametri del modello e aggiungere il contenuto specificato nell'istruzione dei criteri.
+Questo criterio indica al gateway di gestione API di inviare un messaggio a un argomento di pubblicazione/sottoscrizione Dapr. Il criterio esegue questa operazione effettuando una richiesta HTTP POST per `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` sostituire i parametri del modello e aggiungere il contenuto specificato nell'istruzione dei criteri.
 
 Il criterio presuppone che il runtime di Dapr sia in esecuzione in un contenitore sidecar nello stesso pod del gateway. Il runtime di Dapr implementa la semantica di pubblicazione/sottoscrizione.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -150,22 +151,23 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 
 ### <a name="elements"></a>Elementi
 
-| Elemento             | Descrizione  | Obbligatoria |
+| Elemento             | Descrizione  | Obbligatorio |
 |---------------------|--------------|----------|
 | da Publish a dapr     | Elemento radice | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo        | Descrizione                     | Obbligatoria | Predefinito |
+| Attributo        | Descrizione                     | Obbligatorio | Valore predefinito |
 |------------------|---------------------------------|----------|---------|
-| argomento            | Nome argomento di destinazione               | Sì      | N/D     |
+| PubSub-nome      | Nome del componente PubSub di destinazione. Esegue il mapping al parametro [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) in Dapr. Se non è presente, il valore dell'attributo dell' __argomento__ deve essere nel formato `pubsub-name/topic-name` .    | No       | nessuno    |
+| argomento            | Il nome dell'argomento. Esegue il mapping al parametro dell' [argomento](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) in Dapr.               | Sì      | N/D     |
 | ignore-error     | Se impostato su `true` indica ai criteri di non attivare la sezione ["On-Error"](api-management-error-handling-policies.md) dopo la ricezione di un errore dal runtime di Dapr | No | `false` |
 | response-variable-name | Nome della voce di raccolta [variables](api-management-policy-expressions.md#ContextVariables) da usare per archiviare la risposta dal runtime di Dapr | No | nessuno |
 | timeout | Tempo (in secondi) di attesa per la risposta del runtime di Dapr. Può variare da 1 a 240 secondi. | No | 5 |
 | template | Motore di creazione del modello da utilizzare per trasformare il contenuto del messaggio. "Liquid" è l'unico valore supportato. | No | nessuno |
 | content-type | Tipo di contenuto del messaggio. "application/json" è l'unico valore supportato. | No | nessuno |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Usage
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -232,16 +234,16 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 
 ### <a name="elements"></a>Elementi
 
-| Elemento             | Descrizione  | Obbligatoria |
+| Elemento             | Descrizione  | Obbligatorio |
 |---------------------|--------------|----------|
 | Invoke-dapr-binding | Elemento radice | Sì      |
 | metadata            | Associazione di metadati specifici sotto forma di coppie chiave/valore. Esegue il mapping alla proprietà [dei metadati](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No |
 | Data            | Contenuto del messaggio. Esegue il mapping alla proprietà [dei dati](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No |
 
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo        | Descrizione                     | Obbligatoria | Predefinito |
+| Attributo        | Descrizione                     | Obbligatorio | Valore predefinito |
 |------------------|---------------------------------|----------|---------|
 | name            | Nome dell'associazione di destinazione. Deve corrispondere al nome delle associazioni [definite](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) in Dapr.           | Sì      | N/D     |
 | operation       | Nome dell'operazione di destinazione (specifica dell'associazione). Esegue il mapping alla proprietà [Operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No | nessuno |
@@ -251,7 +253,7 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 | template | Motore di creazione del modello da utilizzare per trasformare il contenuto del messaggio. "Liquid" è l'unico valore supportato. | No | nessuno |
 | content-type | Tipo di contenuto del messaggio. "application/json" è l'unico valore supportato. | No | nessuno |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Usage
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906600"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547232"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection per Database di Azure per MySQL
 
@@ -34,14 +34,14 @@ Advanced Threat Protection per Database di Azure per MySQL offre un nuovo livell
 
 ## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection 
 Advanced Threat Protection per Database di Azure per MySQL rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare gli avvisi seguenti:
-- **Accesso da una posizione insolita**: questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso a Database di Azure per MySQL da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un data center di Azure insolito**: questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server da un data center di Azure insolito, rilevato nel server di recente. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione in Azure, Power BI, l'editor di query di Database di Azure per MySQL). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'entità di sicurezza non familiare**: questo avviso viene attivato quando il modello di accesso a Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server usando un'entità di sicurezza insolita (utente di Database di Azure per MySQL). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'applicazione potenzialmente dannosa**: questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
-- **Attacco di forza bruta a credenziali Database di Azure per MySQL**: questo avviso viene attivato quando si verifica un numero insolitamente elevato di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
+- **Accesso da una posizione insolita** : questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso a Database di Azure per MySQL da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un data center di Azure insolito** : questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server da un data center di Azure insolito, rilevato nel server di recente. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione in Azure, Power BI, l'editor di query di Database di Azure per MySQL). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'entità di sicurezza non familiare** : questo avviso viene attivato quando il modello di accesso a Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server usando un'entità di sicurezza insolita (utente di Database di Azure per MySQL). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'applicazione potenzialmente dannosa** : questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
+- **Attacco di forza bruta a credenziali Database di Azure per MySQL** : questo avviso viene attivato quando si verifica un numero insolitamente elevato di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Altre informazioni sul [Centro sicurezza di Azure](../security-center/security-center-introduction.md)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per MySQL](https://azure.microsoft.com/pricing/details/mysql/) 
-* Configurare [Advanced Threat Protection per Database di Azure per MySQL](howto-database-threat-protection-portal.md) usando il portale di Azure  
+* Configurare [Advanced Threat Protection per Database di Azure per MySQL](howto-database-threat-protection-portal.md) usando il portale di Azure

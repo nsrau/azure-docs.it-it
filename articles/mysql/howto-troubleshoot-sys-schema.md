@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74aa0bf84c19b9d663b92d529604c08bf5800c45
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902774"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544852"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 
@@ -29,13 +29,13 @@ Il database sys_schema include 52 viste, ognuna con uno dei prefissi seguenti:
 - Utente: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
 - Wait: eventi di attesa raggruppati in base a host o utente.
 
-Vengono di seguito presentati alcuni modelli di uso comune di sys_schema. I modelli di utilizzo sono raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione del database**.
+Vengono di seguito presentati alcuni modelli di uso comune di sys_schema. I modelli di utilizzo sono raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione del database** .
 
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 
 ### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
-Le operazioni di I/O sono le più dispendiose nel database. È possibile scoprire la latenza media di I/O tramite una query sulla vista *sys.user_summary_by_file_io*. Con il valore predefinito di 125 GB di spazio di archiviazione sottoposto a provisioning, la latenza di I/O è di circa 15 secondi.
+Le operazioni di I/O sono le più dispendiose nel database. È possibile scoprire la latenza media di I/O tramite una query sulla vista *sys.user_summary_by_file_io* . Con il valore predefinito di 125 GB di spazio di archiviazione sottoposto a provisioning, la latenza di I/O è di circa 15 secondi.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="viste di sys_schema":::
 
@@ -45,7 +45,7 @@ Dato che Database di Azure per MySQL ridimensiona le risorse di I/O in riferimen
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-Anche con un'attenta pianificazione, molte query possono comunque comportare scansioni di tabella complete. Per altre informazioni sui tipi di indici e su come ottimizzarli, è possibile fare riferimento a questo articolo: [Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL](./howto-troubleshoot-query-performance.md). Le scansioni di tabella complete comportano un elevato utilizzo di risorse e influiscono negativamente sulle prestazioni del database. Il modo più rapido per individuare le tabelle con scansione di tabella completa consiste nell'eseguire una query sulla vista *sys.schema_tables_with_full_table_scans*.
+Anche con un'attenta pianificazione, molte query possono comunque comportare scansioni di tabella complete. Per altre informazioni sui tipi di indici e su come ottimizzarli, è possibile fare riferimento a questo articolo: [Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL](./howto-troubleshoot-query-performance.md). Le scansioni di tabella complete comportano un elevato utilizzo di risorse e influiscono negativamente sulle prestazioni del database. Il modo più rapido per individuare le tabelle con scansione di tabella completa consiste nell'eseguire una query sulla vista *sys.schema_tables_with_full_table_scans* .
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="viste di sys_schema":::
 
@@ -64,7 +64,7 @@ In questo esempio, Database di Azure per MySQL ha dedicato 53 minuti allo scaric
 [!IMPORTANT]
 > L'esecuzione di query su questa vista può compromettere le prestazioni. Si consiglia di eseguire questa risoluzione dei problemi durante gli orari di ufficio di minore attività.
 
-Il pool di buffer InnoDB risiede in memoria e rappresenta il principale meccanismo di cache tra il sistema di gestione di database e l'archiviazione. Le dimensioni del pool di buffer InnoDB sono associate al livello di prestazioni e non possono essere modificate, se non scegliendo uno SKU di prodotto diverso. Come nel caso della memoria nel sistema operativo, viene effettuato lo swapping delle pagine meno recenti per fare spazio a dati più nuovi. Per scoprire quali tabelle utilizzano la maggior parte della memoria del pool di buffer InnoDB, è possibile eseguire una query sulla vista *sys.innodb_buffer_stats_by_table*.
+Il pool di buffer InnoDB risiede in memoria e rappresenta il principale meccanismo di cache tra il sistema di gestione di database e l'archiviazione. Le dimensioni del pool di buffer InnoDB sono associate al livello di prestazioni e non possono essere modificate, se non scegliendo uno SKU di prodotto diverso. Come nel caso della memoria nel sistema operativo, viene effettuato lo swapping delle pagine meno recenti per fare spazio a dati più nuovi. Per scoprire quali tabelle utilizzano la maggior parte della memoria del pool di buffer InnoDB, è possibile eseguire una query sulla vista *sys.innodb_buffer_stats_by_table* .
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="viste di sys_schema":::
 
@@ -83,4 +83,4 @@ Gli indici sono strumenti validi per migliorare le prestazioni di lettura, ma co
 In sintesi, il database sys_schema è un valido strumento sia per l'ottimizzazione delle prestazioni che per la manutenzione del database. Assicurarsi di sfruttare i vantaggi di questa funzionalità in Database di Azure per MySQL. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per trovare risposte dai colleghi alle domande più difficili o per pubblicare una nuova domanda o risposta, visitare la [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Per trovare risposte dai colleghi alle domande più difficili o per pubblicare una nuova domanda o risposta, visitare la [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

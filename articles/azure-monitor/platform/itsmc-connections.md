@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: b9db20fd357a50a92384b3c3f483f8d75b67b3e2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7de9de7e1ba8028cbdb24744775294a4890afe40
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427356"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547742"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -45,7 +45,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > [!NOTE]
 > 
 > - Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
-> - Per usare i modelli personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
+> - Per usare i [modelli](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
@@ -53,11 +53,11 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
+2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT** .
 
     ![Nuova connessione](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
+3. Nella parte superiore del riquadro destro fare clic su **Aggiungi** .
 
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
@@ -68,19 +68,19 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 | **Campo** | **Descrizione** |
 | --- | --- |
 | **Connection Name** (Nome connessione)   | Digitare il nome dell'istanza di System Center Service Manager da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito durante la configurazione degli elementi di lavoro in questa istanza o quando si visualizzano analisi dei log dettagliate. |
-| **Tipo di partner**   | Selezionare **System Center Service Manager**. |
+| **Tipo di partner**   | Selezionare **System Center Service Manager** . |
 | **URL del server**   | Digitare l'URL dell'app Web Service Manager. Per altre informazioni sull'app Web Service Manager, vedere [qui](#create-and-deploy-service-manager-web-app-service).
 | **ID client**   | Digitare l'ID client generato tramite lo script automatico per l'autenticazione dell'app Web. Per altre informazioni sullo script automatico, vedere [qui](./itsmc-service-manager-script.md).|
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Sincronizza dati**   | Selezionare gli elementi di lavoro di Service Manager da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics. **Opzioni:**  Eventi imprevisti, Richieste di modifica.|
-| **Ambito sincronizzazione dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Ambito sincronizzazione dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo** : 120 giorni. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita** : disabilitata. |
 
 ![Connessione di Service Manager](media/itsmc-connections/service-manager-connection.png)
 
-**Dopo la corretta connessione e la sincronizzazione**:
+**Dopo la corretta connessione e la sincronizzazione** :
 
-- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics** . È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Service Manager.
 
@@ -93,7 +93,7 @@ Per connettere l'istanza locale di Service Manager con Connettore di Gestione de
 
 Per configurare l'app Web ITSM per l'istanza di Service Manager, seguire questa procedura:
 
-- **Distribuire l'app Web**: distribuire l'app Web, configurare le proprietà ed eseguire l'autenticazione con Azure AD. È possibile distribuire l'app Web usando lo [script automatico](./itsmc-service-manager-script.md) fornito da Microsoft.
+- **Distribuire l'app Web** : distribuire l'app Web, configurare le proprietà ed eseguire l'autenticazione con Azure AD. È possibile distribuire l'app Web usando lo [script automatico](./itsmc-service-manager-script.md) fornito da Microsoft.
 - **Configurare la connessione ibrida** - [Configurare questa connessione](#configure-the-hybrid-connection) manualmente.
 
 #### <a name="deploy-the-web-app"></a>Distribuire l'app Web
@@ -108,48 +108,48 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.
 
-Lo script crea l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web**, **ID del client** e **segreto client**.
+Lo script crea l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web** , **ID del client** e **segreto client** .
 
 Salvare questi valori perché serviranno al momento della creazione di una connessione a Connettore di Gestione dei servizi IT.
 
 **Controllare l'installazione dell'app Web**
 
-1. Passare al **portale di Azure** > **Risorse**.
-2. Selezionare l'app Web, fare clic su **Impostazioni** > **Impostazioni applicazione**.
+1. Passare al **portale di Azure** > **Risorse** .
+2. Selezionare l'app Web, fare clic su **Impostazioni** > **Impostazioni applicazione** .
 3. Confermare le informazioni sull'istanza di Service Manager specificate durante la distribuzione dell'app tramite lo script.
 
 ### <a name="configure-the-hybrid-connection"></a>Configurare la connessione ibrida
 
 Usare la procedura seguente per configurare la connessione ibrida tra l'istanza di Service Manager e Connettore di Gestione dei servizi IT in Azure.
 
-1. Trovare l'app Web di Service Manager in **Risorse di Azure**.
-2. Fare clic su **Impostazioni** > **Rete**.
-3. In **Connessioni ibride** fare clic su **Configurare gli endpoint della connessione ibrida**.
+1. Trovare l'app Web di Service Manager in **Risorse di Azure** .
+2. Fare clic su **Impostazioni** > **Rete** .
+3. In **Connessioni ibride** fare clic su **Configurare gli endpoint della connessione ibrida** .
 
     ![Rete per la connessione ibrida](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
-4. Nel pannello **Connessioni ibride** fare clic su **Aggiungi connessione ibrida**.
+4. Nel pannello **Connessioni ibride** fare clic su **Aggiungi connessione ibrida** .
 
     ![Aggiunta di una connessione ibrida](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
-5. Nel pannello **Aggiungi connessione ibrida** fare clic su **Crea nuova connessione ibrida**.
+5. Nel pannello **Aggiungi connessione ibrida** fare clic su **Crea nuova connessione ibrida** .
 
     ![Nuova connessione ibrida](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Digitare i valori seguenti:
 
-   - **Nome endpoint**: specificare un nome per la nuova connessione ibrida.
-   - **Host EndPoint**: nome di dominio completo del server di gestione di Service Manager.
-   - **Porta EndPoint**: digitare 5724
-   - **Spazio dei nomi del bus di servizio**: usare uno spazio dei nomi del bus di servizio esistente o crearne uno nuovo.
-   - **Località**: selezionare la località.
-   - **Name**: specificare un nome per il bus di servizio, se lo si sta creando.
+   - **Nome endpoint** : specificare un nome per la nuova connessione ibrida.
+   - **Host EndPoint** : nome di dominio completo del server di gestione di Service Manager.
+   - **Porta EndPoint** : digitare 5724
+   - **Spazio dei nomi del bus di servizio** : usare uno spazio dei nomi del bus di servizio esistente o crearne uno nuovo.
+   - **Località** : selezionare la località.
+   - **Name** : specificare un nome per il bus di servizio, se lo si sta creando.
 
      ![Valori della connessione ibrida](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Fare clic su **OK** per chiudere il pannello **Crea connessione ibrida** e iniziare a creare la connessione ibrida.
 
     Al termine della creazione, la connessione ibrida viene visualizzata sotto il pannello.
 
-7. Dopo la creazione della connessione ibrida, selezionare la connessione e fare clic su **Aggiungi connessione ibrida selezionata**.
+7. Dopo la creazione della connessione ibrida, selezionare la connessione e fare clic su **Aggiungi connessione ibrida selezionata** .
 
     ![Nuova connessione ibrida](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
@@ -159,13 +159,13 @@ Seguire questa procedura per configurare le impostazioni del listener per la con
 
 1. Nel pannello **Connessioni ibride** fare clic su **Scarica Gestione connessioni** ed eseguire l'installazione nella macchina virtuale in cui è in esecuzione l'istanza di System Center Service Manager.
 
-    Al termine dell'installazione, l'opzione **Hybrid Connection Manager UI** (Interfaccia utente ibrida di Gestione connessioni) è disponibile nel menu **Start**.
+    Al termine dell'installazione, l'opzione **Hybrid Connection Manager UI** (Interfaccia utente ibrida di Gestione connessioni) è disponibile nel menu **Start** .
 
 2. Fare clic su **Hybrid Connection Manager UI** (Interfaccia utente ibrida di Gestione connessioni). Verranno richieste le credenziali di Azure.
 
 3. Accedere con le credenziali di Azure e selezionare la sottoscrizione in cui è stata creata la connessione ibrida.
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Salva** .
 
 La connessione ibrida è stata completata.
 
@@ -189,7 +189,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > [!NOTE]
 > Attualmente Gestione dei servizi IT supporta solo l'offerta SaaS ufficiale di ServiceNow. Le distribuzioni private di ServiceNow non sono attualmente supportate. 
 
-**ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
+**ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow** :
 - Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
 
     - [Configurare OAuth per Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -224,10 +224,10 @@ Seguire questa procedura per creare una connessione ServiceNow:
 
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
+2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT** .
     ![Nuova connessione](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
+3. Nella parte superiore del riquadro destro fare clic su **Aggiungi** .
 
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
@@ -238,21 +238,21 @@ Seguire questa procedura per creare una connessione ServiceNow:
 | **Campo** | **Descrizione** |
 | --- | --- |
 | **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito in Log Analytics quando si configurano elementi di lavoro in questa istanza di Gestione dei servizi IT o si visualizzano analisi dei log dettagliate. |
-| **Tipo di partner**   | Selezionare **ServiceNow**. |
+| **Tipo di partner**   | Selezionare **ServiceNow** . |
 | **Nome utente**   | Digitare il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a Connettore di Gestione dei servizi IT. Altre informazioni: [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app) (Creare il ruolo utente dell'app ServiceNow).|
-| **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT.  |
+| **Password**   | Digitare la password associata a questo nome utente. **Nota** : il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT.  |
 | **URL del server**   | Digitare l'URL dell'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT. L'URL deve puntare a una versione SaaS supportata con suffisso ".servicenow.com".|
 | **ID client**   | Digitare l'ID client da usare per l'autenticazione OAuth2, generata in precedenza.  Per altre informazioni sulla generazione dell'ID client e del segreto:   [Installazione di OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di ServiceNow da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  I valori selezionati vengono importati in Log Analytics.   **Opzioni:**  Eventi imprevisti e Richieste di modifica.|
-| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo** : 120 giorni. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita** : disabilitata. |
 
 ![Connessione di ServiceNow](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
-**Dopo la corretta connessione e la sincronizzazione**:
+**Dopo la corretta connessione e la sincronizzazione** :
 
-- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics** . È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
 
@@ -266,7 +266,7 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 
 Seguire questa procedura:
 
-1. Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
+1. Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l' **app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
    
    >[!NOTE]
    >In base alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, OMS è ora denominato Log Analytics.     
@@ -276,7 +276,7 @@ Seguire questa procedura:
    Lo stato visualizzato è **Not complete** (Non completato) se il ruolo utente deve essere ancora creato.
 
 4. Nelle caselle di testo accanto a **Create integration user** (Crea utente di integrazione) immettere il nome dell'utente che può connettersi a Connettore di Gestione dei servizi IT in Azure.
-5. Immettere la password per questo utente e fare clic su **OK**.  
+5. Immettere la password per questo utente e fare clic su **OK** .  
 
 > [!NOTE]
 > 
@@ -284,7 +284,7 @@ Seguire questa procedura:
 
 L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati.
 
-**Ruoli predefiniti**:
+**Ruoli predefiniti** :
 - personalize_choices
 - import_transformer
 -   x_mioms_microsoft.user
@@ -327,10 +327,10 @@ Seguire questa procedura per creare una connessione Provance:
 
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
+2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT** .
     ![Nuova connessione](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
+3. Nella parte superiore del riquadro destro fare clic su **Aggiungi** .
 
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
@@ -341,20 +341,20 @@ Seguire questa procedura per creare una connessione Provance:
 | **Campo** | **Descrizione** |
 | --- | --- |
 | **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di Provance da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito quando si configurano gli elementi di lavoro in questa istanza di Gestione dei servizi IT o quando si visualizzano analisi dei log dettagliate. |
-| **Tipo di partner**   | Selezionare **Provance**. |
+| **Tipo di partner**   | Selezionare **Provance** . |
 | **Nome utente**   | Digitare il nome utente che può connettersi a Connettore di Gestione dei servizi IT.    |
 | **Password**   | Digitare la password associata a questo nome utente. **Nota:** il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT._|
 | **URL del server**   | Digitare l'URL per l'istanza di Provance da connettere a Connettore di Gestione dei servizi IT. |
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Provance.  Per altre informazioni sull'ID client, vedere [Come configurare l'autenticazione di Active Directory](../../app-service/configure-authentication-provider-aad.md). |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Provance da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:**   Eventi imprevisti, Richieste di modifica.|
-| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata.|
+| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo** : 120 giorni. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita** : disabilitata.|
 
 ![Connessione Provance](media/itsmc-connections/itsm-connections-provance-latest.png)
 
-**Dopo la corretta connessione e la sincronizzazione**:
+**Dopo la corretta connessione e la sincronizzazione** :
 
-- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics** . È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Provance.
 
@@ -383,10 +383,10 @@ Seguire questa procedura per creare una connessione Cherwell:
 
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
+2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT** .
     ![Nuova connessione](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
+3. Nella parte superiore del riquadro destro fare clic su **Aggiungi** .
 
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
@@ -397,21 +397,21 @@ Seguire questa procedura per creare una connessione Cherwell:
 | **Campo** | **Descrizione** |
 | --- | --- |
 | **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di Cherwell da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito quando si configurano gli elementi di lavoro in questa istanza di Gestione dei servizi IT o quando si visualizzano analisi dei log dettagliate. |
-| **Tipo di partner**   | Selezionare **Cherwell**. |
+| **Tipo di partner**   | Selezionare **Cherwell** . |
 | **Nome utente**   | Digitare il nome utente di Cherwell che può connettersi a Connettore di Gestione dei servizi IT. |
 | **Password**   | Digitare la password associata a questo nome utente. **Nota:** il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT.|
 | **URL del server**   | Digitare l'URL per l'istanza di Cherwell da connettere a Connettore di Gestione dei servizi IT. |
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Cherwell.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Cherwell da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:**  Eventi imprevisti, Richieste di modifica. |
-| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo** : 120 giorni. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita** : disabilitata. |
 
 
 ![Connessione Provance](media/itsmc-connections/itsm-connections-cherwell-latest.png)
 
-**Dopo la corretta connessione e la sincronizzazione**:
+**Dopo la corretta connessione e la sincronizzazione** :
 
-- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics** . È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Cherwell.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 3818ce9ebae8e6af6ee8bb5ed30c7ab446a6f6b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855175"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545566"
 ---
 # <a name="apache-spark-guidelines"></a>Linee guida per Apache Spark
 
@@ -56,7 +56,7 @@ Questo articolo fornisce diverse linee guida per l'uso di Apache Spark in Azure 
 | Apache Hive in HDInsight | [Integrare Apache Spark e Apache Hive con il connettore Hive Warehouse](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase in HDInsight | [Usare Apache Spark per leggere e scrivere dati Apache HBase](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka in HDInsight | [Esercitazione: usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB: Implementare un'architettura lambda nella piattaforma Azure](../../cosmos-db/lambda-architecture.md) |
+| Azure Cosmos DB | [Collegamento ad Azure Synapse per Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quali sono le opzioni di archiviazione?
 

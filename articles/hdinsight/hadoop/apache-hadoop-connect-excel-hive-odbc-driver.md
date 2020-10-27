@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9b74cc3bff23848bf63859e7e38bb06599956a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087844"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540772"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connettere Excel ad Apache Hadoop in HDInsight mediante Microsoft Hive ODBC Driver
 
@@ -21,7 +21,7 @@ ms.locfileid: "86087844"
 
 La soluzione Microsoft per Big Data integra componenti di Microsoft Business Intelligence (BI) con Apache Hadoop cluster distribuiti in HDInsight. Un esempio è la possibilità di connettere Excel al data warehouse hive di un cluster Hadoop. Connettersi usando il driver Microsoft Hive Open Database Connectivity (ODBC).
 
-È possibile connettere i dati associati a un cluster HDInsight da Excel con il componente aggiuntivo Microsoft Power Query per Excel. Per altre informazioni, vedere [connettere Excel a HDInsight con Power query](../hdinsight-connect-excel-power-query.md).
+È possibile connettere i dati associati a un cluster HDInsight da Excel con il componente aggiuntivo Microsoft Power Query per Excel. Per altre informazioni, vedere [connettere Excel a HDInsight con Power query](./apache-hadoop-connect-excel-power-query.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,11 +38,11 @@ Scaricare e installare [Microsoft Hive ODBC driver](https://www.microsoft.com/do
 
 I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
-1. Da Windows, passare a **Start > strumenti di amministrazione di windows > origini dati ODBC (32 bit)/(64 bit)**.  Questa azione consente di aprire la finestra **Amministrazione origine dati ODBC** .
+1. Da Windows, passare a **Start > strumenti di amministrazione di windows > origini dati ODBC (32 bit)/(64 bit)** .  Questa azione consente di aprire la finestra **Amministrazione origine dati ODBC** .
 
     ![Amministrazione origine dati ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configurare un DSN usando l'amministrazione origine dati ODBC")
 
-1. Nella scheda **DSN utente** selezionare **Aggiungi** per aprire la finestra **Crea nuova origine dati**.
+1. Nella scheda **DSN utente** selezionare **Aggiungi** per aprire la finestra **Crea nuova origine dati** .
 
 1. Selezionare **Microsoft Hive ODBC Driver** e quindi selezionare **Fine** per aprire la finestra di configurazione del **DSN per Microsoft Hive ODBC Driver.**
 
@@ -52,10 +52,10 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
    | --- | --- |
    |  Data Source Name |Assegnare un nome all'origine dati |
    |  Host |Immettere `HDInsightClusterName.azurehdinsight.net`. Ad esempio: `myHDICluster.azurehdinsight.net`. Nota: `HDInsightClusterName-int.azurehdinsight.net` è supportato purché la macchina virtuale del client venga peerata alla stessa rete virtuale. |
-   |  Porta |Utilizzare **443**. Questa porta è passata da 563 a 443. |
-   |  Database |Usare il **valore predefinito**. |
+   |  Porta |Utilizzare **443** . Questa porta è passata da 563 a 443. |
+   |  Database |Usare il **valore predefinito** . |
    |  Mechanism |Selezionare **Servizio HDInsight di Microsoft Azure** |
-   |  Nome utente |Immettere il nome utente HTTP del cluster HDInsight. Il nome utente predefinito è **admin**. |
+   |  Nome utente |Immettere il nome utente HTTP del cluster HDInsight. Il nome utente predefinito è **admin** . |
    |  Password |Immettere la password utente del cluster HDInsight. Selezionare la casella di controllo **Save Password (Encrypted)** (Salva password (crittografata)).|
 
 1. Facoltativo: selezionare **Opzioni avanzate...**  
@@ -74,7 +74,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 1. Selezionare **OK** per chiudere la finestra di configurazione del **DSN per Microsoft Hive ODBC Driver.**  
 
-1. Selezionare **OK** per chiudere la finestra **Amministratore origine dati ODBC**.  
+1. Selezionare **OK** per chiudere la finestra **Amministratore origine dati ODBC** .  
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Importazione di dati in Excel da HDInsight
 
@@ -82,15 +82,15 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 
 1. Aprire una cartella di lavoro nuova o esistente in Excel.
 
-2. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC**.
+2. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC** .
 
     ![Aprire la connessione guidata dati di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Aprire la connessione guidata dati di Excel")
 
-3. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
+3. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK** .
 
 4. Per il primo utilizzo, viene visualizzata una finestra di dialogo del **driver ODBC** . Selezionare **Windows** dal menu a sinistra. Selezionare quindi **Connetti** per aprire la finestra **strumento di navigazione** .
 
-5. In **Strumento di spostamento** passare a **HIVE** > **default** > **hivesampletable** e quindi selezionare **Carica**. L'importazione dei dati in Excel potrebbe richiedere alcuni istanti.
+5. In **Strumento di spostamento** passare a **HIVE** > **default** > **hivesampletable** e quindi selezionare **Carica** . L'importazione dei dati in Excel potrebbe richiedere alcuni istanti.
 
     ![Strumento di navigazione ODBC hive HDInsight di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Strumento di navigazione ODBC hive HDInsight di Excel")
 

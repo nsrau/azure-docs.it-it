@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 659e44ddc13cf093d7e571e904e177136ed21127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94a4858b4c4fa99a09acc2bec88f94a64686c2d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084495"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539140"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Usare il modello di apprendimento approfondito Microsoft Cognitive Toolkit con un cluster Azure HDInsight Spark
 
 In questo articolo viene illustrata la procedura seguente.
 
-1. Eseguire uno script personalizzato per installare [Microsoft cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) in un cluster Azure HDInsight Spark.
+1. Eseguire uno script personalizzato per installare [Microsoft cognitive Toolkit](/cognitive-toolkit/) in un cluster Azure HDInsight Spark.
 
 2. Caricare un oggetto [Jupyter Notebook](https://jupyter.org/) nel cluster [Apache Spark](https://spark.apache.org/) per vedere come applicare ai file un modello con training di apprendimento approfondito di Microsoft Cognitive Toolkit in un account di Archiviazione BLOB di Azure tramite l'[API Python Spark (PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)
 
@@ -58,7 +58,7 @@ In questo articolo il toolkit verrà installato dal portale, dopo la creazione d
 
 Per istruzioni su come usare il portale di Azure per eseguire l'azione script, vedere [personalizzare cluster HDInsight mediante azione script](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Assicurarsi di specificare i dati seguenti per installare Microsoft Cognitive Toolkit. Usare i valori seguenti per l'azione script:
 
-|Proprietà |Valore |
+|Proprietà |valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome| Installare MCT|
@@ -82,7 +82,7 @@ Per usare Microsoft Cognitive Toolkit con il cluster Azure HDInsight Spark, è n
 
 1. Dopo aver caricato il notebook, fare clic sul nome del notebook e quindi seguire le istruzioni nel notebook stesso per caricare il set di dati ed eseguire l'articolo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 

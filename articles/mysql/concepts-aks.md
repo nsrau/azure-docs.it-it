@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519865"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546909"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connessione del servizio Azure Kubernetes e del Database di Azure per MySQL
 
@@ -26,10 +26,10 @@ Da novembre 2018 il servizio Azure Kubernetes supporta la funzionalità di rete 
 È possibile verificare se il cluster del servizio Azure Kubernetes ha la funzionalità di rete accelerata:
 1. Accedere al portale di Azure e selezionare il cluster del servizio Azure Kubernetes.
 2. Selezionare la scheda Proprietà.
-3. Copiare il nome del **gruppo di risorse dell'infrastruttura**.
+3. Copiare il nome del **gruppo di risorse dell'infrastruttura** .
 4. Usare la barra di ricerca nel portale per individuare e aprire il gruppo di risorse dell'infrastruttura.
 5. Selezionare una macchina virtuale in questo gruppo di risorse.
-6. Passare alla scheda**Rete** della macchina virtuale.
+6. Passare alla scheda **Rete** della macchina virtuale.
 7. Verificare che la **rete accelerata** sia abilitata.
 
 In alternativa, eseguire i due comandi seguenti tramite l'interfaccia della riga di comando di Azure:
@@ -44,4 +44,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un cluster del servizio Azure Kubernetes](../aks/kubernetes-walkthrough.md)
-- Informazioni su come [installare WordPress da un grafico Helm usando OSBA e il Database di Azure per MySQL](../aks/integrate-azure.md)
+- Informazioni su come [installare WordPress da un grafico Helm usando OSBA e il Database di Azure per MySQL](../aks/index.yml)

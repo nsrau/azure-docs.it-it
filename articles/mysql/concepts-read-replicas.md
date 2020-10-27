@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151173"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537967"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -24,7 +24,7 @@ Per altre informazioni sulle funzionalità di replica di MySQL e sui relativi pr
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_ . La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usare una replica in lettura
@@ -38,7 +38,7 @@ Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri pe
 Questa funzionalità di replica in lettura si avvale della replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
 > [!IMPORTANT]
-> Database di Azure per MySQL usa la registrazione binaria basata su **ROW**. Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Ciò causa una maggiore latenza di replica. Per assicurarsi che la replica rimanga al passo con le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
+> Database di Azure per MySQL usa la registrazione binaria basata su **ROW** . Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Ciò causa una maggiore latenza di replica. Per assicurarsi che la replica rimanga al passo con le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
 
 ## <a name="cross-region-replication"></a>Replica tra più aree
 È possibile creare una replica di lettura in un'area diversa dal server di origine. La replica tra più aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
@@ -71,7 +71,7 @@ Se si usano repliche tra più aree per la pianificazione del ripristino di emerg
 
 Se un server di origine non dispone di server di replica esistenti, l'origine viene innanzitutto riavviata per prepararsi per la replica.
 
-Quando viene avviato il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per MySQL vuoto. Il nuovo server viene compilato con i dati presenti nel server di origine. Il tempo di creazione dipende dalla quantità di dati nell'origine e dall'ora dell'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore. Il server di replica viene sempre creato nello stesso gruppo di risorse e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato.
+Quando viene avviato il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per MySQL vuoto. Il nuovo server viene compilato con i dati presenti nel server di origine. Il tempo di creazione dipende dalla quantità di dati nell'origine e dall'ora dell'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore. Il server di replica viene sempre creato nello stesso gruppo di risorse e nella stessa sottoscrizione del server di origine. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](../azure-resource-manager/management/move-resource-group-and-subscription.md) dopo averlo creato.
 
 Ogni replica è abilitata per l'[aumento automatico](concepts-pricing-tiers.md#storage-auto-grow) dello spazio di archiviazione. La funzionalità di aumento automatico consente alla replica di adattarsi ai dati replicati e impedire un'interruzione della replica causata da errori di spazio di archiviazione insufficiente.
 
@@ -113,7 +113,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 
 Non esiste un failover automatico tra i server di origine e di replica. 
 
-Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica* metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dall'origine indicherà la quantità di dati persi.
