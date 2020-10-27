@@ -4,16 +4,16 @@ description: Informazioni su Azure Analysis Services, una piattaforma distribuit
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018798"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201512"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -35,7 +35,7 @@ Azure Analysis Services si integra con molti servizi di Azure e permette di crea
 
 ## <a name="the-right-tier-when-you-need-it"></a>Il piano giusto quando serve
 
-Azure Analysis Services è disponibile nei livelli **Developer**, **Basic** e **Standard**. Entro ogni livello, i costi del piano dipendono da potenza di elaborazione, unità di elaborazione query (QPU) e dimensioni della memoria. Quando si crea un server, si seleziona un piano entro un livello. È possibile passare a un piano inferiore o superiore entro lo stesso livello oppure passare a un livello superiore, ma non è possibile passare da un livello superiore a un livello inferiore.
+Azure Analysis Services è disponibile nei livelli **Developer** , **Basic** e **Standard** . Entro ogni livello, i costi del piano dipendono da potenza di elaborazione, unità di elaborazione query (QPU) e dimensioni della memoria. Quando si crea un server, si seleziona un piano entro un livello. È possibile passare a un piano inferiore o superiore entro lo stesso livello oppure passare a un livello superiore, ma non è possibile passare da un livello superiore a un livello inferiore.
 
 ### <a name="developer-tier"></a>Livello Developer
 
@@ -71,7 +71,7 @@ Questo livello è ottimale per applicazioni di produzione cruciali, che necessit
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - Non disponibile in tutte le aree.   
-<a name="rec">2</a> - È consigliato v2.
+<a name="rec">2</a> - S8 e S9 sono [deprecati](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). È consigliato v2. 
 
 ## <a name="availability-by-region"></a>Disponibilità per area
 
@@ -85,7 +85,7 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Canada centrale    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Stati Uniti orientali     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Stati Uniti orientali 2     |     S8, S9, S8v2, S9v2   |    1    |
+|Stati Uniti orientali 2     |     S8v2, S9v2   |    1    |
 |Stati Uniti centro-settentrionali     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-settentrionali     |     S8v2, S9v2    |    1     |
 |Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -93,9 +93,9 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Stati Uniti centro-meridionali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Stati Uniti occidentali     |    S8, S9, S8v2, S9v2   |    2  |
+|Stati Uniti occidentali     |    S8v2, S9v2   |    2  |
 |Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|Stati Uniti occidentali 2    |    S8, S9, S8v2, S9v2  |    1     |
+|Stati Uniti occidentali 2    |    S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -105,17 +105,18 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Europa settentrionale     |    S8v2, S9v2      |    3     |
 |Regno Unito meridionale     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa occidentale     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa occidentale    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa occidentale    |   S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asia Pacifico 
 
 |Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
 |Australia orientale     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia orientale     |    S8, S9, S8v2, S9v2    |    1     |
+|Australia orientale     |    S8v2, S9v2    |    1     |
 |Australia sud-orientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Giappone orientale     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Asia sud-orientale     |     S8v2, S9v2     |   1      |
 |India occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Ridimensionare in base alle esigenze specifiche

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221423"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628678"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -82,7 +82,7 @@ Per accedere al terminale:
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Create new file":::
 
-1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale**.
+1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Create new file"::: (Apri terminale)
 
@@ -113,8 +113,8 @@ Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il compl
 
 Usare la modalità messa a fuoco per espandere la visualizzazione corrente in modo da potersi concentrare sulle schede attive. La modalità messa a fuoco nasconde Esplora file dei notebook.
 
-1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco**   per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che si trovi nella voce di menu **..** . nella barra degli strumenti.
-1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard**.
+1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco** per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che si trovi nella voce di menu **..** . nella barra degli strumenti.
+1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Create new file":::
 
@@ -143,13 +143,13 @@ Il nuovo notebook contiene solo celle di codice, con tutte le celle necessarie p
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Salvare e Checkpoint un notebook
 
-Azure Machine Learning crea un file del checkpoint quando si crea un file *ipynb*   .
+Azure Machine Learning crea un file del checkpoint quando si crea un file *ipynb* .
 
 Nella barra degli strumenti del notebook selezionare il menu e quindi **file &gt; Salva e Checkpoint** per salvare manualmente il notebook. verrà aggiunto un file del checkpoint associato al notebook.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Create new file":::
 
-Ogni notebook viene salvato in automatico ogni 30 secondi.Salvataggio automatico aggiorna solo il file *ipynb*iniziale   , non il file del checkpoint.
+Ogni notebook viene salvato in automatico ogni 30 secondi. Salvataggio automatico aggiorna solo il file *ipynb* iniziale, non il file del checkpoint.
  
 Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato e ripristinare il blocco appunti a un checkpoint salvato.
 
@@ -180,7 +180,7 @@ Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato
 Per eseguire un esperimento da un notebook, connettersi prima a un'[istanza di calcolo](concept-compute-instance.md) in esecuzione. Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una: 
 
 1. Selezionare **+** nella barra degli strumenti del notebook. 
-2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale**. 
+2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale** . 
 3. Selezionare **Create** (Crea).
 4. L'istanza di calcolo viene connessa automaticamente al notebook ed è ora possibile eseguire le celle.
 
@@ -218,7 +218,7 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
 1. Selezionare [**Open terminal**](#terminal) (Apri terminale) nella barra degli strumenti del notebook.
 1. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
 
@@ -228,13 +228,13 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
 1. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
 > [!NOTE]
-> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione** , anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 

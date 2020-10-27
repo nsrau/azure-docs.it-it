@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220748"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633502"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Come creare una condivisione NFS
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Ora che è stato creato un account filestorage e configurato la rete, è possibile creare una condivisione file NFS. Il processo è simile alla creazione di una condivisione SMB. quando si crea la condivisione, è necessario selezionare **NFS** anziché **SMB** .
 
-1. Passare all'account di archiviazione e selezionare **Condivisioni file**.
+1. Passare all'account di archiviazione e selezionare **Condivisioni file** .
 1. Selezionare **+ condivisione file** per creare una nuova condivisione file.
 1. Assegnare un nome alla condivisione file e selezionare una capacità con provisioning.
-1. Per **protocollo** selezionare **NFS (anteprima)**.
+1. Per **protocollo** selezionare **NFS (anteprima)** .
 1. Per lo **squash radice** effettuare una selezione.
 
     - Squash radice (impostazione predefinita)-l'accesso per l'utente remoto (radice) viene mappato a UID (65534) e GID (65534).
     - Nessuno squash radice-utente remoto (radice) riceve l'accesso come radice.
     - Tutti gli accessi squash-all utente sono mappati a UID (65534) e GID (65534).
     
-1. Selezionare **Crea**.
+1. Selezionare **Crea** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot del pannello di creazione della condivisione file":::
 
@@ -120,7 +120,7 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
 
 1. Chiudere e riaprire la console di PowerShell.
 
-1. Installare il modulo **AZ. storage** Preview versione **2.5.2-Preview**.
+1. Installare il modulo **AZ. storage** Preview versione **2.5.2-Preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Per creare una condivisione file Premium con l'interfaccia della riga di comando
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

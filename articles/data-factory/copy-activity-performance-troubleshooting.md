@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 89f7a4a23f4d1b62fe5a76fbd4625bae8bb3018f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951087"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634761"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
@@ -37,11 +37,11 @@ Come riferimento, attualmente i suggerimenti per l'ottimizzazione delle prestazi
 
 | Category              | Suggerimenti per l'ottimizzazione delle prestazioni                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Specifico dell'archivio dati   | Caricamento dei dati in **Azure Synpase Analytics (noto in precedenza come SQL DW)**: è consigliabile usare l'istruzione di base o di copia se non viene usata. |
-| &nbsp;                | Copia dei dati da/in un **database SQL di Azure**: quando DTU è in un utilizzo elevato, Suggerisci l'aggiornamento a un livello superiore. |
-| &nbsp;                | Copia dei dati da/in **Azure Cosmos DB**: quando ur è sottoposto a un utilizzo elevato, suggerire l'aggiornamento a ur più grandi. |
-|                       | Copia dei dati dalla tabella SAP: quando si **copiano**grandi quantità di dati, suggerire di sfruttare l'opzione di partizione del connettore SAP per abilitare il carico parallelo e aumentare il numero massimo di partizioni. |
-| &nbsp;                | Inserimento di dati da **Amazon spostamento**: suggerire l'uso di Unload se non viene usato. |
+| Specifico dell'archivio dati   | Caricamento dei dati in **Azure Synpase Analytics (noto in precedenza come SQL DW)** : è consigliabile usare l'istruzione di base o di copia se non viene usata. |
+| &nbsp;                | Copia dei dati da/in un **database SQL di Azure** : quando DTU è in un utilizzo elevato, Suggerisci l'aggiornamento a un livello superiore. |
+| &nbsp;                | Copia dei dati da/in **Azure Cosmos DB** : quando ur è sottoposto a un utilizzo elevato, suggerire l'aggiornamento a ur più grandi. |
+|                       | Copia dei dati dalla tabella SAP: quando si **copiano** grandi quantità di dati, suggerire di sfruttare l'opzione di partizione del connettore SAP per abilitare il carico parallelo e aumentare il numero massimo di partizioni. |
+| &nbsp;                | Inserimento di dati da **Amazon spostamento** : suggerire l'uso di Unload se non viene usato. |
 | Limitazione dell'archivio dati | Se durante la copia un numero di operazioni di lettura/scrittura viene limitato dall'archivio dati, è consigliabile controllare e aumentare la frequenza di richieste consentite per l'archivio dati o ridurre il carico di lavoro simultaneo. |
 | Runtime di integrazione  | Se si usa un **Integration Runtime self-hosted (IR)** e l'attività di copia resta in attesa lungo nella coda fino a quando il runtime di integrazione non dispone di risorse per l'esecuzione, suggerire la scalabilità orizzontale o verticale del runtime di integrazione. |
 | &nbsp;                | Se si usa un **Azure Integration Runtime** che si trova in un'area non ottimale che produce una lettura/scrittura lenta, suggerire la configurazione per usare un runtime di integrazione in un'altra area. |
@@ -67,14 +67,14 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 
 - **"Script di pre-copia" ha avuto una durata prolungata:** significa che lo script di pre-copia in esecuzione nel database sink richiede molto tempo. Ottimizzare la logica dello script di pre-copia specificata per migliorare le prestazioni. Per ulteriori informazioni sul miglioramento dello script, contattare il team del database.
 
-- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata**: significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
+- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata** : significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
 
-- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
+- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro** : significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
   - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per il percorso o il nome di file ( `wildcardFolderPath` o `wildcardFileName` ) oppure si usa il **filtro dell'ora dell'Ultima modifica del file** ( `modifiedDatetimeStart` o `modifiedDatetimeEnd` ), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
 
     - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
-    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3/BLOB di Azure/archiviazione file di Azure e "**listAfter/listBefore**" per ADLS Gen1. Questi filtri sono un filtro sul lato server dell'archivio dati e offrono prestazioni molto migliori.
+    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare " **prefisso** " per Amazon S3/BLOB di Azure/archiviazione file di Azure e " **listAfter/listBefore** " per ADLS Gen1. Questi filtri sono un filtro sul lato server dell'archivio dati e offrono prestazioni molto migliori.
 
     - Si consiglia di suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e di consentire l'esecuzione simultanea di ogni processo di copia per ogni parte dei dati. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md) o [migrare i dati da Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) modelli di soluzione come esempio generale.
 
@@ -82,7 +82,7 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 
   - Usare Azure IR nello stesso o vicino all'area dell'archivio dati di origine.
 
-- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata**: 
+- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata** : 
 
   - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati da [Amazon](connector-amazon-redshift.md), configurare per l'uso dello scaricamento di spostamento verso il posto.
 
@@ -96,7 +96,7 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 
   - Usare Azure IR nello stesso o vicino all'area dell'archivio dati di origine.
 
-- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata**:
+- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata** :
 
   - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati in [Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare l'istruzione di base o di copia. 
 
@@ -118,9 +118,9 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
 
 - **"Coda" lunga durata:** indica che l'attività di copia resta in attesa lungo nella coda fino a quando il runtime di integrazione self-hosted non dispone di risorse da eseguire. Controllare la capacità e l'utilizzo di IR e [aumentare o](create-self-hosted-integration-runtime.md#high-availability-and-scalability) ridurre le prestazioni in base al carico di lavoro.
 
-- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata**: significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
+- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata** : significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
 
-- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
+- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro** : significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
 
   - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted all'area di Azure, minore sarà il livello di prestazioni migliore.
 
@@ -128,13 +128,13 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
 
     - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
-    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3/BLOB di Azure/archiviazione file di Azure e "**listAfter/listBefore**" per ADLS Gen1. Questi filtri sono un filtro sul lato server dell'archivio dati e offrono prestazioni molto migliori.
+    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare " **prefisso** " per Amazon S3/BLOB di Azure/archiviazione file di Azure e " **listAfter/listBefore** " per ADLS Gen1. Questi filtri sono un filtro sul lato server dell'archivio dati e offrono prestazioni molto migliori.
 
     - Si consiglia di suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e di consentire l'esecuzione simultanea di ogni processo di copia per ogni parte dei dati. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md) o [migrare i dati da Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) modelli di soluzione come esempio generale.
 
   - Controllare se ADF segnala eventuali errori di limitazione nell'origine o se l'archivio dati è in stato di utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata**: 
+- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata** : 
 
   - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted alle aree di Azure, minore sarà il migliore.
 
@@ -158,7 +158,7 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
 
     - In caso contrario, è consigliabile suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire l'esecuzione simultanea di ogni processo di copia. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md), [migrare i dati da Amazon S3 a ADLS Gen2 o eseguire](solution-template-migration-s3-azure.md) [una copia bulk con](solution-template-bulk-copy-with-control-table.md) i modelli di soluzione della tabella di controllo come esempio generale.
 
-- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata**:
+- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata** :
 
   - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati in [Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare l'istruzione di base o di copia. 
 
@@ -178,11 +178,11 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 
 * Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../storage/blobs/storage-performance-checklist.md).
 * Archiviazione tabelle di Azure: [obiettivi di scalabilità e prestazioni per](../storage/tables/scalability-targets.md) l'archiviazione tabelle e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../storage/tables/storage-performance-checklist.md).
-* Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
+* Database SQL di Azure: è possibile [monitorare le prestazioni](../azure-sql/database/monitor-tune-overview.md) e controllare la percentuale di unità di transazione di database (DTU).
 * Azure sinapsi Analytics (in precedenza SQL Data Warehouse): la relativa funzionalità viene misurata in unità di data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure sinapsi Analytics (panoramica)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server: [monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
-* File server locale: [ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server: [monitorare e ottimizzare le prestazioni](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* File server locale: [ottimizzazione delle prestazioni per i file server](/previous-versions//dn567661(v=vs.85)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli relativi all'attività di copia:

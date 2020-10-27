@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876499"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518960"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>Eseguire la migrazione di un'app Web da Google Maps
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Esercitazione: Eseguire la migrazione di un'app Web da Google Maps
 
-La maggior parte delle app Web che usa Google Maps usa Google Maps V3 JavaScript SDK. Azure Maps Web SDK è l'SDK basato su Azure idoneo per la migrazione. Azure Maps Web SDK consente di personalizzare le mappe interattive con contenuto e immagini personali per eseguire l'app sia nelle applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con questo SDK usando JavaScript o TypeScript.
+La maggior parte delle app Web che usa Google Maps usa Google Maps V3 JavaScript SDK. Azure Maps Web SDK è l'SDK basato su Azure idoneo per la migrazione. Azure Maps Web SDK consente di personalizzare le mappe interattive con contenuto e immagini personali per eseguire l'app sia nelle applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con questo SDK usando JavaScript o TypeScript. In questa esercitazione verranno illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Caricare una mappa
+> * Localizzare una mappa
+> * Aggiungere marcatori, polilinee e poligoni.
+> * Visualizzare informazioni in un popup o in una finestra informativa
+> * Caricare e visualizzare dati KML e GeoJSON
+> * Marcatori del cluster
+> * Sovrapporre un livello tessera
+> * Visualizzare i dati sul traffico
+> * Aggiungere un overlay sul terreno
+
+Verrà inoltre descritto: 
+
+> [!div class="checklist"]
+> * Come eseguire attività comuni di creazione mappe tramite Azure Maps Web SDK
+> * Procedure consigliate per migliorare le prestazioni e l'esperienza utente
+> * Suggerimenti su come usare le funzionalità più avanzate disponibili in Mappe di Azure nell'applicazione
 
 Se si esegue la migrazione di un'applicazione Web esistente, verificare se usa una libreria di controllo mappa open source. Alcuni esempi di libreria open source per il controllo mappa sono: Cesium, Leaflet e OpenLayers. Se l'applicazione usa una libreria open source per il controllo mappa e non si vuole usare Azure Maps Web SDK, è comunque possibile eseguire la migrazione. In questo caso, connettere l'applicazione ai servizi tessere di Mappe di Azure ([tessere stradali](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [tessere satellitari](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). I punti seguenti illustrano in dettaglio come usare Mappe di Azure in alcune librerie di controllo mappa open source comunemente usate.
 
@@ -33,6 +51,11 @@ Se si sviluppa con un framework JavaScript, può risultare utile uno dei progett
 - [Componente React di Mappe di Azure](https://github.com/WiredSolutions/react-azure-maps): wrapper React per il controllo di Mappe di Azure.
 - [Mappe di Azure per Vue](https://github.com/rickyruiz/vue-azure-maps): componente di Mappe di Azure per l'applicazione Vue.
 
+## <a name="prerequisites"></a>Prerequisiti 
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="key-features-support"></a>Supporto delle funzionalità principali
 
@@ -72,7 +95,6 @@ Di seguito sono riportate alcune delle principali differenze tra i Web SDK di Go
 
 Questa raccolta include esempi di codice per ogni piattaforma, ognuno dei quali tratta un caso d'uso comune. È concepita per semplificare la migrazione dell'applicazione Web da Google Maps V3 JavaScript SDK ad Azure Maps Web SDK. Gli esempi di codice relativi alle applicazioni Web sono forniti in JavaScript. Tuttavia, Mappe di Azure fornisce anche le definizioni TypeScript come opzione aggiuntiva tramite un [modulo NPM](how-to-use-map-control.md).
 
-
 **Argomenti**
 
 - [Caricare una mappa](#load-a-map)
@@ -90,7 +112,6 @@ Questa raccolta include esempi di codice per ogni piattaforma, ognuno dei quali 
 - [Visualizzare i dati sul traffico](#show-traffic-data)
 - [Aggiungere un overlay sul terreno](#add-a-ground-overlay)
 - [Aggiungere dati KML alla mappa](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>Caricare una mappa
 
@@ -311,9 +332,9 @@ map.setStyle({
 
 In Mappe di Azure esistono diversi modi in cui è possibile eseguire il rendering dei dati punto sulla mappa:
 
-- **Indicatori HTML**: il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
-- **Livello simbolo**: il rendering dei punti viene eseguito con un'icona o un testo all'interno del contesto WebGL.
-- **Livello bolla**: il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
+- **Indicatori HTML** : il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
+- **Livello simbolo** : il rendering dei punti viene eseguito con un'icona o un testo all'interno del contesto WebGL.
+- **Livello bolla** : il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
 
 Eseguire il rendering dei livelli simbolo e bolla all'interno del contesto WebGL. Entrambi i livelli possono eseguire il rendering di grandi set di punti sulla mappa e richiedono che i dati siano archiviati in un'origine dati. È necessario aggiungere le origini dati e i livelli di rendering alla mappa dopo che è stato attivato l'evento `ready`. Per gli indicatori HTML il rendering viene eseguito come elementi DOM all'interno della pagina e non è previsto l'uso di un'origine dati. Maggiore è il numero di elementi DOM della pagina, più lenta sarà la pagina. Se si esegue il rendering di più di qualche centinaio di punti su una mappa, è consigliabile usare uno dei livelli di rendering.
 
@@ -1720,9 +1741,18 @@ Le librerie aggiungono funzionalità supplementari alla mappa. Molte di esse son
 | Libreria delle geometrie      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Libreria delle visualizzazioni | [Livello mappa termica](map-add-heat-map-layer.md) |
 
-Per altre informazioni sulla migrazione di Google Maps, vedere:
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Come usare il modulo dei servizi](how-to-use-services-module.md) 
-* [Come usare il modulo degli strumenti di disegno](set-drawing-options.md)
-* [Come usare il modulo dei servizi](how-to-use-services-module.md)
-* [Come usare il controllo mappa](how-to-use-map-control.md)
+Altre informazioni su Azure Maps Web SDK:
+
+> [!div class="nextstepaction"]
+> [Come usare il controllo mappa](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Come usare il modulo Strumenti di disegno](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [Come usare il modulo dei servizi](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [Come usare il modulo di I/O spaziale](how-to-use-spatial-io-module.md)

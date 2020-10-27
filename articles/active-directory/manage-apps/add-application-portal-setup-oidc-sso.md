@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0f3073214fb47de006c6d9ebb07f443f3e63a4f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348182"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203501"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -52,7 +52,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
    > [!IMPORTANT]
     > Se si ha già una sottoscrizione dell'applicazione, verrà eseguita la convalida dei dettagli dell'utente e delle informazioni relative a tenant/directory. Se l'applicazione non è in grado di verificare l'utente, quest'ultimo verrà reindirizzato alla pagina di iscrizione al servizio dell'applicazione o alla pagina di errore.
 
-3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta**. 
+3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta** . 
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot che mostra l'opzione Single Sign-On e il pulsante per l'iscrizione." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -65,7 +65,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
+Al termine di questa serie di guide di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

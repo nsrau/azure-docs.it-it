@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546042"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628695"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
@@ -218,7 +218,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>Pulizia e trasformazione dei dati
 
-Successivamente viene eseguita una pulizia dei dati relativi alle compagnie aeree importati per rinominare le colonne. Verranno tenute le sole variabili necessarie e gli orari di partenza pianificati saranno arrotondati all'ora più vicina per consentire l'unione con i dati meteo più recenti alla partenza:
+Successivamente viene eseguita una pulizia sui dati della compagnia aerea importati per rinominare le colonne. Verranno tenute le sole variabili necessarie e gli orari di partenza pianificati saranno arrotondati all'ora più vicina per consentire l'unione con i dati meteo più recenti alla partenza:
 
 ```
 logmsg('clean the airline data') 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Eseguire il training e il test di un modello di regressione logistica
 
-A questo punto è possibile compilare un modello. Per visualizzare l'influenza dei dati meteo sui ritardi dell'ora di arrivo verrà usata la routine di regressione logistica di ScaleR. Questa viene usata per la modellazione se un ritardo di arrivo maggiore di 15 minuti è influenzato dal meteo negli aeroporti di partenza e arrivo:
+A questo punto è possibile compilare un modello. Per visualizzare l'influenza dei dati meteorologici sul ritardo nell'orario di arrivo, viene usata la routine di regressione logistica di scaler. Questa viene usata per la modellazione se un ritardo di arrivo maggiore di 15 minuti è influenzato dal meteo negli aeroporti di partenza e arrivo:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -479,7 +479,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Esaminare come procede sui dati di test eseguendo alcune previsioni e analizzando le curve ROC e AUC.
+Vediamo ora come funziona sui dati di test effettuando alcune stime e osservando ROC e AUC.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Assegnazione di punteggi in un'altra posizione
 
-È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma salvandolo come file di Servizi desktop remoto e trasferendo e importando questo file di Servizi Desktop remoto nell'ambiente per l'assegnazione di punteggi di destinazione, ad esempio R Services per Microsoft SQL Server. È importante assicurarsi che i livelli di fattore dei dati a cui assegnare un punteggio corrispondano a quelli in cui è stato compilato il modello. Questa corrispondenza può essere ottenuta tramite l'estrazione e il salvataggio delle informazioni sulla colonna associate ai dati di modellazione tramite la funzione `rxCreateColInfo()` di ScaleR, quindi applicando queste informazioni sulla colonna all'origine dati di input per la previsione. Di seguito sono state salvate alcune righe del set di dati di test e le informazioni sulla colonna verranno estratte e usate da questo esempio nello script di previsione:
+È possibile anche usare il modello per l'assegnazione di punteggi ai dati in un'altra piattaforma Salvando il file in un file RDS e quindi trasferendo e importando tale Servizi Desktop remoto in un ambiente di assegnazione dei punteggi di destinazione come Microsoft SQL Server R Services. È importante assicurarsi che i livelli di fattore dei dati a cui assegnare un punteggio corrispondano a quelli in cui è stato compilato il modello. Questa corrispondenza può essere eseguita estraendo e salvando le informazioni sulle colonne associate ai dati di modellazione tramite la funzione scaler `rxCreateColInfo()` e quindi applicando le informazioni della colonna all'origine dati di input per la stima. Nell'esempio di codice seguente vengono salvate alcune righe del set di dati di test e vengono estratte e utilizzate le informazioni sulle colonne di questo esempio nello script di stima:
 
 ```
 # save the model and a sample of the test dataset 

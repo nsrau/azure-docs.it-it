@@ -3,17 +3,17 @@ title: Istanze riservate di VM per Azure EA
 description: Questo articolo descrive come risparmiare sui costi della registrazione Enterprise con le prenotazioni di Azure di istanze riservate di VM.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132534"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -22,6 +22,12 @@ Questo articolo descrive come risparmiare sui costi della registrazione Enterpri
 ## <a name="reservation-exchanges-and-refunds"></a>Cambi e rimborsi per le prenotazioni
 
 È possibile scambiare una prenotazione per un'altra dello stesso tipo. È anche possibile rimborsare una prenotazione, fino a 50.000 USD all'anno, se questa non è più necessaria. Per cambiare una prenotazione o richiedere un rimborso, è possibile usare il portale di Azure. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../reservations/exchange-and-refund-azure-reservations.md).
+
+### <a name="partial-refunds"></a>Rimborsi parziali
+
+Viene emesso un rimborso parziale quando i clienti con contratto Enterprise restituiscono le prenotazioni acquistate tramite eccedenza e non con un impegno monetario.
+
+Il rimborso verrà visualizzato in EA Portal come rettifica negativa nel mese precedente e come rettifica positiva in quello corrente. Verrà mostrato in modo analogo allo scambio di prenotazioni. La nota di credito farà riferimento al numero di fattura originale; pertanto, per riconciliare l'acquisto iniziale con la nota di credito, fare riferimento al numero di fattura originale.
 
 ## <a name="reservation-costs-and-usage"></a>Costi e utilizzo delle prenotazioni
 
@@ -59,11 +65,11 @@ Le istanze riservate possono ridurre i costi delle macchine virtuali fino al 72%
 
 Per acquistare un'istanza di macchina virtuale riservata di Azure, un amministratore delle registrazioni Enterprise di Azure deve abilitare l'opzione di acquisto _Reserve Instance_ (Prenota istanza). L'opzione è disponibile nella sezione _Dettagli registrazione_ nella scheda _Registrazione_ di [Azure EA Portal](https://ea.azure.com/).
 
-Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, qualsiasi proprietario di account con una sottoscrizione attiva associata alla registrazione EA può acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate](https://go.microsoft.com/fwlink/?linkid=861721).
+Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, qualsiasi proprietario di account con una sottoscrizione attiva associata alla registrazione EA può acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Come visualizzare i dettagli di acquisto di un'istanza riservata
 
-È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_. Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione `1 year` o `3 years` accanto al nome del servizio, ad esempio: `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
+È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_ . Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione `1 year` o `3 years` accanto al nome del servizio, ad esempio: `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Come è possibile modificare la sottoscrizione associata a un'istanza riservata o trasferire i vantaggi di un'istanza riservata a una sottoscrizione con lo stesso account?
 

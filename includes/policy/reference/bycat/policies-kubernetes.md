@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 31d6c091e07d2f35d8856dce3adab04997b012b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e83e5fdd0d8797377407e27614e98c348b008164
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91820764"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312025"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes deve essere installato e abilitato nei cluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |Il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes estende Gatekeeper v3, un webhook del controller di ammissione per Open Policy Agent (OPA), per applicare le tutele e misure di sicurezza su larga scala per i cluster in modo centralizzato e coerente. |Audit, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[Distribuire il componente aggiuntivo Criteri di Azure nei cluster del servizio Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Usare il componente aggiuntivo Criteri di Azure per gestire e segnalare lo stato di conformità dei cluster del servizio Azure Kubernetes. Per altre informazioni, vedere [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Distribuisci GitOps nel cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Questo criterio distribuisce una configurazione 'sourceControlConfiguration' nei cluster Kubernetes per garantire che i cluster ottengano la fonte di attendibilità dal repository GIT definito. Per istruzioni sull'uso di questo criterio, vedere [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy). |DeployIfNotExists |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |
 |[Non consentire contenitori con privilegi nel cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Questo criterio non consente la creazione di contenitori con privilegi in un cluster Kubernetes. Questo criterio è disponibile a livello generale per il servizio Azure Kubernetes e in anteprima per il motore del servizio Azure Kubernetes e per Kubernetes con abilitazione di Azure Arc. Per istruzioni sull'uso di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Imponi traffico HTTPS in ingresso nel cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Questo criterio impone il traffico HTTPS in ingresso in un cluster Kubernetes. Questo criterio è disponibile a livello generale per il servizio Azure Kubernetes e in anteprima per il motore del servizio Azure Kubernetes e per Kubernetes con abilitazione di Azure Arc. Per istruzioni sull'uso di questo criterio, vedere [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |Audit, Deny, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |

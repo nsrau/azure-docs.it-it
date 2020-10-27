@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319045"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108763"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Questo argomento di avvio rapido illustra come creare un account dell'API SQL di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se si esegue lo sviluppo in Windows e Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di applicazioni per dispositivi mobili con .NET**.
+Se si esegue lo sviluppo in Windows e Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di applicazioni per dispositivi mobili con .NET** .
 
 Se si usa un computer Mac, è possibile scaricare la versione **gratuita** di [Visual Studio per Mac](https://www.visualstudio.com/vs/mac/).
 
@@ -68,7 +68,7 @@ Se si usa un computer Mac, è possibile scaricare la versione **gratuita** di [V
 1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
@@ -83,25 +83,31 @@ Se si usa un computer Mac, è possibile scaricare la versione **gratuita** di [V
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-4. Aprire quindi il file ToDoItems.sln dalla cartella samples/xamarin/ToDoItems in Visual Studio.
+4. In Visual Studio aprire **C:\git-samples\azure-cosmos-db-sql-xamarin-getting-started\src\ToDoItems.sln** 
 
 ## <a name="obtain-your-api-keys"></a>Ottenere le chiavi API
 
 Tornare al portale di Azure per recuperare le informazioni sulla chiave API e copiarla nell'app.
 
-1. Nel [portale di Azure](https://portal.azure.com/) selezionare l'account dell'API SQL di Azure Cosmos DB e nel riquadro di spostamento a sinistra fare clic su **Chiavi** e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file APIKeys.cs nel passaggio seguente.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare l'account dell'API SQL di Azure Cosmos DB e nel riquadro di spostamento a sinistra fare clic su **Chiavi** e quindi su **Chiavi di lettura/scrittura** . Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file APIKeys.cs nel passaggio seguente.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
-2. In Visual Studio 2019 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
+2. In Visual Studio aprire **ToDoItems.Core/Helpers/APIKeys.cs** .
 
-3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
+3. Nel portale di Azure copiare il valore di **URI** usando il pulsante di copia e impostarlo come valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "";`
+    ```csharp
+    //#error Enter the URL of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    ```
 
-4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `Cosmos Auth Key` in APIKeys.cs.
+4. Nel portale di Azure copiare il valore di **CHIAVE PRIMARIA** usando il pulsante di copia e impostarlo come valore della variabile `Cosmos Auth Key` in APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "";`
+    ```csharp
+    //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
@@ -113,15 +119,18 @@ Questa soluzione illustra come creare un'app usando l'API SQL di Azure Cosmos DB
 
 Il codice nella soluzione ToDoItems contiene:
 
-* ToDoItems.Core: si tratta di un progetto .NET Standard che include un progetto Xamarin.Forms e codice condiviso di logica dell'applicazione che gestisce gli elementi ToDo in Azure Cosmos DB.
-* ToDoItems.Android: questo progetto contiene l'app Android.
-* ToDoItems.iOS: questo progetto contiene l'app iOS.
+* **ToDoItems.Core**
+   * si tratta di un progetto .NET Standard che include un progetto Xamarin.Forms e codice condiviso di logica dell'applicazione che gestisce gli elementi ToDo in Azure Cosmos DB.
+* **ToDoItems.Android**
+  * questo progetto contiene l'app Android.
+* **ToDoItems.iOS**
+  * questo progetto contiene l'app iOS.
 
 È ora possibile esaminare rapidamente il modo in cui l'app comunica con Azure Cosmos DB.
 
 * Il pacchetto NuGet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) deve essere aggiunto a tutti i progetti.
-* La classe `ToDoItem` nella cartella azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models modella i documenti del contenitore **Items** creato in precedenza. Si noti che i nomi delle proprietà rispettano la distinzione tra maiuscole/minuscole.
-* La classe `CosmosDBService` nella cartella azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services incapsula le comunicazioni in Azure Cosmos DB.
+* La classe `ToDoItem` nella cartella **ToDoItems.Core/Models** modella i documenti nel contenitore **Items** creato in precedenza. Si noti che i nomi delle proprietà rispettano la distinzione tra maiuscole/minuscole.
+* La classe `CosmosDBService` nella cartella **ToDoItems.Core/Services** incapsula le comunicazioni in Azure Cosmos DB.
 * Entro la classe `CosmosDBService` è disponibile una variabile di tipo `DocumentClient`. Il valore `DocumentClient` viene usato per configurare ed eseguire le richieste nell'account Azure Cosmos DB e ne viene creata un'istanza:
 
     ```csharp
@@ -182,7 +191,7 @@ La procedura seguente illustrerà come eseguire l'app tramite il debugger di Vis
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
-4. Per completare un elemento ToDo in iOS, scorrere verso sinistra > toccare il pulsante **Completa**. Per completare un elemento ToDo in Android, tenere premuto a lungo l'elemento > quindi toccare il pulsante Completa.
+4. Per completare un elemento ToDo in iOS, scorrere verso sinistra > toccare il pulsante **Completa** . Per completare un elemento ToDo in Android, tenere premuto a lungo l'elemento > quindi toccare il pulsante Completa.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076930"
+ms.locfileid: "92092699"
 ---
 # <a name="edit-an-api"></a>Modificare un'API
 
@@ -35,29 +35,29 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 
 ## <a name="edit-an-api-in-apim"></a>Modificare un'API in Gestione API
 
-![Modificare un'API](./media/edit-api/edit-api001.png)
+![Screenshot che evidenzia il processo di modifica di un'API in Gestione API.](./media/edit-api/edit-api001.png)
 
-1. Fare clic sulla scheda **API**.
+1. Fare clic sulla scheda **API** .
 2. Selezionare una delle API importate in precedenza.
-3. Selezionare la scheda **Progettazione**.
+3. Selezionare la scheda **Progettazione** .
 4. Selezionare un'operazione che si vuole modificare.
-5. Per rinominare l'operazione, selezionare la **matita** nella finestra **Front-end**.
+5. Per rinominare l'operazione, selezionare la **matita** nella finestra **Front-end** .
 
 ## <a name="update-the-swagger"></a>Aggiornare lo swagger
 
 È possibile aggiornare l'API back-end dal portale di Azure seguendo questa procedura:
 
-1. Selezionare **Tutte le operazioni**.
-2. Fare clic sulla matita nella finestra **Front-end**.
+1. Selezionare **Tutte le operazioni** .
+2. Fare clic sulla matita nella finestra **Front-end** .
 
-    ![Modificare un'API](./media/edit-api/edit-api002.png)
+    ![Screenshot che evidenzia l'icona della matita nella finestra Front-end.](./media/edit-api/edit-api002.png)
 
     Verrà visualizzato lo swagger dell'API.
 
     ![Modificare un'API](./media/edit-api/edit-api003.png)
 
 3. Aggiornare lo swagger.
-4. Premere **Salva**.
+4. Premere **Salva** .
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604411"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629460"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -63,6 +63,8 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | **mcr.microsoft.com** | Microsoft Container Registry per le immagini Docker di base |
 | **your-acr-server-name.azurecr.io** | È necessario solo se il Container Registry di Azure è dietro la rete virtuale. In questa configurazione, viene creato un collegamento privato dall'ambiente Microsoft all'istanza di ACR nella sottoscrizione. Usare il nome del server ACR per l'area di lavoro Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Necessaria per i notebook in Azure Machine Learning Studio. |
+| **\*. file.core.windows.net** | Richiesto da Esplora file in Azure Machine Learning Studio. |
+| **\*. dfs.core.windows.net** | Richiesto da Esplora file in Azure Machine Learning Studio. |
 | **graph.windows.net** | Necessaria per i notebook |
 
 > [!TIP]
@@ -76,7 +78,7 @@ Gli host in questa sezione vengono usati per installare i pacchetti Python. Sono
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | Utilizzato per installare i pacchetti predefiniti. |
 | **\*. anaconda.org** | Usato per ottenere i dati del repository. |
-| **pypi.org** | Utilizzato per elencare le dipendenze dall'indice predefinito, se presente, e l'indice non viene sovrascritto dalle impostazioni utente. Se l'indice viene sovrascritto, è necessario consentire anche ** \* . pythonhosted.org**. |
+| **pypi.org** | Utilizzato per elencare le dipendenze dall'indice predefinito, se presente, e l'indice non viene sovrascritto dalle impostazioni utente. Se l'indice viene sovrascritto, è necessario consentire anche **\* . pythonhosted.org** . |
 
 ## <a name="r-hosts"></a>Host R
 

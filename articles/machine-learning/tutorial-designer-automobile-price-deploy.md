@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896629"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311510"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
 
@@ -61,15 +61,15 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
 1. Selezionare **Submit** (Invia) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
 
-    La prima volta, l'esecuzione della pipeline potrebbe richiedere fino a 20 minuti. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
+    La prima volta, l'esecuzione della pipeline potrebbe impiegare fino a 20 minuti. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
 
-1. Selezionare **Distribuisci**.
+1. Selezionare **Distribuisci** .
 
 ## <a name="create-an-inferencing-cluster"></a>Creare un cluster di inferenza
 
 Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster del servizio Azure Kubernetes esistenti in cui distribuire il modello. Se non si ha un cluster del servizio Azure Kubernetes, seguire questa procedura per crearne uno.
 
-1. Selezionare **Compute** (Calcolo) nella finestra di dialogo visualizzata per passare alla pagina **Compute**.
+1. Selezionare **Compute** (Calcolo) nella finestra di dialogo visualizzata per passare alla pagina **Compute** .
 
 1. Sulla barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
 
@@ -81,7 +81,7 @@ Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster 
     
 1. Selezionare un'area vicina disponibile per **Region** (Area).
 
-1. Selezionare **Crea**.
+1. Selezionare **Crea** .
 
     > [!NOTE]
     > La creazione di un nuovo servizio Azure Kubernetes richiede circa 15 minuti. È possibile controllare lo stato del provisioning nella pagina **Inference Clusters** (Cluster di inferenza)
@@ -97,27 +97,23 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
 1. Selezionare il cluster del servizio Azure Kubernetes creato.
 
-1. Selezionare **Distribuisci**.
+1. Selezionare **Distribuisci** .
     
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot che mostra dove trovare il pulsante per creare la pipeline":::
 
     Al termine della distribuzione verrà visualizzata una notifica di esito positivo sopra il canvas. L'operazione potrebbe richiedere qualche minuto.
 
-## <a name="test-the-real-time-endpoint"></a>Testare l'endpoint in tempo reale
+## <a name="view-the-real-time-endpoint"></a>Visualizzare l'endpoint in tempo reale
 
-Una volta completata la distribuzione, è possibile testare l'endpoint in tempo reale passando alla pagina **Endpoints**.
+Una volta completata la distribuzione, è possibile visualizzare l'endpoint in tempo reale passando alla pagina **Endpoints** .
 
 1. Nella pagina **Endpoints** selezionare l'endpoint appena distribuito.
 
-    ![Screenshot che mostra la scheda degli endpoint in tempo reale con l'endpoint appena creato evidenziato](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. Nella scheda **Details** (Dettagli) sono disponibili altre informazioni, come l'URI REST, lo stato e i tag.
 
-1. Selezionare **Test**.
+1. Nella scheda **Consume** (Utilizza) è possibile trovare le chiavi di sicurezza e impostare i metodi di autenticazione.
 
-1. È possibile immettere manualmente i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test**.
-
-    Il portale invia una richiesta di test all'endpoint e mostra i risultati. Anche se generato, il valore del prezzo per i dati di input non viene usato per generare il valore della stima.
-
-    ![Screenshot che mostra come testare l'endpoint in tempo reale con l'etichetta con punteggio del prezzo evidenziata](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+Per altre informazioni sull'utilizzo del servizio Web, vedere [Usare un modello di Azure Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

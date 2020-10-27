@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371814"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166217"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
 
@@ -51,15 +51,15 @@ Dopo che un amministratore account ha assegnato i ruoli appropriati ad altri ute
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Eseguire ricerche in **Gestione dei costi e fatturazione** .
 
-    ![Screenshot che mostra una ricerca nel portale di Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Screenshot con l'opzione Gestione dei costi e fatturazione evidenziata nella sezione Servizi.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selezionare **Sottoscrizioni** nel riquadro sinistro. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni**.
+1. Selezionare **Sottoscrizioni** nel riquadro sinistro. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni** .
 
     ![Screenshot che mostra la selezione di sottoscrizioni](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Selezionare **Fatture** e quindi **Accesso alla fattura**.
+1. Selezionare **Fatture** e quindi **Accesso alla fattura** .
 
     ![Lo screenshot mostra come delegare l'accesso alle fatture](./media/manage-billing-access/aa-optin01.png)
 
@@ -77,11 +77,11 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Eseguire ricerche in **Gestione dei costi e fatturazione** .
 
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Selezionare **Sottoscrizioni** nel riquadro sinistro. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni**.
+1. Selezionare **Sottoscrizioni** nel riquadro sinistro. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni** .
 
     ![Screenshot che mostra la selezione di sottoscrizioni](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -90,11 +90,11 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 
     ![Screenshot che mostra dove fare clic per aggiungere un'assegnazione di ruolo](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. Nell'elenco a discesa **Ruolo** scegliere **Lettore per la fatturazione**.
+1. Nell'elenco a discesa **Ruolo** scegliere **Lettore per la fatturazione** .
 1. Nella casella di testo **Seleziona** digitare il nome o l'indirizzo di posta elettronica dell'utente da aggiungere.
 1. Selezionare l'utente.
-1. Selezionare **Salva**.
-    ![Screenshot che mostra dove fare clic per aggiungere un'assegnazione di ruolo](./media/manage-billing-access/billing-save-role-assignment.png)
+1. Selezionare **Salva** .
+    ![Screenshot con il pulsante Salva evidenziato.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Dopo qualche istante, all'utente viene assegnato il ruolo Fatturazione per lettore per la sottoscrizione.
 

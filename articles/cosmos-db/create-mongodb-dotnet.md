@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 105578df0a37ba1d53df2be8ebed1d1f6d77499f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bffaca9db9a6ecefc9870a2e39ba86640d70b945
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89018791"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281719"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Web .NET usando l'API Azure Cosmos DB per MongoDB 
 
@@ -27,7 +27,7 @@ ms.locfileid: "89018791"
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare rapidamente database di documenti, chiave/valore e a grafo ed eseguire query su di essi sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Cosmos DB. 
+Azure Cosmos DB è il database NoSQL veloce di Microsoft con API aperte per qualsiasi scala. È possibile creare rapidamente database di documenti, chiave/valore e a grafo ed eseguire query su di essi sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Cosmos DB. 
 
 Questo argomento di avvio rapido illustra come creare un account Cosmos con l'[API Azure Cosmos DB per MongoDB](mongodb-introduction.md). Si creerà e si distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
@@ -53,7 +53,7 @@ Prima di tutto, scaricare l'app di esempio da GitHub.
 1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
@@ -131,25 +131,25 @@ Creare un'attività e inserirla nella raccolta
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Cosmos nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento sinistro e quindi fare clic su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare nome utente, password e host nel file Dal.cs nel passaggio seguente.
+1. Nell'account Cosmos nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento sinistro e quindi fare clic su **Chiavi di lettura/scrittura** . Usare i pulsanti di copia sul lato destro dello schermo per copiare nome utente, password e host nel file Dal.cs nel passaggio seguente.
 
-2. Aprire il file **Dal.cs** nella directory **DAL**. 
+2. Aprire il file **Dal.cs** nella directory **DAL** . 
 
-3. Copiare il valore di **nomeutente** dal portale (usando il pulsante di copia) e impostarlo come valore di **nomeutente** nel file **Dal.cs**. 
+3. Copiare il valore di **nomeutente** dal portale (usando il pulsante di copia) e impostarlo come valore di **nomeutente** nel file **Dal.cs** . 
 
-4. Copiare quindi il valore di **host** dal portale e impostarlo come valore di **host** nel file **Dal.cs**. 
+4. Copiare quindi il valore di **host** dal portale e impostarlo come valore di **host** nel file **Dal.cs** . 
 
-5. Infine, copiare il valore di **password** dal portale e impostarlo come valore di **password** nel file **Dal.cs**. 
+5. Infine, copiare il valore di **password** dal portale e impostarlo come valore di **password** nel file **Dal.cs** . 
 
 L'app è stata ora aggiornata con tutte le informazioni necessarie per comunicare con Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>Eseguire l'app Web
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet**. 
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet** . 
 
-2. Nella casella **Sfoglia** di NuGet digitare *MongoDB.Driver*.
+2. Nella casella **Sfoglia** di NuGet digitare *MongoDB.Driver* .
 
-3. Dai risultati installare la libreria **MongoDB.Driver**. Viene installato il pacchetto MongoDB.Driver, insieme a tutte le dipendenze.
+3. Dai risultati installare la libreria **MongoDB.Driver** . Viene installato il pacchetto MongoDB.Driver, insieme a tutte le dipendenze.
 
 4. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nel browser. 
 

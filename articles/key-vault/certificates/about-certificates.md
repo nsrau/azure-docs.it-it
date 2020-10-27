@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923688"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126774"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -57,14 +57,14 @@ Gli attributi di certificato si riflettono negli attributi della chiave e del se
 
 Un certificato Key Vault ha gli attributi seguenti:  
 
--   *abilitato*: il valore predefinito booleano facoltativo è **vero**. Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o sono eseguibili come chiave. Viene anche usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione nella finestra tra *nbf* ed *exp*. Ne sarà consentito l'uso solo se enabled è impostato su true. Le operazioni all'esterno della finestra di *nbf* ed *exp* non sono consentite automaticamente.  
+-   *abilitato* : il valore predefinito booleano facoltativo è **vero** . Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o sono eseguibili come chiave. Viene anche usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione nella finestra tra *nbf* ed *exp* . Ne sarà consentito l'uso solo se enabled è impostato su true. Le operazioni all'esterno della finestra di *nbf* ed *exp* non sono consentite automaticamente.  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta:
 
--   *created*: valore IntDate che indica quando è stata creata questa versione del certificato.  
--   *updated*: valore IntDate che indica quando è stata aggiornata questa versione del certificato.  
--   *exp*: valore IntDate che contiene il valore della data di scadenza del certificato x509.  
--   *nbf*: valore IntDate che contiene il valore della data del certificato x509.  
+-   *created* : valore IntDate che indica quando è stata creata questa versione del certificato.  
+-   *updated* : valore IntDate che indica quando è stata aggiornata questa versione del certificato.  
+-   *exp* : valore IntDate che contiene il valore della data di scadenza del certificato x509.  
+-   *nbf* : valore IntDate che contiene il valore della data del certificato x509.  
 
 > [!Note] 
 > Se un certificato in Key Vault scade, la chiave e il segreto indirizzabili sono inutilizzabili.  
@@ -141,42 +141,11 @@ Gli oggetti di autorità di certificazione vengono creati nell'insieme di creden
 
 ## <a name="certificate-contacts"></a>Contatti relativi al certificato
 
-I contatti relativi al certificato contengono le informazioni di contatto per inviare notifiche attivate da eventi di durata dei certificati. Le informazioni dei contatti vengono condivise da tutti i certificati nell'insieme di credenziali delle chiavi. Viene inviata una notifica a tutti i contatti specificati per un evento per qualsiasi certificato presente nell'insieme di credenziali delle chiavi.  
-
-Se i criteri del certificato sono impostati per il rinnovo automatico, viene inviata una notifica sugli eventi seguenti.  
-
-- Prima del rinnovo del certificato
-- Dopo il rinnovo del certificato, che indica se il certificato è stato rinnovato, o se si è verificato un errore, richiede il rinnovo manuale del certificato.  
-
-  Se i criteri del certificato sono impostati per il rinnovo manuale (solo posta elettronica), viene inviata una notifica al momento del rinnovo.  
+I contatti relativi al certificato contengono le informazioni di contatto per inviare notifiche attivate da eventi di durata dei certificati. Le informazioni dei contatti vengono condivise da tutti i certificati nell'insieme di credenziali delle chiavi. Viene inviata una notifica a tutti i contatti specificati per un evento per qualsiasi certificato presente nell'insieme di credenziali delle chiavi. Per informazioni su come impostare il contatto del certificato, vedere [qui](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>Controllo di accesso per i certificati
 
- Il controllo di accesso per i certificati è gestito da Key Vault e viene fornito dall'insieme di credenziali delle chiavi che contiene tali certificati. I criteri di controllo di accesso per i certificati sono distinti dai criteri di controllo di accesso per le chiavi e i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per i certificati e per mantenere una segmentazione e una gestione dei certificati appropriate in base allo scenario.  
-
- Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di controllo di accesso dei segreti in un insieme di credenziali delle chiavi e riflettono fedelmente le operazioni consentite su un oggetto segreto:  
-
-- Autorizzazioni per le operazioni di gestione dei certificati
-  - *get*: consente di ottenere la versione corrente del certificato o qualsiasi versione di un certificato 
-  - *list*: consente di elencare i certificati correnti o le versioni di un certificato  
-  - *update*: consente di aggiornare un certificato
-  - *create*: consente di creare un certificato di Key Vault
-  - *import*: consente di importare il materiale apposito in un certificato di Key Vault
-  - *delete*: consente di eliminare un certificato, nonché i relativi criteri e versioni  
-  - *recover*: consente di recuperare un certificato eliminato
-  - *backup*: consente di eseguire il backup di un certificato in un insieme di credenziali delle chiavi
-  - *restore*: consente di ripristinare un certificato sottoposto a backup in un insieme di credenziali delle chiavi
-  - *managecontacts*: consente di gestire i contatti del certificato in un Key Vault  
-  - *manageissuers*: consente di gestire autorità di certificazione di Key Vault
-  - *getissuers*: consente di ottenere le autorità emittenti del certificato
-  - *listissuers*: consente di elencare le autorità emittenti del certificato  
-  - *setissuers*: consente di creare o aggiornare le autorità di certificazione di un certificato di Key Vault  
-  - *deleteissuers*: consente di eliminare le autorità di certificazione del certificato di Key Vault  
- 
-- Autorizzazioni per le operazioni privilegiate
-  - *purge*: consente di eliminare definitivamente un certificato
-
-Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
+ Il controllo di accesso per i certificati è gestito da Key Vault e viene fornito dall'insieme di credenziali delle chiavi che contiene tali certificati. I criteri di controllo di accesso per i certificati sono distinti dai criteri di controllo di accesso per le chiavi e i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per i certificati e per mantenere una segmentazione e una gestione dei certificati appropriate in base allo scenario.  Per altre informazioni sul controllo di accesso dei certificati, vedere [qui](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259493"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628593"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
@@ -42,14 +42,14 @@ Questo articolo descrive come modificare i criteri personalizzati per abilitare 
 
 * Selezionare un [layout di pagina](contentdefinitions.md#select-a-page-layout) per gli elementi dell'interfaccia utente dell'applicazione.
 
-    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](contentdefinitions.md#migrating-to-page-layout) con `contract` la versione della pagina per *tutte* le definizioni di contenuto nel criterio personalizzato.
+    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](contentdefinitions.md#migrating-to-page-layout) con `contract` la versione della pagina per *tutte* le definizioni di contenuto nel criterio personalizzato. Informazioni su come eseguire la [migrazione al layout di pagina](contentdefinitions.md#migrating-to-page-layout) con la versione della pagina. 
 
 ## <a name="add-the-scriptexecution-element"></a>Aggiungere l'elemento ScriptExecution
 
 Per abilitare l'esecuzione di script, aggiungere l'elemento **ScriptExecution** all'elemento [RelyingParty](relyingparty.md).
 
-1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml*.
-2. Aggiungere l'elemento **ScriptExecution** all'elemento **UserJourneyBehaviors** di **RelyingParty**:
+1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml* .
+2. Aggiungere l'elemento **ScriptExecution** all'elemento **UserJourneyBehaviors** di **RelyingParty** :
 
     ```xml
     <RelyingParty>
@@ -68,7 +68,7 @@ Per abilitare l'esecuzione di script, aggiungere l'elemento **ScriptExecution** 
 
 ### <a name="show-or-hide-a-password"></a>Mostrare o nascondere una password
 
-Un modo comune per aiutare i clienti a effettuare correttamente l'iscrizione consiste nel permettere loro di visualizzare la password immessa. Questa opzione permette agli utenti di effettuare l'iscrizione consentendo loro di visualizzare e correggere la password in tutta semplicità, se necessario. Qualsiasi campo per la digitazione della password contiene una casella di controllo con etichetta **Mostra password**.  Questa casella di controllo permette agli utenti di visualizzare la password in testo normale. Includere questo frammento di codice nel modello di iscrizione o di accesso per una pagina autocertificata:
+Un modo comune per aiutare i clienti a effettuare correttamente l'iscrizione consiste nel permettere loro di visualizzare la password immessa. Questa opzione permette agli utenti di effettuare l'iscrizione consentendo loro di visualizzare e correggere la password in tutta semplicità, se necessario. Qualsiasi campo per la digitazione della password contiene una casella di controllo con etichetta **Mostra password** .  Questa casella di controllo permette agli utenti di visualizzare la password in testo normale. Includere questo frammento di codice nel modello di iscrizione o di accesso per una pagina autocertificata:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -114,7 +114,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>Aggiungere le condizioni per l'utilizzo
 
-Includere il codice seguente nella pagina in cui si vuole aggiungere una casella di controllo **Condizioni per l'utilizzo**. Questa casella di controllo è in genere necessaria nelle pagine di iscrizione dell'account locale e di iscrizione dell'account di social networking.
+Includere il codice seguente nella pagina in cui si vuole aggiungere una casella di controllo **Condizioni per l'utilizzo** . Questa casella di controllo è in genere necessaria nelle pagine di iscrizione dell'account locale e di iscrizione dell'account di social networking.
 
 ```Javascript
 function addTermsOfUseLink() {

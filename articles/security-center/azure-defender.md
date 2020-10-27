@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576856"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331686"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduzione ad Azure Defender
 
@@ -20,7 +20,7 @@ Le funzionalità del Centro sicurezza di Azure riguardano due concetti fondament
 
 - **Cloud Security Postures Management (CSPM)** - Il centro sicurezza è disponibile **gratuitamente** per tutti gli utenti di Azure. In questa esperienza gratuita sono incluse le funzionalità di CSPM, quali il punteggio di sicurezza, il rilevamento di errori di configurazione della sicurezza nelle macchine di Azure, l'inventario delle risorse e altre ancora. Usare queste funzionalità di CSPM per potenziare il comportamento del cloud ibrido e monitorare la conformità ai criteri predefiniti.
 
-- **Cloud Workload Protection (CWP)** - **Azure Defender**, lo strumento CWPP (Cloud Workload Protection Platform) integrato nel centro di sicurezza, offre una protezione avanzata e intelligente delle risorse e dei carichi di lavoro di Azure e ibridi. L'abilitazione di Azure Defender introduce una gamma di funzionalità di sicurezza aggiuntive, come descritto in questa pagina. Oltre ad avere a disposizione i criteri predefiniti, con l'abilitazione di un piano di Azure Defender è possibile anche aggiungere iniziative e criteri personalizzati. È possibile, ad esempio, aggiungere standard normativi, come NIST e Azure CIS, nonché il benchmark di sicurezza di Azure per una visione realmente personalizzata della conformità.
+- **Cloud Workload Protection (CWP)** - **Azure Defender** , lo strumento CWPP (Cloud Workload Protection Platform) integrato nel centro di sicurezza, offre una protezione avanzata e intelligente delle risorse e dei carichi di lavoro di Azure e ibridi. L'abilitazione di Azure Defender introduce una gamma di funzionalità di sicurezza aggiuntive, come descritto in questa pagina. Oltre ad avere a disposizione i criteri predefiniti, con l'abilitazione di un piano di Azure Defender è possibile anche aggiungere iniziative e criteri personalizzati. È possibile, ad esempio, aggiungere standard normativi, come NIST e Azure CIS, nonché il benchmark di sicurezza di Azure per una visione realmente personalizzata della conformità.
 
 Il dashboard di Azure Defender disponibile nel centro sicurezza offre visibilità e controllo delle funzionalità di CWP per l'ambiente in uso:
 
@@ -36,13 +36,14 @@ Quando si abilita Azure Defender nell'area **Prezzi e impostazioni** del Centro 
 - [Azure Defender per il servizio app](defender-for-app-service-introduction.md)
 - [Azure Defender per Archiviazione](defender-for-storage-introduction.md)
 - [Azure Defender per SQL](defender-for-sql-introduction.md)
-- [Azure Defender per IoT](defender-for-iot-introduction.md)
 - [Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)
 - [Azure Defender per Key Vault](defender-for-key-vault-introduction.md)
 
 Ogni piano è illustrato separatamente nella documentazione del Centro sicurezza.
 
+> [!TIP]
+> Azure Defender per IoT (anteprima) è un prodotto distinto. Per informazioni dettagliate, vedere [Introduzione ad Azure Defender per IoT (anteprima)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Protezione del cloud ibrido
 
@@ -50,7 +51,6 @@ Oltre a proteggere l'ambiente di Azure, è possibile aggiungere le funzionalità
 
 - Proteggere i server non Azure
 - Proteggere le macchine virtuali in altri cloud (ad esempio AWS e GCP)
-- Proteggere i dispositivi IoT
 
 Si otterranno funzionalità personalizzate di intelligence sulle minacce e avvisi in ordine di priorità in base all'ambiente specifico, in modo da potersi concentrare sulle questioni più importanti.
 

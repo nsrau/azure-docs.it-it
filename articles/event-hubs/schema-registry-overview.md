@@ -4,12 +4,12 @@ description: Questo articolo fornisce una panoramica del supporto di Registro sc
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938798"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330496"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro schemi di Azure in Hub eventi (anteprima)
 In molti scenari di streaming e messaggistica di eventi, il payload dell'evento o del messaggio contiene dati strutturati che vengono serializzati o deserializzati usando un formato basato su schemi come Apache Avro. Sia i mittenti che i destinatari potrebbero voler convalidare l'integrità dei dati con un documento dello schema come con lo schema JSON. Per i formati basati su schemi, rendere lo schema disponibile per il consumer di messaggi è un prerequisito per consentire al consumer di deserializzare i dati. 
@@ -18,7 +18,7 @@ Il **Registro schemi di Azure** è una funzionalità di Hub eventi, che fornisce
 
 > [!NOTE]
 > - La funzionalità **Registro schemi** è attualmente disponibile in **anteprima** e non è consigliata per i carichi di lavoro di produzione.
-> - La funzionalità è disponibile solo nei livelli **Standard** e **Dedicato**, non nel livello **Basic**.
+> - La funzionalità è disponibile solo nei livelli **Standard** e **Dedicato** , non nel livello **Basic** .
 
 Con i framework di serializzazione basati su schemi come Apache Avro, l'esternalizzazione dei metadati di serializzazione in schemi condivisi può anche aiutare a ridurre in modo significativo il sovraccarico per messaggio delle informazioni sul tipo e dei nomi dei campi inclusi in ogni set di dati, come avviene con i formati con tag come JSON. Avere schemi archiviati insieme agli eventi e all'interno dell'infrastruttura di gestione degli eventi garantisce che i metadati necessari per la serializzazione/deserializzazione siano sempre raggiungibili e che gli schemi non possano essere posizionati in modo errato. 
 
@@ -50,8 +50,8 @@ La figura seguente mostra il flusso di informazioni del registro schemi con Hub 
 ## <a name="standard-vs-dedicated-limits"></a>Limiti dei livelli Standard e Dedicato
 Per i limiti, come ad esempio il numero di gruppi di schemi in uno spazio dei nomi, uguali e diversi per i livelli Standard e Dedicato di Hub eventi, vedere [Limiti del Registro schemi](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations).
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
-Quando si accede al registro schemi a livello di codice, è necessario registrare un'applicazione in Azure Active Directory (Azure AD) e aggiungere l'entità di sicurezza dell'applicazione a uno dei ruoli di controllo degli accessi in base al ruolo:
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
+Quando si accede al registro schemi a livello di codice, è necessario registrare un'applicazione in Azure Active Directory (Azure AD) e aggiungere l'entità di sicurezza dell'applicazione a uno dei ruoli di controllo degli accessi in base al ruolo di Azure:
 
 | Ruolo | Descrizione | 
 | ---- | ----------- | 
@@ -65,7 +65,7 @@ Per istruzioni sulla creazione di una registrazione di un'applicazione con il po
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come creare un registro schemi usando il portale di Azure, vedere [Creare un registro schemi di Hub eventi usando il portale di Azure](create-schema-registry.md).
-- Vedere gli esempi seguenti della **libreria client Avro del Registro schemi**.
+- Vedere gli esempi seguenti della **libreria client Avro del Registro schemi** .
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/05/2020
-ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057723"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102813"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
@@ -45,7 +45,7 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 
 1. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
 
-1. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure**.
+1. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure** .
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Creare una risorsa nel portale" border="false":::
 
@@ -70,7 +70,7 @@ Nel tempo, è possibile tenere traccia dei costi correnti e previsti a livello g
 
 ## <a name="name-the-service"></a>Assegnare un nome al servizio
 
-In Dettagli istanza fornire un nome per il servizio nel campo **URL**. Questo nome fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API: `https://your-service-name.search.windows.net`. Se ad esempio si vuole che l'endpoint sia `https://myservice.search.windows.net`, immettere `myservice`.
+In Dettagli istanza fornire un nome per il servizio nel campo **URL** . Questo nome fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API: `https://your-service-name.search.windows.net`. Se ad esempio si vuole che l'endpoint sia `https://myservice.search.windows.net`, immettere `myservice`.
 
 Requisiti per i nomi di servizio:
 
@@ -94,7 +94,7 @@ Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elen
 
 ### <a name="requirements"></a>Requisiti
 
- Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+ Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area* .
 
  I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](../best-practices-availability-paired-regions.md#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
 
@@ -102,9 +102,9 @@ Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elen
 
 Se si usano più servizi di Azure, scegliere un'area che ospita anche i dati o il servizio dell'applicazione. In questo modo si riducono al minimo o si evitano gli addebiti per la larghezza di banda dei dati in uscita (non sono previsti addebiti per i dati in uscita se i servizi si trovano nella stessa area).
 
-## <a name="choose-a-pricing-tier-sku"></a>Scegliere un piano tariffario (SKU)
+## <a name="choose-a-pricing-tier"></a>Scegliere un piano tariffario
 
-[Ricerca cognitiva di Azure attualmente è disponibile con vari piani tariffari](https://azure.microsoft.com/pricing/details/search/): Gratuito, Basic o Standard. Ogni piano tariffario prevede una specifica [capacità e limiti](search-limits-quotas-capacity.md). Per indicazioni, vedere [Scegliere uno SKU o un piano tariffario per Ricerca di Azure](search-sku-tier.md) .
+Ricerca cognitiva di Azure attualmente è disponibile con [vari piani tariffari](https://azure.microsoft.com/pricing/details/search/): Gratuito, Basic, Standard o con ottimizzazione per l'archiviazione. Ogni piano tariffario prevede una specifica [capacità e limiti](search-limits-quotas-capacity.md). Per indicazioni, vedere [Scegliere un piano tariffario](search-sku-tier.md).
 
 Per carichi di lavoro di produzione viene in genere scelto il piano Basic o Standard, ma la maggior parte dei clienti inizia con il servizio gratuito. Le differenze principali tra i livelli sono la velocità e le dimensioni della partizione, nonché i limiti per il numero di oggetti che è possibile creare.
 
@@ -146,7 +146,7 @@ L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](h
 > Un servizio deve disporre di [2 repliche per ogni contratto di servizio di sola lettura e 3 repliche per ogni contratto di servizio di lettura/scrittura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Passare alla pagina del servizio di ricerca nel portale di Azure.
-2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità**.
+2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità** .
 3. Usare la barra di scorrimento per aggiungere risorse di entrambi i tipi.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Creare una risorsa nel portale" border="false":::

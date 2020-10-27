@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003216"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167186"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
@@ -63,6 +63,12 @@ Per altre informazioni sulle versioni del ciclo di vita, vedere [Versioni di Kub
 Il servizio Azure Container supporta la creazione di pool di nodi abilitati per la GPU. Azure offre attualmente macchine virtuali abilitate per una GPU singola o più GPU. Le macchine virtuali abilitate per la GPU sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica.
 
 Per altre informazioni, vedere [Uso di GPU nel servizio Azure Kubernetes][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Nodi di confidential computing (anteprima pubblica)
+
+Il servizio Azure Kubernetes supporta la creazione di pool di nodi di confidential computing basati su Intel SGX (VM DCSv2). I nodi di confidential computing consentono di eseguire i contenitori in un ambiente TEE (Trusted Execution Environment) isolato e basato su hardware (enclave). L'isolamento tra i contenitori, combinato all'integrità del codice tramite attestazione, contribuisce alla strategia di sicurezza dei contenitori con una difesa in profondità. I nodi di confidential computing supportano sia i contenitori riservati (le app Docker esistenti) sia i contenitori con riconoscimento dell'enclave.
+
+Per altre informazioni, vedere [Nodi di confidential computing nel servizio Azure Kubernetes][conf-com-node]
 
 ### <a name="storage-volume-support"></a>Supporto di volumi di archiviazione
 
@@ -143,3 +149,4 @@ Altre informazioni sulla distribuzione e la gestione di servizio Azure Kubernete
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

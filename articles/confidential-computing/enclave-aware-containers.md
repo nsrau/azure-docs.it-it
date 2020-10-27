@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998448"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125287"
 ---
 # <a name="enclave-aware-containers"></a>Contenitori con riconoscimento dell'enclave
 
@@ -51,14 +51,19 @@ Questa soluzione consente di usare un modello con training di Machine Learning e
 
 Informazioni introduttive sul trasferimento in modalità lift-and-shift di modelli di Machine Learning nel runtime ONNX sono disponibili [qui](https://aka.ms/confidentialinference)
 
-## <a name="container-samples-implementations"></a>Implementazioni di esempi di contenitori
+### <a name="edgeless-rt"></a>Edgeless RT
 
-[Esempi di Azure per i contenitori con riconoscimento dell'enclave nel servizio Azure Kubernetes](https://github.com/Azure-Samples/enclave-aware-container-samples)
+Edgeless RT è un progetto open source basato su Open Enclave SDK. Aggiunge il supporto per Go e altre funzionalità C++. Iniziare con una semplice applicazione Go riservata usando il familiare ambiente VS Code [qui](https://github.com/edgelesssys/edgelessrt). Per le applicazioni Edgeless nel servizio Azure Kubernetes, seguire le istruzioni [qui](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+
+
+## <a name="container-based-sample-implementations"></a>Implementazioni di esempio basate su contenitori
+
+[Esempi di Azure per i contenitori con riconoscimento dell'enclave nel servizio Azure Kubernetes](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Attestazione di Azure](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[Macchina virtuale controller di dominio](/confidential-computing/virtual-machine-solutions)
+[Contenitori riservati](/confidential-computing/containercompute/confidential-containers)

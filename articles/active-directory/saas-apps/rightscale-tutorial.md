@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 75c0542764e94ae57379fa225b4e064a58da3af1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553377"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Esercitazione: Integrazione di Azure Active Directory con Rightscale
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Rightscale in Azure AD, è necessario aggiunge
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di Rightscale in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **RightScale**, selezionare **RightScale** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **RightScale** , selezionare **RightScale** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![RightScale nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con RightScale usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con RightScale usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in RightScale.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Rightscale, è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con RightScale, completare i passaggi seguenti:
 
-1. Nella pagina di integrazione dell'applicazione [RightScale](https://portal.azure.com/) del **portale di Azure** fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [RightScale](https://portal.azure.com/) del **portale di Azure** fare clic su **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,21 +93,21 @@ Per configurare l'accesso Single Sign-On di Azure AD con RightScale, completare 
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di RightScale](common/preintegrated.png)
+    ![Screenshot che mostra la pagina Configurazione SAML di base.](common/preintegrated.png)
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di RightScale](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://login.rightscale.com/`
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -125,42 +125,41 @@ Per configurare l'accesso Single Sign-On di Azure AD con RightScale, completare 
 
 1. Per configurare l'accesso SSO per l'applicazione, è necessario accedere al tenant di RightScale come amministratore.
 
-2. Nel menu in alto fare clic sulla scheda **Settings** (Impostazioni) e selezionare **Single Sign-On**.
+2. Nel menu in alto fare clic sulla scheda **Settings** (Impostazioni) e selezionare **Single Sign-On** .
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Screenshot che mostra l'opzione Single Sign-On selezionata nel menu Settings.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
-3. Fare clic sul pulsante **Nuovo** per aggiungere i **provider di identità SAML**.
+3. Fare clic sul pulsante **Nuovo** per aggiungere i **provider di identità SAML** .
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Screenshot mostra il pulsante New selezionato per aggiungere un provider di identità SAML.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
-4. Nella casella **Nome visualizzato**digitare il nome dell'azienda.
+4. Nella casella **Nome visualizzato** digitare il nome dell'azienda.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Screenshot che mostra dove immettere un nome visualizzato.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Selezionare **Allow RightScale-initiated SSO using a discovery hint** (Consenti accesso SSO avviato da RightScale tramite un hint di individuazione) e digitare il **nome di dominio** nella casella di testo sottostante.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Screenshot che mostra dove è possibile specificare un metodo di accesso.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Nella casella di testo **SAML SSO Endpoint** (Endpoint SSO SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Screenshot che mostra dove è possibile immettere un endpoint SSO SAML.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure in **SAML Entity ID** (ID entità SAML) in RightScale.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Screenshot che mostra dove è possibile immettere un ID entità SAML.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Fare clic sul pulsante **Browser** per caricare il certificato scaricato dal portale di Azure.
 
+    ![Screenshot che mostra dove è possibile specificare il certificato di firma SAML.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
-
-9. Fare clic su **Salva**.
+9. Fare clic su **Salva** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -172,24 +171,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Rightscale.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **RightScale**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **RightScale** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Rightscale**.
+2. Nell'elenco di applicazioni selezionare **Rightscale** .
 
     ![Collegamento RightScale nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -197,7 +196,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -205,7 +204,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-rightscale-test-user"></a>Creare un utente di test di RightScale
 
