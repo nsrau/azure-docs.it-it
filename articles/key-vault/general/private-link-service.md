@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426573"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -51,7 +51,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Selezionare il pulsante di opzione Endpoint privato nella scheda Rete.
 1. Fare clic sul pulsante "+ Aggiungi" per aggiungere un endpoint privato.
 
-    ![Immagine](../media/private-link-service-1.png)
+    ![Screenshot che mostra la prima schermata durante la creazione di un insieme di credenziali delle chiavi.](../media/private-link-service-1.png)
  
 1. Nel campo "Posizione" del pannello Crea endpoint privato selezionare l'area in cui si trova la rete virtuale. 
 1. Nel campo "Nome" creare un nome descrittivo che consentirà di identificare questo endpoint privato. 
@@ -59,7 +59,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 1. Selezionare "Ok".
 
-    ![Immagine](../media/private-link-service-8.png)
+    ![Screenshot che mostra i campi importanti per la configurazione di un endpoint privato.](../media/private-link-service-8.png)
  
 Sarà ora possibile visualizzare l'endpoint privato configurato. È ora possibile eliminare e modificare questo endpoint privato. Selezionare il pulsante "Rivedi e crea" e creare l'insieme di credenziali delle chiavi. Il completamento della distribuzione richiederà 5-10 minuti. 
 
@@ -74,12 +74,10 @@ Se si dispone già di un insieme di credenziali delle chiavi, è possibile crear
 1. Selezionare la scheda Connessioni endpoint privato nella parte superiore della pagina.
 1. Selezionare il pulsante "+ Endpoint privato" nella parte superiore della pagina.
 
-    ![Immagine](../media/private-link-service-3.png) ![Immagine](../media/private-link-service-4.png)
+    ![Screenshot che mostra il pulsante + Endpoint privato.](../media/private-link-service-3.png)
+    ![Screenshot che mostra la schermata per la creazione di un endpoint privato.](../media/private-link-service-4.png)
 
 È possibile scegliere di creare un endpoint privato per qualsiasi risorsa di Azure usando questo pannello. È possibile usare i menu a discesa per selezionare un tipo di risorsa e selezionare una risorsa nella directory oppure è possibile connettersi a qualsiasi risorsa di Azure usando un ID risorsa. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
-
-![Immagine](../media/private-link-service-3.png)
-![Immagine](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Stabilire una connessione di collegamento privato a Key Vault con l'interfaccia della riga di comando
 
@@ -274,11 +272,11 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 **Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitazioni**:  l'endpoint privato per Azure Key Vault è disponibile solo nelle aree di Azure pubbliche.
+**Limitazioni** :  l'endpoint privato per Azure Key Vault è disponibile solo nelle aree di Azure pubbliche.
 
-**Numero massimo di endpoint privati per Key Vault**: 64.
+**Numero massimo di endpoint privati per Key Vault** : 64.
 
-**Numero predefinito di insiemi di credenziali delle chiavi con endpoint privati per ogni sottoscrizione**: 400.
+**Numero predefinito di insiemi di credenziali delle chiavi con endpoint privati per ogni sottoscrizione** : 400.
 
 Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazioni](../../private-link/private-link-service-overview.md#limitations)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461295"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547640"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -46,11 +46,11 @@ Altre informazioni sulle [note legali e sull'informativa sulla privacy](https://
 
 Prima di creare una connessione, è necessario aggiungere la soluzione Connettore di Gestione dei servizi IT.
 
-1. Nel portale di Azure fare clic sull'icona **+ Nuovo**.
+1. Nel portale di Azure fare clic sull'icona **+ Nuovo** .
 
    ![Nuova risorsa di Azure](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Cercare **Connettore di Gestione dei servizi IT** nel Marketplace e fare clic su **Crea**.
+2. Cercare **Connettore di Gestione dei servizi IT** nel Marketplace e fare clic su **Crea** .
 
    ![Aggiungere la soluzione Connettore di Gestione dei servizi IT](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -65,7 +65,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5. Fare clic su **Crea**.
+5. Fare clic su **Crea** .
 
 Quando la risorsa soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -86,11 +86,11 @@ A seconda del prodotto di Gestione dei servizi IT a cui ci si connette, atteners
 Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedura seguente per creare una connessione:
 
 1. Passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)** .
-2. In **ORIGINI DATI DELL'AREA DI LAVORO** nel riquadro a sinistra fare clic su **Connessioni di Gestione dei servizi IT**.
+2. In **ORIGINI DATI DELL'AREA DI LAVORO** nel riquadro a sinistra fare clic su **Connessioni di Gestione dei servizi IT** .
    ![Connessioni di Gestione dei servizi IT](media/itsmc-overview/itsm-connections.png)
 
    Questa pagina mostra l'elenco di connessioni.
-3. Fare clic su **Aggiungi connessione**.
+3. Fare clic su **Aggiungi connessione** .
 
    ![Aggiungere una connessione di Gestione dei servizi IT](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -112,7 +112,7 @@ L'uso di modelli consente al cliente di definire i campi che verranno popolati a
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT dagli avvisi di Azure
 
-Una volta creata la connessione di Gestione dei servizi IT, è possibile creare uno o più elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure tramite **ITSM Action** (Azione di Gestione dei servizi IT) in **Gruppi di azioni**.
+Una volta creata la connessione di Gestione dei servizi IT, è possibile creare uno o più elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure tramite **ITSM Action** (Azione di Gestione dei servizi IT) in **Gruppi di azioni** .
 
 I gruppi di azioni forniscono un modo modulare e riutilizzabile per attivare le azioni per gli avvisi di Azure. È possibile usare i gruppi di azioni con avvisi relativi alle metriche, avvisi del log attività e avvisi di Azure Log Analytics nel portale di Azure.
 
@@ -122,8 +122,8 @@ I gruppi di azioni forniscono un modo modulare e riutilizzabile per attivare le 
 
 Utilizzare la procedura seguente:
 
-1. Nel portale di Azure fare clic su **Monitoraggio**.
-2. Nel riquadro sinistro fare clic su **Gruppi di azioni**. Viene visualizzata la finestra **Aggiungi gruppo di azioni**.
+1. Nel portale di Azure fare clic su **Monitoraggio** .
+2. Nel riquadro sinistro fare clic su **Gruppi di azioni** . Viene visualizzata la finestra **Aggiungi gruppo di azioni** .
 
     ![Gruppi di azioni](media/itsmc-overview/action-groups.png)
 
@@ -131,8 +131,8 @@ Utilizzare la procedura seguente:
 
     ![Dettagli dei gruppi di azioni](media/itsmc-overview/action-groups-details.png)
 
-4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
-5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
+4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione** . Specificare un **nome** per l'azione e fare clic su **Modifica dettagli** .
+5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione** , ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 
@@ -140,7 +140,10 @@ Utilizzare la procedura seguente:
 
 7. Se si desidera compilare i campi box con valori fissi, è necessario selezionare la casella di controllo "utilizza modello personalizzato" in caso contrario, scegliere di utilizzare un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco a discesa e compilare i campi del modello con valori fissi.
 
-8. Fare clic su **OK**.
+8. Selezionando la casella di controllo **Crea elementi di lavoro singoli per ogni elemento** di configurazione, ogni elemento di configurazione avrà un proprio elemento di lavoro. Significa che sarà presente un elemento di lavoro per ogni elemento di configurazione che verrà aggiornato in base agli avvisi che verranno creati.
+Se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro, vale a dire che possono essere presenti più di 1 avviso per ogni elemento di configurazione.
+
+9. Fare clic su **OK** .
 
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
 
@@ -294,7 +297,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Risolvere i problemi delle connessioni di Gestione dei servizi IT
-1. Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
+1. Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione** , seguire questa procedura:
    - Per le connessioni ServiceNow, Cherwell e Provance,  
    - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
@@ -304,11 +307,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2. Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3. Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
    -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
-   - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
+   - Pagina **Ricerca log** : consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
 1.  In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre di autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.
-2.  Se viene visualizzato un errore **"Riferimento a oggetto non impostato sull'istanza di un oggetto"** quando si esegue lo [script](itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente**.
+2.  Se viene visualizzato un errore **"Riferimento a oggetto non impostato sull'istanza di un oggetto"** quando si esegue lo [script](itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente** .
 3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](./itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
 
 

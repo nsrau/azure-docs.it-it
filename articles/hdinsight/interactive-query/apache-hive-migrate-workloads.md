@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308385"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534686"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro Azure HDInsight 3.6 Hive a HDInsight 4.0
 
@@ -39,9 +39,9 @@ Creare una nuova copia del Metastore esterno. Se si usa un Metastore esterno, un
 ### <a name="3-upgrade-metastore-schema"></a>3. aggiornare lo schema del Metastore
 Una volta completata la **copia** del Metastore, eseguire uno script di aggiornamento dello schema nell' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) nel cluster HDInsight 3,6 esistente per aggiornare il nuovo Metastore allo schema hive 3. Per questo passaggio non è necessario che il nuovo Metastore sia connesso a un cluster. Ciò consente di collegare il database come Metastore HDInsight 4,0.
 
-Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per la **copia**Metastore hive, separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
+Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per la **copia** Metastore hive, separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome|Aggiornamento hive|
@@ -117,7 +117,7 @@ I cluster HDInsight 3,6 e 4,0 devono usare lo stesso account di archiviazione.
 
 1. Connettersi al cluster HDInsight 3,6 usando un [client Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Dalla sessione SSH aperta, scaricare il file di script seguente per generare un file denominato **AllTables. HQL**.
+1. Dalla sessione SSH aperta, scaricare il file di script seguente per generare un file denominato **AllTables. HQL** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ Una volta confermato che la versione è completa e completamente operativa, è p
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Esecuzione di query tra versioni di HDInsight
 
-Esistono due modi per eseguire ed eseguire il debug di query hive/LLAP all'interno di un cluster HDInsight 3,6. HiveCLI offre un'esperienza da riga di comando e la visualizzazione [Tez/hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) fornisce un flusso di lavoro basato su GUI.
+Esistono due modi per eseguire ed eseguire il debug di query hive/LLAP all'interno di un cluster HDInsight 3,6. HiveCLI offre un'esperienza da riga di comando e la visualizzazione [Tez/hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) fornisce un flusso di lavoro basato su GUI.
 
 In HDInsight 4,0, HiveCLI è stato sostituito da. La visualizzazione Tez/hive fornisce un flusso di lavoro basato su GUI. HiveCLI è un client di parsimonia per del 1 e è un client JDBC che fornisce l'accesso a del 2. Può inoltre essere utilizzato per connettersi a qualsiasi altro endpoint del database compatibile con JDBC. È possibile usare l'installazione predefinita di HDInsight 4,0 senza alcuna installazione necessaria.
 

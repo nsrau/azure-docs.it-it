@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c112896e78c07fafa2d714b0533db1f58dd57ffd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361637"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535604"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una "maggiore disponibilità" di un sistema SAP
 
@@ -228,7 +228,7 @@ I dischi gestiti di Azure sono collocati automaticamente nel dominio di errore d
 
 Un'architettura di esempio di un sistema SAP NetWeaver che usa la disponibilità elevata dell'infrastruttura di Azure e gli account di archiviazione potrebbe avere un aspetto simile al seguente:
 
-![Uso della disponibilità elevata dell'infrastruttura di Azure per ottenere una maggiore disponibilità delle applicazioni SAP][planning-guide-figure-2900]
+![Diagramma che illustra l'architettura di un sistema SAP NetWeaver che usa l'infrastruttura di Azure disponibilità elevata e gli account di archiviazione.][planning-guide-figure-2900]
 
 Un'architettura di esempio di un sistema SAP NetWeaver che usa la disponibilità elevata dell'infrastruttura di Azure e i dischi gestiti potrebbe avere un aspetto simile al seguente:
 

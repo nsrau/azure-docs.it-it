@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754957"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547589"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Connettersi ad Apache coeline in HDInsight o installarlo localmente
 
@@ -104,7 +104,7 @@ Quando ci si connette direttamente dal nodo head del cluster o da una risorsa al
 
 ## <a name="install-beeline-client"></a>Installare il client di Oneline
 
-Sebbene sia incluso nei nodi head, è consigliabile installarlo localmente.  I passaggi di installazione per un computer locale sono basati su un [sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Sebbene sia incluso nei nodi head, è consigliabile installarlo localmente.  I passaggi di installazione per un computer locale sono basati su un [sottosistema Windows per Linux](/windows/wsl/install-win10).
 
 1. Aggiornare gli elenchi di pacchetti. Immettere il comando seguente nella shell bash:
 
@@ -128,7 +128,7 @@ Sebbene sia incluso nei nodi head, è consigliabile installarlo localmente.  I p
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Quindi premere **CTRL + X**, quindi **Y**, quindi INVIO.
+        Quindi premere **CTRL + X** , quindi **Y** , quindi INVIO.
 
 1. Scaricare Hadoop e gli archivi di Oneline, immettere i comandi seguenti:
 
@@ -144,7 +144,7 @@ Sebbene sia incluso nei nodi head, è consigliabile installarlo localmente.  I p
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Modificare ulteriormente il file bashrc. È necessario identificare il percorso in cui gli archivi sono stati decompressi. Se si usa il [sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/install-win10)e sono stati seguiti i passaggi esatti, il percorso sarà `/mnt/c/Users/user/` , dove `user` è il nome utente.
+1. Modificare ulteriormente il file bashrc. È necessario identificare il percorso in cui gli archivi sono stati decompressi. Se si usa il [sottosistema Windows per Linux](/windows/wsl/install-win10)e sono stati seguiti i passaggi esatti, il percorso sarà `/mnt/c/Users/user/` , dove `user` è il nome utente.
 
     1. Aprire il file: `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Sebbene sia incluso nei nodi head, è consigliabile installarlo localmente.  I p
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Quindi premere **CTRL + X**, quindi **Y**, quindi INVIO.
+    1. Quindi premere **CTRL + X** , quindi **Y** , quindi INVIO.
 
 1. Chiudere e riaprire la sessione bash.
 

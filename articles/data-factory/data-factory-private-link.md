@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328565"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546671"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
@@ -53,10 +53,10 @@ Le comunicazioni al servizio Azure Data Factory passano attraverso un collegamen
 ![Diagramma del collegamento privato per l'architettura Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
 L'abilitazione del servizio di collegamento privato per ognuno dei canali di comunicazione precedenti offre le funzionalità seguenti:
-- **Supportato**:
+- **Supportato** :
    - È possibile creare e monitorare i data factory nella rete virtuale, anche se si bloccano tutte le comunicazioni in uscita.
    - Le comunicazioni del comando tra il runtime di integrazione self-hosted e il servizio Azure Data Factory possono essere eseguite in modo sicuro in un ambiente di rete privata. Il traffico tra il runtime di integrazione self-hosted e il servizio di Azure Data Factory passa attraverso il collegamento privato. 
-- **Attualmente non supportata**:
+- **Attualmente non supportata** :
    - La creazione interattiva che usa un runtime di integrazione self-hosted, ad esempio test connection, browse Folder List e Table list, Get schema e Preview data, passa attraverso un collegamento privato.
    - La nuova versione del runtime di integrazione self-hosted può essere scaricata automaticamente dall'area download Microsoft se si Abilita l'aggiornamento automatico.
 
@@ -67,7 +67,7 @@ L'abilitazione del servizio di collegamento privato per ognuno dei canali di com
 > Quando si crea un servizio collegato, assicurarsi che le credenziali siano archiviate in Azure Key Vault. In caso contrario, le credenziali non funzioneranno quando si Abilita il collegamento privato in Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurare il collegamento privato per Azure Data Factory
-È possibile creare endpoint privati usando [il portale di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell o l'interfaccia della riga di comando di Azure.
+È possibile creare endpoint privati usando [il portale di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
 
 È anche possibile passare al data factory di Azure nella portale di Azure e creare un endpoint privato, come illustrato di seguito:
 

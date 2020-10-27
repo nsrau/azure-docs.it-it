@@ -6,18 +6,18 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010841"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537406"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Domande frequenti sulla pianificazione di cache di Azure per Redis
 
 Questo articolo fornisce le risposte alle domande comuni su come pianificare la cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande e risposte comuni
+## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Prestazioni di Cache Redis di Azure](#azure-cache-for-redis-performance)
@@ -84,7 +84,7 @@ Sì, è possibile usare Cache Redis di Azure con il cloud Azure per enti pubblic
 
 Per altre informazioni sulle considerazioni relative all'uso di Cache Redis di Azure con altri cloud, vedere i collegamenti seguenti.
 
-- [Database di Azure per enti pubblici - Cache Redis di Azure](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Database di Azure per enti pubblici - Cache Redis di Azure](../azure-government/compare-azure-government-global-azure.md)
 - [Cloud di Azure Cina - Cache Redis di Azure](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)
 

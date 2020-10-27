@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426387"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547419"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -25,7 +25,7 @@ Nell' [architettura di rete virtuale predefinita](./hdinsight-virtual-network-ar
 
 ## <a name="remove-public-ip-addresses"></a>Rimuovi indirizzi IP pubblici
 
-Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al cluster usando indirizzi IP pubblici. Quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita*, inverte le connessioni a HDInsight RP, in modo che le connessioni vengano sempre avviate dall'interno del cluster alla relying party. Senza una connessione in ingresso, non è necessario disporre dei tag del servizio in ingresso o degli indirizzi IP pubblici.
+Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al cluster usando indirizzi IP pubblici. Quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , inverte le connessioni a HDInsight RP, in modo che le connessioni vengano sempre avviate dall'interno del cluster alla relying party. Senza una connessione in ingresso, non è necessario disporre dei tag del servizio in ingresso o degli indirizzi IP pubblici.
 
 I bilanciamenti del carico di base usati nell'architettura di rete virtuale predefinita forniscono automaticamente il NAT pubblico (Network Address Translation) per accedere alle dipendenze in uscita necessarie, ad esempio HDInsight RP. Se si vuole limitare la connettività in uscita alla rete Internet pubblica, è possibile [configurare un firewall](./hdinsight-restrict-outbound-traffic.md), ma non è un requisito.
 
@@ -54,13 +54,13 @@ Per accedere al cluster usando FQDN del cluster, è possibile usare direttamente
 
 Il collegamento privato, disabilitato per impostazione predefinita, richiede una conoscenza di rete completa per configurare correttamente le route definite dall'utente (UDR) e le regole del firewall prima di creare un cluster. L'accesso al collegamento privato al cluster è disponibile solo quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , come descritto nella sezione precedente.
 
-Quando `privateLink` è impostato su *Abilita*, vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
+Quando `privateLink` è impostato su *Abilita* , vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
 
-I bilanciamenti del carico standard non forniscono automaticamente il [NAT in uscita pubblico](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
+I bilanciamenti del carico standard non forniscono automaticamente il [NAT in uscita pubblico](../load-balancer/load-balancer-outbound-connections.md) come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
 
 ### <a name="prepare-your-environment"></a>Preparare l'ambiente
 
-Per la creazione di successgfull di servizi di collegamento privato, è necessario disabilitare in modo esplicito [i criteri di rete per il servizio di collegamento privato](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
+Per la creazione di successgfull di servizi di collegamento privato, è necessario disabilitare in modo esplicito [i criteri di rete per il servizio di collegamento privato](../private-link/disable-private-link-service-network-policy.md).
 
 Il diagramma seguente illustra un esempio della configurazione di rete necessaria prima di creare un cluster. In questo esempio, tutto il traffico in uscita è [forzato](../firewall/forced-tunneling.md) al firewall di Azure con UdR e le dipendenze in uscita obbligatorie devono essere "consentite" nel firewall prima di creare un cluster. Per i cluster Enterprise Security Package, la connettività di rete alle Azure Active Directory Domain Services può essere fornita dal peering VNet.
 

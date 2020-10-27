@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d77d9877fbc49fbb147965b30e299b75b60ccce3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327893"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546654"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package per Azure HDInsight
 
@@ -28,7 +28,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
     * [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [Configurare l'ambiente sandbox aggiunto al dominio](./domain-joined/apache-domain-joined-configure.md)
+    * [Configurare l'ambiente sandbox aggiunto al dominio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 

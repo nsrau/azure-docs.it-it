@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487229"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546025"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -109,7 +109,7 @@ Il passaggio successivo prevede la revisione dei file di log di esecuzione dei p
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
-HDInsight archivia i file di log sia nel cluster file system che in archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) al cluster ed esplorando il file System oppure usando il portale di stato di Hadoop Yarn sul server del nodo head remoto. È possibile esaminare i file di log in archiviazione di Azure usando uno degli strumenti che possono accedere ai dati e scaricarli da archiviazione di Azure. Esempi sono [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Esplora server. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
+HDInsight archivia i file di log sia nel cluster file system che in archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) al cluster ed esplorando il file System oppure usando il portale di stato di Hadoop Yarn sul server del nodo head remoto. È possibile esaminare i file di log in archiviazione di Azure usando uno degli strumenti che possono accedere ai dati e scaricarli da archiviazione di Azure. Esempi sono [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Esplora server. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
 
 Hadoop esegue i processi come *tentativi di attività* in diversi nodi del cluster. HDInsight può avviare tentativi di attività speculativi, terminando eventuali altri tentativi di attività che non vengono completati per primi. Viene così generata una significativa attività che viene immediatamente registrata nei file di log del controller, di stderr e di syslog. Vengono inoltre eseguiti simultaneamente più tentativi di attività, ma un file di log può visualizzare i risultati solo in modo lineare.
 
@@ -150,7 +150,7 @@ L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cl
 
 Dopo avere completato i passaggi precedenti, si è a conoscenza dei tipi e dei volumi di file di log generati dai cluster HDInsight.
 
-Analizzare ora il volume dei dati dei log nelle posizioni di archiviazione chiave per un periodo di tempo. È ad esempio possibile analizzare il volume e la crescita per periodi di 30, 60 e 90 giorni.  Registrare queste informazioni in un foglio di calcolo o usare altri strumenti, ad esempio Visual Studio, Azure Storage Explorer o Power Query per Excel. Per altre informazioni, vedere [Analizzare i log di HDInsight](hdinsight-debug-jobs.md).  
+Analizzare ora il volume dei dati dei log nelle posizioni di archiviazione chiave per un periodo di tempo. È ad esempio possibile analizzare il volume e la crescita per periodi di 30, 60 e 90 giorni.  Registrare queste informazioni in un foglio di calcolo o usare altri strumenti, ad esempio Visual Studio, Azure Storage Explorer o Power Query per Excel. ```
 
 Ora si hanno informazioni sufficienti per creare una strategia di gestione per i log chiave.  Usare il foglio di calcolo (o lo strumento scelto) per valutare sia la crescita delle dimensioni dei log che i costi dei servizi di Azure per l'archiviazione dei log in futuro.  Prendere in considerazione anche eventuali requisiti di conservazione dei log per il set di log che si sta esaminando.  È ora possibile riprevedere i costi di archiviazione dei log futuri, dopo aver determinato i file di registro che possono essere eliminati (se presenti) e quali log devono essere conservati e archiviati in archiviazione di Azure meno costosa.
 
@@ -158,7 +158,7 @@ Ora si hanno informazioni sufficienti per creare una strategia di gestione per i
 
 Dopo avere determinato quali file di log possono essere eliminati, è possibile modificare i parametri di registrazione in molti servizi Hadoop per eliminare automaticamente i file di log dopo un periodo di tempo specificato.
 
-Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per Azure Resource Manager i log attività, è possibile esplorare questo approccio usando il portale di Azure.  Configurare l'archiviazione dei log Gestione risorse selezionando il collegamento **log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività**.  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi.
+Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per Azure Resource Manager i log attività, è possibile esplorare questo approccio usando il portale di Azure.  Configurare l'archiviazione dei log Gestione risorse selezionando il collegamento **log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività** .  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi.
 
 ![Anteprima del log attività esportazione portale di Azure](./media/hdinsight-log-management/hdi-export-log-files.png)
 
@@ -186,6 +186,6 @@ Per raccogliere i log da tutti i nodi in una posizione centrale, è possibile cr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Monitoring and Logging Practice for HDInsight (Procedura di monitoraggio e registrazione per HDInsight)](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Monitoring and Logging Practice for HDInsight (Procedura di monitoraggio e registrazione per HDInsight)](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Accedere ai log applicazioni di Apache Hadoop YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Come controllare le dimensioni dei file di log per diversi componenti Apache Hadoop)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4fcf7830250e5e6d2e4255ddb88867023606d0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484815"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547555"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creare reti virtuali per i cluster HDInsight di Azure
 
@@ -27,7 +27,7 @@ Prima di eseguire uno degli esempi di codice in questo articolo, è necessario c
 
 Altri prerequisiti per gli esempi in questo articolo includono gli elementi seguenti:
 
-* Se si usa PowerShell, è necessario installare il [modulo AZ](https://docs.microsoft.com/powershell/azure/).
+* Se si usa PowerShell, è necessario installare il [modulo AZ](/powershell/azure/).
 * Se si vuole usare l'interfaccia della riga di comando di Azure e non ancora installata, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando di Azure.
 
 > [!IMPORTANT]  
@@ -289,7 +289,7 @@ Nel server DNS personalizzato nella rete virtuale:
     
     * Sostituire il valore `192.168.0.1` con l'indirizzo IP del server DNS locale. Questa voce indirizza tutte le altre richieste DNS al server DNS locale.
 
-1. Per usare la configurazione, riavviare Bind. Ad esempio, `sudo service bind9 restart`
+1. Per usare la configurazione, riavviare Bind. Ad esempio: `sudo service bind9 restart`.
 
 1. Aggiungere un server d'inoltro condizionale al server DNS locale. Configurare il server d'inoltro condizionale per l'invio di richieste del suffisso DNS del passaggio 1 al server DNS personalizzato.
 
@@ -331,7 +331,7 @@ Questo esempio si basa sui presupposti seguenti:
     };
     ```
 
-    Sostituire il valore `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` con il suffisso DNS dell'__altra__ rete virtuale. Questa voce indirizza le richieste per il suffisso DNS della rete remota al DNS personalizzato di quella rete.
+    Sostituire il valore `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` con il suffisso DNS dell' __altra__ rete virtuale. Questa voce indirizza le richieste per il suffisso DNS della rete remota al DNS personalizzato di quella rete.
 
 3. Nei server DNS personalizzati in entrambe le reti virtuali, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
 
@@ -377,6 +377,6 @@ Dopo avere completato questi passaggi, è possibile connettersi alle risorse nel
 * Per la configurazione della replica geografica di Apache HBase, vedere [Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure](hbase/apache-hbase-replication.md).
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 
-* Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+* Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
 
 * Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).

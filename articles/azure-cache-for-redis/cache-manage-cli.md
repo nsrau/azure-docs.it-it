@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500505"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537695"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Come creare e gestire Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ L'interfaccia della riga di comando classica di Azure è un ottimo modo di gesti
 Per creare e gestire le istanze di Cache Redis di Azure usando l'interfaccia della riga di comando classica di Azure è necessario completare i seguenti passaggi.
 
 * È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
-* [Installare l'interfaccia della riga di comando di Azure classico](../cli-install-nodejs.md).
+* [Installare l'interfaccia della riga di comando di Azure classico](/cli/azure/install-classic-cli).
 * Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure e accedere dall’interfaccia della riga di comando classica usando il comando `azure login`.
-* Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando classica in modalità di Gestione risorse eseguendo il comando `azure config mode arm`. Per altre informazioni, vedere l'articolo [Usare l'interfaccia della riga di comando classica di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
+* Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando classica in modalità di Gestione risorse eseguendo il comando `azure config mode arm`. Per altre informazioni, vedere l'articolo [Usare l'interfaccia della riga di comando classica di Azure per gestire risorse e gruppi di risorse di Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## <a name="azure-cache-for-redis-properties"></a>Domande frequenti su Cache Redis di Azure
 Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamento delle istanze di Cache Redis di Azure.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816457"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543101"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
 
@@ -24,7 +24,7 @@ Questo articolo descrive le soluzioni per gli errori che si possono incontrare d
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Codice di errore: DeploymentDocument ' CsmDocument_2_0' non ha superato la convalida
 
-**Errore**: "Impossibile accedere al percorso dell'azione di script: \<SCRIPT ACTION URL\> "
+**Errore** : "Impossibile accedere al percorso dell'azione di script: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Messaggio di errore 1
 
@@ -141,7 +141,7 @@ Una regola del firewall nel gruppo di sicurezza di rete (NSG) blocca la comunica
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
 - Identificare l'area di Azure che si intende usare per HDInsight.
-- Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [Indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [Indirizzi IP di gestione di HDInsight](./hdinsight-management-ip-addresses.md).
   - Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.
   - Per i gruppi di sicurezza di rete, consentire il traffico in ingresso sulla porta 443 dagli indirizzi IP. Questa configurazione garantisce che i servizi di gestione HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
 
@@ -161,7 +161,7 @@ Non sono state fornite le autorizzazioni necessarie per gestire l'identità. L'i
 
 1. Aprire il Portale di Azure.
 1. Passare all'account di archiviazione.
-1. Controllare il **controllo di accesso (IAM)**.
+1. Controllare il **controllo di accesso (IAM)** .
 1. Verificare che all'utente sia assegnato il ruolo di collaboratore dei dati BLOB di archiviazione o il ruolo di proprietario dei dati BLOB di archiviazione.
 
 Per altre informazioni, vedere [configurare le autorizzazioni per l'identità gestita nell'account data Lake storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
@@ -172,7 +172,7 @@ Per altre informazioni, vedere [configurare le autorizzazioni per l'identità ge
 
 ### <a name="error"></a>Errore
 
-"Le regole di sicurezza nel gruppo di sicurezza di rete/subscriptions/ \<SubscriptionID\> /resourceGroups/<nome del gruppo di risorse \> Default/Providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> configurata con subnet/subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNET-TomTom-Default/Providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /Subnets/non \<Subnet Name\> consente la connettività in ingresso e/o in uscita richiesta. Per altre informazioni, vedere [pianificare una rete virtuale per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)oppure contattare il supporto tecnico. "
+"Le regole di sicurezza nel gruppo di sicurezza di rete/subscriptions/ \<SubscriptionID\> /resourceGroups/<nome del gruppo di risorse \> Default/Providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> configurata con subnet/subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNET-TomTom-Default/Providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /Subnets/non \<Subnet Name\> consente la connettività in ingresso e/o in uscita richiesta. Per altre informazioni, vedere [pianificare una rete virtuale per Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)oppure contattare il supporto tecnico. "
 
 ### <a name="cause"></a>Causa
 
@@ -182,8 +182,8 @@ Se i gruppi di sicurezza di rete o le route definite dall'utente (UDR) controlla
 
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
-- Identificare l'area di Azure che si intende usare per HDInsight e creare un elenco sicuro degli indirizzi IP per la propria area geografica. Per altre informazioni, vedere [Health and Management Services: specific Regions](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
-- Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Identificare l'area di Azure che si intende usare per HDInsight e creare un elenco sicuro degli indirizzi IP per la propria area geografica. Per altre informazioni, vedere [Health and Management Services: specific Regions](./hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions).
+- Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](./hdinsight-management-ip-addresses.md).
 - Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight. Per i gruppi di sicurezza di rete, consentire il traffico in ingresso sulla porta 443 dagli indirizzi IP. Questa configurazione garantisce che i servizi di gestione HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
 
 ---
@@ -216,7 +216,7 @@ Il servizio HDInsight non è in grado di connettersi al cluster durante il tenta
 
 ### <a name="resolution"></a>Soluzione
 
-Se si usano i gruppi di sicurezza di rete VNet (gruppi) e le route definite dall'utente (UDR) personalizzati, verificare che il cluster sia in grado di comunicare con HDInsight Management Services. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Se si usano i gruppi di sicurezza di rete VNet (gruppi) e le route definite dall'utente (UDR) personalizzati, verificare che il cluster sia in grado di comunicare con HDInsight Management Services. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](./hdinsight-management-ip-addresses.md).
 
 ---
 
@@ -240,4 +240,4 @@ Eliminare o disabilitare l'assegnazione dei criteri di Azure basata sulla sottos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla risoluzione degli errori nella creazione del cluster, vedere [risolvere i problemi di creazione del cluster con Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+Per altre informazioni sulla risoluzione degli errori nella creazione del cluster, vedere [risolvere i problemi di creazione del cluster con Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).

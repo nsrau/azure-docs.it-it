@@ -8,12 +8,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207581"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547028"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architetture di continuità aziendale di Azure HDInsight
 
@@ -54,11 +54,11 @@ In una replica *primaria attiva con architettura secondaria su richiesta* , le a
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Hive primario attivo con standby secondario
 
-In una replica *primaria attiva con la replica secondaria standby*, le applicazioni scrivono nell'area primaria attiva mentre un cluster secondario con scalabilità in standby viene eseguito in modalità di sola lettura durante le normali operazioni. Durante le normali operazioni, è possibile scegliere di eseguire l'offload delle operazioni di lettura specifiche dell'area nel database secondario.
+In una replica *primaria attiva con la replica secondaria standby* , le applicazioni scrivono nell'area primaria attiva mentre un cluster secondario con scalabilità in standby viene eseguito in modalità di sola lettura durante le normali operazioni. Durante le normali operazioni, è possibile scegliere di eseguire l'offload delle operazioni di lettura specifiche dell'area nel database secondario.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architettura Interactive query e hive":::
 
-Per altre informazioni sulla replica di hive e sugli esempi di codice, vedere [Apache hive replica nei cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
+Per altre informazioni sulla replica di hive e sugli esempi di codice, vedere [Apache hive replica nei cluster Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -97,7 +97,7 @@ Le applicazioni leggono e scrivono nei cluster Spark e hive nell'area primaria, 
 
 La replica HBase export e HBase sono modi comuni per abilitare la continuità aziendale tra i cluster HDInsight HBase.
 
-L'esportazione HBase è un processo di replica batch che usa l'utilità di esportazione HBase per esportare le tabelle dal cluster HBase primario all'archiviazione Azure Data Lake Storage generazione 2 sottostante. È quindi possibile accedere ai dati esportati dal cluster HBase secondario e importarli in tabelle che devono essere preesistenti nel database secondario. Mentre l'esportazione di HBase offre una granularità a livello di tabella, in situazioni di aggiornamento incrementale, il motore di automazione di esportazione controlla l'intervallo di righe incrementali da includere in ogni esecuzione. Per altre informazioni, vedere [HDInsight HBase backup and Replication](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+L'esportazione HBase è un processo di replica batch che usa l'utilità di esportazione HBase per esportare le tabelle dal cluster HBase primario all'archiviazione Azure Data Lake Storage generazione 2 sottostante. È quindi possibile accedere ai dati esportati dal cluster HBase secondario e importarli in tabelle che devono essere preesistenti nel database secondario. Mentre l'esportazione di HBase offre una granularità a livello di tabella, in situazioni di aggiornamento incrementale, il motore di automazione di esportazione controlla l'intervallo di righe incrementali da includere in ogni esecuzione. Per altre informazioni, vedere [HDInsight HBase backup and Replication](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 La replica di HBase usa la replica quasi in tempo reale tra i cluster HBase in modo completamente automatico. La replica viene eseguita a livello di tabella. Per la replica è possibile specificare come destinazione tutte le tabelle o tabelle specifiche. La replica di HBase è alla fine coerente. Ciò significa che le modifiche recenti a una tabella nell'area primaria potrebbero non essere immediatamente disponibili per tutti i database secondari. È garantito che i database secondari diventino coerenti con il database primario. La replica HBase può essere configurata tra due o più cluster HBase HDInsight se:
 
@@ -105,9 +105,9 @@ La replica di HBase usa la replica quasi in tempo reale tra i cluster HBase in m
 * Primary e Secondary si trovano in reti virtuali con peering diversi nella stessa area.
 * Primary e Secondary si trovano in reti virtuali con peering diversi in aree diverse.
 
-Per altre informazioni, vedere [configurare la replica di cluster Apache HBase in reti virtuali di Azure](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+Per altre informazioni, vedere [configurare la replica di cluster Apache HBase in reti virtuali di Azure](./hbase/apache-hbase-replication.md).
 
-Esistono altri modi per eseguire i backup dei cluster HBase, ad esempio [la copia della cartella HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder), la [copia di tabelle](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) e [snapshot](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+Esistono altri modi per eseguire i backup dei cluster HBase, ad esempio [la copia della cartella HBase](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder), la [copia di tabelle](./hbase/apache-hbase-backup-replication.md#copy-tables) e [snapshot](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### <a name="hbase-rpo--rto"></a>HBase RPO & RTO
 
@@ -147,7 +147,7 @@ Il modello di replica multiarea/ciclico è un'estensione della replica HBase e p
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Per abilitare la disponibilità tra aree, HDInsight 4,0 supporta Kafka MirrorMaker che può essere usato per gestire una replica secondaria del cluster Kafka primario in un'area diversa. MirrorMaker funge da coppia consumer-Producer di alto livello, utilizza un argomento specifico nel cluster primario e produce un argomento con lo stesso nome nel database secondario. La replica tra cluster per il ripristino di emergenza a disponibilità elevata con MirrorMaker presuppone che i producer e i consumer debbano eseguire il failover nel cluster di replica. Per altre informazioni, vedere [usare MirrorMaker per replicare Apache Kafka argomenti con Kafka in HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+Per abilitare la disponibilità tra aree, HDInsight 4,0 supporta Kafka MirrorMaker che può essere usato per gestire una replica secondaria del cluster Kafka primario in un'area diversa. MirrorMaker funge da coppia consumer-Producer di alto livello, utilizza un argomento specifico nel cluster primario e produce un argomento con lo stesso nome nel database secondario. La replica tra cluster per il ripristino di emergenza a disponibilità elevata con MirrorMaker presuppone che i producer e i consumer debbano eseguire il failover nel cluster di replica. Per altre informazioni, vedere [usare MirrorMaker per replicare Apache Kafka argomenti con Kafka in HDInsight](./kafka/apache-kafka-mirroring.md)
 
 A seconda della durata dell'argomento all'avvio della replica, la replica dell'argomento MirrorMaker può causare offset diversi tra gli argomenti di origine e di replica. I cluster HDInsight Kafka supportano anche la replica delle partizioni degli argomenti, che è una funzionalità a disponibilità elevata a livello di singolo cluster.
 
@@ -192,7 +192,7 @@ Svantaggi:
 
 ## <a name="hdinsight-enterprise-security-package"></a>Enterprise Security Package HDInsight
 
-Questa configurazione viene usata per abilitare la funzionalità multiutente sia nel server primario che in quello secondario, nonché [Azure ad set di repliche DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) per assicurarsi che gli utenti possano eseguire l'autenticazione in entrambi i cluster. Durante le normali operazioni, è necessario configurare i criteri Ranger nel database secondario per assicurarsi che gli utenti siano limitati a operazioni di lettura. L'architettura seguente illustra il modo in cui viene configurata una configurazione secondaria Active hive primaria-standby abilitata per ESP.
+Questa configurazione viene usata per abilitare la funzionalità multiutente sia nel server primario che in quello secondario, nonché [Azure ad set di repliche DS](../active-directory-domain-services/tutorial-create-replica-set.md) per assicurarsi che gli utenti possano eseguire l'autenticazione in entrambi i cluster. Durante le normali operazioni, è necessario configurare i criteri Ranger nel database secondario per assicurarsi che gli utenti siano limitati a operazioni di lettura. L'architettura seguente illustra il modo in cui viene configurata una configurazione secondaria Active hive primaria-standby abilitata per ESP.
 
 Replica Metastore Ranger:
 

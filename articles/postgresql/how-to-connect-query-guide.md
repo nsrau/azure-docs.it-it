@@ -1,18 +1,18 @@
 ---
 title: Connettersi ed eseguire query su un solo server PostgreSQL
-description: Collegamenti alle guide introduttive del database SQL di Azure che illustrano come connettersi al server ed eseguire query.
+description: Collegamenti alle guide introduttive che illustrano come connettersi al server singolo del database di Azure per PostgreSQL ed eseguire query.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490017"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546552"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Panoramica di connessione ed esecuzione di query per database di Azure per PostgreSQL-server singolo
 
@@ -33,13 +33,12 @@ Il documento seguente include collegamenti ad esempi che illustrano come connett
 |[Python](connect-python.md)|Questa Guida introduttiva illustra come usare Python per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati. |
 |[Ruby](connect-ruby.md)|Questa Guida introduttiva illustra come usare Ruby per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerazioni su TLS per la connettività del database
 
-Transport Layer Security (TLS) viene usato da tutti i driver forniti o supportati da Microsoft per la connessione ai database in database di Azure per PostgreSQL. Non è necessaria alcuna configurazione speciale, ma si applica TLS 1,2 per i server appena creati. È consigliabile usare TLS 1,0 e 1,1, quindi aggiornare la versione di TLS per i server. Vedere [ come configurare TLS](howto-tls-configurations.md)
+Transport Layer Security (TLS) viene usato da tutti i driver forniti o supportati da Microsoft per la connessione ai database in database di Azure per PostgreSQL. Non è necessaria alcuna configurazione speciale, ma si applica TLS 1,2 per i server appena creati. È consigliabile usare TLS 1,0 e 1,1, quindi aggiornare la versione di TLS per i server. Vedere [come configurare TLS](howto-tls-configurations.md)
 
+## <a name="postgresql-extensions"></a>Estensioni di PostgreSQL
 
-## <a name="postgresql-extensions"></a>Estensioni PostgreSQL
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni creano un bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo essere stato caricate nel database, le estensioni si comportano come le funzionalità predefinite.
 
 - [Estensioni Postgres 11](./concepts-extensions.md#postgres-11-extensions)
@@ -49,7 +48,7 @@ PostgreSQL offre la capacità di estendere le funzionalità del database usando 
 
 Per altri dettagli, vedere [come usare le estensioni di PostgreSQL in un server singolo](concepts-extensions.md).
 
-## <a name="next-steps"></a>Passaggi successivi 
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire la migrazione dei dati tramite dump e Restore](howto-migrate-using-dump-and-restore.md)
 - [Eseguire la migrazione dei dati tramite importazione ed esportazione](howto-migrate-using-export-and-import.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a2c734b256ad934b7a17d7cefd1783b406e766
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521378"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537185"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per la migrazione dei dati
 
@@ -24,15 +24,15 @@ Questo articolo offre indicazioni per la migrazione dei dati ad Azure HDInsight.
 Esistono due opzioni principali per eseguire la migrazione dei dati da un sistema locale all'ambiente Azure:
 
 * Trasferimento dei dati sulla rete con TLS
-    * Internet: è possibile trasferire dati nell'archiviazione di Azure tramite una connessione Internet normale usando uno dei diversi strumenti come: Azure Storage Explorer, AzCopy, Azure Powershell e l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [trasferimento di dati da e verso archiviazione di Azure](../../storage/common/storage-moving-data.md).
+    * Internet: è possibile trasferire dati nell'archiviazione di Azure tramite una connessione Internet normale usando uno dei diversi strumenti come: Azure Storage Explorer, AzCopy, Azure Powershell e l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [trasferimento di dati da e verso archiviazione di Azure](../../storage/common/storage-choose-data-transfer-solution.md).
 
     * ExpressRoute: ExpressRoute è un servizio di Azure che permette di creare connessioni private tra i data center Microsoft e l'infrastruttura disponibile localmente o in una struttura con percorso condiviso. Le connessioni ExpressRoute non passano attraverso la rete Internet pubblica e offrono maggiore sicurezza, affidabilità e velocità con latenze più basse rispetto alle connessioni Internet tipiche. Per altre informazioni, vedere [Creare e modificare un circuito ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
 
-    * Trasferimento dei dati online Data Box: Data Box Edge e Data Box Gateway sono prodotti per il trasferimento dei dati online che fungono da gateway di archiviazione di rete per gestire i dati tra il sito e Azure. Data Box Edge, un dispositivo di rete locale, trasferisce i dati verso e da Azure e usa risorse di calcolo perimetrali abilitate per intelligenza artificiale per elaborare i dati. Data Box Gateway è un'appliance virtuale con funzionalità di gateway di archiviazione. Per altre informazioni, vedere [Documentazione di Azure Data Box - Trasferimento online](https://docs.microsoft.com/azure/databox-online/).
+    * Trasferimento dei dati online Data Box: Data Box Edge e Data Box Gateway sono prodotti per il trasferimento dei dati online che fungono da gateway di archiviazione di rete per gestire i dati tra il sito e Azure. Data Box Edge, un dispositivo di rete locale, trasferisce i dati verso e da Azure e usa risorse di calcolo perimetrali abilitate per intelligenza artificiale per elaborare i dati. Data Box Gateway è un'appliance virtuale con funzionalità di gateway di archiviazione. Per altre informazioni, vedere [Documentazione di Azure Data Box - Trasferimento online](../../databox-online/index.yml).
 
 * Spedizione dei dati offline
 
-    Trasferimento dei dati offline Data Box: i dispositivi Data Box, Data Box Disk e Data Box Heavy consentono di trasferire quantità elevate di dati in Azure quando non è possibile usare la rete. Questi dispositivi per il trasferimento dei dati offline vengono spediti tra l'organizzazione e il data center di Azure. Usano la crittografia AES per la protezione dei dati in transito e vengono sottoposti a un processo completo di bonifica dopo il caricamento per l'eliminazione dei dati. Per ulteriori informazioni sui dispositivi Data Box Transfer offline, vedere [Azure Data Box Documentation-offline Transfer](https://docs.microsoft.com/azure/databox/). Per altre informazioni sulla migrazione dei cluster Hadoop, vedere [usare Azure Data Box per eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+    Trasferimento dei dati offline Data Box: i dispositivi Data Box, Data Box Disk e Data Box Heavy consentono di trasferire quantità elevate di dati in Azure quando non è possibile usare la rete. Questi dispositivi per il trasferimento dei dati offline vengono spediti tra l'organizzazione e il data center di Azure. Usano la crittografia AES per la protezione dei dati in transito e vengono sottoposti a un processo completo di bonifica dopo il caricamento per l'eliminazione dei dati. Per ulteriori informazioni sui dispositivi Data Box Transfer offline, vedere [Azure Data Box Documentation-offline Transfer](../../databox/index.yml). Per altre informazioni sulla migrazione dei cluster Hadoop, vedere [usare Azure Data Box per eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 La tabella seguente indica una durata di trasferimento dei dati approssimativa, basata sul volume dei dati e sulla larghezza di banda della rete. Usare un'appliance Data Box se si prevede che la migrazione dei dati richieda più di tre settimane.
 

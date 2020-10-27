@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91928980"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546467"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Riavviare le macchine virtuali per i cluster HDInsight
 
@@ -38,13 +38,13 @@ Quando un nodo viene riavviato, il cluster potrebbe diventare non integro e i pr
 
 Per usare l'operazione di riavvio del nodo sono necessari due passaggi: elencare i nodi e riavviare i nodi.
 
-1. Elencare i nodi. È possibile ottenere l'elenco dei nodi del cluster in [Get-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsighthost).
+1. Elencare i nodi. È possibile ottenere l'elenco dei nodi del cluster in [Get-AzHDInsightHost](/powershell/module/az.hdinsight/get-azhdinsighthost).
 
       ```
       Get-AzHDInsightHost -ClusterName myclustername
       ```
 
-1. Riavviare gli host. Dopo aver ottenuto i nomi dei nodi che si desidera riavviare, riavviare i nodi utilizzando [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost).
+1. Riavviare gli host. Dopo aver ottenuto i nomi dei nodi che si desidera riavviare, riavviare i nodi utilizzando [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost).
 
       ```
       Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
@@ -54,13 +54,13 @@ Per usare l'operazione di riavvio del nodo sono necessari due passaggi: elencare
 
 È possibile usare la funzionalità **prova** nel documento API per inviare richieste a HDInsight. Per usare l'operazione di riavvio del nodo sono necessari due passaggi: elencare i nodi e riavviare i nodi.
 
-1. Elencare i nodi. È possibile ottenere l'elenco dei nodi del cluster dall'API REST o in Ambari. Per altre informazioni, vedere [HDInsight list hosts REST API Operation](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/listhosts).
+1. Elencare i nodi. È possibile ottenere l'elenco dei nodi del cluster dall'API REST o in Ambari. Per altre informazioni, vedere [HDInsight list hosts REST API Operation](/rest/api/hdinsight/virtualmachines/listhosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Riavviare gli host. Dopo aver ottenuto i nomi dei nodi che si vuole riavviare, riavviare i nodi usando l'API REST per riavviare i nodi. Il nome del nodo segue il modello di *NodeType (/HN/ZK/GW)*  +  *x*  +  *primi sei caratteri del nome del cluster*. Per altre informazioni, vedere l' [operazione sull'API REST di HDInsight restart hosts](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Riavviare gli host. Dopo aver ottenuto i nomi dei nodi che si vuole riavviare, riavviare i nodi usando l'API REST per riavviare i nodi. Il nome del nodo segue il modello di *NodeType (/HN/ZK/GW)*  +  *x*  +  *primi sei caratteri del nome del cluster* . Per altre informazioni, vedere l' [operazione sull'API REST di HDInsight restart hosts](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -77,6 +77,6 @@ I nomi effettivi dei nodi che si desidera riavviare sono specificati in una matr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Riavvio-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [API REST di macchine virtuali HDInsight](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines)
-* [API REST HDInsight](https://docs.microsoft.com/rest/api/hdinsight/)
+* [Riavvio-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
+* [API REST di macchine virtuali HDInsight](/rest/api/hdinsight/virtualmachines)
+* [API REST HDInsight](/rest/api/hdinsight/)

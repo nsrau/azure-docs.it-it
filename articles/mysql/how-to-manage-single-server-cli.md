@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: c3a3fae9150b6805e9bb1533f2bb585d8845b253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940443"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546858"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Gestire un server singolo di database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -20,13 +20,13 @@ Questo articolo illustra come gestire i singoli server distribuiti in Azure. Le 
 ## <a name="prerequisites"></a>Prerequisiti
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare. Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-È necessario accedere all'account con il comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Annotare la proprietà **id** che fa riferimento all'**ID sottoscrizione** per l'account Azure.
+È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Annotare la proprietà **id** che fa riferimento all' **ID sottoscrizione** per l'account Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account). Annotare il valore **id** dall'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 Se non è ancora stato creato un server, fare riferimento a questa [Guida introduttiva](quickstart-create-mysql-server-database-using-azure-cli.md) per crearne uno.
 
 ## <a name="scale-compute-and-storage"></a>Ridimensionare le risorse di calcolo e archiviazione
-È possibile aumentare facilmente il piano tariffario, il calcolo e l'archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ MySQL Server Overview](/cli/azure/mysql/server?view=azure-cli-latest)
+È possibile aumentare facilmente il piano tariffario, il calcolo e l'archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ MySQL Server Overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az mysql server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144

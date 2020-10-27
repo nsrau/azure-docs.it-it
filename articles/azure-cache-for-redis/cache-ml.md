@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650188"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537576"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuire un modello di Machine Learning in funzioni di Azure con cache di Azure per Redis 
 
@@ -24,10 +24,10 @@ Cache di Azure per Redis è estremamente efficiente e scalabile: quando abbinato
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/).
-* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) .
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-* Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) per eseguire il training e la registrazione di un modello.
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](../machine-learning/how-to-manage-workspace.md) .
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](../machine-learning/tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
 > [!IMPORTANT]
 > I frammenti di codice in questo articolo presuppongono che siano state impostate le variabili seguenti:
@@ -36,14 +36,14 @@ Cache di Azure per Redis è estremamente efficiente e scalabile: quando abbinato
 > * `model` : Modello registrato che verrà distribuito.
 > * `inference_config` -Configurazione dell'inferenza per il modello.
 >
-> Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza di Azure Cache per Redis 
 Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure con qualsiasi istanza di cache Basic, standard o Premium. Per creare un'istanza della cache, attenersi alla seguente procedura.  
 
-1. Passare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa**. 
+1. Passare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa** . 
    
-1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
+1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
    
@@ -51,7 +51,7 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net* . | 
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
@@ -71,24 +71,24 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
 
 1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
+1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea** .
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. 
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
 Prima di distribuire, è necessario definire gli elementi necessari per eseguire il modello come servizio Web. Nell'elenco seguente vengono descritti gli elementi principali necessari per una distribuzione:
 
-* Uno __script di immissione__. Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
+* Uno __script di immissione__ . Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
     > Lo script di immissione è specifico del modello. deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
     >
     > Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di restituirla al client.
     >
-    > Per impostazione predefinita, quando si esegue il packaging per le funzioni, l'input viene considerato come testo. Se si è interessati a utilizzare i byte non elaborati dell'input (ad esempio per i trigger BLOB), è necessario utilizzare [AMLRequest per accettare dati non elaborati](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
+    > Per impostazione predefinita, quando si esegue il packaging per le funzioni, l'input viene considerato come testo. Se si è interessati a utilizzare i byte non elaborati dell'input (ad esempio per i trigger BLOB), è necessario utilizzare [AMLRequest per accettare dati non elaborati](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
 
 Per la funzione Run, assicurarsi che si connetta a un endpoint Redis.
 
@@ -106,12 +106,12 @@ def init():
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
-@input_schema('data', NumpyParameterType(input_sample))
+@input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
-        input = azrediscache.get(data)
-        result = model.predict(input)
+        input = azrediscache.get(data)
+        result = model.predict(input)
         data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
@@ -121,14 +121,14 @@ def run(data):
         return error
 ```
 
-Per altre informazioni sullo script di immissione, vedere definire il codice di assegnazione dei [punteggi.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
+Per altre informazioni sullo script di immissione, vedere definire il codice di assegnazione dei [punteggi.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+* **Dipendenze** , ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
-Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
+Queste entità sono incapsulate in una __configurazione di inferenza__ . La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
-> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
+> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -144,12 +144,12 @@ Queste entità sono incapsulate in una __configurazione di inferenza__. La confi
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments).
+Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](../machine-learning/how-to-use-environments.md).
 
-Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-inference-configuration).
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__.
+> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installare il pacchetto di anteprima SDK per il supporto delle funzioni
 
@@ -161,10 +161,10 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger HTTP dal modello e dalla configurazione dell'inferenza:
+Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger HTTP dal modello e dalla configurazione dell'inferenza:
 
 > [!NOTE]
-> Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -178,7 +178,7 @@ print(model_package.location)
 Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
-> Il packaging per le funzioni supporta attualmente trigger HTTP, trigger di BLOB e trigger del bus di servizio. Per altre informazioni sui trigger, vedere [binding di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Il packaging per le funzioni supporta attualmente trigger HTTP, trigger di BLOB e trigger del bus di servizio. Per altre informazioni sui trigger, vedere [binding di funzioni di Azure](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Salvare le informazioni sul percorso, così come vengono usate durante la distribuzione dell'immagine.
@@ -209,7 +209,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
     }
     ```
 
-    Salvare il valore per __username__ e una delle __password__.
+    Salvare il valore per __username__ e una delle __password__ .
 
 1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:
 
@@ -288,7 +288,7 @@ A questo punto, l'app per le funzioni inizia a caricare l'immagine.
 A questo punto verrà eseguito e testato il trigger HTTP della funzione di Azure.
 
 1. Passare all'app per le funzioni di Azure nel portale di Azure.
-1. In Developer selezionare **codice + test**. 
+1. In Developer selezionare **codice + test** . 
 1. Sul lato destro selezionare la scheda **input** . 
 1. Fare clic sul pulsante **Run (Esegui** ) per testare il trigger http della funzione di Azure. 
 
@@ -305,18 +305,17 @@ In caso contrario, se si è terminato di usare la Guida introduttiva, è possibi
 
 ### <a name="to-delete-a-resource-group"></a>Per eliminare un gruppo di risorse
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse** .
 
-2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse**.
+2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse** .
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina** .
 
 Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-* Scopri di più su [cache di Azure per Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
-* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](/azure/azure-functions/functions-create-function-linux-custom-image) .
-* [Riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* Creare un' [app Python che usa cache di Azure per Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
-
+* Scopri di più su [cache di Azure per Redis](./cache-overview.md)
+* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](../azure-functions/functions-create-function-linux-custom-image.md) .
+* [Riferimento API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* Creare un' [app Python che usa cache di Azure per Redis](./cache-python-get-started.md)

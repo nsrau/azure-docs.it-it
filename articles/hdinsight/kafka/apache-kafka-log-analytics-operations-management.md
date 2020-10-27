@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087402"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534448"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
@@ -25,7 +25,7 @@ Informazioni su come usare i log di monitoraggio di Azure per analizzare i log g
 
 I log Apache Kafka nel cluster si trovano in `/var/log/kafka` . I registri Kafka non vengono salvati né salvati in permanenza tra i cicli di vita del cluster, indipendentemente dal fatto che vengano usati i dischi gestiti. La tabella seguente illustra i log disponibili.
 
-|File di log |Descrizione |
+|Registro |Descrizione |
 |---|---|
 |Kafka. out|stdout e stderr del processo Kafka. In questo file sono disponibili i log di avvio e arresto di Kafka.|
 |Server. log|Log del server Kafka principale. Tutti i log del broker Kafka si concludono qui.|
@@ -50,7 +50,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
 
 1. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro log Analytics.
 
-2. Nel menu a sinistra, in **generale**, selezionare **log**. Qui è possibile cercare i dati raccolti da Kafka. Immettere una query nella finestra query e quindi selezionare **Esegui**. Di seguito alcuni esempi di ricerche:
+2. Nel menu a sinistra, in **generale** , selezionare **log** . Qui è possibile cercare i dati raccolti da Kafka. Immettere una query nella finestra query e quindi selezionare **Esegui** . Di seguito alcuni esempi di ricerche:
 
 * Utilizzo disco:
 
@@ -104,7 +104,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su monitoraggio di Azure, vedere [Panoramica di monitoraggio di Azure](../../log-analytics/log-analytics-get-started.md)ed [eseguire query sui log di monitoraggio di Azure per monitorare i cluster HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Per altre informazioni su monitoraggio di Azure, vedere [Panoramica di monitoraggio di Azure](../../azure-monitor/overview.md)ed [eseguire query sui log di monitoraggio di Azure per monitorare i cluster HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Per altre informazioni sull'uso di Apache Kafka, vedere i documenti seguenti:
 

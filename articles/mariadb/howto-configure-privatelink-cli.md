@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 565e6fb2def64dd594e1b0018f3378ea09bc63cb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426204"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537219"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB tramite l'interfaccia della riga di comando
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Creare una rete virtuale
-Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
+Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Disabilitare i criteri per gli endpoint privati della subnet 
-Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i [criteri di rete](../private-link/disable-private-endpoint-network-policy.md)degli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare o aggiornare la subnet per disabilitare i [criteri di rete](../private-link/disable-private-endpoint-network-policy.md)degli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Creare la VM 
-Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
+Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM* : 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
-1. Nella barra di ricerca del portale immettere *myVm*.
+1. Nella barra di ricerca del portale immettere *myVm* .
 
-1. Scegliere il pulsante **Connetti**. Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale**.
+1. Scegliere il pulsante **Connetti** . Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale** .
 
-1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
+1. Selezionare **Scarica file RDP** . Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp* .
 
-1. Aprire il file *downloaded.rdp*.
+1. Aprire il file *downloaded.rdp* .
 
-    1. Quando richiesto, selezionare **Connetti**.
+    1. Quando richiesto, selezionare **Connetti** .
 
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Selezionare **OK** .
 
-1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
+1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua** .
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
@@ -171,9 +171,9 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 3. Testare la connessione del collegamento privato per il server MariaDB usando un client disponibile. Nell'esempio seguente ho usato [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) per eseguire l'operazione.
 
-4. In **nuova connessione**immettere o selezionare queste informazioni:
+4. In **nuova connessione** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
     | nomehost | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
@@ -181,7 +181,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     | Password | Immettere una password specificata durante la creazione del server MariaDB. |
     ||
 
-5. Selezionare **Test connessione** o **OK**.
+5. Selezionare **Test connessione** o **OK** .
 
 6. Facoltativamente Esplorare i database dal menu a sinistra e creare o eseguire query sulle informazioni dal database MariaDB
 

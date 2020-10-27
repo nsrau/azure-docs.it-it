@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424210"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545328"
 ---
 # <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Creare una cache di Azure per Redis usando un modello ARM
 
@@ -20,14 +20,14 @@ Informazioni su come creare un modello di Azure Resource Manager (ARM template) 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Un account di archiviazione**: per crearne uno, vedere [creare un account di archiviazione di Azure](/azure/storage/common/storage-account-create?tabs=azure-portal). L'account di archiviazione viene usato per i dati di diagnostica.
+* **Sottoscrizione di Azure** : Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Un account di archiviazione** : per crearne uno, vedere [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal). L'account di archiviazione viene usato per i dati di diagnostica.
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
@@ -46,7 +46,7 @@ Sono disponibili anche modelli di Gestione risorse per il nuovo [livello Premium
 * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Creare una cache Redis Premium distribuita in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Per cercare i modelli più recenti, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare _cache di Azure per Redis_.
+Per cercare i modelli più recenti, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare _cache di Azure per Redis_ .
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -55,14 +55,14 @@ Per cercare i modelli più recenti, vedere [modelli di avvio rapido di Azure](ht
     [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Selezionare o immettere i valori seguenti:
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
-    * **Gruppo di risorse**: selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
-    * **Località**: selezionare una località per il gruppo di risorse. L'account di archiviazione e la cache Redis devono trovarsi nella stessa area. Per impostazione predefinita, la cache Redis usa la stessa località del gruppo di risorse. Quindi, specificare lo stesso percorso dell'account di archiviazione.
-    * **Nome cache Redis**: immettere un nome per la cache Redis.
-    * **Account di archiviazione di diagnostica esistente**: immettere l'ID risorsa di un account di archiviazione. La sintassi è `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
+    * **Gruppo di risorse** : selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
+    * **Località** : selezionare una località per il gruppo di risorse. L'account di archiviazione e la cache Redis devono trovarsi nella stessa area. Per impostazione predefinita, la cache Redis usa la stessa località del gruppo di risorse. Quindi, specificare lo stesso percorso dell'account di archiviazione.
+    * **Nome cache Redis** : immettere un nome per la cache Redis.
+    * **Account di archiviazione di diagnostica esistente** : immettere l'ID risorsa di un account di archiviazione. La sintassi è `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Per le impostazioni rimanenti, usare i valori predefiniti.
-1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**.
+1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista** .
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 

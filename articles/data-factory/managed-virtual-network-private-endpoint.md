@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563999"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545719"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -94,7 +94,8 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
-- West US 2
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
 - Stati Uniti centro-meridionali
 - Stati Uniti centrali
 - Europa settentrionale
@@ -102,6 +103,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Regno Unito meridionale
 - Asia sud-orientale
 - Australia orientale
+- Australia sud-orientale
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.

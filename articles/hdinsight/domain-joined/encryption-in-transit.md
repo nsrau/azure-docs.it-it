@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668770"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544886"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
 
@@ -27,7 +27,7 @@ Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protez
 
 La crittografia dei computer inattivi è coperta dalla crittografia lato server negli account di archiviazione di Azure, nonché dalla crittografia del disco nelle macchine virtuali di Azure che fanno parte del cluster HDInsight.
 
-La crittografia dei dati in transito in HDInsight viene eseguita con [Transport Layer Security (TLS)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) per accssing i gateway del cluster e [IPSec (Internet Protocol Security)](https://en.wikipedia.org/wiki/IPsec) tra i nodi del cluster. È possibile abilitare facoltativamente IPSec tra tutti i nodi head, i nodi del ruolo di lavoro, i nodi perimetrali e i nodi Zookeeper. Non è abilitata per il traffico tra i nodi gateway o [ID Broker](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker) che sono macchine virtuali basate su Windows e altri nodi basati su Linux nel cluster.
+La crittografia dei dati in transito in HDInsight viene eseguita con [Transport Layer Security (TLS)](../transport-layer-security.md) per accssing i gateway del cluster e [IPSec (Internet Protocol Security)](https://en.wikipedia.org/wiki/IPsec) tra i nodi del cluster. È possibile abilitare facoltativamente IPSec tra tutti i nodi head, i nodi del ruolo di lavoro, i nodi perimetrali e i nodi Zookeeper. Non è abilitata per il traffico tra i nodi gateway o [ID Broker](./identity-broker.md) che sono macchine virtuali basate su Windows e altri nodi basati su Linux nel cluster.
 
 ## <a name="enable-encryption-in-transit"></a>Abilitare la crittografia in transito
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081067"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546076"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -29,7 +29,7 @@ Apache Ambari semplifica la gestione e il monitoraggio dei cluster Hadoop fornen
 
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash in Ubuntu in Windows 10.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
+* Bash in Ubuntu in Windows 10.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
 
 * jq, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -37,11 +37,11 @@ Apache Ambari semplifica la gestione e il monitoraggio dei cluster Hadoop fornen
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Uniform Resource Identifier di base per l'API REST di Ambari
 
- Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI () non fa distinzione tra maiuscole e minuscole `CLUSTERNAME.azurehdinsight.net` , altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
+ Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e** minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI () non fa distinzione tra maiuscole e minuscole `CLUSTERNAME.azurehdinsight.net` , altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="authentication"></a>Authentication
 
-La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
+La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin** ) e la password forniti durante la creazione del cluster.
 
 Per i cluster Enterprise Security Package, anziché `admin` usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com` .
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisi dei dati JSON
 
-Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le `health_report` informazioni dai risultati.
+Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le `health_report` informazioni dai risultati.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ Il valore restituito è simile a uno degli esempi seguenti:
     Il valore restituito è simile a `/clusters/CLUSTERNAME/`. Questo valore è un percorso all'interno dell'account Data Lake Storage. Questo percorso è la radice del file system compatibile con HDFS per il cluster.  
 
 > [!NOTE]  
-> Il cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornito da [Azure PowerShell](/powershell/azure/) restituisce anche le informazioni di archiviazione per il cluster.
+> Il cmdlet [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) fornito da [Azure PowerShell](/powershell/azure/) restituisce anche le informazioni di archiviazione per il cluster.
 
 ### <a name="get-all-configurations"></a>Ottenere tutte le configurazioni
 
@@ -335,7 +335,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 
    * Crea un documento radice per la nuova configurazione.
 
-   * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config**.
+   * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config** .
 
    * Elimina gli elementi `href`, `version` e `Config` perché non sono necessari per l'invio di una nuova configurazione.
 

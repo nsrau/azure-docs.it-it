@@ -1,17 +1,17 @@
 ---
-title: Panoramica della continuità aziendale con il server flessibile database di Azure per MySQL
+title: Panoramica della continuità aziendale-Server flessibile per database di Azure per MySQL
 description: Informazioni sui concetti relativi alla continuità aziendale con il server flessibile database di Azure per MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107845"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546416"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Panoramica della continuità aziendale con database di Azure per MySQL-server flessibile (anteprima)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107845"
 Il server flessibile database di Azure per MySQL consente funzionalità di continuità aziendale che proteggono i database in caso di interruzione pianificata e non pianificata. Funzionalità come backup automatici e disponibilità elevata si riferiscono a diversi livelli di protezione degli errori con tempi di ripristino e esposizioni di perdita dei dati diversi. Quando si progetta l'applicazione per la protezione da errori, è consigliabile prendere in considerazione l'obiettivo del tempo di ripristino (RTO) e l'obiettivo del punto di ripristino (RPO) per ogni applicazione. RTO è la tolleranza ai tempi di inattività e RPO è la tolleranza alla perdita dei dati dopo un'interruzione del servizio di database.
 
 Nella tabella seguente vengono illustrate le funzionalità offerte da server flessibili.
-
 
 | **Funzionalità** | **Descrizione** | **Restrizioni** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ Nella tabella seguente vengono illustrate le funzionalità offerte da server fle
 > Durante il periodo di anteprima, non è previsto alcun tempo di indisponibilità, RTO e contratto di RPO. Dettagli forniti in questa pagina solo a scopo informativo e di pianificazione.
 
 ## <a name="planned-downtime-mitigation"></a>Mitigazione dei tempi di inattività pianificati
+
 Ecco alcuni scenari di manutenzione pianificata che comportano tempi di inattività:
 
 | **Scenario** | **Processo**|
 | :------------ | :----------- |
 | **Scalabilità di calcolo (utente)**| Quando si esegue un'operazione di ridimensionamento del calcolo, viene eseguito il provisioning di un nuovo server flessibile usando la configurazione di calcolo con scalabilità. Nel server di database esistente, i checkpoint attivi possono essere completati, le connessioni client vengono svuotate, tutte le transazioni di cui non è stato eseguito il commit vengono annullate e quindi arrestate. Lo spazio di archiviazione viene quindi collegato al nuovo server e il database viene avviato, che esegue il ripristino, se necessario, prima di accettare le connessioni client. |
 | **Nuova distribuzione software (Azure)** | Le nuove funzionalità di implementazione o correzioni di bug vengono eseguite automaticamente nell'ambito della manutenzione pianificata del servizio ed è possibile pianificare il momento in cui si verificano tali attività. Per ulteriori informazioni, vedere la [documentazione](https://aka.ms/servicehealthpm)di e verificare anche il [portale](https://aka.ms/servicehealthpm) |
-| **Aggiornamenti della versione secondaria (Azure)** | Database di Azure per MySQL applica automaticamente patch ai server di database alla versione secondaria determinata da Azure. Questa operazione viene eseguita come parte della manutenzione pianificata del servizio. Questo potrebbe comportare un breve periodo di inattività in termini di secondi e il server di database viene riavviato automaticamente con la nuova versione secondaria. Per ulteriori informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
+| **Aggiornamenti della versione secondaria (Azure)** | Database di Azure per MySQL applica automaticamente patch ai server di database alla versione secondaria determinata da Azure. Questa operazione viene eseguita come parte della manutenzione pianificata del servizio. Questo potrebbe comportare un breve periodo di inattività in termini di secondi e il server di database viene riavviato automaticamente con la nuova versione secondaria. Per ulteriori informazioni, vedere la [documentazione](../concepts-monitoring.md#planned-maintenance-notification)di e verificare anche il [portale](https://aka.ms/servicehealthpm).|
 
-Quando il server flessibile è configurato con la **disponibilità elevata con ridondanza della zona**, il server flessibile esegue prima le operazioni sul server di standby e quindi sul server primario senza failover. Per altri dettagli, vedere [concetti-disponibilità elevata](./concepts-high-availability.md) .
+Quando il server flessibile è configurato con la **disponibilità elevata con ridondanza della zona** , il server flessibile esegue prima le operazioni sul server di standby e quindi sul server primario senza failover. Per altri dettagli, vedere [concetti-disponibilità elevata](./concepts-high-availability.md) .
 
-##  <a name="unplanned-downtime-mitigation"></a>Mitigazione del tempo di inattività non pianificato
+## <a name="unplanned-downtime-mitigation"></a>Mitigazione del tempo di inattività non pianificato
 
 I tempi di inattività non pianificati possono verificarsi a causa di errori imprevisti, inclusi errori hardware sottostanti, problemi di rete e bug software. Se il server di database si interrompe in modo imprevisto, se configurato con disponibilità elevata [HA], viene attivata la replica standby. In caso contrario, viene eseguito automaticamente il provisioning di un nuovo server di database. Sebbene non sia possibile evitare tempi di inattività non pianificati, il server flessibile riduce il tempo di inattività eseguendo automaticamente le operazioni di ripristino a livello di server di database e di archiviazione senza richiedere l'intervento dell'uomo.
 
@@ -60,12 +60,10 @@ Di seguito sono riportati alcuni scenari di errore non pianificati e il processo
 | **Errore zona di disponibilità** | Sebbene si verifichi un raro evento, se si vuole eseguire il ripristino da un errore a livello di zona, è possibile eseguire il ripristino temporizzato usando il backup e scegliendo punto di ripristino personalizzato per ottenere i dati più recenti. Un nuovo server flessibile verrà distribuito in un'altra zona. Il tempo impiegato per il ripristino dipende dal backup precedente e dal numero di log delle transazioni da ripristinare. | Il server flessibile esegue il failover automatico sul sito di standby. Per ulteriori informazioni, vedere la [pagina concetti di disponibilità elevata](./concepts-high-availability.md) . |
 | **Errore area** | Le funzionalità di replica tra aree e ripristino geografico non sono ancora supportate nella versione di anteprima. | |
 
-
 > [!IMPORTANT]
->  **Non è possibile**ripristinare i server eliminati   . Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Usare [blocco risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)   per evitare l'eliminazione accidentale del server.
-
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Usare [blocco risorse di Azure](../../azure-resource-manager/management/lock-resources.md) per evitare l'eliminazione accidentale del server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
--   Informazioni su [backup e ripristino](./concepts-backup-restore.md)
+- Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
+- Informazioni su [backup e ripristino](./concepts-backup-restore.md)

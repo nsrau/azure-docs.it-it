@@ -8,28 +8,28 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150310"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538205"
 ---
 # <a name="500xxx-internal-errors"></a>Errori interni 500xxx
 
-Questo articolo descrive le cause e le soluzioni per gli **errori interni di 500xxx**.
+Questo articolo descrive le cause e le soluzioni per gli **errori interni di 500xxx** .
 
 ## <a name="symptoms"></a>Sintomi
 
 La richiesta all'hub delle cose ha esito negativo con un errore che inizia con 500 e/o una sorta di "errore del server". Di seguito sono riportate alcune possibilità:
 
-* **500001 servererror**: l'hub Internet ha eseguito un problema sul lato server.
+* **500001 servererror** : l'hub Internet ha eseguito un problema sul lato server.
 
-* **500008 GenericTimeout**: l'hub Internet non è riuscito a completare la richiesta di connessione prima del timeout.
+* **500008 GenericTimeout** : l'hub Internet non è riuscito a completare la richiesta di connessione prima del timeout.
 
-* **ServiceUnavailable (nessun codice errore)**: si è verificato un errore interno dell'hub.
+* **ServiceUnavailable (nessun codice errore)** : si è verificato un errore interno dell'hub.
 
-* **InternalServerError (nessun codice errore)**: si è verificato un errore interno dell'hub.
+* **InternalServerError (nessun codice errore)** : si è verificato un errore interno dell'hub.
 
 ## <a name="cause"></a>Causa
 
@@ -37,4 +37,4 @@ Possono essere presenti diverse cause per una risposta di errore 500xxx. In tutt
 
 ## <a name="solution"></a>Soluzione
 
-Per attenuare gli errori di 500xxx, emettere un nuovo tentativo dal dispositivo. Per [gestire automaticamente i tentativi](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), assicurarsi di usare la versione più recente degli [Azure IoT SDK](./iot-hub-devguide-sdks.md). Per le procedure consigliate sulla gestione degli errori temporanei e la ripetizione dei tentativi, vedere [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).  Se il problema persiste, controllare [integrità risorse](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e [lo stato di Azure](https://status.azure.com/) per verificare se l'hub cose ha un problema noto. È anche possibile usare la [funzionalità di failover manuale](./tutorial-manual-failover.md). Se non sono presenti problemi noti e il problema persiste, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/) per ulteriori indagini.
+Per attenuare gli errori di 500xxx, emettere un nuovo tentativo dal dispositivo. Per [gestire automaticamente i tentativi](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), assicurarsi di usare la versione più recente degli [Azure IoT SDK](./iot-hub-devguide-sdks.md). Per le procedure consigliate sulla gestione degli errori temporanei e la ripetizione dei tentativi, vedere [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).  Se il problema persiste, controllare [integrità risorse](./iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) e [lo stato di Azure](https://status.azure.com/) per verificare se l'hub cose ha un problema noto. È anche possibile usare la [funzionalità di failover manuale](./tutorial-manual-failover.md). Se non sono presenti problemi noti e il problema persiste, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/) per ulteriori indagini.

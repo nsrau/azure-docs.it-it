@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996672"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534142"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
@@ -24,7 +24,7 @@ Prima di iniziare, verificare che l'interfaccia della riga di comando di Azure s
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 
-Per installare Oracle Golden Gate è necessario creare due VM Azure nello stesso set di disponibilità. L'immagine del Marketplace usata per creare le VM è **Oracle: Oracle-database-EE: 12.1.0.2: Latest**.
+Per installare Oracle Golden Gate è necessario creare due VM Azure nello stesso set di disponibilità. L'immagine del Marketplace usata per creare le VM è **Oracle: Oracle-database-EE: 12.1.0.2: Latest** .
 
 È anche necessario avere familiarità con l'editor Unix e nozioni di base di x11 (X Windows).
 
@@ -355,7 +355,7 @@ Per scaricare e preparare il software Oracle Golden Gate, completare la procedur
    $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
    ```
 
-3. Spostare i file ZIP nella cartella **/opt**. Modificare quindi il proprietario dei file come segue:
+3. Spostare i file ZIP nella cartella **/opt** . Modificare quindi il proprietario dei file come segue:
 
    ```bash
    $ sudo su -
@@ -388,10 +388,10 @@ Si tratta di un passaggio facoltativo. Può essere ignorato se si usa un client 
 
 3. Nel generatore di chiavi PuTTY:
 
-   - Per generare una chiave, selezionare il pulsante **Genera**.
-   - Copiare il contenuto della chiave con **Ctrl+C**.
+   - Per generare una chiave, selezionare il pulsante **Genera** .
+   - Copiare il contenuto della chiave con **Ctrl+C** .
    - Selezionare il pulsante **Save private key** (Salva la chiave privata).
-   - Ignorare l'avviso che viene visualizzato e quindi selezionare **OK**.
+   - Ignorare l'avviso che viene visualizzato e quindi selezionare **OK** .
 
    ![Schermata della pagina del generatore di chiavi PuTTY](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +403,21 @@ Si tratta di un passaggio facoltativo. Può essere ignorato se si usa un client 
    $ cd .ssh
    ```
 
-5. Creare un file denominato **authorized_keys**. Incollare il contenuto della chiave in questo file e quindi salvare il file.
+5. Creare un file denominato **authorized_keys** . Incollare il contenuto della chiave in questo file e quindi salvare il file.
 
    > [!NOTE]
    > La chiave deve contenere la stringa `ssh-rsa`. In aggiunta, il contenuto della chiave deve essere una singola riga di testo.
    >  
 
-6. Avviare PuTTY. Nel riquadro **categoria** selezionare **connessione**  >  **SSH**  >  **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
+6. Avviare PuTTY. Nel riquadro **categoria** selezionare **connessione**  >  **SSH**  >  **AUTH** . Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
 
    ![Schermata della pagina di impostazione della chiave privata](./media/oracle-golden-gate/setprivatekey.png)
 
-7. Nel pannello **Categoria** selezionare **Connessione** > **SSH** > **X11**. Selezionare quindi la casella **Enable X11 forwarding** (Abilita l'inoltro di X11).
+7. Nel pannello **Categoria** selezionare **Connessione** > **SSH** > **X11** . Selezionare quindi la casella **Enable X11 forwarding** (Abilita l'inoltro di X11).
 
    ![Schermata della pagina di abilitazione di X11](./media/oracle-golden-gate/enablex11.png)
 
-8. Nel pannello **Categoria** andare in **Sessione**. Immettere le informazioni sull'host e quindi selezionare **Apri**.
+8. Nel pannello **Categoria** andare in **Sessione** . Immettere le informazioni sull'host e quindi selezionare **Apri** .
 
    ![Screenshot della pagina della sessione](./media/oracle-golden-gate/puttysession.png)
 
@@ -442,19 +442,19 @@ Per installare Oracle Golden Gate seguire questa procedura:
 
 4. Modificare la directory di inventario e quindi selezionare **Next** (Avanti) per continuare.
 
-   ![Screenshot della pagina di selezione dell'installazione](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Screenshot della pagina Seleziona installazione che mostra la directory di installazione.](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Nella schermata **Summary** (Riepilogo) selezionare **Install** (Installa) per continuare.
 
-   ![Screenshot della pagina Select Installation Option (Selezionare l'opzione di installazione) del programma di installazione](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Screenshot che mostra la pagina Seleziona installazione e il pulsante Installa.](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Potrebbe essere richiesto di eseguire uno script come 'root'. In questo caso aprire una sessione separata, connettersi alla VM tramite SSH, passare a root tramite sudo e quindi eseguire lo script. Selezionare **OK** per continuare.
 
-   ![Screenshot della pagina di selezione dell'installazione](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Screenshot che mostra il percorso dello script e come eseguire lo script di configurazione.](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Al termine dell'installazione, selezionare **Close** (Chiudi) per completare il processo.
 
-   ![Screenshot della pagina di selezione dell'installazione](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Screenshot della pagina Seleziona installazione che mostra il pulsante Chiudi.](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Configurare il servizio in myVM1 (primaria)
 

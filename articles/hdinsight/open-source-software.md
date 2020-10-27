@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086263"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534380"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Supporto del software open source in Azure HDInsight
 
@@ -40,7 +40,7 @@ Un utente del cluster può installare o usare nel carico di lavoro qualsiasi com
 > [!WARNING]  
 > I componenti forniti con il cluster HDInsight sono completamente supportati. Il supporto tecnico Microsoft aiuta a isolare e risolvere i problemi legati a tali componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che il supporto tecnico Microsoft sia in grado di risolvere il problema oppure che richieda di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Possono essere usati molti siti di community. Esempi di questi componenti sono la [pagina delle domande di Domande e risposte Microsoft per HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che il supporto tecnico Microsoft sia in grado di risolvere il problema oppure che richieda di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Possono essere usati molti siti di community. Esempi di questi componenti sono la [pagina delle domande di Domande e risposte Microsoft per HDInsight](/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
 >
 > Anche per i progetti Apache sono disponibili siti specifici nel [sito Web di Apache](https://apache.org). Ad esempio, [Hadoop](https://hadoop.apache.org/).
 

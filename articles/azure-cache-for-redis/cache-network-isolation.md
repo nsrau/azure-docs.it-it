@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222908"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537474"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Cache di Azure per le opzioni di isolamento rete Redis 
 In questo articolo si apprenderà come determinare la migliore soluzione di isolamento rete in base alle proprie esigenze. Verranno illustrate le nozioni di base relative al collegamento privato di Azure, all'inserimento di rete virtuale di Azure (VNet) e alle regole del firewall di Azure con i relativi vantaggi e limitazioni.  
@@ -21,7 +21,7 @@ Il collegamento privato di Azure fornisce la connettività privata da una rete v
 
 ### <a name="advantages"></a>Vantaggi
 * Supportato in cache di Azure Basic, standard e Premium per le istanze di Redis. 
-* Con il [collegamento privato di Azure](/azure/private-link/private-link-overview)è possibile connettersi a un'istanza di cache di Azure dalla rete virtuale tramite un endpoint privato, a cui viene assegnato un indirizzo IP privato in una subnet all'interno della rete virtuale. Con questo, le istanze della cache sono disponibili sia in VNet che in pubblico.  
+* Con il [collegamento privato di Azure](../private-link/private-link-overview.md)è possibile connettersi a un'istanza di cache di Azure dalla rete virtuale tramite un endpoint privato, a cui viene assegnato un indirizzo IP privato in una subnet all'interno della rete virtuale. Con questo, le istanze della cache sono disponibili sia in VNet che in pubblico.  
 * Una volta creato un endpoint privato, è possibile limitare l'accesso alla rete pubblica tramite il `publicNetworkAccess` flag. Questo flag è impostato su per `Enabled` impostazione predefinita, in modo da consentire l'accesso sia al collegamento pubblico che al collegamento privato alla cache. Se impostato su `Disabled` , consentirà solo l'accesso ai collegamenti privati. È possibile impostare il valore su `Disabled` con una richiesta patch. Per altre informazioni, vedere [la pagina relativa alla cache di Azure per Redis con collegamento privato di Azure (anteprima)](cache-private-link.md). 
 * Tutte le dipendenze della cache esterna non influiranno sulle regole NSG di VNet.
 
@@ -51,7 +51,7 @@ VNet è il blocco predefinito fondamentale per la rete privata in Azure. VNet co
 
 
 ## <a name="azure-firewall-rules"></a>Regole del firewall di Azure
-Il [firewall di Azure](/azure/firewall/overview) è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse VNet di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. È possibile creare, applicare e registrare criteri di connettività di applicazione e di rete in modo centralizzato tra le sottoscrizioni e le reti virtuali.  
+Il [firewall di Azure](../firewall/overview.md) è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse VNet di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. È possibile creare, applicare e registrare criteri di connettività di applicazione e di rete in modo centralizzato tra le sottoscrizioni e le reti virtuali.  
 
 ### <a name="advantages"></a>Vantaggi
 * Quando le regole del firewall sono configurate, solo le connessioni client degli intervalli di indirizzi IP specificati possono connettersi alla cache. Le connessioni dai sistemi di monitoraggio di Cache Redis di Azure sono sempre consentite, anche se le regole del firewall sono configurate. Sono consentite anche le regole NSG definite.  
@@ -63,4 +63,4 @@ Il [firewall di Azure](/azure/firewall/overview) è un servizio di sicurezza di 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come configurare una [cache VNet inserita per una cache di Azure Premium per l'istanza di redis](cache-how-to-premium-vnet.md).  
 * Informazioni su come configurare [le regole del firewall per tutti i livelli di cache di Azure per Redis](cache-configure.md#firewall). 
-* Informazioni su come [configurare gli endpoint privati per tutti i livelli di cache di Azure per Redis](cache-private-link.md). 
+* Informazioni su come [configurare gli endpoint privati per tutti i livelli di cache di Azure per Redis](cache-private-link.md).
