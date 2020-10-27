@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553648"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558534"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
 Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
 
-Il connettore Azure per FHIR richiede due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi**, è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping**, controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
+Il connettore Azure per FHIR richiede due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi** , è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping** , controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
 
 I modelli di mapping sono composti in un documento JSON basato sul tipo. Questi documenti JSON vengono quindi aggiunti al connettore Azure per FHIR tramite il portale di Azure. Il documento di mapping dei dispositivi viene aggiunto tramite la pagina **Configura mapping dei dispositivi** e il documento di mapping di FHIR tramite la pagina **Configura mapping FHIR** .
 
@@ -71,8 +71,8 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 |**TypeMatchExpression**|Espressione di percorso JSON valutata rispetto al payload dell'hub eventi. Se viene trovato un JToken corrispondente, il modello viene considerato una corrispondenza. Tutte le espressioni successive vengono valutate in base ai JToken estratti corrispondenti.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Espressione del percorso JSON per estrarre il valore di timestamp per il OccurenceTimeUtc della misura.|`$.endDate`
 |**DeviceIdExpression**|Espressione del percorso JSON per estrarre l'identificatore del dispositivo.|`$.deviceId`
-|**PatientIdExpression**|*Facoltativo*: espressione del percorso JSON per estrarre l'identificatore del paziente.|`$.patientId`
-|**EncounterIdExpression**|*Facoltativo*: espressione del percorso JSON per estrarre l'identificatore di verifica.|`$.encounterId`
+|**PatientIdExpression**|*Facoltativo* : espressione del percorso JSON per estrarre l'identificatore del paziente.|`$.patientId`
+|**EncounterIdExpression**|*Facoltativo* : espressione del percorso JSON per estrarre l'identificatore di verifica.|`$.encounterId`
 |**Valori []. ValueName**|Nome da associare al valore estratto dall'espressione successiva. Utilizzato per associare il valore o il componente richiesto nel modello di mapping FHIR. |`hr`
 |**Valori []. ValueExpression**|Espressione del percorso JSON per estrarre il valore richiesto.|`$.heartRate`
 |**Valori []. Obbligatorio**|Richiede la presenza del valore nel payload.  Se non viene trovato, una misura non verrà generata e verrà generata un'eccezione InvalidOperationException.|`true`
@@ -565,7 +565,7 @@ Rappresenta il tipo di dati FHIR di [CodeableConcept](http://hl7.org/fhir/dataty
 Vedere le domande frequenti sul connettore Azure per FHIR (anteprima).
 
 >[!div class="nextstepaction"]
->[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
 *Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 

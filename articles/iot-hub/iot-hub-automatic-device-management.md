@@ -10,18 +10,18 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e30daa3f81ed5dcae1323e721bf85cfed8fa9614
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147815"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545396"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestione automatica di dispositivi e moduli IoT con il portale di Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e quindi permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito. Questo aggiornamento viene eseguito utilizzando una _configurazione automatica del dispositivo_ o una _configurazione automatica del modulo_, che consente di riepilogare il completamento e la conformità, gestire l'unione e i conflitti, nonché implementare le configurazioni con un approccio graduale.
+La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e quindi permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito. Questo aggiornamento viene eseguito utilizzando una _configurazione automatica del dispositivo_ o una _configurazione automatica del modulo_ , che consente di riepilogare il completamento e la conformità, gestire l'unione e i conflitti, nonché implementare le configurazioni con un approccio graduale.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ La gestione automatica dei dispositivi funziona aggiornando una serie di disposi
 
 * Il **contenuto di destinazione** definisce le proprietà desiderate da aggiungere o aggiornare nei moduli o nei dispositivi gemelli di destinazione. Il contenuto include un percorso della sezione delle proprietà desiderate da modificare.
 
-* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei gemelli.  Le metriche di sistema sono metriche predefinite che misurano lo stato di aggiornamento dei gemelli, ad esempio il numero di dispositivi gemelli di destinazione e di quelli che sono stati aggiornati.
+* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success** , **In progress** ed **Error** . Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei gemelli.  Le metriche di sistema sono metriche predefinite che misurano lo stato di aggiornamento dei gemelli, ad esempio il numero di dispositivi gemelli di destinazione e di quelli che sono stati aggiornati.
 
 Le configurazioni automatiche vengono eseguite per la prima volta poco dopo la creazione della configurazione e quindi a intervalli di cinque minuti. Le query per le metriche vengono eseguite ogni volta che viene eseguita la configurazione automatica.
 
@@ -60,7 +60,7 @@ Prima di creare una configurazione, è necessario specificare i dispositivi o mo
 
 2. Selezionare **IoT device configuration** (Configurazione del dispositivo IoT).
 
-3. Selezionare **Aggiungi configurazione dispositivo** o **Aggiungi configurazione modulo**.
+3. Selezionare **Aggiungi configurazione dispositivo** o **Aggiungi configurazione modulo** .
 
    ![Aggiungere la configurazione del dispositivo o la configurazione del modulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
@@ -96,7 +96,7 @@ Se due o più configurazioni assegnano come destinazione lo stesso percorso del 
 
 Se si vuole rimuovere una proprietà esistente, specificare il valore della proprietà su `null`.
 
-È possibile aggiungere altre impostazioni selezionando **Aggiungi impostazione dispositivo gemello** **Aggiungi impostazione modulo gemello**.
+È possibile aggiungere altre impostazioni selezionando **Aggiungi impostazione dispositivo gemello** **Aggiungi impostazione modulo gemello** .
 
 ### <a name="specify-metrics-optional"></a>Specificare le metriche (facoltativo)
 
@@ -162,7 +162,7 @@ Per visualizzare i dettagli di una configurazione e monitorare i dispositivi che
 
 3. Esaminare l'elenco delle configurazioni. Per ogni configurazione è possibile visualizzare i dettagli seguenti:
 
-   * **ID**: il nome della configurazione.
+   * **ID** : il nome della configurazione.
 
    * **Target condition** (Condizione di destinazione): la query usata per definire i dispositivi o moduli di destinazione.
 
@@ -172,15 +172,15 @@ Per visualizzare i dettagli di una configurazione e monitorare i dispositivi che
 
    * **System metrics** (Metriche sistema): le metriche che vengono calcolate dall'hub IoT e che non possono essere personalizzate dagli sviluppatori. Assegnato: specifica il numero di dispositivi gemelli che soddisfano la condizione di destinazione. Si applica: il numero di dispositivi gemelli che sono stati modificati dalla configurazione, che può includere modifiche parziali nel caso in cui anche una configurazione separata con priorità più alta abbia apportato modifiche. 
 
-   * **Metriche personalizzate**: metriche specificate dallo sviluppatore come query sulle proprietà segnalate dei gemelli.  È possibile definire fino a cinque metriche personalizzate per ogni configurazione. 
+   * **Metriche personalizzate** : metriche specificate dallo sviluppatore come query sulle proprietà segnalate dei gemelli.  È possibile definire fino a cinque metriche personalizzate per ogni configurazione. 
    
 4. Selezionare la configurazione che si vuole monitorare.  
 
 5. Esaminare i dettagli della configurazione. È possibile usare le schede per visualizzare dettagli specifici sui dispositivi che hanno ricevuto la configurazione.
 
-   * **Condizione di destinazione**: dispositivi o moduli che soddisfano la condizione di destinazione. 
+   * **Condizione di destinazione** : dispositivi o moduli che soddisfano la condizione di destinazione. 
 
-   * **Metriche**: elenco delle metriche di sistema e personalizzate.  È possibile visualizzare un elenco di dispositivi o moduli che vengono conteggiati per ogni metrica selezionando la metrica nell'elenco a discesa e quindi selezionando **View Devices** (Visualizza dispositivi) o **View Modules** (Visualizza moduli).
+   * **Metriche** : elenco delle metriche di sistema e personalizzate.  È possibile visualizzare un elenco di dispositivi o moduli che vengono conteggiati per ogni metrica selezionando la metrica nell'elenco a discesa e quindi selezionando **View Devices** (Visualizza dispositivi) o **View Modules** (Visualizza moduli).
 
    * **Device Twin Settings** (Impostazioni dispositivi gemelli) o **Module Twin Settings** (Impostazioni moduli gemelli): le impostazioni dei gemelli specificate dalla configurazione. 
 
@@ -213,7 +213,7 @@ Per modificare una configurazione, seguire questa procedura:
    * Priorità 
    * Metriche
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
 5. Seguire la procedura descritta in [Monitorare una configurazione](#monitor-a-configuration) per controllare la distribuzione delle modifiche. 
 
@@ -227,7 +227,7 @@ Quando si elimina una configurazione, gli eventuali dispositivi gemelli ricevono
 
 3. Usare la casella di controllo per selezionare la configurazione che si vuole eliminare. 
 
-4. Selezionare **Elimina**.
+4. Selezionare **Elimina** .
 
 5. Verrà visualizzato un messaggio che richiede la conferma.
 
@@ -236,8 +236,7 @@ Quando si elimina una configurazione, gli eventuali dispositivi gemelli ricevono
 In questo articolo si è appreso come configurare e monitorare i dispositivi IoT su larga scala. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco le identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di hub IoT](iot-hub-metrics.md)
-* [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
+* [Monitorare l'hub Internet delle cose](monitor-iot-hub.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

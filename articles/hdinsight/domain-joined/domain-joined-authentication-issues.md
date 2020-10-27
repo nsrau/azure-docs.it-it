@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b6b33bc044b28628cc444227021cd0b4ff377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816848"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544903"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemi di autenticazione in Azure HDInsight
 
@@ -154,7 +154,7 @@ Modi per trovare `sAMAccountName` :
 
 * Se è possibile accedere a Ambari usando l'amministratore di Ambari locale, esaminare l'elenco di utenti.
 
-* Se si dispone di un [computer Windows aggiunto](../../active-directory-domain-services/manage-domain.md)a un dominio, è possibile usare gli strumenti standard di Windows ad per esplorare. Questa operazione richiede un account di lavoro nel dominio.
+* Se si dispone di un [computer Windows aggiunto](../../active-directory-domain-services/tutorial-create-management-vm.md)a un dominio, è possibile usare gli strumenti standard di Windows ad per esplorare. Questa operazione richiede un account di lavoro nel dominio.
 
 * Dal nodo Head è possibile usare i comandi SAMBA per eseguire la ricerca. Questa operazione richiede una sessione Kerberos valida (kinit riuscito). ricerca NET ads "(userPrincipalName = Bob *)"
 
@@ -220,4 +220,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

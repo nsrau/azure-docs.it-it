@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5524c7625678d3bacc5fdbe3c295d8392da2280f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491003"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546093"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare i log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
 Informazioni su come abilitare i log di Monitoraggio di Azure per monitorare le operazioni del cluster Hadoop in HDInsight e su come aggiungere una soluzione di monitoraggio di HDInsight.
 
-I [log di Monitoraggio di Azure](../log-analytics/log-analytics-overview.md) sono un servizio di Monitoraggio di Azure che consente di monitorare gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Il monitoraggio raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio. I dati vengono usati per consentire l'analisi in più origini.
+I [log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) sono un servizio di Monitoraggio di Azure che consente di monitorare gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Il monitoraggio raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio. I dati vengono usati per consentire l'analisi in più origini.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
   Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/). Verificare di avere l'ultima versione. Se necessario, eseguire `Update-Module -Name Az`.
+* Se si usa PowerShell, è necessario il [modulo Az](/powershell/azure/). Verificare di avere l'ultima versione. Se necessario, eseguire `Update-Module -Name Az`.
 
 * Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -53,19 +53,19 @@ In questa sezione si configura un cluster Hadoop HDInsight esistente per usare u
 
 1. Selezionare il proprio cluster nel [portale di Azure](https://portal.azure.com/). Il cluster viene aperto in una nuova pagina del portale.
 
-1. A sinistra, in **Monitoraggio** selezionare **Monitoraggio di Azure**.
+1. A sinistra, in **Monitoraggio** selezionare **Monitoraggio di Azure** .
 
-1. Nella visualizzazione principale in **Integrazione di Monitoraggio di Azure** selezionare **Abilita**.
+1. Nella visualizzazione principale in **Integrazione di Monitoraggio di Azure** selezionare **Abilita** .
 
-1. Nell'elenco a discesa **Selezionare un'area di lavoro**, selezionare un'area di lavoro Log Analytics esistente.
+1. Nell'elenco a discesa **Selezionare un'area di lavoro** , selezionare un'area di lavoro Log Analytics esistente.
 
-1. Selezionare **Salva**.  Sono necessari alcuni minuti per salvare l'impostazione.
+1. Selezionare **Salva** .  Sono necessari alcuni minuti per salvare l'impostazione.
 
     ![Abilitare il monitoraggio per i cluster HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Abilitare il monitoraggio per i cluster HDInsight")
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Abilitare Monitoraggio di Azure tramite Azure PowerShell
 
-È possibile abilitare i log di Monitoraggio di Azure usando il cmdlet [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) del modulo Az di Azure PowerShell.
+È possibile abilitare i log di Monitoraggio di Azure usando il cmdlet [Enable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) del modulo Az di Azure PowerShell.
 
 ```powershell
 # Enter user information
@@ -97,7 +97,7 @@ Get-AzHDInsightMonitoring `
     -Name $cluster
 ```
 
-Per disabilitare, usare il cmdlet [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring):
+Per disabilitare, usare il cmdlet [Disable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/disable-azhdinsightmonitoring):
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
@@ -128,7 +128,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installare soluzioni di gestione di cluster HDInsight
 
-HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile aggiungere per i log di Monitoraggio di Azure. Le [soluzioni di gestione](../log-analytics/log-analytics-add-solutions.md) aggiungono funzionalità ai log di Monitoraggio di Azure e offrono altri strumenti di analisi e dati. Queste soluzioni raccolgono metriche importanti sulle prestazioni dai cluster HDInsight e includono gli strumenti per cercare le metriche. Le soluzioni forniscono anche visualizzazioni e dashboard per la maggior parte dei tipi di cluster supportati in HDInsight. Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati.
+HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile aggiungere per i log di Monitoraggio di Azure. Le [soluzioni di gestione](../azure-monitor/insights/solutions.md) aggiungono funzionalità ai log di Monitoraggio di Azure e offrono altri strumenti di analisi e dati. Queste soluzioni raccolgono metriche importanti sulle prestazioni dai cluster HDInsight e includono gli strumenti per cercare le metriche. Le soluzioni forniscono anche visualizzazioni e dashboard per la maggior parte dei tipi di cluster supportati in HDInsight. Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati.
 
 Soluzioni HDInsight disponibili:
 
@@ -139,7 +139,7 @@ Soluzioni HDInsight disponibili:
 * Monitoraggio Spark in HDInsight
 * Monitoraggio Storm in HDInsight
 
-Per le istruzioni sulle soluzioni di gestione, vedere [Soluzioni di gestione in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Per provare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine verrà visualizzato il riquadro **HDInsightHadoop** elencato sotto **Riepilogo**. Selezionare il riquadro **HDInsightHadoop**. La soluzione HDInsightHadoop appare come segue:
+Per le istruzioni sulle soluzioni di gestione, vedere [Soluzioni di gestione in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Per provare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine verrà visualizzato il riquadro **HDInsightHadoop** elencato sotto **Riepilogo** . Selezionare il riquadro **HDInsightHadoop** . La soluzione HDInsightHadoop appare come segue:
 
 ![Visualizzazione della soluzione di monitoraggio di HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -147,7 +147,7 @@ Poiché il cluster è nuovo, il report non visualizza tutte le attività.
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
 
-Monitoraggio di Azure supporta la raccolta e l'analisi delle metriche delle prestazioni per i nodi del cluster. Pe altre informazioni, vedere [Origini dati delle prestazioni di Linux in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+Monitoraggio di Azure supporta la raccolta e l'analisi delle metriche delle prestazioni per i nodi del cluster. Pe altre informazioni, vedere [Origini dati delle prestazioni di Linux in Monitoraggio di Azure](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Controllo dei cluster
 

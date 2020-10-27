@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504075"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547691"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -43,7 +43,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Limitazione | Nessuna, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operazioni del registro delle identità](#identity-registry-operations-throttle) (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_, non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6.000 nuove connessioni/sec/unità |
+| [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_ , non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6.000 nuove connessioni/sec/unità |
 | Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2 \* 12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (9 \* 12) tra le unità. | 120 operazioni di invio/sec/unità | 6.000 operazioni di invio/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67 operazioni di invio/sec/unità (100 messaggi/min/unità) | 1,67 operazioni di invio/sec/unità (100 operazioni di invio/min/unità) | 83,33 operazioni di invio/sec/unità (5.000 operazioni di invio/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 833,33 operazioni di ricezione/sec/unità (operazioni di ricezione 50.000/min/unità) |
@@ -71,7 +71,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 *  Per i *processi i dispositivi (aggiornamento gemello, richiama metodo diretto)* per il livello S2, 50/sec/unità si applica solo a quando si richiamano metodi usando i processi. Se si richiamano direttamente i metodi diretti, viene applicato il limite di limitazione originale di 24 MB/sec/unità (per S2).
 
-*  **Quota** è il numero aggregato di messaggi che è possibile inviare nell'hub *al giorno*. È possibile trovare il limite di quota dell'hub sotto la colonna **numero totale di messaggi/giorno** nella [pagina dei prezzi dell'hub](https://azure.microsoft.com/pricing/details/iot-hub/)Internet.
+*  **Quota** è il numero aggregato di messaggi che è possibile inviare nell'hub *al giorno* . È possibile trovare il limite di quota dell'hub sotto la colonna **numero totale di messaggi/giorno** nella [pagina dei prezzi dell'hub](https://azure.microsoft.com/pricing/details/iot-hub/)Internet.
 
 *  Le limitazioni da cloud a dispositivo e da dispositivo a cloud determinano la *velocità* massima a cui è possibile inviare messaggi, ovvero il numero di messaggi indipendentemente dai blocchi da 4 KB. Ogni messaggio può essere fino a 256 KB che corrisponde alla [dimensione massima del messaggio](iot-hub-devguide-quotas-throttling.md#other-limits).
 
@@ -79,9 +79,9 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 ### <a name="traffic-shaping"></a>Shaping del traffico
 
-Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico*. Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare le richieste con `429 ThrottlingException` .
+Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico* . Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare le richieste con `429 ThrottlingException` .
 
-Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. A questo punto, si inizia a ricevere il `429 ThrottlingException` riempimento della coda e il "numero di errori di limitazione" nelle [metriche dell'hub](iot-hub-metrics.md) delle cose inizia ad aumentare.
+Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. Infine, si inizierà `429 ThrottlingException` a ricevere il riempimento della coda e la metrica dell'hub degli elementi ["numero di errori di limitazione"](monitor-iot-hub-reference.md#device-telemetry-metrics) inizierà ad aumentare. Per informazioni su come creare avvisi e grafici in base alle metriche, vedere [monitorare l'hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Limitazione delle operazioni del registro di sistema delle identità
 
@@ -139,3 +139,4 @@ Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, ve
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint hub IoT](iot-hub-devguide-endpoints.md)
+* [Monitorare l'hub Internet](monitor-iot-hub.md)

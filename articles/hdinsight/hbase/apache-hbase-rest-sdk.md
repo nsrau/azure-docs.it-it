@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504860"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540313"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usare .NET SDK per Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Sostituire CLUSTERNAME con il nome del cluster HBase HDInsight e USERNAME e PASSWORD con le credenziali di Apache Hadoop specificate durante la creazione del cluster. Il nome utente predefinito di Hadoop è **admin**.
+Sostituire CLUSTERNAME con il nome del cluster HBase HDInsight e USERNAME e PASSWORD con le credenziali di Apache Hadoop specificate durante la creazione del cluster. Il nome utente predefinito di Hadoop è **admin** .
 
 ## <a name="create-a-new-table"></a>Crea una nuova tabella
 
-HBase archivia i dati in tabelle. Una tabella è costituita da un elemento *Rowkey*, la chiave primaria, e uno o più gruppi di colonne detti *famiglie di colonne*. I dati in ogni tabella sono distribuiti in senso orizzontale in base a un intervallo di Rowkey in *aree*. Ogni area ha una chiave di inizio e di fine. Una tabella può avere una o più aree. Man mano che i dati nella tabella aumentano, HBase suddivide le aree di grandi dimensioni in aree di dimensioni più piccole. Le aree vengono archiviate nei *server di area* e un server di area può archiviare più aree.
+HBase archivia i dati in tabelle. Una tabella è costituita da un elemento *Rowkey* , la chiave primaria, e uno o più gruppi di colonne detti *famiglie di colonne* . I dati in ogni tabella sono distribuiti in senso orizzontale in base a un intervallo di Rowkey in *aree* . Ogni area ha una chiave di inizio e di fine. Una tabella può avere una o più aree. Man mano che i dati nella tabella aumentano, HBase suddivide le aree di grandi dimensioni in aree di dimensioni più piccole. Le aree vengono archiviate nei *server di area* e un server di area può archiviare più aree.
 
-I dati vengono archiviati fisicamente in oggetti *HFile*. Un singolo oggetto HFile contiene i dati per una tabella, un'area e una famiglia di colonne. Le righe in un oggetto HFile vengono archiviate ordinate in base a Rowkey. Ogni oggetto HFile ha un indice *albero B+* che consente il recupero rapido delle righe.
+I dati vengono archiviati fisicamente in oggetti *HFile* . Un singolo oggetto HFile contiene i dati per una tabella, un'area e una famiglia di colonne. Le righe in un oggetto HFile vengono archiviate ordinate in base a Rowkey. Ogni oggetto HFile ha un indice *albero B+* che consente il recupero rapido delle righe.
 
 Per creare una nuova tabella, specificare un oggetto `TableSchema` e colonne. Il codice seguente controlla se la tabella "RestSDKTable" esiste già. Se la tabella non esiste, viene creata.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Creare un'applicazione end-to-end con [Analizzare i sentiment di Twitter in tempo reale con Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Creare un'applicazione end-to-end con [Analizzare i sentiment di Twitter in tempo reale con Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

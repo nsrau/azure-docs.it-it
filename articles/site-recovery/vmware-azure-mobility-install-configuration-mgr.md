@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77252228"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544818"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
 
@@ -18,9 +18,9 @@ Questo articolo descrive come automatizzare l'installazione e gli aggiornamenti 
 
 Quando si distribuisce Site Recovery per il ripristino di emergenza di server fisici e macchine virtuali VMware locali in Azure, si installa l'agente del servizio Mobility in ogni computer che si vuole replicare. Il servizio Mobility acquisisce le scritture dei dati nel computer e le invia al server di elaborazione Site Recovery per la replica. È possibile distribuire il servizio Mobility in diversi modi:
 
-- **Installazione push**: consente di Site Recovery installare l'agente del servizio Mobility quando si Abilita la replica per un computer nel portale di Azure.
-- **Installazione manuale**: installare manualmente il servizio Mobility in ogni computer. [Altre](vmware-physical-mobility-service-overview.md) informazioni sull'installazione push e manuale.
-- **Distribuzione automatizzata**: automatizzare l'installazione con strumenti di distribuzione software, ad esempio Microsoft endpoint Configuration Manager o strumenti di terze parti, ad esempio JetPatch.
+- **Installazione push** : consente di Site Recovery installare l'agente del servizio Mobility quando si Abilita la replica per un computer nel portale di Azure.
+- **Installazione manuale** : installare manualmente il servizio Mobility in ogni computer. [Altre](vmware-physical-mobility-service-overview.md) informazioni sull'installazione push e manuale.
+- **Distribuzione automatizzata** : automatizzare l'installazione con strumenti di distribuzione software, ad esempio Microsoft endpoint Configuration Manager o strumenti di terze parti, ad esempio JetPatch.
 
 L'installazione e l'aggiornamento automatici forniscono una soluzione se:
 
@@ -44,7 +44,7 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 
 **Strumento** | **Dettagli** | **Istruzioni**
 --- | --- | ---
-**Configuration Manager** | 1. Verificare di disporre dei [prerequisiti](#prerequisites) elencati in precedenza. <br/><br/> 2. distribuire il ripristino di emergenza configurando l'ambiente di origine, incluso il download di un file OVA per distribuire il server di configurazione Site Recovery come macchina virtuale VMware usando un modello OVF.<br/><br/> 3. registrare il server di configurazione con il servizio Site Recovery, configurare l'ambiente di Azure di destinazione e configurare un criterio di replica.<br/><br/> 4. per la distribuzione automatizzata del servizio Mobility, è possibile creare una condivisione di rete contenente i file di installazione del servizio Mobility e la passphrase del server di configurazione.<br/><br/> 5. si crea un pacchetto di Configuration Manager contenente l'installazione o gli aggiornamenti e si prepara la distribuzione del servizio Mobility.<br/><br/> 6. è quindi possibile abilitare la replica in Azure per i computer in cui è installato il servizio Mobility. | [Automatizzare con Configuration Manager](#automate-with-configuration-manager)
+**Gestione configurazione** | 1. Verificare di disporre dei [prerequisiti](#prerequisites) elencati in precedenza. <br/><br/> 2. distribuire il ripristino di emergenza configurando l'ambiente di origine, incluso il download di un file OVA per distribuire il server di configurazione Site Recovery come macchina virtuale VMware usando un modello OVF.<br/><br/> 3. registrare il server di configurazione con il servizio Site Recovery, configurare l'ambiente di Azure di destinazione e configurare un criterio di replica.<br/><br/> 4. per la distribuzione automatizzata del servizio Mobility, è possibile creare una condivisione di rete contenente i file di installazione del servizio Mobility e la passphrase del server di configurazione.<br/><br/> 5. si crea un pacchetto di Configuration Manager contenente l'installazione o gli aggiornamenti e si prepara la distribuzione del servizio Mobility.<br/><br/> 6. è quindi possibile abilitare la replica in Azure per i computer in cui è installato il servizio Mobility. | [Automatizzare con Configuration Manager](#automate-with-configuration-manager)
 **JetPatch** | 1. Verificare di disporre dei [prerequisiti](#prerequisites) elencati in precedenza. <br/><br/> 2. distribuire il ripristino di emergenza configurando l'ambiente di origine, incluso il download e la distribuzione di JetPatch Agent Manager per Azure Site Recovery nell'ambiente Site Recovery, usando un modello OVF.<br/><br/> 3. registrare il server di configurazione con Site Recovery, configurare l'ambiente di Azure di destinazione e configurare un criterio di replica.<br/><br/> 4. per la distribuzione automatizzata, inizializzare e completare la configurazione del Agent Manager JetPatch.<br/><br/> 5. in JetPatch è possibile creare un criterio di Site Recovery per automatizzare la distribuzione e l'aggiornamento dell'agente del servizio Mobility. <br/><br/> 6. è quindi possibile abilitare la replica in Azure per i computer in cui è installato il servizio Mobility. | [Automatizzare con JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Risolvere i problemi di installazione dell'agente in JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
 
 ## <a name="automate-with-configuration-manager"></a>Automatizzare con Configuration Manager
@@ -56,8 +56,8 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 1. In Configuration Manager [categorizzare i server](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) in cui si vuole installare o aggiornare il servizio Mobility. Una raccolta deve contenere tutti i server Windows, gli altri server Linux.
 1. Nella condivisione di rete creare una cartella:
 
-   - Per l'installazione nei computer Windows, creare una cartella denominata _nella mobsvcwindows_.
-   - Per l'installazione nei computer Linux, creare una cartella denominata _MobSvcLinux_.
+   - Per l'installazione nei computer Windows, creare una cartella denominata _nella mobsvcwindows_ .
+   - Per l'installazione nei computer Linux, creare una cartella denominata _MobSvcLinux_ .
 
 1. Accedere al computer del server di configurazione.
 1. Nel computer del server di configurazione aprire un prompt dei comandi amministrativo.
@@ -77,8 +77,8 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 
 1. Copiare i file di installazione nella condivisione di rete:
 
-   - Per Windows, copiare _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ in _nella mobsvcwindows_.
-   - Per Linux, copiare i file seguenti in _MobSvcLinux_:
+   - Per Windows, copiare _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ in _nella mobsvcwindows_ .
+   - Per Linux, copiare i file seguenti in _MobSvcLinux_ :
      - _Microsoft-ASR_UARHEL6 -64release. tar. gz_
      - _Microsoft-ASR_UARHEL7 -64release. tar. gz_
      - _Microsoft-ASR_UASLES11-SP3-64release. tar. gz_
@@ -95,7 +95,7 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 
 Copiare il codice seguente:
 
-- Salvare il codice nella cartella _nella mobsvcwindows_ come _install.bat_.
+- Salvare il codice nella cartella _nella mobsvcwindows_ come _install.bat_ .
 - Sostituire i `[CSIP]` segnaposto in questo script con i valori effettivi dell'indirizzo IP del server di configurazione.
 - Lo script supporta le nuove installazioni dell'agente del servizio Mobility e gli aggiornamenti agli agenti già installati.
 
@@ -198,7 +198,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 Copiare il codice seguente:
 
-- Salvare il codice nella cartella _MobSvcLinux_ come _install_linux. sh_.
+- Salvare il codice nella cartella _MobSvcLinux_ come _install_linux. sh_ .
 - Sostituire i `[CSIP]` segnaposto in questo script con i valori effettivi dell'indirizzo IP del server di configurazione.
 - Lo script supporta le nuove installazioni dell'agente del servizio Mobility e gli aggiornamenti agli agenti già installati.
 
@@ -338,17 +338,17 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Creare un pacchetto
 
-1. Accedere alla console di Configuration Manager e passare a **raccolta software**  >  **Gestione applicazioni**  >  **pacchetti**.
+1. Accedere alla console di Configuration Manager e passare a **raccolta software**  >  **Gestione applicazioni**  >  **pacchetti** .
 1. Fare clic con il pulsante destro del mouse su **pacchetti**  >  **Crea pacchetto**
 1. Specificare i dettagli del pacchetto, inclusi nome, descrizione, produttore, lingua e versione.
-1. Selezionare **questo pacchetto contiene i file di origine**.
-1. Fare clic su **Sfoglia**e selezionare la condivisione di rete e la cartella che contiene il programma di installazione pertinente (_nella mobsvcwindows_ o _MobSvcLinux_). Quindi selezionare **Avanti**.
+1. Selezionare **questo pacchetto contiene i file di origine** .
+1. Fare clic su **Sfoglia** e selezionare la condivisione di rete e la cartella che contiene il programma di installazione pertinente ( _nella mobsvcwindows_ o _MobSvcLinux_ ). Quindi selezionare **Avanti** .
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. In **scegliere il tipo di programma da creare** pagina selezionare **programma standard**  >  **Avanti**.
+1. In **scegliere il tipo di programma da creare** pagina selezionare **programma standard**  >  **Avanti** .
 
-   ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Screenshot della creazione guidata pacchetto e programma che mostra l'opzione del programma standard.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 1. Nella pagina **specificare le informazioni su questo programma standard** specificare i valori seguenti:
 
@@ -359,34 +359,34 @@ cd /tmp
     **È possibile eseguire il programma** | anche se non ci sono utenti connessi | anche se non ci sono utenti connessi
     **Altri parametri** | Usa impostazione predefinita | Usa impostazione predefinita
 
-   ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Screenshot che mostra le informazioni che è possibile specificare per il programma standard.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-1. In **specificare i requisiti per il programma standard**eseguire le attività seguenti:
+1. In **specificare i requisiti per il programma standard** eseguire le attività seguenti:
 
-   - Per i computer Windows, selezionare **questo programma può essere eseguito solo su piattaforme specifiche**. Selezionare quindi i [sistemi operativi Windows supportati](vmware-physical-azure-support-matrix.md#replicated-machines) e selezionare **Avanti**.
-   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma**. Fare quindi clic su **Avanti**.
+   - Per i computer Windows, selezionare **questo programma può essere eseguito solo su piattaforme specifiche** . Selezionare quindi i [sistemi operativi Windows supportati](vmware-physical-azure-support-matrix.md#replicated-machines) e selezionare **Avanti** .
+   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma** . Fare quindi clic su **Avanti** .
 
 1. Completare la procedura guidata.
 
 ### <a name="deploy-the-package"></a>Distribuire il pacchetto
 
-1. Nella console di Configuration Manager, fare clic con il pulsante destro del mouse sul pacchetto e selezionare **Distribuisci contenuto**.
+1. Nella console di Configuration Manager, fare clic con il pulsante destro del mouse sul pacchetto e selezionare **Distribuisci contenuto** .
 
    ![Schermata della console di Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 
 1. Selezionare i punti di distribuzione in cui copiare i pacchetti. [Altre informazioni](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points)
 1. Completare la procedura guidata. Il pacchetto inizia la replica nei punti di distribuzione specificati.
-1. Al termine della distribuzione del pacchetto, fare clic con il pulsante destro del mouse sul pacchetto > **Distribuisci**.
+1. Al termine della distribuzione del pacchetto, fare clic con il pulsante destro del mouse sul pacchetto > **Distribuisci** .
 
-   ![Schermata della console di Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Screenshot della console di Configuration Manager che mostra l'opzione di menu Distribuisci.](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
 1. Selezionare la raccolta di dispositivi Windows o Linux creata in precedenza.
-1. Nella pagina **specificare la destinazione del contenuto** selezionare **punti di distribuzione**.
-1. In **specificare le impostazioni per controllare la modalità di distribuzione del software** , impostare **scopo** su **obbligatorio**.
+1. Nella pagina **specificare la destinazione del contenuto** selezionare **punti di distribuzione** .
+1. In **specificare le impostazioni per controllare la modalità di distribuzione del software** , impostare **scopo** su **obbligatorio** .
 
    ![Schermata della Distribuzione guidata del software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. In **specificare la pianificazione per questa distribuzione**, impostare una pianificazione. [Altre informazioni](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched)
+1. In **specificare la pianificazione per questa distribuzione** , impostare una pianificazione. [Altre informazioni](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched)
 
    - Il servizio Mobility viene installato in base alla pianificazione specificata.
    - Per evitare riavvii non necessari, pianificare l'installazione del pacchetto durante la finestra di manutenzione mensile o degli aggiornamenti software.

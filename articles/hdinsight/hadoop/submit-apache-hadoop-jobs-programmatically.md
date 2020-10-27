@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b04e24541959740ca08c2ec196b2408db0b76b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435703"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545192"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Inviare processi Apache Hadoop in HDInsight
 
@@ -21,25 +21,25 @@ ms.locfileid: "75435703"
 
 ## <a name="resources"></a>Risorse
 
-- **.NET SDK**:
+- **.NET SDK** :
 
   - [Creare applicazioni .NET di autenticazione non interattive](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Eseguire query Apache Hive con HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
   - [Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Eseguire processi MapReduce con HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **curl**:
+- **curl** :
 
   - [Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-hive-curl.md)
   - [Eseguire processi Apache Sqoop con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-sqoop-curl.md)
   - [Eseguire processi MapReduce con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-mapreduce-curl.md)
 
-- **PowerShell**:
+- **PowerShell** :
 
   - [Eseguire query Apache Hive usando PowerShell](apache-hadoop-use-hive-powershell.md)
   - [Usare Apache Sqoop con Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Eseguire processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-- [Documentazione di Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)
+- [Documentazione di Azure HDInsight](../index.yml)

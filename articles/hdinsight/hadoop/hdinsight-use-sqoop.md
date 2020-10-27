@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076879"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545226"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
 
@@ -78,10 +78,10 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
 
 2. Immettere le proprietà seguenti:
 
-    |Campo |Valore |
+    |Campo |valore |
     |---|---|
     |Subscription |Selezionare la sottoscrizione di Azure dall'elenco a discesa.|
-    |Resource group |Selezionare il gruppo di risorse dall'elenco a discesa o crearne uno nuovo.|
+    |Gruppo di risorse |Selezionare il gruppo di risorse dall'elenco a discesa o crearne uno nuovo.|
     |Location |Selezionare un'area dall'elenco a discesa.|
     |Cluster Name |Immettere un nome per il cluster Hadoop. USA solo lettere minuscole.|
     |Nome utente dell'account di accesso del cluster |Mantieni il valore pre-popolato `admin` .|
@@ -97,9 +97,9 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
 
     Il nome del [server SQL logico](../../azure-sql/database/logical-servers.md) sarà  `<ClusterName>dbserver` . Il nome del database sarà `<ClusterName>db` . Il nome dell'account di archiviazione predefinito sarà `e6qhezrh2pdqu` .
 
-3. Selezionare **Accetto le condizioni riportate sopra**.
+3. Selezionare **Accetto le condizioni riportate sopra** .
 
-4. Selezionare **Acquisto**. Viene visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
+4. Selezionare **Acquisto** . Viene visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
 
 ## <a name="run-sqoop-jobs"></a>Eseguire processi Sqoop
 
@@ -120,6 +120,6 @@ HDInsight è in grado di eseguire processi Sqoop in vari modi. Usare la tabella 
 
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
-* [Usare Apache Hive con HDInsight](../hdinsight-use-hive.md)
+* [Usare Apache Hive con HDInsight](./hdinsight-use-hive.md)
 * [Caricare i dati in HDInsight](../hdinsight-upload-data.md): per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 * [Usare Apache Sqoop per importare ed esportare dati tra Apache Hadoop su HDInsight e un database SQL](./apache-hadoop-use-sqoop-mac-linux.md)

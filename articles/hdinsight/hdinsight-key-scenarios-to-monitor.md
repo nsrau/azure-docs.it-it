@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075571"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539769"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
 
@@ -50,7 +50,7 @@ Hadoop include vari servizi in esecuzione sulla relativa piattaforma distribuita
 
 YARN divide inoltre le due responsabilità del JobTracker (gestione delle risorse e pianificazione/monitoraggio dei processi) in due daemon: un ResourceManager globale e un ApplicationMaster per ogni applicazione.
 
-ResourceManager è un'*utilità di pianificazione* ed esegue esclusivamente l'arbitraggio delle risorse disponibili tra le applicazioni concorrenti. Garantisce inoltre che tutte le risorse siano sempre in uso, ottimizzandole per varie costanti come i contratti di servizio, le garanzie di capacità e così via. ApplicationMaster negozia invece le risorse da ResourceManager e interagisce con NodeManager per eseguire e monitorare i contenitori e il relativo consumo di risorse.
+ResourceManager è un' *utilità di pianificazione* ed esegue esclusivamente l'arbitraggio delle risorse disponibili tra le applicazioni concorrenti. Garantisce inoltre che tutte le risorse siano sempre in uso, ottimizzandole per varie costanti come i contratti di servizio, le garanzie di capacità e così via. ApplicationMaster negozia invece le risorse da ResourceManager e interagisce con NodeManager per eseguire e monitorare i contenitori e il relativo consumo di risorse.
 
 Quando più tenant condividono un cluster di grandi dimensioni, c'è concorrenza per le risorse del cluster. CapacityScheduler è un'utilità di pianificazione collegabile che semplifica la condivisione delle risorse disponendo le richieste in coda. Il CapacityScheduler supporta anche le *Code gerarchiche* per garantire che le risorse vengano condivise tra le code secondarie di un'organizzazione, prima che le code di altre applicazioni possano utilizzare risorse gratuite.
 
@@ -62,7 +62,7 @@ Sul lato sinistro della pagina YARN Queue Manager (Gestore code YARN) viene visu
 
 ![Pagina dei dettagli YARN Queue Manager (Gestore code YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboard Ambari selezionare il servizio **YARN**. Nel menu a discesa **Quick Links** (Collegamenti rapidi) selezionare **ResourceManager UI** (Interfaccia utente di ResourceManager) sotto il nodo attivo.
+Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboard Ambari selezionare il servizio **YARN** . Nel menu a discesa **Quick Links** (Collegamenti rapidi) selezionare **ResourceManager UI** (Interfaccia utente di ResourceManager) sotto il nodo attivo.
 
 ![Collegamenti menu dell'interfaccia utente Gestione risorse](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
@@ -72,9 +72,9 @@ Nell'interfaccia utente di ResourceManager selezionare **Scheduler** (Utilità d
 
 ## <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 
-È possibile che si verifichi un collo di bottiglia delle prestazioni del cluster a livello di archiviazione. Questo tipo di collo di bottiglia è spesso dovuto al *blocco* delle operazioni di input/output (i/o), che si verificano quando le attività in esecuzione inviano un maggior numero di operazioni di i/o rispetto al servizio di archiviazione Questo blocco crea una coda di richieste di I/O in attesa di essere elaborate al termine dell'elaborazione delle richieste di I/O correnti. I blocchi sono dovuti alla *limitazione dell'archiviazione*, che non è un limite fisico, ma piuttosto un limite imposto dal servizio di archiviazione da un contratto di servizio (SLA). Questo limite impedisce infatti che il servizio venga monopolizzato da un singolo client o tenant. Il contratto di contratto limita il numero di operazioni di i/o al secondo (IOPS) per archiviazione di Azure. per i dettagli, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../storage/common/scalability-targets-standard-account.md).
+È possibile che si verifichi un collo di bottiglia delle prestazioni del cluster a livello di archiviazione. Questo tipo di collo di bottiglia è spesso dovuto al *blocco* delle operazioni di input/output (i/o), che si verificano quando le attività in esecuzione inviano un maggior numero di operazioni di i/o rispetto al servizio di archiviazione Questo blocco crea una coda di richieste di I/O in attesa di essere elaborate al termine dell'elaborazione delle richieste di I/O correnti. I blocchi sono dovuti alla *limitazione dell'archiviazione* , che non è un limite fisico, ma piuttosto un limite imposto dal servizio di archiviazione da un contratto di servizio (SLA). Questo limite impedisce infatti che il servizio venga monopolizzato da un singolo client o tenant. Il contratto di contratto limita il numero di operazioni di i/o al secondo (IOPS) per archiviazione di Azure. per i dettagli, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../storage/common/scalability-targets-standard-account.md).
 
-Se si usa archiviazione di Azure, per informazioni sul monitoraggio dei problemi relativi all'archiviazione, inclusa la limitazione, vedere [monitorare, diagnosticare e risolvere i problemi archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se si usa archiviazione di Azure, per informazioni sul monitoraggio dei problemi relativi all'archiviazione, inclusa la limitazione, vedere [monitorare, diagnosticare e risolvere i problemi archiviazione di Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Se l'archivio di backup del cluster è Azure Data Lake Storage (ADLS), la limitazione è probabilmente dovuta ai limiti della larghezza di banda. La limitazione, in questo caso, può essere identificata verificando la presenza di errori di limitazione nei log delle attività. Per Azure Data Lake Store, vedere la sezione sulla limitazione relativa al servizio desiderato in questi articoli:
 
@@ -126,6 +126,6 @@ Per ulteriori informazioni sui problemi di spazio su disco, vedere [spazio su di
 
 Per altre informazioni sulla risoluzione dei problemi e il monitoraggio dei cluster, visitare i collegamenti seguenti:
 
-* [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)
+* [Analizzare i log di HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Eseguire il debug delle app con i log di Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

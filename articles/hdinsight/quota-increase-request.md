@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409715"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539412"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Richieste di aumento della quota per Azure HDInsight
 
@@ -30,7 +30,7 @@ Se si è ricevuto un errore che indica che è stato raggiunto un limite di quota
 
     1. Accedere al [portale di Azure](https://portal.azure.com/).
     1. Passare alla pagina **Panoramica** per il cluster di HDInsight.
-    1. Nel menu a sinistra selezionare **Limiti di quota**. La pagina mostra il numero di core in uso, il numero di core disponibili e i core totali.
+    1. Nel menu a sinistra selezionare **Limiti di quota** . La pagina mostra il numero di core in uso, il numero di core disponibili e i core totali.
 
 Per richiedere un aumento della quota, eseguire questa procedura:
 
@@ -39,12 +39,12 @@ Per richiedere un aumento della quota, eseguire questa procedura:
 
     ![pulsante di guida e supporto tecnico](./media/quota-increase-request/help-support-button.png)
 
-1. Selezionare **Nuova richiesta di supporto**.
-1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
+1. Selezionare **Nuova richiesta di supporto** .
+1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base** :
 
-   - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
-   - **Sottoscrizione**: la sottoscrizione che si vuole modificare
-   - **Tipo di quota**: **HDInsight**
+   - **Tipo di problema** : **Limiti del servizio e della sottoscrizione (quote)**
+   - **Sottoscrizione** : la sottoscrizione che si vuole modificare
+   - **Tipo di quota** : **HDInsight**
 
      ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
@@ -62,14 +62,14 @@ Per richiedere un aumento della quota, eseguire questa procedura:
     ![dettagli del problema](./media/quota-increase-request/problem-details.png)
 
 1. Selezionare **Avanti: Rivedi e crea >>** .
-1. Nella scheda **Rivedi e crea** selezionare **Crea**.
+1. Nella scheda **Rivedi e crea** selezionare **Crea** .
 
 > [!NOTE]  
 > Se è necessario aumentare la quota di HDInsight core in un'area privata, [inviare una richiesta di elenco approvato](https://aka.ms/canaryintwhitelist).
 
-È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-Sono previsti limiti di quota fissi. Ad esempio, una singola sottoscrizione di Azure può avere al massimo 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Sono previsti limiti di quota fissi. Ad esempio, una singola sottoscrizione di Azure può avere al massimo 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

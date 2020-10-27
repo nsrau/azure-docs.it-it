@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462242"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540381"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -27,11 +27,11 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
-* **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un cluster Hadoop in HDInsight** . Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
+* **Un client SSH** . Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l' `wasb://` archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 * **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il tipo di account di archiviazione `BlobStorage` .
-* Facoltativa.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
+* facoltativo.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](/powershell/azure/new-azureps-module-az) sia installato.
 
 > [!NOTE]  
 > L'account di archiviazione usato in questo articolo è stato l'archiviazione di Azure con [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e quindi `wasbs` viene usato in tutto l'articolo.
@@ -46,7 +46,7 @@ Non è richiesta alcuna azione se l'account di archiviazione usato è di tipo `S
 > * L'utente deve creare gli script Python in un ambiente di sviluppo locale.
 > * Per caricare gli script in HDInsight, è possibile usare il `scp` comando o lo script di PowerShell fornito.
 >
-> Se si vuole usare il [Azure cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) per lavorare con HDInsight, è necessario:
+> Se si vuole usare il [Azure cloud Shell (bash)](../../cloud-shell/overview.md) per lavorare con HDInsight, è necessario:
 >
 > * Creare gli script all'interno dell'ambiente Cloud Shell.
 > * Usare `scp` per caricare i file da Cloud Shell in HDInsight.
@@ -300,8 +300,8 @@ Si può usare uno script di Python come funzione definita dall'utente da Pig tra
 
 Per specificare l'interprete Python, usare `register` quando si fa riferimento allo script di Python. Negli esempi seguenti gli script vengono registrati con Pig come `myfuncs`:
 
-* **Per usare Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Per usare C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Per usare Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Per usare C Python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Quando si usa Jython, il percorso del file di pig_jython può essere un percorso locale o un percorso WASBS://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 Nell'esempio Pig Latin l' `LINE` input viene definito come CharArray perché non esiste alcuno schema coerente per l'input. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
 
-1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
+1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati** , ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
 
    * date - data di creazione della voce del log
    * time - ora di creazione della voce del log
@@ -423,7 +423,7 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
     #from pig_util import outputSchema
     ```
 
-    In questo modo lo script Python viene modificato in modo da non funzionare più con Jython ma con C Python. Una volta apportata la modifica, usare **CTRL + X** per uscire dall'editor. Selezionare **Y**e quindi **invio** per salvare le modifiche.
+    In questo modo lo script Python viene modificato in modo da non funzionare più con Jython ma con C Python. Una volta apportata la modifica, usare **CTRL + X** per uscire dall'editor. Selezionare **Y** e quindi **invio** per salvare le modifiche.
 
 6. Usare il comando `pig` per avviare di nuovo la shell. Una volta al prompt `grunt>` usare la riga seguente per eseguire il script di Python con l'interprete C Python.
 
@@ -594,7 +594,7 @@ Le informazioni sull'errore (STDERR) e il risultato del processo (STDOUT) vengon
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 
-Se è necessario caricare moduli Python non forniti per impostazione predefinita, vedere [Come distribuire un modulo in Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
+Se è necessario caricare moduli Python non forniti per impostazione predefinita, vedere [Come distribuire un modulo in Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapReduce, vedere i documenti seguenti:
 

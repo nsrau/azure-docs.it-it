@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c05badb3b2292a29b8227c7f03b841474c97ad
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84792091"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548143"
 ---
-È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](../articles/iot-hub/iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
+È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche di routing dell'hub](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) Internet in relazione alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati. Per altre informazioni sull'uso delle metriche dell'hub Internet, vedere [monitorare l'hub](../articles/iot-hub/monitor-iot-hub.md).
 
-
-|Stato integrità|Description|
+|Stato integrità|Descrizione|
 |---|---|
 |healthy|L'endpoint accetta messaggi come previsto.|
 |non integro|L'endpoint non accetta messaggi e l'hub Internet sta tentando di inviare messaggi a questo endpoint.|

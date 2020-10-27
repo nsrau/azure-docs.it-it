@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144275"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538460"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -47,7 +47,7 @@ Per ogni hub IoT è possibile scegliere un solo tipo di [edizione](https://azure
 | [Routing di messaggi](iot-hub-devguide-messages-read-custom.md), [arricchimenti di messaggi](iot-hub-message-enrichments-overview.md) e [integrazione Griglia di eventi](iot-hub-event-grid.md) | Sì | Sì |
 | [Protocolli HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sì | Sì |
 | [Servizio Device Provisioning](../iot-dps/about-iot-dps.md) | Sì | Sì |
-| [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Sì | Sì |
+| [Monitoraggio e diagnostica](monitor-iot-hub.md) | Sì | Sì |
 | [Messaggistica da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sì |
 | [Dispositivi gemelli](iot-hub-devguide-device-twins.md), [Moduli gemelli](iot-hub-devguide-module-twins.md) e [Gestione dei dispositivi](iot-hub-device-management-overview.md) |   | Sì |
 | [Flussi del dispositivo (anteprima)](iot-hub-device-streams-overview.md) |   | Sì |

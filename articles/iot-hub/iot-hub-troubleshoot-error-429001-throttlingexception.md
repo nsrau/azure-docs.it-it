@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3095e398d7e5cfe59085144d5bb4e8dc33618064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76960698"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545362"
 ---
 # <a name="429001-throttlingexception"></a>429001 ThrottlingException
 
@@ -21,7 +21,7 @@ Questo articolo descrive le cause e le soluzioni per gli errori di **429001 Thro
 
 ## <a name="symptoms"></a>Sintomi
 
-Le richieste all'hub Internet non riescono con l'errore **429001 ThrottlingException**.
+Le richieste all'hub Internet non riescono con l'errore **429001 ThrottlingException** .
 
 ## <a name="cause"></a>Causa
 
@@ -29,7 +29,7 @@ Sono stati superati i [limiti di limitazione delle richieste](./iot-hub-devguide
 
 ## <a name="solution"></a>Soluzione
 
-Controllare se si sta raggiungendo il limite di limitazione confrontando la metrica dei *tentativi di invio del messaggio di telemetria* rispetto ai limiti specificati sopra. È anche possibile controllare il *numero di metriche degli errori di limitazione* . Per altre informazioni su queste e altre metriche disponibili per l'hub Internet delle cose, vedere la pagina relativa [alle metriche dell'hub Internet e su come usarle](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them).
+Controllare se si sta raggiungendo il limite di limitazione confrontando la metrica dei *tentativi di invio del messaggio di telemetria* rispetto ai limiti specificati sopra. È anche possibile controllare il *numero di metriche degli errori di limitazione* . Per informazioni su queste metriche, vedere [metriche di telemetria del dispositivo](monitor-iot-hub-reference.md#device-telemetry-metrics). Per informazioni su come usare le metriche per monitorare l'hub Internet delle cose, vedere [monitorare l'hub](monitor-iot-hub.md).
 
 L'hub tutto restituisce 429 ThrottlingException solo dopo che il limite è stato violato per un periodo troppo lungo. Questa operazione viene eseguita in modo che i messaggi non vengano eliminati se l'hub Internet delle cose raggiunge il traffico di espansione. Nel frattempo, l'hub IoT elabora i messaggi alla velocità di limitazione dell'operazione, che potrebbe essere lenta se è presente una quantità eccessiva di traffico nel backlog. Per altre informazioni, vedere [Traffic shaping dell'hub IoT](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 

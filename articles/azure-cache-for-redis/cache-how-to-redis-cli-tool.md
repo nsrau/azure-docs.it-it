@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839045"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538018"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Come usare lo strumento da riga di comando Redis con Cache Redis di Azure
 
@@ -27,8 +27,8 @@ Se si vuole eseguire lo strumento da riga di comando su un'altra piattaforma, sc
 
 È possibile raccogliere le informazioni necessarie per accedere alla cache nelle tre modalità seguenti:
 
-1. Tramite l'interfaccia della riga di comando di Azure usando [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Tramite Azure PowerShell usando [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. Tramite l'interfaccia della riga di comando di Azure usando [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Tramite Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Tramite il portale di Azure.
 
 In questa sezione si recupereranno le chiavi dal portale di Azure.
@@ -61,7 +61,7 @@ Con cache di Azure per Redis solo la porta TLS (6380) è abilitata per impostazi
 
     Salvare e chiudere il file di configurazione. 
   
-    Nel menu della finestra del registro stunnel fare clic su **configurazione**  >  **ricarica**configurazione.
+    Nel menu della finestra del registro stunnel fare clic su **configurazione**  >  **ricarica** configurazione.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Connettersi usando lo strumento da riga di comando Redis.
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Screenshot che indica che la connessione alla cache è riuscita.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se si usa una cache di test con la porta non **protetta** non TLS, eseguire `redis-cli.exe` e passare il *nome host*, la *porta*e la *chiave di accesso* (primaria o secondaria) per connettersi alla cache di test.
+Se si usa una cache di test con la porta non **protetta** non TLS, eseguire `redis-cli.exe` e passare il *nome host* , la *porta* e la *chiave di accesso* (primaria o secondaria) per connettersi alla cache di test.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'uso della [Console Redis](cache-configure.md#redis-console) per inviare i comandi.
-

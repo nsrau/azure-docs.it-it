@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982995"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558517"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Azure per FHIR (anteprima)
 
@@ -104,7 +104,7 @@ Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure 
 > [!NOTE]
 > Questo processo può essere usato anche per copiare e salvare il contenuto del file JSON **"Configure FHIR mapping"** .
 
-3. Selezionare **"Configura mapping dispositivi"**.
+3. Selezionare **"Configura mapping dispositivi"** .
 
     :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
@@ -122,7 +122,7 @@ Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure 
 Vedere le domande frequenti sul connettore Azure per FHIR.
 
 >[!div class="nextstepaction"]
->[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
 *Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 
