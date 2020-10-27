@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329424"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545260"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
 
@@ -84,7 +84,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Panoramica delle reti virtuali di Azure](../../virtual-network/virtual-networks-overview.md)
-- [Panoramica dei gruppi di sicurezza di rete di Azure](../../virtual-network/security-overview.md)
+- [Panoramica dei gruppi di sicurezza di rete di Azure](../../virtual-network/network-security-groups-overview.md)
 - [Peering di rete virtuale di Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md)
 - [Crittografia del servizio di archiviazione di Azure a riposo](../../storage/common/storage-service-encryption.md)
@@ -116,10 +116,10 @@ Per ulteriori informazioni, vedere l'articolo relativo all'applicazione [di patc
 
 ## <a name="post-migration"></a>Dopo la migrazione
 
-1. **Monitorare e aggiornare le applicazioni**: apportare in modo iterativo le modifiche necessarie a processi, elaborazioni e script.
-2. **Eseguire test**: eseguire in modo iterativo test sul funzionamento e sulle prestazioni.
-3. **Ottimizzare**: risolvere tutti i problemi di prestazioni in base ai risultati dei test precedenti e quindi eseguire di nuovo i test per verificare se le prestazioni sono migliorate.
+1. **Monitorare e aggiornare le applicazioni** : apportare in modo iterativo le modifiche necessarie a processi, elaborazioni e script.
+2. **Eseguire test** : eseguire in modo iterativo test sul funzionamento e sulle prestazioni.
+3. **Ottimizzare** : risolvere tutti i problemi di prestazioni in base ai risultati dei test precedenti e quindi eseguire di nuovo i test per verificare se le prestazioni sono migliorate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Altre informazioni su [HDInsight 4.0](./apache-hadoop-introduction.md).

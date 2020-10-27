@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462276"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540398"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
 
@@ -34,7 +34,7 @@ HDInsight offre diversi tipi di cluster ottimizzati per carichi di lavoro specif
 
 Consultare la tabella seguente per informazioni sui vari modi in cui è possibile usare Hive con HDInsight:
 
-| **Usare questo metodo** se si vuole... | ...**query** interattive | ... elaborazione **batch** | ...da questo **sistema operativo client** |
+| **Usare questo metodo** se si vuole... | ... **query** interattive | ... elaborazione **batch** | ...da questo **sistema operativo client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Strumenti di HDInsight per Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X o Windows |
 | [Strumenti HDInsight per Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -72,14 +72,14 @@ Per altre informazioni sui formati di file supportati da Hive, vedere il [manual
 
 Con Hive è possibile creare due tipi di tabelle:
 
-* __Interna__: i dati vengono archiviati nel data warehouse di Hive. Il data warehouse si trova in `/hive/warehouse/` nella risorsa di archiviazione predefinita per il cluster.
+* __Interna__ : i dati vengono archiviati nel data warehouse di Hive. Il data warehouse si trova in `/hive/warehouse/` nella risorsa di archiviazione predefinita per il cluster.
 
     Usare le tabelle interne quando si applica una delle condizioni seguenti:
 
     * I dati sono temporanei.
     * Si desidera che Hive gestisca il ciclo di vita della tabella e dei dati.
 
-* __Interna__: i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
+* __Interna__ : i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
 
     Usare le tabelle esterne quando si applica una delle condizioni seguenti:
 
@@ -88,11 +88,11 @@ Con Hive è possibile creare due tipi di tabelle:
     * È necessario un percorso personalizzato, ad esempio un account di archiviazione non predefinito.
     * Un programma diverso da hive gestisce il formato dati, la posizione e così via.
 
-Per altre informazioni, vedere il post di blog [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) (Introduzione alle tabelle interne ed esterne di Hive).
+Per altre informazioni, vedere il post di blog [Hive Internal and External Tables Intro](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) (Introduzione alle tabelle interne ed esterne di Hive).
 
 ## <a name="user-defined-functions-udf"></a>Funzioni definite dall'utente (UDF)
 
-Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere i documenti seguenti:
+Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)** , che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere i documenti seguenti:
 
 * [Usare una funzione Java definita dall'utente con Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -100,7 +100,7 @@ Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, c
 
 * [Usare una funzione C# definita dall'utente con Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Come aggiungere una funzione Apache Hive personalizzata definita dall'utente in HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Come aggiungere una funzione Apache Hive personalizzata definita dall'utente in HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Esempio di funzione Apache Hive personalizzata definita dall'utente per convertire i formati di data/ora in timestamp Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -137,7 +137,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 |CREATE EXTERNAL TABLE|Crea una nuova tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.|
 |FORMATO DI RIGA|indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
 |ARCHIVIATO COME PERCORSO DI TEXTFILE|Indica a hive dove sono archiviati i dati (la `example/data` Directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
-|SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. L'istruzione restituisce un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.|
+|SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]** . L'istruzione restituisce un valore pari a **3** , poiché sono presenti tre righe contenenti questo valore.|
 |INPUT__FILE__NAME LIKE '%. log '|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive che devono essere restituiti dati solo da file che terminano con .log.|
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ Le istruzioni eseguono queste azioni:
 |---|---|
 |CREATE TABLE SE NON ESISTE|Se la tabella non esiste, crearla. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.|
 |ARCHIVIATO COME ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|
-|INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella**log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.|
+|INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]** , quindi inserisce i dati nella tabella **errorLogs** .|
 
 > [!NOTE]  
 > A differenza delle tabelle esterne, se si elimina una tabella interna vengono eliminati anche i dati sottostanti.
@@ -197,11 +197,11 @@ Azure Data Factory consente di usare HDInsight come parte di una pipeline di Dat
 
 È possibile usare SQL Server Integration Services (SSIS) per eseguire un processo Hive. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Hive in HDInsight.
 
-* [Attività Hive di Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Attività Hive di Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gestione connessione della sottoscrizione di Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Gestione connessione della sottoscrizione di Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Per altre informazioni, vedere la documentazione relativa al [Feature Pack di Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Per altre informazioni, vedere la documentazione relativa al [Feature Pack di Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

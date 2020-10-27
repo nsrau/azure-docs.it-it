@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5842c5f3130b39f75b5339274b84feb2e0f283f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986369"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547096"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 
@@ -64,11 +64,11 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di sicurezza Microsoft Graph selezionare **nuovo passaggio**.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di sicurezza Microsoft Graph selezionare **nuovo passaggio** .
 
    -oppure-
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (+) visualizzato e selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (+) visualizzato e selezionare **Aggiungi un'azione** .
 
 1. Nella casella di ricerca immettere "microsoft graph security" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
@@ -94,12 +94,12 @@ Questo esempio illustra come è possibile avviare un flusso di lavoro dell'app p
    | Proprietà | Proprietà (JSON) | Obbligatoria | Type | Descrizione |
    |----------|-----------------|----------|------|-------------|
    | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p><p>- Mese: 1-16 mesi <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
-   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
+   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo** , **Minuto** , **Ora** , **Giorno** , **Settimana** o **Mese** |
    | **Fuso orario** | `timeZone` | No | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
    | **Ora di inizio** | `startTime` | No | string | Specificare una data e un'ora di inizio nel formato seguente: <p><p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+1.  Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva** .
 
 1.  Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger.
 
@@ -142,19 +142,19 @@ Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* 
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Per altre informazioni sulle query che è possibile usare con questo connettore, vedere [la sezione relativa ai parametri di query facoltativi nella documentazione di riferimento sull'indicatore di intelligence per le minacce Microsoft Graph sicurezza](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Per creare esperienze avanzate con questo connettore, vedere altre informazioni sulle [proprietà dello schema indicatore di intelligence](/graph/api/resources/tiindicator?view=graph-rest-beta) per le minacce supportato dal connettore.
+Per altre informazioni sulle query che è possibile usare con questo connettore, vedere [la sezione relativa ai parametri di query facoltativi nella documentazione di riferimento sull'indicatore di intelligence per le minacce Microsoft Graph sicurezza](/graph/api/tiindicators-list). Per creare esperienze avanzate con questo connettore, vedere altre informazioni sulle [proprietà dello schema indicatore di intelligence](/graph/api/resources/tiindicator) per le minacce supportato dal connettore.
 
 | Azione | Descrizione |
 |--------|-------------|
-| **Ottenere indicatori di intelligence per le minacce** | Ottenere tiIndicators filtrati in base a una o più [proprietà di tiIndicator](/graph/api/resources/tiindicator?view=graph-rest-beta), ad esempio `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Ottenere indicatori di intelligence per le minacce** | Ottenere tiIndicators filtrati in base a una o più [proprietà di tiIndicator](/graph/api/resources/tiindicator), ad esempio `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Ottenere l'indicatore di intelligence per le minacce in base all'ID** | Ottenere un tiIndicator specifico in base all'ID tiIndicator. | 
-| **Crea indicatore di intelligence per le minacce** | Per creare un nuovo tiIndicator, inviare alla raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per la creazione di tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Inviare più indicatori di intelligence per le minacce** | Creare più tiIndicators nuovi inviando una raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, vedere le [proprietà necessarie per l'invio di più tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Aggiorna indicatore di intelligence per le minacce** | Aggiornare un tiIndicator specifico in base all'ID tiIndicator. Per assicurarsi di passare le proprietà obbligatorie e modificabili nella richiesta, vedere le [proprietà modificabili per tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Ad esempio, per aggiornare l'azione da applicare se l'indicatore viene abbinato all'interno dello strumento di sicurezza targetProduct, è possibile aggiornare la proprietà dell' **azione** tiIndicator. |
-| **Aggiornare più indicatori di intelligence per le minacce** | Aggiornare più tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, vedere le [proprietà necessarie per l'aggiornamento di più tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Crea indicatore di intelligence per le minacce** | Per creare un nuovo tiIndicator, inviare alla raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per la creazione di tiIndicator](/graph/api/tiindicators-post). |
+| **Inviare più indicatori di intelligence per le minacce** | Creare più tiIndicators nuovi inviando una raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, vedere le [proprietà necessarie per l'invio di più tiIndicators](/graph/api/tiindicator-submittiindicators). |
+| **Aggiorna indicatore di intelligence per le minacce** | Aggiornare un tiIndicator specifico in base all'ID tiIndicator. Per assicurarsi di passare le proprietà obbligatorie e modificabili nella richiesta, vedere le [proprietà modificabili per tiIndicator](/graph/api/tiindicator-update). Ad esempio, per aggiornare l'azione da applicare se l'indicatore viene abbinato all'interno dello strumento di sicurezza targetProduct, è possibile aggiornare la proprietà dell' **azione** tiIndicator. |
+| **Aggiornare più indicatori di intelligence per le minacce** | Aggiornare più tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, vedere le [proprietà necessarie per l'aggiornamento di più tiIndicators](/graph/api/tiindicator-updatetiindicators). |
 | **Elimina indicatore di intelligence per le minacce per ID** | Eliminare un tiIndicator specifico in base all'ID tiIndicator. |
-| **Elimina più indicatori di intelligence per le minacce per ID** | Eliminare più tiIndicators in base ai relativi ID. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per l'eliminazione di più tiIndicators da](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta)parte degli ID. |
-| **Elimina più indicatori di intelligence per le minacce per ID esterni** | Eliminare più tiIndicators in base agli ID esterni. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per eliminare più tiIndicators da ID esterni](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Elimina più indicatori di intelligence per le minacce per ID** | Eliminare più tiIndicators in base ai relativi ID. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per l'eliminazione di più tiIndicators da](/graph/api/tiindicator-deletetiindicators)parte degli ID. |
+| **Elimina più indicatori di intelligence per le minacce per ID esterni** | Eliminare più tiIndicators in base agli ID esterni. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per eliminare più tiIndicators da ID esterni](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori

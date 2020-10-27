@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188413"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538800"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Risolvere gli errori di creazione di risorse in Azure HDInsight
 
@@ -25,7 +25,7 @@ Azure prevede un limite di quota di 800 distribuzioni per gruppo di risorse. Si 
 
 Per risolvere questo problema, eliminare le distribuzioni che non sono più necessarie usando il portale di Azure, l'interfaccia della riga di comando o PowerShell.
 
-Per altre informazioni, vedere [Risolvere gli errori delle quote di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
+Per altre informazioni, vedere [Risolvere gli errori delle quote di risorse](../azure-resource-manager/templates/error-resource-quota.md).
 
 ## <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Errore: il nodo massimo supera i core disponibili in questa area
 
@@ -33,15 +33,15 @@ La sottoscrizione potrebbe essere configurata in modo da limitare il numero di c
 
 Per richiedere un aumento delle quote, seguire questi passaggi:
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare Guida e **supporto**.
+1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare Guida e **supporto** .
 
-1. Selezionare **Nuova richiesta di supporto**.
+1. Selezionare **Nuova richiesta di supporto** .
 
 1. Nella scheda informazioni di **base** della pagina **nuova richiesta di supporto** specificare le informazioni seguenti:
 
-   * **Tipo di problema:** Selezionare i **limiti del servizio e della sottoscrizione (quote)**.
+   * **Tipo di problema:** Selezionare i **limiti del servizio e della sottoscrizione (quote)** .
    * **Sottoscrizione:** Selezionare la sottoscrizione che si desidera modificare.
-   * **Tipo di quota:** Selezionare **HDInsight**.
+   * **Tipo di quota:** Selezionare **HDInsight** .
 
 Per altre informazioni, vedere [Creare un ticket di supporto per aumentare i core](hdinsight-capacity-planning.md#quotas).
 
@@ -53,4 +53,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

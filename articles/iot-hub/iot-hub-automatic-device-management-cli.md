@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147831"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545413"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestione automatica di dispositivi IoT e moduli con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e quindi permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito. Questo aggiornamento viene eseguito utilizzando una _configurazione automatica del dispositivo_ o una _configurazione automatica del modulo_, che consente di riepilogare il completamento e la conformità, gestire l'unione e i conflitti, nonché implementare le configurazioni con un approccio graduale.
+La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e quindi permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito. Questo aggiornamento viene eseguito utilizzando una _configurazione automatica del dispositivo_ o una _configurazione automatica del modulo_ , che consente di riepilogare il completamento e la conformità, gestire l'unione e i conflitti, nonché implementare le configurazioni con un approccio graduale.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ La gestione automatica dei dispositivi funziona aggiornando una serie di disposi
 
 * Il **contenuto di destinazione** definisce le proprietà desiderate da aggiungere o aggiornare nei moduli o nei dispositivi gemelli di destinazione. Il contenuto include un percorso della sezione delle proprietà desiderate da modificare.
 
-* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei gemelli.  Le metriche di sistema sono metriche predefinite che misurano lo stato di aggiornamento dei gemelli, ad esempio il numero di dispositivi gemelli di destinazione e di quelli che sono stati aggiornati.
+* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success** , **In progress** ed **Error** . Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei gemelli.  Le metriche di sistema sono metriche predefinite che misurano lo stato di aggiornamento dei gemelli, ad esempio il numero di dispositivi gemelli di destinazione e di quelli che sono stati aggiornati.
 
 Le configurazioni automatiche vengono eseguite per la prima volta poco dopo la creazione della configurazione e quindi a intervalli di cinque minuti. Le query per le metriche vengono eseguite ogni volta che viene eseguita la configurazione automatica.
 
@@ -128,19 +128,19 @@ Usare il comando seguente per creare una configurazione:
      --metrics [metric queries]
 ```
 
-* --**config-id**: il nome della configurazione che verrà creata nell'hub IoT. Assegnare alla configurazione un nome univoco con un massimo di 128 lettere in minuscolo. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
+* --**config-id** : il nome della configurazione che verrà creata nell'hub IoT. Assegnare alla configurazione un nome univoco con un massimo di 128 lettere in minuscolo. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
 
 * --**labels** : aggiungere etichette per tenere traccia della configurazione. Le etichette sono coppie nome-valore che descrivono la distribuzione. Ad esempio, `HostPlatform, Linux` o `Version, 3.0.1`
 
-* --**content**: JSON inline o percorso del file per il contenuto di destinazione da impostare come proprietà desiderate del gemello. 
+* --**content** : JSON inline o percorso del file per il contenuto di destinazione da impostare come proprietà desiderate del gemello. 
 
-* --**hub-name**: nome dell'hub IoT in cui verrà creata la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* --**hub-name** : nome dell'hub IoT in cui verrà creata la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-* --**target-condition** : immettere una condizione di destinazione per determinare quali dispositivi o moduli verranno assegnati a questa configurazione.Per la configurazione automatica del dispositivo, la condizione è basata sui tag del dispositivo gemello o sulle proprietà desiderate del dispositivo gemello e deve corrispondere al formato dell'espressione.Ad esempio, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`.Per la configurazione automatica dei moduli, la condizione è basata sui tag del modulo gemello o sulle proprietà desiderate del modulo gemello. Ad esempio, `from devices.modules where tags.environment='test'` o `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition** : immettere una condizione di destinazione per determinare quali dispositivi o moduli verranno assegnati a questa configurazione. Per la configurazione automatica del dispositivo, la condizione è basata sui tag del dispositivo gemello o sulle proprietà desiderate del dispositivo gemello e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. Per la configurazione automatica dei moduli, la condizione è basata sui tag del modulo gemello o sulle proprietà desiderate del modulo gemello. Ad esempio, `from devices.modules where tags.environment='test'` o `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**Priority** : numero intero positivo. Nel caso in cui due o più configurazioni siano destinate allo stesso dispositivo o modulo, verrà applicata la configurazione con il valore numerico più elevato per Priority.
 
-* --**metrics**: percorso del file per le query sulle metriche. Le metriche forniscono i conteggi di riepilogo dei diversi stati che un dispositivo o un modulo possono segnalare dopo l'applicazione del contenuto della configurazione. Ad esempio è possibile creare una metrica per le modifiche alle impostazioni in sospeso, una metrica per gli errori e una metrica per le modifiche alle impostazioni con esito positivo. 
+* --**metrics** : percorso del file per le query sulle metriche. Le metriche forniscono i conteggi di riepilogo dei diversi stati che un dispositivo o un modulo possono segnalare dopo l'applicazione del contenuto della configurazione. Ad esempio è possibile creare una metrica per le modifiche alle impostazioni in sospeso, una metrica per gli errori e una metrica per le modifiche alle impostazioni con esito positivo. 
 
 ## <a name="monitor-a-configuration"></a>Monitorare una configurazione
 
@@ -151,11 +151,11 @@ az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
 
-* --**config-id**: il nome della configurazione che si trova nell'hub IoT.
+* --**config-id** : il nome della configurazione che si trova nell'hub IoT.
 
-* --**hub-name**: nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* --**hub-name** : nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-Esaminare la configurazione nella finestra di comando. La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
+Esaminare la configurazione nella finestra di comando.  La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
 
 * **targetedCount** : metrica di sistema che specifica il numero di dispositivi gemelli o moduli gemelli nell'hub degli elementi che soddisfano la condizione di destinazione.
 
@@ -170,13 +170,13 @@ az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
 
-* --**config-id**: nome della distribuzione esistente nell'hub IoT.
+* --**config-id** : nome della distribuzione esistente nell'hub IoT.
 
 * --**metrica-ID** : nome della metrica per cui si vuole visualizzare l'elenco di ID dispositivo o ID modulo, ad esempio `appliedCount` .
 
 * --**nome-Hub** -nome dell'hub Internet delle cose in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-* --**metric-type**: il tipo di metrica può essere `system` o `user`.  Le metriche di sistema sono `targetedCount` e `appliedCount`. Tutte le altre metriche sono metriche dell'utente.
+* --**metric-type** : il tipo di metrica può essere `system` o `user`.  Le metriche di sistema sono `targetedCount` e `appliedCount`. Tutte le altre metriche sono metriche dell'utente.
 
 ## <a name="modify-a-configuration"></a>Modificare una configurazione
 
@@ -197,11 +197,11 @@ az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
 
-* --**config-id**: il nome della configurazione che si trova nell'hub IoT.
+* --**config-id** : il nome della configurazione che si trova nell'hub IoT.
 
-* --**hub-name**: nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* --**hub-name** : nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-* --**set**: aggiornare una proprietà nella configurazione. È possibile aggiornare le proprietà seguenti:
+* --**set** : aggiornare una proprietà nella configurazione. È possibile aggiornare le proprietà seguenti:
 
     * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
 
@@ -220,17 +220,16 @@ az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
 
-* --**config-id**: il nome della configurazione che si trova nell'hub IoT.
+* --**config-id** : il nome della configurazione che si trova nell'hub IoT.
 
-* --**hub-name**: nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* --**hub-name** : nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come configurare e monitorare i dispositivi IoT su larga scala. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco le identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di hub IoT](iot-hub-metrics.md)
-* [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
+* [Monitorare l'hub Internet delle cose](monitor-iot-hub.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

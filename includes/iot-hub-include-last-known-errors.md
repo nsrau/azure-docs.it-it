@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793292"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547360"
 ---
 [Ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) nell'API REST indica lo stato di integrità degli endpoint e l'ultimo errore noto, per identificare il motivo per cui un endpoint non è integro. Nella tabella seguente sono elencati gli errori più comuni.
 
 |Ultimo errore noto|Descrizione/quando si verifica|Possibile mitigazione|
 |-----|-----|-----|
-|Temporaneo|Si è verificato un errore temporaneo e l'hub Internet tenterà di nuovo l'operazione.|Osservare i [log di diagnostica](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)delle route.|
-|InternalError|Si è verificato un errore durante il recapito di un messaggio a un endpoint.|Si tratta di un'eccezione interna, ma anche di osservare i [log di diagnostica](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)delle route.|
+|Temporaneo|Si è verificato un errore temporaneo e l'hub Internet tenterà di nuovo l'operazione.|Osservare i [log delle risorse di route](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
+|InternalError|Si è verificato un errore durante il recapito di un messaggio a un endpoint.|Si tratta di un'eccezione interna, ma anche di osservare i [log delle risorse di route](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
 |Non autorizzata|L'hub Internet delle cose non è autorizzato a inviare messaggi all'endpoint specificato.|Verificare che la stringa di connessione sia aggiornata per l'endpoint. Se è stato modificato, prendere in considerazione un aggiornamento nell'hub Internet delle cose. Se l'endpoint usa l'identità gestita, verificare che l'entità dell'hub degli utenti disponga delle autorizzazioni necessarie per la destinazione.|
 |Sospensione causata dal servizio Microsoft FullText|L'hub Internet delle cose viene limitato durante la scrittura dei messaggi nell'endpoint.|Esaminare i limiti di limitazione per l'endpoint interessato. Modificare le configurazioni per l'endpoint per la scalabilità verticale, se necessario.|
 |Timeout|Timeout dell'operazione.|Ripetere l'operazione.|

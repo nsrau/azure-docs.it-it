@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484764"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539701"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
@@ -31,17 +31,17 @@ Esempi di attività che è possibile eseguire con PowerShell:
 * [Eseguire query Apache hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gestire i cluster con PowerShell](hdinsight-administer-use-powershell.md).
 
-Attenersi alla procedura [installare e configurare Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) per ottenere la versione più recente.
+Attenersi alla procedura [installare e configurare Azure Powershell](/powershell/azure/install-az-ps) per ottenere la versione più recente.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilità che è possibile eseguire in un browser
 
 Le seguenti utilità hanno un'interfaccia utente Web che viene eseguita in un browser:
-* **[Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
+* **[Azure cloud Shell](../cloud-shell/overview.md)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
 
 * **[Interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
     * [Usare Apache Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista in Apache Ambari di Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Vista in Apache Ambari di Apache Tez](hdinsight-debug-ambari-tez-view.md)
+    * [Vista in Apache Ambari di Apache Tez](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Strumenti Data Lake (Hadoop) per Visual Studio
 
@@ -84,7 +84,7 @@ I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin 
 
 Se si incontra una situazione in cui è necessario usare uno strumento o una tecnologia disponibile solo in Linux, prendere in considerazione le opzioni seguenti:
 
-* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
+* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
 * **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È possibile inoltre usare Docker per eseguire un notebook Jupyter locale e connettersi da remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** consente di visualizzare graficamente il file system del cluster tramite una connessione SSH.
 

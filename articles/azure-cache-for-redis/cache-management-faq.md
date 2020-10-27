@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205394"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537661"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Domande frequenti sulla gestione di cache di Azure per Redis
 Questo articolo fornisce le risposte alle domande comuni su come gestire cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande e risposte comuni
+## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Quando è consigliabile abilitare la porta non TLS/SSL per la connessione a Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -63,7 +63,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 * La macchina virtuale client usata per il test deve trovarsi nella stessa area dell'istanza di Cache Redis di Azure.
 * È consigliabile usare macchine virtuali della serie Dv2 per il client poiché dispongono di hardware migliore e dovrebbero quindi dare risultati più precisi.
 * Assicurarsi che la macchina virtuale client disponga almeno della capacità di elaborazione e della larghezza di banda della cache che si sta testando.
-* Se si usa Windows, abilitare VRSS sul computer client. [Per informazioni dettagliate, vedere qui](https://technet.microsoft.com/library/dn383582.aspx).
+* Se si usa Windows, abilitare VRSS sul computer client. [Per informazioni dettagliate, vedere qui](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
 * Le istanze del livello Premium di Redis hanno migliore latenza di rete e velocità effettiva, poiché sono in esecuzione su hardware migliori in CPU e rete.
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Che cosa occorre prendere in considerazione quando si usano i comandi Redis comuni?
@@ -144,10 +144,10 @@ Come configurare questa impostazione:
     > [!NOTE]
     > Il valore specificato da questo metodo è un'impostazione globale, che interessa l'intero dominio dell'applicazione. Ad esempio, se si ha un computer con 4 core e si vuole impostare *minWorkerThreads* e *minIoThreads* su 50 per ogni CPU durante la fase di esecuzione, si dovrà usare **ThreadPool.SetMinThreads(200, 200)** .
 
-* È anche possibile specificare l'impostazione relativa al numero minimo di thread usando l'impostazione di configurazione [*minIoThreads* o  *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) nell'elemento di configurazione `<processModel>` in `Machine.config`, in genere situato in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Impostare il numero minimo di thread in questo modo non è in genere consigliato, perché si tratta di un'impostazione a livello di sistema.**
+* È anche possibile specificare l'impostazione relativa al numero minimo di thread usando l'impostazione di configurazione [*minIoThreads* o  *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) nell'elemento di configurazione `<processModel>` in `Machine.config`, in genere situato in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Impostare il numero minimo di thread in questo modo non è in genere consigliato, perché si tratta di un'impostazione a livello di sistema.**
 
   > [!NOTE]
-  > Il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si ha un computer con 4 core e si vuole che l'impostazione *minIoThreads* sia 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
+  > Il valore specificato in questo elemento di configurazione è un'impostazione *per core* . Ad esempio, se si ha un computer con 4 core e si vuole che l'impostazione *minIoThreads* sia 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Abilitare il server Garbage Collection in modo da ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis

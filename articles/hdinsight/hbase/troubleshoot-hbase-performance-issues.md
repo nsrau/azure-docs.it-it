@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887156"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547895"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Risolvere i problemi di prestazioni di Apache HBase in Azure HDInsight
 
@@ -73,9 +73,9 @@ Di seguito sono riportati alcuni degli altri parametri specifici che sono stati 
 
 - Aumentare le `memstore` dimensioni dal valore predefinito 128 MB a 256 MB. Questa impostazione è in genere consigliata per scenari di scrittura intensivi.
 
-- Aumentare il numero di thread dedicati per la compattazione, dall'impostazione predefinita da **1** a **4**. Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
+- Aumentare il numero di thread dedicati per la compattazione, dall'impostazione predefinita da **1** a **4** . Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
 
-- Evitare il blocco `memstore` dello scaricamento a causa del limite del negozio. Per fornire questo buffer, aumentare l' `Hbase.hstore.blockingStoreFiles` impostazione su **100**.
+- Evitare il blocco `memstore` dello scaricamento a causa del limite del negozio. Per fornire questo buffer, aumentare l' `Hbase.hstore.blockingStoreFiles` impostazione su **100** .
 
 - Per controllare gli scaricamenti, usare le impostazioni seguenti:
 
@@ -104,13 +104,13 @@ Di seguito sono riportati alcuni degli altri parametri specifici che sono stati 
 - Timeout RPC: **3 minuti**
 
    - I timeout RPC includono il timeout RPC HBase, il timeout dello scanner client HBase e il timeout delle query Phoenix. 
-   - Verificare che il `hbase.client.scanner.caching` parametro sia impostato sullo stesso valore sia sul lato server sia sul lato client. Se non sono uguali, questa impostazione genera errori di fine client correlati a `OutOfOrderScannerException` . Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su **100**.
+   - Verificare che il `hbase.client.scanner.caching` parametro sia impostato sullo stesso valore sia sul lato server sia sul lato client. Se non sono uguali, questa impostazione genera errori di fine client correlati a `OutOfOrderScannerException` . Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su **100** .
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
 Di seguito sono riportati i parametri aggiuntivi da considerare per l'ottimizzazione:
 
-- `Hbase.rs.cacheblocksonwrite` : per impostazione predefinita, in HDI questa impostazione è impostata su **true**.
+- `Hbase.rs.cacheblocksonwrite` : per impostazione predefinita, in HDI questa impostazione è impostata su **true** .
 
 - Impostazioni che consentono di rinviare la compattazione secondaria per un momento successivo.
 
@@ -124,4 +124,4 @@ Se il problema persiste, visitare uno dei canali seguenti per ottenere ulteriore
 
 - Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), Si tratta dell'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti. Connette la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-- Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La sottoscrizione Microsoft Azure include l'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La sottoscrizione Microsoft Azure include l'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

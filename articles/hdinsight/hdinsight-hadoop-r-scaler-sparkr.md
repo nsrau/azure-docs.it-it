@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082276"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546042"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
-Questo documento illustra come stimare i ritardi di arrivo dei voli usando un modello di regressione logistica **ScaleR**. Nell'esempio vengono usati dati sul ritardo dei voli e dati sulle condizioni atmosferiche, uniti in join tramite **SparkR**.
+Questo documento illustra come stimare i ritardi di arrivo dei voli usando un modello di regressione logistica **ScaleR** . Nell'esempio vengono usati dati sul ritardo dei voli e dati sulle condizioni atmosferiche, uniti in join tramite **SparkR** .
 
 Sebbene entrambi i pacchetti vengano eseguiti sul motore di esecuzione Spark di Apache Hadoop, vengono bloccati dalla condivisione dei dati in memoria perché ognuno di essi richiede le rispettive sessioni Spark. Finché questo problema non verrà risolto in una versione futura di ML Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Le istruzioni riportate di seguito mostrano che questi requisiti sono semplici da rispettare.
 
@@ -25,7 +25,7 @@ Questo esempio è stato condiviso inizialmente in un discorso tenuto a Strata 20
 
 Il codice è stato scritto originariamente per ML Server in esecuzione in Spark in un cluster HDInsight di Azure. Tuttavia, il concetto di combinazione dell'uso di SparkR e ScaleR in un unico script è valido anche nel contesto di ambienti locali.
 
-I passaggi in questo documento presuppongono un livello intermedio di conoscenza di R e della libreria [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) di ML Server. Questo scenario è stato introdotto in [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) .
+I passaggi in questo documento presuppongono un livello intermedio di conoscenza di R e della libreria [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) di ML Server. Questo scenario è stato introdotto in [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) .
 
 ## <a name="the-airline-and-weather-datasets"></a>Set di dati relativi alle compagnie aeree e alle previsioni meteo
 
@@ -529,13 +529,13 @@ elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo è stato illustrato come è possibile combinare l'uso di Sparkr per la manipolazione dei dati con scaler per lo sviluppo di modelli in Hadoop Spark. In questo scenario è necessario gestire sessioni di Spark separate eseguendo una sola sessione alla volta e scambiando i dati tramite file CSV. Anche se semplice, questo processo sarà ancora più semplice nella prossima versione di ML Services in cui SparkR e ScaleR potranno condividere una sessione di Spark e pertanto i relativi DataFrame.
 
 ## <a name="next-steps-and-more-information"></a>Passaggi successivi e altre informazioni
 
-- Per ulteriori informazioni sull'utilizzo di ML Server in Apache Spark, vedere la [Guida introduttiva](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Per ulteriori informazioni sull'utilizzo di ML Server in Apache Spark, vedere la [Guida introduttiva](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Per informazioni su ML Services in HDInsight, vedere [Panoramica di ml Services in HDInsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Per altre informazioni sull'uso di SparkR, vedere:
 
 - [Documento Apache sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Panoramica di sparkr](https://docs.databricks.com/spark/latest/sparkr/overview.html) da databricks.
+- [Panoramica di sparkr](/azure/databricks/spark/latest/sparkr/overview)

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939292"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538664"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitorare i server flessibili di database di Azure per MySQL con metriche predefinite
 
@@ -24,9 +24,9 @@ In questo articolo vengono illustrate le diverse metriche disponibili per il ser
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
-Il server flessibile database di Azure per MySQL offre diverse metriche per comprendere il modo in cui il carico di lavoro è in esecuzione e in base a questi dati, è possibile comprendere l'effetto sul server e sull'applicazione. In server flessibili, ad esempio, è possibile monitorare la percentuale di **CPU dell'host**, le **connessioni attive**, la **percentuale**di i/o e la percentuale di **memoria dell'host** per identificare la presenza di un effetto sulle prestazioni. A questo punto, potrebbe essere necessario ottimizzare il carico di lavoro, ridimensionare verticalmente cambiando i livelli di calcolo o ridimensionarlo orizzontalmente utilizzando Read replica.
+Il server flessibile database di Azure per MySQL offre diverse metriche per comprendere il modo in cui il carico di lavoro è in esecuzione e in base a questi dati, è possibile comprendere l'effetto sul server e sull'applicazione. In server flessibili, ad esempio, è possibile monitorare la percentuale di **CPU dell'host** , le **connessioni attive** , la **percentuale** di i/o e la percentuale di **memoria dell'host** per identificare la presenza di un effetto sulle prestazioni. A questo punto, potrebbe essere necessario ottimizzare il carico di lavoro, ridimensionare verticalmente cambiando i livelli di calcolo o ridimensionarlo orizzontalmente utilizzando Read replica.
 
-Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Per istruzioni dettagliate, vedere [How to set up Alerts](./how-to-alert-on-metric.md). Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Per istruzioni dettagliate, vedere [How to set up Alerts](./how-to-alert-on-metric.md). Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MySQL sono disponibili le metriche seguenti:

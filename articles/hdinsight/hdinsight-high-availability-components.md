@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424525"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539718"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
 Per offrire livelli ottimali di disponibilità per i componenti di analisi, HDInsight è stato sviluppato con un'architettura univoca per garantire la disponibilità elevata dei servizi critici. Alcuni componenti di questa architettura sono stati sviluppati da Microsoft per fornire il failover automatico. Altri componenti sono componenti Apache standard distribuiti per supportare servizi specifici. Questo articolo illustra l'architettura del modello di servizio a disponibilità elevata in HDInsight, il modo in cui HDInsight supporta il failover per i servizi a disponibilità elevata e le procedure consigliate per il ripristino da altre interruzioni del servizio.
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *slave* , un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruttura a disponibilità elevata
 
@@ -49,7 +49,7 @@ Nelle sezioni seguenti vengono fornite informazioni più dettagliate sul funzion
 
 ## <a name="hdinsight-high-availability-services"></a>Servizi a disponibilità elevata HDInsight
 
-Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente nei cluster HDInsight. Per distinguerli dai servizi a disponibilità elevata supportati dai componenti di Apache, sono denominati servizi a disponibilità elevata *HDInsight*.
+Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente nei cluster HDInsight. Per distinguerli dai servizi a disponibilità elevata supportati dai componenti di Apache, sono denominati servizi a disponibilità elevata *HDInsight* .
 
 | Servizio | Nodi del cluster | Tipi di cluster | Scopo |
 |---|---|---|---|
@@ -65,7 +65,7 @@ Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente 
 
 Ogni cluster HDInsight ha due nodi head in modalità attivo e standby, rispettivamente. I servizi a disponibilità elevata HDInsight vengono eseguiti solo in nodi head. Questi servizi devono essere sempre in esecuzione sul nodo head attivo e arrestati e messi in modalità di manutenzione sulla nodo head di standby.
 
-Per mantenere gli stati corretti dei servizi a disponibilità elevata e garantire un failover rapido, HDInsight utilizza Apache ZooKeeper, un servizio di coordinamento per le applicazioni distribuite, per condurre l'elezione nodo head attiva. HDInsight fornisce anche alcuni processi Java in background, che coordinano la procedura di failover per i servizi a disponibilità elevata HDInsight. Questi servizi sono i seguenti: il controller di failover Master, il controller di failover slave, il *Master-ha-Service*e il *servizio slave-ha*.
+Per mantenere gli stati corretti dei servizi a disponibilità elevata e garantire un failover rapido, HDInsight utilizza Apache ZooKeeper, un servizio di coordinamento per le applicazioni distribuite, per condurre l'elezione nodo head attiva. HDInsight fornisce anche alcuni processi Java in background, che coordinano la procedura di failover per i servizi a disponibilità elevata HDInsight. Questi servizi sono i seguenti: il controller di failover Master, il controller di failover slave, il *Master-ha-Service* e il *servizio slave-ha* .
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -136,5 +136,5 @@ I cluster HBase HDInsight supportano HBase Master disponibilità elevata. A diff
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight](hdinsight-high-availability-linux.md)
+- [Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight](./hdinsight-business-continuity.md)
 - [Architettura della rete virtuale di HDInsight](hdinsight-virtual-network-architecture.md)

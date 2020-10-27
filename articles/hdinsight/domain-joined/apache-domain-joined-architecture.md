@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365782"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547980"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -57,7 +57,7 @@ Per altre informazioni, vedere [Configurare un cluster HDInsight con Enterprise 
 
 Se si dispone di un'istanza di Active Directory locale o di configurazioni più complesse di Active Directory per il dominio, è possibile sincronizzare le identità in Azure AD tramite Azure AD Connect. È quindi possibile abilitare Azure Active Directory Domain Services in tale tenant di Active Directory.
 
-Poiché Kerberos si basa sugli hash delle password, è necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Poiché Kerberos si basa sugli hash delle password, è necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Se si usa la Federazione con Active Directory Federation Services (AD FS), è necessario abilitare la sincronizzazione dell'hash delle password. Per un'installazione consigliata, vedere [questo video](https://youtu.be/qQruArbu2Ew). La sincronizzazione dell'hash delle password consente il ripristino di emergenza nel caso in cui l'infrastruttura di AD FS abbia esito negativo e contribuisca anche a garantire la protezione delle credenziali perse. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ L'uso di Active Directory locale o di Active Directory sulle sole macchine virtu
 
 Se viene usata la Federazione e gli hash delle password sono sincronizzati correttamente, ma si verificano errori di autenticazione, controllare se l'autenticazione della password cloud è abilitata per l'entità servizio di PowerShell. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
 
-1. Installare il modulo di anteprima [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Installare il modulo di anteprima [Azure ad PowerShell](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

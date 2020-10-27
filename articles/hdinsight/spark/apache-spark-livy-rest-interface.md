@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084614"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539157"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -27,7 +27,7 @@ Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Inviare un processo batch Apache Livy Spark
 
-Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [AzCopy](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
+Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [AzCopy](../../storage/common/storage-use-azcopy-v10.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -97,7 +97,7 @@ Questa sezione esamina alcuni esempi di come usare Livy Spark per inviare un pro
 * Il file jar dell'applicazione è già stato copiato nell'account di archiviazione associato al cluster.
 * CuRL è installato nel computer in cui si sta provando a eseguire questi passaggi.
 
-Eseguire questa procedura:
+Seguire questa procedura:
 
 1. Per semplicità d'uso, impostare le variabili di ambiente. Questo esempio è basato su un ambiente Windows, modificare le variabili in base alle esigenze dell'ambiente in uso. Sostituire `CLUSTERNAME` e `PASSWORD` con i valori appropriati.
 
@@ -126,7 +126,7 @@ Eseguire questa procedura:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Si noti che l'ultima riga nell'output corrisponde a **total:0**, che indica che non sono presenti batch in esecuzione.
+    Si noti che l'ultima riga nell'output corrisponde a **total:0** , che indica che non sono presenti batch in esecuzione.
 
 1. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file con estensione JAR e il nome della classe come parametri. Se si eseguono questi passaggi da un computer Windows, l'approccio consigliato è l'uso di un file di input.
 
@@ -155,7 +155,7 @@ Eseguire questa procedura:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Si noti che l'ultima riga dell'output indica **state:starting**. Indica anche **id:0**. **0** è l'ID del batch.
+    Si noti che l'ultima riga dell'output indica **state:starting** . Indica anche **id:0** . **0** è l'ID del batch.
 
 1. È ora possibile recuperare lo stato di questo batch specifico usando l'ID del batch.
 
@@ -177,7 +177,7 @@ Eseguire questa procedura:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    L'output ora indica **state:success**, il che suggerisce che il processo è stato completato.
+    L'output ora indica **state:success** , il che suggerisce che il processo è stato completato.
 
 1. Se si vuole, è ora possibile eliminare il batch.
 

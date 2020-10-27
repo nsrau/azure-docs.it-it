@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874028"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541707"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 
@@ -25,7 +25,7 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i modelli di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-clusters"></a>Creare i cluster
 
@@ -33,11 +33,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel menu in alto selezionare **+ Crea una risorsa**.
+1. Nel menu in alto selezionare **+ Crea una risorsa** .
 
     ![Creare un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Creazione di un nuovo cluster nel portale di Azure")
 
-1. Selezionare **Analytics** > **Azure HDInsight** per passare alla pagina **Crea cluster HDInsight**.
+1. Selezionare **Analytics** > **Azure HDInsight** per passare alla pagina **Crea cluster HDInsight** .
 
 ## <a name="basics"></a>Nozioni di base
 
@@ -48,15 +48,15 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 |Proprietà |Descrizione |
 |---|---|
 |Subscription|Nell'elenco a discesa selezionare la sottoscrizione di Azure che viene usata per il cluster.|
-|Resource group|Nell'elenco a discesa selezionare il gruppo di risorse esistente oppure selezionare **Crea nuovo**.|
+|Resource group|Nell'elenco a discesa selezionare il gruppo di risorse esistente oppure selezionare **Crea nuovo** .|
 |Nome cluster|Immettere un nome univoco globale.|
 |Region|Nell'elenco a discesa selezionare un'area in cui viene creato il cluster.|
 |Tipo di cluster|Fare clic su **selezionare il tipo di cluster** per aprire un elenco. Nell'elenco selezionare il tipo di cluster desiderato. I cluster HDInsight sono di tipo diverso. che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi,|
-|Versione|Selezionare una **versione**dall'elenco a discesa. Usare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).|
-|Nome utente dell'account di accesso del cluster|Specificare il nome utente. Il valore predefinito è **admin**.|
+|Versione|Nell'elenco a discesa selezionare una **versione** . Usare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).|
+|Nome utente dell'account di accesso del cluster|Specificare il nome utente. Il valore predefinito è **admin** .|
 |Password di accesso al cluster|Specificare la password.|
 |Conferma password di accesso al cluster|Immettere nuovamente la password|
-|Nome utente Secure Shell (SSH)|Specificare il nome utente. Il valore predefinito è **sshuser**.|
+|Nome utente Secure Shell (SSH)|Specificare il nome utente. Il valore predefinito è **sshuser** .|
 |Usare la password di accesso del cluster per SSH|Se si vuole usare la stessa password SSH della password di amministratore specificata in precedenza, selezionare la casella **di controllo Usa password di accesso al cluster per SSH** . In caso contrario, specificare una **PASSWORD** o una **CHIAVE PUBBLICA** per autenticare l'utente SSH. Una chiave pubblica è l'approccio consigliabile. Scegliere **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.  Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
 Selezionare **Next: Storage >>** per passare alla scheda successiva.
@@ -64,19 +64,19 @@ Selezionare **Next: Storage >>** per passare alla scheda successiva.
 ## <a name="storage"></a>Archiviazione
 
 > [!WARNING] 
-> A partire dal 15 giugno, 2020 i clienti non saranno in grado di creare una nuova entità servizio usando HDInsight. Vedere [creare un'entità servizio e certificati](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
+> A partire dal 15 giugno, 2020 i clienti non saranno in grado di creare una nuova entità servizio usando HDInsight. Vedere [creare un'entità servizio e certificati](../active-directory/develop/howto-create-service-principal-portal.md) usando Azure Active Directory.
 
 ![HDInsight creare l'archiviazione cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creazione di un nuovo cluster nell'archivio di portale di Azure")
 
 ### <a name="primary-storage"></a>Archiviazione primaria
 
-Dall'elenco a discesa per tipo di **archiviazione primario**selezionare il tipo di archiviazione predefinito. I campi successivi da completare variano in base alla selezione effettuata. Per **archiviazione di Azure**:
+Dall'elenco a discesa per tipo di **archiviazione primario** selezionare il tipo di archiviazione predefinito. I campi successivi da completare variano in base alla selezione effettuata. Per **archiviazione di Azure** :
 
-1. Per **metodo di selezione**scegliere **Seleziona dall'elenco**oppure usare la **chiave di accesso**.
-    * Per **selezionare un elenco**, selezionare l' **account di archiviazione primario** dall'elenco a discesa oppure selezionare **Crea nuovo**.
-    * Per **usare la chiave di accesso**immettere il **nome dell'account di archiviazione**. Fornire quindi la **chiave di accesso**.
+1. Per **metodo di selezione** scegliere **Seleziona dall'elenco** oppure usare la **chiave di accesso** .
+    * Per **selezionare un elenco** , selezionare l' **account di archiviazione primario** dall'elenco a discesa oppure selezionare **Crea nuovo** .
+    * Per **usare la chiave di accesso** immettere il **nome dell'account di archiviazione** . Fornire quindi la **chiave di accesso** .
 
-1. Per **contenitore**accettare il valore predefinito o immetterne uno nuovo.
+1. Per **contenitore** accettare il valore predefinito o immetterne uno nuovo.
 
 ### <a name="additional-azure-storage"></a>Archiviazione di Azure aggiuntiva
 
@@ -87,7 +87,7 @@ Facoltativo: selezionare **Aggiungi archiviazione di Azure** per l'archiviazione
 Facoltativo: specificare un database SQL esistente per salvare i metadati Apache Hive, Apache oozie, e o Apache Ambari all'esterno del cluster. Il database SQL di Azure usato per il Metastore deve consentire la connettività ad altri servizi di Azure, tra cui Azure HDInsight. Quando si crea un metastore, non usare trattini o segni meno nel nome del database, perché a causa di questi caratteri il processo di creazione del cluster non andrebbe a buon fine.
 
 > [!IMPORTANT]
-> Per le forme cluster che supportano i Metastore, il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)**. Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
+> Per le forme cluster che supportano i Metastore, il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)** . Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
 
 Fare clic su **Next: Security + networking >>** per passare alla scheda successiva.
 
@@ -99,7 +99,7 @@ Nella scheda **sicurezza e rete** specificare le informazioni seguenti:
 
 |Proprietà |Descrizione |
 |---|---|
-|Pacchetto di sicurezza aziendale|Facoltativo: selezionare la casella di controllo per usare **Enterprise Security Package**. Per altre informazioni, vedere [configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Pacchetto di sicurezza aziendale|Facoltativo: selezionare la casella di controllo per usare **Enterprise Security Package** . Per altre informazioni, vedere [configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Facoltativo: selezionare una versione di TLS dall'elenco a discesa. Per altre informazioni, vedere [Transport Layer Security](./transport-layer-security.md).|
 |Rete virtuale|Facoltativo: selezionare una rete virtuale e una subnet esistenti nell'elenco a discesa. Per informazioni, vedere [pianificare una distribuzione di rete virtuale per i cluster HDInsight di Azure](hdinsight-plan-virtual-network-deployment.md). L'articolo include i requisiti di configurazione specifici per la rete virtuale.|
 |Impostazioni di crittografia del disco|Facoltativo: selezionare la casella di controllo per utilizzare la crittografia. Per altre informazioni, vedere [Crittografia dischi con chiavi gestite dal cliente](./disk-encryption.md).|
@@ -124,7 +124,7 @@ Dalla scheda **configurazione e prezzi** specificare le informazioni seguenti:
 
 Selezionare **Verifica + crea >>** per convalidare la configurazione del cluster e passare alla scheda finale.
 
-## <a name="review--create"></a>Rivedi e crea
+## <a name="review--create"></a>Rivedere e creare
 
 ![HDInsight crea Riepilogo cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Specificare il numero di nodi del cluster")
 
@@ -134,7 +134,7 @@ La creazione del cluster richiede tempo, in genere circa 20 minuti. Monitorare l
 
 ## <a name="post-creation"></a>Post-creazione
 
-Dopo aver completato il processo di creazione, selezionare **Vai alla risorsa** dalla notifica **Distribuzione riuscita**. Nella finestra del cluster sono disponibili le informazioni indicate di seguito.
+Dopo aver completato il processo di creazione, selezionare **Vai alla risorsa** dalla notifica **Distribuzione riuscita** . Nella finestra del cluster sono disponibili le informazioni indicate di seguito.
 
 ![Panoramica del cluster HDI portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Proprietà del cluster")
 
@@ -145,7 +145,7 @@ Alcune delle icone della finestra sono illustrate di seguito:
 |Panoramica|Fornisce tutte le informazioni essenziali sul cluster. Ad esempio, il nome, il gruppo di risorse a cui appartiene, il percorso, il sistema operativo e l'URL per il dashboard del cluster.|
 |Dashboard del cluster|Indirizza l'utente al portale di Ambari associato al cluster.|
 |Accesso SSH + cluster|Fornisce le informazioni necessarie per accedere al cluster tramite SSH.|
-|Elimina|consente di eliminare il cluster HDInsight.|
+|Delete|consente di eliminare il cluster HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

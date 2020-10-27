@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79271941"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545634"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Spark tramite Azure HDInsight
 
@@ -25,19 +25,19 @@ I valori di configurazione di Spark possono essere ottimizzati per evitare un'ec
 
 1. Accedere a Ambari `https://CLUSTERNAME.azurehdidnsight.net` con le credenziali del cluster. La schermata iniziale Visualizza un dashboard di panoramica. Sono presenti lievi differenze estetiche tra HDInsight 3,6 e 4,0.
 
-1. Passare a **Spark2**  >  **configs**.
+1. Passare a **Spark2**  >  **configs** .
 
     ![Selezionare la scheda Configs (Configurazioni)](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Nell'elenco delle configurazioni selezionare ed espandere **Custom-spark2-defaults**.
+1. Nell'elenco delle configurazioni selezionare ed espandere **Custom-spark2-defaults** .
 
-1. Ricercare l'impostazione del valore che si desidera modificare, come **spark.executor.memory**. In questo caso, il valore di **9728m** è troppo elevato.
+1. Ricercare l'impostazione del valore che si desidera modificare, come **spark.executor.memory** . In questo caso, il valore di **9728m** è troppo elevato.
 
     ![Selezionare custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Configurare il valore sull'impostazione consigliata. Il valore **2048m** è consigliato per questa impostazione.
 
-1. Salvare il valore, quindi salvare la configurazione. Selezionare **Salva**.
+1. Salvare il valore, quindi salvare la configurazione. Selezionare **Salva** .
 
     ![Cambiare il valore in 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
@@ -67,7 +67,7 @@ I valori di configurazione di Spark possono essere ottimizzati per evitare un'ec
 
 1. Definire una nuova proprietà. È possibile definire una singola proprietà usando una finestra di dialogo per impostazioni specifiche, ad esempio il tipo di dati. In alternativa, è possibile definire più proprietà usando una definizione per riga.
 
-    In questo esempio la proprietà **spark.driver.memory** è stata definita con un valore di **4g**.
+    In questo esempio la proprietà **spark.driver.memory** è stata definita con un valore di **4g** .
 
     ![Definire una nuova proprietà](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Queste modifiche si applicano a tutto il cluster ma è possibile eseguirne l'ove
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Come si configura un'applicazione Apache Spark tramite un notebook di Jupyter nei cluster?
 
-Nella prima cella del notebook Jupyter, dopo la direttiva **%%configure**, specificare le configurazioni di Spark in un formato JSON valido. Modificare i valori effettivi in base alla necessità:
+Nella prima cella del notebook Jupyter, dopo la direttiva **%%configure** , specificare le configurazioni di Spark in un formato JSON valido. Modificare i valori effettivi in base alla necessità:
 
 ![Aggiungere una configurazione](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -107,10 +107,10 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * [Panoramica sulla gestione della memoria di Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Debug di un'applicazione Spark nei cluster HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Debug di un'applicazione Spark nei cluster HDInsight](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * Ricevere risposte dagli esperti di Azure tramite la pagina [Supporto della community per Azure](https://azure.microsoft.com/support/community/).
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

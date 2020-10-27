@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a221e3c32d458135111583885a0b9f97743d36ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490034"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546620"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-server singolo
 
@@ -42,19 +42,19 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selezionare le regole di avviso":::
 
-5. Nella sezione **Condizione** selezionare **Aggiungi condizione**.
+5. Nella sezione **Condizione** selezionare **Aggiungi condizione** .
 
 6. Selezionare una metrica dall'elenco dei segnali per i quali ricevere un avviso. In questo esempio selezionare "Storage percent".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare le regole di avviso" e **Frequency**.
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare le regole di avviso" e **Frequency** .
    
-   Al termine, selezionare **Chiudi**.
+   Al termine, selezionare **Chiudi** .
 
    :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selezionare le regole di avviso" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
    
     Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
 
-    Al termine, fare clic su **OK**.
+    Al termine, fare clic su **OK** .
 
     :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Selezionare le regole di avviso":::
 

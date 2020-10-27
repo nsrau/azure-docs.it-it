@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486311"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545991"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -161,13 +161,13 @@ HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibil
 > [!NOTE]  
 > Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si utilizza un'azione script durante la creazione del cluster e la creazione non riesce, vedere [risolvere i problemi relativi alle azioni script](./troubleshoot-script-action.md) per altre modalità di accesso alle informazioni registrate.
 
-Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
+Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. ad esempio:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. ad esempio:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -290,9 +290,9 @@ Gli script usati per la personalizzazione di un cluster devono essere archiviati
 
 * __Account di archiviazione aggiuntivo__ associato al cluster.
 
-* __URI leggibile pubblicamente__, ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
+* __URI leggibile pubblicamente__ , ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
 
-* __Account Azure Data Lake Storage__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: configurare cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* __Account Azure Data Lake Storage__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: configurare cluster in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > L'entità servizio usata da HDInsight per accedere a Data Lake Storage deve avere accesso in lettura allo script.
@@ -332,13 +332,13 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 
 Di seguito sono riportati gli errori che possono verificarsi durante l'uso di script sviluppati:
 
-**Errore**: `$'\r': command not found` . A volte seguito da `syntax error: unexpected end of file`.
+**Errore** : `$'\r': command not found` . A volte seguito da `syntax error: unexpected end of file`.
 
-*Causa*: questo errore si verifica quando le righe di uno script terminano con CRLF. I sistemi Unix prevedono unicamente LF come terminazione di riga.
+*Causa* : questo errore si verifica quando le righe di uno script terminano con CRLF. I sistemi Unix prevedono unicamente LF come terminazione di riga.
 
 Questo problema si verifica più spesso quando lo script viene creato in un ambiente Windows, perché CRLF è una terminazione di riga comune per molti editor di testo in Windows.
 
-*Soluzione*: se si tratta di un'opzione nell'editor di testo, selezionare il formato UNIX o LF per la terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
+*Soluzione* : se si tratta di un'opzione nell'editor di testo, selezionare il formato UNIX o LF per la terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
 
 > [!NOTE]  
 > I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.
@@ -350,11 +350,11 @@ Questo problema si verifica più spesso quando lo script viene creato in un ambi
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica direttamente il file |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contiene una versione solo con le terminazioni LF. |
 
-**Errore**: `line 1: #!/usr/bin/env: No such file or directory` .
+**Errore** : `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Causa*: questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
+*Causa* : questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
 
-*Risoluzione*: salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un file senza il carattere BOM:
+*Risoluzione* : salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un file senza il carattere BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -366,4 +366,4 @@ Sostituire `INFILE` con il file contenente il carattere BOM. `OUTFILE` deve esse
 
 * Informazioni su come [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
 * Per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight, vedere [Riferimento .NET per HDInsight](/dotnet/api/overview/azure/hdinsight)
-* Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l' [API REST del provider di risorse HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) .
+* Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l' [API REST del provider di risorse HDInsight](/rest/api/hdinsight/) .

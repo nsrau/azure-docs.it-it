@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b67ddd57c3a0787213763253cef5083f420cefe0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490357"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541673"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
 
@@ -219,7 +219,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 > [!NOTE]  
-> Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
+> Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/cli/azure/create-an-azure-service-principal-azure-cli). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
 
 1. Dalla riga di comando, usare il comando seguente per elencare le sottoscrizioni di Azure.
 
@@ -227,7 +227,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Nell'elenco selezionare la sottoscrizione che si vuole usare e annotare i valori nelle colonne **Subscription_ID** e __Tenant_ID__. Salvare questi valori.
+    Nell'elenco selezionare la sottoscrizione che si vuole usare e annotare i valori nelle colonne **Subscription_ID** e __Tenant_ID__ . Salvare questi valori.
 
 2. Eseguire i comandi seguenti per creare un'applicazione in Azure Active Directory.
 
@@ -240,17 +240,17 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
    > [!NOTE]  
    > I valori `--home-page` e `--identifier-uris` non devono fare riferimento a una pagina Web reale ospitata in Internet. Devono essere URI univoci.
 
-   Il valore restituito da questo comando è l'__ID app__ per la nuova applicazione. Salvare il valore.
+   Il valore restituito da questo comando è l' __ID app__ per la nuova applicazione. Salvare il valore.
 
-3. Eseguire il comando seguente per creare un'entità servizio mediante l'**ID app**.
+3. Eseguire il comando seguente per creare un'entità servizio mediante l' **ID app** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Il valore restituito da questo comando è l'__ID oggetto__. Salvare il valore.
+     Il valore restituito da questo comando è l' __ID oggetto__ . Salvare il valore.
 
-4. Assegnare il ruolo **Owner** all'entità servizio usando il valore **ID oggetto** precedentemente restituito. Usare anche l'**ID sottoscrizione** ottenuto in precedenza.
+4. Assegnare il ruolo **Owner** all'entità servizio usando il valore **ID oggetto** precedentemente restituito. Usare anche l' **ID sottoscrizione** ottenuto in precedenza.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +274,7 @@ Impostare `$TENANTID`, `$APPID` e `$PASSWORD` per i valori ottenuti o usati in p
 
 Se la richiesta ha esito positivo, si riceve una risposta serie 200 e il corpo della risposta contiene un documento JSON.
 
-Il documento JSON restituito da questa richiesta contiene un elemento denominato **access_token**. Il valore di **access_token** viene usato per le richieste di autenticazione all'API REST.
+Il documento JSON restituito da questa richiesta contiene un elemento denominato **access_token** . Il valore di **access_token** viene usato per le richieste di autenticazione all'API REST.
 
 ```json
 {

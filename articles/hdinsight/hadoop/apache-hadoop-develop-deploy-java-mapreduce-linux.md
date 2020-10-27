@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 84d9253b865ddac6d97395af3d8632e29cc2ea24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323809"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546603"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Sviluppare programmi Java MapReduce per Apache Hadoop in HDInsight
 
@@ -21,7 +21,7 @@ Informazioni sull'uso di Apache Maven per creare un'applicazione MapReduce basat
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) versione 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
 
@@ -38,13 +38,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-1. Immettere il comando seguente per creare un progetto Maven denominato **wordcountjava**:
+1. Immettere il comando seguente per creare un progetto Maven denominato **wordcountjava** :
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Questo comando crea una directory con il nome specificato dal `artifactID` parametro (**wordcountjava** in questo esempio). Questa directory contiene gli elementi seguenti:
+    Questo comando crea una directory con il nome specificato dal `artifactID` parametro ( **wordcountjava** in questo esempio). Questa directory contiene gli elementi seguenti:
 
     * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
     * src\main\java\org\apache\hadoop\examples: contiene il codice dell'applicazione.

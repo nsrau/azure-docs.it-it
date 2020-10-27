@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207464"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547963"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a un Apache Hadoop sandbox, un emulatore in una macchina virtuale
 
@@ -34,13 +34,13 @@ Informazioni su come installare l'ambiente sandbox Apache Hadoop da Hortonworks 
 
 Per istruzioni sulla configurazione della sandbox, vedere la [Guida alla distribuzione e all'installazione di sandbox](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nelle **versioni precedenti**.
+Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nelle **versioni precedenti** .
 
 ## <a name="start-the-virtual-machine"></a>Avviare la macchina virtuale
 
 1. Aprire Oracle VM VirtualBox.
 1. Scegliere **Import Appliance** dal menu **File** e quindi specificare l'immagine di Hortonworks Sandbox.
-1. Selezionare Hortonworks Sandbox, fare clic su **Start** e quindi su **Normal Start**. Al termine del processo di avvio della macchina virtuale, vengono visualizzate le istruzioni di accesso.
+1. Selezionare Hortonworks Sandbox, fare clic su **Start** e quindi su **Normal Start** . Al termine del processo di avvio della macchina virtuale, vengono visualizzate le istruzioni di accesso.
 
     ![avvio normale di VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
@@ -85,7 +85,7 @@ Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come utilizzare Visual Studio con Sandbox di Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Informazioni su come utilizzare Visual Studio con Sandbox di Hortonworks](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Acquisire dimestichezza con Sandbox di Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 
