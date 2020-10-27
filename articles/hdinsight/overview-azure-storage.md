@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851369"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539463"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Panoramica di archiviazione di Azure in HDInsight
 
@@ -21,7 +21,7 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile di utilizzo 
 
 Si consiglia di usare contenitori di archiviazione separati per l'archiviazione del cluster predefinita e i dati aziendali. La separazione consiste nell'isolare i log HDInsight e i file temporanei dai propri dati aziendali. È inoltre consigliabile eliminare il contenitore BLOB predefinito, che contiene i registri applicazioni e di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili.** L'eccezione è che HDInsight può accedere all'account di archiviazione.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate** , assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili.** L'eccezione è che HDInsight può accedere all'account di archiviazione.
 
 ## <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
 
@@ -44,7 +44,7 @@ Tenere conto delle considerazioni seguenti quando si usa un account di Archiviaz
 * **Contenitori pubblici o BLOB pubblici negli account di archiviazione non connessi a un cluster:** Si dispone dell'autorizzazione di sola lettura per i BLOB nei contenitori.
   
   > [!NOTE]  
-  > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB in esso disponibili, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/storage-manage-access-to-resources.md).
+  > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB in esso disponibili, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Contenitori privati negli account di archiviazione non connessi a un cluster:** Non è possibile accedere ai BLOB nei contenitori a meno che non si definisce l'account di archiviazione quando si inviano i processi di WebHCat.
 

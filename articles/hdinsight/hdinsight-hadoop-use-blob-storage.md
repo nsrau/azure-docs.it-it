@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855668"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547436"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -44,23 +44,23 @@ La condivisione di un contenitore BLOB come file system predefinito per più clu
 
 ## <a name="access-files-from-within-cluster"></a>Accedere ai file dall'interno del cluster
 
-Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HDInsight. Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia TLS (con il prefisso *wasbs*). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
+Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HDInsight. Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia TLS (con il prefisso *wasbs* ). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
 
-* **Uso di nomi completi**. Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
+* **Uso di nomi completi** . Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
+* **Uso del formato con percorso abbreviato** . Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Uso del percorso relativo**. Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
+* **Uso del percorso relativo** . Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
 
     ```
     /<file.path>/
@@ -151,7 +151,7 @@ Per ottenere il percorso usando l'API REST di Ambari, vedere [Ottenere l'archivi
 
 ## <a name="blob-containers"></a>Contenitori BLOB
 
-Per usare i BLOB, è necessario creare prima un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). Come parte della procedura, specificare l'area di Azure in cui viene creato l'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database di SQL Server del metastore Hive e il database di SQL Server di metastore Apache Oozie devono trovarsi nella stessa area.
+Per usare i BLOB, è necessario creare prima un [account di archiviazione di Azure](../storage/common/storage-account-create.md). Come parte della procedura, specificare l'area di Azure in cui viene creato l'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database di SQL Server del metastore Hive e il database di SQL Server di metastore Apache Oozie devono trovarsi nella stessa area.
 
 Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente nell'account di archiviazione di Azure. Questo contenitore può essere un BLOB esistente creato all'esterno di HDInsight. Oppure può essere un contenitore creato per un cluster HDInsight.
 

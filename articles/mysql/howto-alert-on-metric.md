@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740055"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546892"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MySQL 
 
@@ -27,7 +27,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST di Monitoraggio di Azure](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare il server di Database di Azure per MySQL da monitorare.
@@ -42,19 +42,19 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selezionare le regole di avviso":::
 
-5. Nella sezione **Condizione** selezionare **Aggiungi condizione**.
+5. Nella sezione **Condizione** selezionare **Aggiungi condizione** .
 
 6. Selezionare una metrica dall'elenco dei segnali per i quali ricevere un avviso. In questo esempio selezionare "Storage percent".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare le regole di avviso" e **Frequency**.
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare le regole di avviso" e **Frequency** .
    
-   Al termine, selezionare **Chiudi**.
+   Al termine, selezionare **Chiudi** .
 
    :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selezionare le regole di avviso" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
    
     Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
 
-    Al termine, fare clic su **OK**.
+    Al termine, fare clic su **OK** .
 
     :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Selezionare le regole di avviso":::
 
@@ -76,4 +76,4 @@ Dopo aver creato un avviso, è possibile selezionarlo ed eseguire queste azioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
+* Leggere una [panoramica della raccolta di metriche](../azure-monitor/platform/data-platform.md) per verificare che il servizio sia disponibile e reattivo.

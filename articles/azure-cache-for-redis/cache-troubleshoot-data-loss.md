@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008951"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538596"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Risolvere i problemi di perdita di dati in Cache Redis di Azure
 
@@ -36,7 +36,7 @@ Se si ritiene che delle chiavi siano scomparse dalla cache, verificare le possib
 
 ### <a name="key-expiration"></a>Scadenza della chiave
 
-Cache Redis di Azure rimuove automaticamente una chiave se le è stato assegnato un timeout e il periodo è scaduto. Per altre informazioni sulla scadenza della chiave Redis, vedere la documentazione del comando [EXPIRE](https://redis.io/commands/expire). I valori di timeout possono essere impostati anche usando [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) e altri comandi **\*STORE**.
+Cache Redis di Azure rimuove automaticamente una chiave se le è stato assegnato un timeout e il periodo è scaduto. Per altre informazioni sulla scadenza della chiave Redis, vedere la documentazione del comando [EXPIRE](https://redis.io/commands/expire). I valori di timeout possono essere impostati anche usando [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) e altri comandi **\*STORE** .
 
 Per ottenere statistiche sul numero di chiavi scadute, usare il comando [INFO](https://redis.io/commands/info). La sezione `Stats` mostra il numero totale di chiavi scadute. La sezione `Keyspace` fornisce ulteriori informazioni sul numero di chiavi con timeout e il valore di timeout medio.
 
@@ -68,7 +68,7 @@ evicted_keys:13224
 
 ### <a name="key-deletion"></a>Eliminazione della chiave
 
-I client Redis possono eseguire il comando [DEL](https://redis.io/commands/del) o [HDEL](https://redis.io/commands/hdel) per rimuovere in modo esplicito le chiavi dalla cache di Azure per Redis. Si può tenere traccia del numero di operazioni di eliminazione usando il comando [INFO](https://redis.io/commands/info). Se sono stati chiamati comandi **DEL** o **HDEL**, verranno elencati nella sezione `Commandstats`.
+I client Redis possono eseguire il comando [DEL](https://redis.io/commands/del) o [HDEL](https://redis.io/commands/hdel) per rimuovere in modo esplicito le chiavi dalla cache di Azure per Redis. Si può tenere traccia del numero di operazioni di eliminazione usando il comando [INFO](https://redis.io/commands/info). Se sono stati chiamati comandi **DEL** o **HDEL** , verranno elencati nella sezione `Commandstats`.
 
 ```
 # Commandstats
@@ -94,7 +94,7 @@ Se la maggior parte o tutte le chiavi sono scomparse dalla cache, verificare le 
 
 ### <a name="key-flushing"></a>Scaricamento delle chiavi
 
-I client possono chiamare il comando [FLUSHDB](https://redis.io/commands/flushdb) per rimuovere tutte le chiavi in un *unico* database o [FLUSHALL](https://redis.io/commands/flushall) per rimuovere tutte le chiavi da *tutti* i database in una cache Redis. Per verificare se le chiavi sono state scaricate, usare il comando [INFO](https://redis.io/commands/info). La sezione `Commandstats` indica se è stato chiamato il comando **FLUSH**:
+I client possono chiamare il comando [FLUSHDB](https://redis.io/commands/flushdb) per rimuovere tutte le chiavi in un *unico* database o [FLUSHALL](https://redis.io/commands/flushall) per rimuovere tutte le chiavi da *tutti* i database in una cache Redis. Per verificare se le chiavi sono state scaricate, usare il comando [INFO](https://redis.io/commands/info). La sezione `Commandstats` indica se è stato chiamato il comando **FLUSH** :
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Selezione del database errato
 
-Cache Redis di Azure usa per impostazione predefinita il database **db0**. Se si passa a un altro database, ad esempio **db1**, e si prova a leggere le chiavi da esso, Cache Redis di Azure non le troverà. Ogni database è un'unità separata logicamente e include un set di dati diverso. Usare il comando [SELECT](https://redis.io/commands/select) comando per usare altri database disponibili e cercare le chiavi in ognuno di essi.
+Cache Redis di Azure usa per impostazione predefinita il database **db0** . Se si passa a un altro database, ad esempio **db1** , e si prova a leggere le chiavi da esso, Cache Redis di Azure non le troverà. Ogni database è un'unità separata logicamente e include un set di dati diverso. Usare il comando [SELECT](https://redis.io/commands/select) comando per usare altri database disponibili e cercare le chiavi in ognuno di essi.
 
 ### <a name="redis-instance-failure"></a>Errore dell'istanza di Redis
 
@@ -114,7 +114,7 @@ Redis è un archivio dati in memoria. I dati vengono conservati nelle macchine f
 
 Le cache nei livelli Standard e Premium offrono una resilienza molto superiore rispetto alla perdita di dati, usando due macchine virtuali in una configurazione replicata. Quando il nodo primario in una cache di questo tipo ha esito negativo, il nodo di replica acquisisce automaticamente i dati. Queste macchine virtuali si trovano in domini distinti per gli errori e gli aggiornamenti, per ridurre al minimo le possibilità che entrambi diventino non disponibili contemporaneamente. Se si verifica un'interruzione grave nel data center, tuttavia, è comunque possibile che le macchine virtuali diventino inattive contemporaneamente. In questi rari casi, i dati andranno persi.
 
-Prendere in considerazione l'uso della [persistenza dei dati Redis](https://redis.io/topics/persistence) e la [replica geografica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) per migliorare la protezione dei dati in caso di errori dell'infrastruttura.
+Prendere in considerazione l'uso della [persistenza dei dati Redis](https://redis.io/topics/persistence) e la [replica geografica](./cache-how-to-geo-replication.md) per migliorare la protezione dei dati in caso di errori dell'infrastruttura.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

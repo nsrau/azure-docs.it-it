@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988246"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547130"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Aggiornamento delle visualizzazioni del dashboard Log Analytics
 
@@ -47,7 +47,7 @@ Quando è possibile aggiornare una parte Log Analytics bloccata, viene visualizz
  
 ![Barra laterale](media/dashboard-upgrade/update-message-1.png)
  
-![Barra laterale](media/dashboard-upgrade/update-message-2.png)
+![Screenshot che illustra come aggiornare la visualizzazione del riquadro.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Una volta pubblicato il dashboard, l'aggiornamento è irreversibile. Tuttavia, le modifiche vengono ignorate se ci si allontana dal dashboard senza ripubblicarlo.  
@@ -56,7 +56,7 @@ Una volta fatto clic, la visualizzazione verrà aggiornata alla nuova tecnologia
 
 Dopo l'aggiornamento delle visualizzazioni, è necessario ripubblicare il dashboard per rendere effettive le modifiche.
 
-![Barra laterale](media/dashboard-upgrade/update-message-3.png)
+![Screenshot che mostra le visualizzazioni aggiornate.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Fase 2-migrazione di tutti i dashboard
 
@@ -74,7 +74,7 @@ Poiché i dashboard possono contenere più visualizzazioni di più query, l'inte
 
 I dashboard possono essere visivamente dense e complesse. Per ridurre il carico cognitivo durante la visualizzazione di un dashboard, è possibile ottimizzare le visualizzazioni limitando la visualizzazione a 25 tipi di dati diversi. Quando sono presenti più di 25 Log Analytics ottimizza i dati. Singolarmente Mostra i 25 tipi con la maggior parte dei dati come separati e quindi raggruppa i valori rimanenti in un valore "altro". Nel grafico seguente viene illustrato un caso di questo tipo.  
 
-![Barra laterale](media/dashboard-upgrade/values-25-limit.png)
+![Screenshot che mostra un dashboard con 25 tipi di dati diversi.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Aggiornamento del dashboard al caricamento
 

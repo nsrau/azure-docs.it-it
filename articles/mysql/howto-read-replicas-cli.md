@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74e62c39295d36132abdce0abc033162fa22cb64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531633"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546314"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -23,7 +23,7 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- [Installare l'interfaccia della riga di comando Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installare l'interfaccia della riga di comando Azure 2,0](/cli/azure/install-azure-cli)
 - Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) che verrà usato come server di origine. 
 
 > [!IMPORTANT]
@@ -42,9 +42,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 Il comando `az mysql server replica create` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Descrizione  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
+| resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server di origine esistente da cui eseguire la replica. |
 
@@ -71,9 +71,9 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 Il comando `az mysql server replica list` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Descrizione  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
+| resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | server-name | mydemoserver | Nome o ID del server di origine. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
@@ -89,14 +89,14 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Descrizione  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Gruppo di risorse in cui si trova il server di replica.  |
+| resource-group |  myresourcegroup |  Gruppo di risorse in cui si trova il server di replica.  |
 | name | mydemoreplicaserver | Nome del server di replica su cui si vuole arrestare la replica. |
 
 ### <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
-L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)**.
+L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)** .
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver

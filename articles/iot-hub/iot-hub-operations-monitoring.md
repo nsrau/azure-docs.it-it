@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139325"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538494"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoraggio delle operazioni dell’hub IoT (deprecata)
 
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 >[!NOTE]
->Il monitoraggio delle **operazioni dell'hub IoT è deprecato ed è stato rimosso dall'hub IoT il 10 marzo 2019**. Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md) (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente). Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>Il monitoraggio delle **operazioni dell'hub IoT è deprecato ed è stato rimosso dall'hub IoT il 10 marzo 2019** . Per il monitoraggio delle operazioni e dell'integrità dell'hub Internet delle cose, vedere [monitorare l'hub](monitor-iot-hub.md). Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 L'hub IoT monitora sei categorie di eventi:
 
@@ -39,11 +39,11 @@ L'hub IoT monitora sei categorie di eventi:
 
 1. Creare un hub IoT. Le istruzioni sulla creazione di un hub IoT sono disponibili nella [Guida introduttiva](quickstart-send-telemetry-dotnet.md).
 
-2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
+2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni** .
 
     ![Accedere alla configurazione del monitoraggio delle operazioni nel portale](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
+3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva** . Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio** . L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
 
     ![Configurare il monitoraggio delle operazioni sull'hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -197,17 +197,17 @@ Per connettersi all'endpoint di monitoraggio, è necessaria una stringa di conne
 
 1. Nel portale, passare al pannello di risorse dell'hub IoT.
 
-2. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi**:
+2. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi** :
 
     ![Valori di Endpoint compatibile con Hub eventi](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Scegliere **Criteri di accesso condiviso**, quindi scegliere **servizio**. Prendere nota del valore presente in **Chiave primaria**:
+3. Scegliere **Criteri di accesso condiviso** , quindi scegliere **servizio** . Prendere nota del valore presente in **Chiave primaria** :
 
     ![Chiave primaria del servizio dei criteri di accesso condiviso](./media/iot-hub-operations-monitoring/service-key.png)
 
 L'esempio di codice C# seguente viene preso da un'app console C# per **Desktop classico di Windows** di Visual Studio. Il progetto ha il pacchetto **WindowsAzure.ServiceBus** NuGet installato.
 
-* Sostituire il placeholder della stringa di connessione con una stringa di connessione che usa i valori precedentemente annotati per l'**endpoint compatibile con Hub eventi** e il servizio **Chiave primaria** come illustrato nell'esempio seguente:
+* Sostituire il placeholder della stringa di connessione con una stringa di connessione che usa i valori precedentemente annotati per l' **endpoint compatibile con Hub eventi** e il servizio **Chiave primaria** come illustrato nell'esempio seguente:
 
     ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"

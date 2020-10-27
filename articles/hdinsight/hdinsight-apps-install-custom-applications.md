@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9fd8152b4180d44d3b822feef7e74e267b6b948a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4757ebc61f980a0d035a248940cba0d1824cf153
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086501"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547861"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
@@ -27,11 +27,11 @@ Per installare applicazioni HDInsight in un cluster HDInsight esistente, è nece
 
 ## <a name="install-hdinsight-applications"></a>Installare applicazioni HDInsight
 
-Le applicazioni HDInsight possono essere installate quando si crea un cluster o in un cluster HDInsight esistente. Per definire i modelli di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight).
+Le applicazioni HDInsight possono essere installate quando si crea un cluster o in un cluster HDInsight esistente. Per definire i modelli di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application)(MSDN: Installare un'applicazione HDInsight).
 
 File necessari per distribuire questa applicazione (Hue):
 
-* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): modello di Azure Resource Manager per installare l'applicazione HDInsight. Per sviluppare il proprio modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: Installare un'applicazione HDInsight).
+* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): modello di Azure Resource Manager per installare l'applicazione HDInsight. Per sviluppare il proprio modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application) (MSDN: Installare un'applicazione HDInsight).
 * [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): azione script chiamata dal modello di Resource Manager per configurare il nodo perimetrale.
 * [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): file binario hue chiamato da hui-install_v0.sh.
 * [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): file binario hue chiamato da hui-install_v0.sh.
@@ -43,15 +43,15 @@ File necessari per distribuire questa applicazione (Hue):
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Il modello di Gestione risorse si trova in [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue) .  Per informazioni su come scrivere questo modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight).
+    Il modello di Gestione risorse si trova in [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue) .  Per informazioni su come scrivere questo modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application)(MSDN: Installare un'applicazione HDInsight).
 
 1. Selezionare il **gruppo di risorse** esistente che contiene il cluster dall'elenco a discesa. È necessario usare lo stesso gruppo di risorse del cluster.
 
 1. immettere il nome del cluster in cui installare l'applicazione. Deve essere un cluster esistente.
 
-1. Selezionare la casella di controllo per accetto **i termini e le condizioni indicati in precedenza**.
+1. Selezionare la casella di controllo per accetto **i termini e le condizioni indicati in precedenza** .
 
-1. Selezionare **Acquisto**.
+1. Selezionare **Acquisto** .
 
 È possibile visualizzare lo stato dell'installazione dal riquadro aggiunto al dashboard del portale e dalla notifica del portale facendo clic sull'icona a forma di campana nella parte superiore del portale.  Sono necessari circa 10 minuti per installare l'applicazione.
 
@@ -61,7 +61,7 @@ File necessari per distribuire questa applicazione (Hue):
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Il modello di Gestione risorse si trova in [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json) .  Per informazioni su come scrivere questo modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight).
+    Il modello di Gestione risorse si trova in [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json) .  Per informazioni su come scrivere questo modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application)(MSDN: Installare un'applicazione HDInsight).
 
 2. Seguire le istruzioni per creare il cluster e installare Hue. Per altre informazioni sulla creazione di cluster HDInsight, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -73,13 +73,13 @@ Oltre al portale di Azure è anche possibile usare [Azure PowerShell](hdinsight-
 
 È possibile controllare lo stato dell'applicazione nel portale di Azure per convalidare l'installazione dell'applicazione. Inoltre, è possibile convalidare tutti gli endpoint HTTP come previsto e la pagina Web, se disponibile.
 
-Per **Hue**è possibile seguire questa procedura:
+Per **Hue** è possibile seguire questa procedura:
 
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il cluster in cui è stata installata l'applicazione.
-1. Scegliere **applicazioni**dal menu **Impostazioni** .
+1. Scegliere **applicazioni** dal menu **Impostazioni** .
 1. Selezionare **Hue** nell'elenco per visualizzare le proprietà.  
 1. Selezionare il collegamento pagina Web per convalidare il sito Web.
 
@@ -127,8 +127,8 @@ Se l'installazione di un'applicazione non è riuscita, è possibile visualizzare
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il cluster in cui è stata installata l'applicazione.
-1. Scegliere **applicazioni**dal menu **Impostazioni** .
-1. Fare clic con il pulsante destro del mouse sull'applicazione che si desidera rimuovere, quindi scegliere **Elimina**.
+1. Scegliere **applicazioni** dal menu **Impostazioni** .
+1. Fare clic con il pulsante destro del mouse sull'applicazione che si desidera rimuovere, quindi scegliere **Elimina** .
 1. Selezionare **Sì** per confermare.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -141,7 +141,7 @@ az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resourc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight): informazioni su come sviluppare modelli di Azure Resource Manager per distribuire applicazioni HDInsight.
+* [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application)(MSDN: Installare un'applicazione HDInsight): informazioni su come sviluppare modelli di Azure Resource Manager per distribuire applicazioni HDInsight.
 * [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md): informazioni su come installare un'applicazione HDInsight nei cluster.
 * [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): Informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
 * [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.

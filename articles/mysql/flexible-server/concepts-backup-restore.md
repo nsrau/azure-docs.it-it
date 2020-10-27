@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756535"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545872"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e ripristino nel database di Azure per il server flessibile MySQL (anteprima)
 
@@ -24,7 +24,7 @@ Database di Azure per MySQL server flessibile, crea automaticamente backup del s
 
 Il server flessibile esegue backup di snapshot dei file di dati e li archivia in una risorsa di archiviazione con ridondanza locale. Il server esegue anche il backup dei log delle transazioni e li archivia nell'archiviazione con ridondanza locale. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare il backup del database da 1 a 35 giorni. Tutti i backup vengono crittografati usando la crittografia AES a 256 bit per i dati archiviati inattivi.
 
-Non è possibile esportare i file di backup. I backup possono essere utilizzati solo per operazioni di ripristino in un server flessibile. È anche possibile usare [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   da un client MySQL per copiare un database.
+Non è possibile esportare i file di backup. I backup possono essere utilizzati solo per operazioni di ripristino in un server flessibile. È anche possibile usare [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) da un client MySQL per copiare un database.
 
 ## <a name="backup-frequency"></a>Frequenza di backup
 
@@ -40,9 +40,9 @@ Il periodo di conservazione dei backup controlla il tempo di esecuzione di un'op
 
 ## <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup
 
-Il server flessibile offre fino al 100% dell'archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Ogni ulteriore spazio di archiviazione di backup utilizzato viene addebitato in GB al mese. Se, ad esempio, è stato effettuato il provisioning di un server con 250 GB di spazio di archiviazione, sono disponibili 250 GB di spazio di archiviazione per i backup del server senza costi aggiuntivi. Se l'utilizzo del backup giornaliero è 25GB, è possibile disporre di un massimo di 10 giorni di archiviazione di backup gratuita. Lo spazio di archiviazione utilizzato per i backup con più di 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/mysql/).
+Il server flessibile offre fino al 100% dell'archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Ogni ulteriore spazio di archiviazione di backup utilizzato viene addebitato in GB al mese. Se, ad esempio, è stato effettuato il provisioning di un server con 250 GB di spazio di archiviazione, sono disponibili 250 GB di spazio di archiviazione per i backup del server senza costi aggiuntivi. Se l'utilizzo del backup giornaliero è 25GB, è possibile disporre di un massimo di 10 giorni di archiviazione di backup gratuita. Lo spazio di archiviazione utilizzato per i backup con più di 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/mysql/).
 
-È possibile usare la metrica di [archiviazione di backup utilizzata](https://docs.microsoft.com/azure/mysql/concepts-monitoring)   in monitoraggio di Azure disponibile nel portale di Azure per monitorare l'archiviazione di backup utilizzata da un server. La metrica di **archiviazione di backup** utilizzata rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup del database e dei backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. Un'intensa attività transazionale sul server può causare un aumento dell'uso dell'archivio di backup indipendentemente dalle dimensioni totali del database.
+È possibile usare la metrica di [archiviazione di backup utilizzata](../concepts-monitoring.md) in monitoraggio di Azure disponibile nel portale di Azure per monitorare l'archiviazione di backup utilizzata da un server. La metrica di **archiviazione di backup** utilizzata rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup del database e dei backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. Un'intensa attività transazionale sul server può causare un aumento dell'uso dell'archivio di backup indipendentemente dalle dimensioni totali del database.
 
 Il modo principale per controllare i costi di archiviazione dei backup consiste nell'impostare il periodo di conservazione dei backup appropriato. È possibile selezionare un periodo di conservazione compreso tra 1 e 35 giorni.
 
@@ -68,8 +68,8 @@ Il ripristino temporizzato è utile in più scenari, Alcuni dei casi d'uso comun
 
 È possibile scegliere tra un punto di ripristino più recente e un punto di ripristino personalizzato tramite [portale di Azure](how-to-restore-server-portal.md).
 
--   **Punto di ripristino più recente**: il punto di ripristino più recente consente di ripristinare il server per l'ultimo backup eseguito nel server di origine. Il timestamp per il ripristino verrà visualizzato anche nel portale. Questa opzione è utile per ripristinare rapidamente il server allo stato più aggiornato.
--   **Punto di ripristino personalizzato**: consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Questa opzione è utile per ripristinare il server nel momento esatto in cui eseguire il recupero da un errore dell'utente.
+-   **Punto di ripristino più recente** : il punto di ripristino più recente consente di ripristinare il server per l'ultimo backup eseguito nel server di origine. Il timestamp per il ripristino verrà visualizzato anche nel portale. Questa opzione è utile per ripristinare rapidamente il server allo stato più aggiornato.
+-   **Punto di ripristino personalizzato** : consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Questa opzione è utile per ripristinare il server nel momento esatto in cui eseguire il recupero da un errore dell'utente.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni del database, le dimensioni del backup del log delle transazioni, le dimensioni di calcolo dello SKU e anche l'ora del ripristino. Il recupero del log delle transazioni è la maggior parte del tempo di utilizzo del processo di ripristino. Se il tempo di ripristino viene scelto più vicino alla pianificazione del backup completo o differenziale dello snapshot, i ripristini sono più veloci perché l'applicazione del log delle transazioni è minima. Per stimare il tempo di ripristino esatto per il server, è consigliabile eseguirne il test nel proprio ambiente perché contiene troppe variabili specifiche dell'ambiente.
 
@@ -77,7 +77,7 @@ Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimens
 > Se si ripristina un server flessibile configurato con disponibilità elevata con ridondanza della zona, il server ripristinato verrà configurato nella stessa area e nella stessa zona del server primario e distribuito come un singolo server flessibile in una modalità non a disponibilità elevata. Per un server flessibile, vedere [disponibilità elevata con ridondanza della zona](concepts-high-availability.md) .
 
 > [!IMPORTANT]
->  **Non è possibile**ripristinare i server eliminati   . Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i [blocchi di gestione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Eseguire le attività post-ripristino
 
@@ -91,5 +91,5 @@ Dopo un ripristino da un **punto di ripristino più recente** o da un meccanismo
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   Scopri di più sulla [continuità aziendale](./concepts-business-continuity.md)
--   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
+-   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
 -   Informazioni su [backup e ripristino](./concepts-backup-restore.md)

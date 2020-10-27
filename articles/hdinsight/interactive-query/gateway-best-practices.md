@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80586977"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546008"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Approfondimenti sul gateway e procedure consigliate per Apache Hive in Azure HDInsight
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra i passaggi necessari in una query SELECT.
 
 Apache Hive è un'astrazione relazionale basata su un file system compatibile con HDFS. Questa astrazione significa che le istruzioni **Select** in hive corrispondono a operazioni di **lettura** nel file System. Le operazioni di **lettura** vengono convertite nello schema appropriato prima di essere segnalate all'utente. La latenza di questo processo aumenta con le dimensioni dei dati e gli hop totali necessari per raggiungere l'utente finale.
 
-Potrebbe verificarsi un comportamento simile quando si eseguono istruzioni **create** o **Insert** di dati di grandi dimensioni, in quanto questi comandi corrispondono alle operazioni di **scrittura** nel file system sottostante. Prendere in considerazione la scrittura di dati, ad esempio un orco non elaborato, nel file System/datalake anziché caricarli usando **Insert** o **Load**.
+Potrebbe verificarsi un comportamento simile quando si eseguono istruzioni **create** o **Insert** di dati di grandi dimensioni, in quanto questi comandi corrispondono alle operazioni di **scrittura** nel file system sottostante. Prendere in considerazione la scrittura di dati, ad esempio un orco non elaborato, nel file System/datalake anziché caricarli usando **Insert** o **Load** .
 
 Nei cluster Enterprise Security Pack abilitati, i criteri di Apache Ranger sufficientemente complessi possono causare un rallentamento nel tempo di compilazione delle query, il che può comportare un timeout del gateway. Se viene rilevato un timeout del gateway in un cluster ESP, valutare la possibilità di ridurre o combinare il numero di criteri Ranger.
 
@@ -54,11 +54,11 @@ Nei cluster Enterprise Security Pack abilitati, i criteri di Apache Ranger suffi
 
 Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni soddisfatti come parte del comportamento precedente. Usare l'elenco di controllo seguente quando si verifica un calo delle prestazioni delle query sul gateway HDInsight:
 
-* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y**.
+* Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y** .
 
-* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché l'uso di **Select \* **. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
+* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché usare * *Select \** _. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
 
-* Provare a eseguire la query di interesse tramite Apache. Se il recupero dei risultati tramite Apache coeline richiede un periodo di tempo prolungato, prevedere ritardi durante il recupero degli stessi risultati tramite strumenti esterni.
+_ Provare a eseguire la query di interesse tramite Apache. Se il recupero dei risultati tramite Apache coeline richiede un periodo di tempo prolungato, prevedere ritardi durante il recupero degli stessi risultati tramite strumenti esterni.
 
 * Testare una query hive di base per assicurarsi che sia possibile stabilire una connessione al gateway HDInsight. Provare a eseguire una query di base da due o più strumenti esterni per assicurarsi che non si verifichino problemi in nessun singolo strumento.
 
@@ -80,7 +80,7 @@ Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Apache caeline su HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Passaggi per la risoluzione dei problemi di timeout del gateway HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Reti virtuali per HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight con Express Route](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache caeline su HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [Passaggi per la risoluzione dei problemi di timeout del gateway HDInsight](./troubleshoot-gateway-timeout.md)
+* [Reti virtuali per HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight con Express Route](../connect-on-premises-network.md)

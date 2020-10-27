@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281388"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546161"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -52,13 +52,13 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Elemento |Descrizione |
 |---|---|
 |Logo di Ambari|Apre il dashboard, che può essere usato per monitorare il cluster.|
-|Nome cluster # Ops|Visualizza il numero di operazioni Ambari in corso. Selezionando il nome del cluster o **# ops**, viene visualizzato un elenco delle operazioni in background.|
+|Nome cluster # Ops|Visualizza il numero di operazioni Ambari in corso. Selezionando il nome del cluster o **# ops** , viene visualizzato un elenco delle operazioni in background.|
 |n. avvisi|Visualizza gli avvisi o gli avvisi critici, se presenti, per il cluster.|
 |Dashboard|Visualizza il dashboard.|
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Amministratore|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -68,7 +68,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 L'elenco seguente contiene gli stati di avviso comuni usati da Ambari:
 
 * **OK**
-* **Warning**
+* **Avviso**
 * **CRITICO**
 * **UNKNOWN**
 
@@ -82,17 +82,17 @@ Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere vi
 
 ![Gruppi di avvisi di gestione Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-È possibile gestire i metodi di avviso e creare notifiche di avviso dal menu **azioni** selezionando __Gestisci notifiche__. Questa opzione consente di visualizzare le notifiche correnti Creare notifiche da qui. È possibile inviare notifiche tramite **EMAIL** o **SNMP** al verificarsi di specifiche combinazioni di avviso/gravità. È possibile, ad esempio, inviare un messaggio e-mail quando uno degli avvisi del gruppo **YARN Default** (Impostazioni predefinite Yarn) viene impostato su **Critical** (Critico).
+È possibile gestire i metodi di avviso e creare notifiche di avviso dal menu **azioni** selezionando __Gestisci notifiche__ . Questa opzione consente di visualizzare le notifiche correnti Creare notifiche da qui. È possibile inviare notifiche tramite **EMAIL** o **SNMP** al verificarsi di specifiche combinazioni di avviso/gravità. È possibile, ad esempio, inviare un messaggio e-mail quando uno degli avvisi del gruppo **YARN Default** (Impostazioni predefinite Yarn) viene impostato su **Critical** (Critico).
 
 ![Notifica di creazione avviso di Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Selezionare infine __Manage Alert Settings__ (Gestire impostazioni di avviso) dal menu __Actions__ (Azioni) per stabilire il numero di volte in cui deve verificarsi un avviso prima che venga inviata una notifica. Questa impostazione può essere usata per evitare notifiche relative ad errori temporanei.
 
-Per un'esercitazione di una notifica di avviso che usa un [account SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)gratuito, vedere [configurare le notifiche di posta elettronica di Apache Ambari in Azure HDInsight](./apache-ambari-email.md).
+Per un'esercitazione di una notifica di avviso che usa un [account SendGrid](../sendgrid-dotnet-how-to-send-email.md)gratuito, vedere [configurare le notifiche di posta elettronica di Apache Ambari in Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
-La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage**, forniscono informazioni aggiuntive quando vengono selezionati.
+La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage** , forniscono informazioni aggiuntive quando vengono selezionati.
 
 ![Dashboard di Apache Ambari con metriche](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,7 +100,7 @@ La scheda **Heatmaps** visualizza le metriche come mappe termiche colorate, dal 
 
 ![Dashboard di Apache Ambari con Heatmaps](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Per altre informazioni sui nodi presenti nel cluster, selezionare **Host**. Quindi selezionare il nodo specifico a cui si è interessati.
+Per altre informazioni sui nodi presenti nel cluster, selezionare **Host** . Quindi selezionare il nodo specifico a cui si è interessati.
 
 ![Dettagli di riepilogo dell'host Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -162,7 +162,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si stanno eseguendo azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Interrompere|Arresta dataNode o NodeManagers nell'host.|
-    |Avvio|Avvia dataNode o NodeManagers nell'host.|
+    |Inizia|Avvia dataNode o NodeManagers nell'host.|
     |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|
@@ -200,7 +200,7 @@ Per configurare un servizio, seguire questa procedura:
 
     ![Configurazione del servizio Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Usare i campi visualizzati per modificare la configurazione, quindi selezionare **Save**. In alternativa, selezionare una configurazione precedente, quindi **Make current** per ripristinare le impostazioni precedenti.
+3. Usare i campi visualizzati per modificare la configurazione, quindi selezionare **Save** . In alternativa, selezionare una configurazione precedente, quindi **Make current** per ripristinare le impostazioni precedenti.
 
 ## <a name="ambari-views"></a>Viste di Ambari
 
@@ -214,7 +214,7 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 
 Le operazioni Ambari seguenti non sono supportate in HDInsight:
 
-* __Spostare il servizio di raccolta delle metriche__. Quando si visualizzano informazioni sul servizio di raccolta delle metriche, una delle azioni disponibili nel menu delle azioni del servizio è __spostare l'agente di raccolta delle metriche__. Questa azione non è supportata con HDInsight.
+* __Spostare il servizio di raccolta delle metriche__ . Quando si visualizzano informazioni sul servizio di raccolta delle metriche, una delle azioni disponibili nel menu delle azioni del servizio è __spostare l'agente di raccolta delle metriche__ . Questa azione non è supportata con HDInsight.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

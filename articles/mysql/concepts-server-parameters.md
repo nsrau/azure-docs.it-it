@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627347"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545158"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -57,9 +57,9 @@ Per migliorare le prestazioni delle query brevi nel pool di thread, database di 
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-In database di Azure per MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. Se si vogliono usare i trigger, verrà generato un errore simile a quello in *cui non si dispone del privilegio Super e la registrazione binaria è abilitata (è possibile usare la variabile meno sicura `log_bin_trust_function_creators` )*. 
+In database di Azure per MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. Se si vogliono usare i trigger, verrà generato un errore simile a quello in *cui non si dispone del privilegio Super e la registrazione binaria è abilitata (è possibile usare la variabile meno sicura `log_bin_trust_function_creators` )* . 
 
-Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile impostare in modo sicuro [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) su **true**.
+Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile impostare in modo sicuro [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) su **true** .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -215,9 +215,9 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 8126)", potrebbe essere necessario disattivare il parametro **innodb_strict_mode**. Il parametro Server **innodb_strict_mode** non può essere modificato globalmente a livello di server perché le dimensioni dei dati delle righe sono maggiori di 8K, i dati verranno troncati senza errori che comportano una potenziale perdita di dati. Si consiglia di modificare lo schema in modo che corrisponda al limite delle dimensioni della pagina. 
+Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 8126)", potrebbe essere necessario disattivare il parametro **innodb_strict_mode** . Il parametro Server **innodb_strict_mode** non può essere modificato globalmente a livello di server perché le dimensioni dei dati delle righe sono maggiori di 8K, i dati verranno troncati senza errori che comportano una potenziale perdita di dati. Si consiglia di modificare lo schema in modo che corrisponda al limite delle dimensioni della pagina. 
 
-Questo parametro può essere impostato a livello di sessione usando `init_connect` . Per impostare **innodb_strict_mode** a livello di sessione, fare riferimento a [parametro impostazione non elencato](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Questo parametro può essere impostato a livello di sessione usando `init_connect` . Per impostare **innodb_strict_mode** a livello di sessione, fare riferimento a [parametro impostazione non elencato](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Se si dispone di un server di replica in lettura, impostando **innodb_strict_mode** su disattivato a livello di sessione in un server di origine si interrompe la replica. Se sono state lette repliche, è consigliabile mantenere il parametro impostato su disattivato.

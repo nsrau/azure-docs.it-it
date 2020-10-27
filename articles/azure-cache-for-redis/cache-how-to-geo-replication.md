@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839691"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536879"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
 
@@ -67,7 +67,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     ![Collega cache](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. È possibile visualizzare lo stato di avanzamento del processo di replica nel pannello **Replica geografica**.
+4. È possibile visualizzare lo stato di avanzamento del processo di replica nel pannello **Replica geografica** .
 
     ![Stato del collegamento](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +75,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     ![Screenshot che illustra come visualizzare lo stato del collegamento per le cache primarie e secondarie.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Dopo aver completato il processo di replica, **Link status** (Stato collegamento) visualizza **Riuscito**.
+    Dopo aver completato il processo di replica, **Link status** (Stato collegamento) visualizza **Riuscito** .
 
     ![Stato della cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -145,8 +145,8 @@ Sì, la replica geografica delle cache in reti virtuali è supportata con avvert
 
 - La replica geografica tra le cache nella stessa rete virtuale è supportata.
 - È supportata anche la replica geografica tra le cache in reti virtuali diversi.
-  - Se le reti virtuali si trovano nella stessa area, è possibile connetterle usando il [peering VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [connessione da VNET a VNET del gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se le reti virtuali si trovano in aree geografiche diverse, la replica geografica con il peering VNET è supportata, ma una macchina virtuale client in VNET 1 (area 1) non sarà in grado di accedere alla cache in VNET 2 (area 2) tramite il nome DNS a causa di un vincolo con i bilanciamenti del carico interno di base. Per altre informazioni sui vincoli di peering di VNET, vedere [rete virtuale-peering-requisiti e vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La soluzione consigliata consiste nell'usare una connessione VNET-VNET del gateway VPN.
+  - Se le reti virtuali si trovano nella stessa area, è possibile connetterle usando il [peering VNET](../virtual-network/virtual-network-peering-overview.md) o una [connessione da VNET a VNET del gateway VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Se le reti virtuali si trovano in aree geografiche diverse, la replica geografica con il peering VNET è supportata, ma una macchina virtuale client in VNET 1 (area 1) non sarà in grado di accedere alla cache in VNET 2 (area 2) tramite il nome DNS a causa di un vincolo con i bilanciamenti del carico interno di base. Per altre informazioni sui vincoli di peering di VNET, vedere [rete virtuale-peering-requisiti e vincoli](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La soluzione consigliata consiste nell'usare una connessione VNET-VNET del gateway VPN.
   
 Usando [questo modello di Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), è possibile distribuire rapidamente due cache con replica geografica in una VNET connessa con una connessione VNET-VNET del gateway VPN.
 
@@ -166,7 +166,7 @@ Per ottenere un punto di ripristino, [esportare](cache-how-to-import-export-data
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per gestire la replica geografica?
 
-Sì, la replica geografica può essere gestita usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la documentazione di [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) o la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest)della riga di comando di Azure.
+Sì, la replica geografica può essere gestita usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la documentazione di [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) o la [documentazione dell'interfaccia](/cli/azure/redis/server-link?view=azure-cli-latest)della riga di comando di Azure.
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto costa replicare i dati nelle aree di Azure?
 
@@ -188,7 +188,7 @@ Per avviare un failover avviato dal cliente, scollegare innanzitutto le cache. M
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>È possibile configurare un firewall con la replica geografica?
 
-Sì, è possibile configurare un [Firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) con la replica geografica. Per il funzionamento della replica geografica insieme a un firewall, assicurarsi che l'indirizzo IP della cache secondaria venga aggiunto alle regole del firewall della cache primaria.
+Sì, è possibile configurare un [Firewall](./cache-configure.md#firewall) con la replica geografica. Per il funzionamento della replica geografica insieme a un firewall, assicurarsi che l'indirizzo IP della cache secondaria venga aggiunto alle regole del firewall della cache primaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

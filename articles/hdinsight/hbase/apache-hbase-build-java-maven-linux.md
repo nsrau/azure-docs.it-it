@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323775"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547912"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -25,13 +25,13 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
 * Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) versione 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/).
+* Se si usa PowerShell, è necessario il [modulo AZ](/powershell/azure/).
 
 * Un editor di testo. Questo articolo usa il blocco note di Microsoft.
 
@@ -48,7 +48,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-1. Immettere il comando seguente per creare un progetto Maven denominato **hbaseapp**:
+1. Immettere il comando seguente per creare un progetto Maven denominato **hbaseapp** :
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -95,7 +95,7 @@ In `pom.xml` aggiungere il testo seguente nella `<dependencies>` sezione:
 </dependency>
 ```  
 
-Questa sezione indica che il progetto richiede i componenti **hbase-client** e **phoenix-core**. In fase di compilazione, queste dipendenze vengono scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository centrale Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) per ottenere altre informazioni su questa dipendenza.
+Questa sezione indica che il progetto richiede i componenti **hbase-client** e **phoenix-core** . In fase di compilazione, queste dipendenze vengono scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository centrale Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) per ottenere altre informazioni su questa dipendenza.
 
 > [!IMPORTANT]  
 > Il numero di versione del client HBase deve corrispondere alla versione di Apache HBase fornita con il cluster HDInsight. Usare la tabella seguente per trovare il numero di versione corretto.
@@ -442,7 +442,7 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Caricare il file JAR ed eseguire i processi (PowerShell)
 
-I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) per caricare il file jar nella risorsa di archiviazione predefinita per il cluster Apache HBase. I cmdlet di HDInsight vengono quindi usati per eseguire gli esempi in modalità remota.
+I passaggi seguenti usano il [modulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) per caricare il file jar nella risorsa di archiviazione predefinita per il cluster Apache HBase. I cmdlet di HDInsight vengono quindi usati per eseguire gli esempi in modalità remota.
 
 1. Dopo aver installato e configurato il modulo AZ, creare un file denominato `hbase-runner.psm1` . Usare il testo seguente come contenuto del file:
 
@@ -645,8 +645,8 @@ I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft
 
     Questo file contiene due moduli:
 
-   * **Add-HDInsightFile**: viene usato per caricare file nel cluster
-   * **Start-HBaseExample**: usato per eseguire le classi create prima
+   * **Add-HDInsightFile** : viene usato per caricare file nel cluster
+   * **Start-HBaseExample** : usato per eseguire le classi create prima
 
 2. Salvare il `hbase-runner.psm1` file nella `hbaseapp` Directory.
 
@@ -695,7 +695,7 @@ I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft
     Gabriela Ingram - gabriela@contoso.com - ID: 6
     ```
 
-    L'uso di **fabrikam.com** per il valore `-emailRegex` restituirà gli utenti il cui campo email contiene **fabrikam.com**. È anche possibile usare espressioni regolari come termini di ricerca. Ad esempio, **^ r** restituisce gli indirizzi di posta elettronica che iniziano con la lettera "r".
+    L'uso di **fabrikam.com** per il valore `-emailRegex` restituirà gli utenti il cui campo email contiene **fabrikam.com** . È anche possibile usare espressioni regolari come termini di ricerca. Ad esempio, **^ r** restituisce gli indirizzi di posta elettronica che iniziano con la lettera "r".
 
 7. Per eliminare la tabella, usare il comando seguente:
 

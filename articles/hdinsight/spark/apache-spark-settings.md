@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188158"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545940"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
 
@@ -23,13 +23,13 @@ Il cluster HDInsight Apache Spark predefinito include i nodi seguenti: tre nodi 
 
 ![Architettura di Spark HDInsight](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Il numero di macchine virtuali e le dimensioni delle VM per i nodi nel cluster HDInsight possono influire sulla configurazione di Spark. I valori di configurazione di HDInsight non predefiniti richiedono spesso valori di configurazione di Spark non predefiniti. Quando si crea un cluster HDInsight Spark, vengono visualizzate le dimensioni di VM suggerite per ogni componente. Attualmente le [dimensioni delle macchine virtuali Linux ottimizzate per la memoria](../../virtual-machines/linux/sizes-memory.md) per Azure sono D12 v2 o maggiori.
+Il numero di macchine virtuali e le dimensioni delle VM per i nodi nel cluster HDInsight possono influire sulla configurazione di Spark. I valori di configurazione di HDInsight non predefiniti richiedono spesso valori di configurazione di Spark non predefiniti. Quando si crea un cluster HDInsight Spark, vengono visualizzate le dimensioni di VM suggerite per ogni componente. Attualmente le [dimensioni delle macchine virtuali Linux ottimizzate per la memoria](../../virtual-machines/sizes-memory.md) per Azure sono D12 v2 o maggiori.
 
 ## <a name="apache-spark-versions"></a>Versioni di Apache Spark
 
 Usare la versione di Spark più appropriata per il cluster.  Il servizio HDInsight include diverse versioni di Spark e di HDInsight.  Ogni versione di Spark include un set di impostazioni del cluster predefinite.  
 
-Quando si crea un nuovo cluster, è possibile scegliere tra più versioni di Spark. Per visualizzare l'elenco completo, i  [componenti e le versioni di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Quando si crea un nuovo cluster, è possibile scegliere tra più versioni di Spark. Per visualizzare l'elenco completo, i  [componenti e le versioni di HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > La versione predefinita di Apache Spark nel servizio HDInsight può cambiare senza preavviso. In caso di dipendenza dalla versione, è consigliabile indicare la versione specifica quando si creano i cluster tramite .NET SDK, Azure PowerShell e l'interfaccia della riga di comando classica di Azure.
@@ -60,7 +60,7 @@ Verificare le impostazioni di configurazione del cluster HDInsight correnti prim
 
 Viene visualizzata l'interfaccia utente Web di Apache Ambari con un dashboard delle metriche chiave di utilizzo delle risorse del cluster.  Il dashboard di Ambari Mostra la configurazione di Apache Spark e altri servizi installati. Il dashboard include una scheda **cronologia configurazione** , in cui è possibile visualizzare le informazioni per i servizi installati, incluso Spark.
 
-Per visualizzare i valori di configurazione per Apache Spark, selezionare **Config History** (Cronologia configurazione) e quindi selezionare **Spark2**.  Selezionare la scheda **Configs** (Configurazioni) e quindi fare clic sul collegamento `Spark` (o `Spark2`, a seconda della versione) nell'elenco di servizi.  Verrà visualizzato un elenco di valori di configurazione per il cluster:
+Per visualizzare i valori di configurazione per Apache Spark, selezionare **Config History** (Cronologia configurazione) e quindi selezionare **Spark2** .  Selezionare la scheda **Configs** (Configurazioni) e quindi fare clic sul collegamento `Spark` (o `Spark2`, a seconda della versione) nell'elenco di servizi.  Verrà visualizzato un elenco di valori di configurazione per il cluster:
 
 ![Configurazioni di Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -75,7 +75,7 @@ Per visualizzare e modificare i singoli valori di configurazione di Spark, selez
 Se si crea un set di valori di configurazione non predefinito, la cronologia degli aggiornamenti è visibile.  Questa cronologia di configurazione può essere utile per capire quale configurazione non predefinita offre prestazioni ottimali.
 
 > [!NOTE]  
-> Per visualizzare, ma senza modificare, le impostazioni di configurazione del cluster Spark comuni, selezionare la scheda **Environment** (Ambiente) al livello superiore dell'**interfaccia utente del processo Spark**.
+> Per visualizzare, ma senza modificare, le impostazioni di configurazione del cluster Spark comuni, selezionare la scheda **Environment** (Ambiente) al livello superiore dell' **interfaccia utente del processo Spark** .
 
 ## <a name="configuring-spark-executors"></a>Configurazione degli executor Spark
 
@@ -85,7 +85,7 @@ Il diagramma seguente mostra gli oggetti Spark principali: il programma driver e
 
 I processi Spark usano risorse del ruolo di lavoro, in particolare la memoria, quindi è prassi comune modificare i valori di configurazione di Spark per gli executor del nodo del ruolo di lavoro.
 
-I tre parametri principali che vengono spesso modificati per ottimizzare le configurazioni di Spark per migliorare i requisiti dell'applicazione sono `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Un Executor è un processo avviato per un'applicazione Spark. Viene eseguito nel nodo del ruolo di lavoro ed è responsabile delle attività per l'applicazione. Il numero di nodi del ruolo di lavoro e le dimensioni del nodo di lavoro determinano il numero di esecutori e le dimensioni dell'executor. Questi valori vengono archiviati in nei `spark-defaults.conf` nodi head del cluster.  È possibile modificare questi valori in un cluster in esecuzione selezionando i valori **predefiniti Spark personalizzati** nell'interfaccia utente Web di Ambariri.  Dopo avere apportato le modifiche, nell'interfaccia utente viene chiesto di**riavviare** tutti i servizi interessati.
+I tre parametri principali che vengono spesso modificati per ottimizzare le configurazioni di Spark per migliorare i requisiti dell'applicazione sono `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Un Executor è un processo avviato per un'applicazione Spark. Viene eseguito nel nodo del ruolo di lavoro ed è responsabile delle attività per l'applicazione. Il numero di nodi del ruolo di lavoro e le dimensioni del nodo di lavoro determinano il numero di esecutori e le dimensioni dell'executor. Questi valori vengono archiviati in nei `spark-defaults.conf` nodi head del cluster.  È possibile modificare questi valori in un cluster in esecuzione selezionando i valori **predefiniti Spark personalizzati** nell'interfaccia utente Web di Ambariri.  Dopo avere apportato le modifiche, nell'interfaccia utente viene chiesto di **riavviare** tutti i servizi interessati.
 
 > [!NOTE]  
 > Questi tre parametri di configurazione possono essere configurati a livello di cluster, per tutte le applicazioni in esecuzione nel cluster, oppure specificati per ogni singola applicazione.
@@ -145,7 +145,7 @@ Il codice riportato di seguito mostra come modificare la configurazione per un'a
 {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Monitorare le impostazioni di configurazione di base per assicurarsi che i processi Spark vengano eseguiti in modo prevedibile ed efficiente. Queste impostazioni aiutano a determinare la migliore configurazione del cluster Spark per i carichi di lavoro specifici.  Sarà anche necessario monitorare l'esecuzione di esecuzioni di processi Spark a esecuzione prolungata e con utilizzo di risorse.  I problemi più comuni si concentrano sull'utilizzo della memoria da configurazioni non corrette, ad esempio esecutori di dimensioni non corrette. Inoltre, operazioni con esecuzione prolungata e attività che generano operazioni cartesiane.
 
