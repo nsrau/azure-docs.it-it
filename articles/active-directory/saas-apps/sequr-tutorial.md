@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6efb96448cc99df95b8f898c9fb7dd3ef166c5ea
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543109"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Esercitazione: Integrazione di Azure Active Directory con Sequr
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Sequr in Azure AD, è necessario aggiungere Se
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di Sequr in Azure AD, è necessario aggiungere Se
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Sequr**, selezionare **Sequr** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Sequr** , selezionare **Sequr** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Sequr nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Sequr usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Sequr usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Sequr.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Sequr, è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Sequr, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Sequr** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Sequr** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,17 +93,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Sequr, seguire questa p
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Sequr](common/idp-identifier.png)
 
     Nella casella di testo **Identificatore** digitare l'URL: `https://login.sequr.io`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     ![image](common/both-advanced-urls.png)
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Sequr, seguire questa p
 
     b. Nella casella di testo **Stato dell'inoltro** si otterrà questo valore, che verrà spiegato più avanti nell'esercitazione.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -131,15 +131,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Sequr, seguire questa p
 
 1. Fare clic su **Integrazioni** nel pannello di spostamento a sinistra.
 
-    ![Configurazione di Sequr](./media/sequr-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Integrations selezionata nel riquadro di spostamento.](./media/sequr-tutorial/configure1.png)
 
-1. Scorrere verso il basso fino alla sezione **Single Sign-On**, quindi fare clic su **Gestisci**.
+1. Scorrere verso il basso fino alla sezione **Single Sign-On** , quindi fare clic su **Gestisci** .
 
-    ![Configurazione di Sequr](./media/sequr-tutorial/configure2.png)
+    ![Screenshot che mostra la sezione Single Sign-On con il pulsante Manage selezionato.](./media/sequr-tutorial/configure2.png)
 
 1. Nella sezione **Manage Single Sign-On** (Gestione Single Sign-On) seguire questa procedura:
 
-    ![Configurazione di Sequr](./media/sequr-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione Manage Single Sign-On in cui è possibile immettere i valori descritti.](./media/sequr-tutorial/configure3.png)
 
     a. Nella casella di testo **URL di accesso Single Sign-On del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -147,13 +147,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Sequr, seguire questa p
 
     c. Dopo aver salvato la configurazione, verrà generato il valore dello stato dell'inoltro. Copiare il valore dello **stato dell'inoltro** e incollarlo nella casella di testo **Stato dell'inoltro** della sezione **Configurazione SAML di base** del portale di Azure.
 
-    d. Fare clic su **Salva**.
+    d. Fare clic su **Salva** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -165,23 +165,23 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Sequr.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Sequr**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Sequr** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Sequr**.
+2. Nell'elenco delle applicazioni selezionare **Sequr** .
 
     ![Collegamento di Sequr nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -189,7 +189,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-sequr-test-user"></a>Creare un utente di test di Sequr
 

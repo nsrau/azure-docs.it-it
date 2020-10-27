@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Esercitazione: Integrazione di Azure Active Directory con SmartRecruiters
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di SmartRecruiters in Azure AD, è necessario agg
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di SmartRecruiters in Azure AD, è necessario agg
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **SmartRecruiters**, selezionare **SmartRecruiters** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **SmartRecruiters** , selezionare **SmartRecruiters** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![SmartRecruiters nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SmartRecruiters usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SmartRecruiters usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SmartRecruiters.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SmartRecruiters, è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con SmartRecruiters, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **SmartRecruiters** del [portale di Azure](https://portal.azure.com/) fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **SmartRecruiters** del [portale di Azure](https://portal.azure.com/) fare clic su **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,28 +93,28 @@ Per configurare l'accesso Single Sign-On di Azure AD con SmartRecruiters, seguir
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di SmartRecruiters](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di SmartRecruiters](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -132,33 +132,33 @@ Per configurare l'accesso Single Sign-On di Azure AD con SmartRecruiters, seguir
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di SmartRecruiters come amministratore.
 
-1. Passare a **Settings / Admin**.
+1. Passare a **Settings / Admin** .
 
-    ![Configurazione di SmartRecruiters](./media/smartrecruiters-tutorial/configure.png)
+    ![Screenshot che mostra l'opzione Settings / Admin selezionata da un menu.](./media/smartrecruiters-tutorial/configure.png)
 
-1. Nella sezione **Configuration** fare clic su **Web SSO**.
+1. Nella sezione **Configuration** fare clic su **Web SSO** .
 
-    ![Configurazione di SmartRecruiters](./media/smartrecruiters-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Web SSO selezionata nella sezione Configuration.](./media/smartrecruiters-tutorial/configure1.png)
 
-1. Attiva/disattiva **Enable Web SSO**.
+1. Attiva/disattiva **Enable Web SSO** .
 
-    ![Configurazione di SmartRecruiters](./media/smartrecruiters-tutorial/configure2.png)
+    ![Screenshot che mostra il controllo Enable Web SSO.](./media/smartrecruiters-tutorial/configure2.png)
 
-1. In **Identity Provider Configuration**, eseguire la procedura seguente:
+1. In **Identity Provider Configuration** , eseguire la procedura seguente:
 
-    ![Configurazione di SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
+    ![Screenshot che mostra la sezione Identity Provider Configuration in cui è possibile immettere i valori descritti.](./media/smartrecruiters-tutorial/configure4.png)
 
     a. Nella casella di testo **Identity Provider URL** (URL provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     b. Aprire nel Blocco note il **certificato (Base64)** scaricato dal portale di Azure, copiarne il contenuto e incollarlo nella casella di testo **Identity Provider certificate** (Certificato provider di identità).
 
-1. Fare clic su **Save Web SSO configuration**.
+1. Fare clic su **Save Web SSO configuration** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -170,24 +170,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SmartRecruiters.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SmartRecruiters**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **SmartRecruiters** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **SmartRecruiters**.
+2. Nell'elenco delle applicazioni selezionare **SmartRecruiters** .
 
     ![Collegamento SmartRecruiters nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -195,7 +195,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -203,7 +203,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-smartrecruiters-test-user"></a>Creare l'utente di test di SmartRecruiters
 

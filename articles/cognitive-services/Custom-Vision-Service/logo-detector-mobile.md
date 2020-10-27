@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d94e9544e75f762d4532101a92d14106d6a575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931795"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150917"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
@@ -56,7 +56,7 @@ Dopo aver caricato le immagini di training, selezionare la prima visualizzata. V
 
 ![Applicazione di tag sul sito Web di Visione personalizzata](media/azure-logo-tutorial/tag-logos.png)
 
-L'app è configurata per funzionare con stringhe di tag specifiche. Vedere le definizioni nel file *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
+L'app è configurata per funzionare con stringhe di tag specifiche. Vedere le definizioni nel file *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -74,7 +74,7 @@ Dopo aver completato il training del modello, è possibile integrarlo nell'app. 
 
 ![Sito Web di Visione personalizzata con una finestra dell'API Prediction che visualizza un indirizzo URL e una chiave API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copiare l'URL dell'endpoint e il valore **Prediction-Key** nei campi appropriati del file *Source\VisualProvision\AppSettings.cs*:
+Copiare l'URL dell'endpoint e il valore **Prediction-Key** nei campi appropriati del file *Source\VisualProvision\AppSettings.cs* :
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
@@ -84,11 +84,11 @@ Aprire il file *Source/VisualProvision/Services/Recognition/CustomVisionService.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Il risultato assume la forma di un'istanza di **PredictionResult**, che contiene un elenco di istanze di **Prediction**. Un'istanza di **Prediction** contiene un tag rilevato e la posizione del relativo rettangolo delimitatore nell'immagine.
+Il risultato assume la forma di un'istanza di **PredictionResult** , che contiene un elenco di istanze di **Prediction** . Un'istanza di **Prediction** contiene un tag rilevato e la posizione del relativo rettangolo delimitatore nell'immagine.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Per altre informazioni su come l'app gestisce questi dati, iniziare con il metodo **GetResourcesAsync**. Questo metodo è definito nel file *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
+Per altre informazioni su come l'app gestisce questi dati, iniziare con il metodo **GetResourcesAsync** . Questo metodo è definito nel file *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
 
 ## <a name="add-computer-vision"></a>Aggiungere Visione artificiale
 
@@ -104,7 +104,7 @@ Aprire quindi il file *Source\VisualProvision\AppSettings.cs* e popolare le vari
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-L'app richiede un account dell'entità servizio di Azure per distribuire i servizi alla sottoscrizione di Azure. Un'entità servizio consente di delegare specifiche autorizzazione a un'app usando il controllo degli accessi in base al ruolo. Per altre informazioni, vedere la [guida delle entità servizio](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+L'app richiede un account dell'entità servizio di Azure per distribuire i servizi alla sottoscrizione di Azure. Un'entità servizio consente di delegare autorizzazioni specifiche a un'app usando il controllo degli accessi in base al ruolo di Azure. Per altre informazioni, vedere la [guida delle entità servizio](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
 
 È possibile creare un'entità servizio usando Azure Cloud Shell o l'interfaccia della riga di comando di Azure, come mostrato qui. Per iniziare, accedere e selezionare la sottoscrizione che si vuole usare.
 
@@ -132,7 +132,7 @@ Al termine verrà visualizzato l'output JSON seguente, contenente le credenziali
 }
 ```
 
-Prendere nota dei valori `clientId` e `tenantId`. Aggiungerli ai campi appropriati del file *Source\VisualProvision\AppSettings.cs*.
+Prendere nota dei valori `clientId` e `tenantId`. Aggiungerli ai campi appropriati del file *Source\VisualProvision\AppSettings.cs* .
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,7 +146,7 @@ A questo punto, all'app è stato concesso l'accesso a:
 
 Per eseguire l'app, procedere come segue:
 
-1. In Esplora soluzioni di Visual Studio, selezionare il progetto **VisualProvision.Android** o il progetto **VisualProvision.iOS**. Scegliere un emulatore o un dispositivo mobile connesso corrispondente dal menu a discesa sulla barra degli strumenti principale. Quindi eseguire l'app.
+1. In Esplora soluzioni di Visual Studio, selezionare il progetto **VisualProvision.Android** o il progetto **VisualProvision.iOS** . Scegliere un emulatore o un dispositivo mobile connesso corrispondente dal menu a discesa sulla barra degli strumenti principale. Quindi eseguire l'app.
 
     > [!NOTE]
     > È necessario un dispositivo MacOS per eseguire un emulatore iOS.
@@ -154,7 +154,7 @@ Per eseguire l'app, procedere come segue:
 1. Nella prima schermata immettere l'ID client dell'entità servizio, l'ID tenant e la password. Selezionare il pulsante **Login** (Accedi).
 
     > [!NOTE]
-    > In alcuni emulatori è possibile che il pulsante **Login** (Accedi) non sia attivo in questa fase. In questo caso arrestare l'app, aprire il file *Source/VisualProvision/Pages/LoginPage.xaml*, individuare l'elemento `Button` denominato **LOGIN BUTTON**, rimuovere la riga seguente ed eseguire di nuovo l'app.
+    > In alcuni emulatori è possibile che il pulsante **Login** (Accedi) non sia attivo in questa fase. In questo caso arrestare l'app, aprire il file *Source/VisualProvision/Pages/LoginPage.xaml* , individuare l'elemento `Button` denominato **LOGIN BUTTON** , rimuovere la riga seguente ed eseguire di nuovo l'app.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```

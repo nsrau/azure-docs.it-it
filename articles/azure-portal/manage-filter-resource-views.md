@@ -3,15 +3,15 @@ title: Visualizzare e filtrare le informazioni sulle risorse di Azure
 description: Filtrare le informazioni e usare visualizzazioni diverse per comprendere meglio le risorse di Azure di cui si dispone.
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650400"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280246"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualizzare e filtrare le informazioni sulle risorse di Azure
 
@@ -29,7 +29,7 @@ Iniziare a esplorare **Tutte le risorse** usando i filtri per concentrarsi su un
 
 :::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
-Per cambiare le colonne incluse in una visualizzazione, selezionare **Manage view** (Gestisci visualizzazione) e quindi **Modifica colonne**.
+Per cambiare le colonne incluse in una visualizzazione, selezionare **Manage view** (Gestisci visualizzazione) e quindi **Modifica colonne** .
 
 :::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
@@ -37,9 +37,9 @@ Per cambiare le colonne incluse in una visualizzazione, selezionare **Manage vie
 
 È possibile salvare le visualizzazioni che includono i filtri e le colonne selezionati. Per salvare e usare una visualizzazione:
 
-1. Selezionare **Manage view** (Gestisci visualizzazione) e quindi **Salva visualizzazione**.
+1. Selezionare **Manage view** (Gestisci visualizzazione) e quindi **Salva visualizzazione** .
 
-1. Immettere un nome per la visualizzazione e quindi selezionare **OK**. La visualizzazione salvata ora viene visualizzata nel menu **Manage view** (Gestisci visualizzazione).
+1. Immettere un nome per la visualizzazione e quindi selezionare **OK** . La visualizzazione salvata ora viene visualizzata nel menu **Manage view** (Gestisci visualizzazione).
 
     :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
@@ -47,13 +47,13 @@ Per cambiare le colonne incluse in una visualizzazione, selezionare **Manage vie
 
 Per eliminare una visualizzazione:
 
-1. Selezionare **Manage view** (Gestisci visualizzazione) e quindi **Esplora tutte le visualizzazioni**.
+1. Selezionare **Manage view** (Gestisci visualizzazione) e quindi **Esplora tutte le visualizzazioni** .
 
 1. Nel riquadro **Saved views for "All resources"** (Visualizzazioni salvate per "Tutte le risorse") selezionare la visualizzazione e quindi selezionare l'icona **Elimina** ![icona Elimina visualizzazione](media/manage-filter-resource-views/icon-delete.png).
 
 ## <a name="summarize-resources-with-visuals"></a>Riepilogare le risorse con oggetti visivi
 
-Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_, ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Sono disponibili visualizzazioni standard, come la visualizzazione **Località** illustrata di seguito, oltre a visualizzazioni pertinenti per specifici servizi, come la visualizzazione **Stato** per le macchine virtuali.
+Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_ , ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Sono disponibili visualizzazioni standard, come la visualizzazione **Località** illustrata di seguito, oltre ad altre pertinenti per specifici servizi, come la visualizzazione **Stato** per Archiviazione di Azure.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
@@ -63,7 +63,7 @@ Per salvare e usare una visualizzazione di riepilogo:
 
     :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
-1. La visualizzazione di riepilogo consente di riepilogare le informazioni in base a diversi attributi, tra cui **Posizione** e **Tipo**. Selezionare un'opzione **Riepiloga per** e un oggetto visivo appropriato. Lo screenshot seguente illustra il **riepilogo dei tipi** con un oggetto visivo **Grafico a barre**.
+1. La visualizzazione di riepilogo consente di riepilogare le informazioni in base a diversi attributi, tra cui **Posizione** e **Tipo** . Selezionare un'opzione **Riepiloga per** e un oggetto visivo appropriato. Lo screenshot seguente illustra il **riepilogo dei tipi** con un oggetto visivo **Grafico a barre** .
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 
@@ -79,7 +79,7 @@ Azure Resource Graph offre un'esplorazione efficace ed efficiente delle risorse 
 
 Per eseguire una query di Resource Graph:
 
-1. Selezionare **Apri query**.
+1. Selezionare **Apri query** .
 
     :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
 

@@ -4,12 +4,12 @@ description: Informazioni su come usare le informazioni raccolte nella fase di p
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776426"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152036"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
@@ -35,7 +35,7 @@ Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione
 ## <a name="create-the-jump-box"></a>Creare una jump box
 
 >[!IMPORTANT]
->Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato**, completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
+>Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato** , completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
 
 Dopo la distribuzione della soluzione Azure VMware, verrà creata la jump box della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
 
@@ -82,7 +82,7 @@ Per creare un segmento di rete NSX-T nella soluzione Azure VMware, seguire l'ese
 
 Tornare al passaggio [Verificare le route di rete annunciate](#verify-network-routes-advertised). Nell'elenco verranno visualizzate una o più route aggiuntive che rappresentano uno o più segmenti di rete creati nel passaggio precedente.  
 
-Per le macchine virtuali verranno assegnati uno o più segmenti creati nel passaggio [Verificare un segmento NSX-T annunciato](#verify-advertised-nsx-t-segment).  
+Per le macchine virtuali si assegneranno i segmenti creati nel passaggio [Creare un segmento di rete nella soluzione Azure VMware](#create-a-network-segment-on-azure-vmware-solution).  
 
 Poiché il server DNS è obbligatorio, identificare il server DNS da usare.  
 

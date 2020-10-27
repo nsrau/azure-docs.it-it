@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557627"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329407"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 
@@ -66,13 +66,13 @@ Usare le opzioni dell'origine seguenti per definire l'archiviazione tabelle di A
 * **/s.Filter:** Facoltativa. Stringa di filtro da applicare
 * **/s.Projection:** Facoltativa. Elenco di colonne da selezionare
 
-Per recuperare la stringa di connessione di origine durante l'importazione dall'archiviazione tabelle di Azure, aprire il portale di Azure e fare clic su **Account di archiviazione** > **Account** > **Chiavi di accesso**, quindi usare il pulsante Copia per copiare la **stringa di connessione**.
+Per recuperare la stringa di connessione di origine durante l'importazione dall'archiviazione tabelle di Azure, aprire il portale di Azure e fare clic su **Account di archiviazione** > **Account** > **Chiavi di accesso** , quindi usare il pulsante Copia per copiare la **stringa di connessione** .
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot delle opzioni relative all'origine per HBase":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot che mostra le opzioni Account di archiviazione > Account > Chiavi di accesso ed evidenzia il pulsante Copia.":::
 
-Per recuperare la stringa di connessione di origine durante l'importazione da un account dell'API Table (anteprima) di Azure Cosmos DB, aprire il portale di Azure e fare clic su **Azure Cosmos DB** > **Account** > **Stringa di connessione**, quindi usare il pulsante Copia per copiare la **stringa di connessione**.
+Per recuperare la stringa di connessione di origine durante l'importazione da un account dell'API Table (anteprima) di Azure Cosmos DB, aprire il portale di Azure e fare clic su **Azure Cosmos DB** > **Account** > **Stringa di connessione** , quindi usare il pulsante Copia per copiare la **stringa di connessione** .
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot delle opzioni relative all'origine per HBase":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot che mostra le opzioni Account di archiviazione > Account > Chiavi di accesso ed evidenzia il pulsante Copia.":::
 
 [Comando di archiviazione tabelle di Azure di esempio](#azure-table-storage)
 

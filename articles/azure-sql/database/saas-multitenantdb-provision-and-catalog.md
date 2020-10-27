@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619620"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331941"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL di Azure partizionato multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-L'articolo illustra il provisioning e la catalogazione di nuovi tenant, in uno schema o modello di *database partizionato multi-tenant*.
+L'articolo illustra il provisioning e la catalogazione di nuovi tenant, in uno schema o modello di *database partizionato multi-tenant* .
 
 L'articolo presenta due parti principali:
 
@@ -70,7 +70,7 @@ Il catalogo può essere utile anche per abilitare la creazione di report tra ten
 
 ### <a name="elastic-database-client-library"></a>Libreria client del database elastico
 
-In Wingtip il catalogo viene implementato nel database *tenantcatalog*. Il database *tenantcatalog* viene creato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](elastic-database-client-library.md). La libreria consente a un'applicazione di creare, gestire e usare una *mappa partizioni* archiviata in un database. Una mappa partizioni crea riferimenti incrociati tra la chiave di tenant e la partizione, ossia il relativo database partizionato.
+In Wingtip il catalogo viene implementato nel database *tenantcatalog* . Il database *tenantcatalog* viene creato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](elastic-database-client-library.md). La libreria consente a un'applicazione di creare, gestire e usare una *mappa partizioni* archiviata in un database. Una mappa partizioni crea riferimenti incrociati tra la chiave di tenant e la partizione, ossia il relativo database partizionato.
 
 Durante il provisioning del tenant, è possibile usare le funzioni della libreria client dei database elastici da applicazioni o script di PowerShell per creare le voci della mappa partizioni. In un secondo momento, tali funzioni possono essere utilizzate per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e velocizzare il processo di connessione.
 
@@ -109,7 +109,7 @@ Gli script di provisioning del tenant in questa esercitazione supportano entramb
 - Provisioning di un tenant in un database esistente condiviso con altri tenant.
 - Provisioning di un tenant in un database autonomo.
 
-I dati del tenant vengono quindi inizializzati e registrati nella mappa partizioni del catalogo. Nell'applicazione di esempio, ai database che contengono più tenant viene assegnato un nome generico, ad esempio *tenants1* o *tenants2*. Ai database contenenti un singolo tenant viene assegnato il nome del tenant. Le convenzioni di denominazione specifiche usate nell'esempio non sono una parte essenziale del modello, poiché l'uso di un catalogo consente l'assegnazione di un nome qualsiasi al database.
+I dati del tenant vengono quindi inizializzati e registrati nella mappa partizioni del catalogo. Nell'applicazione di esempio, ai database che contengono più tenant viene assegnato un nome generico, ad esempio *tenants1* o *tenants2* . Ai database contenenti un singolo tenant viene assegnato il nome del tenant. Le convenzioni di denominazione specifiche usate nell'esempio non sono una parte essenziale del modello, poiché l'uso di un catalogo consente l'assegnazione di un nome qualsiasi al database.
 
 <a name="goto_1_tutorial"></a>
 
@@ -143,29 +143,29 @@ Questa sezione contiene un elenco delle azioni principali per il provisioning es
 
 Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisioning che si esegue:
 
-- **Calcolare la nuova chiave del tenant**: viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
-- **Controllare se la chiave del tenant esiste già**: il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
-- **Inizializzare il tenant nel database del tenant predefinito**: il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.
-- **Registrare il tenant nel catalogo**: il mapping tra la chiave del nuovo tenant e il database tenants1 esistente viene aggiunto al catalogo.
-- **Aggiungere il nome del tenant a una tabella di estensione del catalogo**: il nome della sede viene aggiunto alla tabella dei tenant nel catalogo.  Questa aggiunta illustra in che modo è possibile estendere il database Catalogo perché sia in grado di supportare dati aggiuntivi specifici dell'applicazione.
-- **Aprire la pagina degli eventi per il nuovo tenant**: la pagina degli eventi *Bushwillow Blues* si apre nel browser.
+- **Calcolare la nuova chiave del tenant** : viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
+- **Controllare se la chiave del tenant esiste già** : il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
+- **Inizializzare il tenant nel database del tenant predefinito** : il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.
+- **Registrare il tenant nel catalogo** : il mapping tra la chiave del nuovo tenant e il database tenants1 esistente viene aggiunto al catalogo.
+- **Aggiungere il nome del tenant a una tabella di estensione del catalogo** : il nome della sede viene aggiunto alla tabella dei tenant nel catalogo.  Questa aggiunta illustra in che modo è possibile estendere il database Catalogo perché sia in grado di supportare dati aggiuntivi specifici dell'applicazione.
+- **Aprire la pagina degli eventi per il nuovo tenant** : la pagina degli eventi *Bushwillow Blues* si apre nel browser.
 
-   ![eventi](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Screenshot che mostra la pagina degli eventi per un nuovo tenant.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Passaggi del debugger
 
 Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di tenant in un database condiviso, procedere passo per passo attraverso il flusso di lavoro dopo aver aggiunto un punto di interruzione:
 
 1. In *PowerShell ISE* aprire ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e impostare i parametri seguenti:
-   - **$TenantName** = **Bushwillow Blues**, nome di una nuova sede di eventi.
-   - **$VenueType** = **blues**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
+   - **$TenantName** = **Bushwillow Blues** , nome di una nuova sede di eventi.
+   - **$VenueType** = **blues** , uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
    - **$DemoScenario** = **1** per eseguire il provisioning di un tenant in un database condiviso con altri tenant.
 
-2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 38 contenente il testo: *New-Tenant `* e premere **F9**.
+2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 38 contenente il testo: *New-Tenant `* e premere **F9** .
 
-   ![punto di interruzione](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Screenshot che evidenzia la riga che include New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
-3. Eseguire lo script premendo **F5**.
+3. Eseguire lo script premendo **F5** .
 
 4. Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione del codice.
 
@@ -181,14 +181,14 @@ Per altre informazioni sul debug degli script di PowerShell, vedere [Suggeriment
 
 Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisioning che si esegue quando si tiene traccia dello script:
 
-- **Calcolare la nuova chiave del tenant**: viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
-- **Controllare se la chiave del tenant esiste già**: il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
-- **Creare un nuovo database del tenant**: il database viene creato copiando il database *basetenantdb* tramite un modello di Resource Manager.  Il nuovo nome del database si basa sul nome del tenant.
-- **Aggiungere il database al catalogo**: il nuovo database tenant è registrato come una partizione nel catalogo.
-- **Inizializzare il tenant nel database del tenant predefinito**: il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.
-- **Registrare il tenant nel catalogo**: il mapping tra la chiave del nuovo tenant e il database *sequoiasoccer* viene aggiunto al catalogo.
-- **Il nome del tenant viene aggiunto al catalogo**: il nome della sede viene aggiunto alla tabella di estensione Tenants nel catalogo.
-- **Aprire la pagina degli eventi per il nuovo tenant**: la pagina degli eventi *Sequoia Soccer* si apre nel browser.
+- **Calcolare la nuova chiave del tenant** : viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
+- **Controllare se la chiave del tenant esiste già** : il catalogo viene controllato per verificare che la chiave non sia già stata registrata.
+- **Creare un nuovo database del tenant** : il database viene creato copiando il database *basetenantdb* tramite un modello di Resource Manager.  Il nuovo nome del database si basa sul nome del tenant.
+- **Aggiungere il database al catalogo** : il nuovo database tenant è registrato come una partizione nel catalogo.
+- **Inizializzare il tenant nel database del tenant predefinito** : il database del tenant viene aggiornato per aggiungere le nuove informazioni del tenant.
+- **Registrare il tenant nel catalogo** : il mapping tra la chiave del nuovo tenant e il database *sequoiasoccer* viene aggiunto al catalogo.
+- **Il nome del tenant viene aggiunto al catalogo** : il nome della sede viene aggiunto alla tabella di estensione Tenants nel catalogo.
+- **Aprire la pagina degli eventi per il nuovo tenant** : la pagina degli eventi *Sequoia Soccer* si apre nel browser.
 
    ![eventi](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -197,15 +197,15 @@ Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisionin
 A questo punto seguire dettagliatamente il processo dello script durante la creazione di un tenant nel database autonomo:
 
 1. Ancora in ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* impostare i parametri seguenti:
-   - **$TenantName** = **Sequoia Soccer**, il nome di una nuova sede di eventi.
-   - **$VenueType** = **soccer**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
+   - **$TenantName** = **Sequoia Soccer** , il nome di una nuova sede di eventi.
+   - **$VenueType** = **soccer** , uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
    - **$DemoScenario** = **2** per effettuare il provisioning di un tenant in un database autonomo.
 
-2. Aggiungere un nuovo punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 57 contenente il testo: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e premere **F9**.
+2. Aggiungere un nuovo punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 57 contenente il testo: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e premere **F9** .
 
    ![punto di interruzione](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
-3. Eseguire lo script premendo **F5**.
+3. Eseguire lo script premendo **F5** .
 
 4. Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione del codice.  Usare **F10** e **F11** per proseguire ed eseguire l'istruzione relativa alle funzioni per tracciare l'esecuzione.
 
@@ -224,7 +224,7 @@ A questo punto l'utente dispone di diversi tenant distribuiti in un database con
 
    ![elenco di database](./media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
-Sebbene il portale di Azure mostri il tenant di database, non è possibile vedere i tenant *all'interno* del database condiviso. L'elenco completo dei tenant è consultabile nella pagina Web dell'**hub eventi** di Wingtip ed esplorando il catalogo.
+Sebbene il portale di Azure mostri il tenant di database, non è possibile vedere i tenant *all'interno* del database condiviso. L'elenco completo dei tenant è consultabile nella pagina Web dell' **hub eventi** di Wingtip ed esplorando il catalogo.
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Uso della pagina dell'hub eventi di Wingtip Tickets
 
@@ -237,11 +237,11 @@ L'elenco completo dei tenant e i database corrispondenti a ciascuno è disponibi
 - Il nome del tenant viene archiviato nella tabella Tenants.
 - Il nome del database viene archiviato nelle tabelle di gestione delle partizioni.
 
-1. In SQL Server Management Studio (SSMS) connettersi al server del tenant in **catalog-mt.\<USER\>.database.windows.net**, con l'account di accesso **developer** e la password **P\@ssword1**
+1. In SQL Server Management Studio (SSMS) connettersi al server del tenant in **catalog-mt.\<USER\>.database.windows.net** , con l'account di accesso **developer** e la password **P\@ssword1**
 
     ![Finestra di dialogo di connessione di SQL Server Management Studio](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. In Esplora oggetti di SSMS selezionare le viste del database *tenantcatalog*.
+2. In Esplora oggetti di SSMS selezionare le viste del database *tenantcatalog* .
 
 3. Fare clic con il pulsante destro del mouse sulla vista *TenantsExtended* e scegliere **Select Top 1000 Rows** (Seleziona le prime 1000 righe). Si noti il mapping tra nome e il database del tenant per diversi tenant.
 
