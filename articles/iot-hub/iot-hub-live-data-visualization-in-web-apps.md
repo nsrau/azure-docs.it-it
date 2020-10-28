@@ -11,12 +11,13 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146677"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740996"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -72,7 +73,7 @@ Annotare il nome scelto, che sarà necessario più avanti in questa esercitazion
 
 ## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Ottenere una stringa di connessione del servizio per l'hub IoT
 
-Gli hub IoT vengono creati con diversi criteri di accesso predefiniti. Uno di questi è il criterio del **servizio**, che offre a un servizio autorizzazioni sufficienti per la lettura e la scrittura degli endpoint dell'hub IoT. Eseguire il comando seguente per ottenere una stringa di connessione per l'hub IoT che rispetti i criteri del servizio:
+Gli hub IoT vengono creati con diversi criteri di accesso predefiniti. Uno di questi è il criterio del **servizio** , che offre a un servizio autorizzazioni sufficienti per la lettura e la scrittura degli endpoint dell'hub IoT. Eseguire il comando seguente per ottenere una stringa di connessione per l'hub IoT che rispetti i criteri del servizio:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
@@ -146,7 +147,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 Aprire una finestra in `http://localhost:3000`.
 
-Nell'elenco **Seleziona un dispositivo**, selezionare il dispositivo per visualizzare un tracciato di esecuzione degli ultimi 50 punti dati di temperatura e umidità inviati dal dispositivo all'hub IoT.
+Nell'elenco **Seleziona un dispositivo** , selezionare il dispositivo per visualizzare un tracciato di esecuzione degli ultimi 50 punti dati di temperatura e umidità inviati dal dispositivo all'hub IoT.
 
 ![Pagina dell'app Web che mostra temperatura e umidità in tempo reale](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
@@ -252,7 +253,7 @@ Se si verificano problemi con questo esempio, provare a eseguire i passaggi nell
 
 ### <a name="azure-app-service-issues"></a>Problemi relativi al servizio app di Azure
 
-* Nel portale di Azure passare all'app Web. Nel riquadro sinistro, in **Monitoraggio** selezionare **App Service logs** (Log del servizio app). Attivare **Registrazione applicazioni (file system)** , impostare **Livello** su Errore, quindi selezionare **Salva**. Aprire quindi **Flusso di registrazione** (in **Monitoraggio**).
+* Nel portale di Azure passare all'app Web. Nel riquadro sinistro, in **Monitoraggio** selezionare **App Service logs** (Log del servizio app). Attivare **Registrazione applicazioni (file system)** , impostare **Livello** su Errore, quindi selezionare **Salva** . Aprire quindi **Flusso di registrazione** (in **Monitoraggio** ).
 
 * Dall'app Web nel portale di Azure, in **Strumenti di sviluppo** selezionare **Console** e convalidare le versioni di nodo e npm con `node -v` e `npm -v`.
 

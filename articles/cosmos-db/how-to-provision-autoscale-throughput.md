@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740885"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva di ridimensionamento automatico per database o contenitore nell'API Azure Cosmos DB-SQL
 
@@ -27,13 +27,13 @@ Se si usa un'API diversa, vedere l'articolo relativo alle API [per MongoDB](how-
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o a [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
 
-1. Selezionare **Nuovo contenitore**. Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva** selezionare l'opzione **Scalabilità automatica** e impostare la [velocità effettiva massima (UR/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) per il dimensionamento del database o del contenitore.
+1. Selezionare **Nuovo contenitore** . Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva** selezionare l'opzione **Scalabilità automatica** e impostare la [velocità effettiva massima (UR/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) per il dimensionamento del database o del contenitore.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica":::
 
-1. Selezionare **OK**.
+1. Selezionare **OK** .
 
 Per effettuare il provisioning della scalabilità automatica per il database con velocità effettiva condivisa, selezionare l'opzione **Provision database throughput** (Effettua il provisioning della velocità effettiva del database) durante la creazione di un nuovo database. 
 
@@ -44,11 +44,11 @@ Per effettuare il provisioning della scalabilità automatica per il database con
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o a [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
 
 1. Selezionare **Scalabilità e impostazioni** per il contenitore oppure **Dimensiona** per il database.
 
-1. In **Dimensiona** selezionare l'opzione **Scalabilità automatica** e fare clic su **Salva**.
+1. In **Dimensiona** selezionare l'opzione **Scalabilità automatica** e fare clic su **Salva** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica":::
 

@@ -556,8 +556,6 @@
               href: platform/alerts-managing-smart-groups.md
             - name: Gestire gli stati di avvisi e gruppi intelligenti
               href: platform/alerts-managing-alert-states.md
-            - name: Gestire gli avvisi di altri servizi di monitoraggio
-              href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: API degli avvisi
           href: platform/api-alerts.md
         - name: Risolvere i problemi correlati agli avvisi
@@ -576,8 +574,6 @@
               href: platform/itsmc-service-manager-script.md
             - name: Risolvere i problemi di sincronizzazione di ITSM di ServiceNow
               href: platform/itsmc-resync-servicenow.md
-        - name: Soluzione Gestione avvisi
-          href: platform/alert-management-solution.md
         - name: Eseguire la migrazione delle regole di avviso (versione classica)
           items:
             - name: Informazioni sugli avvisi classici
@@ -1138,6 +1134,8 @@
               href: insights/vmware.md
             - name: Soluzione Wire Data
               href: insights/wire-data.md
+            - name: Soluzione Gestione avvisi
+              href: platform/alert-management-solution.md
     - name: Workbooks
       items:
         - name: Panoramica

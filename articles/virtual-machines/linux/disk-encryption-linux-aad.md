@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: c8228086eb67478d80aa041004e0da3eed71f896
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372672"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741802"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)
 
@@ -148,7 +148,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | AADClientSecret | Segreto client dell'applicazione Azure AD con le autorizzazioni per la scrittura di segreti nell'insieme di credenziali delle chiavi. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave. È possibile ottenerlo con il comando dell'interfaccia della riga di comando di Azure `az keyvault show --name "MySecureVault" --query KVresourceGroup`. |
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave generata. Questo parametro è facoltativo se si seleziona **nokek** nell'elenco a discesa **UseExistingKek** . Se si seleziona **KEK** nell'elenco a discesa **UseExistingKek** , è necessario immettere il valore _keyEncryptionKeyURL_ . |
-| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori supportati validi sono _OS_ o _All_. (Vedere le distribuzioni Linux supportate e le relative versioni per i dischi dati e del sistema operativo nella sezione Prerequisiti precedente). |
+| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori supportati validi sono _OS_ o _All_ . (Vedere le distribuzioni Linux supportate e le relative versioni per i dischi dati e del sistema operativo nella sezione Prerequisiti precedente). |
 | sequenceVersion | Versione della sequenza dell'operazione BitLocker. Incrementare questo numero di versione ogni volta che viene eseguita un'operazione di crittografia dei dischi nella stessa VM. |
 | vmName | Nome della VM in cui deve essere eseguita l'operazione di crittografia. |
 | passphrase | Immettere una passphrase complessa come chiave di crittografia dei dati. |
@@ -180,7 +180,7 @@ Per usare l'opzione EncryptFormatAll, usare qualsiasi modello di Azure Resource 
 
 1. Ad esempio, usare il [modello di Resource Manager per crittografare una macchina virtuale IaaS Linux in esecuzione](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
 2. Selezionare **Distribuisci in Azure** nel modello di avvio rapido di Azure.
-3. Modificare il campo **EncryptionOperation** da **EnableEncryption** a **EnableEncryptionFormatAl**.
+3. Modificare il campo **EncryptionOperation** da **EnableEncryption** a **EnableEncryptionFormatAl** .
 4. Selezionare la sottoscrizione, il gruppo di risorse, la posizione del gruppo di risorse, gli altri parametri, i termini legali e il contratto. Selezionare **Crea** per abilitare la crittografia nella macchina virtuale IaaS esistente o in esecuzione.
 
 
@@ -341,7 +341,7 @@ La sintassi per il valore del parametro Key-Encryption-Key è l'URI completo di 
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 - **Disabilitare la crittografia con un modello di gestione risorse:** Per disabilitare la crittografia, usare il modello [disabilitare la crittografia in un modello di macchina virtuale Linux in esecuzione](https://aka.ms/decrypt-linuxvm) .
-     1. Selezionare **Distribuisci in Azure**.
+     1. Selezionare **Distribuisci in Azure** .
      2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione, la macchina virtuale, i termini legali e il contratto.
      3. Selezionare **Acquista** per disabilitare la crittografia del disco in una macchina virtuale Windows in esecuzione. 
 

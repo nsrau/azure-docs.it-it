@@ -5,36 +5,23 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d26354d8c247f0839bb96564c4e004158743bd88
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677700"
+ms.locfileid: "92742213"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
 È possibile usare Gestione aggiornamenti in Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux in Azure, in ambienti locali e in altri ambienti cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
 
-È possibile abilitare Gestione aggiornamenti per le VM nei modi seguenti:
-
-- Dall' [account di automazione di Azure](enable-from-automation-account.md) per uno o più computer Azure e non Azure.
-
-- Manualmente per i computer non Azure, inclusi i computer o i server registrati con i [server abilitati per Azure Arc](../../azure-arc/servers/overview.md).
-
-- Per una singola VM di Azure dalla [pagina della macchina virtuale](enable-from-vm.md) nella portale di Azure. Questo scenario è disponibile per macchine virtuali Linux e Windows.
-
-- Per [più VM di Azure](enable-from-portal.md) mediante la selezione delle VM dalla pagina Macchina virtuale nel portale di Azure.
-
-> [!NOTE]
-> Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di Automazione. Per un elenco completo delle aree supportate, vedere [Mapping dell'area di lavoro di Azure](../how-to/region-mappings.md). I mapping a livello di area non influiscono sulla possibilità di gestire le VM in un'area separata rispetto all'account di Automazione.
-
-È disponibile un [modello di Azure Resource Manager](enable-from-template.md) che consente di abilitare la funzionalità Gestione aggiornamenti in un account di automazione nuovo o esistente e log Analytics area di lavoro nella sottoscrizione. Non Abilita macchine virtuali di Azure o non Azure con la funzionalità, il passaggio viene eseguito in seguito usando uno dei metodi elencati in precedenza.
-
 > [!NOTE]
 > Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft.
 
 Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/windows/automatic-vm-guest-patching.md) per VM Windows.
+
+Prima di distribuire Gestione aggiornamenti e abilitare i computer per la gestione, verificare di aver compreso le informazioni nelle sezioni riportate di seguito.  
 
 ## <a name="about-update-management"></a>Informazioni su Gestione aggiornamenti
 
@@ -44,6 +31,7 @@ I computer gestiti da Gestione aggiornamenti usano le configurazioni seguenti pe
 * PowerShell DSC (Desired State Configuration) per Linux
 * Ruolo di lavoro ibrido per runbook di Automazione
 * Microsoft Update o Windows Server Update Services (WSUS) per computer Windows
+* Repository di aggiornamenti privati o pubblici per computer Linux
 
 Il diagramma seguente illustra il modo in cui Gestione aggiornamenti valuta e applica gli aggiornamenti della sicurezza a tutti i server Windows Server e Linux connessi in un'area di lavoro:
 
@@ -79,7 +67,7 @@ Non è consentito avere un computer registrato per Gestione aggiornamenti in pi�
 Nella tabella seguente sono elencati i sistemi operativi supportati per la valutazione degli aggiornamenti e l'applicazione di patch. L'applicazione di patch richiede un ruolo di lavoro ibrido per runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per runbook, vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) e [Distribuire un ruolo di lavoro ibrido per runbook di Linux](../automation-linux-hrw-install.md).
 
 > [!NOTE]
-> La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](../how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
+> La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](../how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics.
 
 |Sistema operativo  |Note  |
 |---------|---------|
@@ -109,7 +97,7 @@ Le informazioni seguenti illustrano i requisiti per il client specifici per un s
 
 #### <a name="windows"></a>Windows
 
-Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [Connettere computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md). Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [distribuisci agente log Analytics a computer Windows Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . Se si prevede anche di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [Enable monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per informazioni sull'agente di Log Analytics, vedere [Panoramica di log Analytics Agent](../../azure-monitor/platform/log-analytics-agent.md). Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [distribuisci agente log Analytics a computer Windows Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . Se si prevede anche di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [Enable monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](mecmintegration.md). L'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager. 
 
@@ -125,7 +113,7 @@ Per Linux, il computer deve avere accesso a un repository degli aggiornamenti, p
 > [!NOTE]
 > La valutazione degli aggiornamenti dei computer Linux è supportata solo in alcune aree. Vedere la [tabella di mapping](../how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics.
 
-Per ottenere informazioni su come installare l'agente di Log Analytics per Linux e scaricare la versione più recente, vedere l'[agente di Log Analytics per Linux](../../azure-monitor/platform/agent-linux.md). Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer Azure Arc Linux](../../governance/policy/samples/built-in-policies.md#monitoring) . Se si prevede di monitorare anche i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+Per informazioni sull'agente di Log Analytics, vedere [Panoramica di log Analytics Agent](../../azure-monitor/platform/log-analytics-agent.md). Per le macchine ibride, si consiglia di installare l'agente di Log Analytics per Linux connettendo prima il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer Azure Arc per Linux](../../governance/policy/samples/built-in-policies.md#monitoring) . Se si prevede di monitorare anche i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richiesta (RHEL) disponibili in Azure Marketplace vengono registrate per accedere a [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) distribuito in Azure. Altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione mediante i metodi supportati della distribuzione.
 
@@ -206,7 +194,7 @@ Se i criteri di sicurezza IT non consentono ai computer della rete di connetters
 
 ## <a name="update-classifications"></a>Classificazioni degli aggiornamenti
 
-La tabella seguente definisce le classificazioni supportate da Gestione aggiornamenti per gli aggiornamenti di Windows. 
+La tabella seguente definisce le classificazioni supportate da Gestione aggiornamenti per gli aggiornamenti di Windows.
 
 |Classificazione  |Descrizione  |
 |---------|---------|
@@ -253,14 +241,18 @@ Gestione aggiornamenti si basa sul repository di aggiornamento configurato in lo
 
 ## <a name="enable-update-management"></a>Abilitare la gestione degli aggiornamenti
 
-È disponibile un [modello di Azure Resource Manager](enable-from-template.md) per semplificare la distribuzione di Gestione aggiornamenti in un account di Automazione nuovo o esistente e in un'area di lavoro Log Analytics di Monitoraggio di Azure nella sottoscrizione. Non configura l'ambito dei computer che devono essere gestiti. Questa operazione viene eseguita come passaggio separato dopo l'uso del modello.
-
 Di seguito sono elencate le modalità per abilitare Gestione aggiornamenti e selezionare i computer da gestire:
 
-* [Da una macchina virtuale di Azure](enable-from-vm.md)
-* [Dall'esplorazione di più macchine virtuali di Azure](enable-from-portal.md)
-* [Da un account di Automazione di Azure](enable-from-automation-account.md)
-* Per i server abilitati per Arc (anteprima) o per i computer non Azure, installare l' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e quindi [abilitare i computer nell'area di lavoro](enable-from-automation-account.md#enable-machines-in-the-workspace) per gestione aggiornamenti.
+- Uso di un [modello di gestione risorse](enable-from-template.md) di Azure per distribuire Gestione aggiornamenti a un account di automazione nuovo o esistente e a un'area di lavoro di monitoraggio di Azure log Analytics nella sottoscrizione. Non configura l'ambito dei computer che devono essere gestiti. Questa operazione viene eseguita come passaggio separato dopo l'uso del modello.
+
+- Dall' [account di automazione](enable-from-automation-account.md) per uno o più computer Azure e non Azure, inclusi i server abilitati per Arc.
+
+- Per una [VM di Azure selezionata](enable-from-vm.md) dalla pagina della macchina virtuale nella portale di Azure. Questo scenario è disponibile per macchine virtuali Linux e Windows.
+
+- Per [più VM di Azure](enable-from-portal.md) mediante la selezione delle VM dalla pagina Macchina virtuale nel portale di Azure.
+
+> [!NOTE]
+> Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di Automazione. Per un elenco completo delle aree supportate, vedere [Mapping dell'area di lavoro di Azure](../how-to/region-mappings.md). I mapping a livello di area non influiscono sulla possibilità di gestire le VM in un'area separata rispetto all'account di Automazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

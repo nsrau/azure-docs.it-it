@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368231"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741072"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -120,7 +120,7 @@ Se di recente è stato invitato un utente durante la creazione di un'assegnazion
 
 Tuttavia, se questa entità di sicurezza non è un utente invitato recentemente, potrebbe trattarsi di un'entità di sicurezza eliminata. Se si assegna un ruolo a un'entità di sicurezza e successivamente si elimina tale entità di sicurezza senza prima rimuovere l'assegnazione di ruolo, l'entità di sicurezza sarà elencata come **identità non trovata** e un tipo **sconosciuto** .
 
-Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
+Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown** . [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,14 +222,14 @@ Analogamente a quanto accade con le app Web, alcune funzionalità del blade dell
 
 Le macchine virtuali sono correlate a nomi di dominio, reti virtuali, account di archiviazione e regole di avviso.
 
-Gli elementi seguenti richiedono accesso **in scrittura** alla **macchina virtuale**:
+Gli elementi seguenti richiedono accesso **in scrittura** alla **macchina virtuale** :
 
 * Endpoint  
 * Indirizzi IP  
 * Dischi  
 * Estensioni  
 
-Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina virtuale** che al **gruppo di risorse**, così come al nome di dominio a cui appartiene:  
+Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina virtuale** che al **gruppo di risorse** , così come al nome di dominio a cui appartiene:  
 
 * Set di disponibilità  
 * Set con carico bilanciato  
@@ -239,7 +239,7 @@ Se non è possibile accedere a nessuno di questi riquadri, richiedere all'ammini
 
 ## <a name="azure-functions-and-write-access"></a>Funzioni di Azure e accesso in scrittura
 
-Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il ruolo [lettore](built-in-roles.md#reader) , non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
+Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il ruolo [lettore](built-in-roles.md#reader) , non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)** .
 
 ![Nessun accesso alle app per le funzioni](./media/troubleshooting/functionapps-noaccess.png)
 

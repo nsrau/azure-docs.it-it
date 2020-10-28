@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424977"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741891"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
@@ -25,8 +25,8 @@ Informazioni su come eseguire l'autenticazione per l'area di lavoro di Azure Mac
 
 In generale, esistono due tipi di autenticazione che è possibile usare con Azure Machine Learning:
 
-* __Interattivo__: è possibile usare l'account Azure Active Directory per l'autenticazione diretta o per ottenere un token usato per l'autenticazione. L'autenticazione interattiva viene utilizzata durante la sperimentazione e lo sviluppo iterativo. O in cui si vuole controllare l'accesso alle risorse, ad esempio un servizio Web, per ogni singolo utente.
-* __Entità servizio__: è possibile creare un account dell'entità servizio in Azure Active Directory e usarlo per autenticare o ottenere un token. Un'entità servizio viene utilizzata quando è necessario un processo automatizzato per l'autenticazione al servizio senza richiedere l'interazione dell'utente. Ad esempio, uno script di integrazione e distribuzione continua che esegue il training e il test di un modello ogni volta che viene modificato il codice di training. È anche possibile usare un'entità servizio per recuperare un token per l'autenticazione a un servizio Web, se non si vuole che l'utente finale del servizio esegua l'autenticazione. O in cui l'autenticazione dell'utente finale non viene eseguita direttamente usando Azure Active Directory.
+* __Interattivo__ : è possibile usare l'account Azure Active Directory per l'autenticazione diretta o per ottenere un token usato per l'autenticazione. L'autenticazione interattiva viene utilizzata durante la sperimentazione e lo sviluppo iterativo. O in cui si vuole controllare l'accesso alle risorse, ad esempio un servizio Web, per ogni singolo utente.
+* __Entità servizio__ : è possibile creare un account dell'entità servizio in Azure Active Directory e usarlo per autenticare o ottenere un token. Un'entità servizio viene utilizzata quando è necessario un processo automatizzato per l'autenticazione al servizio senza richiedere l'interazione dell'utente. Ad esempio, uno script di integrazione e distribuzione continua che esegue il training e il test di un modello ogni volta che viene modificato il codice di training. È anche possibile usare un'entità servizio per recuperare un token per l'autenticazione a un servizio Web, se non si vuole che l'utente finale del servizio esegua l'autenticazione. O in cui l'autenticazione dell'utente finale non viene eseguita direttamente usando Azure Active Directory.
 
 Indipendentemente dal tipo di autenticazione usato, il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) viene usato per definire l'ambito del livello di accesso consentito alle risorse. Ad esempio, un account utilizzato per ottenere il token di accesso per un modello distribuito richiede solo l'accesso in lettura all'area di lavoro. Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Manage Access to Azure Machine Learning Workspace](how-to-assign-roles.md)
 
@@ -285,8 +285,8 @@ Usare `token_response["accessToken"]` per recuperare il token di autenticazione.
 
 Le distribuzioni di modelli create da Azure Machine Learning forniscono due metodi di autenticazione:
 
-* **basato su chiavi**: una chiave statica viene usata per l'autenticazione nel servizio Web.
-* **basato su token**: è necessario ottenere un token temporaneo dall'area di lavoro e usarlo per l'autenticazione al servizio Web. Questo token scade dopo un periodo di tempo e deve essere aggiornato per continuare a usare il servizio Web.
+* **basato su chiavi** : una chiave statica viene usata per l'autenticazione nel servizio Web.
+* **basato su token** : è necessario ottenere un token temporaneo dall'area di lavoro e usarlo per l'autenticazione al servizio Web. Questo token scade dopo un periodo di tempo e deve essere aggiornato per continuare a usare il servizio Web.
 
     > [!NOTE]
     > L'autenticazione basata su token è disponibile solo quando si esegue la distribuzione nel servizio Azure Kubernetes.
@@ -319,7 +319,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Per recuperare il token di autenticazione usare `aci_service.get_keys()`. Per rigenerare una chiave, usare la funzione `regen_key()` e passare **Primaria** o **Secondaria**.
+Per recuperare il token di autenticazione usare `aci_service.get_keys()`. Per rigenerare una chiave, usare la funzione `regen_key()` e passare **Primaria** o **Secondaria** .
 
 ```python
 aci_service.regen_key("Primary")
@@ -335,7 +335,7 @@ Quando si abilita l'autenticazione tramite token per un servizio Web, gli utenti
 
 * L'autenticazione tramite token è **disabilitata per impostazione predefinita** quando si esegue la distribuzione al servizio Azure Kubernetes.
 * L'autenticazione tramite token **non è supportata** quando si esegue la distribuzione a Istanze di Azure Container.
-* **Non è possibile usare l'autenticazione basata su token allo stesso tempo dell'autenticazione basata su chiavi**.
+* **Non è possibile usare l'autenticazione basata su token allo stesso tempo dell'autenticazione basata su chiavi** .
 
 Per controllare l'autenticazione del token, usare il `token_auth_enabled` parametro quando si crea o si aggiorna una distribuzione:
 
