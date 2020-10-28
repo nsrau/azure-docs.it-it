@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536573"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674515"
 ---
 # <a name="azure-farmbeats-apis"></a>API FarmBeats di Azure
 
@@ -143,23 +143,23 @@ In questo esempio, quando è stata creata una farm, il campo obbligatorio "Name"
 
 È possibile accedere alle API di Azure FarmBeats da un utente o da una registrazione dell'app in Azure Active Directory. Per creare una registrazione dell'app in Azure Active Directory, seguire questa procedura:
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**. In alternativa, è possibile usare un account esistente.
+1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione** . In alternativa, è possibile usare un account esistente.
 2. Per un nuovo account, procedere come segue:
 
     - Immettere un nome.
-    - Selezionare gli **account solo in questa directory organizzativa (tenant singolo)**.
+    - Selezionare gli **account solo in questa directory organizzativa (tenant singolo)** .
     - Usare i valori predefiniti negli altri campi.
-    - Selezionare **Registra**.
+    - Selezionare **Registra** .
 
 3. Nel riquadro della **Panoramica** della registrazione dell'app nuovo ed esistente eseguire le operazioni seguenti:
 
-    - Acquisire l' **ID client** e l' **ID tenant**.
-    - Passare a **certificati e segreti** per generare un nuovo segreto client e acquisire il **segreto client**.
-    - Tornare a **Panoramica**e selezionare il collegamento accanto a **Gestisci applicazione nella directory locale**.
-    - Passare a **Proprietà** per acquisire l' **ID oggetto**.
+    - Acquisire l' **ID client** e l' **ID tenant** .
+    - Passare a **certificati e segreti** per generare un nuovo segreto client e acquisire il **segreto client** .
+    - Tornare a **Panoramica** e selezionare il collegamento accanto a **Gestisci applicazione nella directory locale** .
+    - Passare a **Proprietà** per acquisire l' **ID oggetto** .
 
 4. Passare a datahub spavalderia (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) ed eseguire le operazioni seguenti:
-    - Passare all' **API RoleAssignment**.
+    - Passare all' **API RoleAssignment** .
     - Eseguire un POST per creare un oggetto **RoleAssignment** per l' **ID oggetto** appena creato.
  
 ```json
@@ -172,7 +172,7 @@ In questo esempio, quando è stata creata una farm, il campo obbligatorio "Name"
 ```
 
   > [!NOTE]
-  > Per ulteriori informazioni su come aggiungere utenti e Active Directory la registrazione, vedere [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Per ulteriori informazioni su come aggiungere utenti e Active Directory la registrazione, vedere [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Dopo aver completato i passaggi precedenti, la registrazione dell'app (client) può chiamare le API di Azure FarmBeats usando un token di accesso tramite l'autenticazione della connessione.
 

@@ -8,12 +8,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090330"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674270"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Domande frequenti: qual è la relazione tra SRE e DevOps?
 
@@ -50,7 +50,7 @@ Se si usa questa definizione di SRE dall' [Hub Engineering di affidabilità del 
 
 quindi, sarebbe facile dire che la parola per SRE è "affidabilità". Il fatto di trovarsi all'interno del nome offre anche un'ottima evidenza per questa richiesta.
 
-Se si usa questa definizione di DevOps dal [Centro risorse di Azure DevOps](https://docs.microsoft.com/azure/devops/learn/):
+Se si usa questa definizione di DevOps dal [Centro risorse di Azure DevOps](/azure/devops/learn/):
 
 > DevOps è l'unione di persone, processi e prodotti in grado di offrire recapito continuo di valore agli utenti finali.
 
@@ -80,4 +80,4 @@ Ci auguriamo che le risposte precedenti offrano una certa idea del modo in cui l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vuoi saperne di più sulla progettazione dell'affidabilità del sito o DevOps? Vedere l' [Hub progettazione dell'affidabilità del sito](../index.yml) e il [Centro risorse di Azure DevOps](https://docs.microsoft.com/azure/devops/learn/).
+Vuoi saperne di più sulla progettazione dell'affidabilità del sito o DevOps? Vedere l' [Hub progettazione dell'affidabilità del sito](../index.yml) e il [Centro risorse di Azure DevOps](/azure/devops/learn/).

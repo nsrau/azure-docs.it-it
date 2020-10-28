@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675093"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usa autenticazione Azure Active Directory
 
@@ -108,7 +108,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, in SQL 
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Assegnare il ruolo `db_owner` direttamente all'utente di Azure AD per mitigare il problema **CREATE DATABASE SCOPED CREDENTIAL**.
+    Assegnare il ruolo `db_owner` direttamente all'utente di Azure AD per mitigare il problema **CREATE DATABASE SCOPED CREDENTIAL** .
 
 - Queste funzioni di sistema restituiscono valori NULL quando vengono eseguite nell'ambito di entità di sicurezza di Azure AD:
 
@@ -155,19 +155,19 @@ Per Azure AD entità server (account di accesso) sono supportati i metodi di aut
 - È consigliabile impostare il timeout di connessione su 30 secondi.
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Pertanto, le versioni più recenti di questi strumenti e applicazioni livello dati (DAC e BACPAC) possono usare l'autenticazione Azure AD.
 - A partire dalla versione 15.0.1, l' [utilità sqlcmd](/sql/tools/sqlcmd-utility) e l' [utilità bcp](/sql/tools/bcp-utility) supportano Active Directory autenticazione interattiva con multi-factor authentication.
-- SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Attualmente, gli utenti Azure AD non vengono visualizzati nella Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+- SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Attualmente, gli utenti Azure AD non vengono visualizzati nella Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - [Microsoft JDBC Driver 6.0 per server SQL](https://www.microsoft.com/download/details.aspx?id=11774) supporta l'autenticazione di Azure AD. Vedere anche l'argomento su come [impostare le proprietà della connessione](/sql/connect/jdbc/setting-the-connection-properties).
 - PolyBase non può eseguire l'autenticazione di Azure AD.
 - Azure AD autenticazione è supportata per il database SQL di Azure e la sinapsi di Azure usando il portale di Azure **importare database** ed esportare i pannelli del **database** . L'importazione e l'esportazione tramite l'autenticazione Azure AD è supportata anche da un comando di PowerShell.
-- Azure AD autenticazione è supportata per il database SQL, SQL Istanza gestita e la sinapsi di Azure tramite l'interfaccia della riga di comando. Per altre informazioni, vedere [configurare e gestire l'autenticazione di Azure ad con il database SQL o la sinapsi di Azure](authentication-aad-configure.md) e [SQL Server-AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
+- Azure AD autenticazione è supportata per il database SQL, SQL Istanza gestita e la sinapsi di Azure tramite l'interfaccia della riga di comando. Per altre informazioni, vedere [configurare e gestire l'autenticazione di Azure ad con il database SQL o la sinapsi di Azure](authentication-aad-configure.md) e [SQL Server-AZ SQL Server](/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come creare e popolare un'istanza di Azure AD e quindi configurarla con il database SQL di Azure, SQL Istanza gestita o la sinapsi di Azure, vedere [configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, il istanza gestita SQL o la sinapsi di Azure](authentication-aad-configure.md).
 - Per un'esercitazione sull'utilizzo di Azure AD entità server (account di accesso) con SQL Istanza gestita, vedere [Azure ad entità server (account di accesso) con sql istanza gestita](../managed-instance/aad-security-configure-tutorial.md)
 - Per una panoramica degli account di accesso, degli utenti, dei ruoli del database e delle autorizzazioni nel database SQL, vedere [account di accesso, utenti, ruoli del database e autorizzazioni](logins-create-manage.md).
-- Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
-- Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
+- Per altre informazioni sulle entità di database, vedere [Entità](/sql/relational-databases/security/authentication-access/principals-database-engine).
+- Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](/sql/relational-databases/security/authentication-access/database-level-roles).
 - Per la sintassi per la creazione di Azure AD entità server (account di accesso) per SQL Istanza gestita, vedere  [creare un account di accesso](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](firewall-configure.md).
 

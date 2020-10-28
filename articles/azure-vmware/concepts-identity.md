@@ -3,18 +3,18 @@ title: 'Concetti: identità e accesso'
 description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674642"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
 
-Viene eseguito il provisioning di un server vCenter e di una gestione NSX-T quando viene distribuito un cloud privato. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali e NSX-T Manager per estendere la rete di cloud privato definita dal software.
+Quando si distribuisce un cloud privato, viene eseguito il provisioning di un server vCenter e di gestione NSX-T. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali (VM). Si usa NSX-T Manager per estendere la rete privata definita dal software.
 
-La gestione dell'accesso e delle identità usa i privilegi del gruppo CloudAdmin per vCenter e i diritti di amministratore limitati per NSX-T Manager. Questo criterio garantisce che la piattaforma cloud privata possa essere aggiornata automaticamente. In questo modo le funzionalità e le patch più recenti vengono distribuite a intervalli regolari. Per altri dettagli sugli aggiornamenti del cloud privato, vedere l' [articolo Concetti relativi agli aggiornamenti per il cloud privato][concepts-upgrades] .
+La gestione dell'accesso e delle identità usa i privilegi del gruppo CloudAdmin per vCenter e i diritti di amministratore limitati per NSX-T Manager. Garantisce che la piattaforma cloud privata venga aggiornata automaticamente con le funzionalità e le patch più recenti.  Per altre informazioni, vedere l' [articolo Concetti relativi agli aggiornamenti per il cloud privato][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>accesso e identità vCenter
 
@@ -32,7 +32,7 @@ I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente
 |  Archivio dati               | Datastore. AllocateSpace, datastore. browse, Datastore.Config, datastore. DeleteFile, datastore. filemanagement, datastore. UpdateVirtualMachineMetadata     |    --    |   -- |
 |  Agent Manager ESX       |  --  |         --       |  Microsoft esegue tutte le operazioni.  |
 |  Cartella                  |  Un utente CloudAdmin dispone di tutti i privilegi di cartella.     |  --  |  --  |
-|  Globale                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global.SystemTag         |                  |    |
+|  Global                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global.SystemTag         |                  |    |
 |  Host                    |  Host. hbr. HbrManagement      |        --          |  Microsoft esegue tutte le altre operazioni host.  |
 |  InventoryService        |  InventoryService. tagging      |        --          |  --  |
 |  Rete                 |  Network.Assign    |                  |  Microsoft esegue tutte le altre operazioni di rete.  |
@@ -49,7 +49,7 @@ I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Accesso e identità di gestione NSX-T
 
-Per accedere a NSX-T Manager, usare l'account "Administrator". Tale account dispone di privilegi completi e consente di creare e gestire i router T1, i commutatori logici e tutti i servizi. I privilegi completi in NSX-T forniscono anche l'accesso al router NSX-T T0. Una modifica al router T0 può comportare un peggioramento delle prestazioni di rete o una perdita di accesso a un cloud privato. Per soddisfare i requisiti di supporto, è necessario aprire una richiesta di supporto nella portale di Azure per richiedere eventuali modifiche al router NSX-T T0.
+Usare l'account "Administrator" per accedere a NSX-T Manager. Dispone di privilegi completi e consente di creare e gestire i router T1, i commutatori logici e tutti i servizi. I privilegi consentono di accedere al router NSX-T T0. Una modifica al router T0 può comportare un peggioramento delle prestazioni della rete o l'accesso al cloud privato. Aprire una richiesta di supporto nella portale di Azure per richiedere eventuali modifiche al router NSX-T T0.
   
 ## <a name="next-steps"></a>Passaggi successivi
 

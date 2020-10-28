@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638330"
+ms.locfileid: "92674754"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorare l'integrità dell'area di lavoro Log Analytics in monitoraggio di Azure
 Per mantenere le prestazioni e la disponibilità dell'area di lavoro Log Analytics in monitoraggio di Azure, è necessario essere in grado di rilevare in modo proattivo tutti i problemi che si verificano. Questo articolo descrive come monitorare l'integrità dell'area di lavoro di Log Analytics usando i dati nella tabella delle [operazioni](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Questa tabella è inclusa in ogni area di lavoro Log Analytics e contiene gli errori e gli avvisi che si verificano nell'area di lavoro. È consigliabile esaminare periodicamente questi dati e creare avvisi per ricevere notifiche proattive in caso di eventi imprevisti importanti nell'area di lavoro.
 
 ## <a name="_logoperation-function"></a>Funzione _LogOperation
+
 I log di monitoraggio di Azure inviano informazioni dettagliate sui problemi alla tabella delle [operazioni](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) nell'area di lavoro in cui si è verificato il problema. La funzione di sistema **_LogOperation** è basata sulla tabella **Operation** e fornisce un set di informazioni semplificato per l'analisi e l'invio di avvisi.
 
 ## <a name="columns"></a>Colonne
@@ -36,6 +37,7 @@ La funzione **_LogOperation** restituisce le colonne nella tabella seguente.
 
 
 ## <a name="categories"></a>Categorie
+
 Nella tabella seguente vengono descritte le categorie della funzione _LogOperation. 
 
 | Category | Descrizione |

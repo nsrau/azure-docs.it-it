@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394518"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673844"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
 
@@ -53,6 +53,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 * Questa procedura usa le route definite dall'utente per creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * Il tunneling forzato deve essere associato a una rete virtuale con un gateway VPN basato su route. È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale. È anche necessario configurare il dispositivo VPN locale usando 0.0.0.0/0 come selettori di traffico. 
 * Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [Documentazione su ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+* Quando il gateway VPN e il gateway ExpressRoute vengono distribuiti nella stessa VNet, le route definite dall'utente (UDR) non sono più necessarie perché il gateway ExpressRoute annuncia il "sito predefinito" configurato in VNet.
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 

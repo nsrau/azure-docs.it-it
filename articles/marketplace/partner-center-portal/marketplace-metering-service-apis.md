@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674626"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API di fatturazione a consumo del Marketplace
 
@@ -34,7 +34,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 
 È possibile emettere un solo evento di utilizzo per ogni ora di un giorno del calendario per ogni risorsa. Se più unità vengono utilizzate in un'ora, accumulare tutte le unità utilizzate nell'ora e quindi generarle in un singolo evento. Gli eventi di utilizzo possono essere emessi solo per le ultime 24 ore. Se si genera un evento di utilizzo in qualsiasi momento compreso tra 8:00 e 8:59:59 (e viene accettato) e si invia un evento aggiuntivo per lo stesso giorno tra 8:00 e 8:59:59, questo verrà rifiutato come duplicato.
 
-**PUBBLICAZIONE**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**PUBBLICAZIONE** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -67,7 +67,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 >[!NOTE]
 >`resourceId` ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
 
-Per i piani delle app gestite dell'applicazione Azure, il valore di `resourceId` è il valore di `resourceUsageId` individuato in `billingDetails` dell'oggetto metadati dell'app gestita. Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Per applicazione Azure piani di app gestite, `resourceId` è l'app gestita `resource group Id` . Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Per le offerte SaaS, il valore di `resourceId` è l'ID della sottoscrizione SaaS. Per altre informazioni sulle sottoscrizioni SaaS, vedere l'[elenco delle sottoscrizioni](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -147,7 +147,7 @@ Esempio di payload di risposta:
 
 L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per più di una risorsa acquistata in una sola volta. Consente inoltre di generare diversi eventi di utilizzo per la stessa risorsa purché siano destinati a diverse ore di calendario. Il numero massimo di eventi in un singolo batch è 25.
 
-**PUBBLICAZIONE**: `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**PUBBLICAZIONE** : `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -191,7 +191,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
 >[!NOTE]
 >`resourceId` ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
 
-Per i piani delle app gestite dell'applicazione Azure, il valore di `resourceId` è il valore di `resourceUsageId` individuato in `billingDetails` dell'oggetto metadati dell'app gestita. Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Per applicazione Azure piani di app gestite, `resourceId` è l'app gestita `resource group Id` . Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Per le offerte SaaS, il valore di `resourceId` è l'ID della sottoscrizione SaaS. Per altre informazioni sulle sottoscrizioni SaaS, vedere l'[elenco delle sottoscrizioni](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -271,7 +271,7 @@ Per testare l'emissione del contatore personalizzato, implementare l'integrazion
 
 È anche possibile usare un piano privato per un'offerta Live esistente per limitare l'accesso a questo piano durante i test a destinatari limitati.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 Seguire le istruzioni in [supporto per il programma Commercial Marketplace nel centro per i partner](../support.md) per comprendere le opzioni di supporto dell'editore e aprire un ticket di supporto con Microsoft.
 

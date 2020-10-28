@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078933"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674331"
 ---
 # <a name="sensor-partner-integration"></a>Integrazione di partner di sensori
 
@@ -48,7 +48,7 @@ Le API contengono la documentazione tecnica di Swagger. Per altre informazioni s
 
 FarmBeats usa l’autenticazione di Microsoft Azure Active Directory. Il Servizio app di Azure offre supporto di autorizzazione e autenticazione integrato.
 
-Per altre informazioni, vedere [Azure Active Directory - Documentazione](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+Per altre informazioni, vedere [Azure Active Directory - Documentazione](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub usa l'autenticazione con token di connessione, che richiede le credenziali seguenti:
    - ID client
@@ -126,10 +126,10 @@ JSON è un formato di dati comune indipendente dal linguaggio che offre una rapp
 
 FarmBeats Datahub include le API seguenti che consentono ai partner di dispositivi di creare e gestire i metadati dei dispositivi o dei sensori.
 
-- /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, ovvero gateway o nodo.
-- /**Device**: Device corrisponde a un dispositivo fisico presente nella farm.
-- /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misurazione del sensore, ad esempio la temperatura e la pressione dell'ambiente.
-- /**Sensor**: Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
+- /**DeviceModel** : DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, ovvero gateway o nodo.
+- /**Device** : Device corrisponde a un dispositivo fisico presente nella farm.
+- /**SensorModel** : SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misurazione del sensore, ad esempio la temperatura e la pressione dell'ambiente.
+- /**Sensor** : Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 
   DeviceModel | Descrizione |
   --- | ---
@@ -201,7 +201,7 @@ I dati di telemetria vengono mappati a un messaggio canonico che viene pubblicat
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>Inviare i dati di telemetria a FarmBeats
 
-Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sui dati di telemetria, vedere [Invio di dati di telemetria a un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sui dati di telemetria, vedere [Invio di dati di telemetria a un hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Ecco un frammento di codice Python di esempio che invia dati di telemetria come client a un hub eventi specificato.
 

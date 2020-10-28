@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426328"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672982"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ La replica geografica attiva è una funzionalità del database SQL di Azure che 
 La replica geografica attiva è progettata come una soluzione di continuità aziendale che consente all'applicazione di eseguire un rapido ripristino di emergenza di singoli database in caso di emergenza a livello di area o di un guasto su larga scala. Se la replica geografica è abilitata, l'applicazione può avviare il failover in un database secondario in un'altra area di Azure. Sono supportati al massimo quattro database secondari nella stessa area o in aree geografiche diverse ed è possibile usare i database secondari anche per le query di accesso in sola lettura. Il failover deve essere avviato manualmente dall'utente o dall'applicazione. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso.
 
 > [!NOTE]
-> La replica geografica attiva replica le modifiche tramite il log delle transazioni del database di streaming. Non è correlato alla [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), che replica le modifiche eseguendo i comandi DML (Insert, Update, Delete).
+> La replica geografica attiva replica le modifiche tramite il log delle transazioni del database di streaming. Non è correlato alla [replica transazionale](/sql/relational-databases/replication/transactional/transactional-replication), che replica le modifiche eseguendo i comandi DML (Insert, Update, Delete).
 
 Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica tramite la replica geografica attiva.
 
@@ -46,15 +46,15 @@ Se per qualsiasi motivo il database primario restituisce un errore o deve essere
 - [PowerShell: database singolo](scripts/setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: pool elastico](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: database singolo o pool elastico](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [API REST: database singolo](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [API REST: database singolo](/rest/api/sql/replicationlinks)
 
-La replica geografica attiva sfrutta la tecnologia del [gruppo di disponibilità always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) del motore di database per replicare in modo asincrono le transazioni di cui è stato eseguito il commit nel database primario in un database secondario usando l'isolamento dello snapshot. I gruppi di failover automatico forniscono la semantica del gruppo sulla replica geografica attiva, ma viene usato lo stesso meccanismo di replica asincrona. Anche se a un certo punto i dati del database secondario possono essere leggermente indietro rispetto al database primario, per tali dati sono sempre garantite transazioni complete. La ridondanza tra aree consente il ripristino rapido delle applicazioni dalla perdita definitiva di un intero data center o di parti di esso causata da calamità naturali, errori umani irreversibili o atti dolosi. È possibile consultare i dati RPO specifici in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+La replica geografica attiva sfrutta la tecnologia del [gruppo di disponibilità always on](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) del motore di database per replicare in modo asincrono le transazioni di cui è stato eseguito il commit nel database primario in un database secondario usando l'isolamento dello snapshot. I gruppi di failover automatico forniscono la semantica del gruppo sulla replica geografica attiva, ma viene usato lo stesso meccanismo di replica asincrona. Anche se a un certo punto i dati del database secondario possono essere leggermente indietro rispetto al database primario, per tali dati sono sempre garantite transazioni complete. La ridondanza tra aree consente il ripristino rapido delle applicazioni dalla perdita definitiva di un intero data center o di parti di esso causata da calamità naturali, errori umani irreversibili o atti dolosi. È possibile consultare i dati RPO specifici in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 > [!NOTE]
 > Se si verifica un errore di rete tra due aree, viene eseguito un tentativo ogni 10 secondi per ristabilire le connessioni.
 
 > [!IMPORTANT]
-> Per garantire che una modifica importante al database primario venga replicata in un database secondario prima del failover, è possibile forzare la sincronizzazione per ottenere la replica delle modifiche importanti (ad esempio, gli aggiornamenti della password). La sincronizzazione forzata si riflette sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria, vedere [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> Per garantire che una modifica importante al database primario venga replicata in un database secondario prima del failover, è possibile forzare la sincronizzazione per ottenere la replica delle modifiche importanti (ad esempio, gli aggiornamenti della password). La sincronizzazione forzata si riflette sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria, vedere [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 La figura seguente illustra un esempio di replica geografica attiva configurata con il database primario nell'area Stati Uniti centro-settentrionali e il database secondario nell'area Stati Uniti centro-meridionali.
 
@@ -64,8 +64,8 @@ Poiché i database secondari sono leggibili, possono essere usati per l'offload 
 
 Oltre al ripristino di emergenza, la replica geografica attiva può essere usata negli scenari seguenti:
 
-- **Migrazione di database**: è possibile usare la replica geografica attiva per eseguire la migrazione di un database da un server a un altro online con un tempo di inattività minimo.
-- **Aggiornamenti dell'applicazione**: è possibile creare un database secondario aggiuntivo come copia di failback durante gli aggiornamenti dell'applicazione.
+- **Migrazione di database** : è possibile usare la replica geografica attiva per eseguire la migrazione di un database da un server a un altro online con un tempo di inattività minimo.
+- **Aggiornamenti dell'applicazione** : è possibile creare un database secondario aggiuntivo come copia di failback durante gli aggiornamenti dell'applicazione.
 
 Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei database tra i data center rappresenta solo una parte della soluzione. Per ripristinare un'applicazione (servizio) end-to-end dopo un problema grave, è necessario effettuare il ripristino di tutti i componenti del servizio e gli eventuali servizi dipendenti. Esempi di questi componenti includono il software client (ad esempio, un browser con JavaScript personalizzato), front-end Web, spazio di archiviazione e DNS. È fondamentale che tutti i componenti siano resilienti agli stessi problemi e diventino disponibili entro I'obiettivo del tempo di ripristino (RTO) dell'applicazione. È perciò necessario identificare tutti i servizi dipendenti e comprendere quali garanzie e funzionalità vengono fornite. È quindi necessario intraprendere le azioni appropriate per assicurare il funzionamento del servizio durante il failover dei servizi da cui dipende. Per altre informazioni sulla progettazione di soluzioni per il ripristino di emergenza, vedere [Progettazione di applicazioni per il ripristino di emergenza cloud con la replica geografica attiva in database SQL](designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -244,7 +244,7 @@ Per misurare il ritardo rispetto alle modifiche apportate al database primario c
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva
 
-Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
+Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](/rest/api/sql/) e i [cmdlet di Azure PowerShell](/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: gestire il failover di database singoli e in pool
 
@@ -253,9 +253,9 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 | Comando | Descrizione |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Usare REMOVE SECONDARY ON SERVER per terminare la replica dei dati tra un database SQL e il database secondario specificato. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Usare REMOVE SECONDARY ON SERVER per terminare la replica dei dati tra un database SQL e il database secondario specificato. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Restituisce informazioni su tutti i collegamenti di replica esistenti per ogni database in un server. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Ottiene l'ora dell'ultima replica, l'ultimo ritardo di replica e altre informazioni sul collegamento di replica per un determinato database. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra lo stato per tutte le operazioni di database, incluso lo stato dei collegamenti di replica. |
@@ -266,15 +266,15 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
 | Cmdlet | Descrizione |
 | --- | --- |
-| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Ottiene uno o più database. |
-| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
-| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Consente di passare un database secondario al ruolo di database primario per avviare il failover. |
-| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Termina la replica dei dati tra un database SQL e il database secondario specificato. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Ottiene i collegamenti di replica geografica tra un database SQL di Azure e un gruppo di risorse o un server SQL logico. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Ottiene uno o più database. |
+| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
+| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Consente di passare un database secondario al ruolo di database primario per avviare il failover. |
+| [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Termina la replica dei dati tra un database SQL e il database secondario specificato. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Ottiene i collegamenti di replica geografica tra un database SQL di Azure e un gruppo di risorse o un server SQL logico. |
 |  | |
 
 > [!IMPORTANT]
@@ -284,13 +284,13 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 | API | Descrizione |
 | --- | --- |
-| [Creare o aggiornare database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, aggiorna o ripristina un database primario o secondario. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Restituisce lo stato durante un'operazione di creazione. |
-| [Impostazione del database secondario come primario (failover pianificato)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Stabilisce quale database secondario deve essere primario eseguendo il failover dal database primario corrente. **Questa opzione non è supportata per SQL Istanza gestita.**|
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Stabilisce quale database secondario deve essere primario eseguendo il failover dal database primario corrente. Questa operazione potrebbe comportare la perdita di dati. **Questa opzione non è supportata per SQL Istanza gestita.**|
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Ottiene un collegamento di replica specifico per un determinato database in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. **Questa opzione non è supportata per SQL Istanza gestita.**|
-| [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Ottiene tutti i collegamenti di replica per un determinato database in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
-| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina un collegamento alla replica del database. Non può essere eseguito durante il failover. |
+| [Creare o aggiornare database (createMode=Restore)](/rest/api/sql/databases/createorupdate) |Crea, aggiorna o ripristina un database primario o secondario. |
+| [Get Create or Update Database Status](/rest/api/sql/databases/createorupdate) |Restituisce lo stato durante un'operazione di creazione. |
+| [Impostazione del database secondario come primario (failover pianificato)](/rest/api/sql/replicationlinks/failover) |Stabilisce quale database secondario deve essere primario eseguendo il failover dal database primario corrente. **Questa opzione non è supportata per SQL Istanza gestita.**|
+| [Set Secondary Database as Primary (Unplanned Failover)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Stabilisce quale database secondario deve essere primario eseguendo il failover dal database primario corrente. Questa operazione potrebbe comportare la perdita di dati. **Questa opzione non è supportata per SQL Istanza gestita.**|
+| [Get Replication Link](/rest/api/sql/replicationlinks/get) |Ottiene un collegamento di replica specifico per un determinato database in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. **Questa opzione non è supportata per SQL Istanza gestita.**|
+| [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Ottiene tutti i collegamenti di replica per un determinato database in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
+| [Delete Replication Link](/rest/api/sql/replicationlinks/delete) | Elimina un collegamento alla replica del database. Non può essere eseguito durante il failover. |
 |  | |
 
 ## <a name="next-steps"></a>Passaggi successivi

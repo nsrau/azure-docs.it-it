@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443675"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674761"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Assicurarsi di avere quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). Per compilare ed eseguire questo esempio, è necessario installare i componenti del linguaggio C++.
-* [Sviluppo di Linux per Visual Studio](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Se si esegue lo sviluppo su Linux, è anche necessario installare l'estensione di Visual Studio per Linux.
+* [Sviluppo di Linux per Visual Studio](/cpp/linux/?view=vs-2019). Se si esegue lo sviluppo su Linux, è anche necessario installare l'estensione di Visual Studio per Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Database SQL di Azure ed SQL Server nelle macchine virtuali
 
@@ -39,7 +39,7 @@ Azure dispone attualmente di due opzioni per l'hosting dei carichi di lavoro di 
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Tecnologie di accesso ai dati: ODBC e OLE DB
 
-La connessione al database SQL di Azure non è diversa e attualmente esistono due modi per connettersi ai database: ODBC (Open Database Connectivity) e OLE DB (collegamento a oggetti e database di incorporamento). Negli ultimi anni Microsoft si è allineata a [ODBC per l'accesso ai dati relazionali nativi](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC è relativamente semplice e molto più veloce rispetto a OLE DB. Si tenga tuttavia presente che ODBC usa una vecchia API di tipo C.
+La connessione al database SQL di Azure non è diversa e attualmente esistono due modi per connettersi ai database: ODBC (Open Database Connectivity) e OLE DB (collegamento a oggetti e database di incorporamento). Negli ultimi anni Microsoft si è allineata a [ODBC per l'accesso ai dati relazionali nativi](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC è relativamente semplice e molto più veloce rispetto a OLE DB. Si tenga tuttavia presente che ODBC usa una vecchia API di tipo C.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Passaggio 1: Creazione di un database SQL di Azure
 
@@ -55,7 +55,7 @@ In [portale di Azure](https://portal.azure.com/)passare alla stringa di connessi
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]**. Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
+Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]** . Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Passaggio 3: Aggiungere l'indirizzo IP al firewall
 
@@ -81,7 +81,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 
 ![Creare un file DSN](./media/develop-cplusplus-simple/datasource.png)
 
-A questo punto, È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
+Congratulazioni! È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
 
@@ -123,7 +123,7 @@ L'ultima operazione da eseguire prima della compilazione consiste nell'aggiunger
 
 ![Aggiunta di ODBC come libreria di input](./media/develop-cplusplus-simple/lib.png)
 
-Per avviare l'applicazione, visualizzare la console Linux nel menu **Debug**:
+Per avviare l'applicazione, visualizzare la console Linux nel menu **Debug** :
 
 ![Console Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 
@@ -131,7 +131,7 @@ Se la connessione è stata stabilita correttamente, viene visualizzato il nome d
 
 ![Output della finestra della console Linux](./media/develop-cplusplus-simple/linuxconsolewindow.png)
 
-A questo punto, L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ in piattaforme Windows e Linux.
+Congratulazioni! L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ in piattaforme Windows e Linux.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su C/C++
 
@@ -143,7 +143,7 @@ La soluzione GetStarted contenente tutti gli esempi riportati in questo articolo
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esaminare la [Panoramica sullo sviluppo di database SQL](develop-overview.md)
-* Per altre informazioni, vedere le [informazioni di riferimento sulle API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Per altre informazioni, vedere le [informazioni di riferimento sulle API ODBC](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

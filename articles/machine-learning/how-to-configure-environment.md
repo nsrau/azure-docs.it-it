@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: ee1753932018d0ea3a627ff2a6c7b85dc0a65de1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495239"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674855"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -24,7 +24,7 @@ Informazioni su come configurare un ambiente di sviluppo Python per Azure Machin
 
 La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo articolo, oltre a vantaggi e svantaggi.
 
-| Environment | Vantaggi | Svantaggi |
+| Ambiente | Vantaggi | Svantaggi |
 | --- | --- | --- |
 | [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
 | [Istanza di calcolo di Azure Machine Learning](#compute-instance) | Modo più semplice per iniziare. L'intero SDK è già installato nella macchina virtuale dell'area di lavoro e le esercitazioni sui notebook sono pre-clonate e pronte per l'esecuzione. | Mancanza di controllo sull'ambiente di sviluppo e sulle dipendenze. Costi aggiuntivi per le VM Linux (è possibile arrestare la macchina virtuale quando non è in uso per evitare addebiti). Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
@@ -61,13 +61,13 @@ Creare un file di configurazione dell'area di lavoro in uno dei metodi seguenti:
 
 * Portale di Azure
 
-    **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
+    **Scaricare il file** : nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
 
     ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 
 * Python SDK di Azure Machine Learning
 
-    Creare uno script per connettersi all'area di lavoro di Azure Machine Learning e usare il [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metodo per generare il file e salvarlo con *estensione azureml/config.js*. Assicurarsi di sostituire `subscription_id` , `resource_group` e `workspace_name` con il proprio.
+    Creare uno script per connettersi all'area di lavoro di Azure Machine Learning e usare il [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metodo per generare il file e salvarlo con *estensione azureml/config.js* . Assicurarsi di sostituire `subscription_id` , `resource_group` e `workspace_name` con il proprio.
 
     ```python
     from azureml.core import Workspace
@@ -122,6 +122,9 @@ Quando si esegue un server di Jupyter Notebook locale, è consigliabile creare u
 
 Per iniziare a usare i notebook di Azure Machine Learning e Jupyter, vedere il [repository Azure Machine Learning Notebooks](https://github.com/Azure/MachineLearningNotebooks) .
 
+> [!NOTE]
+> Un repository di esempi gestito dalla community è reperibile in https://github.com/Azure/azureml-examples .
+
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 Per usare Visual Studio Code per lo sviluppo:
@@ -148,7 +151,7 @@ Oltre a un server Jupyter Notebook e a JupyterLab, è possibile usare le istanze
 
 È anche possibile usare l'estensione Azure Machine Learning Visual Studio Code per [configurare un'istanza di calcolo Azure machine learning come server di Jupyter notebook remoto](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Macchina virtuale di data science
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 
 La Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale personalizzata. È progettato per data science lavoro di strumenti e software preconfigurati, ad esempio:
 
@@ -240,7 +243,7 @@ Attendere che il cluster sia in esecuzione prima di proseguire.
 
 Quando il cluster è in esecuzione, [creare una libreria](https://docs.databricks.com/user-guide/libraries.html#create-a-library) per alleghi il pacchetto SDK Azure Machine Learning appropriato al cluster. Per l'apprendimento automatico, passare all' [SDK per databricks con la sezione automatizzata di Machine Learning](#sdk-for-databricks-with-automated-machine-learning).
 
-1. Fare clic con il pulsante destro del mouse sulla cartella dell'area di lavoro corrente in cui si desidera archiviare la libreria. Selezionare **Crea**  >  **libreria**.
+1. Fare clic con il pulsante destro del mouse sulla cartella dell'area di lavoro corrente in cui si desidera archiviare la libreria. Selezionare **Crea**  >  **libreria** .
 
 1. Scegliere l'opzione seguente (non sono supportate altre installazioni SDK)
 
@@ -251,15 +254,15 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
    > [!Warning]
    > Non è possibile installare altri SDK aggiuntivi. Scegliere solo l' `databricks` opzione [].
 
-   * Non selezionare **Connetti automaticamente a tutti i cluster**.
+   * Non selezionare **Connetti automaticamente a tutti i cluster** .
    * Selezionare  **Connetti** accanto al nome del cluster.
 
-1. Consente di monitorare gli errori fino a quando lo stato non diventa **collegato**, operazione che può richiedere alcuni minuti.  Se questo passaggio ha esito negativo:
+1. Consente di monitorare gli errori fino a quando lo stato non diventa **collegato** , operazione che può richiedere alcuni minuti.  Se questo passaggio ha esito negativo:
 
    Provare a riavviare il cluster per:
-   1. Nel riquadro a sinistra selezionare **Cluster**.
+   1. Nel riquadro a sinistra selezionare **Cluster** .
    1. Nella tabella selezionare il nome del cluster.
-   1. Nella scheda **Librerie** selezionare **Riavvia**.
+   1. Nella scheda **Librerie** selezionare **Riavvia** .
 
    Prendere in considerazione anche:
    + In AutoML config, quando si usa Azure Databricks aggiungere i parametri seguenti:

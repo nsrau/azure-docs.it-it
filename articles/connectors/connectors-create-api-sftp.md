@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033303"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673819"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorare, creare e gestire file SFTP in app per la logica di Azure
 
@@ -45,12 +45,12 @@ Il connettore SFTP gestisce solo i file di *50 MB o inferiori* e non supporta la
   > Il connettore SFTP supporta questi formati di chiave privata: OpenSSH, ssh.com e PuTTY
   >
   > Durante la creazione dell'app per la logica, dopo l'aggiunta del trigger SFTP o dell'azione desiderata, è necessario fornire le informazioni di connessione per il server SFTP. 
-  > Se si usa una chiave privata SSH, assicurarsi di ***copiare*** la chiave dal file della chiave privata SSH e ***incollare*** tale chiave nelle informazioni per la connessione. ***Non immettere o modificare la chiave manualmente***, in quanto ciò può causare un errore di connessione. 
+  > Se si usa una chiave privata SSH, assicurarsi di * **copiare** la chiave dal file di chiave privata SSH e _*_incollare_*_ la chiave nei dettagli della connessione, _*_non immettere o modificare manualmente la_*_ chiave, che potrebbe causare l'esito negativo della connessione. 
   > Per altre informazioni, vedere i passaggi successivi in questo articolo.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+_ Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger di SFTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SFTP, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
+* L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger di SFTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SFTP, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza** .
 
 ## <a name="how-sftp-triggers-work"></a>Come funzionano i trigger SFTP
 
@@ -74,28 +74,28 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "sftp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio** . Nella casella di ricerca immettere "sftp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione** .
 
 1. Specificare le informazioni necessarie per la connessione.
 
    > [!IMPORTANT]
    >
-   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. 
+   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH** , seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. 
    > Una chiave non valida provoca un errore di connessione.
 
    Anche se è possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe.
 
    1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
+   1. Scegliere **Seleziona tutto** dal menu **modifica** del blocco note.
 
-   1. Selezionare **modifica**  >  **copia**.
+   1. Selezionare **modifica**  >  **copia** .
 
-   1. Nell'azione o trigger SFTP aggiunto incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente la chiave***.
+   1. Nell'azione o trigger SFTP aggiunto incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. **_Assicurarsi di incollare_* la chiave. _*_Non immettere o modificare manualmente la chiave_*_ .
 
-1. Dopo avere immesso le informazioni per la connessione, scegliere **Crea**.
+1. Al termine dell'immissione dei dettagli della connessione, scegliere _ * crea * *.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -107,7 +107,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
 Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP.
 
-**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione** : si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
 <a name="get-content"></a>
 
@@ -117,7 +117,7 @@ Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/azure/data-factory/connector-sftp) del connettore.
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](../data-factory/connector-sftp.md) del connettore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

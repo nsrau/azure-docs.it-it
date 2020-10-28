@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652007"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674029"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
@@ -31,7 +31,7 @@ Funzioni di Azure consente di eseguire programmi e script in un altro modo. Per 
 
 ## <a name="webjob-types"></a>Tipi di processi Web
 
-La tabella seguente descrive le differenze tra processi Web *continui* e *attivati*.
+La tabella seguente descrive le differenze tra processi Web *continui* e *attivati* .
 
 
 |Continua  |Attivato  |
@@ -61,13 +61,16 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> Se è stato configurato il controllo del codice sorgente con l'applicazione, i processi Web devono essere distribuiti come parte dell'integrazione del controllo del codice sorgente. Una volta configurato il controllo del codice sorgente con l'applicazione, non è possibile aggiungere un processo Web dal portale di Azure.
+
 1. Nel [portale di Azure](https://portal.azure.com) andare alla pagina **Servizio app** dell'app Web del servizio app, dell'app per le API o dell'app per dispositivi mobili.
 
-2. Selezionare **Processi Web**.
+2. Selezionare **Processi Web** .
 
    ![Selezionare Processi Web](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Nella pagina **Processi Web** selezionare **Aggiungi**.
+2. Nella pagina **Processi Web** selezionare **Aggiungi** .
 
     ![Pagina Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -75,20 +78,20 @@ when making changes in one don't forget the other two.
 
    ![Screenshot che mostra le impostazioni di aggiunta di processo Web che è necessario configurare.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Continua | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Ridimensionamento** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
 
-4. Fare clic su **OK**.
+4. Fare clic su **OK** .
 
-   Il nuovo processo Web viene visualizzato nella pagina **Processi Web**.
+   Il nuovo processo Web viene visualizzato nella pagina **Processi Web** .
 
    ![Elenco dei processi Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Per arrestare o riavviare un processo Web continuo, fare clic con il pulsante destro del mouse sul processo Web nell'elenco e scegliere **Arresta** o **Avvia**.
+2. Per arrestare o riavviare un processo Web continuo, fare clic con il pulsante destro del mouse sul processo Web nell'elenco e scegliere **Arresta** o **Avvia** .
 
     ![Arrestare un processo Web continuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -101,11 +104,11 @@ when making changes in one don't forget the other two.
 
 1. Nel [portale di Azure](https://portal.azure.com) andare alla pagina **Servizio app** dell'app Web del servizio app, dell'app per le API o dell'app per dispositivi mobili.
 
-2. Selezionare **Processi Web**.
+2. Selezionare **Processi Web** .
 
    ![Selezionare Processi Web](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Nella pagina **Processi Web** selezionare **Aggiungi**.
+2. Nella pagina **Processi Web** selezionare **Aggiungi** .
 
     ![Pagina Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -113,20 +116,20 @@ when making changes in one don't forget the other two.
 
    ![Screenshot che mostra le impostazioni che devono essere impostate per la creazione di un processo Web attivato manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Trigger** | Manuale | |
 
-4. Fare clic su **OK**.
+4. Fare clic su **OK** .
 
-   Il nuovo processo Web viene visualizzato nella pagina **Processi Web**.
+   Il nuovo processo Web viene visualizzato nella pagina **Processi Web** .
 
    ![Elenco dei processi Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Per eseguire il processo Web, fare clic con il pulsante destro del mouse sul nome visualizzato nell'elenco e scegliere **Esegui**.
+7. Per eseguire il processo Web, fare clic con il pulsante destro del mouse sul nome visualizzato nell'elenco e scegliere **Esegui** .
    
     ![Eseguire un processo Web](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -139,11 +142,11 @@ when making changes in one don't forget the other two.
 
 1. Nel [portale di Azure](https://portal.azure.com) andare alla pagina **Servizio app** dell'app Web del servizio app, dell'app per le API o dell'app per dispositivi mobili.
 
-2. Selezionare **Processi Web**.
+2. Selezionare **Processi Web** .
 
    ![Selezionare Processi Web](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Nella pagina **Processi Web** selezionare **Aggiungi**.
+2. Nella pagina **Processi Web** selezionare **Aggiungi** .
 
    ![Pagina Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -151,17 +154,17 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Trigger** | Pianificate | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
+   | **Trigger** | Scheduled | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
    | **Espressione CRON** | 0 0/20 * * * * | Le [espressioni CRON](#ncrontab-expressions) vengono descritte nella sezione seguente. |
 
-4. Fare clic su **OK**.
+4. Fare clic su **OK** .
 
-   Il nuovo processo Web viene visualizzato nella pagina **Processi Web**.
+   Il nuovo processo Web viene visualizzato nella pagina **Processi Web** .
 
    ![Elenco dei processi Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
@@ -181,7 +184,7 @@ Per altre informazioni, vedere [pianificazione di un processo Web attivato](webj
 
 ## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Visualizzare la cronologia processo
 
-1. Selezionare il processo Web di cui si vuole visualizzare la cronologia e quindi selezionare il pulsante **Log**.
+1. Selezionare il processo Web di cui si vuole visualizzare la cronologia e quindi selezionare il pulsante **Log** .
    
    ![Pulsante Log](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
@@ -193,7 +196,7 @@ Per altre informazioni, vedere [pianificazione di un processo Web attivato](webj
    
     ![Dettagli dell'esecuzione del processo Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Per visualizzare il testo dell'output in una finestra del browser separata, selezionare **download**. Per scaricare il testo stesso, fare clic con il pulsante destro del mouse su **download** e usare le opzioni del browser in uso per salvare il contenuto del file.
+   Per visualizzare il testo dell'output in una finestra del browser separata, selezionare **download** . Per scaricare il testo stesso, fare clic con il pulsante destro del mouse su **download** e usare le opzioni del browser in uso per salvare il contenuto del file.
    
 5. Selezionare il collegamento del percorso **Processi Web** nella parte superiore della pagina per passare a un elenco di processi Web.
 

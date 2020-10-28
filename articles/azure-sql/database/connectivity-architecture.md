@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479086"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672511"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479086"
 Questo articolo illustra l'architettura dei vari componenti che indirizzano il traffico di rete a un server nel database SQL di Azure o in Azure sinapsi Analytics. Vengono inoltre illustrati i diversi criteri di connessione e il modo in cui i client si connettono da Azure e i client che si connettono dall'esterno di Azure.
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**. [Per un'istanza gestita](../managed-instance/connectivity-architecture-overview.md), vedere Architettura di connettività.
+> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure** . [Per un'istanza gestita](../managed-instance/connectivity-architecture-overview.md), vedere Architettura di connettività.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
@@ -51,7 +51,7 @@ I server del database SQL e di Azure sinapsi supportano le tre opzioni seguenti 
 
 - **Impostazione predefinita:** Questo è il criterio di connessione attivo in tutti i server dopo la creazione, a meno che non si modifichi in modo esplicito i criteri di connessione a `Proxy` o `Redirect` . Il criterio predefinito è `Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy` per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
 
-Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`. Tuttavia, sarà necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con i [tag del servizio](../../virtual-network/security-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
+Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`. Tuttavia, sarà necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con i [tag del servizio](../../virtual-network/network-security-groups-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
@@ -66,7 +66,7 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![Diagramma che illustra il modo in cui la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e tutti i pacchetti successivi vengono propagati tramite il gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Indirizzi IP del gateway
 
@@ -124,6 +124,6 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come modificare i criteri di connessione del database SQL di Azure per un server, vedere [conn-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Per informazioni su come modificare i criteri di connessione del database SQL di Azure per un server, vedere [conn-Policy](/cli/azure/sql/server/conn-policy).
 - Per informazioni sul comportamento della connessione al database SQL di Azure per i client che usano ADO.NET 4.5 o versione successiva, vedere [Porte successive alla 1433 per ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - Per una panoramica generale sullo sviluppo di applicazioni, vedere [Panoramica dello sviluppo di applicazioni del database SQL](develop-overview.md).

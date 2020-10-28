@@ -9,25 +9,25 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: aa74489a962708a1d3d5e6835f684e5cb8fc548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444350"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675062"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Questo articolo è disponibile in **anteprima pubblica**.
+> Questo articolo è disponibile in **anteprima pubblica** .
 
-Gli utenti guest in Azure Active Directory (Azure AD) sono utenti che sono stati importati nella Azure AD corrente da altre directory di Azure Active Directory o all'esterno di esso. Ad esempio, gli utenti guest possono includere utenti di altre directory di Azure Active Directory o da account come * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*o * \@ gmail.com*. In questo articolo viene illustrato come creare un Azure AD utente Guest e impostare tale utente come amministratore Azure AD per il server logico SQL di Azure, senza che sia necessario che l'utente Guest faccia parte di un gruppo all'interno Azure AD.
+Gli utenti guest in Azure Active Directory (Azure AD) sono utenti che sono stati importati nella Azure AD corrente da altre directory di Azure Active Directory o all'esterno di esso. Ad esempio, gli utenti guest possono includere utenti di altre directory di Azure Active Directory o da account come *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* o *\@ gmail.com* . In questo articolo viene illustrato come creare un Azure AD utente Guest e impostare tale utente come amministratore Azure AD per il server logico SQL di Azure, senza che sia necessario che l'utente Guest faccia parte di un gruppo all'interno Azure AD.
 
 ## <a name="feature-description"></a>Descrizione delle caratteristiche
 
-Questa funzionalità eleva la limitazione corrente che consente solo agli utenti guest di connettersi a database SQL di Azure, SQL Istanza gestita o Azure sinapsi Analytics quando sono membri di un gruppo creato in Azure AD. Il gruppo deve essere mappato a un utente manualmente usando l'istruzione [Create User (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) in un database specifico. Una volta creato un utente del database per il gruppo di Azure AD contenente l'utente Guest, l'utente Guest può accedere al database usando Azure Active Directory con autenticazione a più fattori. Come parte di questa versione di **anteprima pubblica**, gli utenti guest possono essere creati e connettersi direttamente al database SQL, a SQL istanza gestita o a una sinapsi di Azure senza che sia necessario aggiungerli a un gruppo di Azure ad e quindi creare un utente del database per tale gruppo di Azure ad.
+Questa funzionalità eleva la limitazione corrente che consente solo agli utenti guest di connettersi a database SQL di Azure, SQL Istanza gestita o Azure sinapsi Analytics quando sono membri di un gruppo creato in Azure AD. Il gruppo deve essere mappato a un utente manualmente usando l'istruzione [Create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) in un database specifico. Una volta creato un utente del database per il gruppo di Azure AD contenente l'utente Guest, l'utente Guest può accedere al database usando Azure Active Directory con autenticazione a più fattori. Come parte di questa versione di **anteprima pubblica** , gli utenti guest possono essere creati e connettersi direttamente al database SQL, a SQL istanza gestita o a una sinapsi di Azure senza che sia necessario aggiungerli a un gruppo di Azure ad e quindi creare un utente del database per tale gruppo di Azure ad.
 
 Come parte di questa funzionalità, è anche possibile impostare l'utente guest di Azure AD direttamente come amministratore di Active Directory per il server logico SQL di Azure. La funzionalità esistente in cui l'utente Guest può far parte di un gruppo di Azure AD e tale gruppo può quindi essere impostato come amministratore Azure AD per il server logico SQL di Azure non ha alcun effetto. Questa modifica non ha alcun effetto anche sugli utenti guest nel database che fanno parte di un gruppo di Azure AD.
 
@@ -59,12 +59,12 @@ Attenersi alla seguente procedura per creare un utente del database utilizzando 
     SELECT * FROM sys.database_principals
     ```
 
-1. Disconnettersi e accedere al database come utente Guest `user1@gmail.com` usando [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) usando il metodo di autenticazione **Azure Active Directory universale con**l'autenticazione a più fattori. Per altre informazioni, vedere [uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md).
+1. Disconnettersi e accedere al database come utente Guest `user1@gmail.com` usando [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) usando il metodo di autenticazione **Azure Active Directory universale con** l'autenticazione a più fattori. Per altre informazioni, vedere [uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md).
 
 ### <a name="create-guest-user-in-sql-managed-instance"></a>Crea utente guest in SQL Istanza gestita
 
 > [!NOTE]
-> SQL Istanza gestita supporta gli account di accesso per gli utenti Azure AD e Azure AD gli utenti del database indipendente. Nei passaggi seguenti viene illustrato come creare un account di accesso e un utente per un Azure AD utente guest in SQL Istanza gestita. È anche possibile scegliere di creare un [utente di database indipendente](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL istanza gestita usando il metodo nella sezione [creare un utente Guest nel database SQL e](#create-guest-user-in-sql-database-and-azure-synapse) in una sinapsi di Azure.
+> SQL Istanza gestita supporta gli account di accesso per gli utenti Azure AD e Azure AD gli utenti del database indipendente. Nei passaggi seguenti viene illustrato come creare un account di accesso e un utente per un Azure AD utente guest in SQL Istanza gestita. È anche possibile scegliere di creare un [utente di database indipendente](/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL istanza gestita usando il metodo nella sezione [creare un utente Guest nel database SQL e](#create-guest-user-in-sql-database-and-azure-synapse) in una sinapsi di Azure.
 
 1. Verificare che l'utente Guest, ad esempio, `user1@gmail.com` sia già stato aggiunto all'Azure ad e che sia stato impostato un amministratore Azure ad per il server SQL istanza gestita. Per l'autenticazione Azure Active Directory, è necessario disporre di un amministratore Azure AD.
 
@@ -90,7 +90,7 @@ Attenersi alla seguente procedura per creare un utente del database utilizzando 
 
 1. A questo punto dovrebbe essere creato un utente del database per l'utente Guest `user1@gmail.com` .
 
-1. Disconnettersi e accedere al database come utente Guest `user1@gmail.com` usando [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) usando il metodo di autenticazione **Azure Active Directory universale con**l'autenticazione a più fattori. Per altre informazioni, vedere [uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md).
+1. Disconnettersi e accedere al database come utente Guest `user1@gmail.com` usando [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) usando il metodo di autenticazione **Azure Active Directory universale con** l'autenticazione a più fattori. Per altre informazioni, vedere [uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md).
 
 ## <a name="setting-a-guest-user-as-an-azure-ad-admin"></a>Impostazione di un utente guest come amministratore Azure AD
 
@@ -110,13 +110,13 @@ Per impostare un utente Guest Azure AD come amministratore Azure AD per il serve
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-    È anche possibile usare l'interfaccia della riga di comando di Azure [AZ SQL Server ad-admin](https://docs.microsoft.com/cli/azure/sql/server/ad-admin) per impostare l'utente guest come amministratore Azure ad per il server logico SQL di Azure.
+    È anche possibile usare l'interfaccia della riga di comando di Azure [AZ SQL Server ad-admin](/cli/azure/sql/server/ad-admin) per impostare l'utente guest come amministratore Azure ad per il server logico SQL di Azure.
 
 ### <a name="set-azure-ad-admin-for-sql-managed-instance"></a>Imposta Azure AD amministratore per SQL Istanza gestita
 
 1. Verificare che l'utente Guest, ad esempio, `user1@gmail.com` sia già stato aggiunto all'Azure ad.
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e passare alla risorsa **Azure Active Directory** . In **Gestisci**andare al riquadro **utenti** . Selezionare l'utente Guest e registrare il `Object ID` . 
+1. Passare alla [portale di Azure](https://portal.azure.com)e passare alla risorsa **Azure Active Directory** . In **Gestisci** andare al riquadro **utenti** . Selezionare l'utente Guest e registrare il `Object ID` . 
 
 1. Eseguire il comando di PowerShell seguente per aggiungere l'utente guest come amministratore Azure AD per il Istanza gestita SQL:
 
@@ -129,11 +129,11 @@ Per impostare un utente Guest Azure AD come amministratore Azure AD per il serve
     Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -InstanceName "<ManagedInstanceName>" -DisplayName <DisplayNameOfGuestUser> -ObjectId <AADObjectIDOfGuestUser>
     ```
 
-    È anche possibile usare l'interfaccia della riga di comando di Azure [AZ SQL mi ad-admin](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin) per impostare l'utente guest come amministratore Azure ad per il istanza gestita SQL.
+    È anche possibile usare l'interfaccia della riga di comando di Azure [AZ SQL mi ad-admin](/cli/azure/sql/mi/ad-admin) per impostare l'utente guest come amministratore Azure ad per il istanza gestita SQL.
 
 ## <a name="limitations"></a>Limitazioni
 
-Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per Istanza gestita SQL. Per gli account Guest esterni all'Azure ad come * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*o * \@ gmail.com*, il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il Istanza gestita SQL.
+Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per Istanza gestita SQL. Per gli account Guest esterni all'Azure ad come *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* o *\@ gmail.com* , il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il Istanza gestita SQL.
 
 Questa funzionalità verrà abilitata per SQL Istanza gestita prima della disponibilità generale di questa funzionalità.
 
@@ -141,4 +141,4 @@ Questa funzionalità verrà abilitata per SQL Istanza gestita prima della dispon
 
 - [Configurare e gestire l'autenticazione di Azure AD con Azure SQL](authentication-aad-configure.md)
 - [Uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md)
-- [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+- [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql)
