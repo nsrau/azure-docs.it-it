@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938340"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896260"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Community di Azure Maps-progetti open source
 
@@ -24,7 +24,7 @@ Di seguito sono elencati alcuni dei più diffusi progetti ed esempi Open Source 
 
 **Bot**
 
-| Nome del progetto | Descrizione |
+| Nome del progetto | Description |
 |-|-|
 | [Bot Framework-competenze per punti di interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Il punto di interesse fornisce funzionalità correlate a un assistente virtuale usando mappe di Azure con il servizio Azure bot e il Framework bot. |
 | [Percorso BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Controllo selezione posizione open source per Microsoft bot Framework basato sui servizi REST di Bing Maps. |
@@ -35,7 +35,7 @@ Di seguito sono elencati alcuni dei più diffusi progetti ed esempi Open Source 
 
 Di seguito è riportato un elenco di progetti open source che estendono le funzionalità di Azure Maps Web SDK.
 
-| Nome del progetto | Descrizione |
+| Nome del progetto | Description |
 |-|-|
 | [Modulo animazione di Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Una ricca libreria di animazioni da usare con Azure Maps Web SDK. |
 | [Modulo di controllo georilevazioni di Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Un modulo SDK Web di Azure Maps che fornisce un controllo che usa l'API di georilevazione del browser per individuare l'utente sulla mappa. |
@@ -48,7 +48,7 @@ Di seguito è riportato un elenco di progetti open source che estendono le funzi
 
 **Esempi**
 
-| Nome del progetto | Descrizione |
+| Nome del progetto | Description |
 |-|-|
 | [Esempi di codice di Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Una raccolta di esempi di codice per l'uso di mappe di Azure in app basate sul Web. |
 | [Esempi di codice cloud di Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Una raccolta di esempi di codice per l'uso di mappe di Azure tramite il cloud di Azure per enti pubblici. |
@@ -59,7 +59,7 @@ Di seguito è riportato un elenco di progetti open source che estendono le funzi
 
 **Strumenti e risorse**
 
-| Nome del progetto | Descrizione |
+| Nome del progetto | Description |
 |-|-|
 | [Documentazione di mappe di Azure](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Origine per tutta la documentazione di servizi location based di Azure. |
 | [Strumenti per l'autore di mappe di Azure](https://github.com/Azure-Samples/AzureMapsCreator) | Strumenti di creazione di Python Tools per Azure Maps Creator. |
@@ -82,4 +82,4 @@ Le istruzioni seguenti si applicano a tutte le mappe di Azure create e gestite e
 Trova altri progetti open source di Azure maps.
 
 > [!div class="nextstepaction"]
-> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Esempi di codice](/samples/browse/?products=azure-maps)

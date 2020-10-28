@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362672"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896243"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introduzione ad Azure Maps Power BI Visual
 
-<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per ***i consumer*** ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium </Token>
+<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per * *_consumer_* _ ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium</Token>
 
 Questo articolo illustra come usare l'oggetto visivo Microsoft Azure Maps per Power BI.
 
@@ -47,9 +47,9 @@ Per ulteriori informazioni sulla privacy e le condizioni per l'utilizzo correlat
 
 ## <a name="preview-behavior-and-requirements"></a>Comportamenti e requisiti dell'anteprima
 
-Esistono alcune considerazioni e requisiti per questa versione di anteprima delle **mappe di Azure**:
+Esistono alcune considerazioni e requisiti per questa versione di anteprima di _ * mappe di Azure * *:
 
--   L'oggetto visivo **mappe di Azure** è disponibile in anteprima e deve essere abilitato in Power bi desktop. Per abilitare le **mappe di Azure**, selezionare opzioni **file** &gt; **e impostazioni** &gt; **Opzioni** &gt; **Anteprima funzionalità**, quindi selezionare la casella di controllo **Visual Maps Azure** . Se l'oggetto visivo Maps di Azure non è disponibile dopo questa operazione, è probabile che sia necessario abilitare l'opzione di amministrazione del tenant nel portale di amministrazione.
+-   L'oggetto visivo **mappe di Azure** è disponibile in anteprima e deve essere abilitato in Power bi desktop. Per abilitare le **mappe di Azure** , selezionare opzioni **file** &gt; **e impostazioni** &gt; **Opzioni** &gt; **Anteprima funzionalità** , quindi selezionare la casella di controllo **Visual Maps Azure** . Se l'oggetto visivo Maps di Azure non è disponibile dopo questa operazione, è probabile che sia necessario abilitare l'opzione di amministrazione del tenant nel portale di amministrazione.
 -   Il set di dati deve contenere campi che contengono informazioni sulla **Latitudine** e la **Longitudine** . La geocodifica dei campi della località verrà aggiunta in un aggiornamento futuro.
 -   Il controllo della legenda incorporato per Power BI attualmente non è visualizzato in questa anteprima. Verrà aggiunto in un aggiornamento futuro.
 
@@ -173,7 +173,7 @@ Scopri di più sull'oggetto visivo Power BI mappe di Azure:
 Personalizzare l'oggetto visivo:
 
 > [!div class="nextstepaction"]
-> [Suggerimenti e consigli per la formattazione dei colori in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Suggerimenti e consigli per la formattazione dei colori in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

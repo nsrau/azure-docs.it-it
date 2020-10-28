@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976882"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896617"
 ---
 # <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
 
-Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](https://aka.ms/AzureMapsWeatherService)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e il meteo lungo una route.
+Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](/rest/api/maps/weather)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e il meteo lungo una route.
 
 Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutti i paesi e le aree geografiche.
 
@@ -54,7 +54,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Cuba                                     | ✓ |   | |✓| 
 | Curaçao                                  | ✓ |   | |✓| 
 | Dominica                                 | ✓ |   | |✓| 
-| Repubblica Dominicana                       | ✓ |   | |✓| 
+| Repubblica dominicana                       | ✓ |   | |✓| 
 | Ecuador                                  | ✓ |   | |✓| 
 | El Salvador                              | ✓ |   | |✓| 
 | Isole Falkland                         | ✓ |   | |✓| 
@@ -100,7 +100,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:| 
 | Algeria                     | ✓               |                              |     |  ✓| 
 | Angola                      | ✓               |                              |     |  ✓| 
-| Bahrein                     | ✓               |                              |     |  ✓| 
+| Bahrain                     | ✓               |                              |     |  ✓| 
 | Benin                       | ✓               |                              |     |  ✓| 
 | Botswana                    | ✓               |                              |     |  ✓| 
 | Isola Bouvet               | ✓               |                              |     |  ✓| 
@@ -158,7 +158,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Seychelles                  | ✓               |                              |     |  ✓| 
 | Sierra Leone                | ✓               |                              |     |  ✓| 
 | Somalia                     | ✓               |                              |     |  ✓| 
-| Sudafrica                | ✓               |                              |     |  ✓| 
+| Sud Africa                | ✓               |                              |     |  ✓| 
 | Sud Sudan                 | ✓               |                              |     |  ✓| 
 | Sudan                       | ✓               |                              |     |  ✓| 
 | Siria                       | ✓               |                              |     |  ✓| 
@@ -299,4 +299,4 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Turchia                 | ✓ |   | | ✓| 
 | Ucraina                | ✓ |   | | ✓| 
 | Regno Unito         | ✓ | ✓ | ✓| ✓| 
-| Città del Vaticano           | ✓ |   |✓ | ✓| 
+| Città del Vaticano           | ✓ |   |✓ | ✓|

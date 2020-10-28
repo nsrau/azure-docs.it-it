@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441726"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896107"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Iscrizione self-service per la collaborazione B2B di Azure AD
 
@@ -33,5 +33,5 @@ Le organizzazioni possono usare l' [API di gestione degli inviti Microsoft Graph
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-* [Licenze per la Collaborazione B2B di Azure AD](licensing-guidance.md)
+* [Prezzi delle identità esterne](external-identities-pricing.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)

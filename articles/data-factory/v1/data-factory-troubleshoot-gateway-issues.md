@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896566"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -86,7 +86,7 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![La chiave del gateway non è valida oppure è vuota](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Schermata che evidenzia il messaggio di errore che indica che la chiave del gateway non è valida o è vuota.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
 La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale di Azure. Il problema può verificarsi anche quando la versione del programma di installazione del Gateway di gestione dati non è la più recente.
@@ -107,14 +107,14 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 Questo errore può verificarsi perché il gateway è stato eliminato oppure la chiave associata è stata rigenerata.
 
 #### <a name="resolution"></a>Soluzione
-Se il gateway è stato eliminato, ricrearlo dal portale, fare clic su **Registra**, copiare la chiave dal portale, incollarla e provare a registrare il gateway.
+Se il gateway è stato eliminato, ricrearlo dal portale, fare clic su **Registra** , copiare la chiave dal portale, incollarla e provare a registrare il gateway.
 
 Se il gateway è ancora esistente, ma la chiave è stata rigenerata, usare la nuova chiave per registrare il gateway. Se la chiave non è disponibile, rigenerarla nuovamente dal portale.
 
 ### <a name="7-problem"></a>7. problema
 Quando si registra un gateway, potrebbe essere necessario immettere il percorso e la password di un certificato.
 
-![Specificare un certificato](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Screenshot che mostra dove immettere il percorso e la password per il certificato.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Causa
 Il gateway è stato registrato in precedenza in altri computer. Durante la registrazione iniziale di un gateway è stato associato un certificato di crittografia al gateway stesso. Il certificato può essere generato automaticamente dal gateway oppure specificato dall'utente.  Questo certificato viene usato per crittografare le credenziali dell'archivio dati (servizio collegato).  
@@ -124,7 +124,7 @@ Il gateway è stato registrato in precedenza in altri computer. Durante la regis
 Quando si ripristina il gateway in un computer host diverso, la registrazione guidata richiede questo certificato per decrittografare le credenziali crittografate in precedenza con questo certificato.  Senza questo certificato, le credenziali non possono essere decrittografate dal nuovo gateway e le successive attività di copia associate al nuovo gateway avranno esito negativo.  
 
 #### <a name="resolution"></a>Soluzione
-Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda**Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
+Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda **Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
 
@@ -233,7 +233,7 @@ Se vengono visualizzati errori relativi alla connessione dell'archivio dati o al
 
 1. Avviare Gestione configurazione di Gateway di gestione dati sul computer del gateway.
 2. Passare alla scheda **Diagnostica** .
-3. In **Test di connessione**, aggiungere i valori del gruppo del gateway.
+3. In **Test di connessione** , aggiungere i valori del gruppo del gateway.
 4. Fare clic su **Test** per verificare se è possibile connettersi all'origine dati locale dal computer del gateway tramite le informazioni di connessione e le credenziali. Se il test della connessione non riesce dopo aver installato un driver, riavviare il gateway in modo che rilevi la modifica più recente.
 
 ![Test connessione nella scheda Diagnostica](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -242,7 +242,7 @@ Se vengono visualizzati errori relativi alla connessione dell'archivio dati o al
 ### <a name="send-gateway-logs-to-microsoft"></a>Inviare i log del gateway a Microsoft
 Quando si contatta il supporto Microsoft per ricevere assistenza nella risoluzione dei problemi con il gateway, all'utente potrebbe essere richiesto di condividere i log del gateway. La versione del gateway consente di condividere facilmente i log necessari con pochi clic in Gestione configurazione di Gateway di gestione dati.    
 
-1. In Gestione configurazione di Gateway di gestione dati aprire la scheda **Diagnostica**.
+1. In Gestione configurazione di Gateway di gestione dati aprire la scheda **Diagnostica** .
 
     ![Gateway di gestione dati - Scheda Diagnostica](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
 2. Fare clic sul collegamento **Invia log** per aprire la finestra di dialogo seguente.
@@ -252,11 +252,11 @@ Quando si contatta il supporto Microsoft per ricevere assistenza nella risoluzio
 4. (facoltativo) Fare clic su **Privacy** per esaminare l'informativa sulla privacy per i servizi Web di Microsoft.
 5. Quando tutto è pronto per il caricamento, fare clic su **Invia log** per inviare effettivamente i log degli ultimi sette giorni a Microsoft per la risoluzione dei problemi. Lo stato dell'operazione dovrebbe corrispondere a quello mostrato nell'immagine in basso:
 
-    ![Gateway di gestione dati - Stato dell'operazione Invia log](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Screenshot che mostra dove visualizzare lo stato dell'operazione di invio dei log.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Al termine dell'operazione viene visualizzata una finestra di dialogo simile alla seguente:
 
     ![Gateway di gestione dati - Stato dell'operazione Invia log](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Annotare l'**ID report** e condividerlo con il supporto Microsoft. L'ID report serve per individuare i log del gateway caricati per la risoluzione dei problemi.  Viene anche salvato nel visualizzatore eventi.  È possibile trovarlo cercando l'ID evento "25" e verificando la data e l'ora.
+7. Annotare l' **ID report** e condividerlo con il supporto Microsoft. L'ID report serve per individuare i log del gateway caricati per la risoluzione dei problemi.  Viene anche salvato nel visualizzatore eventi.  È possibile trovarlo cercando l'ID evento "25" e verificando la data e l'ora.
 
     ![Gateway di gestione dati - ID report dell'operazione Invia log](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441845"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896090"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -30,7 +30,7 @@ Le domande frequenti, o FAQ, sulla collaborazione business-to-business, o B2B, d
 Assolutamente sì. Vedere il [post del blog su questa funzionalità](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Per altre informazioni su come personalizzare la pagina di accesso dell'organizzazione, vedere [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Gli utenti di Collaborazione B2B possono accedere a SharePoint Online e a OneDrive?
-Sì. Tuttavia, la possibilità di cercare gli utenti guest esistenti in SharePoint Online tramite la selezione utenti è **disattivata** per impostazione predefinita. Per attivare l'opzione di ricercare degli utenti guest esistenti, impostare **ShowPeoplePickerSuggestionsForGuestUsers** a **On**. È possibile attivare questa impostazione a livello di tenant o a livello di raccolta siti. È possibile modificare questa impostazione tramite i cmdlet Set-SPOTenant e SPOSite Set. Con questi cmdlet, i membri possono cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già effettuato il provisioning.
+Sì. Tuttavia, la possibilità di cercare gli utenti guest esistenti in SharePoint Online tramite la selezione utenti è **disattivata** per impostazione predefinita. Per attivare l'opzione di ricercare degli utenti guest esistenti, impostare **ShowPeoplePickerSuggestionsForGuestUsers** a **On** . È possibile attivare questa impostazione a livello di tenant o a livello di raccolta siti. È possibile modificare questa impostazione tramite i cmdlet Set-SPOTenant e SPOSite Set. Con questi cmdlet, i membri possono cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già effettuato il provisioning.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>La funzione di caricamento dei CSV è ancora supportata?
 Sì. Per altre informazioni sull'uso della funzionalità di caricamento dei file con estensione CSV, vedere [questo esempio di PowerShell](code-samples.md).
@@ -64,17 +64,17 @@ A meno che a un utente non venga assegnato il ruolo di amministratore con limita
 Sì. È possibile creare un criterio di accesso condizionale che impedisce a tutti gli utenti guest ed esterni di accedere al portale di Azure. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sicurezza o amministratore dell'accesso condizionale.
-2. Nella portale di Azure selezionare **Azure Active Directory**. 
-3. In **Gestisci**selezionare **sicurezza**.
-4. In **Proteggi**selezionare **accesso condizionale**. Selezionare **Nuovi criteri**.
+2. Nella portale di Azure selezionare **Azure Active Directory** . 
+3. In **Gestisci** selezionare **sicurezza** .
+4. In **Proteggi** selezionare **accesso condizionale** . Selezionare **Nuovi criteri** .
 5. Nella casella di testo **nome** della **nuova** pagina immettere un nome per il criterio, ad esempio "impedisce ai guest di accedere al portale".
-6. In **Assegnazioni** selezionare **Utenti e gruppi**.
-7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi**, quindi selezionare **tutti gli utenti guest ed External (anteprima)**.
-9. Selezionare **Operazione completata**.
-10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni**.
-11. Nella pagina **app o azioni cloud** scegliere **Seleziona app**, quindi scegliere **Seleziona**.
-12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona**.
-13. Nella pagina **app o azioni cloud** selezionare **fine**.
+6. In **Assegnazioni** selezionare **Utenti e gruppi** .
+7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi** , quindi selezionare **tutti gli utenti guest ed External (anteprima)** .
+9. Selezionare **Operazione completata** .
+10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni** .
+11. Nella pagina **app o azioni cloud** scegliere **Seleziona app** , quindi scegliere **Seleziona** .
+12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona** .
+13. Nella pagina **app o azioni cloud** selezionare **fine** .
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>La Collaborazione B2B di Azure AD supporta l'autenticazione a più fattori e gli account di posta elettronica degli utenti?
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
@@ -130,7 +130,7 @@ Sì. Per altre informazioni, vedere [accesso condizionale per gli utenti di coll
 Sì. Collaborazione B2B di Azure AD supporta l'elenco dei tipi consentiti e negati. 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quali licenze sono necessarie per usare B2B di Azure AD?
-Per informazioni su quali licenze sono necessarie all'organizzazione per poter usare B2B di Azure AD, vedere [Linee guida sulla Collaborazione B2B di Azure Active Directory](licensing-guidance.md).
+Per informazioni sulle licenze che l'organizzazione deve usare Azure AD B2B, vedere prezzi per le [identità esterne](external-identities-pricing.md).
 
 ### <a name="next-steps"></a>Passaggi successivi
 

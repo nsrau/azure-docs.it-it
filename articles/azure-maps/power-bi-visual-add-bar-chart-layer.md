@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288167"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896277"
 ---
 # <a name="add-a-bar-chart-layer"></a>Aggiungere un livello per il grafico a barre
 
@@ -71,7 +71,7 @@ Aggiungere altro contesto alla mappa:
 Personalizzare l'oggetto visivo:
 
 > [!div class="nextstepaction"]
-> [Suggerimenti e consigli per la formattazione dei colori in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Suggerimenti e consigli per la formattazione dei colori in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

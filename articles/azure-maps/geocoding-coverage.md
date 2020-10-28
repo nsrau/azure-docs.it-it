@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037440"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897212"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
-Il servizio di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps supporta la geocodifica, il che significa che la richiesta dell'API può avere termini di ricerca, ad esempio un indirizzo o il nome di una posizione, e restituisce il risultato come coordinate di latitudine e longitudine. Ad esempio, l'API di [ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) di Azure Maps Get riceve query che contengono informazioni sul percorso e restituisce i risultati come coordinate di latitudine e longitudine.
+Il servizio di [ricerca](/rest/api/maps/search) di Azure Maps supporta la geocodifica, il che significa che la richiesta dell'API può avere termini di ricerca, ad esempio un indirizzo o il nome di una posizione, e restituisce il risultato come coordinate di latitudine e longitudine. Ad esempio, l'API di [ricerca](/rest/api/maps/search/getsearchaddress) di Azure Maps Get riceve query che contengono informazioni sul percorso e restituisce i risultati come coordinate di latitudine e longitudine.
 
-Il [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) di Azure Maps, tuttavia, non ha lo stesso livello di informazioni e accuratezza per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area.
+Il [servizio di ricerca](/rest/api/maps/search) di Azure Maps, tuttavia, non ha lo stesso livello di informazioni e accuratezza per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area.
 
 La possibilità di geocodificare in un paese/area geografica dipende dalla precisione della copertura dei dati e della geocodifica del servizio di geocodifica. Le categorizzazioni seguenti vengono usate per specificare il livello di supporto per la geocodifica in ogni paese/area geografica.
 
 * **Punti di indirizzo** : i dati dell'indirizzo possono essere risolti in coordinate di Latitudine/Longitudine all'interno del pacco di indirizzi (limite della proprietà). I punti di indirizzo vengono spesso definiti "Rooftop", che rappresenta il livello più elevato di accuratezza disponibile per gli indirizzi.
-* **Numeri civici**: Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
-* **Livello stradale**: Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
-* **Livello città**: Sono supportati i nomi delle città.
+* **Numeri civici** : Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
+* **Livello stradale** : Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
+* **Livello città** : Sono supportati i nomi delle città.
 
 ## <a name="americas"></a>Americhe
 
@@ -163,7 +163,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla preci
 | Bielorussia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croazia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cipro                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Repubblica Ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Repubblica ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Danimarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Estonia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Fær Øer                                       |                 |                |              |      ✓     |          ✓         |
@@ -224,7 +224,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla preci
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahrein                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
+| Bahrain                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Isola Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -282,7 +282,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla preci
 | Seychelles                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Somalia                                             |                 |                |              |      ✓     |          ✓         |
-| Sudafrica                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Sud Africa                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Sud Sudan                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -301,4 +301,4 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla preci
 
 Altre informazioni sulla geocodifica di Azure Maps:
 > [!div class="nextstepaction"]
-> [Servizio di ricerca di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/search)
+> [Servizio di ricerca di Mappe di Azure](/rest/api/maps/search)

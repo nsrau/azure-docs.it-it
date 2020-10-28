@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311089"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897093"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
 
@@ -39,7 +39,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
+Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) per caricare una mappa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Aggiungere un livello sezione alla mappa
@@ -179,4 +179,4 @@ Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come il
 Vedere l'articolo seguente per altre informazioni sui modi per impostare gli stili della mappa
 
 > [!div class="nextstepaction"]
-> [Cambiare gli stili della mappa nelle mappe Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambiare gli stili della mappa nelle mappe Android](./set-android-map-styles.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310034"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896872"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -68,7 +68,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Bosnia ed Erzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Croazia     |✓         |✓         |
-|Repubblica Ceca     |✓         |✓         |
+|Repubblica ceca     |✓         |✓         |
 |Danimarca     |✓         |✓         |
 |Estonia     |         | ✓        |
 |Finlandia     |✓         |✓         |
@@ -119,7 +119,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 |Paese/Area geografica |Eventi imprevisti  |Flusso  |
 |---------|:---------:|:---------:|
-|Bahrein     |✓         |✓         |
+|Bahrain     |✓         |✓         |
 |Egitto     |✓         |✓         |
 |Israele     |✓         |✓         |
 |Kenya     |✓         |✓         |
@@ -130,9 +130,9 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Oman     |✓         |✓         |
 |Qatar     |✓         |✓         |
 |Arabia Saudita     |✓         |✓         |
-|Sudafrica     |✓         |✓         |
+|Sud Africa     |✓         |✓         |
 |Emirati Arabi Uniti  |✓         |✓         |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui dati relativi al traffico di Mappe di Azure, vedere le pagine di riferimento sul [traffico](https://docs.microsoft.com/rest/api/maps/traffic).
+Per altre informazioni sui dati relativi al traffico di Mappe di Azure, vedere le pagine di riferimento sul [traffico](/rest/api/maps/traffic).

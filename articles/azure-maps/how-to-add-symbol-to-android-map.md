@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10969e20cd7ae71cade230f6643a27d5d940ceaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd5f06a5383308ce736f2860810ebee7e5bce28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311275"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897110"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere un livello di simbolo a una mappa usando Azure Maps Android SDK
 
@@ -21,13 +21,13 @@ Questo articolo illustra come eseguire il rendering dei dati punto da un'origine
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi descritti in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
+Per completare i passaggi descritti in questo articolo, è necessario installare [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) per caricare una mappa.
 
 ## <a name="add-a-symbol-layer"></a>Aggiungere un livello per i simboli
 
 Per aggiungere un marcatore sulla mappa utilizzando il livello di simboli, attenersi alla procedura seguente:
 
-1. Modificare **res**  >  il**layout** res  >  **activity_main.xml** in modo che abbia un aspetto simile al codice XML seguente:
+1. Modificare **res**  >  il **layout** res  >  **activity_main.xml** in modo che abbia un aspetto simile al codice XML seguente:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -180,7 +180,7 @@ A questo punto, se si esegue l'applicazione, viene visualizzato un marcatore sul
 Per aggiungere altri elementi alla mappa, vedere:
 
 > [!div class="nextstepaction"]
-> [Aggiungere forme a una mappa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Aggiungere forme a una mappa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Visualizzare informazioni sulle funzionalità](display-feature-information-android.md)

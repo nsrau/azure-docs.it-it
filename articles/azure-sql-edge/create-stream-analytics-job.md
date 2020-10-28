@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896141"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creare un processo di streaming dei dati in Azure SQL Edge 
 
@@ -103,7 +103,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
 
 3. Creare un'origine dati esterna con CREATE EXTERNAL DATA SOURCE. L'esempio seguente:
 
-    * Crea un'origine dati esterna denominata *LocalSQLOutput*.
+    * Crea un'origine dati esterna denominata *LocalSQLOutput* .
     * Identifica l'origine dati esterna (LOCATION = '<vendor>://<server>[:<port>]'). Nell'esempio punta a un'istanza locale di Azure SQL Edge.
     * Usa le credenziali create in precedenza.
 
@@ -117,7 +117,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
     go
     ```
 
-4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements*, nel database *MySQLDatabase*.
+4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements* , nel database *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

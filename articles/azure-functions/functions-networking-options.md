@@ -1,15 +1,16 @@
 ---
 title: Opzioni di rete di Funzioni di Azure
 description: Panoramica di tutte le opzioni di rete disponibili in Funzioni di Azure.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530090"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897076"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -66,11 +67,30 @@ Per garantire un livello di sicurezza più elevato, è possibile limitare vari s
 
 Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Limitare l'account di archiviazione a una rete virtuale (anteprima)
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. Attualmente non è possibile usare nessuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, questa configurazione interrompe l'esecuzione dell'app.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità di anteprima attualmente funziona solo con i piani Premium di Windows nell'Europa occidentale.  Per configurare una funzione con un account di archiviazione limitato a una rete privata:
 
-Per altre informazioni, vedere [Requisiti dell'account di archiviazione](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> La limitazione dell'account di archiviazione attualmente funziona solo per le funzioni Premium che usano Windows nell'Europa occidentale
+
+1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
+1. Configurare la funzione per la connessione alla rete virtuale.
+1. Creare o configurare un account di archiviazione diverso.  Si tratta dell'account di archiviazione protetto con gli endpoint di servizio e della connessione alla funzione.
+1. [Creare una condivisione file](../storage/files/storage-how-to-create-file-share.md#create-file-share) nell'account di archiviazione protetto.
+1. Abilitare gli endpoint servizio o l'endpoint privato per l'account di archiviazione.  
+    * Assicurarsi di abilitare la subnet dedicata alle app per le funzioni se si usa un endpoint del servizio.
+    * Assicurarsi di creare un record DNS e configurare l'app in modo che [funzioni con gli endpoint dell'endpoint privato](#azure-dns-private-zones) se si usa un endpoint privato.  Per l'account di archiviazione è necessario un endpoint privato per le `file` `blob` risorse secondarie e.  Se si usano determinate funzionalità come Durable Functions sarà necessario `queue` e `table` accessibile anche tramite una connessione all'endpoint privato.
+1. Opzionale Copiare il contenuto del file e del BLOB dall'account di archiviazione dell'app per le funzioni nell'account di archiviazione e nella condivisione file protetti.
+1. Copiare la stringa di connessione per questo account di archiviazione.
+1. Aggiornare le **impostazioni dell'applicazione** in **configurazione** per l'app per le funzioni come riportato di seguito:
+    - `AzureWebJobsStorage` alla stringa di connessione per l'account di archiviazione protetto.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` alla stringa di connessione per l'account di archiviazione protetto.
+    - `WEBSITE_CONTENTSHARE` al nome della condivisione file creata nell'account di archiviazione protetto.
+    - Creare una nuova impostazione con il nome `WEBSITE_CONTENTOVERVNET` e il valore di `1` .
+1. Salvare le impostazioni dell'applicazione.  
+
+L'app per le funzioni verrà riavviata e verrà ora connessa a un account di archiviazione protetto.
 
 ## <a name="use-key-vault-references"></a>Usare i riferimenti di Key Vault
 
@@ -87,7 +107,7 @@ Attualmente è possibile usare funzioni trigger non HTTP da una rete virtuale in
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di **monitoraggio della scalabilità di runtime** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione**di configurazione.
+Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di **monitoraggio della scalabilità di runtime** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione** di configurazione.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -136,8 +156,8 @@ Quando si integra un'app per le funzioni in un piano Premium o in un piano di se
 ## <a name="automation"></a>Automazione
 Le seguenti API consentono di gestire a livello di codice le integrazioni delle reti virtuali internazionali:
 
-+ **Interfaccia**della riga di comando di Azure: usare i [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandi per aggiungere, elencare o rimuovere le integrazioni di una rete virtuale a livello di area.  
-+ **Modelli ARM**: l'integrazione della rete virtuale a livello di area può essere abilitata usando un modello di Azure Resource Manager. Per un esempio completo, vedere [il modello di avvio rapido di funzioni](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Interfaccia** della riga di comando di Azure: usare i [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandi per aggiungere, elencare o rimuovere le integrazioni di una rete virtuale a livello di area.  
++ **Modelli ARM** : l'integrazione della rete virtuale a livello di area può essere abilitata usando un modello di Azure Resource Manager. Per un esempio completo, vedere [il modello di avvio rapido di funzioni](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

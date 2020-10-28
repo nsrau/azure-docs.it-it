@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371423"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896780"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Esercitazione: Usare Creator per creare piante di interni
 
@@ -44,7 +44,7 @@ Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tut
 
 ## <a name="upload-a-drawing-package"></a>Caricare un pacchetto di disegno
 
-Usare l'[API Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) per caricare un pacchetto di disegno nelle risorse di Mappe di Azure.
+Usare l'[API Data Upload](/rest/api/maps/data/uploadpreview) per caricare un pacchetto di disegno nelle risorse di Mappe di Azure.
 
 L'API Data Upload è una transazione a esecuzione prolungata che implementa il modello qui definito. Al termine dell'operazione, verrà usato `udid` per accedere al pacchetto caricato e convertirlo. Seguire questa procedura per ottenere `udid`.
 
@@ -102,7 +102,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
  Ora che il pacchetto di disegno è stato caricato, si userà `udid` per il pacchetto caricato per convertirlo in dati della pianta. L'API Conversion usa una transazione con esecuzione prolungata, che implementa il modello definito in [questo articolo](creator-long-running-operation.md). Al termine dell'operazione, viene usato `conversionId` per accedere ai dati convertiti. Seguire questa procedura per ottenere `conversionId`.
 
-1. Selezionare **Nuovo**. Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Salva**.
+1. Selezionare **Nuovo** . Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Salva** .
 
 2. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per convertire il pacchetto di disegno caricato in dati della pianta. Usare `udid` per il pacchetto caricato.
 
@@ -164,11 +164,11 @@ Il pacchetto di disegno di esempio deve essere convertito senza errori o avvisi.
 
 ## <a name="create-a-dataset"></a>Creare un set di dati
 
-Il set di dati è una raccolta di funzionalità della pianta come edifici, livelli e stanze. Per creare un set di dati, usare l'[API Dataset Create](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). L'API Dataset Create accetta il `conversionId` per il pacchetto di disegno convertito e restituisce un `datasetId` del set di dati creato. La procedura seguente mostra come creare un set di dati.
+Il set di dati è una raccolta di funzionalità della pianta come edifici, livelli e stanze. Per creare un set di dati, usare l'[API Dataset Create](/rest/api/maps/dataset/createpreview). L'API Dataset Create accetta il `conversionId` per il pacchetto di disegno convertito e restituisce un `datasetId` del set di dati creato. La procedura seguente mostra come creare un set di dati.
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
-2. Per creare un nuovo set di dati, creare una richiesta **POST** all'[API Dataset Create](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Prima di inviare la richiesta, accodare sia la chiave di sottoscrizione sia il `conversionId` con il `conversionId` ottenuto durante il processo di conversione nel passaggio 5.  La richiesta deve essere simile all'URL seguente:
+2. Per creare un nuovo set di dati, creare una richiesta **POST** all' [API Dataset Create](/rest/api/maps/dataset/createpreview). Prima di inviare la richiesta, accodare sia la chiave di sottoscrizione sia il `conversionId` con il `conversionId` ottenuto durante il processo di conversione nel passaggio 5.  La richiesta deve essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -224,7 +224,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 ## <a name="query-datasets-with-wfs-api"></a>Eseguire query sui set di dati con l'API WFS
 
- È possibile eseguire query sui set di dati usando l'[API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Con l'API WFS è possibile eseguire una query per le raccolte di funzionalità, per una raccolta specifica o per una funzionalità specifica con una funzionalità **ID**. La funzionalità **ID** identifica in modo univoco la funzionalità all'interno del set di dati. Viene usato, ad esempio, per identificare lo stato della funzionalità da aggiornare all'interno di un determinato set di stati.
+ È possibile eseguire query sui set di dati usando l'[API WFS](/rest/api/maps/wfs). Con l'API WFS è possibile eseguire una query per le raccolte di funzionalità, per una raccolta specifica o per una funzionalità specifica con una funzionalità **ID** . La funzionalità **ID** identifica in modo univoco la funzionalità all'interno del set di dati. Viene usato, ad esempio, per identificare lo stato della funzionalità da aggiornare all'interno di un determinato set di stati.
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
@@ -234,7 +234,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Il corpo della risposta verrà fornito in formato GeoJSON e conterrà tutte le raccolte all'interno del set di dati. Per semplicità, l'esempio mostra solo la raccolta `unit`. Per un esempio contenente tutte le raccolte, vedere [API WFS - Descrizioni raccolte](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Per altre informazioni sulle raccolte è possibile fare clic su uno degli URL all'interno dell'elemento `link`.
+3. Il corpo della risposta verrà fornito in formato GeoJSON e conterrà tutte le raccolte all'interno del set di dati. Per semplicità, l'esempio mostra solo la raccolta `unit`. Per un esempio contenente tutte le raccolte, vedere [API WFS - Descrizioni raccolte](/rest/api/maps/wfs/collectiondescriptionpreview). Per altre informazioni sulle raccolte è possibile fare clic su uno degli URL all'interno dell'elemento `link`.
 
     ```json
     {
@@ -304,13 +304,13 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
-2. Effettuare una richiesta **POST** all'API [Create Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Usare il `datasetId` del set di dati che contiene lo stato che si vuole modificare. La richiesta deve essere simile all'URL seguente:
+2. Effettuare una richiesta **POST** all'API [Create Stateset](/rest/api/maps/featurestate/createstatesetpreview). Usare il `datasetId` del set di dati che contiene lo stato che si vuole modificare. La richiesta deve essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Negli **Headers** (Intestazioni) della richiesta **POST**, impostare `Content-Type` su `application/json`. In **Body** (Corpo), specificare gli stili seguenti per riflettere le modifiche apportate agli *stati* `occupied` e `temperature`. Al termine, fare clic su **Send**(Invia).
+3. Negli **Headers** (Intestazioni) della richiesta **POST** , impostare `Content-Type` su `application/json`. In **Body** (Corpo), specificare gli stili seguenti per riflettere le modifiche apportate agli *stati* `occupied` e `temperature`. Al termine, fare clic su **Send** (Invia).
 
     ```json
     {
@@ -383,7 +383,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. Negli **Headers** (Intestazioni) della richiesta **POST**, impostare `Content-Type` su `application/json`. Nel **BODY** (CORPO) della richiesta **POST** copiare e incollare il codice JSON nell'esempio seguente.
+6. Negli **Headers** (Intestazioni) della richiesta **POST** , impostare `Content-Type` su `application/json`. Nel **BODY** (CORPO) della richiesta **POST** copiare e incollare il codice JSON nell'esempio seguente.
 
     ```json
     {
@@ -402,7 +402,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 7. Dopo un aggiornamento correttamente completato, si riceve un codice di stato HTTP `200 OK`. Se è stato [implementato lo stile dinamico](indoor-map-dynamic-styling.md) per una pianta interna, l'aggiornamento viene visualizzato nella pianta di cui è stato eseguito il rendering al timestamp specificato.
 
-L'[API Feature Get States](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) consente di recuperare lo stato di una funzionalità usando la relativa funzionalità `ID`. È anche possibile eliminare i set di stati e le relative risorse usando l'[API Feature State Delete](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+L'[API Feature Get States](/rest/api/maps/featurestate/getstatespreview) consente di recuperare lo stato di una funzionalità usando la relativa funzionalità `ID`. È anche possibile eliminare i set di stati e le relative risorse usando l'[API Feature State Delete](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Per informazioni sui diversi servizi Creator di Mappe di Azure descritti in questo articolo, vedere [Piante di interni di Creator](creator-indoor-maps.md).
 

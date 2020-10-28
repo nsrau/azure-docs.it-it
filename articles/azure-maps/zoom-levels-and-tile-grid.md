@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825306"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896583"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom, quindi sono le coordinate dei pixel. Il pixel nell'angolo superiore sinistro della mappa presenta sempre le coordinate dei pixel (0,0). Il pixel nell'angolo inferiore destro della mappa presenta le coordinate dei pixel *(width-1, Height-1)* o fa riferimento alle equazioni nella sezione precedente, *(tileSize \* 2<sup>Zoom</sup>-1, tileSize \* 2<sup>Zoom</sup>-1)*. Ad esempio, quando si usano i riquadri quadrati 512 al livello 2, le coordinate dei pixel sono comprese tra (0, 0) e (2047, 2047), come indicato di seguito:
+Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom, quindi sono le coordinate dei pixel. Il pixel nell'angolo superiore sinistro della mappa presenta sempre le coordinate dei pixel (0,0). Il pixel nell'angolo inferiore destro della mappa presenta le coordinate dei pixel *(width-1, Height-1)* o fa riferimento alle equazioni nella sezione precedente, *(tileSize \* 2 <sup>Zoom</sup>-1, tileSize \* 2 <sup>Zoom</sup>-1)* . Ad esempio, quando si usano i riquadri quadrati 512 al livello 2, le coordinate dei pixel sono comprese tra (0, 0) e (2047, 2047), come indicato di seguito:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Tessera mappa mondiale":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Ogni riquadro è costituito da coordinate XY comprese tra (0, 0) in alto a sinistra e *(2<sup>Zoom</sup>-1, 2<sup>Zoom</sup>-1)* in basso a destra. Ad esempio, al livello di zoom 3, le coordinate dei riquadri variano da (0,0) a (7, 7) come indicato di seguito:
+Ogni riquadro è costituito da coordinate XY comprese tra (0, 0) in alto a sinistra e *(2 <sup>Zoom</sup>-1, 2 <sup>Zoom</sup>-1)* in basso a destra. Ad esempio, al livello di zoom 3, le coordinate dei riquadri variano da (0,0) a (7, 7) come indicato di seguito:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Tessera mappa mondiale":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > I controlli della mappa interattiva in Azure Maps SDK hanno funzioni helper per la conversione tra le posizioni geospaziali e i pixel del viewport. 
-> - [Web SDK: eseguire il mapping di calcoli di pixel e posizioni](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK: eseguire il mapping di calcoli di pixel e posizioni](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Accedere direttamente alle tessere mappa dai servizi REST di Maps di Azure:
 
 > [!div class="nextstepaction"]
-> [Ottenere le tessere mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Ottenere le tessere mappa](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Ottenere i riquadri del flusso di traffico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Ottenere i riquadri del flusso di traffico](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Ottenere i riquadri eventi imprevisti del traffico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Ottenere i riquadri eventi imprevisti del traffico](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Altre informazioni sui concetti geospaziali:
 

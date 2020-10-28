@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310357"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896940"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps supporta gli stili di mappa predefiniti
 
@@ -27,8 +27,8 @@ Una mappa **stradale** è una mappa standard che visualizza le strade. Vengono i
 
 **API idonee:**
 
-* [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Immagine mappa](/rest/api/maps/render/getmapimage)
+* [Riquadro della mappa](/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK
 * Controllo mappa Android
 * Oggetto visivo di Power BI
@@ -52,7 +52,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 
 **API idonee:**
 
-* [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Riquadro del satellite](/rest/api/maps/render/getmapimagerytilepreview)
 * Controllo mappa Web SDK
 * Controllo mappa Android
 * Oggetto visivo di Power BI
@@ -77,8 +77,8 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 
 **API idonee:**
 
-* [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Immagine mappa](/rest/api/maps/render/getmapimage)
+* [Riquadro della mappa](/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK
 * Controllo mappa Android
 * Oggetto visivo di Power BI
@@ -114,7 +114,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
 **API idonee:**
 
-* [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Riquadro della mappa](/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK
 * Controllo mappa Android
 * Oggetto visivo di Power BI
@@ -134,4 +134,4 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
 Informazioni su come impostare uno stile di mappa in mappe di Azure:
 
-[Scegliere uno stile mappa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Scegliere uno stile mappa](./choose-map-style.md)

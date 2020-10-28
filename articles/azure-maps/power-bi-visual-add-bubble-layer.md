@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261935"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896226"
 ---
 # <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 
@@ -51,13 +51,13 @@ Se un campo viene passato nel bucket **dimensioni** del riquadro **campi** , le 
 | Dimensioni massime            | Dimensioni massime della bolla durante il ridimensionamento dei dati.|
 | Metodo di ridimensionamento delle dimensioni | Algoritmo di ridimensionamento utilizzato per determinare le dimensioni delle bolle relative.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervallo lineare dei dati di input con mapping lineare alle dimensioni minima e massima. (predefinito)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log: intervallo di dati di input logaritmicamente mappato alla dimensione minima e massima.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier: specificare i valori x1, Y1, X2, Y2 di una curva Cubic-Bezier per creare un metodo di ridimensionamento personalizzato. |
 
-Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **log**, verranno rese disponibili le opzioni seguenti.
+Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **log** , verranno rese disponibili le opzioni seguenti.
 
 | Impostazione   | Descrizione      |
 |-----------|------------------|
 | Scalabilità log | Scala logaritmica da applicare durante il calcolo delle dimensioni delle bolle. |
 
-Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **cubic-Bezier**, verranno rese disponibili le opzioni seguenti per personalizzare la curva di ridimensionamento.
+Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **cubic-Bezier** , verranno rese disponibili le opzioni seguenti per personalizzare la curva di ridimensionamento.
 
 | Impostazione | Descrizione                           |
 |---------|---------------------------------------|
@@ -90,7 +90,7 @@ Aggiungere altro contesto alla mappa:
 Personalizzare l'oggetto visivo:
 
 > [!div class="nextstepaction"]
-> [Suggerimenti e consigli per la formattazione dei colori in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Suggerimenti e consigli per la formattazione dei colori in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizzare i titoli, gli sfondi e le legende delle visualizzazioni](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

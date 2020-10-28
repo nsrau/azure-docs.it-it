@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896311"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Strutture di dati nel servizio Mobility di Azure Maps
 
-Questo articolo presenta il concetto di area metro nel [servizio Mobility di Azure Maps](https://aka.ms/AzureMapsMobilityService). Vengono illustrati alcuni dei campi comuni che vengono restituiti quando viene eseguita una query su questo servizio per le linee e le interruzioni di transito pubbliche. Si consiglia di leggere questo articolo prima di sviluppare con le API del servizio Mobility.
+Questo articolo presenta il concetto di area metro nel [servizio Mobility di Azure Maps](/rest/api/maps/mobility). Vengono illustrati alcuni dei campi comuni che vengono restituiti quando viene eseguita una query su questo servizio per le linee e le interruzioni di transito pubbliche. Si consiglia di leggere questo articolo prima di sviluppare con le API del servizio Mobility.
 
 ## <a name="metro-area"></a>Area metropolitana
 
 I dati del servizio Mobility sono raggruppati in base alle aree di metro supportate. Le aree metropolitane non seguono i limiti della città. Un'area metro può contenere più città, città densamente popolate e città circostanti. In realtà, un paese/area geografica può essere un'area metropolitana. 
 
-`metroID`È l'ID di un'area metropolitana che può essere usato per chiamare l' [API dell'area di informazioni di Get metro](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Usare l'API di Azure Maps ' "Get metro" per richiedere tipi di transito, agenzie di transito, avvisi attivi e dettagli aggiuntivi per la metropolitana scelta. È anche possibile richiedere le aree e i metroID di metro supportati. Gli ID area metro sono soggetti a modifiche.
+`metroID`È l'ID di un'area metropolitana che può essere usato per chiamare l' [API dell'area di informazioni di Get metro](/rest/api/maps/mobility/getmetroareainfopreview). Usare l'API di Azure Maps ' "Get metro" per richiedere tipi di transito, agenzie di transito, avvisi attivi e dettagli aggiuntivi per la metropolitana scelta. È anche possibile richiedere le aree e i metroID di metro supportati. Gli ID area metro sono soggetti a modifiche.
 
 **metroID:** 522   **Nome:** Seattle-Tacoma-Bellevue
 
@@ -33,7 +33,7 @@ I dati del servizio Mobility sono raggruppati in base alle aree di metro support
 
 È possibile fare riferimento a interruzioni di transito con due tipi di ID, l'ID [GFTS (General Transit feed Specification)](http://gtfs.org/) e l'ID di arresto di Azure maps. L'ID GFTS viene indicato come stopKey e l'ID di arresto di Azure Maps è denominato stopID. Quando si fa spesso riferimento a interruzioni di transito, è consigliabile usare l'ID di arresto di Azure maps. stopID è più stabile e probabilmente rimane invariato a condizione che l'arresto fisico esista. L'ID di arresto GTFS viene aggiornato più spesso. Ad esempio, l'ID di arresto GTFS può essere aggiornato in base alla richiesta del provider GTFS o quando viene rilasciata una nuova versione di GTFS. Anche se l'arresto fisico non ha avuto alcuna modifica, l'ID di arresto GTFS potrebbe cambiare.
 
-Per iniziare, è possibile richiedere interruzioni di transito vicine usando l' [API di transito vicina](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Per iniziare, è possibile richiedere interruzioni di transito vicine usando l' [API di transito vicina](/rest/api/maps/mobility/getnearbytransitpreview).
 
 ## <a name="line-groups-and-lines"></a>Gruppi di righe e linee
 
@@ -49,7 +49,7 @@ Un gruppo di righe è un'entità, che raggruppa tutte le righe che fanno logicam
 
 Come illustrato in precedenza, ogni gruppo di righe è costituito da un set di righe. Ogni gruppo di righe è costituito da due righe e ogni riga descrive una direzione.  Tuttavia, esistono casi in cui più righe costituiscono un gruppo di righe. Ad esempio, c'è una linea che talvolta si delinea in un determinato quartiere e talvolta non lo è. In entrambi i casi, opera con lo stesso numero di riga. Inoltre, un gruppo di righe può essere composto da una sola riga. Una linea circolare con una sola direzione è un gruppo Ling con una riga.
 
-Per iniziare, è possibile richiedere gruppi di righe usando l' [API Get Transit line](https://aka.ms/AzureMapsMobilityTransitLine).
+Per iniziare, è possibile richiedere gruppi di righe usando l' [API Get Transit line](/rest/api/maps/mobility/gettransitlineinfopreview).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -67,4 +67,4 @@ Informazioni su come richiedere dati in tempo reale tramite il servizio Mobility
 Esplora la documentazione dell'API del servizio Mobility di Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentazione dell'API del servizio Mobility](https://aka.ms/AzureMapsMobilityService)
+> [Documentazione dell'API del servizio Mobility](/rest/api/maps/mobility)

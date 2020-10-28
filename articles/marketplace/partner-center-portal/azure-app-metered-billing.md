@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280448"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896535"
 ---
 # <a name="managed-application-metered-billing"></a>Fatturazione a consumo delle applicazioni gestite 
 
@@ -56,11 +56,11 @@ Un cliente di Azure che sottoscrive il servizio CoA può analizzare e generare r
 
 Le dimensioni di fatturazione vengono usate per comunicare con il cliente su come verranno fatturate per l'uso del software.  Queste dimensioni vengono usate anche per comunicare gli eventi di utilizzo a Microsoft. Sono definiti come segue:
 
-* **Identificatore della dimensione**: identificatore non modificabile a cui si fa riferimento durante la creazione di eventi di utilizzo.
-* **Nome dimensione**: il nome visualizzato associato alla dimensione, ad esempio "SMS inviati".
-* **Unità di misura**: la descrizione dell'unità di fatturazione, ad esempio "per messaggio di testo" o "per ogni 100 di messaggi di posta elettronica".
-* **Prezzo per unità**: prezzo di un'unità della dimensione.
-* **Quantità inclusa per il periodo mensile**: quantità di dimensione inclusa al mese per i clienti che pagano la tariffa mensile ricorrente. deve essere un numero intero.
+* **Identificatore della dimensione** : identificatore non modificabile a cui si fa riferimento durante la creazione di eventi di utilizzo.
+* **Nome dimensione** : il nome visualizzato associato alla dimensione, ad esempio "SMS inviati".
+* **Unità di misura** : la descrizione dell'unità di fatturazione, ad esempio "per messaggio di testo" o "per ogni 100 di messaggi di posta elettronica".
+* **Prezzo per unità** : prezzo di un'unità della dimensione.
+* **Quantità inclusa per il periodo mensile** : quantità di dimensione inclusa al mese per i clienti che pagano la tariffa mensile ricorrente. deve essere un numero intero.
 
 Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta. Alcuni attributi si applicano alla dimensione in tutti i piani e altri attributi sono specifici del piano.
 
@@ -79,7 +79,7 @@ Gli altri attributi di una dimensione sono specifici di ogni piano e possono ave
 Anche le dimensioni hanno due concetti speciali, "Enabled" e "infinite":
 
 * **Enabled** indica che questo piano fa parte di questa dimensione.  È consigliabile lasciare questa opzione non selezionata se si sta creando un nuovo piano che non invia eventi di utilizzo basati su questa dimensione. Inoltre, tutte le nuove dimensioni aggiunte dopo la prima pubblicazione di un piano vengono visualizzate come "non abilitate" nel piano già pubblicato.  Una dimensione disabilitata non viene visualizzata in alcun elenco di dimensioni per un piano visualizzato dai clienti.
-* **Infinito**, rappresentato dal simbolo infinito "∞", indica che questo piano fa parte di questa dimensione, senza utilizzo a consumo per questa dimensione. Se si desidera indicare ai clienti che la funzionalità rappresentata da questa dimensione è inclusa nel piano, ma senza limiti di utilizzo.  Una dimensione con utilizzo infinito viene visualizzata in elenchi di dimensioni per un piano visualizzato dai clienti.  Questo piano non comporterà mai alcun addebito.
+* **Infinito** , rappresentato dal simbolo infinito "∞", indica che questo piano fa parte di questa dimensione, senza utilizzo a consumo per questa dimensione. Se si desidera indicare ai clienti che la funzionalità rappresentata da questa dimensione è inclusa nel piano, ma senza limiti di utilizzo.  Una dimensione con utilizzo infinito viene visualizzata in elenchi di dimensioni per un piano visualizzato dai clienti.  Questo piano non comporterà mai alcun addebito.
 
 >[!Note] 
 >Gli scenari seguenti sono supportati in modo esplicito:  <br> -È possibile aggiungere una nuova dimensione a un nuovo piano.  La nuova dimensione non verrà abilitata per i piani già pubblicati. <br> -È possibile pubblicare un piano con una tariffa mensile fissa e senza dimensioni, quindi aggiungere un nuovo piano e configurare una nuova dimensione per quel piano. La nuova dimensione non verrà abilitata per i piani già pubblicati.
@@ -107,9 +107,9 @@ Una volta pubblicato un piano, non è più possibile modificare i dettagli a liv
 
 ### <a name="upper-limits"></a>Limiti superiori
 
-Il numero massimo di dimensioni che possono essere configurate per una singola offerta è 18 dimensioni univoche.
+Il numero massimo di dimensioni che possono essere configurate per una singola offerta è 30 dimensioni univoche.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 Se si verifica uno dei problemi seguenti, è possibile aprire un ticket di supporto.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030895"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896175"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
 
@@ -70,7 +70,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
-| Sudafrica                   |        ✓       ||         ✓            |             |
+| Sud Africa                   |        ✓       ||         ✓            |             |
 | Swaziland                      |        ✓       |                       |             |
 | Tanzania                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |
@@ -96,7 +96,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Costa Rica                     |        ✓       |                      |             |
 | Cuba                           |        ✓       |                      |             |
 | Dominica                       |        ✓       |                      |             |
-| Repubblica Dominicana             |        ✓       |                      |             |
+| Repubblica dominicana             |        ✓       |                      |             |
 | Ecuador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
 | Guayana francese                  |        ✓       |                      |             |
@@ -166,7 +166,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Bulgaria                       |        ✓       |         ✓            |     ✓      | 
 | Croazia                        |        ✓       |         ✓            |     ✓      |
 | Cipro                         |        ✓       |                      |             |
-| Repubblica Ceca                 |        ✓       |         ✓            |     ✓      |
+| Repubblica ceca                 |        ✓       |         ✓            |     ✓      |
 | Danimarca                        |        ✓       |         ✓            |     ✓      |
 | + Isole Fær Øer                 |        ✓       |                      |             |
 | Estonia                        |        ✓       |         ✓            |     ✓      |
@@ -230,7 +230,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 | Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
-| Bahrein                        |        ✓       |         ✓            |             |
+| Bahrain                        |        ✓       |         ✓            |             |
 | Iraq                           |        ✓       |                      |             |
 | Israele                         |        ✓       |         ✓            |             |
 | Giordania                         |        ✓       |                      |             |
@@ -245,4 +245,4 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul routing di Azure Maps, vedere le pagine di riferimento per il [routing](https://docs.microsoft.com/rest/api/maps/route) .
+Per altre informazioni sul routing di Azure Maps, vedere le pagine di riferimento per il [routing](/rest/api/maps/route) .

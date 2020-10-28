@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310629"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896379"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 
@@ -24,9 +24,9 @@ Il rendering di decine di migliaia di punti come simboli può coprire la maggior
 
 È possibile usare le mappe termiche in molti scenari diversi, tra cui:
 
-- **Data temperature**: fornisce le approssimazioni per la temperatura tra due punti dati.
-- **Dati per i sensori di rumore**: Mostra non solo l'intensità del rumore in cui si trova il sensore, ma può anche fornire informazioni sulla dissipazione a distanza. Il livello di disturbo in un sito potrebbe non essere elevato. Se l'area di copertura del rumore da più sensori si sovrappone, è possibile che questa area sovrapposta possa riscontrare livelli di rumore più elevati. Di conseguenza, l'area sovrapposta è visibile nella mappa termica.
-- **Traccia GPS**: include la velocità come mappa con altezza ponderata, in cui l'intensità di ogni punto dati è basata sulla velocità. Questa funzionalità, ad esempio, consente di visualizzare la posizione in cui un veicolo è stato velocizzato.
+- **Data temperature** : fornisce le approssimazioni per la temperatura tra due punti dati.
+- **Dati per i sensori di rumore** : Mostra non solo l'intensità del rumore in cui si trova il sensore, ma può anche fornire informazioni sulla dissipazione a distanza. Il livello di disturbo in un sito potrebbe non essere elevato. Se l'area di copertura del rumore da più sensori si sovrappone, è possibile che questa area sovrapposta possa riscontrare livelli di rumore più elevati. Di conseguenza, l'area sovrapposta è visibile nella mappa termica.
+- **Traccia GPS** : include la velocità come mappa con altezza ponderata, in cui l'intensità di ogni punto dati è basata sulla velocità. Questa funzionalità, ad esempio, consente di visualizzare la posizione in cui un veicolo è stato velocizzato.
 
 > [!TIP]
 > Per impostazione predefinita, i livelli mappa termica eseguono il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da eseguire il rendering solo delle funzionalità di geometria dei punti, impostare la `filter` proprietà del livello su `['==', ['geometry-type'], 'Point']` . Se si desidera includere anche le funzionalità MultiPoint, impostare la `filter` proprietà del livello su `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` .
@@ -120,10 +120,10 @@ Vedi la <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mappa termica compati
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 

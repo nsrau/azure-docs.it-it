@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972045"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896728"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
-Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure Maps](https://aka.ms/AzureMapsWeatherService). Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
+Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure Maps](/rest/api/maps/weather). Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
 
 ## <a name="unit-types"></a>Tipi di unità
 
@@ -47,7 +47,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |numero intero             |
+|22      |integer             |
 
 
 ## <a name="weather-icons"></a>Icone Meteo
@@ -84,7 +84,7 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Deseleziona|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | No  |  Sì   | Per lo più chiaro|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | No  |  Sì   | Parzialmente nuvoloso|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | No  |  Sì   | Cloud intermittenti|
@@ -100,7 +100,7 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Scala del colore per immagini radar e satellite
 
-Tramite [Get mappa Tile V2](https://aka.ms/AzureMapsWeatherTiles) gli utenti dell'API possono richiedere le immagini satellite e radar più recenti. Vedere la guida seguente per interpretare i colori usati per i riquadri radar e satellite.
+Tramite [Get mappa Tile V2](/rest/api/maps/renderv2/getmaptilepreview) gli utenti dell'API possono richiedere le immagini satellite e radar più recenti. Vedere la guida seguente per interpretare i colori usati per i riquadri radar e satellite.
 
 ### <a name="radar-images"></a>Immagini radar
 
@@ -475,7 +475,7 @@ Di seguito è riportata la tavolozza colori dettagliata per i riquadri satellite
 
 ## <a name="index-ids-and-index-groups-ids"></a>ID indice e ID gruppi di indici
 
-L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeatherDailyIndices) consente agli utenti di limitare i risultati restituiti a tipi di indice o gruppi di indici specifici.
+L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) consente agli utenti di limitare i risultati restituiti a tipi di indice o gruppi di indici specifici.
 
 Di seguito è riportata una tabella di ID indice disponibili, i relativi nomi e un collegamento ai relativi set di intervalli. Sotto questa tabella è riportata una tabella che elenca i vari gruppi di indici.
 
@@ -540,14 +540,14 @@ Di seguito è riportato l'elenco dei gruppi di indici disponibili (indexGroupId)
   7       |Spiaggia e Marina | Pool di & spiaggia (10) </br> Pesca (13) </br> Sailing (11)
   8       |Sportivo | Pesca (13) </br> Caccia (20) </br> Attività esterna (29)</br>
   9       |Agricoltura |  Preparazione campi (32) </br>  Umidità del suolo (34)
-  10      |Salute | Dolore artrite (21) </br> Asma (23) </br> Freddo comune (25) </br> Polvere & dander (18) </br> Influenza (26) </br> Fitness Heart integro (16) </br> Emicrania emicrania (27)
+  10      |Integrità | Dolore artrite (21) </br> Asma (23) </br> Freddo comune (25) </br> Polvere & dander (18) </br> Influenza (26) </br> Fitness Heart integro (16) </br> Emicrania emicrania (27)
   11      |Piscina | Barbecue esterno (24) </br> Pool di & spiaggia (10) </br> Ciclismo (4) </br> Concerto esterno (8) </br>  Preparazione campi (32) </br> Pesca (13) </br> Meteo golf (5) </br> Escursioni (3) </br> Caccia (20) </br> Jogging (2) </br> Kite Flying (9) </br> Attività zanzara (17)</br> Falciatura del prato (28) </br> Attività esterna (29) </br> In esecuzione (1) </br> Sailing (11) </br> Skateboarding (7) </br> Meteo Ski (15) </br>  Umidità del suolo (34)</br> Stargazing (12) </br> Tennis (6)
   12      |Sportivo | Ciclismo (4) </br> Meteo golf (5) </br> Escursioni (3) </br>  Jogging (2) </br> In esecuzione (1) </br> Skateboarding (7) </br> Meteo Ski (15) </br>Tennis (6)
   13      |Home | Efficienza energetica domestica (36) </br> Risparmio di energia (37) </br> Attività interna (-2)
 
 ## <a name="daily-index-range-sets"></a>Set di intervalli di indici giornalieri
 
-L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeatherDailyIndices) restituisce il valore con intervallo e il nome di categoria associato per ogni ID di indice. I set di intervalli non sono gli stessi per tutti gli indici. Nelle tabelle seguenti vengono illustrati i vari set di intervalli utilizzati dagli indici supportati elencati in ID [indice e ID gruppi](#index-ids-and-index-groups-ids)di indici. Per individuare gli indici che utilizzano i set di intervalli, passare alla sezione [ID indice e ID gruppi](#index-ids-and-index-groups-ids) di indici di questo documento.
+L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) restituisce il valore con intervallo e il nome di categoria associato per ogni ID di indice. I set di intervalli non sono gli stessi per tutti gli indici. Nelle tabelle seguenti vengono illustrati i vari set di intervalli utilizzati dagli indici supportati elencati in ID [indice e ID gruppi](#index-ids-and-index-groups-ids)di indici. Per individuare gli indici che utilizzano i set di intervalli, passare alla sezione [ID indice e ID gruppi](#index-ids-and-index-groups-ids) di indici di questo documento.
 
 ### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
@@ -565,7 +565,7 @@ L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeather
   ----------------|--------------|------------
   Scarso           |0              |  3
   Sufficiente           |3,01           |  6
-  Buono           |6.01           |  7.5
+  Buono           |6.01           |  7,5
   Molto bene      |7,51           |  8,99
   Eccellente      |9              |  10
 
@@ -624,7 +624,7 @@ L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeather
 | Nome categoria | Intervallo iniziale | Intervallo finale |
   ----------------|--------------|------------
   Improbabile         |  0     |          2,99
-  Espressioni di controllo            |  3     |          4,99
+  Video            |  3     |          4,99
   Avviso         |  5     |          6,99
   Avviso          |  7     |          8,99
   Emergenza        |  9     |          10

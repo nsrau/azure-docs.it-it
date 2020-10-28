@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033258"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896294"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Copertura della mobilità di Maps di Azure
 
-Il [servizio Mobility](https://aka.ms/AzureMapsMobilityService) di Azure Maps migliora il tempo di sviluppo per le applicazioni con funzionalità di transito pubblico, ad esempio il routing di transito e la ricerca di interruzioni del traffico pubblico nelle vicinanze. Gli utenti possono recuperare informazioni dettagliate su fermate dei trasporti pubblici, linee e orari. Il servizio di mobilità consente inoltre agli utenti di recuperare le geometrie delle fermate e delle linee, gli avvisi per le fermate, le linee e le aree di servizio, nonché gli arrivi dei trasporti pubblici e gli avvisi dei servizi in tempo reale. Il servizio di mobilità fornisce anche funzionalità di pianificazione percorso con opzioni di pianificazione di itinerari multimodali. La pianificazione di itinerari multimodali incorpora le opzioni di itinerario a piedi, in bicicletta e con trasporti pubblici, in un unico itinerario. Gli utenti possono anche accedere a itinerari dettagliati multimodali. 
+Il [servizio Mobility](/rest/api/maps/mobility) di Azure Maps migliora il tempo di sviluppo per le applicazioni con funzionalità di transito pubblico, ad esempio il routing di transito e la ricerca di interruzioni del traffico pubblico nelle vicinanze. Gli utenti possono recuperare informazioni dettagliate su fermate dei trasporti pubblici, linee e orari. Il servizio di mobilità consente inoltre agli utenti di recuperare le geometrie delle fermate e delle linee, gli avvisi per le fermate, le linee e le aree di servizio, nonché gli arrivi dei trasporti pubblici e gli avvisi dei servizi in tempo reale. Il servizio di mobilità fornisce anche funzionalità di pianificazione percorso con opzioni di pianificazione di itinerari multimodali. La pianificazione di itinerari multimodali incorpora le opzioni di itinerario a piedi, in bicicletta e con trasporti pubblici, in un unico itinerario. Gli utenti possono anche accedere a itinerari dettagliati multimodali. 
 
 Azure Maps non fornisce lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito pubblici dipende dall'area metro. Inoltre, i dati della mappa potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono l'area metropolitana.
 
@@ -39,7 +39,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Cile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, la Serena y Coquimbo, Linares, Los Angeles (Chile), Los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | Colombia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, pasto, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
 | Costa Rica | San José|
-| Repubblica Dominicana | Santo Domingo |
+| Repubblica dominicana | Santo Domingo |
 | Ecuador | Cuenca, Guayaquil, Loja, Manta|
 | Messico | Aguascalientes, città del Messico, Guadalajara, Lion, Merida, Monterrey, Puebla, Querétaro, San Luis Potosi, Torreon|
 | Nicaragua | Managua |
@@ -87,7 +87,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pernik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croazia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagabria |
 | Cipro | Larnaca, Limassol, Nicosia |
-| Repubblica Ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga |
+| Repubblica ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga |
 | Danimarca   | Danimarca |
 | Estonia   | Estonia |
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, pori, Rovaniemi, Seinäjoki, Tampere, Turku, Vaasa|
@@ -128,7 +128,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 | Paese/Area geografica |  Città (area metro) |
 |---------|---------|
-| Bahrein | Bahrain |
+| Bahrain | Bahrain |
 | Burkina Faso | Ouagadougou |
 | Congo | Kinshasa |
 | Egitto | Cairo    |
@@ -139,7 +139,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Qatar| Doha|
 | Arabia Saudita | Thuwal |
 | Senegal | Dakar |
-| Sudafrica | Città del Capo |
+| Sud Africa | Città del Capo |
 | Tunisia | Kairouan |
 | Emirati Arabi Uniti  | Abu Dhabi, Dubai |
 
@@ -159,4 +159,4 @@ Informazioni su come richiedere dati in tempo reale tramite il servizio Mobility
 Esplora la documentazione dell'API del servizio Mobility di Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentazione dell'API del servizio Mobility](https://aka.ms/AzureMapsMobilityService)
+> [Documentazione dell'API del servizio Mobility](/rest/api/maps/mobility)
