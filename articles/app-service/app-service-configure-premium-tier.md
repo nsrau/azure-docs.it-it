@@ -5,13 +5,13 @@ keywords: servizio app, servizio app di azure, scala, scalabile, piano di serviz
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0030a9340d874d94b9876e23f372e97655c145da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e6b8c7d54cf24d810a1f32082d816c908966f63c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742674"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739687"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configurare il livello PremiumV3 per il servizio app Azure
 
@@ -19,7 +19,7 @@ Il nuovo piano tariffario **PremiumV3** offre processori più veloci, archiviazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire la scalabilità verticale di un'app in **PremiumV3**, è necessario disporre di un'app di servizio app Azure eseguita in un piano tariffario inferiore a **PremiumV3**e l'app deve essere in esecuzione in una distribuzione del servizio app che supporti PremiumV3.
+Per eseguire la scalabilità verticale di un'app in **PremiumV3** , è necessario disporre di un'app di servizio app Azure eseguita in un piano tariffario inferiore a **PremiumV3** e l'app deve essere in esecuzione in una distribuzione del servizio app che supporti PremiumV3.
 
 <a name="availability"></a>
 
@@ -42,14 +42,14 @@ az appservice list-locations --sku P1V3
 
 Il piano tariffario di un'app del servizio app è definito nel [piano di servizio app](overview-hosting-plans.md) su cui è in esecuzione. È possibile creare un piano di Servizio app in modo indipendente o nell'ambito della creazione di un'app.
 
-Durante la configurazione del piano di servizio app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> selezionare **Piano tariffario**. 
+Durante la configurazione del piano di servizio app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> selezionare **Piano tariffario** . 
 
-Selezionare **produzione**, quindi selezionare **P1V3**, **P2V3**o **P3V3**, quindi fare clic su **applica**.
+Selezionare **produzione** , quindi selezionare **P1V3** , **P2V3** o **P3V3** , quindi fare clic su **applica** .
 
 ![Screenshot che mostra i piani tariffari consigliati per l'app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Se non vengono visualizzate le opzioni **P1V3**, **P2V3**e **P3V3** o se le opzioni sono visualizzate in grigio, **PremiumV3** probabilmente non è disponibile nella distribuzione del servizio app sottostante che contiene il piano di servizio app. Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
+> Se non vengono visualizzate le opzioni **P1V3** , **P2V3** e **P3V3** o se le opzioni sono visualizzate in grigio, **PremiumV3** probabilmente non è disponibile nella distribuzione del servizio app sottostante che contiene il piano di servizio app. Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
 
 ## <a name="scale-up-an-existing-app-to-premiumv3-tier"></a>Ridimensionare un'app esistente al livello PremiumV3
 
@@ -59,11 +59,11 @@ A seconda dell'ambiente di hosting, il passaggio al livello successivo può rich
 
 Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> aprire la pagina dell'app del servizio di app.
 
-Nel riquadro di spostamento sinistro della pagina dell'app del servizio app selezionare **Aumenta prestazioni (piano di servizio app)**.
+Nel riquadro di spostamento sinistro della pagina dell'app del servizio app selezionare **Aumenta prestazioni (piano di servizio app)** .
 
 ![Screenshot che illustra come aumentare il piano di servizio app.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Selezionare **produzione**, quindi selezionare **P1V3**, **P2V3**o **P3V3**, quindi fare clic su **applica**.
+Selezionare **produzione** , quindi selezionare **P1V3** , **P2V3** o **P3V3** , quindi fare clic su **applica** .
 
 ![Screenshot che mostra i piani tariffari consigliati per l'app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -79,10 +79,10 @@ Alcuni piani di servizio app non possono essere scalati fino al livello PremiumV
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata
 
-Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV3** non è disponibile o se l'app viene eseguita in un'area che attualmente non supporta **PremiumV3**, è necessario ridistribuire l'app per sfruttare i vantaggi di **PremiumV3**.  Sono disponibili due opzioni:
+Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV3** non è disponibile o se l'app viene eseguita in un'area che attualmente non supporta **PremiumV3** , è necessario ridistribuire l'app per sfruttare i vantaggi di **PremiumV3** .  Sono disponibili due opzioni:
 
-- Creare un'app in un nuovo gruppo di risorse e con un nuovo piano di servizio app. Quando si crea il piano di servizio app, selezionare un livello **PremiumV3** . Questo passaggio garantisce che il piano di servizio app venga distribuito in un'unità di distribuzione che supporta **PremiumV3**. Quindi, ridistribuire il codice dell'applicazione nell'app appena creata. Anche se si ridimensiona il piano di servizio app fino a un livello inferiore per ridurre i costi, è sempre possibile ridimensionare il backup in **PremiumV3** perché l'unità di distribuzione lo supporta.
-- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione della distribuzione in un nuovo piano di servizio app che usa **PremiumV3**.
+- Creare un'app in un nuovo gruppo di risorse e con un nuovo piano di servizio app. Quando si crea il piano di servizio app, selezionare un livello **PremiumV3** . Questo passaggio garantisce che il piano di servizio app venga distribuito in un'unità di distribuzione che supporta **PremiumV3** . Quindi, ridistribuire il codice dell'applicazione nell'app appena creata. Anche se si ridimensiona il piano di servizio app fino a un livello inferiore per ridurre i costi, è sempre possibile ridimensionare il backup in **PremiumV3** perché l'unità di distribuzione lo supporta.
+- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione della distribuzione in un nuovo piano di servizio app che usa **PremiumV3** .
 
     ![Screenshot che illustra come clonare l'app.](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -90,7 +90,7 @@ Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV3
 
 ## <a name="moving-from-premium-container-to-premium-v3-sku"></a>Passaggio dallo SKU Premium container a Premium V3
 
-Se si dispone di un'app che usa lo SKU del contenitore Premium di anteprima e si vuole passare al nuovo SKU Premium V3, è necessario ridistribuire l'app per sfruttare i vantaggi di **PremiumV3**. Per eseguire questa operazione, vedere la prima opzione in [scalabilità verticale rispetto a una combinazione di area e gruppo di risorse non supportata](#scale-up-from-an-unsupported-resource-group-and-region-combination)
+Se si dispone di un'app che usa lo SKU del contenitore Premium di anteprima e si vuole passare al nuovo SKU Premium V3, è necessario ridistribuire l'app per sfruttare i vantaggi di **PremiumV3** . Per eseguire questa operazione, vedere la prima opzione in [scalabilità verticale rispetto a una combinazione di area e gruppo di risorse non supportata](#scale-up-from-an-unsupported-resource-group-and-region-combination)
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
@@ -98,7 +98,7 @@ Se si dispone di un'app che usa lo SKU del contenitore Premium di anteprima e si
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Il comando seguente crea un piano di servizio app in _P1V2_. È possibile eseguirlo in Cloud Shell. Le opzioni per `--sku` sono P1V3, _P2V3_e _P3V3_.
+Il comando seguente crea un piano di servizio app in _P1V2_ . È possibile eseguirlo in Cloud Shell. Le opzioni per `--sku` sono P1V3, _P2V3_ e _P3V3_ .
 
 ```azurecli-interactive
 az appservice plan create \
@@ -111,7 +111,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Il comando seguente crea un piano di servizio app in _P1V3_. Le opzioni per `-WorkerSize` sono _Small_, _Medium_ e _Large_.
+Il comando seguente crea un piano di servizio app in _P1V3_ . Le opzioni per `-WorkerSize` sono _Small_ , _Medium_ e _Large_ .
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

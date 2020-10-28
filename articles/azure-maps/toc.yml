@@ -359,9 +359,9 @@
     - name: Azure IoT SDK
       items:
         - name: IoT SDK per servizi
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks
         - name: IoT SDK per dispositivi
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks
     - name: Condizioni per l'utilizzo di Mappe di Azure
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Prezzi di Mappe di Azure

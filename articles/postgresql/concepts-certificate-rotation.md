@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 65357642d940453b5bbfabf2fbb726ca909ce6f5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173116"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740428"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il server singolo database di Azure per PostgreSQL
 
@@ -52,11 +52,11 @@ Per evitare che la disponibilità dell'applicazione venga interrotta a causa di 
 *   Sono inclusi un archivio certificati CA combinato con certificati **BaltimoreCyberTrustRoot** e **DigiCertGlobalRootG2** .
     *   Per gli utenti Java (JDBC per PostgreSQL) che usano DefaultJavaSSLFactory, eseguire:
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias PostgreSQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias PostgreSQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -133,7 +133,7 @@ Poiché questo aggiornamento è una modifica sul lato client, se il client utili
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. esiste un'azione necessaria se si dispone già di DigiCertGlobalRootG2 nel file di certificato?
-No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2**.
+No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2** .
 
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. cosa si sta usando l'immagine Docker di PgBouncer sidecar fornita da Microsoft?
 Una nuova immagine Docker che supporta sia [**Baltimora**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) che [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) è pubblicata [qui](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) sotto (Tag più recente). È possibile eseguire il pull di questa nuova immagine per evitare interruzioni della connettività a partire dal 15 febbraio 2021. 

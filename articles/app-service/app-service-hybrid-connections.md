@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742605"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739756"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure
 
@@ -20,7 +20,7 @@ Connessioni ibride è un servizio disponibile in Azure e una funzionalità del S
 
 All'interno del servizio app, è possibile usare Connessioni ibride per accedere alle risorse dell'applicazione in qualsiasi rete in grado di effettuare chiamate in uscita ad Azure tramite la porta 443. Connessioni ibride fornisce l'accesso dall'app a un endpoint TCP e non consente un nuovo modo di accedere all'app. Quando usata in Servizio app, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò consente alle app di accedere alle risorse in qualsiasi sistema operativo, purché sia un endpoint TCP. La funzionalità Connessioni ibride non conosce né deve conoscere quale sia il protocollo dell'applicazione o a quale risorsa l'utente stia accedendo, Fornisce semplicemente l'accesso alla rete.  
 
-## <a name="how-it-works"></a>Funzionamento ##
+## <a name="how-it-works"></a>Come funziona ##
 Connessioni ibride richiede la distribuzione di un agente di inoltro dove può raggiungere sia l'endpoint desiderato che Azure. L'agente di inoltro, Gestione connessione ibrida (HCM), effettua una chiamata al relay di Azure sulla porta 443. Dal sito dell'app Web, l'infrastruttura del servizio app si connette anche al servizio di inoltro di Azure per conto dell'applicazione. Tramite le connessioni Unite, l'app è in grado di accedere all'endpoint desiderato. La connessione usa TLS 1.2 per la sicurezza e le chiavi di firma di accesso condiviso per l'autenticazione e l'autorizzazione.    
 
 ![Diagramma del flusso di livello generale delle connessioni ibride][1]
@@ -56,15 +56,15 @@ Le operazioni che non è possibile eseguire con connessioni ibride includono le 
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Aggiungere e creare connessioni ibride nell'app ##
 
-Per creare una connessione ibrida, accedere al [portale di Azure][portal] e selezionare l'app. Selezionare **rete**  >  **configurare gli endpoint della connessione ibrida**. Da qui è possibile visualizzare le connessioni ibride configurate per l'app.  
+Per creare una connessione ibrida, accedere al [portale di Azure][portal] e selezionare l'app. Selezionare **rete**  >  **configurare gli endpoint della connessione ibrida** . Da qui è possibile visualizzare le connessioni ibride configurate per l'app.  
 
 ![Schermata dell'elenco delle connessioni ibride][2]
 
-Per aggiungere una nuova connessione ibrida, selezionare **[+] Aggiungi connessione ibrida**.  Verrà visualizzato un elenco delle connessioni ibride che sono già state create. Per aggiungere una o più connessioni all'app, selezionare quelle desiderate e quindi selezionare **Aggiungi connessione ibrida selezionata**.  
+Per aggiungere una nuova connessione ibrida, selezionare **[+] Aggiungi connessione ibrida** .  Verrà visualizzato un elenco delle connessioni ibride che sono già state create. Per aggiungere una o più connessioni all'app, selezionare quelle desiderate e quindi selezionare **Aggiungi connessione ibrida selezionata** .  
 
 ![Schermata del portale delle connessioni ibride][3]
 
-Se si intende creare una nuova connessione ibrida, selezionare **Crea nuova connessione ibrida**. Specificare le informazioni seguenti: 
+Se si intende creare una nuova connessione ibrida, selezionare **Crea nuova connessione ibrida** . Specificare le informazioni seguenti: 
 
 - Nome connessione ibrida.
 - Nome host dell'endpoint.
@@ -75,7 +75,7 @@ Se si intende creare una nuova connessione ibrida, selezionare **Crea nuova conn
 
 Ogni connessione ibrida è associata a uno spazio dei nomi del bus di servizio e ogni spazio dei nomi del bus di servizio si trova in un'area di Azure. È importante provare a usare uno spazio dei nomi del bus di servizio nella stessa area dell'app, in modo da evitare la latenza indotta dalla rete.
 
-Se si vuole rimuovere la connessione ibrida dall'app, fare clic con il pulsante destro del mouse sulla connessione e selezionare **Disconnetti**.  
+Se si vuole rimuovere la connessione ibrida dall'app, fare clic con il pulsante destro del mouse sulla connessione e selezionare **Disconnetti** .  
 
 È possibile visualizzare i dettagli di una connessione ibrida aggiunta all'app semplicemente selezionandola. 
 
@@ -113,7 +113,7 @@ Oltre a un requisito per lo SKU del piano di servizio app, sono previsti costi a
 
 ## <a name="hybrid-connection-manager"></a>Gestione connessione ibrida ##
 
-La funzionalità Connessioni ibride richiede un agente di inoltro nella rete che ospita l'endpoint della connessione ibrida. L'agente di inoltro viene chiamato Gestione connessione ibrida. Per scaricare Gestione connessione ibrida, dall'app nel [portale di Azure][portal] selezionare **Rete** > **Configurare gli endpoint della connessione ibrida**.  
+La funzionalità Connessioni ibride richiede un agente di inoltro nella rete che ospita l'endpoint della connessione ibrida. L'agente di inoltro viene chiamato Gestione connessione ibrida. Per scaricare Gestione connessione ibrida, dall'app nel [portale di Azure][portal] selezionare **Rete** > **Configurare gli endpoint della connessione ibrida** .  
 
 Questo strumento viene eseguito in Windows Server 2012 e versioni successive. Gestione connessione ibrida viene eseguito come servizio e si connette in uscita a Inoltro di Azure sulla porta 443.  
 
@@ -134,7 +134,7 @@ Per aggiungere una o più connessioni ibride a Gestione connessione ibrida:
 1. Selezionare le connessioni ibride che si vuole vengano inoltrate tramite Gestione connessione ibrida.
 ![Schermata delle connessioni ibride][9]
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
 Ora è possibile visualizzare le connessioni ibride che sono state aggiunte. È anche possibile selezionare la connessione ibrida configurata per visualizzarne i dettagli.
 
@@ -201,7 +201,7 @@ Chiunque abbia `Reader` accesso all'inoltro potrà _visualizzare_ la connessione
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi ##
 
-Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
+Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso** , la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
 
 Il motivo principale per cui i client non riescono a connettersi al relativo endpoint è perché l'endpoint è stato specificato usando un indirizzo IP anziché un nome DNS. Se l'app non riesce a raggiungere l'endpoint desiderato ed è stato specificato un indirizzo IP, usare un nome DNS valido nell'host in cui Gestione connessione ibrida è in esecuzione. È necessario controllare anche che il nome DNS venga risolto correttamente nell'host in cui Gestione connessione ibrida è in esecuzione e che vi sia connettività tra l'host in cui Gestione connessione ibrida è in esecuzione e l'endpoint della connessione ibrida.  
 

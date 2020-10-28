@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3b091fb66172fad85b604d8eb621f1bebb750a46
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366021"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740163"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -32,7 +32,8 @@ Vedere le sezioni seguenti per informazioni su come una risorsa può convalidare
 
 > [!IMPORTANT]
 > I token di accesso vengono creati in base al *destinatario* del token, ovvero l'applicazione proprietaria degli ambiti nel token.  In questo modo l'impostazione di una risorsa `accessTokenAcceptedVersion` nel [manifesto dell'applicazione](reference-app-manifest.md#manifest-reference) su `2` consente a un client che chiama l'endpoint v1.0 di ricevere un token di accesso v2.0.  Analogamente, questo è il motivo per cui la modifica delle [attestazioni facoltative](active-directory-optional-claims.md) del token di accesso per il client non cambia il token di accesso ricevuto quando viene richiesto un token per `user.read`, che è di proprietà della risorsa.
-> Per lo stesso motivo, quando si eseguono i test dell'applicazione client con un account personale, ad esempio hotmail.com o outlook.com, si può notare che il token di accesso ricevuto dal client è una stringa opaca. Il motivo è che la risorsa a cui si accede ha richiesto ticket MSA (account Microsoft) legacy che sono crittografati e non vengono riconosciuti dal client.
+>
+> Per lo stesso motivo, durante il test dell'applicazione client con un'API Microsoft che supporta l'account personale, ad esempio hotmail.com o outlook.com, si noterà che il token di accesso ricevuto dal client è una stringa opaca. Questo perché la risorsa a cui si accede usa i token crittografati e non può essere riconosciuta dal client.  Questo comportamento è previsto e non dovrebbe essere un problema per le app. le app client non devono mai avere una dipendenza dal formato del token di accesso. 
 
 ## <a name="sample-tokens"></a>Token di esempio
 
@@ -58,9 +59,9 @@ Visualizzare questo token v2.0 in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAi
 
 I token JWT (token JSON Web) sono divisi in tre parti:
 
-* **Intestazione**: fornisce informazioni su come [convalidare il token](#validating-tokens), incluse informazioni sul tipo di token e su come è stato firmato.
-* **Payload**: contiene tutti i dati importanti relativi all'utente o all'app che sta cercando di chiamare il servizio.
-* **Firma**: rappresenta il materiale non elaborato usato per convalidare il token.
+* **Intestazione** : fornisce informazioni su come [convalidare il token](#validating-tokens), incluse informazioni sul tipo di token e su come è stato firmato.
+* **Payload** : contiene tutti i dati importanti relativi all'utente o all'app che sta cercando di chiamare il servizio.
+* **Firma** : rappresenta il materiale non elaborato usato per convalidare il token.
 
 Ogni parte è separata da un punto (`.`) e a ogni parte viene applicata separatamente la codifica Base64.
 
@@ -103,7 +104,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Di conseguenza
 | `wids` | Matrice di GUID [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) | Indica i ruoli a livello di tenant assegnati a questo utente dalla sezione dei ruoli presenti nella [pagina di ruoli di amministratore](../roles/permissions-reference.md#role-template-ids).  Questa attestazione viene configurata per ogni applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md).  È necessario impostarla su "All" o su "DirectoryRole".  Può non essere presente nei token ottenuti tramite il flusso implicito, a causa di problemi di lunghezza del token. |
 | `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Il valore null escluderà tutti i gruppi, il valore "SecurityGroup" includerà solo Active Directory le appartenenze ai gruppi di sicurezza e il valore "All" includerà sia i gruppi di sicurezza che Microsoft 365 elenchi di distribuzione. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi in cui è presente l'utente è superiore al limite (150 per SAML, 200 per JWT), nelle origini delle attestazioni viene aggiunta un'attestazione di eccedenza che punta all'endpoint Microsoft Graph contenente l'elenco dei gruppi per l'utente. |
 | `hasgroups` | Boolean | Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare l'API Microsoft Graph per determinare i gruppi dell'utente (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | string | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. Vedere anche l'attestazione `oid` (che rimane invariata nelle app all'interno di un tenant). |
 | `oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto in Microsoft Identity Platform, in questo caso un account utente. Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. È quindi possibile usare `oid` quando si eseguono query sui Microsoft Online Services, ad esempio Microsoft Graph. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato [account utente](/graph/api/resources/user). Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 | `tid` | Stringa, un GUID | Rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
@@ -177,7 +178,7 @@ Sono disponibili librerie ed esempi di codice che illustrano come gestire la con
 
 ### <a name="validating-the-signature"></a>Convalida della firma
 
-Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come **intestazione**, il secondo come **corpo** e il terzo come **firma**. Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
+Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come **intestazione** , il secondo come **corpo** e il terzo come **firma** . Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
 
 I token emessi da Azure AD vengono firmati usando algoritmi di crittografia asimmetrica standard del settore, come RS256. L'intestazione del token JWT contiene informazioni sulla chiave e sul metodo di crittografia usati per firmare il token:
 

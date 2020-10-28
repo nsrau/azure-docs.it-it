@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210156"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740155"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Supportare Single Sign-On e i criteri di protezione delle app nelle app per dispositivi mobili sviluppate
 
@@ -47,7 +47,7 @@ Se attualmente si usa la [libreria adal](../azuread-dev/active-directory-authent
 
 Per le applicazioni iOS, è presente una [Guida introduttiva](quickstart-v2-ios.md) che illustra come configurare gli accessi tramite MSAL, oltre a [indicazioni per la configurazione di MSAL per diversi scenari SSO](single-sign-on-macos-ios.md).
 
-Per le applicazioni Android, abbiamo una [Guida introduttiva](quickstart-v2-android.md) che illustra come configurare gli accessi tramite MSAL e le linee guida per l'uso dell' [autenticazione negoziata](brokered-auth.md) o degli [agenti di autorizzazione](authorization-agents.md).
+Per le applicazioni Android, abbiamo una [Guida introduttiva](quickstart-v2-android.md) che illustra come configurare gli accessi con MSAL e istruzioni [su come abilitare l'accesso Single Sign-on tra app in Android usando MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Usare il Web browser di sistema
 
