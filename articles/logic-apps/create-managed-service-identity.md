@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: bb146f03000f17d94d3d2ffc93b55c42eea20dac
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371478"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736518"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
@@ -63,7 +63,7 @@ A differenza delle identità assegnate dall'utente, l'identità assegnata dal si
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Identità**. Selezionare **Assegnata dal sistema** > **Attiva** > **Salva**. Quando Azure chiede di confermare, selezionare **Sì**.
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Identità** . Selezionare **Assegnata dal sistema** > **Attiva** > **Salva** . Quando Azure chiede di confermare, selezionare **Sì** .
 
    ![Abilitare l'identità assegnata dal sistema](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
@@ -148,35 +148,35 @@ Per configurare un'identità gestita assegnata dall'utente per l'app per la logi
 
 #### <a name="create-user-assigned-identity-in-the-azure-portal"></a>Creare un'identità assegnata dall'utente nel portale di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com) nella casella di ricerca di una pagina immettere `managed identities` e selezionare **Identità gestite**.
+1. Nel [portale di Azure](https://portal.azure.com) nella casella di ricerca di una pagina immettere `managed identities` e selezionare **Identità gestite** .
 
    ![Trovare e selezionare "Identità gestite"](./media/create-managed-service-identity/find-select-managed-identities.png)
 
-1. In **Identità gestite** selezionare **Aggiungi**.
+1. In **Identità gestite** selezionare **Aggiungi** .
 
    ![Aggiungere una nuova identità gestita](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Specificare le informazioni sull'identità gestita e quindi selezionare **Crea**, ad esempio:
+1. Fornire informazioni sull'identità gestita e quindi selezionare **Verifica + crea** , ad esempio:
 
    ![Creare un'identità gestita assegnata dall'utente](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Nome risorsa** | Sì | <*user-assigned-identity-name*> | Nome da assegnare all'identità assegnata dall'utente. Questo esempio usa "Fabrikam-user-assigned-identity". |
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure da usare. |
-   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Nome per il gruppo di risorse da usare. Creare un nuovo gruppo o selezionare un gruppo esistente. Questo esempio crea un nuovo gruppo denominato "fabrikam-managed-identities-RG". |
-   | **Posizione** | Sì | <*Area di Azure*> | Area di Azure in cui archiviare le informazioni sulla risorsa. Questo esempio usa "Stati Uniti occidentali". |
+   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Nome per il gruppo di risorse da usare. Creare un nuovo gruppo o selezionare un gruppo esistente. In questo esempio viene creato un nuovo gruppo denominato `fabrikam-managed-identities-RG` . |
+   | **Area** | Sì | <*Area di Azure*> | Area di Azure in cui archiviare le informazioni sulla risorsa. Questo esempio usa "Stati Uniti occidentali". |
+   | **Nome** | Sì | <*user-assigned-identity-name*> | Nome da assegnare all'identità assegnata dall'utente. In questo esempio viene utilizzato `Fabrikam-user-assigned-identity`. |
    |||||
 
-   A questo punto è possibile aggiungere l'identità assegnata dall'utente all'app per la logica. Non è possibile aggiungere più di un'identità assegnata dall'utente all'app per la logica.
+   Dopo aver convalidato questi dettagli, Azure crea l'identità gestita. A questo punto è possibile aggiungere l'identità assegnata dall'utente all'app per la logica. Non è possibile aggiungere più di un'identità assegnata dall'utente all'app per la logica.
 
 1. Nel portale di Azure individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica in **Impostazioni** selezionare **Identità** e quindi selezionare **Assegnata dall'utente** > **Aggiungi**.
+1. Nel menu dell'app per la logica in **Impostazioni** selezionare **Identità** e quindi selezionare **Assegnata dall'utente** > **Aggiungi** .
 
    ![Aggiungere un'identità gestita assegnata dall'utente](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
-1. Nel riquadro **Aggiungi identità gestita assegnata dall'utente** dall'elenco **Sottoscrizione** selezionare la sottoscrizione di Azure, se non è già selezionata. Dall'elenco che mostra *tutte* le identità gestite nella sottoscrizione, trovare e selezionare l'identità assegnata dall'utente desiderata. Per filtrare l'elenco, nella casella di ricerca **Identità gestite assegnate dall'utente** immettere il nome per l'identità o il gruppo di risorse. Al termine, selezionare **Aggiungi**.
+1. Nel riquadro **Aggiungi identità gestita assegnata dall'utente** dall'elenco **Sottoscrizione** selezionare la sottoscrizione di Azure, se non è già selezionata. Dall'elenco che mostra *tutte* le identità gestite nella sottoscrizione, trovare e selezionare l'identità assegnata dall'utente desiderata. Per filtrare l'elenco, nella casella di ricerca **Identità gestite assegnate dall'utente** immettere il nome per l'identità o il gruppo di risorse. Al termine, selezionare **Aggiungi** .
 
    ![Selezionare l'identità assegnata dall'utente da usare](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
@@ -287,7 +287,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 * [Azure portal](#azure-portal-assign-access)
 * [Modello di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Interfaccia della riga di comando di Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
+* Interfaccia della riga di comando di Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)). Per altre informazioni, vedere [Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al ruolo di Azure e l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
 * [API REST di Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -296,7 +296,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla risorsa di Azure a cui si vuole che l'identità gestita abbia accesso.
 
-1. Dal menu della risorsa selezionare **Controllo di accesso (IAM)**  > **Assegnazioni di ruolo** in cui è possibile esaminare le assegnazioni di ruolo correnti per la risorsa. Nella barra degli strumenti selezionare **Aggiungi** > **Aggiungi un'assegnazione di ruolo**.
+1. Dal menu della risorsa selezionare **Controllo di accesso (IAM)**  > **Assegnazioni di ruolo** in cui è possibile esaminare le assegnazioni di ruolo correnti per la risorsa. Nella barra degli strumenti selezionare **Aggiungi** > **Aggiungi un'assegnazione di ruolo** .
 
    ![Selezionare "Aggiungi" > "Aggiungi un'assegnazione di ruolo"](./media/create-managed-service-identity/add-role-to-resource.png)
 
@@ -305,7 +305,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
 1. In **Aggiungi un'assegnazione di ruolo** selezionare un **Ruolo** che offra all'identità l'accesso necessario alla risorsa di destinazione.
 
-   Per l'esempio di questo argomento, l'identità richiede un [ruolo in grado di accedere al BLOB in un contenitore di Archiviazione di Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+   Per l'esempio di questo argomento, l'identità necessita di un [ruolo che possa accedere al BLOB in un contenitore di archiviazione di Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights), quindi selezionare il ruolo di **collaboratore dati BLOB di archiviazione** per l'identità gestita.
 
    ![Selezionare il ruolo "Collaboratore ai dati dei BLOB di archiviazione"](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -313,7 +313,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
    * **Identità assegnata dal sistema**
 
-     1. Nella casella **Assegna accesso a** selezionare **App per la logica**. Quando viene visualizzata la proprietà **Sottoscrizione**, selezionare la sottoscrizione di Azure associata all'identità.
+     1. Nella casella **Assegna accesso a** selezionare **App per la logica** . Quando viene visualizzata la proprietà **Sottoscrizione** , selezionare la sottoscrizione di Azure associata all'identità.
 
         ![Selezionare l'accesso per l'identità assegnata dal sistema](./media/create-managed-service-identity/assign-access-system.png)
 
@@ -323,7 +323,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
    * **Identità assegnata dall'utente**
 
-     1. Nella casella **Assegna accesso a** selezionare **Identità gestita assegnata dall'utente**. Quando viene visualizzata la proprietà **Sottoscrizione**, selezionare la sottoscrizione di Azure associata all'identità.
+     1. Nella casella **Assegna accesso a** selezionare **Identità gestita assegnata dall'utente** . Quando viene visualizzata la proprietà **Sottoscrizione** , selezionare la sottoscrizione di Azure associata all'identità.
 
         ![Selezionare l'accesso per l'identità assegnata dall'utente](./media/create-managed-service-identity/assign-access-user.png)
 
@@ -331,7 +331,7 @@ Prima di poter usare l'identità gestita dell'app per la logica per l'autenticaz
 
         ![Selezionare l'identità assegnata dall'utente](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
-1. Al termine, selezionare **Salva**.
+1. Al termine, selezionare **Salva** .
 
    L'elenco delle assegnazioni di ruolo della risorsa di destinazione mostra ora l'identità gestita e il ruolo selezionati. Questo esempio mostra come usare l'identità assegnata dal sistema per un'app per la logica e un'identità assegnata dall'utente per un gruppo di altre app per la logica.
 
@@ -378,28 +378,28 @@ Questa procedura mostra come usare l'identità gestita con un trigger o un'azion
    |----------|----------|---------------|-------------|
    | **Metodo** | Sì | `PUT`| Il metodo HTTP usato dall'operazione Snapshot BLOB |
    | **URI** | Sì | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | L'ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure che usa questa sintassi |
-   | **Intestazioni** | Sì, per Archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | I valori di intestazione `x-ms-blob-type` e `x-ms-version` richiesti per le operazioni di Archiviazione di Azure. <p><p>**Importante**: nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Query** | Sì, per questa operazione | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione Snapshot BLOB. |
+   | **Intestazioni** | Per archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | I `x-ms-blob-type` `x-ms-version` `x-ms-date` valori di intestazione, e sono necessari per le operazioni di archiviazione di Azure. <p><p>**Importante** : nel trigger HTTP in uscita e nelle richieste di azione per Archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. `x-ms-date`Deve corrispondere alla data corrente. In caso contrario, l'app per la logica ha esito negativo con un `403 FORBIDDEN` errore. Per ottenere la data corrente nel formato richiesto, è possibile usare l'espressione nel valore di esempio. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Intestazioni delle richieste - Snapshot BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Controllo delle versioni per i servizi di Archiviazione di Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Query** | Solo per l'operazione snapshot BLOB | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione. |
    |||||
 
    L'azione HTTP di esempio mostra tutti i valori delle proprietà:
 
    ![Aggiungere un'azione HTTP per accedere a una risorsa di Azure](./media/create-managed-service-identity/http-action-example.png)
 
-1. Aggiungere ora la proprietà **Autenticazione** all'azione HTTP. Dall'elenco **Aggiungi nuovo parametro** selezionare **Autenticazione**.
+1. Aggiungere ora la proprietà **Autenticazione** all'azione HTTP. Dall'elenco **Aggiungi nuovo parametro** selezionare **Autenticazione** .
 
    ![Aggiungere la proprietà "Autenticazione" all'azione HTTP](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
    > Non tutti i trigger e le azioni supportano l'aggiunta di un tipo di autenticazione. Per altre informazioni, vedere [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Dall'elenco **Tipo di autenticazione** selezionare **Identità gestita**.
+1. Dall'elenco **Tipo di autenticazione** selezionare **Identità gestita** .
 
    ![Per "Autenticazione", selezionare "Identità gestita"](./media/create-managed-service-identity/select-managed-identity.png)
 
 1. Dall'elenco delle identità gestite selezionare una delle opzioni disponibili in base allo scenario.
 
-   * Se si configura l'identità assegnata dal sistema, selezionare l'opzione **Identità gestita assegnata dal sistema**, se non è già selezionata.
+   * Se si configura l'identità assegnata dal sistema, selezionare l'opzione **Identità gestita assegnata dal sistema** , se non è già selezionata.
 
      ![Selezionare "Identità gestita assegnata dal sistema"](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
 
@@ -407,9 +407,9 @@ Questa procedura mostra come usare l'identità gestita con un trigger o un'azion
 
      ![Selezionare l'identità assegnata dall'utente](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
 
-   Questo esempio continua con l'**Identità gestita assegnata dal sistema**.
+   Questo esempio continua con l' **Identità gestita assegnata dal sistema** .
 
-1. In alcuni trigger e azioni viene visualizzata anche la proprietà **Destinatari** che consente di impostare l'ID risorsa di destinazione. Impostare la proprietà **Destinatari** sull'[ID di risorsa per la risorsa o il servizio di destinazione](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). In caso contrario, per impostazione predefinita, la proprietà **Destinatari** usa l'ID risorsa `https://management.azure.com/` che è l'ID risorsa per Azure Resource Manager.
+1. In alcuni trigger e azioni viene visualizzata anche la proprietà **Destinatari** che consente di impostare l'ID risorsa di destinazione. Impostare la proprietà **Destinatari** sull' [ID di risorsa per la risorsa o il servizio di destinazione](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). In caso contrario, per impostazione predefinita, la proprietà **Destinatari** usa l'ID risorsa `https://management.azure.com/` che è l'ID risorsa per Azure Resource Manager.
 
    > [!IMPORTANT]
    > Assicurarsi che l'ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure Active Directory (AD), incluse le eventuali barre finali necessarie. Ad esempio, l'ID risorsa per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Controllare gli [ID risorsa per i servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
@@ -457,9 +457,9 @@ Nel portale di Azure rimuovere prima di tutto l'accesso dell'identità alla [ris
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla risorsa di destinazione di Azure in cui si vuole rimuovere l'accesso per l'identità gestita.
 
-1. Nel menu della risorsa di destinazione selezionare **Controllo di accesso (IAM)** . Nella barra degli strumenti selezionare **Assegnazioni di ruoli**.
+1. Nel menu della risorsa di destinazione selezionare **Controllo di accesso (IAM)** . Nella barra degli strumenti selezionare **Assegnazioni di ruoli** .
 
-1. Nell'elenco dei ruoli selezionare le identità gestite che si vuole rimuovere. Nella barra degli strumenti selezionare **Rimuovi**.
+1. Nell'elenco dei ruoli selezionare le identità gestite che si vuole rimuovere. Nella barra degli strumenti selezionare **Rimuovi** .
 
    > [!TIP]
    > Se l'opzione **Rimuovi** è disabilitata, è probabile che non si abbiano le autorizzazioni. Per altre informazioni sulle autorizzazioni che consentono di gestire i ruoli per le risorse, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
@@ -474,11 +474,11 @@ L'identità gestita viene ora rimossa e non ha più accesso alla risorsa di dest
 
 1. Nel menu dell'app per la logica in **Impostazioni** selezionare **Identità** e quindi seguire la procedura per l'identità:
 
-   * Selezionare **Assegnata dal sistema** > **Attiva** > **Salva**. Quando Azure chiede di confermare, selezionare **Sì**.
+   * Selezionare **Assegnata dal sistema** > **Attiva** > **Salva** . Quando Azure chiede di confermare, selezionare **Sì** .
 
      ![Disabilitare l'identità assegnata dal sistema](./media/create-managed-service-identity/disable-system-assigned-identity.png)
 
-   * Selezionare **Assegnata dall'utente** e l'identità gestita, quindi selezionare **Rimuovi**. Quando Azure chiede di confermare, selezionare **Sì**.
+   * Selezionare **Assegnata dall'utente** e l'identità gestita, quindi selezionare **Rimuovi** . Quando Azure chiede di confermare, selezionare **Sì** .
 
      ![Rimuovere l'identità assegnata dall'utente](./media/create-managed-service-identity/remove-user-assigned-identity.png)
 

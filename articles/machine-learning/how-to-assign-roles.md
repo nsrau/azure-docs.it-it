@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425644"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736608"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
@@ -26,7 +26,7 @@ Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machin
 
 Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogamente ad altre risorse di Azure, quando viene creata una nuova area di lavoro di Azure Machine Learning, essa presenta tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
 
-| Role | Livello di accesso |
+| Ruolo | Livello di accesso |
 | --- | --- |
 | **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare le risorse, incluse le credenziali dell' [archivio dati](how-to-access-data.md) , in un'area di lavoro. I lettori non possono creare o aggiornare tali asset. |
 | **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono, ad esempio, creare un esperimento, creare o allegare un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
@@ -173,7 +173,7 @@ Attualmente non vengono pubblicati i [ruoli predefiniti di Azure](/azure/role-ba
 
 Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizzate che è possibile usare come base per definire ruoli personalizzati:
 
-* __Custom Data Scientist__: consente a un data scientist di eseguire tutte le operazioni all'interno di un'area di lavoro, **ad eccezione**di:
+* __Custom Data Scientist__ : consente a un data scientist di eseguire tutte le operazioni all'interno di un'area di lavoro, **ad eccezione** di:
 
     * Creazione di calcolo
     * Distribuzione di modelli in un cluster AKS di produzione
@@ -209,7 +209,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     }
     ```
 
-* __Custom Data Scientist con restrizioni__: una definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite. Può eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto**:
+* __Custom Data Scientist con restrizioni__ : una definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite. Può eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto** :
 
     * Creazione di calcolo
     * Distribuzione di modelli in un cluster AKS di produzione
@@ -270,7 +270,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     }
     ```
      
-* __MLflow data scientist personalizzato__: consente a un data scientist di eseguire tutte le operazioni supportate da MLflow AzureML **ad eccezione**di:
+* __MLflow data scientist personalizzato__ : consente a un data scientist di eseguire tutte le operazioni supportate da MLflow AzureML **ad eccezione** di:
 
    * Creazione di calcolo
    * Distribuzione di modelli in un cluster AKS di produzione
@@ -310,7 +310,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     }
     ```   
 
-* __MLOps Custom__: consente di assegnare un ruolo a un'entità servizio e usarlo per automatizzare le pipeline MLOps. Ad esempio, per inviare le esecuzioni in una pipeline già pubblicata:
+* __MLOps Custom__ : consente di assegnare un ruolo a un'entità servizio e usarlo per automatizzare le pipeline MLOps. Ad esempio, per inviare le esecuzioni in una pipeline già pubblicata:
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     }
     ```
 
-* __Area di lavoro amministratore__: consente di eseguire tutte le operazioni nell'ambito di un'area di lavoro, **ad eccezione**di:
+* __Area di lavoro amministratore__ : consente di eseguire tutte le operazioni nell'ambito di un'area di lavoro, **ad eccezione** di:
 
     * Creazione di una nuova area di lavoro
     * Assegnazione delle quote a livello di sottoscrizione o area di lavoro
@@ -381,7 +381,7 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__: consente di definire un ruolo con ambito solo per l'assegnazione di etichette ai dati:
+* __Labeler Custom__ : consente di definire un ruolo con ambito solo per l'assegnazione di etichette ai dati:
 
     `labeler_custom_role.json` :
     ```json

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 05/12/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3102742d19e7e0dffa6135c9267f51b1231dafc8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db0b93533822de3e5cb7e16e99b9f3fb4f8a7f9d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970463"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426231"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Avvio rapido: Inviare una query all'API Bing Local Business Search in C#
 
@@ -29,11 +29,11 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per u
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Creare una risorsa di Ricerca Bing"  target="_blank">creare una risorsa di Ricerca Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
 
 ## <a name="create-the-request"></a>Creare la richiesta 
 
-Il codice seguente crea una `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per *restaurant in Bellevue*.  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
+Il codice seguente crea una `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per *restaurant in Bellevue* .  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -73,8 +73,8 @@ namespace localSearch
     class Program
     {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";

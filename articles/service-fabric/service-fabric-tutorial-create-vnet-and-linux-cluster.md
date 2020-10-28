@@ -3,13 +3,13 @@ title: Creare un cluster Linux Service Fabric in Azure
 description: Informazioni su come distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando di Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586921"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738953"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -75,7 +75,7 @@ Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio 
 
 ### <a name="virtual-network-and-subnet"></a>Rete virtuale e subnet
 
-I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
+I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks** :
 
 * Spazio indirizzi della rete virtuale: 10.0.0.0/16
 * Spazio indirizzi della subnet di Service Fabric: 10.0.2.0/24

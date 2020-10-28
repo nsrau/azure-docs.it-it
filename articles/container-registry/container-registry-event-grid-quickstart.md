@@ -3,13 +3,13 @@ title: Guida introduttiva-inviare eventi a griglia di eventi
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403239"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736864"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
 
@@ -23,11 +23,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash**. Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
+I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash** . Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. Il comando [az group create][az-group-create] seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*. Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
+Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. Il comando [az group create][az-group-create] seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -206,7 +206,7 @@ Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDelete
 
 Quando le risorse create in questa guida introduttiva non sono più necessarie, è possibile eliminarle tutte con il seguente comando dell'interfaccia della riga di comando di Azure. Quando si elimina un gruppo di risorse, vengono eliminate definitivamente tutte le risorse contenute nel gruppo.
 
-**AVVISO**: questa operazione è irreversibile. Prima di eseguire il comando assicurarsi che nessuna delle risorse del gruppo sia più necessaria.
+**AVVISO** : questa operazione è irreversibile. Prima di eseguire il comando assicurarsi che nessuna delle risorse del gruppo sia più necessaria.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

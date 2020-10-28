@@ -7,16 +7,16 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 10/25/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: visione personalizzata, riconoscimento immagini, app di riconoscimento immagini, analisi delle immagini, software di riconoscimento immagini
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 6583086c4b64c50f0cbef1fc12b7f4dc9e36be1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a76f9cdd30fbdb5696149f57901dfc7e1b60e673
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321060"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678275"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Avvio rapido: Creare un progetto di classificazione di immagini con la libreria client di Visione personalizzata
 

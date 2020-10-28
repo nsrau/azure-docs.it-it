@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893085"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738760"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire i notebook di sinapsi Studio (anteprima) in Azure sinapsi Analytics
 
@@ -32,7 +32,7 @@ Questo articolo descrive come usare i notebook in Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Creare un notebook
 
-È possibile creare un notebook in due modi. È possibile creare un nuovo notebook o importarne uno esistente in un'area di lavoro Azure Synapse da **Esplora oggetti**. I notebook di Azure Synapse Studio sono in grado di riconoscere i file con estensione ipynb standard di Jupyter Notebook.
+È possibile creare un notebook in due modi. È possibile creare un nuovo notebook o importarne uno esistente in un'area di lavoro Azure Synapse da **Esplora oggetti** . I notebook di Azure Synapse Studio sono in grado di riconoscere i file con estensione ipynb standard di Jupyter Notebook.
 
 ![Crea notebook di importazione](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,11 +44,11 @@ I notebook sono costituiti da celle, ovvero singoli blocchi di codice o testo ch
 
 Esistono diversi modi per aggiungere una nuova cella al notebook.
 
-1. Espandere il pulsante in alto a sinistra **+ Cella**, quindi selezionare **Aggiungi cella di codice** o **Aggiungi cella di testo**.
+1. Espandere il pulsante in alto a sinistra **+ Cella** , quindi selezionare **Aggiungi cella di codice** o **Aggiungi cella di testo** .
 
     ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Passare con il mouse sullo spazio tra due celle e selezionare **Aggiungi codice** o **Aggiungi testo**.
+2. Passare con il mouse sullo spazio tra due celle e selezionare **Aggiungi codice** o **Aggiungi testo** .
 
     ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -142,7 +142,7 @@ Selezionare i puntini di sospensione (...) per accedere al menu aggiuntivo delle
 
 ### <a name="delete-a-cell"></a>Eliminare una cella
 
-Per eliminare una cella, selezionare i puntini di sospensione (...) per accedere al menu aggiuntivo delle azioni sulle celle all'estrema destra e selezionare **Elimina cella**. 
+Per eliminare una cella, selezionare i puntini di sospensione (...) per accedere al menu aggiuntivo delle azioni sulle celle all'estrema destra e selezionare **Elimina cella** . 
 
 È anche possibile usare la [combinazione di tasti in modalità comando](#shortcut-keys-under-command-mode). Premere **D,D** per eliminare la cella corrente.
   
@@ -167,12 +167,12 @@ Selezionare il pulsante **Comprimi output** nella parte superiore sinistra dell'
 
 Esistono diversi modi per eseguire il codice in una cella.
 
-1. Passare con il puntatore del mouse sulla cella che si desidera eseguire e selezionare il pulsante **Esegui cella** oppure premere **CTRL + INVIO**.
+1. Passare con il puntatore del mouse sulla cella che si desidera eseguire e selezionare il pulsante **Esegui cella** oppure premere **CTRL + INVIO** .
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Selezionare i puntini di sospensione **(...)** all'estrema destra per accedere al menu aggiuntivo delle azioni sulle celle. Selezionare quindi **Esegui cella**.
+2. Selezionare i puntini di sospensione **(...)** all'estrema destra per accedere al menu aggiuntivo delle azioni sulle celle. Selezionare quindi **Esegui cella** .
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -211,7 +211,7 @@ Il numero di attività per ogni processo o fase consente di identificare il live
 
 ### <a name="spark-session-config"></a>Configurazione della sessione Spark
 
-È possibile specificare la durata del timeout, il numero e le dimensioni degli executor da assegnare alla sessione Spark corrente in **Configura sessione**. Riavviare la sessione di Spark per rendere effettive le modifiche alla configurazione. Tutte le variabili del notebook memorizzate nella cache vengono cancellate.
+È possibile specificare la durata del timeout, il numero e le dimensioni degli executor da assegnare alla sessione Spark corrente in **Configura sessione** . Riavviare la sessione di Spark per rendere effettive le modifiche alla configurazione. Tutte le variabili del notebook memorizzate nella cache vengono cancellate.
 
 [![gestione della sessione](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -275,7 +275,7 @@ df = spark.read.option("header", "true") \
 
 ### <a name="produce-rendered-table-view"></a>Genera visualizzazione tabella sottoposta a rendering
 
-Viene fornita una visualizzazione tabulare dei risultati con l'opzione per creare un grafico a barre, un grafico a linee, un grafico a torta, un grafico a dispersione e un grafico ad area. È possibile visualizzare i dati senza dover scrivere codice. I grafici possono essere personalizzati nelle **Opzioni del grafico**. 
+Viene fornita una visualizzazione tabulare dei risultati con l'opzione per creare un grafico a barre, un grafico a linee, un grafico a torta, un grafico a dispersione e un grafico ad area. È possibile visualizzare i dati senza dover scrivere codice. I grafici possono essere personalizzati nelle **Opzioni del grafico** . 
 
 Per impostazione predefinita, l'output dei comandi magic **%%sql** appare nella visualizzazione tabella di cui è stato eseguito il rendering. <code>display(df)</code>Per produrre la visualizzazione della tabella di cui è stato eseguito il rendering, è possibile chiamare sui frame di frame di Spark, i Dataframe Pandas, l'elenco o la funzione RDD (Resilient Distributed DataSets).
 
@@ -294,9 +294,9 @@ Per impostazione predefinita, la <code>display(df)</code> funzione utilizzerà s
 
 ### <a name="render-html-or-interactive-libraries"></a>Eseguire il rendering di HTML o di librerie interattive
 
-È possibile eseguire il rendering del codice HTML, incluse le librerie JavaScript, CSS, D3 o interattive, ad esempio **bokeh**, usando **displayHTML ()**.
+È possibile eseguire il rendering del codice HTML, incluse le librerie JavaScript, CSS, D3 o interattive, ad esempio **bokeh** , usando **displayHTML ()** .
 
-L'immagine seguente è un esempio di glifi tracciati su una mappa che usa **bokeh**.
+L'immagine seguente è un esempio di glifi tracciati su una mappa che usa **bokeh** .
 
    ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
@@ -357,7 +357,7 @@ Magic line disponibili: [% lsmagic](https://ipython.readthedocs.io/en/stable/int
 Comandi magic disponibili per le celle: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Orchestrazione notebook
+## <a name="integrate-a-notebook"></a>Integrare un notebook
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Aggiungere un notebook a una pipeline
 

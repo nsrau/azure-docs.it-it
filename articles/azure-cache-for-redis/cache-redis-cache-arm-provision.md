@@ -7,14 +7,14 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545328"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735975"
 ---
-# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Creare una cache di Azure per Redis usando un modello ARM
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Guida introduttiva: creare una cache di Azure per Redis usando un modello ARM
 
 Informazioni su come creare un modello di Azure Resource Manager (ARM template) che distribuisce una cache di Azure per Redis. La cache è utilizzabile con un account di archiviazione esistente per mantenere i dati di diagnostica. Verrà anche illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Le impostazioni di diagnostica sono attualmente condivise da tutte le cache nella stessa area di una sottoscrizione. L'aggiornamento di una cache nell'area ha effetto su tutte le altre cache presenti nell'area.
 

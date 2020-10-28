@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81728807"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735930"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure
 
@@ -56,7 +56,7 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 
 * [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md), che descrive il modello di sicurezza usato per concedere l'accesso alla funzionalità hub IoT per i dispositivi e i componenti cloud. In questo articolo sono incluse informazioni sull'uso di token e certificati X.509, oltre ai dettagli delle autorizzazioni che è possibile concedere.
 
-* [Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni](iot-hub-devguide-device-twins.md) descrive il concetto di *dispositivi gemelli*. L'articolo descrive anche la funzionalità esposta dai dispositivi gemelli, ad esempio la sincronizzazione di un dispositivo con il dispositivo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
+* [Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni](iot-hub-devguide-device-twins.md) descrive il concetto di *dispositivi gemelli* . L'articolo descrive anche la funzionalità esposta dai dispositivi gemelli, ad esempio la sincronizzazione di un dispositivo con il dispositivo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
 
 * [Richiamare un metodo diretto in un dispositivo](iot-hub-devguide-direct-methods.md) descrive il ciclo di vita di un metodo diretto. L'articolo descrive come richiamare metodi in un dispositivo dall'app back-end e come gestire il metodo diretto nel dispositivo.
 

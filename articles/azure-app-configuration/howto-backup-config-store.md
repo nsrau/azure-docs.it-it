@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074856"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737091"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Creare archivi di configurazione dell'app
 
 Creare gli archivi di configurazione delle app primarie e secondarie in aree diverse.
-Sostituire  `<primary_appconfig_name>` e `<secondary_appconfig_name>` con nomi univoci per gli archivi di configurazione. Ogni nome di negozio deve essere univoco perché viene usato come nome DNS.
+Sostituire `<primary_appconfig_name>` e `<secondary_appconfig_name>` con nomi univoci per gli archivi di configurazione. Ogni nome di negozio deve essere univoco perché viene usato come nome DNS.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ Per verificare che tutto funzioni, è possibile creare, aggiornare o eliminare u
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-L'evento è stato attivato. In alcuni istanti, griglia di eventi invierà la notifica degli eventi alla coda. *Dopo la successiva esecuzione pianificata della funzione*, visualizzare le impostazioni di configurazione nell'archivio secondario per verificare se contiene il valore chiave aggiornato dell'archivio primario.
+L'evento è stato attivato. In alcuni istanti, griglia di eventi invierà la notifica degli eventi alla coda. *Dopo la successiva esecuzione pianificata della funzione* , visualizzare le impostazioni di configurazione nell'archivio secondario per verificare se contiene il valore chiave aggiornato dell'archivio primario.
 
 > [!NOTE]
 > È possibile [attivare manualmente la funzione](../azure-functions/functions-manually-run-non-http.md) durante i test e la risoluzione dei problemi senza attendere il trigger timer pianificato.

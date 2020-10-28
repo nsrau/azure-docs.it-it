@@ -9,17 +9,17 @@ keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobil
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001574"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735914"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
@@ -48,11 +48,11 @@ La procedura seguente illustra come creare un servizio di bilanciamento del cari
 
 Per distribuire un servizio di bilanciamento del carico, creare e configurare gli oggetti seguenti:
 
-* **Configurazione di IP front-end**: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
-* **Pool di indirizzi back-end**: contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
-* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
-* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
-* **Probe**: contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
+* **Configurazione di IP front-end** : contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
+* **Pool di indirizzi back-end** : contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
+* **Regole di bilanciamento del carico** : contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
+* **Regole NAT in ingresso** : contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
+* **Probe** : contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurare l'interfaccia della riga di comando di Azure
 
@@ -122,7 +122,7 @@ In questo esempio gli strumenti dell'interfaccia della riga di comando di Azure 
     > [!IMPORTANT]
     > Il servizio di bilanciamento del carico usa l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Si tratta di una differenza rispetto alla distribuzione classica, che usa il nome del servizio cloud come nome di dominio completo del servizio di bilanciamento del carico.
     >
-    > In questo esempio, il nome di dominio completo è *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > In questo esempio, il nome di dominio completo è *contoso09152016.southcentralus.cloudapp.azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Creare pool front-end e back-end
 

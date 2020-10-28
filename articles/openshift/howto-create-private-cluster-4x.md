@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078528"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737208"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creare un cluster privato di Azure Red Hat OpenShift 4
 
@@ -159,7 +159,7 @@ Successivamente, verrà creata una rete virtuale contenente due subnet vuote.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Disabilitare i criteri per gli endpoint privati della subnet](../private-link/disable-private-link-service-network-policy.md) nella subnet master**. Questa operazione è necessaria per potersi connettere e gestire il cluster.
+5. **[Disabilitare i criteri per gli endpoint privati della subnet](../private-link/disable-private-link-service-network-policy.md) nella subnet master** . Questa operazione è necessaria per potersi connettere e gestire il cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -192,7 +192,7 @@ az aro create \
 Dopo l'esecuzione di `az aro create`, la creazione di un cluster richiede in genere circa 35 minuti.
 
 >[!IMPORTANT]
-> Se si sceglie di specificare un dominio personalizzato, ad esempio **foo.example.com**, la console di OpenShift sarà disponibile tramite un URL, ad esempio `https://console-openshift-console.apps.foo.example.com`, invece del dominio predefinito `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Se si sceglie di specificare un dominio personalizzato, ad esempio **foo.example.com** , la console di OpenShift sarà disponibile tramite un URL, ad esempio `https://console-openshift-console.apps.foo.example.com`, invece del dominio predefinito `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > Per impostazione predefinita, OpenShift usa certificati autofirmati per tutte le route create in `*.apps.<random>.<location>.aroapp.io`.  Se si sceglie un DNS personalizzato dopo la connessione al cluster, è necessario attenersi alla documentazione di OpenShift per [configurare un'autorità di certificazione personalizzata per il controller del traffico in ingresso](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e un'[autorità di certificazione personalizzata per il server API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,7 +233,7 @@ Avviare l'URL della console in un browser e accedere usando le credenziali `kube
 
 ## <a name="install-the-openshift-cli"></a>Installare l'interfaccia della riga di comando di OpenShift
 
-Dopo aver eseguito l'accesso alla console Web di OpenShift, fare clic su **?** in alto a destra e quindi su **Strumenti della riga di comando**. Scaricare la versione appropriata per il computer.
+Dopo aver eseguito l'accesso alla console Web di OpenShift, fare clic su **?** in alto a destra e quindi su **Strumenti della riga di comando** . Scaricare la versione appropriata per il computer.
 
 ![Schermata di accesso ad Azure Red Hat OpenShift](media/aro4-download-cli.png)
 

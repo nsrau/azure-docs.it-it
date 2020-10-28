@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567452"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736566"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 
@@ -47,7 +47,7 @@ Con Azure Machine Learning, è possibile creare immagini Docker da modelli di ap
 
 Prima di distribuire, è necessario definire gli elementi necessari per eseguire il modello come servizio Web. Nell'elenco seguente vengono descritti gli elementi principali necessari per una distribuzione:
 
-* Uno __script di immissione__. Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
+* Uno __script di immissione__ . Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
     > Lo script di immissione è specifico del modello. deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
@@ -58,9 +58,9 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
 
 Per altre informazioni sullo script di immissione, vedere [definire il codice](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script) di assegnazione dei punteggi
 
-* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+* **Dipendenze** , ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
-Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
+Queste entità sono incapsulate in una __configurazione di inferenza__ . La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
 > Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
@@ -84,7 +84,7 @@ Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il 
 Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__.
+> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installare il pacchetto di anteprima SDK per il supporto delle funzioni
 
@@ -144,7 +144,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
     }
     ```
 
-    Salvare il valore per __username__ e una delle __password__.
+    Salvare il valore per __username__ e una delle __password__ .
 
 1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:
 

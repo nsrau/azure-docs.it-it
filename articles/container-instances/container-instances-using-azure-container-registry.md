@@ -4,13 +4,13 @@ description: Informazioni su come distribuire i contenitori in istanze di conten
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173654"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736739"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -18,9 +18,9 @@ ms.locfileid: "92173654"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Registro contenitori di Azure**: è necessario un registro contenitori di Azure e almeno un'immagine del contenitore nel registro di sistema, per completare i passaggi descritti in questo articolo. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro contenitori di Azure** : è necessario un registro contenitori di Azure e almeno un'immagine del contenitore nel registro di sistema, per completare i passaggi descritti in questo articolo. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
+**Interfaccia della riga di comando di Azure** : gli esempi della riga di comando in questo articolo usano l' [interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) localmente o usare [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
+L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull* , che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush* .
 
 Quindi, archiviare l' *AppID* dell'entità servizio nell'insieme di credenziali, ovvero il **nome utente** passato ad Azure container Registry per l'autenticazione.
 
@@ -147,9 +147,9 @@ Se si conservano le immagini del contenitore in un Registro Azure Container, è 
 
 1. Nel portale di Azure passare al registro contenitori.
 
-1. Per confermare che l'account amministratore è abilitato, selezionare **Chiavi di accesso** e quindi in **Utente amministratore** selezionare **Abilitare**.
+1. Per confermare che l'account amministratore è abilitato, selezionare **Chiavi di accesso** e quindi in **Utente amministratore** selezionare **Abilitare** .
 
-1. Selezionare **Repository**, quindi selezionare il repository da cui si desidera eseguire la distribuzione, fare clic con il pulsante destro del mouse sul tag dell'immagine del contenitore che si vuole distribuire e selezionare **Esegui istanza**.
+1. Selezionare **Repository** , quindi selezionare il repository da cui si desidera eseguire la distribuzione, fare clic con il pulsante destro del mouse sul tag dell'immagine del contenitore che si vuole distribuire e selezionare **Esegui istanza** .
 
     !["Esegui istanza" in Registro Azure Container nel portale di Azure][acr-runinstance-contextmenu]
 

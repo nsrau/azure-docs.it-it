@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287945"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735602"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -28,13 +28,16 @@ Un modello di distribuzione contiene tutte le risorse di Azure che costituiscono
 
 - **Aree** (obbligatorio): attualmente esistono 26 aree supportate da Azure in cui è possibile rendere disponibile il test drive. In genere, è consigliabile rendere disponibile il test drive nelle aree in cui si prevede il numero maggiore di clienti, in modo che questi possano selezionare l'area più vicina per ottenere prestazioni ottimali. È necessario assicurarsi che alla sottoscrizione sia consentito distribuire tutte le risorse necessarie in ognuna delle aree selezionate.
 
-- **Istanze**: selezionare il tipo (frequente o poco utilizzata) e il numero di istanze disponibili, che verrà moltiplicato per il numero di aree in cui è disponibile l'offerta.
+- **Istanze** : selezionare il tipo (frequente o poco utilizzata) e il numero di istanze disponibili, che verrà moltiplicato per il numero di aree in cui è disponibile l'offerta.
 
-  - **Frequente**: questo tipo di istanza viene distribuito ed è in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente alle istanze impostate su *Frequente* di un test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile prevedere almeno un'istanza *Frequente*, in quanto la maggior parte dei clienti non vuole attendere il completamento delle distribuzioni e di conseguenza si verifica un calo di utilizzo da parte dei clienti se non è presente alcuna istanza impostata su *Frequente*.
+  - **Frequente** : questo tipo di istanza viene distribuito ed è in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente alle istanze impostate su *Frequente* di un test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile prevedere almeno un'istanza *Frequente* , in quanto la maggior parte dei clienti non vuole attendere il completamento delle distribuzioni e di conseguenza si verifica un calo di utilizzo da parte dei clienti se non è presente alcuna istanza impostata su *Frequente* .
 
-  - **Poco utilizzata**: questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente*. Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente*.
+  - **Poco utilizzata** : questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente* . Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente* .
 
-- **Modello di Azure Resource Manager del test drive**: caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Modello di Azure Resource Manager del test drive** : caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > Per la pubblicazione corretta, è importante convalidare la formattazione del modello ARM. Due modi per eseguire questa operazione sono (1) usando uno [strumento API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) o (2) con una [distribuzione di prova](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
 
 - **Durata test drive** (obbligatorio): immettere il numero di ore durante il quale il test drive resterà attivo. Il test drive termina automaticamente alla fine di questo periodo di tempo. Usare solo numeri interi. Ad esempio, "2" ore è un valore valido, mentre "1,5" non lo è.
 
@@ -293,11 +296,11 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 
 ![Dettagli sottoscrizione della distribuzione test drive](media/test-drive/deployment-subscription-details.png)
 
-1. Ottenere un **ID sottoscrizione di Azure**. Si concede l'accesso ai servizi di Azure e al portale di Azure. Nella sottoscrizione viene tenuto traccia dell'uso delle risorse e i servizi vengono fatturati. Se non si ha già una sottoscrizione di Azure separata per le unità di test, crearne una. È possibile trovare gli ID sottoscrizione di Azure, ad esempio, accedendo `1a83645ac-1234-5ab6-6789-1h234g764ghty1` a portale di Azure e selezionando **sottoscrizioni** nel menu di spostamento a sinistra.
+1. Ottenere un **ID sottoscrizione di Azure** . Si concede l'accesso ai servizi di Azure e al portale di Azure. Nella sottoscrizione viene tenuto traccia dell'uso delle risorse e i servizi vengono fatturati. Se non si ha già una sottoscrizione di Azure separata per le unità di test, crearne una. È possibile trovare gli ID sottoscrizione di Azure, ad esempio, accedendo `1a83645ac-1234-5ab6-6789-1h234g764ghty1` a portale di Azure e selezionando **sottoscrizioni** nel menu di spostamento a sinistra.
 
    ![Sottoscrizioni di Azure](media/test-drive/azure-subscriptions.png)
 
-2. Ottenere un **ID Tenant Azure ad**. Se è già disponibile un ID tenant, è possibile trovarlo nell' **Azure Active Directory**  >  **Properties**  >  **ID directory**delle proprietà:
+2. Ottenere un **ID Tenant Azure ad** . Se è già disponibile un ID tenant, è possibile trovarlo nell' **Azure Active Directory**  >  **Properties**  >  **ID directory** delle proprietà:
 
    ![Proprietà di Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
@@ -306,14 +309,14 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 3. **ID app Azure ad** : creare e registrare una nuova applicazione. Questa applicazione verrà utilizzata per eseguire operazioni nell'istanza di test drive.
 
    1. Passare alla directory appena creata o a una directory già esistente e selezionare Azure Active Directory nel riquadro filtro.
-   2. Cercare **registrazioni app** e selezionare **Aggiungi**.
+   2. Cercare **registrazioni app** e selezionare **Aggiungi** .
    3. Immettere un nome applicazione.
-   4. Selezionare il **tipo** di **app Web/API**.
+   4. Selezionare il **tipo** di **app Web/API** .
    5. Specificare qualsiasi valore nell'URL di accesso. questo campo non viene utilizzato.
-   6. Selezionare **Crea**.
-   7. Dopo aver creato l'applicazione, selezionare **Proprietà**  >  **impostare l'applicazione come multi-tenant** e quindi **salvare**.
+   6. Selezionare **Crea** .
+   7. Dopo aver creato l'applicazione, selezionare **Proprietà**  >  **impostare l'applicazione come multi-tenant** e quindi **salvare** .
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
 5. Copiare l'ID applicazione per l'app registrata e incollarlo nel campo test drive.
 
@@ -323,7 +326,7 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 
    1. Consente di selezionare il tipo di **sottoscrizione** in uso per la test drive.
    1. Selezionare **Controllo di accesso (IAM)** .
-   1. Selezionare la scheda **assegnazioni di ruolo** , quindi **Aggiungi assegnazione di ruolo**.
+   1. Selezionare la scheda **assegnazioni di ruolo** , quindi **Aggiungi assegnazione di ruolo** .
 
       ![Aggiungere una nuova entità di sicurezza controllo di accesso](media/test-drive/access-control-principal.jpg)
 
@@ -331,9 +334,9 @@ La sezione finale da completare è la possibilità di distribuire automaticament
 
       ![Aggiungere le autorizzazioni](media/test-drive/access-control-permissions.jpg)
 
-   1. Selezionare **Salva**.
+   1. Selezionare **Salva** .
 
-7. Generare una chiave di autenticazione **app Azure ad** . In **chiavi**aggiungere una **Descrizione della chiave**, impostare la durata su **never expires** (una chiave scaduta interrompe il test drive in produzione), quindi selezionare **Save (Salva**). Copiare e incollare questo valore nel campo test drive obbligatorio.
+7. Generare una chiave di autenticazione **app Azure ad** . In **chiavi** aggiungere una **Descrizione della chiave** , impostare la durata su **never expires** (una chiave scaduta interrompe il test drive in produzione), quindi selezionare **Save (Salva** ). Copiare e incollare questo valore nel campo test drive obbligatorio.
 
 ![Mostra le chiavi per l'applicazione Azure AD](media/test-drive/azure-ad-app-keys.png)
 
@@ -349,7 +352,7 @@ Ora che tutti i campi test drive sono completi, **ripubblicare** l'offerta. Una 
 
 Non eliminare le istanze di test drive di cui è stato effettuato il provisioning per i clienti. il servizio test drive eliminerà automaticamente questi gruppi di risorse dopo che un cliente ha completato l'operazione.
 
-Quando si ha familiarità con l'offerta di anteprima, è possibile **iniziare**. È disponibile un processo di revisione finale per verificare l'intera esperienza end-to-end. Se l'offerta viene rifiutata, verrà inviato un messaggio di posta elettronica al contatto tecnico per l'offerta, spiegando cosa è necessario correggere.
+Quando si ha familiarità con l'offerta di anteprima, è possibile **iniziare** . È disponibile un processo di revisione finale per verificare l'intera esperienza end-to-end. Se l'offerta viene rifiutata, verrà inviato un messaggio di posta elettronica al contatto tecnico per l'offerta, spiegando cosa è necessario correggere.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

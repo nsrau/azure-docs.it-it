@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490748"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736794"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -47,14 +48,14 @@ Nel piano Premium è possibile fare in maniera che l'app sia sempre pronta per u
 > [!NOTE]
 > Ogni piano Premium avrà sempre almeno un'istanza attiva (fatturata).
 
-È possibile configurare il numero di istanze sempre pronte nel portale di Azure selezionando il **app per le funzioni**, passando alla scheda **funzionalità della piattaforma** e selezionando le opzioni di **scale out** . Nella finestra di modifica dell'app per le funzioni, le istanze sempre pronte sono specifiche dell'app.
+È possibile configurare il numero di istanze sempre pronte nel portale di Azure selezionando il **app per le funzioni** , passando alla scheda **funzionalità della piattaforma** e selezionando le opzioni di **scale out** . Nella finestra di modifica dell'app per le funzioni, le istanze sempre pronte sono specifiche dell'app.
 
 ![Impostazioni di scalabilità elastica](./media/functions-premium-plan/scale-out.png)
 
 È anche possibile configurare le istanze sempre pronte per un'app con l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Istanze pre-riscaldate
@@ -68,7 +69,7 @@ Non appena viene introdotto il primo trigger, le cinque istanze sempre pronte di
 È possibile modificare il numero di istanze pre-surriscaldate per un'app usando l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Numero massimo di istanze per un'app
@@ -99,7 +100,7 @@ Quando si crea il piano, sono disponibili due impostazioni relative alle dimensi
 
 Se l'app richiede istanze che superano le istanze sempre pronte, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e allocate all'utente, in base al secondo.  Per il ridimensionamento dell'app in base al limite massimo definito, si farà il possibile.
 
-È possibile configurare le dimensioni del piano e i valori massimi nel portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma**).
+È possibile configurare le dimensioni del piano e i valori massimi nel portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma** ).
 
 È anche possibile aumentare il limite massimo di picchi dall'interfaccia della riga di comando di Azure:
 
@@ -122,7 +123,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>SKU di istanze disponibili
 
-Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Verrà addebitato il numero totale di core e di memoria di cui viene effettuato il provisioning, al secondo che ogni istanza viene allocata all'utente.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.  
+Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Verrà addebitato il numero totale di core e di memoria di cui viene effettuato il provisioning, al secondo che ogni istanza viene allocata all'utente.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.
 
 |SKU|Core|Memoria|Archiviazione|
 |--|--|--|--|
@@ -141,7 +142,7 @@ Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmen
 
 Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Area| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| 100 | Non disponibile |
 |Australia centrale 2| 100 | Non disponibile |

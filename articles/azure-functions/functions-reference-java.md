@@ -3,13 +3,13 @@ title: Guida di riferimento per gli sviluppatori Java per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519623"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736692"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -45,7 +45,7 @@ I collegamenti agli articoli precedenti illustrano come creare le prime funzioni
 
 ### <a name="project-scaffolding"></a>Eseguire lo scaffold di un progetto
 
-Se si preferisce eseguire lo sviluppo dalla riga di comando dal terminale, il modo più semplice per eseguire lo scaffold dei progetti di funzione basati su Java consiste nell'usare archetipi `Apache Maven`. L'archetipo Java Maven per Funzioni di Azure è pubblicato con il seguente _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Se si preferisce eseguire lo sviluppo dalla riga di comando dal terminale, il modo più semplice per eseguire lo scaffold dei progetti di funzione basati su Java consiste nell'usare archetipi `Apache Maven`. L'archetipo Java Maven per Funzioni di Azure è pubblicato con il seguente _groupId_ : _artifactId_ : [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 Il comando seguente genera un nuovo progetto di funzione Java usando questo archetipo:
 

@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496022"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735467"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -68,14 +68,14 @@ Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa proce
 
 1. Selezionare __Inference clusters__ (Cluster di inferenza) dal centro, quindi selezionare __+__ .
 
-1. Nella finestra di dialogo __New Inference Cluster__ (Nuovo cluster di inferenza) selezionare __Avanzata__ in __Configurazione di rete__.
+1. Nella finestra di dialogo __New Inference Cluster__ (Nuovo cluster di inferenza) selezionare __Avanzata__ in __Configurazione di rete__ .
 
 1. Per configurare questa risorsa di calcolo per l'uso di una rete virtuale, eseguire le operazioni seguenti:
 
     1. Nell'elenco a discesa __Gruppo di risorse__ selezionare il gruppo di risorse che contiene la rete virtuale.
-    1. Selezionare la rete virtuale che contiene la subnet nell'elenco a discesa __Rete virtuale__.
-    1. Selezionare la subnet nell'elenco a discesa __Subnet__.
-    1. Immettere l'intervallo di indirizzi del servizio Kubernetes nella casella __Intervallo di indirizzi del servizio Kubernetes__. Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR (Classless Inter-Domain Routing) per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet, ad esempio 10.0.0.0/16.
+    1. Selezionare la rete virtuale che contiene la subnet nell'elenco a discesa __Rete virtuale__ .
+    1. Selezionare la subnet nell'elenco a discesa __Subnet__ .
+    1. Immettere l'intervallo di indirizzi del servizio Kubernetes nella casella __Intervallo di indirizzi del servizio Kubernetes__ . Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR (Classless Inter-Domain Routing) per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet, ad esempio 10.0.0.0/16.
     1. Nella casella __Indirizzo IP del servizio DNS di Kubernetes__ immettere l'indirizzo IP del servizio DNS di Kubernetes. Questo indirizzo IP viene assegnato al servizio DNS di Kubernetes. Deve essere compreso nell'intervallo di indirizzi del servizio Kubernetes, ad esempio 10.0.0.10.
     1. Nella casella __Indirizzo del bridge Docker__ immettere l'indirizzo del Bridge Docker. Questo indirizzo IP viene assegnato al bridge Docker. Non deve essere compreso in nessun intervallo IP della subnet o nell'intervallo di indirizzi del servizio Kubernetes, ad esempio 172.17.0.1/16.
 
@@ -119,8 +119,8 @@ Al termine del processo di creazione, è possibile eseguire l'inferenza o il cal
 
 Esistono due approcci per isolare il traffico da e verso il cluster AKS alla rete virtuale:
 
-* __Cluster AKS privato__: questo approccio usa il collegamento privato di Azure per proteggere le comunicazioni con il cluster per le operazioni di distribuzione e gestione.
-* Servizio di __bilanciamento del carico interno di AKS__: questo approccio consente di configurare l'endpoint per le distribuzioni in AKS per usare un indirizzo IP privato all'interno della rete virtuale.
+* __Cluster AKS privato__ : questo approccio usa il collegamento privato di Azure per proteggere le comunicazioni con il cluster per le operazioni di distribuzione e gestione.
+* Servizio di __bilanciamento del carico interno di AKS__ : questo approccio consente di configurare l'endpoint per le distribuzioni in AKS per usare un indirizzo IP privato all'interno della rete virtuale.
 
 > [!WARNING]
 > Il servizio di bilanciamento del carico interno non funziona con un cluster AKS che usa kubenet. Se si vuole usare un servizio di bilanciamento del carico interno e un cluster AKS privato allo stesso tempo, configurare il cluster AKS privato con l'interfaccia di rete del contenitore di Azure (CNI). Per altre informazioni, vedere [configurare la rete CNI di Azure nel servizio Kubernetes di Azure](../aks/configure-azure-cni.md).
@@ -138,7 +138,7 @@ Dopo aver creato il cluster AKS privato, [associare il cluster alla rete virtual
 
 Per impostazione predefinita, le distribuzioni AKS usano un servizio di [bilanciamento del carico pubblico](../aks/load-balancer-standard.md). In questa sezione viene illustrato come configurare AKS per l'uso di un servizio di bilanciamento del carico interno. Viene usato un servizio di bilanciamento del carico interno (o privato) in cui sono consentiti solo indirizzi IP privati come front-end. I bilanciamento del carico interno vengono usati per bilanciare il carico del traffico all'interno di una rete virtuale
 
-Un servizio di bilanciamento del carico privato viene abilitato configurando AKS per l'uso di un servizio di _bilanciamento del carico interno_. 
+Un servizio di bilanciamento del carico privato viene abilitato configurando AKS per l'uso di un servizio di _bilanciamento del carico interno_ . 
 
 #### <a name="network-contributor-role"></a>Ruolo Collaboratore rete
 
@@ -147,7 +147,7 @@ Un servizio di bilanciamento del carico privato viene abilitato configurando AKS
 >
 > Per aggiungere l'identità come collaboratore rete, attenersi alla procedura seguente:
 
-1. Per trovare l'entità servizio o l'ID identità gestita per AKS, usare i seguenti comandi dell'interfaccia della riga di comando di Azure. Sostituire `<aks-cluster-name>` con il nome del cluster. Sostituire `<resource-group-name>` con il nome del gruppo di risorse che _contiene il cluster AKS_:
+1. Per trovare l'entità servizio o l'ID identità gestita per AKS, usare i seguenti comandi dell'interfaccia della riga di comando di Azure. Sostituire `<aks-cluster-name>` con il nome del cluster. Sostituire `<resource-group-name>` con il nome del gruppo di risorse che _contiene il cluster AKS_ :
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -159,7 +159,7 @@ Un servizio di bilanciamento del carico privato viene abilitato configurando AKS
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Per trovare l'ID del gruppo di risorse che contiene la rete virtuale, usare il comando seguente. Sostituire `<resource-group-name>` con il nome del gruppo di risorse che _contiene la rete virtuale_:
+1. Per trovare l'ID del gruppo di risorse che contiene la rete virtuale, usare il comando seguente. Sostituire `<resource-group-name>` con il nome del gruppo di risorse che _contiene la rete virtuale_ :
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -256,7 +256,7 @@ Per usare Istanze di Azure Container all'area di lavoro, seguire questa procedur
 1. Per abilitare la delega subnet nella rete virtuale, usare le informazioni contenute nell'articolo relativo ad [aggiunta e rimozione di una delega subnet](../virtual-network/manage-subnet-delegation.md). È possibile abilitare la delega quando si crea una rete virtuale o aggiungerla a una rete esistente.
 
     > [!IMPORTANT]
-    > Quando si abilita la delega, usare `Microsoft.ContainerInstance/containerGroups` come valore di __Delega subnet a un servizio__.
+    > Quando si abilita la delega, usare `Microsoft.ContainerInstance/containerGroups` come valore di __Delega subnet a un servizio__ .
 
 2. Distribuire il modello usando [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), usare i parametri `vnet_name` e `subnet_name`. Impostare questi parametri sul nome e sulla subnet della rete virtuale in cui è stata abilitata la delega.
 

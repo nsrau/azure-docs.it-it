@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570378"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735579"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -29,17 +29,17 @@ Le dipendenze in uscita AKS sono quasi completamente definite con i nomi di domi
 Per impostazione predefinita, i cluster del servizio Azure Kubernetes hanno accesso a Internet in uscita senza restrizioni. Questo livello di accesso alla rete consente a nodi e servizi in esecuzione di accedere alle risorse esterne in base alle esigenze. Se si vuole limitare il traffico in uscita, è necessario rendere accessibile un numero limitato di porte e indirizzi per mantenere l'integrità delle attività di manutenzione del cluster. La soluzione più semplice per la protezione degli indirizzi in uscita è l'uso di un dispositivo firewall che consente di controllare il traffico in uscita in base ai nomi di dominio. Il firewall di Azure, ad esempio, può limitare il traffico HTTP e HTTPS in uscita in base al nome di dominio completo (FQDN) della destinazione. È anche possibile configurare le regole del firewall e di sicurezza preferite per consentire le porte e gli indirizzi richiesti.
 
 > [!IMPORTANT]
-> Questo documento illustra solo come bloccare il traffico in uscita dalla subnet del servizio Azure Kubernetes. Per impostazione predefinita, AKS non prevede requisiti di ingresso.  Il blocco del **traffico della subnet interna** con i gruppi di sicurezza di rete (gruppi) e i firewall non è supportato. Per controllare e bloccare il traffico all'interno del cluster, usare i [***criteri di rete***][network-policy].
+> Questo documento illustra solo come bloccare il traffico in uscita dalla subnet del servizio Azure Kubernetes. Per impostazione predefinita, AKS non prevede requisiti di ingresso.  Il blocco del **traffico della subnet interna** con i gruppi di sicurezza di rete (gruppi) e i firewall non è supportato. Per controllare e bloccare il traffico all'interno del cluster, usare i [ * *_criteri di rete_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regole di rete in uscita obbligatorie e FQDN per i cluster AKS
 
 Per un cluster AKS sono necessarie le seguenti regole di rete e di FQDN/applicazione, che possono essere usate per configurare una soluzione diversa dal firewall di Azure.
 
-* Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico sia TCP che UDP)
+_ Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP e UDP)
 * Gli endpoint HTTP/HTTPS con nome di dominio completo possono essere posizionati nel dispositivo firewall.
 * Gli endpoint HTTP/HTTPS con caratteri jolly sono dipendenze che possono variare con il cluster AKS in base a un numero di qualificatori.
 * AKS usa un controller di ammissione per inserire il nome FQDN come variabile di ambiente per tutte le distribuzioni in Kube-System e Gatekeeper-System, che garantisce che tutte le comunicazioni di sistema tra i nodi e il server API utilizzino il nome di dominio completo dell'API del server e non l'indirizzo IP del server API. 
-* Se si dispone di un'app o di una soluzione che deve comunicare con il server API, è necessario aggiungere una regola di rete **aggiuntiva** per consentire la *comunicazione TCP alla porta 443 dell'IP del server API*.
+* Se si dispone di un'app o di una soluzione che deve comunicare con il server API, è necessario aggiungere una regola di rete **aggiuntiva** per consentire la *comunicazione TCP alla porta 443 dell'IP del server API* .
 * In rari casi, se è presente un'operazione di manutenzione, l'indirizzo IP del server API potrebbe cambiare. Le operazioni di manutenzione pianificate che possono modificare l'IP del server API vengono sempre comunicate in anticipo.
 
 
