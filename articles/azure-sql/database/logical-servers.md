@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441715"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782893"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Che cos'è un server SQL logico nel database SQL di Azure e in una sinapsi di Azure?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Un server nel database SQL e in una sinapsi di Azure:
 - È la risorsa padre per database, pool elastici e data warehouse
 - Fornisce uno spazio dei nomi per database, pool elastici e database data warehouse
 - È un contenitore logico con semantica di durata elevata: eliminare un server ed Elimina i relativi database, i pool elastici e i pool SQK
-- Partecipa al [controllo degli accessi in base al ruolo (RBAC)](/azure/role-based-access-control/overview) di Azure: i database, i pool elastici e i database data warehouse all'interno di un server ereditano i diritti di accesso dal server
+- Partecipa al [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) di Azure: i database, i pool elastici e i database data warehouse all'interno di un server ereditano i diritti di accesso dal server
 - È un elemento di ordine superiore dell'identità di database, pool elastici e database di data warehouse per la gestione delle risorse di Azure (vedere lo schema URL per i database e i pool)
 - Colloca risorse in un'area
 - Fornisce un endpoint di connessione per l'accesso ai database (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
 Per creare e gestire server, database e firewall con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i pool elastici, vedere [Pool elastici](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Per creare e gestire server, database e firewall con Azure PowerShell, usare i c
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Crea un gruppo di risorse|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Crea un server|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Restituisce informazioni sui server|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifica le proprietà di un server|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifica le proprietà di un server|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Rimuove un server|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Crea una regola del firewall a livello di server |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Ottiene le regole del firewall per un server|
@@ -110,7 +110,7 @@ Per creare e gestire server, database e firewall con Azure PowerShell, usare i c
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Gestire server, database e firewall usando l'interfaccia della riga di comando di Azure
 
-Per creare e gestire server, database e firewall con l'interfaccia della riga di comando di [Azure](/cli/azure), usare i comandi del [database SQL dell'interfaccia](/cli/azure/sql/db) della riga di comando di Azure seguenti. Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](elastic-pool-overview.md).
+Per creare e gestire server, database e firewall con l'interfaccia della riga di comando di [Azure](/cli/azure), usare i comandi del [database SQL dell'interfaccia](/cli/azure/sql/db) della riga di comando di Azure seguenti. Usare [Cloud Shell](../../cloud-shell/overview.md) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](elastic-pool-overview.md).
 
 | Cmdlet | Descrizione |
 | --- | --- |
@@ -150,7 +150,7 @@ Per creare e gestire server, database e firewall con Transact-SQL, usare i coman
 |[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crea un nuovo database nel database SQL di Azure. È necessario essere connessi al database master per creare un nuovo database.|
 |[CREATE DATABASE (sinapsi di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Consente di creare un nuovo database di data warehouse in sinapsi di Azure. È necessario essere connessi al database master per creare un nuovo database.|
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica il database o il pool elastico. |
-|[ALTER DATABASE (Azure sinapsi Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica un database data warehouse in sinapsi di Azure.|
+|[ALTER DATABASE (Azure sinapsi Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica un database data warehouse in sinapsi di Azure.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
 |[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database. Se si è connessi al database master per un server, in vengono restituite informazioni su tutti i database. Per la sinapsi di Azure, è necessario essere connessi al database master.|
 |[sys.dm_db_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Restituisce il consumo di CPU, IO e memoria per un database nel database SQL di Azure. È presente una riga per ogni 15 secondi, anche se non esiste alcuna attività nel database.|
@@ -173,22 +173,22 @@ Per creare e gestire server, database e firewall, usare queste richieste API RES
 
 | Comando | Descrizione |
 | --- | --- |
-|[Server-crea o aggiorna](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina un server.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Ottiene un server.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Restituisce un elenco di server.|
-|[Servers - List by resource group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Aggiorna un server esistente.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Questo comando elimina un database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Ottiene un database.|
-|[Database-elenca per pool elastico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
-|[Database-elenco per server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Aggiorna un database esistente.|
-|[Regole del firewall-crea o aggiorna](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crea o aggiorna una regola del firewall.|
-|[Regole del firewall-eliminazione](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Elimina una regola del firewall.|
-|[Regole del firewall-Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Ottiene una regola del firewall.|
-|[Regole del firewall-elenca per server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Restituisce un elenco di regole firewall.|
+|[Server-crea o aggiorna](/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un server.|
+|[Servers - Get](/rest/api/sql/servers/get)|Ottiene un server.|
+|[Servers - List](/rest/api/sql/servers/list)|Restituisce un elenco di server.|
+|[Servers - List by resource group](/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
+|[Servers - Update](/rest/api/sql/servers/update)|Aggiorna un server esistente.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
+|[Databases - Delete](/rest/api/sql/databases/delete)|Questo comando elimina un database.|
+|[Databases - Get](/rest/api/sql/databases/get)|Ottiene un database.|
+|[Database-elenca per pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
+|[Database-elenco per server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
+|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Regole del firewall-crea o aggiorna](/rest/api/sql/firewallrules/createorupdate)|Crea o aggiorna una regola del firewall.|
+|[Regole del firewall-eliminazione](/rest/api/sql/firewallrules/delete)|Elimina una regola del firewall.|
+|[Regole del firewall-Get](/rest/api/sql/firewallrules/get)|Ottiene una regola del firewall.|
+|[Regole del firewall-elenca per server](/rest/api/sql/firewallrules/listbyserver)|Restituisce un elenco di regole firewall.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

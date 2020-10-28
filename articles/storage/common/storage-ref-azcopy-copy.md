@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3d691692553a8201b3e3eccfaead82a2cbb9ca0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479698"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781737"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere la sezione Esempi di questo articolo.
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Avanzato
+## <a name="advanced"></a>Avanzate
 
 AzCopy rileva automaticamente il tipo di contenuto dei file quando vengono caricati dal disco locale. AzCopy rileva il tipo di contenuto in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -90,7 +90,7 @@ Caricare un'intera directory usando un token SAS:
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-o
+oppure
 
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive --put-md5
@@ -292,7 +292,7 @@ le stringhe **--include-after** includono solo i file modificati in o dopo la da
 
 **--S2S-handle-non valido-la stringa di metadati** specifica il modo in cui vengono gestite le chiavi di metadati non valide. Opzioni disponibili: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (impostazione predefinita `ExcludeIfInvalid` ). (valore predefinito "ExcludeIfInvalid")
 
-**--S2S-Preserve-livello di accesso**   Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ).  (valore predefinito "true")
+**--S2S-Preserve-livello di accesso**   Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ).  (valore predefinito "true")
 
 **--S2S-Preserve-proprietà**   Mantieni le proprietà complete durante la copia da servizio a servizio. Per AWS S3 e l'origine file non singolo file di Azure, l'operazione list non restituisce proprietà complete di oggetti e file. Per mantenere le proprietà complete, AzCopy deve inviare un'altra richiesta per oggetto o file. (valore predefinito true)
 
@@ -304,6 +304,6 @@ le stringhe **--include-after** includono solo i file modificati in o dopo la da
 
 **--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [azcopy](storage-ref-azcopy.md)

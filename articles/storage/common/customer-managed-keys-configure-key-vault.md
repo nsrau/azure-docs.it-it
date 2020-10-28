@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782383"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault
 
@@ -35,15 +35,15 @@ Per usare le chiavi gestite dal cliente con la crittografia di archiviazione di 
 
 # <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
-Per informazioni su come creare un insieme di credenziali delle chiavi con il portale di Azure, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../../key-vault/general/quick-create-portal.md). Quando si crea l'insieme di credenziali delle chiavi, selezionare **Abilita Ripulisci protezione**, come illustrato nella figura seguente.
+Per informazioni su come creare un insieme di credenziali delle chiavi con il portale di Azure, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../../key-vault/general/quick-create-portal.md). Quando si crea l'insieme di credenziali delle chiavi, selezionare **Abilita Ripulisci protezione** , come illustrato nella figura seguente.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot che illustra come abilitare la ripulitura della protezione durante la creazione di un insieme di credenziali delle chiavi":::
 
 Per abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente, seguire questa procedura:
 
 1. Passare all'insieme di credenziali delle chiavi nella portale di Azure.
-1. In **Impostazioni**scegliere **Proprietà**.
-1. Nella sezione **Ripulisci protezione** scegliere **Abilita Ripulisci protezione**.
+1. In **Impostazioni** scegliere **Proprietà** .
+1. Nella sezione **Ripulisci protezione** scegliere **Abilita Ripulisci protezione** .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Per informazioni su come abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente con PowerShell, vedere [come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Per informazioni su come abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente con PowerShell, vedere [come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 Assegnare quindi all'account di archiviazione un'identità gestita assegnata dal sistema. Questa identità gestita verrà usata per concedere le autorizzazioni dell'account di archiviazione per accedere all'insieme di credenziali delle chiavi. Per altre informazioni sulle identità gestite assegnate dal sistema, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Per informazioni su come abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente con l'interfaccia della riga di comando di Azure, vedere [come usare l'eliminazione temporanea con CLI](../../key-vault/general/soft-delete-cli.md).
+Per informazioni su come abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente con l'interfaccia della riga di comando di Azure, vedere [come usare l'eliminazione temporanea con CLI](../../key-vault/general/key-vault-recovery.md).
 
 Assegnare quindi all'account di archiviazione un'identità gestita assegnata dal sistema. Questa identità gestita verrà usata per concedere le autorizzazioni dell'account di archiviazione per accedere all'insieme di credenziali delle chiavi. Per altre informazioni sulle identità gestite assegnate dal sistema, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 Successivamente, aggiungere una chiave nell'insieme di credenziali delle chiavi.
 
-La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere [informazioni sulle chiavi](../../key-vault/keys/about-keys.md).
 
 # <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
@@ -175,12 +175,12 @@ Archiviazione di Azure può aggiornare automaticamente la chiave gestita dal cli
 Per configurare le chiavi gestite dal cliente con l'aggiornamento automatico della versione della chiave nella portale di Azure, attenersi alla procedura seguente:
 
 1. Passare all'account di archiviazione.
-1. Nel pannello **Impostazioni** relativo all'account di archiviazione fare clic su **Crittografia**. Selezionare l'opzione **chiavi gestite dal cliente** , come illustrato nella figura seguente.
+1. Nel pannello **Impostazioni** relativo all'account di archiviazione fare clic su **Crittografia** . Selezionare l'opzione **chiavi gestite dal cliente** , come illustrato nella figura seguente.
 
     ![Screenshot del portale che mostra l'opzione di crittografia](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
-1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
-1. Selezionare **selezionare un insieme di credenziali delle chiavi e una chiave**.
+1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi** .
+1. Selezionare **selezionare un insieme di credenziali delle chiavi e una chiave** .
 1. Selezionare l'insieme di credenziali delle chiavi contenente la chiave che si vuole usare.
 1. Selezionare la chiave dall'insieme di credenziali delle chiavi.
 

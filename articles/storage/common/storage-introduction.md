@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781958"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
 
@@ -46,7 +46,7 @@ Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e l
 | **File di Azure** |Offre condivisioni file cloud completamente gestite a cui è possibile accedere da qualsiasi luogo tramite il protocollo SMB (Server Message Block) standard di settore.<br><br>È possibile montare condivisioni file di Azure da distribuzioni cloud o locali di Windows, Linux e macOS. | Si vuole "sollevare e spostare" un'applicazione nel cloud che usa già le API file system native per condividere i dati tra l'IT e altre applicazioni in esecuzione in Azure.<br/><br/>Si desidera sostituire o integrare i file server o i dispositivi NAS locali.<br><br> Si intende archiviare gli strumenti di sviluppo e di debug a cui deve essere possibile accedere da molte macchine virtuali. |
 | **BLOB di Azure** | Consente di archiviare e accedere ai dati non strutturati su vasta scala nei BLOB in blocchi.<br/><br/>Supporta anche [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) per le soluzioni aziendali di analisi di Big Data. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi.<br/><br/>Si vuole compilare un Data Lake aziendale in Azure ed eseguire l'analisi dei Big Data. |
 | **Dischi di Azure** | Consente di archiviare e accedere in modo permanente ai dati da un disco rigido virtuale collegato. | Si vuole spostare le applicazioni che usano API file system native per leggere e scrivere i dati nei dischi permanenti.<br/><br/>Si intende archiviare i dati a cui non è necessario accedere dall'esterno della macchina virtuale a cui è collegato il disco. |
-| **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Tabelle di Azure** | Consente di archiviare dati NoSQL strutturati nel cloud, offrendo un archivio di chiavi/attributi con una progettazione senza schema. | Si desidera archiviare set di dati flessibili come i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. <br/><br/>Per indicazioni su quando usare l'archiviazione tabelle rispetto alla Azure Cosmos DB API Tabella, vedere [sviluppo con Azure Cosmos DB API tabella e archiviazione tabelle di Azure](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Archiviazione BLOB
@@ -93,7 +93,7 @@ Per altre informazioni sulle code di Azure, vedere [Introduzione alle code](../q
 
 ## <a name="table-storage"></a>Archiviazione tabelle
 
-L'archiviazione tabelle di Azure è ora inclusa in Azure Cosmos DB. Per la documentazione sull'archiviazione tabelle di Azure, vedere [Panoramica di Archiviazione tabelle di Azure](../tables/table-storage-overview.md). Oltre al servizio di archiviazione tabelle di Azure esistente, è disponibile una nuova API Tabelle di Azure Cosmos DB che offre tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per ulteriori informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB API tabella](https://aka.ms/premiumtables).
+L'archiviazione tabelle di Azure è ora inclusa in Azure Cosmos DB. Per la documentazione sull'archiviazione tabelle di Azure, vedere [Panoramica di Archiviazione tabelle di Azure](../tables/table-storage-overview.md). Oltre al servizio di archiviazione tabelle di Azure esistente, è disponibile una nuova API Tabelle di Azure Cosmos DB che offre tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per ulteriori informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB API tabella](../../cosmos-db/table-introduction.md).
 
 Per altre informazioni sull'archivio tabelle, vedere [Panoramica di Archiviazione tabelle di Azure](../tables/table-storage-overview.md).
 
@@ -115,7 +115,7 @@ Ogni richiesta ad archiviazione di Azure deve essere autorizzata. Archiviazione 
 - **Azure AD autorizzazione su SMB per File di Azure.** File di Azure supporta l'autorizzazione basata sull'identità su SMB (Server Message Block) tramite Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locali (anteprima). Le macchine virtuali di Windows appartenenti a un dominio possono accedere alle condivisioni file di Azure usando le credenziali Azure AD. Per ulteriori informazioni, vedere la [Panoramica del supporto per l'autenticazione file di Azure basata sull'identità per l'accesso SMB](../files/storage-files-active-directory-overview.md) e [la pianificazione di una distribuzione di file di Azure](../files/storage-files-planning.md#identity).
 - **Autorizzazione con chiave condivisa.** I servizi BLOB del servizio di archiviazione di Azure, file, coda e tabella supportano l'autorizzazione con la chiave condivisa. Un client che usa l'autorizzazione della chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 - **Autorizzazione mediante le firme di accesso condiviso (SAS).** Una firma di accesso condiviso è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula vincoli quali le autorizzazioni e l'intervallo di accesso. Per altre informazioni, vedere [uso delle firme di accesso condiviso (SAS)](storage-sas-overview.md).
-- **Accesso anonimo a contenitori e BLOB.** Un contenitore e i relativi BLOB possono essere disponibili pubblicamente. Quando si specifica che un contenitore o un BLOB è pubblico, chiunque può leggerlo in modo anonimo; non è necessaria alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
+- **Accesso anonimo a contenitori e BLOB.** Un contenitore e i relativi BLOB possono essere disponibili pubblicamente. Quando si specifica che un contenitore o un BLOB è pubblico, chiunque può leggerlo in modo anonimo; non è necessaria alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/anonymous-read-access-configure.md).
 
 ## <a name="encryption"></a>Crittografia
 
@@ -131,7 +131,7 @@ Le librerie client di archiviazione di Azure forniscono metodi per la crittograf
 
 ## <a name="redundancy"></a>Ridondanza
 
-Per assicurarsi che i dati siano durevoli, archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Per assicurarsi che i dati siano durevoli, archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Trasferire dati da e verso archiviazione di Azure
 
@@ -160,7 +160,7 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 
 - [API REST del provider di risorse di archiviazione](/rest/api/storagerp/)
 - [Libreria client del provider di risorse di archiviazione per .NET](/dotnet/api/overview/azure/storage/management)
-- [API REST di gestione del servizio di archiviazione (classico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [API REST di gestione del servizio di archiviazione (classico)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Informazioni di riferimento su librerie e API di spostamento dati di Archiviazione di Azure
 

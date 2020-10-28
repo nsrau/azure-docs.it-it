@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5eacd84d2ff37c10702896127adcb67f5459b6be
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461669"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782400"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -29,7 +29,7 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
-- [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio `C:\WaImportExport`.
+- [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio, `C:\WaImportExport`
 - Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .  
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
@@ -50,14 +50,14 @@ Per preparare le unità, eseguire le operazioni seguenti.
 2. Creare un singolo volume NTFS in ogni unità. Assegnare una lettera di unità al volume. Non usare punti di montaggio.
 3. Modificare il file *dataset.csv* nella cartella radice in cui si trova lo strumento. A seconda che si voglia importare un file o una cartella oppure entrambi, aggiungere nel file *dataset.csv* voci simili a quelle mostrate negli esempi seguenti.  
 
-   - **Per importare un file**: nell'esempio seguente, i dati da copiare si trovano nell'unità F:. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1*. Se *MyAzureFileshare1* non esiste, viene creata nell'account di archiviazione di Azure. La struttura di cartelle viene mantenuta.
+   - **Per importare un file** : nell'esempio seguente, i dati da copiare si trovano nell'unità F:. Il file *MyFile1.txt* viene copiato nella radice *MyAzureFileshare1* . Se *MyAzureFileshare1* non esiste, viene creata nell'account di archiviazione di Azure. La struttura di cartelle viene mantenuta.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **Per importare una cartella**: tutti i file e le cartelle all'interno di *MyFolder2* vengono copiati in modo ricorsivo nella condivisione file. La struttura di cartelle viene mantenuta.
+   - **Per importare una cartella** : tutti i file e le cartelle all'interno di *MyFolder2* vengono copiati in modo ricorsivo nella condivisione file. La struttura di cartelle viene mantenuta.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -70,28 +70,28 @@ Per preparare le unità, eseguire le operazioni seguenti.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     Ulteriori informazioni su [come preparare un file CSV del set di dati](storage-import-export-tool-preparing-hard-drives-import.md).
+     Ulteriori informazioni su [come preparare un file CSV del set di dati](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
 4. Modificare il file *driveset.csv* nella cartella radice in cui si trova lo strumento. Aggiungere nel file *driveset.csv* voci simili a quelle mostrate negli esempi seguenti. Il file driveset include l'elenco dei dischi e delle lettere di unità corrispondenti in modo che lo strumento possa individuare correttamente l'elenco dei dischi da preparare.
 
     Questo esempio presuppone che siano collegati due dischi e che vengano creati i volumi NTFS di base G:\ e H:\. H:\ non è crittografato, mentre G:\ è già crittografato. Lo strumento formatta e crittografa solo il disco che ospita H:\ (e non G:\).
 
-   - **Per un disco non crittografato**: specificare *Crittografa* per abilitare la crittografia BitLocker nel disco.
+   - **Per un disco non crittografato** : specificare *Crittografa* per abilitare la crittografia BitLocker nel disco.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **Per un disco già crittografato**: specificare *AlreadyEncrypted* e immettere la chiave BitLocker.
+   - **Per un disco già crittografato** : specificare *AlreadyEncrypted* e immettere la chiave BitLocker.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Nello stesso file è possibile creare più voci, corrispondenti a più unità. Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md).
+     Nello stesso file è possibile creare più voci, corrispondenti a più unità. Ulteriori informazioni su [come preparare un file CSV del driveset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 5. Usare l'opzione `PrepImport` per copiare e preparare i dati nell'unità disco. Per la prima sessione di copia per copiare directory e/o file con una nuova sessione di copia, eseguire il comando seguente:
 
@@ -118,17 +118,17 @@ Per altri esempi, passare a [Esempi per i file journal](#samples-for-journal-fil
 
 Per creare un processo di importazione nel portale di Azure, eseguire le operazioni seguenti.
 1. Accedere all'indirizzo https://portal.azure.com/.
-2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
+2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione** .
 
     ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Fare clic su **Crea processo di importazione/esportazione**.
+3. Fare clic su **Crea processo di importazione/esportazione** .
 
     ![Fare clic su Processo di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. In **Nozioni di base**:
+4. In **Nozioni di base** :
 
-    - Selezionare **Importa in Azure**.
+    - Selezionare **Importa in Azure** .
     - Immettere un nome descrittivo per il processo di importazione. Usare questo nome per tenere traccia dei processi mentre sono in corso e una volta completati.
         -  Questo nome può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura.
         -  Il nome deve iniziare con una lettera e non può contenere spazi.
@@ -137,7 +137,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
         ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. In **Dettagli processo**:
+3. In **Dettagli processo** :
 
     - Caricare i file journal creati in [Passaggio 1: Preparare le unità](#step-1-prepare-the-drives).
     - Selezionare l'account di archiviazione in cui verranno importati i dati.
@@ -145,7 +145,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
        ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. In **Informazioni sul mittente della spedizione**:
+4. In **Informazioni sul mittente della spedizione** :
 
     - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione.
@@ -157,7 +157,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
        ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
 
-5. In **Riepilogo**:
+5. In **Riepilogo** :
 
     - Fornire l'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Verificare che il nome del processo e l'indirizzo completo siano riportati sull'etichetta per la spedizione.
     - Fare clic su **OK** per completare la creazione del processo di importazione.
@@ -258,9 +258,9 @@ Tracciare il processo fino al completamento. Una volta completato il processo, v
 
 ## <a name="samples-for-journal-files"></a>Esempi per i file journal
 
-Per **aggiungere altre unità**, creare un nuovo file driveset ed eseguire il comando come indicato di seguito.
+Per **aggiungere altre unità** , creare un nuovo file driveset ed eseguire il comando come indicato di seguito.
 
-Per le sessioni di copia successive in unità disco diverse rispetto a quelle specificate nel file *InitialDriveset.csv*, specificare un nuovo file *CSV* driveset e immetterlo come valore per il parametro `AdditionalDriveSet`. Usare il **medesimo file journal** e indicare un **nuovo ID di sessione**. Il formato del file CSV AdditionalDriveset corrisponde a quello del file InitialDriveSet.
+Per le sessioni di copia successive in unità disco diverse rispetto a quelle specificate nel file *InitialDriveset.csv* , specificare un nuovo file *CSV* driveset e immetterlo come valore per il parametro `AdditionalDriveSet`. Usare il **medesimo file journal** e indicare un **nuovo ID di sessione** . Il formato del file CSV AdditionalDriveset corrisponde a quello del file InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -275,7 +275,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 Per aggiungere altri dati allo stesso file driveset, usare il comando PrepImport per le sessioni di copia successive per copiare altri file o directory.
 
-Per le sessioni di copia successive negli stessi dischi rigidi specificati nel file *InitialDriveset.csv*, immettere lo **stesso nome di file journal** e un **nuovo ID sessione**. Non è necessario fornire la chiave dell'account di archiviazione.
+Per le sessioni di copia successive negli stessi dischi rigidi specificati nel file *InitialDriveset.csv* , immettere lo **stesso nome di file journal** e un **nuovo ID sessione** . Non è necessario fornire la chiave dell'account di archiviazione.
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

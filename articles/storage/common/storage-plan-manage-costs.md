@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479749"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781839"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Pianificare e gestire i costi per l'archiviazione BLOB di Azure
 
@@ -56,19 +56,19 @@ Questa sezione illustra ogni opzione in modo più dettagliato.
 
 È possibile risparmiare sui costi di archiviazione per i dati BLOB con la capacità riservata di archiviazione di Azure. La capacità riservata di archiviazione di Azure offre uno sconto sulla capacità per i BLOB in blocchi e per Azure Data Lake Storage Gen2 dati negli account di archiviazione standard quando si esegue il commit di una prenotazione per uno o tre anni. Una prenotazione fornisce una quantità fissa di capacità di archiviazione per il periodo di prenotazione. La capacità riservata di archiviazione di Azure può ridurre significativamente i costi di capacità per i BLOB in blocchi e i dati Azure Data Lake Storage Gen2. 
 
-Per altre informazioni, vedere [ottimizzare i costi per l'archiviazione BLOB con capacità riservata](/azure/storage/blobs/storage-blob-reserved-capacity).
+Per altre informazioni, vedere [ottimizzare i costi per l'archiviazione BLOB con capacità riservata](../blobs/storage-blob-reserved-capacity.md).
 
 #### <a name="organize-data-into-access-tiers"></a>Organizzare i dati in livelli di accesso
 
 È possibile ridurre i costi inserendo i dati BLOB nei livelli di accesso più convenienti. È possibile scegliere tra tre livelli progettati per ottimizzare i costi legati all'uso dei dati. Ad esempio *, il livello di accesso* frequente ha un costo di archiviazione superiore ma un costo di accesso inferiore. Se pertanto si prevede di accedere spesso ai dati, il livello di accesso frequente potrebbe essere la scelta più economica. Se si prevede di accedere ai dati *con una frequenza* minore, è possibile che il livello di accesso sporadico o *Archivio* risulti più appropriato, perché aumenta il costo dell'accesso ai dati, riducendo al tempo stesso i costi di archiviazione dei dati.    
 
-Per altre informazioni, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+Per altre informazioni, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Spostare automaticamente i dati tra i livelli di accesso
 
 Usare i criteri di gestione del ciclo di vita per spostare periodicamente i dati tra i livelli per risparmiare il maggior numero di denaro. Questi criteri possono spostare i dati in utilizzando le regole specificate. Ad esempio, è possibile creare una regola che sposta i BLOB nel livello archivio se il BLOB non è stato modificato in 90 giorni. Creando criteri che regolano il livello di accesso dei dati, è possibile progettare le opzioni di archiviazione meno costose per le proprie esigenze.
 
-Per altre informazioni, vedere [gestire il ciclo di vita dell'archiviazione BLOB di Azure](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+Per altre informazioni, vedere [gestire il ciclo di vita dell'archiviazione BLOB di Azure](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Creare i budget
 
@@ -87,11 +87,11 @@ Per visualizzare i costi di archiviazione di Azure nell'analisi dei costi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi**. È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
+2. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi** . È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
 
    ![Screenshot che illustra l'ambito](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Per visualizzare solo i costi per archiviazione di Azure, selezionare **Aggiungi filtro** , quindi selezionare **nome servizio**. Quindi, scegliere **archiviazione** dall'elenco. 
+4. Per visualizzare solo i costi per archiviazione di Azure, selezionare **Aggiungi filtro** , quindi selezionare **nome servizio** . Quindi, scegliere **archiviazione** dall'elenco. 
 
    Ecco un esempio che mostra i costi solo per archiviazione di Azure:
 

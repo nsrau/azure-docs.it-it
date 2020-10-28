@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330105"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780887"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Questa esercitazione illustra entrambi i flussi di lavoro di ripristino e ricoll
 
 Prima di iniziare questa esercitazione, eseguire queste operazioni:
 * Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md). 
-* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introduzione al modello di ripristino geografico
 
@@ -58,17 +58,17 @@ Il ripristino di emergenza è importante per molte applicazioni, per motivi di c
  * Ricollocare i database nella rispettiva area di origine con un impatto minimo sui tenant quando il problema viene risolto.  
 
 > [!NOTE]
-> L'applicazione viene ripristinata nell'area abbinata a quella in cui l'applicazione è distribuita. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> L'applicazione viene ripristinata nell'area abbinata a quella in cui l'applicazione è distribuita. Per altre informazioni, vedere [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md).   
 
 Questa esercitazione usa le funzionalità del database SQL di Azure e della piattaforma Azure per risolvere i problemi seguenti:
 
-* [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
+* [Modelli di Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
 * [Libreria EDCL](elastic-database-client-library.md) (Elastic Database Client Library, libreria client dei database elastici), per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
 * [Funzionalità di ripristino della gestione delle partizioni](elastic-database-recovery-manager.md) della libreria EDCL, per gestire le voci relative alle posizioni dei database nel catalogo durante il ripristino e il ricollocamento.  
 * [Ripristino geografico](../../key-vault/general/disaster-recovery-guidance.md), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
-* [Operazioni di ripristino asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
+* [Operazioni di ripristino asincrone](../../azure-resource-manager/management/async-operations.md) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
 * [Replica geografica](active-geo-replication-overview.md), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
-* [Alias DNS del server SQL](../../sql-database/dns-alias-overview.md), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
+* [Alias DNS del server SQL](./dns-alias-overview.md), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza
 
@@ -104,7 +104,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo per sincronizzare la configurazione di server, pool elastici e database nel catalogo dei tenant. Queste informazioni verranno usate in un secondo momento per configurare un ambiente con immagine speculare nell'area di ripristino.
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). 
 
 1. In PowerShell ISE aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app. Salvare il file.
 
@@ -180,7 +180,7 @@ Si supponga che si verifichi un'interruzione nell'area in cui l'applicazione è 
 
     * Lo script viene aperto in una nuova finestra di PowerShell e quindi avvia un set di processi di PowerShell eseguiti in parallelo che ripristinano i server, i pool e i database nell'area di ripristino.
 
-    * L'area di ripristino è l'area abbinata all'area di Azure in cui è stata distribuita l'applicazione. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * L'area di ripristino è l'area abbinata all'area di Azure in cui è stata distribuita l'applicazione. Per altre informazioni, vedere [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Monitorare lo stato del processo di ripristino nella finestra di PowerShell.
 
@@ -374,7 +374,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Usare un alias DNS per consentire a un'applicazione di connettersi al catalogo dei tenant senza dover ridefinire la configurazione.
 > * Usare la replica geografica per ricollocare i database ripristinati nella rispettiva area di origine dopo che è stato risolto un problema di interruzione.
 
-Passare all'esercitazione [Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database](../../sql-database/saas-dbpertenant-dr-geo-replication.md) per informazioni su come ridurre notevolmente il tempo necessario per ripristinare un'applicazione multi-tenant su larga scala.
+Passare all'esercitazione [Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database](./saas-dbpertenant-dr-geo-replication.md) per informazioni su come ridurre notevolmente il tempo necessario per ripristinare un'applicazione multi-tenant su larga scala.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

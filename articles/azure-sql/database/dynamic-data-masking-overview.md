@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398613"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781448"
 ---
 # <a name="dynamic-data-masking"></a>Maschera dati dinamica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,12 +34,12 @@ Ad esempio, un addetto all'assistenza in un call center può identificare i chia
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorizzazioni per il mascheramento dei dati dinamici
 
-Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministratore del database SQL di Azure, Amministratore del server o [Gestore Sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministratore del database SQL di Azure, Amministratore del server o [Gestore Sicurezza SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Criteri di mascheramento dei dati dinamici
 
 * **Utenti SQL esclusi dalla maschera** : set di utenti SQL o identità Azure ad che ottengono dati senza maschera nei risultati della query SQL. Gli utenti con privilegi di amministratore sono sempre esclusi dalla maschera e possono visualizzare i dati originali senza maschera.
-* **Regole di maschera**: set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
+* **Regole di maschera** : set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
 * **Funzioni maschera** : set di metodi che consentono di controllare l'esposizione dei dati per scenari diversi.
 
 | Funzione maschera | Logica di mascheramento |
@@ -60,15 +60,15 @@ Il motore di raccomandazioni DDM evidenzia determinati campi del database come p
 
 ### <a name="data-masking-policies"></a>Criteri di maschera dati
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Regole per la maschera dati
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Configurare la maschera dati dinamica per il database usando l'API REST
 
@@ -76,10 +76,10 @@ Il motore di raccomandazioni DDM evidenzia determinati campi del database come p
 
 ### <a name="data-masking-policies"></a>Criteri di maschera dati
 
-- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): crea o aggiorna un criterio di maschera dati del database.
-- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): ottiene un criterio di maschera dati del database. 
+- [Crea o aggiorna](/rest/api/sql/datamaskingpolicies/createorupdate): crea o aggiorna un criterio di maschera dati del database.
+- [Get](/rest/api/sql/datamaskingpolicies/get): ottiene un criterio di maschera dati del database. 
 
 ### <a name="data-masking-rules"></a>Regole per la maschera dati
 
-- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
-- [List by database](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.
+- [Crea o aggiorna](/rest/api/sql/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
+- [List by database](/rest/api/sql/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.

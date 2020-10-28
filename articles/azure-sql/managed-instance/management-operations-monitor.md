@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996842"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782451"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitoraggio delle operazioni di gestione Istanza gestita di Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ Sono disponibili diversi modi per monitorare le operazioni di gestione di istanz
 
 Nella tabella seguente vengono confrontate le opzioni di monitoraggio delle operazioni di gestione: 
 
-| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiornamento | Delete | Annulla | Passaggi |
+| Opzione | Conservazione | Supporta l'annullamento | Create | Aggiornamento | Delete | Annulla | Passaggi |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distribuzioni di gruppi di risorse | Infinito<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Non visibile | Visible | Non visibile |
 | Log attività | 90 giorni | No | Visible | Visible | Visible | Visible |  Non visibile |
@@ -62,9 +62,9 @@ Queste sono le API:
 
 | Comando | Descrizione |
 | --- | --- |
-|[Operazioni di Istanza gestita-Get](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Ottiene un'operazione di gestione su un'istanza gestita.|
-|[Operazioni di Istanza gestita-Annulla](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Annulla l'operazione asincrona nell'istanza gestita.|
-|[Operazioni Istanza gestita-list by Istanza gestita](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ottiene un elenco di operazioni eseguite nell'istanza gestita.|
+|[Operazioni di Istanza gestita-Get](/rest/api/sql/managedinstanceoperations/get)|Ottiene un'operazione di gestione su un'istanza gestita.|
+|[Operazioni di Istanza gestita-Annulla](/rest/api/sql/managedinstanceoperations/cancel)|Annulla l'operazione asincrona nell'istanza gestita.|
+|[Operazioni Istanza gestita-list by Istanza gestita](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ottiene un elenco di operazioni eseguite nell'istanza gestita.|
 
 > [!NOTE]
 > Usare l'API versione 2020-02-02 per visualizzare l'operazione di creazione dell'istanza gestita nell'elenco delle operazioni. Questa è la versione predefinita usata nel portale di Azure e nei pacchetti più recenti di PowerShell e dell'interfaccia della riga di comando di Azure.
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Per la spiegazione dettagliata dei comandi, vedere [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Per la spiegazione dettagliata dei comandi, vedere [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ L'elenco AZ SQL mi op ottiene un elenco di operazioni eseguite nell'istanza gest
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 

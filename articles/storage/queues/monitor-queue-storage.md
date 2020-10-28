@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a800a176315dd3066a48f813c1bee84d2f1eb696
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425496"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781873"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitoraggio dell'archiviazione code di Azure
 
@@ -46,23 +46,15 @@ Archiviazione code di Azure raccoglie gli stessi tipi di dati di monitoraggio de
 
 Vedere informazioni di [riferimento sui dati di monitoraggio dell'archiviazione code di Azure](monitor-queue-storage-reference.md) per informazioni dettagliate sulle metriche di metrica e log create dall'archiviazione code di Azure.
 
-Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](/azure/virtual-machines/windows/migration-classic-resource-manager-overview) (Eseguire la migrazione ad Azure Resource Manager).
+Metriche e log di Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Monitoraggio di Azure non supporta gli account di archiviazione della versione classica. Se si vogliono usare le metriche o i log con gli account di archiviazione della versione classica, è necessario eseguire la migrazione a un account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md) (Eseguire la migrazione ad Azure Resource Manager).
 
 Se si vuole, è possibile continuare a usare le metriche e i log della versione classica. In realtà, le metriche e i log della versione classica sono disponibili in parallelo con le metriche e i log di Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche e ai log legacy da parte di Archiviazione di Azure.
 
 ## <a name="collection-and-routing"></a>Raccolta e routing
 
-Le metriche della piattaforma e il log attività vengono raccolti automaticamente, ma possono essere indirizzati ad altre posizioni usando un'impostazione di diagnostica. È necessario creare un'impostazione di diagnostica per raccogliere i log delle risorse. 
+Le metriche della piattaforma e il log attività vengono raccolti automaticamente, ma possono essere indirizzati ad altre posizioni usando un'impostazione di diagnostica. 
 
-Per creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Per visualizzare un modello di Azure Resource Manager che crea un'impostazione di diagnostica, vedere [impostazione di diagnostica per archiviazione di Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-Quando si crea un'impostazione di diagnostica, scegliere il tipo di archiviazione per il quale abilitare i log, ad esempio BLOB, coda, tabella o file. Per l'archiviazione code, scegliere **coda**. 
-
-Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile selezionare la risorsa da un elenco. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario usare l'ID risorsa dell'endpoint di archiviazione di Accodamento. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
-
-È inoltre necessario specificare una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
+Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica. Quando si crea l'impostazione, scegliere **coda** come tipo di archiviazione per cui si vuole abilitare i log. Specificare quindi una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
 | Category | Descrizione |
 |:---|:---|
@@ -70,15 +62,204 @@ Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile
 | StorageWrite | Operazioni di scrittura su oggetti. |
 | StorageDelete | Operazioni DELETE sugli oggetti. |
 
+## <a name="creating-a-diagnostic-setting"></a>Creazione di un'impostazione di diagnostica
+
+È possibile creare un'impostazione di diagnostica usando il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager. 
+
+Per istruzioni generali, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+> [!NOTE]
+> I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Per registrarsi all'anteprima, vedere [questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Questa anteprima Abilita i log per i BLOB (che includono Azure Data Lake Storage Gen2), file, code e tabelle. Questa funzionalità è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md).
+
+### <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
+
+1. Accedere al portale di Azure.
+
+2. Passare all'account di archiviazione.
+
+3. Nella sezione **monitoraggio** fare clic su **impostazioni di diagnostica (anteprima)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![portale - Log di diagnostica](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)   
+
+4. Scegliere **coda** come tipo di archiviazione per cui si desidera abilitare i log.
+
+5. Fare clic su **Aggiungi impostazione di diagnostica** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portale-log delle risorse-Aggiungi impostazione di diagnostica](media/monitor-queue-storage/diagnostic-logs-settings-pane-2.png)
+
+   Verrà visualizzata la pagina **impostazioni di diagnostica** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Pagina log delle risorse](media/monitor-queue-storage/diagnostic-logs-page.png)
+
+6. Nel campo **nome** della pagina immettere un nome per questa impostazione del registro risorse. Selezionare quindi le operazioni che si desidera registrare (operazioni di lettura, scrittura ed eliminazione) e il percorso in cui si desidera che vengano inviati i log.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiviare i log in un account di archiviazione
+
+1. Selezionare la casella **di controllo archivia in un account di archiviazione** e quindi fare clic sul pulsante **Configura** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Archiviazione archivio pagina impostazioni di diagnostica](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. Nell'elenco a discesa **account di archiviazione** selezionare l'account di archiviazione in cui si vogliono archiviare i log, fare clic sul pulsante **OK** , quindi fare clic sul pulsante **Salva** .
+
+   > [!NOTE]
+   > Prima di scegliere un account di archiviazione come destinazione di esportazione, vedere [archiviare i log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) per informazioni sui prerequisiti nell'account di archiviazione.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Trasmettere i log a hub eventi di Azure
+
+1. Selezionare la casella **di controllo flusso a hub eventi** e quindi fare clic sul pulsante **Configura** .
+
+2. Nel riquadro **selezionare un hub eventi** scegliere lo spazio dei nomi, il nome e il nome del criterio dell'hub eventi in cui si desidera trasmettere i log. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Hub eventi della pagina impostazioni di diagnostica](media/monitor-queue-storage/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Fare clic sul pulsante **OK** , quindi fare clic sul pulsante **Salva** .
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Inviare i log ad Azure Log Analytics
+
+1. Selezionare la casella **di controllo Invia a log Analytics** , selezionare un'area di lavoro di log Analytics e quindi fare clic sul pulsante **Salva** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Log Analytics pagina impostazioni di diagnostica](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Aprire una finestra di comando di Windows PowerShell e accedere alla sottoscrizione di Azure usando il `Connect-AzAccount` comando. Quindi, seguire le istruzioni visualizzate.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione per cui si vuole abilitare la registrazione.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiviare i log in un account di archiviazione
+
+Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) insieme al `StorageAccountId` parametro.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Sostituire il `<storage-service-resource--id>` segnaposto in questo frammento con l'ID risorsa del servizio di Accodamento. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
+
+È possibile utilizzare `StorageRead` , `StorageWrite` e `StorageDelete` per il valore del parametro **Category** .
+
+Ecco un esempio:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+Per una descrizione di ogni parametro, vedere [archiviare i log delle risorse di Azure tramite Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Trasmettere i log a un hub eventi
+
+Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con il `EventHubAuthorizationRuleId` parametro.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Ecco un esempio:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+Per una descrizione di ogni parametro, vedere [trasmettere i dati a hub eventi tramite i cmdlet di PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Inviare log a Log Analytics
+
+Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) con il `WorkspaceId` parametro.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Ecco un esempio:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Per altre informazioni, vedere [trasmettere log delle risorse di Azure all'area di lavoro log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+1. Prima di tutto aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) oppure un'applicazione console dei comandi come Windows PowerShell, se si dispone dell’interfaccia della riga di comando di Azure [installata](https://docs.microsoft.com/cli/azure/install-azure-cli) in locale.
+
+2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione per cui si vuole abilitare i log.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Sostituire il valore segnaposto `<subscription-id>` con l'ID della sottoscrizione.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiviare i log in un account di archiviazione
+
+Abilitare i log usando il comando [AZ monitor Diagnostic-Settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Sostituire il `<storage-service-resource--id>` segnaposto in questo frammento con il servizio di archiviazione di Accodamento ID risorsa. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
+
+È possibile utilizzare `StorageRead` , `StorageWrite` e `StorageDelete` per il valore del parametro **Category** .
+
+Ecco un esempio:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+Per una descrizione di ogni parametro, vedere [archiviare i log delle risorse tramite l'interfaccia della](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli)riga di comando di Azure.
+
+#### <a name="stream-logs-to-an-event-hub"></a>Trasmettere i log a un hub eventi
+
+Abilitare i log usando il comando [AZ monitor Diagnostic-Settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Ecco un esempio:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+Per una descrizione di ogni parametro, vedere [trasmettere dati a hub eventi tramite l'interfaccia](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli)della riga di comando di Azure.
+
+#### <a name="send-logs-to-log-analytics"></a>Inviare log a Log Analytics
+
+Abilitare i log usando il comando [AZ monitor Diagnostic-Settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Ecco un esempio:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Per altre informazioni, vedere [trasmettere log delle risorse di Azure all'area di lavoro log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+# <a name="template"></a>[Modello](#tab/template)
+
+Per visualizzare un modello di Azure Resource Manager che crea un'impostazione di diagnostica, vedere [impostazione di diagnostica per archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
+
+
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure**. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
+È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
 
 L'esempio seguente mostra come visualizzare le **transazioni** a livello di account.
 
 ![Screenshot dell'accesso alle metriche nel portale di Azure](./media/monitor-queue-storage/access-metrics-portal.png)
 
-Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato. L'esempio seguente mostra come visualizzare le **transazioni** a livello di account su un'operazione specifica selezionando valori per la dimensione **API Name**.
+Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato. L'esempio seguente mostra come visualizzare le **transazioni** a livello di account su un'operazione specifica selezionando valori per la dimensione **API Name** .
 
 ![Screenshot dell'accesso alle metriche con dimensioni nel portale di Azure](./media/monitor-queue-storage/access-metrics-portal-with-dimension.png)
 
@@ -89,7 +270,7 @@ Le metriche per l'archiviazione code di Azure sono disponibili in questi spazi d
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-Per un elenco di tutte le metriche di supporto di monitoraggio di Azure, che includono l'archiviazione code di Azure, vedere [metriche supportate di monitoraggio](/azure/azure-monitor/platform/metrics-supported)di Azure.
+Per un elenco di tutte le metriche di supporto di monitoraggio di Azure, che includono l'archiviazione code di Azure, vedere [metriche supportate di monitoraggio](../../azure-monitor/platform/metrics-supported.md)di Azure.
 
 
 ### <a name="accessing-metrics"></a>Accesso alle metriche
@@ -139,13 +320,13 @@ In questo esempio, sostituire il `<resource-ID>` segnaposto con l'ID risorsa del
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Monitoraggio di Azure fornisce l'[SDK di .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per consentire la lettura di definizioni e valori della metrica. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. Per le metriche di archiviazione, usare `0.18.0-preview` o una versione successiva.
  
 In questi esempi sostituire il `<resource-ID>` segnaposto con l'ID risorsa dell'intero account di archiviazione o del servizio di archiviazione di Accodamento. Gli ID delle risorse si trovano nella **pagina delle proprietà** del proprio account di archiviazione nel portale di Azure.
 
-Sostituire la variabile `<subscription-ID>` con l'ID della propria sottoscrizione. Per istruzioni su come ottenere i valori per `<tenant-ID>`, `<application-ID>` e `<AccessKey>`, vedere [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
+Sostituire la variabile `<subscription-ID>` con l'ID della propria sottoscrizione. Per istruzioni su come ottenere i valori per `<tenant-ID>`, `<application-ID>` e `<AccessKey>`, vedere [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
 #### <a name="list-the-account-level-metric-definition"></a>Elenco della definizione di metrica a livello di account
 
@@ -278,7 +459,9 @@ L'esempio seguente mostra come leggere i dati di metrica per le metriche che sup
     }
 
 ```
+### <a name="template"></a>[Modello](#tab/template)
 
+<a name="na"></a>N/D.
 ---
 
 ## <a name="analyzing-logs"></a>Analisi dei log
@@ -299,7 +482,7 @@ Le voci di registro vengono create solo se esistono richieste effettuate per l'e
 - Richieste riuscite
 - Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo
 - Richieste che usano una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
-- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric**)
+- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric** )
 
 Le richieste effettuate dal servizio di archiviazione di Accodamento, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo dei dati registrati vedere [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato del log di Analisi archiviazione](monitor-queue-storage-reference.md).
 
@@ -330,22 +513,22 @@ I log inviati a un hub eventi non vengono archiviati come file, ma è possibile 
 
 ![Log di controllo](media/monitor-queue-storage/event-hub-log.png)
 
-È possibile accedere e leggere i dati di log inviati all'hub eventi usando le informazioni di sicurezza e gli strumenti di monitoraggio e gestione degli eventi. Per altre informazioni, vedere [Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+È possibile accedere e leggere i dati di log inviati all'hub eventi usando le informazioni di sicurezza e gli strumenti di monitoraggio e gestione degli eventi. Per altre informazioni, vedere [Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Accesso ai log in un'area di lavoro Log Analytics
 
 È possibile accedere ai log inviati a un'area di lavoro Log Analytics usando le query di log di Monitoraggio di Azure.
 
-Per altre informazioni, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-portal).
+Per altre informazioni, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-portal.md).
 
 I dati vengono archiviati nella tabella **StorageQueueLogs** .  
 
 #### <a name="sample-kusto-queries"></a>Query Kusto di esempio
 
-Di seguito sono riportate alcune query che è possibile immettere nella barra di **Ricerca log** per semplificare il monitoraggio dell'archiviazione di Accodamento. Queste query usano il [nuovo linguaggio](/azure/azure-monitor/log-query/log-query-overview).
+Di seguito sono riportate alcune query che è possibile immettere nella barra di **Ricerca log** per semplificare il monitoraggio dell'archiviazione di Accodamento. Queste query usano il [nuovo linguaggio](../../azure-monitor/log-query/log-query-overview.md).
 
 > [!IMPORTANT]
-> Quando si seleziona **log** dal menu del gruppo di risorse dell'account di archiviazione, log Analytics viene aperto con l'ambito della query impostato sul gruppo di risorse corrente. Ciò significa che le query di log includeranno solo i dati del gruppo di risorse. Se si vuole eseguire una query che includa dati da altre risorse o dati di altri servizi di Azure, selezionare **registri** dal menu **monitoraggio di Azure** . Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](/azure/azure-monitor/log-query/scope/).
+> Quando si seleziona **log** dal menu del gruppo di risorse dell'account di archiviazione, log Analytics viene aperto con l'ambito della query impostato sul gruppo di risorse corrente. Ciò significa che le query di log includeranno solo i dati del gruppo di risorse. Se si vuole eseguire una query che includa dati da altre risorse o dati di altri servizi di Azure, selezionare **registri** dal menu **monitoraggio di Azure** . Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](../../azure-monitor/log-query/scope.md).
 
 Usare queste query per agevolare il monitoraggio degli account di Archiviazione di Azure:
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450353"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782944"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ L'automazione dei processi può essere usata in diversi scenari:
 
 Sono disponibili le tecnologie di pianificazione dei processi seguenti:
 
-- **Processi di SQL Agent**: componente classico e testato sul campo per la pianificazione dei processi di SQL Server disponibile in Istanza gestita di SQL di Azure. I processi di SQL Agent non sono disponibili in Database SQL di Azure.
+- **Processi di SQL Agent** : componente classico e testato sul campo per la pianificazione dei processi di SQL Server disponibile in Istanza gestita di SQL di Azure. I processi di SQL Agent non sono disponibili in Database SQL di Azure.
 - **Processi di database elastico (anteprima)** : servizi di pianificazione dei processi che eseguono processi personalizzati su uno o più database in Database SQL di Azure.
 
 È opportuno notare alcune differenze tra SQL Agent, disponibile in locale e come parte di Istanza gestita di SQL, e l'agente dei processi di database elastico, disponibile per database singoli in Database SQL di Azure e per database in Azure Synapse Analytics.
@@ -173,13 +173,13 @@ Alcune delle funzionalità di SQL Agent disponibili in SQL Server non sono suppo
 - I proxy non sono supportati.
 - EventLog non è supportato.
 
-Per informazioni su SQL Server Agent, vedere [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Per informazioni su SQL Server Agent, vedere [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Processi di database elastico (anteprima)
 
 I **processi di database elastico** consentono di eseguire uno o più script T-SQL in parallelo, in un numero elevato di database, in una pianificazione o su richiesta.
 
-**Eseguire processi su qualsiasi combinazione di database**: uno o più database, tutti i database in un server, tutti i database in un pool elastico o in una mappa delle partizioni, con in più la possibilità di includere o escludere database specifici. **I processi possono essere eseguiti in più server, in più pool e anche in database di sottoscrizioni differenti.** I server e i pool vengono enumerati in modo dinamico in fase di esecuzione, quindi i processi vengono eseguiti su tutti i database esistenti nel gruppo di destinazione al momento dell'esecuzione.
+**Eseguire processi su qualsiasi combinazione di database** : uno o più database, tutti i database in un server, tutti i database in un pool elastico o in una mappa delle partizioni, con in più la possibilità di includere o escludere database specifici. **I processi possono essere eseguiti in più server, in più pool e anche in database di sottoscrizioni differenti.** I server e i pool vengono enumerati in modo dinamico in fase di esecuzione, quindi i processi vengono eseguiti su tutti i database esistenti nel gruppo di destinazione al momento dell'esecuzione.
 
 La figura seguente mostra un agente di processo che esegue processi tra diversi tipi di gruppi di destinazione:
 
@@ -210,11 +210,11 @@ Per l'anteprima corrente, per creare un agente di processo elastico, è necessar
 
 Il *database di processo* non deve essere necessariamente nuovo, ma deve essere pulito, vuoto e con obiettivo di servizio S0 o superiore. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. Un database S0 può essere ad esempio sufficiente per un agente di processo che esegue pochi processi ogni ora destinati a meno di dieci database, mentre l'esecuzione di un processo ogni minuto potrebbe non essere abbastanza veloce con un database S0, rendendo opportuno un livello di servizio superiore.
 
-Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](service-tiers-dtu.md) o nel modello [vCore](service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
+Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](service-tiers-dtu.md) o nel modello [vCore](service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
 
 ##### <a name="job-database-permissions"></a>Autorizzazioni per il database di processo
 
-Durante la creazione di un agente di processo vengono creati uno schema, tabelle e un ruolo denominato *jobs_reader* nel *database di processo*. Il ruolo viene creato con l'autorizzazione seguente ed è progettato per fornire agli amministratori un controllo di accesso più preciso per il monitoraggio dei processi:
+Durante la creazione di un agente di processo vengono creati uno schema, tabelle e un ruolo denominato *jobs_reader* nel *database di processo* . Il ruolo viene creato con l'autorizzazione seguente ed è progettato per fornire agli amministratori un controllo di accesso più preciso per il monitoraggio dei processi:
 
 |Nome del ruolo |Autorizzazioni per lo schema "jobs" |Autorizzazioni per lo schema 'jobs_internal' |
 |---------|---------|---------|
@@ -227,13 +227,13 @@ Durante la creazione di un agente di processo vengono creati uno schema, tabelle
 
 Un *gruppo di destinazione* definisce il set di database sui quali verrà eseguito un passaggio di processo. Un gruppo di destinazione può contenere qualsiasi numero e una combinazione degli elementi seguenti:
 
-- **Server logico di SQL Server**: se è specificato un server, tutti i database presenti al suo interno al momento dell'esecuzione del processo fanno parte del gruppo. È necessario fornire le credenziali del database master in modo che il gruppo possa essere enumerato e aggiornato prima dell'esecuzione del processo.
-- **Pool elastico**: se è specificato un pool elastico, tutti i database presenti nel pool elastico al momento dell'esecuzione del processo fanno parte del gruppo. Come per un server, è necessario fornire le credenziali del database master in modo che il gruppo possa essere aggiornato prima dell'esecuzione del processo.
-- **Database singolo**: specificare uno o più database singoli da includere nel gruppo.
-- **Mappa delle partizioni**: database di una mappa delle partizioni.
+- **Server logico di SQL Server** : se è specificato un server, tutti i database presenti al suo interno al momento dell'esecuzione del processo fanno parte del gruppo. È necessario fornire le credenziali del database master in modo che il gruppo possa essere enumerato e aggiornato prima dell'esecuzione del processo.
+- **Pool elastico** : se è specificato un pool elastico, tutti i database presenti nel pool elastico al momento dell'esecuzione del processo fanno parte del gruppo. Come per un server, è necessario fornire le credenziali del database master in modo che il gruppo possa essere aggiornato prima dell'esecuzione del processo.
+- **Database singolo** : specificare uno o più database singoli da includere nel gruppo.
+- **Mappa delle partizioni** : database di una mappa delle partizioni.
 
 > [!TIP]
-> Al momento dell'esecuzione del processo, l'*enumerazione dinamica* rivaluta il set dei database nei gruppi di destinazione che includono server o pool. L'enumerazione dinamica assicura che i **processi vengano eseguiti in tutti i database esistenti nel server o nel pool al momento dell'esecuzione**. Rivalutare l'elenco dei database in fase di esecuzione è particolarmente utile per gli scenari in cui l'appartenenza al pool o al server cambia frequentemente.
+> Al momento dell'esecuzione del processo, l' *enumerazione dinamica* rivaluta il set dei database nei gruppi di destinazione che includono server o pool. L'enumerazione dinamica assicura che i **processi vengano eseguiti in tutti i database esistenti nel server o nel pool al momento dell'esecuzione** . Rivalutare l'elenco dei database in fase di esecuzione è particolarmente utile per gli scenari in cui l'appartenenza al pool o al server cambia frequentemente.
 
 I pool e i database singoli possono essere specificati come inclusi o esclusi dal gruppo. Ciò consente di creare un gruppo di destinazione con qualsiasi combinazione di database. È ad esempio possibile aggiungere un server a un gruppo di destinazione, ma escludere database specifici di un pool elastico o escludere un intero pool.
 
@@ -243,16 +243,16 @@ Gli esempi seguenti illustrano come diverse definizioni del gruppo destinazione 
 
 ![Esempi di gruppi di destinazione](./media/job-automation-overview/targetgroup-examples1.png)
 
-L'**esempio 1** mostra un gruppo di destinazione costituito da un elenco di singoli database. Quando un passaggio del processo viene eseguito usando questo gruppo di destinazione, l'azione del passaggio verrà eseguita in ognuno di tali database.<br>
-L'**esempio 2** mostra un gruppo di destinazione contenente un server. Quando un passaggio del processo viene eseguito usando questo gruppo di destinazione, il server viene enumerato in modo dinamico per determinare l'elenco dei database attualmente presenti nel server. L'azione del passaggio del processo verrà eseguita in ognuno di tali database.<br>
-L'**esempio 3** mostra un gruppo di destinazione simile a quello dell'*esempio 2*, ma con l'esclusione specifica di un singolo database. L'azione del passaggio del processo *non* verrà eseguita nel database escluso.<br>
-L'**esempio 4** mostra un gruppo di destinazione contenente un pool elastico come destinazione. Analogamente all'*esempio 2*, il pool verrà enumerato in modo dinamico in fase di esecuzione del processo per determinare l'elenco dei database nel pool.
+L' **esempio 1** mostra un gruppo di destinazione costituito da un elenco di singoli database. Quando un passaggio del processo viene eseguito usando questo gruppo di destinazione, l'azione del passaggio verrà eseguita in ognuno di tali database.<br>
+L' **esempio 2** mostra un gruppo di destinazione contenente un server. Quando un passaggio del processo viene eseguito usando questo gruppo di destinazione, il server viene enumerato in modo dinamico per determinare l'elenco dei database attualmente presenti nel server. L'azione del passaggio del processo verrà eseguita in ognuno di tali database.<br>
+L' **esempio 3** mostra un gruppo di destinazione simile a quello dell' *esempio 2* , ma con l'esclusione specifica di un singolo database. L'azione del passaggio del processo *non* verrà eseguita nel database escluso.<br>
+L' **esempio 4** mostra un gruppo di destinazione contenente un pool elastico come destinazione. Analogamente all' *esempio 2* , il pool verrà enumerato in modo dinamico in fase di esecuzione del processo per determinare l'elenco dei database nel pool.
 <br><br>
 
 ![Altri esempi di gruppi di destinazione](./media/job-automation-overview/targetgroup-examples2.png)
 
-L'**esempio 5** e l'**esempio 6** mostrano scenari avanzati in cui server, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
-L'**esempio 7** mostra che in fase di esecuzione del processo possono essere valutate anche le partizioni in una mappa delle partizioni.
+L' **esempio 5** e l' **esempio 6** mostrano scenari avanzati in cui server, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
+L' **esempio 7** mostra che in fase di esecuzione del processo possono essere valutate anche le partizioni in una mappa delle partizioni.
 
 > [!NOTE]
 > Il database del processo stesso può essere la destinazione di un processo. In questo scenario, il database del processo viene considerato come qualsiasi altro database di destinazione. È necessario aver creato l'utente del processo a cui concedere autorizzazioni sufficienti nel database del processo e nel database del processo devono anche esistere le credenziali con ambito database per l'utente del processo, come per qualsiasi altro database di destinazione.
@@ -260,7 +260,7 @@ L'**esempio 7** mostra che in fase di esecuzione del processo possono essere val
 
 #### <a name="job"></a>Processo
 
-Un *processo* è un'unità di lavoro che viene eseguita in una pianificazione o come processo occasionale. Un processo è costituito da uno o più *passaggi*.
+Un *processo* è un'unità di lavoro che viene eseguita in una pianificazione o come processo occasionale. Un processo è costituito da uno o più *passaggi* .
 
 ##### <a name="job-step"></a>Passaggio del processo
 
@@ -272,13 +272,13 @@ Il risultato dei passaggi di un processo in ciascun database di destinazione ven
 
 #### <a name="job-history"></a>Cronologia dei processi
 
-La cronologia dell'esecuzione dei processi viene archiviata nel *database di processo*. Un processo di pulizia del sistema elimina la cronologia dei processi eseguiti oltre 45 giorni prima. Per rimuovere la cronologia dei processi eseguiti entro i 45 giorni precedenti, richiamare la stored procedure **sp_purge_history** nel *database di processo*.
+La cronologia dell'esecuzione dei processi viene archiviata nel *database di processo* . Un processo di pulizia del sistema elimina la cronologia dei processi eseguiti oltre 45 giorni prima. Per rimuovere la cronologia dei processi eseguiti entro i 45 giorni precedenti, richiamare la stored procedure **sp_purge_history** nel *database di processo* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Prestazioni, capacità e limitazioni degli agenti
 
 I processi elastici usano risorse di calcolo minime in attesa del completamento di processi di lunga durata.
 
-A seconda delle dimensioni del gruppo di database di destinazione e del tempo di esecuzione desiderato per un processo (numero di processi simultanei), l'agente richiede prestazioni e risorse di calcolo differenti per il *database di processo*: maggiore è il numero di destinazioni e di processi, maggiore sarà la quantità di risorse di calcolo necessarie.
+A seconda delle dimensioni del gruppo di database di destinazione e del tempo di esecuzione desiderato per un processo (numero di processi simultanei), l'agente richiede prestazioni e risorse di calcolo differenti per il *database di processo* : maggiore è il numero di destinazioni e di processi, maggiore sarà la quantità di risorse di calcolo necessarie.
 
 Attualmente, l'anteprima è limitata a 100 processi simultanei.
 
@@ -288,7 +288,7 @@ Per garantire che le risorse non siano sovraccariche quando si eseguono processi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Informazioni su SQL Server Agent](/sql/ssms/agent/sql-server-agent)
 - [Come creare e gestire processi elastici](elastic-jobs-overview.md)
 - [Creare e gestire processi elastici usando PowerShell](elastic-jobs-powershell-create.md)
 - [Creare e gestire processi elastici usando Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

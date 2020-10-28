@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e88c1b976ce1de0ce0be4b6a5f85af6790802323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321629"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782995"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare il database SQL di Azure o eseguire il failover in un database secondario
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica
 
 A seconda della tolleranza dell'applicazione ai tempi di inattività e delle eventuali responsabilità aziendali è possibile prendere in considerazione le opzioni di ripristino seguenti.
 
-Usare [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
+Usare [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
 
 ## <a name="wait-for-service-recovery"></a>Attendere il ripristino del servizio
 

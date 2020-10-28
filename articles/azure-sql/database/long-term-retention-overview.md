@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450230"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782621"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservazione a lungo termine: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -26,7 +26,7 @@ Molte applicazioni hanno scopi normativi, di conformità o altri scopi aziendali
 La conservazione a lungo termine può essere abilitata per il database SQL di Azure ed è in anteprima pubblica limitata per Istanza gestita SQL di Azure. Questo articolo fornisce una panoramica concettuale della conservazione a lungo termine. Per configurare la conservazione a lungo termine, vedere [configurare il database SQL di Azure LTR](long-term-backup-retention-configure.md) e [configurare Azure SQL istanza gestita LTR](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
+> È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
 
 
 ## <a name="how-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine
@@ -36,7 +36,7 @@ La conservazione dei backup a lungo termine consente di sfruttare i backup di da
 Per abilitare la conservazione a lungo termine, è possibile definire un criterio usando una combinazione di quattro parametri: conservazione backup settimanale (W), conservazione backup mensile (M), conservazione backup annuale (Y) e settimana dell'anno (WeekOfYear). Se si specifica W, verrà copiato nella risorsa di archiviazione a lungo termine un backup ogni settimana. Se si specifica M, il primo backup di ogni mese verrà copiato nell'archiviazione a lungo termine. Se si specifica Y, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella settimana specificata dal valore WeekOfYear. Se il criterio WeekOfYear viene configurato nel passato, il primo backup per la conservazione a lungo termine verrà creato l'anno successivo. Ogni backup di conservazione a lungo termine verrà mantenuto nell'archiviazione a lungo termine in base ai parametri dei criteri configurati durante la creazione.
 
 > [!NOTE]
-> Qualsiasi modifica apportata ai criteri di conservazione a lungo termine si applica solo ai backup futuri. Se ad esempio si modifica la conservazione backup settimanale, la conservazione backup mensile (M) o la conservazione backup annuale (Y), la nuova impostazione di conservazione verrà applicata solo ai nuovi backup. La conservazione dei backup esistenti non verrà modificata. Se si intende eliminare i backup di conservazione a lungo termine obsoleti prima della scadenza del periodo di conservazione, sarà necessario [eliminarli manualmente](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Qualsiasi modifica apportata ai criteri di conservazione a lungo termine si applica solo ai backup futuri. Se ad esempio si modifica la conservazione backup settimanale, la conservazione backup mensile (M) o la conservazione backup annuale (Y), la nuova impostazione di conservazione verrà applicata solo ai nuovi backup. La conservazione dei backup esistenti non verrà modificata. Se si intende eliminare i backup di conservazione a lungo termine obsoleti prima della scadenza del periodo di conservazione, sarà necessario [eliminarli manualmente](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Esempi di criteri di conservazione a lungo termine:
@@ -81,10 +81,10 @@ Se si usa la replica geografica attiva o i gruppi di failover come soluzione di 
 
 L'uso della conservazione dei backup a lungo termine con Azure SQL Istanza gestita presenta le limitazioni seguenti:
 
-- **Anteprima pubblica limitata**: questa anteprima è riservata esclusivamente alle sottoscrizioni con contratto Enterprise e CSP ed è soggetta a disponibilità limitata.  
+- **Anteprima pubblica limitata** : questa anteprima è riservata esclusivamente alle sottoscrizioni con contratto Enterprise e CSP ed è soggetta a disponibilità limitata.  
 - [**Solo PowerShell**](../managed-instance/long-term-backup-retention-configure.md) : attualmente non è disponibile alcun supporto per portale di Azure. La conservazione a lungo termine deve essere abilitata tramite PowerShell. 
 
-Per richiedere la registrazione, creare un [ticket di supporto di Azure](https://azure.microsoft.com/support/create-ticket/). Per tipo di problema selezionare problema tecnico, per servizio scegliere SQL Istanza gestita e per il tipo di problema selezionare **backup, ripristino e continuità aziendale/conservazione dei backup a lungo termine**. Nella richiesta, indicare se si desidera essere registrati in un'anteprima pubblica limitata di LTR per SQL Istanza gestita.
+Per richiedere la registrazione, creare un [ticket di supporto di Azure](https://azure.microsoft.com/support/create-ticket/). Per tipo di problema selezionare problema tecnico, per servizio scegliere SQL Istanza gestita e per il tipo di problema selezionare **backup, ripristino e continuità aziendale/conservazione dei backup a lungo termine** . Nella richiesta, indicare se si desidera essere registrati in un'anteprima pubblica limitata di LTR per SQL Istanza gestita.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurare la conservazione del backup a lungo termine
 
@@ -99,4 +99,3 @@ Per ripristinare un database dalla risorsa di archiviazione per la conservazione
 ## <a name="next-steps"></a>Passaggi successivi
 
 Poiché i backup dei database proteggono i dati da danneggiamenti o eliminazioni accidentali, sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

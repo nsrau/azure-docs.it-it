@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619798"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780904"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Configurare e usare i log di Monitoraggio di Azure con un'app SaaS multi-tenant del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Questa esercitazione illustra come installare e usare i [log di Monitoraggio di Azure](/azure/log-analytics/log-analytics-overview) per il monitoraggio di database e pool elastici. Questa esercitazione, basata sull'[esercitazione Monitoraggio e gestione delle prestazioni](saas-dbpertenant-performance-monitoring.md), illustra come usare i log di Monitoraggio di Azure per estendere le funzionalità di monitoraggio e avviso disponibili nel portale di Azure. I log di Monitoraggio di Azure supportano il monitoraggio di migliaia di pool elastici e di centinaia di migliaia di database. I log di Monitoraggio di Azure offrono una soluzione di monitoraggio singola che supporta l'integrazione del monitoraggio di applicazioni e servizi di Azure diversi tra più sottoscrizioni di Azure.
+Questa esercitazione illustra come installare e usare i [log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) per il monitoraggio di database e pool elastici. Questa esercitazione, basata sull'[esercitazione Monitoraggio e gestione delle prestazioni](saas-dbpertenant-performance-monitoring.md), illustra come usare i log di Monitoraggio di Azure per estendere le funzionalità di monitoraggio e avviso disponibili nel portale di Azure. I log di Monitoraggio di Azure supportano il monitoraggio di migliaia di pool elastici e di centinaia di migliaia di database. I log di Monitoraggio di Azure offrono una soluzione di monitoraggio singola che supporta l'integrazione del monitoraggio di applicazioni e servizi di Azure diversi tra più sottoscrizioni di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,8 +33,8 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
+* È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 Vedere l'[esercitazione Monitoraggio e gestione delle prestazioni](saas-dbpertenant-performance-monitoring.md) per una trattazione di scenari e modelli SaaS, nonché dei loro effetti sui requisiti per una soluzione di monitoraggio.
 
@@ -48,16 +48,16 @@ Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics. Le ar
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Creare dati di diagnostica delle prestazioni simulando un carico di lavoro nei tenant 
 
-1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Tenere aperto lo script, perché durante l'esercitazione può essere necessario eseguire vari scenari di generazione del carico.
+1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1* . Tenere aperto lo script, perché durante l'esercitazione può essere necessario eseguire vari scenari di generazione del carico.
 1. Se non lo si è ancora fatto, effettuare il provisioning di un batch di tenant per rendere più interessante il contesto di monitoraggio. Questo processo richiede qualche minuto.
 
-   a. Impostare **$DemoScenario = 1**. _Effettuare il provisioning di un batch di tenant_.
+   a. Impostare **$DemoScenario = 1** . _Effettuare il provisioning di un batch di tenant_ .
 
    b. Per eseguire lo script e distribuire altri 17 tenant, premere F5.
 
 1. Avviare quindi il generatore di carico per eseguire un carico simulato su tutti i tenant.
 
-    a. Impostare **$DemoScenario = 2**, _Generare un carico di intensità normale (circa 30 DTU)_ .
+    a. Impostare **$DemoScenario = 2** , _Generare un carico di intensità normale (circa 30 DTU)_ .
 
     b. Per eseguire lo script, premere F5.
 
@@ -69,7 +69,7 @@ Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS
 
 Monitoraggio di Azure è un servizio separato che deve essere configurato. I log di Monitoraggio di Azure raccolgono dati di log, dati di telemetria e metriche in un'area di lavoro Log Analytics. Come per altre risorse in Azure, è necessario creare un'area di lavoro Log Analytics. L'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, anche se spesso questa è la scelta più sensata. Per l'app Wingtip Tickets, usare un unico gruppo di risorse per garantire che l'area di lavoro venga eliminata con l'applicazione.
 
-1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1* .
 1. Per eseguire lo script, premere F5.
 
 È ora possibile aprire i log di Monitoraggio di Azure nel portale di Azure. Per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro Log Analytics è necessario qualche minuto. Maggiore il tempo concesso al sistema per la raccolta di dati di diagnostica, più interessante sarà l'esperienza. 
@@ -83,7 +83,7 @@ Per questo esercizio, aprire l'area di lavoro Log Analytics nel portale di Azure
 
    ![Aprire l'area di lavoro Log Analytics](./media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selezionare l'area di lavoro denominata _wtploganalytics-&lt;utente&gt;_.
+1. Selezionare l'area di lavoro denominata _wtploganalytics-&lt;utente&gt;_ .
 
 1. Selezionare **Panoramica** per aprire la soluzione Log Analytics nel portale di Azure.
 
@@ -102,7 +102,7 @@ Per questo esercizio, aprire l'area di lavoro Log Analytics nel portale di Azure
 
     ![Dashboard di Log Analytics](./media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Modificare l'impostazione del filtro per modificare l'intervallo di tempo. Per questa esercitazione, selezionare **Ultima ora**.
+1. Modificare l'impostazione del filtro per modificare l'intervallo di tempo. Per questa esercitazione, selezionare **Ultima ora** .
 
     ![Filtro temporale](./media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
@@ -114,7 +114,7 @@ Per questo esercizio, aprire l'area di lavoro Log Analytics nel portale di Azure
  
      ![Metriche del database](./media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Scorrere la pagina di analisi a sinistra e selezionare il riquadro del server nell'elenco **Informazioni sulla risorsa**.  
+1. Scorrere la pagina di analisi a sinistra e selezionare il riquadro del server nell'elenco **Informazioni sulla risorsa** .  
 
     ![Elenco Informazioni sulla risorsa](./media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -135,7 +135,7 @@ Nell'area di lavoro Log Analytics è possibile esplorare ulteriormente i dati di
 
 Le funzionalità di monitoraggio e avviso nei log di Monitoraggio di Azure si basano sull'esecuzione di query sui dati nell'area di lavoro, diversamente dagli avvisi definiti per ogni risorsa nel portale di Azure. Basando gli avvisi sulle query, è possibile definire un singolo avviso per monitorare tutti i database, invece di definirne uno per ogni database. Le query sono limitate solo dai dati disponibili nell'area di lavoro.
 
-Per altre informazioni su come usare i log di Monitoraggio di Azure per eseguire query e impostare avvisi, vedere [Utilizzo delle regole di avviso nei log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Per altre informazioni su come usare i log di Monitoraggio di Azure per eseguire query e impostare avvisi, vedere [Utilizzo delle regole di avviso nei log di Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
 Gli addebiti relativi ai log di Monitoraggio di Azure per il database SQL sono basati sul volume di dati nell'area di lavoro. In questa esercitazione è stata creata un'area di lavoro gratuita, limitata a 500 MB al giorno. Dopo il raggiungimento di tale limite, non vengono aggiunti altri dati all'area di lavoro.
 

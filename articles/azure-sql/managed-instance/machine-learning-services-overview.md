@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676814"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782417"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
 
@@ -44,7 +44,7 @@ Usare Machine Learning Services con supporto R/Python in Azure SQL Istanza gesti
 
 - **Distribuire i modelli e gli script nell'ambiente di produzione nelle stored procedure** . gli script e i modelli sottoposti a training possono essere operativi semplicemente incorporati nelle stored procedure T-SQL. Le app che si connettono ad Azure SQL Istanza gestita possono trarre vantaggio da stime e intelligence in questi modelli semplicemente chiamando una stored procedure. È anche possibile usare la funzione di stima T-SQL nativa per rendere operativo i modelli per un punteggio rapido in scenari con punteggio in tempo reale altamente simultanei.
 
-Le distribuzioni di base di Python e R sono incluse in Machine Learning Services. È possibile installare e usare pacchetti e framework open source, come PyTorch, TensorFlow e scikit-learn, oltre ai pacchetti Microsoft [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) e [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) per Python e [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) e [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) per R.
+Le distribuzioni di base di Python e R sono incluse in Machine Learning Services. È possibile installare e usare pacchetti e framework open source, come PyTorch, TensorFlow e scikit-learn, oltre ai pacchetti Microsoft [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) e [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) per Python e [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) e [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) per R.
 
 <a name="signup"></a>
 
@@ -85,6 +85,6 @@ Non usare Machine Learning Services in Istanza gestita di SQL per carichi di lav
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere le [differenze principali tra SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Per ulteriori informazioni su Machine Learning su altre piattaforme SQL, vedere la [documentazione di SQL Machine Learning](https://docs.microsoft.com/sql/machine-learning/).
+- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Per ulteriori informazioni su Machine Learning su altre piattaforme SQL, vedere la [documentazione di SQL Machine Learning](/sql/machine-learning/).

@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254039"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782978"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Panoramica dello sviluppo di applicazioni: database SQL & SQL Istanza gestita
 
@@ -27,7 +27,7 @@ Questo articolo illustra le considerazioni di base che uno sviluppatore deve ten
 
 È possibile usare vari [linguaggi di programmazione e piattaforme](connect-query-content-reference-guide.md) per connettersi ed eseguire query al database SQL di Azure. È possibile trovare [applicazioni di esempio](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) che è possibile usare per connettersi al database.
 
-È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
+È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
 
 ## <a name="authentication"></a>Authentication
 
@@ -39,7 +39,7 @@ Altre informazioni sulla [gestione dell'accesso al database e degli account di a
 
 Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi. Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
 
-Se si usa un [pool di connessioni](https://msdn.microsoft.com/library/8xx3tyca.aspx), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
+Se si usa un [pool di connessioni](/dotnet/framework/data/adonet/sql-server-connection-pooling), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
 
 Evitare transazioni con esecuzione prolungata, perché qualsiasi errore di infrastruttura o connessione può comportare il rollback della transazione. Se possibile, suddividere la transazione in transazioni più piccole e usare l'[invio in batch per migliorare le prestazioni](../performance-improve-use-batching.md).
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490765"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781924"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transizione alle metriche in monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Per passare alle metriche in monitoraggio di Azure, è consigliabile usare l'app
    > [!NOTE]
    > Le metriche in monitoraggio di Azure sono abilitate per impostazione predefinita, quindi non è necessario eseguire alcuna operazione per iniziare l'acquisizione delle metriche. È tuttavia necessario creare grafici o dashboard per visualizzare tali metriche. 
  
-5. Se sono state create regole di avviso basate su metriche di archiviazione classiche, [creare regole di avviso](/azure/azure-monitor/platform/alerts-overview) basate sulle metriche in monitoraggio di Azure. 
+5. Se sono state create regole di avviso basate su metriche di archiviazione classiche, [creare regole di avviso](../../azure-monitor/platform/alerts-overview.md) basate sulle metriche in monitoraggio di Azure. 
 
 6. Dopo aver potuto visualizzare tutte le metriche in monitoraggio di Azure, è possibile disattivare la registrazione classica. 
 
@@ -53,7 +53,7 @@ Per quanto riguarda il supporto delle metriche, le metriche classiche forniscono
 
 Se l'attività nell'account non attiva una metrica, le metriche classiche visualizzeranno un valore pari a zero (0) per la metrica. Le metriche in monitoraggio di Azure ometteranno interamente i dati, con conseguente ripulitura dei report. Con le metriche classiche, ad esempio, se non vengono segnalati errori di timeout del server, il `ServerTimeoutError` valore nella tabella Metrics viene impostato su 0. Il monitoraggio di Azure non restituisce dati quando si esegue una query sul valore della metrica `Transactions` con dimensione `ResponseType` uguale a `ServerTimeoutError` . 
 
-Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](/azure/azure-monitor/platform/data-platform-metrics).
+Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -70,7 +70,7 @@ Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> Sono inoltre disponibili diverse nuove metriche di capacità non disponibili come metriche classiche. Per visualizzare l'elenco completo, vedere [metriche](../common/monitor-storage-reference.md#metrics).
+> Sono inoltre disponibili diverse nuove metriche di capacità non disponibili come metriche classiche. Per visualizzare l'elenco completo, vedere [metriche](../blobs/monitor-blob-storage-reference.md#metrics).
 
 **Metriche delle transazioni**
 
@@ -117,5 +117,4 @@ Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Monitoraggio di Azure](../../azure-monitor/overview.md)

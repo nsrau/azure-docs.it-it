@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: a4a666423c6f5a76d69f572f6d8b86a022bf3e30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443133"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781057"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Le query elastiche possono ora eseguire il push dei parametri SQL nei database r
 
 ### <a name="stored-procedure-execution"></a>Esecuzione di stored procedure
 
-Eseguire chiamate di stored procedure remote o funzioni remote mediante [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714).
+Eseguire chiamate di stored procedure remote o funzioni remote mediante [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database).
 
 ### <a name="flexibility"></a>Flessibilità
 
@@ -73,13 +73,13 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 > L'utente deve disporre dell'autorizzazione ALTER ANY EXTERNAL DATA SOURCE. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE. Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 >
 
-**Dati di riferimento**: la topologia viene usata per la gestione dei dati di riferimento. Nella figura seguente due tabelle (T1 e T2) con dati di riferimento vengono mantenute in un database dedicato. Usando una query elastica è ora possibile accedere alle tabelle T1 e T2 in modalità remota da altri database, come illustrato nella figura. Usare la topologia 1 se le tabelle di riferimento hanno dimensioni ridotte o se le query nella tabella di riferimento hanno predicati selettivi.
+**Dati di riferimento** : la topologia viene usata per la gestione dei dati di riferimento. Nella figura seguente due tabelle (T1 e T2) con dati di riferimento vengono mantenute in un database dedicato. Usando una query elastica è ora possibile accedere alle tabelle T1 e T2 in modalità remota da altri database, come illustrato nella figura. Usare la topologia 1 se le tabelle di riferimento hanno dimensioni ridotte o se le query nella tabella di riferimento hanno predicati selettivi.
 
 **Figura 2** Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento
 
 ![ Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
 
-**Query tra database**: le query elastiche consentono casi d'uso che richiedono l'esecuzione di query su diversi database di Database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
+**Query tra database** : le query elastiche consentono casi d'uso che richiedono l'esecuzione di query su diversi database di Database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
 
 **Figura 3** Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database
 
@@ -87,10 +87,10 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 I passaggi seguenti configurano le query su database elastiche per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in database remoti di Database SQL con lo stesso schema:
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **RDBMS**
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
+* [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource of type **RDBMS**
+* [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 Dopo l'esecuzione delle istruzioni DDL, sarà possibile accedere alla tabella remota "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente una connessione al database remoto, elabora la richiesta nel database remoto e restituisce i risultati.
 
@@ -108,11 +108,11 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 I passaggi seguenti configurano le query su database elastiche per scenari di partizionamento orizzontale che richiedono l'accesso a un set di tabelle situate, in genere, in diversi database remoti di Database SQL:
 
-* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
+* [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * Creare una [mappa partizioni](elastic-scale-shard-map-management.md) che rappresenta il livello dati usando la libreria client dei database elastici.
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource di tipo **SHARD_MAP_MANAGER**
-* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
+* [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource di tipo **SHARD_MAP_MANAGER**
+* [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 Dopo avere eseguito questi passaggi, sarà possibile accedere alla tabella con partizionamento orizzontale "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente più connessioni parallele ai database remoti in cui vengono archiviate fisicamente le tabelle, elabora le richieste nei database remoti e restituisce i risultati.
 Per altre informazioni sui passaggi necessari per gli scenari di partizionamento orizzontale, vedere [Query elastiche per il partizionamento orizzontale](elastic-query-horizontal-partitioning.md).
@@ -120,7 +120,7 @@ Per altre informazioni sui passaggi necessari per gli scenari di partizionamento
 Per iniziare a scrivere codice, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> La corretta esecuzione di una query elastica su un set di database di grandi dimensioni dipende in gran parte dalla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query non riesce. Se si prevede di eseguire query su centinaia o migliaia di database contemporaneamente, assicurarsi che nell'applicazione client sia incorporata una logica di ripetizione dei tentativi oppure usare la funzionalità [Processi di database elastico](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (anteprima) ed eseguire query su subset di database più piccoli, consolidando i risultati di ogni query in un'unica destinazione.
+> La corretta esecuzione di una query elastica su un set di database di grandi dimensioni dipende in gran parte dalla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query non riesce. Se si prevede di eseguire query su centinaia o migliaia di database contemporaneamente, assicurarsi che nell'applicazione client sia incorporata una logica di ripetizione dei tentativi oppure usare la funzionalità [Processi di database elastico](./job-automation-overview.md#elastic-database-jobs-preview) (anteprima) ed eseguire query su subset di database più piccoli, consolidando i risultati di ogni query in un'unica destinazione.
 
 ## <a name="t-sql-querying"></a>Query T-SQL
 
@@ -158,7 +158,7 @@ Per condividere feedback sulla propria esperienza con le query elastiche, usare 
 * Per le query di esempio e sintassi per i dati con partizionamento verticale, vedere [Eseguire query su dati con partizionamento verticale](elastic-query-vertical-partitioning.md)
 * Per un'esercitazione sul partizionamento orizzontale, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
 * Per le query di esempio e sintassi per i dati con partizionamento orizzontale, vedere [Eseguire query su dati con partizionamento orizzontale](elastic-query-horizontal-partitioning.md)
-* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+* Vedere [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
 
 <!--Image references-->
 [1]: ./media/elastic-query-overview/overview.png

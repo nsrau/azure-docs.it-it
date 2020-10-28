@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997241"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782502"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annullamento delle operazioni di gestione di Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,7 +75,7 @@ Se la richiesta di annullamento ha esito negativo o il pulsante Annulla non è a
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se Azure PowerShell non è ancora installato, vedere [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se Azure PowerShell non è ancora installato, vedere [Install the Azure PowerShell Module](/powershell/azure/install-az-ps).
 
 Per annullare un'operazione di gestione, è necessario specificare il nome dell'operazione di gestione. Quindi, usare prima il comando Get per recuperare l'elenco delle operazioni e quindi annullare l'operazione specifica.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Per la spiegazione dettagliata dei comandi, vedere [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) e [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Per la spiegazione dettagliata dei comandi, vedere [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) e [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Richiesta di distribuzione annullata
 
-Con l'API versione 2020-02-02, non appena viene accettata la richiesta di creazione dell'istanza, l'istanza inizia a esistere come risorsa, a prescindere dallo stato di avanzamento del processo di distribuzione (il provisioning dello stato dell'istanza gestita è **provisioning**). Se si annulla la richiesta di distribuzione dell'istanza (creazione nuova istanza), l'istanza gestita passerà dallo stato di **provisioning** a **FailedToCreate**.
+Con l'API versione 2020-02-02, non appena viene accettata la richiesta di creazione dell'istanza, l'istanza inizia a esistere come risorsa, a prescindere dallo stato di avanzamento del processo di distribuzione (il provisioning dello stato dell'istanza gestita è **provisioning** ). Se si annulla la richiesta di distribuzione dell'istanza (creazione nuova istanza), l'istanza gestita passerà dallo stato di **provisioning** a **FailedToCreate** .
 
 Le istanze che non sono state create sono ancora presenti come risorsa e: 
 

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450305"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782961"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Risolvere i problemi relativi alle prestazioni del database SQL di Azure e di Azure SQL Istanza gestita con Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e del Istanza gestita SQL di Azure rilevati tramite il log delle risorse [Intelligent Insights](intelligent-insights-overview.md) . Le metriche e i log delle risorse possono essere trasmessi a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)di Azure, [archiviazione di Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
+Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e del Istanza gestita SQL di Azure rilevati tramite il log delle risorse [Intelligent Insights](intelligent-insights-overview.md) . Le metriche e i log delle risorse possono essere trasmessi a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)di Azure, [archiviazione di Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
 
 > [!NOTE]
 > Per una guida rapida alla risoluzione dei problemi relativi alle prestazioni con Intelligent Insights, vedere il diagramma di flusso per la [risoluzione dei problemi consigliato](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) in questo documento.
@@ -74,7 +74,7 @@ Il log di diagnostica genera hash di query per le query con effetti sulle presta
 
 Se sono stati raggiunti i limiti delle sessioni disponibili, è possibile ottimizzare le applicazioni riducendo il numero di accessi al database. Se non si è in grado di ridurre il numero di accessi dalle applicazioni al database, provare ad aumentare il piano tariffario della sottoscrizione del database. In alternativa, è possibile suddividere e spostare il database in più database per una distribuzione più equilibrata del carico di lavoro.
 
-Per ulteriori suggerimenti sulla risoluzione dei limiti delle sessioni, vedere [How to deal with the limits of Maximum Logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Per informazioni sui limiti a livello del server e della sottoscrizione, vedere [Cenni preliminari sui limiti delle risorse in un server](resource-limits-logical-server.md) .
+Per ulteriori suggerimenti sulla risoluzione dei limiti delle sessioni, vedere [How to deal with the limits of Maximum Logins](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins). Per informazioni sui limiti a livello del server e della sottoscrizione, vedere [Cenni preliminari sui limiti delle risorse in un server](resource-limits-logical-server.md) .
 
 ## <a name="workload-increase"></a>Aumento del carico di lavoro
 
@@ -118,7 +118,7 @@ Per altre informazioni sulla risoluzione dei problemi, vedere [Memory grants med
 
 Questo modello di prestazioni indica una riduzione delle prestazioni correnti del database in cui viene rilevato un blocco eccessivo del database rispetto alla baseline delle prestazioni dei sette giorni precedenti.
 
-Nei sistemi RDBMS moderni il blocco è essenziale per l'implementazione multithreading in cui le prestazioni sono massimizzate tramite l'esecuzione di più thread di lavoro simultanei e di transazioni di database parallele ove possibile. Il termine blocco in questo contesto si riferisce al meccanismo di accesso predefinito in cui solo un'unica transazione può accedere in modo esclusivo a righe, pagine, tabelle e file necessari e non entra in conflitto con un'altra transazione per accedere alle risorse. Quando la transazione che ha bloccato le risorse per l'uso è completata, il blocco su tali risorse viene rilasciato consentendo ad altre transazioni di accedere alle risorse necessarie. Per altre informazioni sul blocco, vedere [Utilizzo dei blocchi in Motore di database](https://msdn.microsoft.com/library/ms190615.aspx).
+Nei sistemi RDBMS moderni il blocco è essenziale per l'implementazione multithreading in cui le prestazioni sono massimizzate tramite l'esecuzione di più thread di lavoro simultanei e di transazioni di database parallele ove possibile. Il termine blocco in questo contesto si riferisce al meccanismo di accesso predefinito in cui solo un'unica transazione può accedere in modo esclusivo a righe, pagine, tabelle e file necessari e non entra in conflitto con un'altra transazione per accedere alle risorse. Quando la transazione che ha bloccato le risorse per l'uso è completata, il blocco su tali risorse viene rilasciato consentendo ad altre transazioni di accedere alle risorse necessarie. Per altre informazioni sul blocco, vedere [Utilizzo dei blocchi in Motore di database](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105)).
 
 Se le transazioni eseguite dal motore SQL rimangono in attesa per periodi di tempo prolungati prima di accedere alle risorse bloccate per l'uso, il tempo di attesa causa il rallentamento delle prestazioni di esecuzione del carico di lavoro.
 
@@ -144,7 +144,7 @@ L'opzione di configurazione del server MAXDOP viene usata per controllare il num
 
 Il log di diagnostica restituisce gli hash di query correlati alle query per cui la durata di esecuzione è aumentata a causa di una parallelizzazione maggiore rispetto al necessario. Il log restituisce anche i tempi di attesa CXP. Tale tempo rappresenta il tempo che un singolo thread organizzatore/coordinatore (thread 0) rimane in attesa della terminazione di tutti gli altri thread prima di unire i risultati e procedere. Il log di diagnostica restituisce anche i tempi di attesa complessivi per l'esecuzione delle query con prestazioni ridotte. È possibile usare queste informazioni come base per la risoluzione dei problemi.
 
-Ottimizzare o semplificare prima di tutto le query più complesse. ad esempio suddividendo processi batch di grandi dimensioni in processi di dimensioni minori. Assicurarsi inoltre che siano stati creati indici a supporto delle query. È anche possibile applicare manualmente l'opzione di massimo grado di parallelismo (MAXDOP) per una query contrassegnata con prestazioni insufficienti. Per configurare questa operazione tramite T-SQL, vedere [Configurare l'opzione di configurazione del server max degree of parallelism](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Ottimizzare o semplificare prima di tutto le query più complesse. ad esempio suddividendo processi batch di grandi dimensioni in processi di dimensioni minori. Assicurarsi inoltre che siano stati creati indici a supporto delle query. È anche possibile applicare manualmente l'opzione di massimo grado di parallelismo (MAXDOP) per una query contrassegnata con prestazioni insufficienti. Per configurare questa operazione tramite T-SQL, vedere [Configurare l'opzione di configurazione del server max degree of parallelism](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 L'impostazione dell'opzione di configurazione del server MAXDOP su zero (0) come valore predefinito indica che il database può usare tutti i core CPU disponibili per parallelizzare i thread per l'esecuzione di una singola query. L'impostazione di MAXDOP su uno (1) indica che è possibile usare un solo core per l'esecuzione di una singola query. In pratica, ciò significa che il parallelismo è disattivato. A seconda del caso, dei core disponibili per il database e delle informazioni del log di diagnostica, è possibile impostare l'opzione MAXDOP sul numero di core per l'esecuzione di query parallele che consente di risolvere il problema nel caso specifico.
 
@@ -196,7 +196,7 @@ Il log di diagnostica include gli hash delle query identificate con effetti sull
 
 Questo modello di prestazioni indica che è stata rilevata una nuova query con prestazioni insufficienti e con impatto sulle prestazioni del carico di lavoro rispetto alla baseline delle prestazioni dei sette giorni precedenti.
 
-La scrittura di una query con buone prestazioni può essere un'attività complessa. Per altre informazioni sulla scrittura di query, vedere [Writing SQL queries](https://msdn.microsoft.com/library/bb264565.aspx) (Scrittura di query SQL). Per ottimizzare le prestazioni delle query esistenti, vedere [Ottimizzazione delle query](https://msdn.microsoft.com/library/ms176005.aspx).
+La scrittura di una query con buone prestazioni può essere un'attività complessa. Per altre informazioni sulla scrittura di query, vedere [Writing SQL queries](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)) (Scrittura di query SQL). Per ottimizzare le prestazioni delle query esistenti, vedere [Ottimizzazione delle query](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -218,7 +218,7 @@ Il log di diagnostica include informazioni sui dettagli del tempo di attesa in a
 
 Dato che in questo caso il sistema non è stato in grado di identificare la causa radice delle query con prestazioni ridotte, le informazioni di diagnostica rappresentano un buon punto di partenza per una risoluzione dei problemi manuale. È possibile ottimizzare le prestazioni di queste query. È buona norma recuperare solo i dati che devono essere usati e semplificare e suddividere le query complesse in query di dimensioni minori.
 
-Per ulteriori informazioni sull'ottimizzazione delle prestazioni delle query, vedere [ottimizzazione](https://msdn.microsoft.com/library/ms176005.aspx)delle query.
+Per ulteriori informazioni sull'ottimizzazione delle prestazioni delle query, vedere [ottimizzazione](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105))delle query.
 
 ## <a name="tempdb-contention"></a>Contesa di TempDB
 
@@ -230,7 +230,7 @@ Questo modello di prestazioni rilevabili indica una condizione delle prestazioni
 
 Il log di diagnostica include informazioni dettagliate sulle contese di tempDB. È possibile usare queste informazioni come punto di partenza per la risoluzione dei problemi. Esistono due operazioni che è possibile eseguire per risolvere questo tipo di contesa e aumentare la velocità effettiva del carico di lavoro globale, ovvero è possibile interrompere l'uso di tabelle temporanee e usare tabelle ottimizzate per la memoria.
 
-Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
+Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la memoria](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>Carenza di DTU nel pool elastico
 
@@ -260,7 +260,7 @@ Questo modello di prestazioni rilevabili combina tre casi diversi di regressione
 
 La nuova condizione di regressione dei piani fa riferimento a uno stato in cui il motore di database avvia l'esecuzione di un nuovo piano di esecuzione della query che non è altrettanto efficiente del piano precedente. La condizione di regressione del piano precedente si riferisce allo stato quando il motore di database passa dall'uso di un nuovo piano più efficiente al vecchio piano, che non è altrettanto efficiente del nuovo piano. La regressione correlata al carico di lavoro modificato di piani esistenti fa riferimento allo stato in cui il piano precedente e quello nuovo vengono continuamente alternati, con una preferenza verso il piano con prestazioni inferiori.
 
-Per altre informazioni sulle regressioni di piani, vedere [What is plan regression in SQL server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/) (Informazioni sulla regressione di piani in SQL Server).
+Per altre informazioni sulle regressioni di piani, vedere [What is plan regression in SQL server?](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server) (Informazioni sulla regressione di piani in SQL Server).
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -268,7 +268,7 @@ Il logo di diagnostica include gli hash delle query, l'ID del piano appropriato,
 
 È possibile analizzare i dati per individuare il piano con prestazioni migliori per le query specifiche che è possibile identificare in base agli hash forniti. Dopo aver determinato il piano più adatto alle query, è possibile applicarlo manualmente.
 
-Per altre informazioni, vedere [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) (Come SQL Server impedisce le regressioni di piani).
+Per altre informazioni, vedere [How SQL Server prevents plan regressions](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions) (Come SQL Server impedisce le regressioni di piani).
 
 > [!TIP]
 > Sapevate che la funzionalità di Intelligence incorporata è in grado di gestire automaticamente i piani di esecuzione delle query con le prestazioni migliori per i database?
@@ -287,7 +287,7 @@ La modifica della configurazione in ambito database può essere impostata per og
 
 Il log di diagnostica include le modifiche della configurazione in ambito database apportate di recente che hanno causato la riduzione delle prestazioni rispetto al comportamento del carico di lavoro dei sette giorni precedenti. È possibile ripristinare le modifiche di configurazione reimpostando i valori precedenti. Si possono anche ottimizzare i singoli valori fino a ottenere il livello di prestazioni desiderato. È possibile copiare i valori di configurazione in ambito database da un database simile con prestazioni soddisfacenti. Se non si riesce a risolvere i problemi relativi alle prestazioni, ripristinare i valori predefiniti e provare a eseguire la regolazione a partire da questa baseline.
 
-Per altre informazioni sull'ottimizzazione della configurazione in ambito database e sulla sintassi T-SQL per la modifica della configurazione, vedere [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+Per altre informazioni sull'ottimizzazione della configurazione in ambito database e sulla sintassi T-SQL per la modifica della configurazione, vedere [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## <a name="slow-client"></a>Client lento
 
@@ -326,11 +326,11 @@ Accedere a Intelligent Insights nel portale di Azure passando ad Analisi SQL di 
 > [!TIP]
 > Selezionare il diagramma di flusso per scaricarne una versione in formato PDF.
 
-Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'analisi della causa radice del problema di prestazioni. Se non è possibile individuare il problema in Intelligent Insights ed è cruciale trovare una soluzione, usare Query Store per identificare manualmente la causa radice del problema di prestazioni. In genere, questi problemi sono inferiori a un'ora precedente. Per altre informazioni, vedere [monitorare le prestazioni usando il query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'analisi della causa radice del problema di prestazioni. Se non è possibile individuare il problema in Intelligent Insights ed è cruciale trovare una soluzione, usare Query Store per identificare manualmente la causa radice del problema di prestazioni. In genere, questi problemi sono inferiori a un'ora precedente. Per altre informazioni, vedere [monitorare le prestazioni usando il query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni [Intelligent Insights](intelligent-insights-overview.md) concetti.
 - Utilizzare il [log di diagnostica delle prestazioni Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
-- Monitoraggio con [analisi SQL di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Monitoraggio con [analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md).
 - Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md).

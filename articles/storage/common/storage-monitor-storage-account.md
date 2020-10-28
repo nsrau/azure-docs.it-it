@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676807"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782009"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "92676807"
 >
 > File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
 >
-> Gli account di archiviazione BLOB in blocchi di prestazioni Premium non supportano le metriche di Analisi archiviazione ma supportano la registrazione. È possibile abilitare la registrazione in modo programmatico tramite l'API REST o la libreria client. Per visualizzare le metriche con un account di archiviazione BLOB di prestazioni Premium, provare a usare le [metriche di Archiviazione di Azure in Monitoraggio di Azure](storage-metrics-in-azure-monitor.md).
+> Gli account di archiviazione BLOB in blocchi di prestazioni Premium non supportano le metriche di Analisi archiviazione ma supportano la registrazione. È possibile abilitare la registrazione in modo programmatico tramite l'API REST o la libreria client. Per visualizzare le metriche con un account di archiviazione BLOB di prestazioni Premium, provare a usare le [metriche di Archiviazione di Azure in Monitoraggio di Azure](../blobs/monitor-blob-storage.md).
 >
 > Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >

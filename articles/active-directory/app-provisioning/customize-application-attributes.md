@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069875"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781482"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -43,7 +43,7 @@ Attenersi alla procedura seguente per accedere alla funzionalità **Mapping** de
 
    In questo screenshot si può notare che l'attributo **Username** di un oggetto gestito in Salesforce è popolato con il valore **userPrincipalName** dell'oggetto di Azure Active Directory collegato.
 
-1. Selezionare un **mapping degli attributi** esistente per aprire la schermata **Modifica attributo**, in cui è possibile modificare gli attributi utente che scorrono tra Azure AD e l'applicazione di destinazione.
+1. Selezionare un **mapping degli attributi** esistente per aprire la schermata **Modifica attributo** , in cui è possibile modificare gli attributi utente che scorrono tra Azure AD e l'applicazione di destinazione.
 
    ![Usare Modifica attributo per modificare gli attributi utente](./media/customize-application-attributes/23.png)
 
@@ -65,14 +65,14 @@ Oltre a questi quattro tipi base, i mapping degli attributi personalizzati suppo
 Nella sezione precedente è già stata presentata la proprietà del tipo di mapping degli attributi.
 Oltre a questa proprietà i mapping degli attributi supportano i seguenti attributi:
 
-- **Attributo di origine**: attributo utente nel sistema di origine, ad esempio Azure Active Directory.
-- **Attributo di destinazione**: attributo utente nel sistema di destinazione, ad esempio ServiceNow.
+- **Attributo di origine** : attributo utente nel sistema di origine, ad esempio Azure Active Directory.
+- **Attributo di destinazione** : attributo utente nel sistema di destinazione, ad esempio ServiceNow.
 - **Valore predefinito se Null (facoltativo)** : valore che verrà passato al sistema di destinazione se l'attributo di origine è Null. Il provisioning di questo valore verrà eseguito solo quando viene creato un utente. Il provisioning del "valore predefinito se Null" non verrà eseguito quando si aggiorna un utente esistente. Se, ad esempio, si vuole eseguire il provisioning di tutti gli utenti esistenti nel sistema di destinazione con una posizione (jobTitle) specifica (quando è Null nel sistema di origine), è possibile usare l'[espressione](../app-provisioning/functions-for-customizing-application-data.md) seguente: Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Assicurarsi di sostituire il "valore predefinito" con quello di cui si vuole eseguire il provisioning quando è Null nel sistema di origine. 
-- **Abbina gli oggetti in base a questo attributo**: specifica se questo mapping va usato per l'identificazione univoca degli utenti tra il sistema di origine e il sistema di destinazione. Questa opzione è in genere impostata sull'attributo userPrincipalName o mail in Azure AD, che a sua volta è in genere mappato a un campo username in un'applicazione di destinazione.
-- **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina. Sebbene sia possibile impostare qualsiasi numero di attributi corrispondenti, valutare se gli attributi che si stanno usando come attributi corrispondenti sono realmente univoci e devono essere attributi corrispondenti. In genere i clienti hanno 1 o 2 attributi corrispondenti nella propria configurazione. 
+- **Abbina gli oggetti in base a questo attributo** : specifica se questo mapping va usato per l'identificazione univoca degli utenti tra il sistema di origine e il sistema di destinazione. Questa opzione è in genere impostata sull'attributo userPrincipalName o mail in Azure AD, che a sua volta è in genere mappato a un campo username in un'applicazione di destinazione.
+- **Precedenza abbinamento** : è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina. Sebbene sia possibile impostare qualsiasi numero di attributi corrispondenti, valutare se gli attributi che si stanno usando come attributi corrispondenti sono realmente univoci e devono essere attributi corrispondenti. In genere i clienti hanno 1 o 2 attributi corrispondenti nella propria configurazione. 
 - **Applica questo mapping**
-  - **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente.
-  - **Solo durante la creazione**: applica il mapping solo alle azioni di creazione dell'utente.
+  - **Sempre** : applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente.
+  - **Solo durante la creazione** : applica il mapping solo alle azioni di creazione dell'utente.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Corrispondenza degli utenti nei sistemi di origine e di destinazione
 Il servizio di provisioning di Azure AD può essere distribuito sia in scenari "Greenfield" (dove gli utenti non esistono nel sistema di destinazione), sia in scenari "Brownfield" (dove gli utenti esistono già nel sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributi corrispondenti. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
@@ -90,7 +90,7 @@ Un numero selezionato di applicazioni, tra cui ServiceNow, Box e G Suite, suppor
 
 ![L'esempio illustra ServiceNow con oggetti gruppo e utente di cui è stato effettuato il provisioning](./media/customize-application-attributes/24.png)
 
-Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **Mapping** e impostando **Abilitato** su un'opzione nella schermata **Mapping attributi**.
+Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **Mapping** e impostando **Abilitato** su un'opzione nella schermata **Mapping attributi** .
 
 Gli attributi di cui viene effettuato il provisioning come parte di oggetti gruppo possono essere personalizzati allo stesso modo degli oggetti utente, descritto in precedenza. 
 
@@ -107,42 +107,45 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 
 - Salesforce
 - ServiceNow
-- Workday
+- Giorni lavorativi Active Directory/giorni lavorativi per Azure Active Directory
+- Da SuccessFactors a Active Directory/SuccessFactors Azure Active Directory
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
+- Per Azure Active Directory writeback per la giornata lavorativa o SuccessFactors, è supportato per aggiornare i metadati rilevanti per gli attributi supportati (XPATH e JSONPath), ma non è supportata l'aggiunta di nuovi attributi di giorni lavorativi o SuccessFactors oltre a quelli inclusi nello schema predefinito
+
 
 > [!NOTE]
 > La modifica dell'elenco degli attributi supportati è consigliata solo agli amministratori che hanno personalizzato lo schema dei propri sistemi e applicazioni e che hanno una conoscenza diretta del modo in cui sono stati definiti gli attributi personalizzati. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema.
 
 Quando si modifica l'elenco degli attributi supportati, vengono fornite le proprietà seguenti:
 
-- **Nome**: nome di sistema dell'attributo, definito nello schema dell'oggetto di destinazione.
-- **Tipo**: tipo di dati archiviati dall'attributo, definito nello schema dell'oggetto di destinazione, che può essere uno dei seguenti:
-  - *Binario*: l'attributo contiene dati binari.
-  - *Booleano*: l'attributo contiene un valore True o False.
-  - *DateTime*: l'attributo contiene una stringa di data.
-  - *Integer*: l'attributo contiene un numero intero.
-  - *Riferimento*: l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
-  - *String*: l'attributo contiene una stringa di testo.
+- **Nome** : nome di sistema dell'attributo, definito nello schema dell'oggetto di destinazione.
+- **Tipo** : tipo di dati archiviati dall'attributo, definito nello schema dell'oggetto di destinazione, che può essere uno dei seguenti:
+  - *Binario* : l'attributo contiene dati binari.
+  - *Booleano* : l'attributo contiene un valore True o False.
+  - *DateTime* : l'attributo contiene una stringa di data.
+  - *Integer* : l'attributo contiene un numero intero.
+  - *Riferimento* : l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
+  - *String* : l'attributo contiene una stringa di testo.
 - **Chiave primaria?** : specifica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
 - **Obbligatorio?** specifica se l'attributo deve essere immesso nell'applicazione o nel sistema di destinazione.
 - **Multivalore?** : specifica se l'attributo supporta più valori.
 - **Maiuscole/minuscole esatte?** : specifica se i valori degli attributi vengono valutati facendo distinzione tra maiuscole e minuscole.
-- **Espressione API**: non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
-- **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Espressione API** : non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
+- **Attributo oggetto di riferimento** : se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisioning di un attributo di estensione personalizzato in un'applicazione conforme a SCIM
 SCIM RFC definisce uno schema di utenti e gruppi centrale, consentendo anche estensioni dello schema per soddisfare le esigenze dell'applicazione. Per aggiungere un attributo personalizzato a un'applicazione SCIM:
-   1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com), selezionare **Applicazioni aziendali**, selezionare l'applicazione e quindi selezionare **Provisioning**.
+   1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com), selezionare **Applicazioni aziendali** , selezionare l'applicazione e quindi selezionare **Provisioning** .
    2. In **Mapping** selezionare l'oggetto (utente o gruppo) per il quale si vuole aggiungere un attributo personalizzato.
-   3. Nella parte inferiore della pagina selezionare **Mostra opzioni avanzate**.
-   4. Selezionare **Modifica elenco attributi per AppName**.
-   5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi disponibili. Quindi selezionare **Aggiungi attributo**.
+   3. Nella parte inferiore della pagina selezionare **Mostra opzioni avanzate** .
+   4. Selezionare **Modifica elenco attributi per AppName** .
+   5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi disponibili. Quindi selezionare **Aggiungi attributo** .
 
 Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. È possibile personalizzare "CustomExtensionName" e "CustomAttribute" in base ai requisiti dell'applicazione, ad esempio:  
  * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
  * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+ * urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: utente: CustomAttributeName: valore
 
 Queste istruzioni sono valide solo per le applicazioni abilitate per SCIM. Applicazioni come ServiceNow e Salesforce non vengono integrate con Azure AD usando SCIM e quindi non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
 
@@ -174,7 +177,7 @@ Gli attributi personalizzati non possono essere attributi referenziali o attribu
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {

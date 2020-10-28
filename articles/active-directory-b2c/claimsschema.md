@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201362"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781720"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType**. Un elemento **ClaimType** contiene l'attributo **Id**, che è il nome dell'attestazione.
+L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType** . Un elemento **ClaimType** contiene l'attributo **Id** , che è il nome dell'attestazione.
 
 ```xml
 <BuildingBlocks>
@@ -52,13 +52,13 @@ L'elemento **ClaimType** contiene gli elementi seguenti:
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
 | DataType | 1:1 | Tipo di attestazione. |
-| DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim**. Usare questo elemento per specificare il nome predefinito per un protocollo.  |
+| DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim** . Usare questo elemento per specificare il nome predefinito per un protocollo.  |
 | Mask | 0:1 | Stringa di caratteri di mascheramento facoltativa che può essere applicata durante la visualizzazione dell'attestazione. Il numero di telefono 324-232-4343 ad esempio può essere mascherato come XXX-XXX-4343. |
 | UserHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile agli utenti per comprenderne lo scopo. Il valore può essere [localizzato](localization.md). |
 | UserInputType | 0:1 | Tipo di controllo di input che deve essere disponibile all'utente per l'immissione manuale dei dati di attestazione per il tipo di attestazione. Vedere i tipi di input utente definiti più avanti in questa pagina. |
 | AdminHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile per gli amministratori per comprenderne lo scopo. |
 | Restrizione | 0:1 | Restrizioni ai valori per questa attestazione, ad esempio un'espressione regolare (Regex) o un elenco di valori accettabili. Il valore può essere [localizzato](localization.md). |
-PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput**. Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
+PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput** . Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
 
 
 
@@ -73,7 +73,7 @@ L'elemento **DataType** supporta i valori seguenti:
 |dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
 |duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS` , dove `P` indica positivo o `N` per un valore negativo. `nY` numero di anni seguito da un valore letterale `Y` . `nMo` numero di mesi seguito da un valore letterale `Mo` . `nD` numero di giorni seguito da un valore letterale `D` . Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo` rappresenta un anno e due mesi. `P1Y2Mo5D` rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S` rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
 |phoneNumber|Rappresenta un numero di telefono. |
-|int| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
+|INT| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
 |long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
 |string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
 |stringCollection|Rappresenta una raccolta di oggetti `string`.|
@@ -185,7 +185,7 @@ L'elemento **Enumeration** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
+|valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
@@ -228,7 +228,7 @@ L'esempio seguente configura un'attestazione **messaggio e-mail** con la convali
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -284,7 +284,7 @@ Il tipo di input utente **EmailBox** viene usato per visualizzare un campo di in
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

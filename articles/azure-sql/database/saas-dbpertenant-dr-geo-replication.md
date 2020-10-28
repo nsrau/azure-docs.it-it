@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330122"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781023"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Questa esercitazione illustra il flusso di lavoro sia di failover che di failbac
 
 Prima di iniziare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 * È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)  
-* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introduzione al modello di ripristino della replica geografica
 
@@ -66,11 +66,11 @@ Tutte le parti devono essere considerate attentamente, in particolare se si oper
 
 In questa esercitazione gli obiettivi appena elencati vengono soddisfatti usando le funzionalità del database SQL di Azure e della piattaforma Azure:
 
-* [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server di produzione e dei pool elastici nell'area di ripristino.
+* [Modelli di Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server di produzione e dei pool elastici nell'area di ripristino.
 * [Replica geografica](active-geo-replication-overview.md), per creare repliche secondarie asincrone di sola lettura per tutti i database. Durante un'interruzione, effettuare il failover nelle repliche nell'area di ripristino.  Dopo aver risolto l'interruzione, effettuare il failback nei database nell'area originale senza perdita di dati.
-* [Operazioni di failover asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità dei tenant, per ridurre al minimo il tempo di failover per un numero elevato di database.
+* [Operazioni di failover asincrone](../../azure-resource-manager/management/async-operations.md) inviate in ordine di priorità dei tenant, per ridurre al minimo il tempo di failover per un numero elevato di database.
 * [Funzionalità di ripristino della gestione delle partizioni](elastic-database-recovery-manager.md), per modificare le voci di database nel catalogo durante il ripristino e il ricollocamento. Queste funzionalità consentono all'app di connettersi ai database tenant indipendentemente dalla posizione senza dover riconfigurare l'app.
-* [Alias DNS di SQL Server](../../sql-database/dns-alias-overview.md), per consentire un facile provisioning dei nuovi tenant indipendentemente dall'area in cui è in esecuzione l'app. Gli alias DNS vengono usati anche per consentire il processo di sincronizzazione del catalogo per la connessione al catalogo attivo indipendentemente dalla relativa posizione.
+* [Alias DNS di SQL Server](./dns-alias-overview.md), per consentire un facile provisioning dei nuovi tenant indipendentemente dall'area in cui è in esecuzione l'app. Gli alias DNS vengono usati anche per consentire il processo di sincronizzazione del catalogo per la connessione al catalogo attivo indipendentemente dalla relativa posizione.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza 
 
@@ -85,7 +85,7 @@ In questa esercitazione si usa innanzitutto la replica geografica per creare rep
 Successivamente, in un passaggio di ricollocamento distinto, si effettua il failover dei database di catalogo e tenant dall'area di ripristino all'area originale. L'applicazione e i database rimangono disponibili durante tutto il processo di ricollocamento. Al termine, l'applicazione è perfettamente funzionante nell'area originale.
 
 > [!Note]
-> L'applicazione viene ripristinata nell' _area abbinata_ dell'area in cui l'applicazione è distribuita. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> L'applicazione viene ripristinata nell' _area abbinata_ dell'area in cui l'applicazione è distribuita. Per altre informazioni, vedere [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 
@@ -106,7 +106,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo che sincronizza la configurazione di server, pool elastici e database nel catalogo del tenant. Questo processo mantiene le informazioni aggiornate nel catalogo.  Il processo funziona con il catalogo attivo, nell'area originale o nell'area di ripristino. Le informazioni di configurazione vengono usate nel processo di ripristino per garantire che l'ambiente di ripristino sia coerente con l'ambiente originale e quindi in un secondo momento durante il ricollocamento per garantire che l'area originale sia stata resa coerente con eventuali modifiche apportate nell'ambiente di ripristino. Il catalogo viene anche usato per tenere traccia dello stato di ripristino delle risorse del tenant
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni in esecuzione con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni in esecuzione con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. In _PowerShell ISE_ aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app.  Salvare il file.
 
@@ -186,7 +186,7 @@ Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione
 
 2. Premere **F5** per eseguire lo script.  
     * Lo script viene aperto in una nuova finestra di PowerShell e quindi avvia una serie di processi di PowerShell eseguiti in parallelo. Questi processi effettuano il failover dei database tenant nell'area di ripristino.
-    * L'area di ripristino è l' _area abbinata_ all'area di Azure in cui è stata distribuita l'applicazione. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * L'area di ripristino è l' _area abbinata_ all'area di Azure in cui è stata distribuita l'applicazione. Per altre informazioni, vedere [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Monitorare lo stato del processo di ripristino nella finestra di PowerShell.
     ![Processo di failover](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)
