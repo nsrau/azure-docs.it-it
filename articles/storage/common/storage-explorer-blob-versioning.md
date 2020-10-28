@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488657"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783828"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guida al controllo delle versioni dei BLOB Azure Storage Explorer
 
-Microsoft Azure Storage Explorer consente di accedere e gestire facilmente le versioni dei BLOB. Questa guida consente di comprendere il funzionamento del controllo delle versioni dei BLOB in Storage Explorer. Prima di continuare, è consigliabile leggere altre informazioni sul [controllo delle versioni dei BLOB](/azure/storage/blobs/versioning-overview).
+Microsoft Azure Storage Explorer consente di accedere e gestire facilmente le versioni dei BLOB. Questa guida consente di comprendere il funzionamento del controllo delle versioni dei BLOB in Storage Explorer. Prima di continuare, è consigliabile leggere altre informazioni sul [controllo delle versioni dei BLOB](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminologia
 
 In questa sezione vengono fornite alcune definizioni per comprendere l'utilizzo in questo articolo.
 
-- Eliminazione temporanea: funzionalità di protezione automatica dei dati alternativa. Per altre informazioni sull'eliminazione temporanea, vedere [qui](/azure/storage/blobs/soft-delete-blob-overview).
+- Eliminazione temporanea: funzionalità di protezione automatica dei dati alternativa. Per altre informazioni sull'eliminazione temporanea, vedere [qui](../blobs/soft-delete-blob-overview.md).
 - BLOB attivo: una versione BLOB o BLOB viene creata nello stato attivo. È possibile operare solo su BLOB o versioni BLOB nello stato attivo.
 - BLOB eliminato temporaneamente: una versione BLOB o BLOB contrassegnata come eliminata temporaneamente. I BLOB eliminati temporaneamente vengono conservati solo per il periodo di memorizzazione.
 - Versione BLOB: un blob creato con il controllo delle versioni dei BLOB abilitato. Ogni versione del BLOB è associata a un ID versione.
@@ -117,5 +117,5 @@ Ogni versione del BLOB ha il proprio livello di accesso. Per modificare il livel
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Controllo delle versioni dei BLOB](/azure/storage/blobs/versioning-overview)
-* [Eliminazione temporanea per i BLOB](/azure/storage/blobs/soft-delete-blob-overview)
+* [Controllo delle versioni dei BLOB](../blobs/versioning-overview.md)
+* [Eliminazione temporanea per i BLOB](../blobs/soft-delete-blob-overview.md)

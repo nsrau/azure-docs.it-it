@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091611"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783879"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
@@ -34,8 +34,8 @@ Per informazioni su come visualizzare le chiavi di accesso dell'account e copiar
 L'applicazione deve accedere alla stringa di connessione in fase di runtime per autenticare le richieste inviate al servizio Archiviazione di Azure. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
 * È possibile archiviare la stringa di connessione in una variabile di ambiente.
-* Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
-* Un'applicazione in esecuzione in un servizio cloud di Azure può archiviare la stringa di connessione nel [file dello schema di configurazione dei servizi di Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Aggiungere la stringa di connessione alla sezione **ConfigurationSettings** del file di configurazione del servizio.
+* Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config** . Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
+* Un'applicazione in esecuzione in un servizio cloud di Azure può archiviare la stringa di connessione nel [file dello schema di configurazione dei servizi di Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Aggiungere la stringa di connessione alla sezione **ConfigurationSettings** del file di configurazione del servizio.
 
 Archiviando la stringa di connessione in un file di configurazione è possibile aggiornare facilmente la stringa di connessione per passare dall' [emulatore di archiviazione di azzurrite](../common/storage-use-azurite.md) a un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che faccia riferimento all'ambiente di destinazione.
 
@@ -57,7 +57,7 @@ Ad esempio, la stringa di connessione può essere simile alla seguente:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione, *è consigliabile usare HTTPS*.
+Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione, *è consigliabile usare HTTPS* .
 
 > [!TIP]
 > Le stringhe di connessione dell'account di archiviazione sono disponibili nel [portale di Azure](https://portal.azure.com). Passare a **Impostazioni**  >  **chiavi di accesso** nel pannello del menu dell'account di archiviazione per visualizzare le stringhe di connessione per le chiavi di accesso primarie e secondarie.

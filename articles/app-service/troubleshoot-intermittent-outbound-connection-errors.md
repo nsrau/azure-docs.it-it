@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408216"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785052"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
-Questo articolo consente di risolvere gli errori di connessione intermittenti e i problemi di prestazioni correlati nel [servizio app Azure](./overview.md). In questo argomento vengono fornite ulteriori informazioni sulle metodologie per la risoluzione dei problemi relativi all'esaurimento delle porte SNAT (Source Address Network Translation). Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+Questo articolo consente di risolvere gli errori di connessione intermittenti e i problemi di prestazioni correlati nel [servizio app Azure](./overview.md). In questo argomento vengono fornite ulteriori informazioni sulle metodologie per la risoluzione dei problemi relativi all'esaurimento delle porte SNAT (Source Address Network Translation). Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto** .
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -32,7 +32,7 @@ Le applicazioni e le funzioni ospitate nel servizio app Azure possono presentare
 Una causa principale di questi sintomi è che l'istanza dell'applicazione non è in grado di aprire una nuova connessione all'endpoint esterno poiché ha raggiunto uno dei limiti seguenti:
 
 * Connessioni TCP: è previsto un limite per il numero di connessioni in uscita che è possibile effettuare. Questa operazione è associata alle dimensioni del ruolo di lavoro utilizzato.
-* Porte SNAT: come descritto in [connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), azure USA Network Address Translation di origine (SNAT) e un Load Balancer (non esposto ai clienti) per comunicare con gli endpoint esterni ad Azure nello spazio degli indirizzi IP pubblici, nonché per gli endpoint interni di Azure che non sfruttano i vantaggi offerti dagli endpoint del servizio. A ogni istanza nel servizio app Azure viene inizialmente assegnato un numero preallocato di **128** porte SNAT. Tale limite influiscono sull'apertura delle connessioni alla stessa combinazione host e porta. Se l'app crea connessioni a una combinazione di combinazioni di indirizzo e porta, le porte SNAT non vengono usate. Le porte SNAT vengono utilizzate quando si hanno ripetute chiamate alla stessa combinazione di indirizzo e porta. Una volta rilasciata una porta, la porta sarà disponibile per il riutilizzo in base alle esigenze. Il servizio di bilanciamento del carico di rete di Azure recupera la porta SNAT dalle connessioni chiuse solo dopo l'attesa di 4 minuti.
+* Porte SNAT: come descritto in [connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), azure USA Network Address Translation di origine (SNAT) e una Load Balancer (non esposta ai clienti) per comunicare con gli endpoint esterni ad Azure nello spazio degli indirizzi IP pubblici, nonché per gli endpoint interni di Azure che non sfruttano i vantaggi offerti dagli endpoint di servizio/privati. A ogni istanza nel servizio app Azure viene inizialmente assegnato un numero preallocato di **128** porte SNAT. Tale limite influiscono sull'apertura delle connessioni alla stessa combinazione host e porta. Se l'app crea connessioni a una combinazione di combinazioni di indirizzo e porta, le porte SNAT non vengono usate. Le porte SNAT vengono utilizzate quando si hanno ripetute chiamate alla stessa combinazione di indirizzo e porta. Una volta rilasciata una porta, la porta sarà disponibile per il riutilizzo in base alle esigenze. Il servizio di bilanciamento del carico di rete di Azure recupera la porta SNAT dalle connessioni chiuse solo dopo l'attesa di 4 minuti.
 
 Quando le applicazioni o funzioni aprono rapidamente una nuova connessione, possono esaurire rapidamente la quota preallocata delle porte 128. Vengono quindi bloccati fino a quando non diventa disponibile una nuova porta SNAT, tramite l'allocazione dinamica di porte SNAT aggiuntive o il riutilizzo di una porta SNAT recuperata. Le applicazioni o le funzioni bloccate a causa dell'impossibilità di creare nuove connessioni inizieranno a riscontrare uno o più dei problemi descritti nella sezione relativa ai **sintomi** di questo articolo.
 
@@ -114,7 +114,7 @@ Sebbene PHP non supporti il pool di connessioni, è possibile provare a usare co
 
 Evitare i limiti TCP in uscita è più semplice da risolvere, poiché i limiti vengono impostati dalle dimensioni del ruolo di lavoro. È possibile visualizzare i limiti nei [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 
@@ -130,7 +130,7 @@ Se non si conosce abbastanza il comportamento dell'applicazione per determinare 
 
 È possibile usare la [diagnostica del servizio app](./overview-diagnostics.md) per trovare le informazioni sull'allocazione delle porte SNAT e osservare la metrica di allocazione delle porte SNAT di un sito del servizio app. Per trovare le informazioni sull'allocazione delle porte SNAT, attenersi alla procedura seguente:
 
-1. Per accedere alla diagnostica del servizio app, passare all'app Web del servizio app o ambiente del servizio app nel [portale di Azure](https://portal.azure.com/). Nel percorso di spostamento a sinistra selezionare **diagnostica e Risolvi i problemi**.
+1. Per accedere alla diagnostica del servizio app, passare all'app Web del servizio app o ambiente del servizio app nel [portale di Azure](https://portal.azure.com/). Nel percorso di spostamento a sinistra selezionare **diagnostica e Risolvi i problemi** .
 2. Selezionare la categoria disponibilità e prestazioni
 3. Selezionare il riquadro dell'esaurimento delle porte SNAT nell'elenco dei riquadri disponibili sotto la categoria. La procedura consiste nel mantenerla sotto 128.
 Se necessario, è comunque possibile aprire un ticket di supporto e il tecnico del supporto otterrà la metrica dal back-end.
@@ -146,7 +146,7 @@ Le connessioni TCP e le porte SNAT non sono direttamente correlate. Un rilevator
 * Il limite di connessioni TCP si verifica a livello di istanza di lavoro. Il bilanciamento del carico in uscita rete di Azure non usa la metrica connessioni TCP per la limitazione delle porte SNAT.
 * I limiti delle connessioni TCP sono descritti in [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 
@@ -162,7 +162,7 @@ Non è possibile modificare le impostazioni di Azure per rilasciare prima le por
 * Se viene individuata una RST, la porta SNAT viene rilasciata dopo 15 secondi.
 * Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.
  
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 * [SNAT con il servizio app](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
 * [Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure](./troubleshoot-performance-degradation.md)

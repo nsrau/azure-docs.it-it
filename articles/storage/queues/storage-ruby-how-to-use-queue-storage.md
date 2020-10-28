@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785579"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Come usare l'archiviazione di accodamento da Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,14 @@ ms.locfileid: "92425476"
 
 ## <a name="overview"></a>Panoramica
 In questa guida viene illustrato come eseguire scenari comuni del servizio di archiviazione di accodamento di Microsoft Azure. Gli esempi sono scritti usando l'API Ruby di Azure.
-Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione ed eliminazione di code**.
+Gli scenari illustrati includono **inserimento** , **visualizzazione** , **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione ed eliminazione di code** .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Creare un'applicazione Ruby
-Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'app Ruby nel Servizio app in Linux](/azure/app-service/quickstart-ruby).
+Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'app Ruby nel Servizio app in Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione
 Per utilizzare l'archiviazione di Azure, è necessario scaricare e utilizzare il pacchetto Ruby Azure, che comprende un set di librerie che comunicano con i servizi di archiviazione REST.
@@ -57,7 +57,7 @@ Per ottenere questi valori da un account di archiviazione classico o di Resource
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
-3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
+3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso** .
 4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
 
@@ -97,7 +97,7 @@ result = azure_queue_service.peek_messages("test-queue",
 È possibile rimuovere un messaggio da una coda in due passaggi.
 
 1. Per impostazione predefinita, chiamando **list\_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. I messaggi restituiti da **list\_messages()** diventano invisibili a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
-2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message ()**.
+2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message ()** .
 
 Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **Delete \_ Message ()** subito dopo l'elaborazione del messaggio.
 

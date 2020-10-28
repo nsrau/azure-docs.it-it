@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784219"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -123,30 +123,30 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 
-1. Selezionare **nuova richiesta di supporto**.
+1. Selezionare **nuova richiesta di supporto** .
 2. Completare le **nozioni** di base in base alle informazioni sull'account: 
-    - **Tipo di problema**: selezionare **tecnico**.
-    - **Servizio**: selezionare **servizi personali** e **Gestione account di archiviazione**.
-    - **Risorsa**: selezionare la risorsa che si vuole convertire in ZRS.
-3. Selezionare **Avanti**.
-4. Specificare i valori seguenti nella sezione **Problema**:
-    - **Gravità**: lasciare il valore predefinito.
-    - **Tipo di problema**: selezionare **Migrazione dei dati**.
-    - **Category**: selezionare **migrate to ZRS**.
-    - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
-    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
-5. Selezionare **Avanti**.
+    - **Tipo di problema** : selezionare **tecnico** .
+    - **Servizio** : selezionare **servizi personali** e **Gestione account di archiviazione** .
+    - **Risorsa** : selezionare la risorsa che si vuole convertire in ZRS.
+3. Selezionare **Avanti** .
+4. Specificare i valori seguenti nella sezione **Problema** :
+    - **Gravità** : lasciare il valore predefinito.
+    - **Tipo di problema** : selezionare **Migrazione dei dati** .
+    - **Category** : selezionare **migrate to ZRS** .
+    - **Titolo** : digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona** .
+    - **Dettagli** : digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
+5. Selezionare **Avanti** .
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Crea**.
+7. Selezionare **Crea** .
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 
 > [!NOTE]
 > La migrazione in tempo reale non è attualmente supportata per le condivisioni file Premium. Attualmente sono supportati solo i dati copiati o spostati manualmente.
 >
-> Gli account di archiviazione GZRS attualmente non supportano il livello archivio. Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers) .
+> Gli account di archiviazione GZRS attualmente non supportano il livello archivio. Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md) .
 >
-> I dischi gestiti sono disponibili solo per con ridondanza locale e non è possibile eseguirne la migrazione a ZRS. È possibile archiviare snapshot e immagini per i dischi gestiti da unità SSD standard nell'archiviazione HDD standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Per informazioni sull'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> I dischi gestiti sono disponibili solo per con ridondanza locale e non è possibile eseguirne la migrazione a ZRS. È possibile archiviare snapshot e immagini per i dischi gestiti da unità SSD standard nell'archiviazione HDD standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Per informazioni sull'integrazione con i set di disponibilità, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Passa da ZRS classico
 
@@ -165,7 +165,7 @@ Per eseguire manualmente la migrazione dei dati dell'account ZRS a o da un accou
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alle impostazioni di **configurazione** dell'account e scegliere **Aggiorna**:
+Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alle impostazioni di **configurazione** dell'account e scegliere **Aggiorna** :
 
 ![Eseguire l'aggiornamento da ZRS classico a ZRS nel portale](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

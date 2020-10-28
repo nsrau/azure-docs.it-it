@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654260"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785613"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -34,8 +34,8 @@ La chiave in ogni migrazione consiste nell'acquisire tutte le fedeltà dei file 
 
 Ecco i due componenti di base di un file:
 
-- **Flusso di dati**: il flusso di dati di un file archivia il contenuto del file.
-- **Metadati del file**: i metadati del file hanno questi sottocomponenti:
+- **Flusso di dati** : il flusso di dati di un file archivia il contenuto del file.
+- **Metadati del file** : i metadati del file hanno questi sottocomponenti:
    * Attributi di file come di sola lettura
    * Autorizzazioni per i file, che possono essere denominate *autorizzazioni NTFS* o *ACL di file e cartelle*
    * Timestamp, in particolare la creazione e i timestamp dell'Ultima modifica
@@ -111,7 +111,7 @@ Sono disponibili diversi strumenti per la copia di file da Microsoft e da altri.
 
     La prima volta che si esegue lo strumento, viene copiata la maggior parte dei dati. Questa esecuzione iniziale potrebbe durare un po'. Spesso dura più a lungo del necessario per portare l'origine dati offline per i processi aziendali.
 
-    Eseguendo il mirroring di un'origine a una destinazione (come con **Robocopy/Mir**), è possibile eseguire nuovamente lo strumento sulla stessa origine e destinazione. L'esecuzione è molto più rapida perché è necessario trasportare solo le modifiche di origine che si verificano dopo l'esecuzione precedente. La riesecuzione di uno strumento di copia in questo modo può ridurre i tempi di inattività.
+    Eseguendo il mirroring di un'origine a una destinazione (come con **Robocopy/Mir** ), è possibile eseguire nuovamente lo strumento sulla stessa origine e destinazione. L'esecuzione è molto più rapida perché è necessario trasportare solo le modifiche di origine che si verificano dopo l'esecuzione precedente. La riesecuzione di uno strumento di copia in questo modo può ridurre i tempi di inattività.
 
 La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità corrente per le condivisioni file di Azure:
 
@@ -121,7 +121,7 @@ La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità c
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Servizio di migrazione della risorsa di archiviazione | Supportato indirettamente. Le condivisioni file di Azure possono essere montate come unità di rete nei server di destinazione SMS. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versione 10,4 o successiva| Supportata. | Fedeltà completa * |
-|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supportata. | Non copia i metadati. [Data Box può essere utilizzato con sincronizzazione file di Azure](storage-sync-offline-data-transfer.md). |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supportata. | DataBox supporta ora completamente i metadati. [Data Box può essere usato anche in combinazione con sincronizzazione file di Azure](storage-sync-offline-data-transfer.md). |
 |![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, versione 1,14 | Supportata. | Non copia gli ACL. Supporta i timestamp.  |
 |![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supportata. | Non copia i metadati. |
 |||||

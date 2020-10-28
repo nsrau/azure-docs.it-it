@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934124"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785341"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informazioni sull'API del flusso di input audio di Speech SDK
 
@@ -26,7 +26,7 @@ Quando si usano flussi di input audio, sono necessari i passaggi riportati di se
 
 - Identificare il formato del flusso audio. Il formato deve essere supportato da Speech SDK e dal servizio Voce. Attualmente sono supportate solo le seguenti configurazioni:
 
-  Esempi di audio in formato PCM, un canale, 16 bit per campione, 8000 o 16000 campioni al secondo (16000 o 32000 byte al secondo), due blocchi align (a 16 bit, inclusa la spaziatura interna per un campione).
+  Gli esempi audio sono in formato PCM, a un canale, a 16 bit per campione, 8000 o 16000 campioni al secondo (16000 o 32000 byte al secondo), a due blocchi allineato (a 16 bit, inclusa la spaziatura interna per un campione).
 
   Il codice corrispondente nell'SDK per creare il formato audio sarà simile al seguente:
 
@@ -37,7 +37,7 @@ Quando si usano flussi di input audio, sono necessari i passaggi riportati di se
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Assicurarsi che il codice possa fornire i dati audio RAW in base a queste specifiche. Se i dati dell’origine audio non corrispondono ai formati supportati, l'audio deve essere transcodificato nel formato richiesto.
+- Verificare che il codice fornisca i dati audio non ELABORAti in base a queste specifiche. Assicurarsi inoltre che gli esempi a 16 bit arrivino in formato little endian. Sono supportati anche esempi firmati. Se i dati dell’origine audio non corrispondono ai formati supportati, l'audio deve essere transcodificato nel formato richiesto.
 
 - Creare la classe di flusso di input audio personalizzato da `PullAudioInputStreamCallback`. Implementare i membri `Read()` e `Close()`. La firma esatta della funzione dipende dalla lingua, ma il codice sarà simile a questo esempio di codice:
 

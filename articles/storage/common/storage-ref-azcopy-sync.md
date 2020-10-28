@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: de97640ab462ac8ea7342d235d0fad802c232179
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478372"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783369"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -42,7 +42,7 @@ Il comando di sincronizzazione differisce dal comando copy in diversi modi:
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Avanzato
+### <a name="advanced"></a>Avanzate
 
 Se non si specifica un'estensione di file, AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -78,7 +78,7 @@ Sincronizzare un'intera directory, incluse le relative sottodirectory (si noti c
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-o
+oppure
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -159,7 +159,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--ricorsivo** `True` per impostazione predefinita, esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory.     (impostazione predefinita `True` ). 
 
-**--S2S-Preserve-livello di accesso**  Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](/azure/storage/blobs/storage-blob-storage-tiers) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ). 
+**--S2S-Preserve-livello di accesso**  Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
@@ -167,8 +167,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
-|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
+|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è' *. Core.Windows.NET;* . core.chinacloudapi.cn; *. Core.cloudapi.de;* . core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [azcopy](storage-ref-azcopy.md)

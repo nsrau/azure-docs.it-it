@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488895"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784355"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -199,7 +199,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 
 # <a name="template"></a>[Modello](#tab/template)
 
-È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello di Gestione risorse per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **prova** per aprire il Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
+È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello di Gestione risorse per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **prova** per aprire il Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Per informazioni su come modificare il modello o crearne di nuovi, vedere:
 
-- [Azure Resource Manager documentazione](/azure/azure-resource-manager/).
+- [Azure Resource Manager documentazione](../../azure-resource-manager/index.yml).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions)(Riferimento sul modello di account di archiviazione).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)(Altri esempi di modelli di account di archiviazione).
 
@@ -236,7 +236,7 @@ L'eliminazione di un account di archiviazione consente di eliminare l'intero acc
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Elimina**.
+1. Fare clic su **Elimina** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'accou
 > [!WARNING]
 > Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo.
 >
-> Se si prova a eliminare un account di archiviazione associato a una macchina virtuale di Azure, potrebbe essere visualizzato un errore che informa che l'account di archiviazione è ancora in uso. Per informazioni sulla risoluzione di questo errore, vedere [risolvere gli errori quando si eliminano gli account di archiviazione](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Se si prova a eliminare un account di archiviazione associato a una macchina virtuale di Azure, potrebbe essere visualizzato un errore che informa che l'account di archiviazione è ancora in uso. Per informazioni sulla risoluzione di questo errore, vedere [risolvere gli errori quando si eliminano gli account di archiviazione](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

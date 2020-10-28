@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: de14cf8cc79b4e1387950a2ae048da41738f5db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589935"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784661"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importare chiavi con protezione HSM per Key Vault (nCipher)
 
@@ -166,7 +166,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 ---
-[**Azure per enti pubblici:** ](https://azure.microsoft.com/features/gov/)
+[**Azure per enti pubblici:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -231,7 +231,7 @@ KeyVault-BYOK-Tools-Switzerland.zip
 ---
 
 
-Per convalidare l'integrità del set di strumenti BYOK scaricato, nella sessione di Azure PowerShell usare il cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) .
+Per convalidare l'integrità del set di strumenti BYOK scaricato, nella sessione di Azure PowerShell usare il cmdlet [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) .
 
    ```powershell
    Get-FileHash KeyVault-BYOK-Tools-*.zip
@@ -255,7 +255,7 @@ Per questo secondo passaggio eseguire le procedure seguenti nella workstation no
 
 Installare il software di supporto nCipher in un computer Windows, quindi collegare un modulo di protezione hardware nCipher nShield a tale computer.
 
-Verificare che gli strumenti nCipher si trovino nel percorso ( **%nfast_home%\bin**). Digitare ad esempio:
+Verificare che gli strumenti nCipher si trovino nel percorso ( **%nfast_home%\bin** ). Digitare ad esempio:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Per convalidare il pacchetto scaricato:
      >
 2. Assicurarsi di visualizzare il risultato positivo seguente, che indica il completamento della convalida: **Result: SUCCESS**
 
-Questo script consente di convalidare la catena di firmatari fino alla chiave radice di nShield. La funzione hash di questa chiave radice è incorporata nello script e il relativo valore deve essere **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Si può anche confermare questo valore separatamente sul [sito Web di nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Questo script consente di convalidare la catena di firmatari fino alla chiave radice di nShield. La funzione hash di questa chiave radice è incorporata nello script e il relativo valore deve essere **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Si può anche confermare questo valore separatamente sul [sito Web di nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 È ora possibile creare una nuova chiave.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Quando si esegue il comando, usare le istruzioni seguenti:
 
-* Il parametro *protect* deve essere impostato sul valore **module**, come illustrato. Verrà creata una chiave protetta tramite modulo. Il set di strumenti BYOK non supporta le chiavi protette con OCS.
+* Il parametro *protect* deve essere impostato sul valore **module** , come illustrato. Verrà creata una chiave protetta tramite modulo. Il set di strumenti BYOK non supporta le chiavi protette con OCS.
 * Sostituire il valore *contosokey* per **ident** e **plainname** con qualsiasi valore di stringa. Per ridurre il sovraccarico amministrativo e il rischio di errori, è consigliabile usare lo stesso valore per entrambi gli elementi. Il valore **ident** deve contenere solo numeri, trattini e lettere minuscole.
 * L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la [documentazione di nCipher](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based).
 
-Questo comando crea un file di chiave in formato token nella cartella %NFAST_KMDATA%\local con un nome che inizia con **key_simple_** seguito dall'elemento **ident** specificato nel comando. Ad esempio: **key_simple_contosokey**. Questo file contiene una chiave crittografata.
+Questo comando crea un file di chiave in formato token nella cartella %NFAST_KMDATA%\local con un nome che inizia con **key_simple_** seguito dall'elemento **ident** specificato nel comando. Ad esempio: **key_simple_contosokey** . Questo file contiene una chiave crittografata.
 
 Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
@@ -668,7 +668,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 * Sostituire *SubscriptionID* con l'ID della sottoscrizione di Azure che contiene l'insieme di credenziali delle chiavi. Questo valore è stato recuperato in precedenza, in **Passaggio 1.2: Ottenere l'ID sottoscrizione di Azure** nel passaggio [Preparare la workstation connessa a Internet](#step-1-prepare-your-internet-connected-workstation).
 * Sostituire *ContosoFirstHSMKey* con un'etichetta che viene usata per il nome del file di output.
 
-Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente è presente un nuovo file con il nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
+Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente è presente un nuovo file con il nome: KeyTransferPackage- *ContosoFirstHSMkey* .byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passaggio 4.3: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet
 

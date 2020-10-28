@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783981"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Ripristino di emergenza e failover dell'account di archiviazione
 
@@ -54,9 +54,9 @@ Per altre informazioni sulla ridondanza in archiviazione di Azure, vedere [ridon
 Tenere anche presenti queste procedure consigliate per mantenere la disponibilità elevata per i dati di Archiviazione di Azure:
 
 - **Dischi:** Usare [backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi di VM usati dalle macchine virtuali di Azure. Valutare anche l'opportunità di usare [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) per proteggere le macchine virtuali in caso di emergenza a livello di area.
-- **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/storage-blob-soft-delete.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)o la [libreria di spostamento dei dati di Azure](storage-use-data-movement-library.md).
-- **File:** Usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa.
-- **Tabelle:** usare [AzCopy](storage-use-azcopy.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'area diversa.
+- **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/soft-delete-blob-overview.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)o la [libreria di spostamento dei dati di Azure](storage-use-data-movement-library.md).
+- **File:** Usare [AzCopy](./storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa.
+- **Tabelle:** usare [AzCopy](./storage-use-azcopy-v10.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'area diversa.
 
 ## <a name="track-outages"></a>Tenere traccia delle interruzioni
 
@@ -132,7 +132,7 @@ Poiché il provider di risorse di archiviazione di Azure non esegue il failover,
 
 ### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
-Le macchine virtuali di Azure non effettuano il failover durante un failover dell'account. Se l'area primaria non è disponibile e si effettua il failover nell'area secondaria, sarà necessario ricreare le macchine virtuali dopo il failover. Inoltre, esiste una potenziale perdita di dati associata al failover dell'account. Microsoft consiglia le seguenti linee guida per la [disponibilità elevata](../../virtual-machines/windows/manage-availability.md) e il [ripristino di emergenza](../../virtual-machines/windows/backup-recovery.md) specifiche per le macchine virtuali in Azure.
+Le macchine virtuali di Azure non effettuano il failover durante un failover dell'account. Se l'area primaria non è disponibile e si effettua il failover nell'area secondaria, sarà necessario ricreare le macchine virtuali dopo il failover. Inoltre, esiste una potenziale perdita di dati associata al failover dell'account. Microsoft consiglia le seguenti linee guida per la [disponibilità elevata](../../virtual-machines/manage-availability.md) e il [ripristino di emergenza](../../virtual-machines/backup-recovery.md) specifiche per le macchine virtuali in Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Dischi non gestiti di Azure
 
@@ -143,7 +143,7 @@ I dischi non gestiti vengono archiviati come BLOB di pagine in Archiviazione di 
 1. Prima di iniziare, prendere nota dei nomi dei dischi non gestiti, dei numeri di unità logica e della macchina virtuale a cui sono collegati. In questo modo sarà più facile ricollegare i dischi dopo il failover.
 2. Arrestare la VM.
 3. Eliminare la macchina virtuale, ma conservare i file VHD per i dischi non gestiti. Prendere nota dell'ora in cui è stata eliminata la macchina virtuale.
-4. Attendere che l'**ora dell'ultima sincronizzazione** venga aggiornata e che sia successiva all'ora in cui è stata eliminata la macchina virtuale. Questo passaggio è importante perché se l'endpoint secondario non è stato completamente aggiornato con i file VHD quando si verifica il failover, la macchina virtuale potrebbe non funzionare correttamente nella nuova area primaria.
+4. Attendere che l' **ora dell'ultima sincronizzazione** venga aggiornata e che sia successiva all'ora in cui è stata eliminata la macchina virtuale. Questo passaggio è importante perché se l'endpoint secondario non è stato completamente aggiornato con i file VHD quando si verifica il failover, la macchina virtuale potrebbe non funzionare correttamente nella nuova area primaria.
 5. Avviare il failover dell'account.
 6. Attendere che il failover dell'account venga completato e che l'area secondaria diventi la nuova area primaria.
 7. Creare una macchina virtuale nella nuova area primaria e ricollegare i dischi rigidi virtuali.
@@ -162,7 +162,7 @@ Le funzionalità e i servizi seguenti non sono supportati per il failover dell'a
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia dei dati come alternativa al failover
 
-Se l'account di archiviazione è configurato per l'accesso in lettura al database secondario, è possibile progettare l'applicazione per la lettura dall'endpoint secondario. Se si preferisce non effettuare il failover in caso di interruzione nell'area primaria, è possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [libreria di spostamento dati di Azure](../common/storage-use-data-movement-library.md) per copiare i dati dall'account di archiviazione nell'area secondaria a un altro account di archiviazione in un'area non interessata. È quindi possibile indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
+Se l'account di archiviazione è configurato per l'accesso in lettura al database secondario, è possibile progettare l'applicazione per la lettura dall'endpoint secondario. Se si preferisce non effettuare il failover in caso di interruzione nell'area primaria, è possibile usare strumenti come [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/) o la [libreria di spostamento dati di Azure](../common/storage-use-data-movement-library.md) per copiare i dati dall'account di archiviazione nell'area secondaria a un altro account di archiviazione in un'area non interessata. È quindi possibile indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
 
 > [!CAUTION]
 > Non è consigliabile usare un failover dell'account come parte della strategia di migrazione dei dati.

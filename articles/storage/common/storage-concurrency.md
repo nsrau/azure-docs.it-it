@@ -11,12 +11,12 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac54282135759f14f17ed16b9779013f849bd8d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488674"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783964"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Archiviazione di Azure include anche il supporto per le intestazioni condizionali, ad esempio **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match**e le combinazioni di tali intestazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx).
+Archiviazione di Azure include anche il supporto per le intestazioni condizionali, ad esempio **If-Modified-Since** , **If-Unmodified-Since** , **If-None-Match** e le combinazioni di tali intestazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.
 
@@ -128,9 +128,9 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Concorrenza pessimistica per i BLOB
 
-Per bloccare un BLOB per l'uso esclusivo, acquisire un [lease](https://msdn.microsoft.com/library/azure/ee691972.aspx) su di esso. Quando si acquisisce un lease, si specifica un periodo di tempo per il lease. Il periodo di tempo è compreso tra 15 e 60 secondi o infinito, che equivale a un blocco esclusivo. Rinnovare un lease finito per estenderlo. Rilasciare un lease al termine dell'operazione. L'archiviazione BLOB rilascia automaticamente i lease finiti alla scadenza.
+Per bloccare un BLOB per l'uso esclusivo, acquisire un [lease](/rest/api/storageservices/Lease-Blob) su di esso. Quando si acquisisce un lease, si specifica un periodo di tempo per il lease. Il periodo di tempo è compreso tra 15 e 60 secondi o infinito, che equivale a un blocco esclusivo. Rinnovare un lease finito per estenderlo. Rilasciare un lease al termine dell'operazione. L'archiviazione BLOB rilascia automaticamente i lease finiti alla scadenza.
 
-I lease consentono di supportare diverse strategie di sincronizzazione. Le strategie includono *scrittura/lettura condivisa*, *scrittura esclusiva/lettura esclusiva*e *scrittura condivisa/lettura esclusiva*. Quando esiste un lease, l'archiviazione di Azure impone Scritture esclusive (operazioni Put, set ed Delete), garantendo tuttavia che l'esclusività per le operazioni di lettura richieda allo sviluppatore di garantire che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease generano letture condivise.
+I lease consentono di supportare diverse strategie di sincronizzazione. Le strategie includono *scrittura/lettura condivisa* , *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva* . Quando esiste un lease, l'archiviazione di Azure impone Scritture esclusive (operazioni Put, set ed Delete), garantendo tuttavia che l'esclusività per le operazioni di lettura richieda allo sviluppatore di garantire che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease generano letture condivise.
 
 Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease esclusivo per 30 secondi su un BLOB, all'aggiornamento del contenuto del BLOB e al successivo rilascio del lease. Se è già presente un lease valido sul BLOB quando si prova ad acquisire un nuovo lease, il servizio BLOB restituisce un risultato di stato "HTTP (409) Conflict". Il frammento seguente usa un oggetto **AccessCondition** per incapsulare le informazioni relative al lease quando effettua una richiesta per aggiornare il BLOB nel servizio di archiviazione.  È possibile scaricare l'esempio completo qui: [Gestione della concorrenza con l'archiviazione di Microsoft Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Se il lease scade prima di chiamare il metodo **Uploadtext** , ma si passa ancora l'ID lease, anche la richiesta ha esito negativo con un errore **412** . Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx).
+Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Se il lease scade prima di chiamare il metodo **Uploadtext** , ma si passa ancora l'ID lease, anche la richiesta ha esito negativo con un errore **412** . Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](/rest/api/storageservices/Lease-Blob).
 
 Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pessimistica:
 
@@ -184,7 +184,7 @@ Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pes
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Concorrenza pessimistica per i contenitori
 
-I lease sui contenitori consentono di supportare le stesse strategie di sincronizzazione dei BLOB (*scrittura esclusiva/lettura condivisa*, *scrittura esclusiva/lettura esclusiva*e *scrittura condivisa/lettura esclusiva*). Tuttavia, a differenza dei BLOB il servizio di archiviazione impone solo l'esclusività sulle operazioni di eliminazione. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.
+I lease sui contenitori consentono di supportare le stesse strategie di sincronizzazione dei BLOB ( *scrittura esclusiva/lettura condivisa* , *scrittura esclusiva/lettura esclusiva* e *scrittura condivisa/lettura esclusiva* ). Tuttavia, a differenza dei BLOB il servizio di archiviazione impone solo l'esclusività sulle operazioni di eliminazione. Per eliminare un contenitore con un lease attivo, un client deve includere l'ID lease attivo con la richiesta di eliminazione. Tutte le altre operazioni contenitore hanno esito positivo su un contenitore con lease senza includere l'ID lease, nel qual caso sono operazioni condivise. Se è richiesta l'esclusività di un'operazione di aggiornamento (Put o Set) o di lettura, gli sviluppatori devono garantire che tutti i client usino un ID lease e che un solo client alla volta abbia un ID lease valido.
 
 Le operazioni contenitore seguenti possono usare i lease per gestire la concorrenza pessimistica:
 
@@ -198,9 +198,9 @@ Le operazioni contenitore seguenti possono usare i lease per gestire la concorre
 
 Per altre informazioni, vedere:
 
-* [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease del BLOB](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)
+* [Lease Container](/rest/api/storageservices/Lease-Container)
+* [Lease del BLOB](/rest/api/storageservices/Lease-Blob)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Gestione della concorrenza nell'archiviazione tabelle
 
@@ -259,7 +259,7 @@ In generale, gli sviluppatori che utilizzano tabelle devono basarsi sulla concor
 
 Per altre informazioni, vedere:
 
-* [Operazioni sulle entità](https://msdn.microsoft.com/library/azure/dd179375.aspx)
+* [Operazioni sulle entità](/rest/api/storageservices/Operations-on-Entities)
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Gestione della concorrenza nel servizio di accodamento
 
@@ -269,8 +269,8 @@ Il servizio di Accodamento non dispone del supporto per la concorrenza ottimisti
 
 Per altre informazioni, vedere:
 
-* [API REST del servizio di accodamento](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)
+* [API REST del servizio di accodamento](/rest/api/storageservices/Queue-Service-REST-API)
+* [Get Messages](/rest/api/storageservices/Get-Messages)
 
 ## <a name="managing-concurrency-in-azure-files"></a>Gestione della concorrenza in File di Azure
 
@@ -280,7 +280,7 @@ Quando un client SMB apre un file per eliminarlo, lo contrassegna come in attesa
 
 Per altre informazioni, vedere:
 
-* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)
+* [Managing File Locks](/rest/api/storageservices/Managing-File-Locks)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -292,5 +292,5 @@ Per ulteriori informazioni sull'archiviazione di Azure, vedere:
 
 * [Home page di Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introduzione ad Archiviazione di Azure](storage-introduction.md)
-* Introduzione all'archiviazione per [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [code](../storage-dotnet-how-to-use-queues.md) e [file](../storage-dotnet-how-to-use-files.md)
+* Introduzione all'archiviazione per [BLOB](../blobs/storage-quickstart-blobs-dotnet.md), [tabelle](../../cosmos-db/tutorial-develop-table-dotnet.md), [code](../queues/storage-dotnet-how-to-use-queues.md) e [file](../files/storage-dotnet-how-to-use-files.md)
 * Architettura di archiviazione – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta)

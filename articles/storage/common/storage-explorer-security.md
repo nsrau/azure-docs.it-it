@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488606"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783760"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guida alla sicurezza di Azure Storage Explorer
 
@@ -44,13 +44,13 @@ Questa sezione descrive le due tecnologie basate su Azure AD che possono essere 
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni di Azure possono essere gestiti dal portale di Azure.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni di Azure possono essere gestiti dal portale di Azure.
 
 Storage Explorer supporta l'accesso RBAC di Azure ad account di archiviazione, BLOB e code. Se è necessario accedere a condivisioni file o tabelle, sarà necessario assegnare i ruoli di Azure che concedono l'autorizzazione per elencare le chiavi dell'account di archiviazione.
 
 #### <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
-Gli [elenchi di controllo di accesso (ACL)](/azure/storage/blobs/data-lake-storage-access-control) consentono di controllare l'accesso a livello di file e cartelle in ADLS Gen2 contenitori BLOB. È possibile gestire gli ACL usando Storage Explorer.
+Gli [elenchi di controllo di accesso (ACL)](../blobs/data-lake-storage-access-control.md) consentono di controllare l'accesso a livello di file e cartelle in ADLS Gen2 contenitori BLOB. È possibile gestire gli ACL usando Storage Explorer.
 
 ### <a name="shared-access-signatures-sas"></a>Firme di accesso condiviso (SAS)
 
@@ -81,7 +81,7 @@ Le chiavi dell'account di archiviazione concedono l'accesso illimitato ai serviz
 
 Alcuni ruoli di Azure concedono l'autorizzazione per recuperare le chiavi dell'account di archiviazione. Gli utenti con questi ruoli possono eludere efficacemente le autorizzazioni concesse o negate da Azure RBAC. Si consiglia di non concedere questa autorizzazione, a meno che non sia necessario.
 
-Storage Explorer tenterà di usare le chiavi dell'account di archiviazione, se disponibili, per autenticare le richieste. È possibile disabilitare questa funzionalità in impostazioni (**servizi > account di archiviazione > disabilitare l'utilizzo delle chiavi**). Alcune funzionalità non supportano RBAC di Azure, ad esempio l'uso di account di archiviazione classici. Tali funzionalità richiedono ancora chiavi e non sono interessate da questa impostazione.
+Storage Explorer tenterà di usare le chiavi dell'account di archiviazione, se disponibili, per autenticare le richieste. È possibile disabilitare questa funzionalità in impostazioni ( **servizi > account di archiviazione > disabilitare l'utilizzo delle chiavi** ). Alcune funzionalità non supportano RBAC di Azure, ad esempio l'uso di account di archiviazione classici. Tali funzionalità richiedono ancora chiavi e non sono interessate da questa impostazione.
 
 Se è necessario usare le chiavi per accedere alle risorse di archiviazione, è consigliabile attenersi alle linee guida seguenti:
 
@@ -102,4 +102,4 @@ Quando si Abilita l'accesso pubblico per un contenitore BLOB, è consigliabile a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Suggerimenti per la sicurezza](/azure/storage/blobs/security-recommendations)
+- [Suggerimenti per la sicurezza](../blobs/security-recommendations.md)

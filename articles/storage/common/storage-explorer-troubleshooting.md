@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488623"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783794"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -23,7 +23,7 @@ Questa guida riepiloga le soluzioni per i problemi che si verificano comunemente
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemi relativi alle autorizzazioni RBAC di Azure
 
-Il controllo degli accessi in base al ruolo [di Azure consente](/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_ . Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
+Il controllo degli accessi in base al ruolo [di Azure consente](../../role-based-access-control/overview.md) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_ . Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Ricerca per categorie accedere alle risorse in Storage Explorer?
 
@@ -65,18 +65,18 @@ Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali 
 3. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Scegliere Avanti.
 4. Selezionare il tipo di risorsa, immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Scegliere Avanti. Fare clic su Connetti.
 
-Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 
 Sono disponibili diversi ruoli predefiniti di Azure che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
-- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
-- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): leggere ed elencare le risorse.
-- [Collaboratore account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gestione completa degli account di archiviazione. **Nota** : questo ruolo fornirà l'accesso alla chiave.
-- [Proprietario dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
-- [Collaboratore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
-- [Lettore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
+- [Proprietario](../../role-based-access-control/built-in-roles.md#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
+- [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): leggere ed elencare le risorse.
+- [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor): gestione completa degli account di archiviazione. **Nota** : questo ruolo fornirà l'accesso alla chiave.
+- [Proprietario dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
+- [Collaboratore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
+- [Lettore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: certificato autofirmato nella catena di certificati (ed errori simili)
 

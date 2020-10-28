@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488589"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783641"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -64,9 +64,9 @@ Le regole predefinite di accesso alla rete per gli account di archiviazione poss
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
 
-1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate**. Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti**.
+1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate** . Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti** .
 
 1. Fare clic su **Salva** per applicare le modifiche.
 
@@ -118,13 +118,13 @@ Le regole predefinite di accesso alla rete per gli account di archiviazione poss
 
 È possibile configurare gli account di archiviazione in modo da consentire l'accesso solo da subnet specifiche. Le subnet consentite possono appartenere a una rete virtuale nella stessa sottoscrizione o a quelle in una sottoscrizione diversa, incluse le sottoscrizioni appartenenti a un tenant di Azure Active Directory diverso.
 
-Abilitare un [endpoint di servizio](/azure/virtual-network/virtual-network-service-endpoints-overview) per Archiviazione di Azure all'interno della rete virtuale. L'endpoint di servizio instrada il traffico dalla rete virtuale tramite un percorso ottimale al servizio Archiviazione di Azure. Con ogni richiesta vengono anche trasmesse le identità della subnet e della rete virtuale. Gli amministratori possono quindi configurare regole di rete per l'account di archiviazione che consentano la ricezione di richieste da subnet specifiche in una rete virtuale. Per accedere ai dati, i client ai quali viene garantito l'accesso con queste regole di rete devono continuare a soddisfare i requisiti di autorizzazione dell'account di archiviazione.
+Abilitare un [endpoint di servizio](../../virtual-network/virtual-network-service-endpoints-overview.md) per Archiviazione di Azure all'interno della rete virtuale. L'endpoint di servizio instrada il traffico dalla rete virtuale tramite un percorso ottimale al servizio Archiviazione di Azure. Con ogni richiesta vengono anche trasmesse le identità della subnet e della rete virtuale. Gli amministratori possono quindi configurare regole di rete per l'account di archiviazione che consentano la ricezione di richieste da subnet specifiche in una rete virtuale. Per accedere ai dati, i client ai quali viene garantito l'accesso con queste regole di rete devono continuare a soddisfare i requisiti di autorizzazione dell'account di archiviazione.
 
 Ogni account di archiviazione supporta fino a 200 regole della rete virtuale, che possono essere combinate con [le regole di rete IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Aree della rete virtuale disponibili
 
-In generale gli endpoint di servizio funzionano tra reti virtuali e istanze del servizio incluse nella stessa area di Azure. Quando si usano endpoint di servizio con Archiviazione di Azure, questo ambito viene espanso per includere le [aree abbinate](/azure/best-practices-availability-paired-regions). Gli endpoint di servizio garantiscono la continuità durante un failover a livello di area, nonché l'accesso alle istanze di archiviazione con ridondanza geografica e accesso in lettura. Le regole di rete che concedono l'accesso da una rete virtuale a un account di archiviazione concedono anche l'accesso a qualsiasi istanza RA-GRS.
+In generale gli endpoint di servizio funzionano tra reti virtuali e istanze del servizio incluse nella stessa area di Azure. Quando si usano endpoint di servizio con Archiviazione di Azure, questo ambito viene espanso per includere le [aree abbinate](../../best-practices-availability-paired-regions.md). Gli endpoint di servizio garantiscono la continuità durante un failover a livello di area, nonché l'accesso alle istanze di archiviazione con ridondanza geografica e accesso in lettura. Le regole di rete che concedono l'accesso da una rete virtuale a un account di archiviazione concedono anche l'accesso a qualsiasi istanza RA-GRS.
 
 Quando si pianifica il ripristino di emergenza durante un'interruzione a livello di area, è consigliabile creare in anticipo le reti virtuali nell'area abbinata. Abilitare gli endpoint di servizio per Archiviazione di Azure, con regole di rete che concedono l'accesso da queste reti virtuali alternative. Applicare quindi le regole agli account di archiviazione con ridondanza geografica.
 
@@ -133,7 +133,7 @@ Quando si pianifica il ripristino di emergenza durante un'interruzione a livello
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per applicare una regola di rete virtuale a un account di archiviazione, l'utente deve avere le autorizzazioni appropriate per le subnet aggiunte. L'autorizzazione necessaria è *Join Service to a Subnet* (Aggiungi servizio a una subnet), inclusa nel ruolo predefinito *Collaboratore Account di archiviazione*. Può anche essere aggiunta a definizioni del ruolo personalizzate.
+Per applicare una regola di rete virtuale a un account di archiviazione, l'utente deve avere le autorizzazioni appropriate per le subnet aggiunte. L'autorizzazione necessaria è *Join Service to a Subnet* (Aggiungi servizio a una subnet), inclusa nel ruolo predefinito *Collaboratore Account di archiviazione* . Può anche essere aggiunta a definizioni del ruolo personalizzate.
 
 Gli account di archiviazione e le reti virtuali alle quali è stato concesso l'accesso possono trovarsi in sottoscrizioni diverse, incluse quelle che appartengono a un tenant di Azure AD diverso.
 
@@ -148,18 +148,18 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
 
-1. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **Reti virtuali** fare clic su **Aggiungi rete virtuale esistente**, selezionare **Reti virtuali** e **Subnet**, quindi fare clic su **Aggiungi**. Per creare una nuova rete virtuale e concedere l'accesso, fare clic su **Aggiungi nuova rete virtuale**. Specificare le informazioni necessarie per creare la nuova rete virtuale e quindi fare clic su **Crea**.
+1. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **Reti virtuali** fare clic su **Aggiungi rete virtuale esistente** , selezionare **Reti virtuali** e **Subnet** , quindi fare clic su **Aggiungi** . Per creare una nuova rete virtuale e concedere l'accesso, fare clic su **Aggiungi nuova rete virtuale** . Specificare le informazioni necessarie per creare la nuova rete virtuale e quindi fare clic su **Crea** .
 
     > [!NOTE]
     > Se un endpoint di servizio per Archiviazione di Azure non è stato configurato in precedenza per la rete virtuale e le subnet selezionate, è possibile configurarlo in questa operazione.
     >
     > Attualmente solo le reti virtuali che appartengono allo stesso tenant di Azure Active Directory sono disponibili per la selezione durante la creazione delle regole. Per concedere l'accesso a una subnet in una rete virtuale che appartiene a un altro tenant, usare PowerShell, l'interfaccia della riga di comando o le API REST.
 
-1. Per rimuovere una regola di rete virtuale o subnet, fare clic su **…** per aprire il menu di scelta rapida per la rete virtuale o la subnet, quindi fare clic su **Rimuovi**.
+1. Per rimuovere una regola di rete virtuale o subnet, fare clic su **…** per aprire il menu di scelta rapida per la rete virtuale o la subnet, quindi fare clic su **Rimuovi** .
 
 1. Fare clic su **Salva** per applicare le modifiche.
 
@@ -197,7 +197,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -235,18 +235,18 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
 È possibile configurare gli account di archiviazione in modo che consentano l'accesso da intervalli specifici di indirizzi IP Internet pubblici. Questa configurazione concede l'accesso ai servizi specifici basati su Internet e alle reti locali e blocca il traffico Internet generale.
 
-Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19*.
+Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel formato *16.17.18.0/24* o come indirizzi IP singoli, ad esempio *16.17.18.19* .
 
    > [!NOTE]
    > Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
 
-Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
+Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica** . Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_ , _172.16.*_  - _172.31.*_ e _192.168.*_ .
 
    > [!NOTE]
    > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
@@ -262,7 +262,7 @@ Ogni account di archiviazione supporta fino a 200 regole di rete IP.
 
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete. Per assistenza contattare l'amministratore di rete.
 
-Se si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider di servizi. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Se si usa [ExpressRoute](../../expressroute/expressroute-introduction.md) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider di servizi. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](../../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gestione delle regole di rete IP
 
@@ -272,11 +272,11 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
 
-1. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi**.
+1. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi** .
 
 1. Per rimuovere una regola di rete IP, fare clic sull'icona del cestino accanto all'intervallo di indirizzi.
 
@@ -317,7 +317,7 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -354,11 +354,11 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="exceptions"></a>Eccezioni
 
-Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il **_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
+Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il * *_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
 
 ### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 
@@ -368,43 +368,43 @@ Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle re
 - Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione **assegnando un ruolo di Azure** all'identità gestita assegnata dal sistema.
 
 
-Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
+Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili** , alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
 
 | Service                  | Nome provider di risorse     | Operazioni consentite                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Backup di Azure             | Microsoft.RecoveryServices | Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup) |
-| Azure Data Box           | Microsoft.DataBox          | Consente l'importazione di dati in Azure tramite Data Box. [Altre informazioni](/azure/databox/data-box-overview) |
+| Backup di Azure             | Microsoft.RecoveryServices | Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](../../backup/backup-overview.md) |
+| Azure Data Box           | Microsoft.DataBox          | Consente l'importazione di dati in Azure tramite Data Box. [Altre informazioni](../../databox/data-box-overview.md) |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](../../devtest-labs/devtest-lab-overview.md) |
-| Griglia di eventi di Azure         | Microsoft.EventGrid        | Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers). |
-| Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview). |
+| Griglia di eventi di Azure         | Microsoft.EventGrid        | Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](../../event-grid/overview.md#event-sources) e sulla [pubblicazione nelle code](../../event-grid/event-handlers.md). |
+| Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](../../event-hubs/event-hubs-capture-overview.md). |
 | Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consente la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Altre informazioni](../files/storage-sync-files-planning.md) |
-| HDInsight di Azure          | Microsoft.HDInsight        | Consente di effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) |
-| Importazione/Esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in archiviazione di Azure o l'esportazione di dati da archiviazione di Azure tramite il servizio di importazione/esportazione di archiviazione di Azure. [Altre informazioni](/azure/storage/common/storage-import-export-service)  |
-| Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura di dati di monitoraggio in un account di archiviazione protetto, inclusi i log delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) |
-| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
+| HDInsight di Azure          | Microsoft.HDInsight        | Consente di effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) |
+| Importazione/Esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in archiviazione di Azure o l'esportazione di dati da archiviazione di Azure tramite il servizio di importazione/esportazione di archiviazione di Azure. [Altre informazioni](./storage-import-export-service.md)  |
+| Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura di dati di monitoraggio in un account di archiviazione protetto, inclusi i log delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Altre informazioni](../../azure-monitor/platform/roles-permissions-security.md) |
+| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
 
 L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy) |
+| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Ricerca cognitiva di Azure         | Microsoft.Search/searchServices        | Consente ai servizi Ricerca cognitiva di accedere agli account di archiviazione per l'indicizzazione, l'elaborazione e l'esecuzione di query. |
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività del Registro Azure Container possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime di Azure Data Factory. |
 | Condivisione dati di Azure               | Microsoft.DataShare/accounts           | Consente l'accesso agli account di archiviazione tramite Condivisione dati. |
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
-| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
-| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
-| Azure Synapse Analytics (in precedenza SQL Data Warehouse)       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
-| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
-| Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
+| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
+| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
+| Azure Synapse Analytics (in precedenza SQL Data Warehouse)       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati di Archiviazione di Azure da Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 
-In alcuni casi l'accesso per la lettura di log delle risorse e metriche viene richiesto dall'esterno dei limiti di rete. Quando si configura l'accesso di servizi attendibili all'account di archiviazione, è possibile consentire l'accesso in lettura ai file di log, alle tabelle di metriche o a entrambi. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
+In alcuni casi l'accesso per la lettura di log delle risorse e metriche viene richiesto dall'esterno dei limiti di rete. Quando si configura l'accesso di servizi attendibili all'account di archiviazione, è possibile consentire l'accesso in lettura ai file di log, alle tabelle di metriche o a entrambi. [Altre informazioni sull'uso dell'analisi archiviazione.](./storage-analytics.md)
 
 ### <a name="managing-exceptions"></a>Gestione delle eccezioni
 
@@ -414,9 +414,9 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu di impostazioni **Firewall e reti virtuali** .
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate** .
 
 1. In **Eccezioni** selezionare le eccezioni da autorizzare.
 
@@ -445,7 +445,7 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario la rimozione delle eccezioni non ha alcun effetto.
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
 
@@ -470,10 +470,10 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
     ```
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega** . In caso contrario la rimozione delle eccezioni non ha alcun effetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere altre informazioni sugli endpoint del servizio Rete di Azure in [Endpoint di servizio](/azure/virtual-network/virtual-network-service-endpoints-overview).
+Vedere altre informazioni sugli endpoint del servizio Rete di Azure in [Endpoint di servizio](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 Approfondire gli argomenti relativi alla sicurezza di Archiviazione di Azure in [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md).

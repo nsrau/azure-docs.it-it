@@ -10,18 +10,18 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715474"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785664"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati della coda
 
 Archiviazione di Azure fornisce estensioni per PowerShell che consentono di accedere ed eseguire comandi di script con le credenziali di Azure Active Directory (Azure AD). Quando si accede a PowerShell con Azure AD credenziali, viene restituito un token di accesso OAuth 2,0. Il token viene usato automaticamente da PowerShell per autorizzare le operazioni sui dati successive sull'archiviazione code. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
-È possibile assegnare autorizzazioni per accodare i dati a un'entità di sicurezza Azure AD tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC di Azure](../common/storage-auth-aad-rbac.md).
+È possibile assegnare autorizzazioni per accodare i dati a un'entità di sicurezza Azure AD tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC di Azure](../common/storage-auth-aad-rbac-portal.md).
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
@@ -68,7 +68,7 @@ L'esempio seguente illustra come creare una coda in un nuovo account di archivia
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Prima di creare la coda, assegnare il ruolo di [collaboratore dati della coda di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac.md).
+1. Prima di creare la coda, assegnare il ruolo di [collaboratore dati della coda di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > La propagazione delle assegnazioni dei ruoli può richiedere alcuni minuti.

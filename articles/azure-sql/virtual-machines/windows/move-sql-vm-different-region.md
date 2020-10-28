@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4252528020dde731dd7bf14ae8f7a03467ba953a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 131deabfbd29e4d55a3f34252e3ba68261872ca0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298577"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785494"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Spostare una macchina virtuale SQL Server in un'altra area all'interno di Azure con Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Preparare sia la VM di SQL Server di origine, sia l'area di destinazione per lo 
     - Azure Site Recovery individua e crea automaticamente una rete virtuale quando si abilita la replica per la VM di origine. È anche possibile creare preventivamente una rete e assegnarla alla VM nel flusso utente per abilitare la replica. Tutte le altre risorse devono essere create manualmente nell'area di destinazione.
 - Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere la documentazione seguente: 
     - [Gruppi di sicurezza di rete](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Bilanciamento del carico](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
+    - [Bilanciamento del carico](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [Indirizzo IP pubblico](../../../virtual-network/virtual-network-public-ip-address.md)
     - Per gli eventuali componenti di rete aggiuntivi, vedere la [documentazione relativa alle reti](../../../virtual-network/virtual-networks-overview.md).
 - Se si vuole testare la configurazione prima dello spostamento finale nell'area di destinazione, creare manualmente una rete non di produzione nell'area di destinazione. Questo passaggio è consigliato perché garantisce un'interferenza minima con la rete di produzione. 
@@ -75,20 +75,20 @@ La procedura seguente illustra come usare Azure Site Recovery per copiare i dati
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Scegliere di **creare una risorsa** dall'angolo superiore sinistro del riquadro di spostamento. 
-1. Selezionare **IT e strumenti di gestione** e quindi **Backup e Site Recovery**. 
-1. Nella scheda **Informazioni di base**, in **Dettagli del progetto** creare un nuovo gruppo di risorse nell'area di destinazione oppure selezionare un gruppo di risorse esistente nell'area di destinazione. 
-1. In **Dettagli istanza** specificare un nome per l'insieme di credenziali e quindi selezionare l'**area** di destinazione dall'elenco a discesa. 
+1. Selezionare **IT e strumenti di gestione** e quindi **Backup e Site Recovery** . 
+1. Nella scheda **Informazioni di base** , in **Dettagli del progetto** creare un nuovo gruppo di risorse nell'area di destinazione oppure selezionare un gruppo di risorse esistente nell'area di destinazione. 
+1. In **Dettagli istanza** specificare un nome per l'insieme di credenziali e quindi selezionare l' **area** di destinazione dall'elenco a discesa. 
 1. Fare clic su **Rivedi e crea** per creare l'insieme di credenziali di Servizi di ripristino. 
 1. Selezionare **Tutti i servizi** nell'angolo superiore sinistro del riquadro di spostamento e nella casella di ricerca digitare `recovery services`. 
 1. (Facoltativo) Selezionare la stella accanto a **insiemi di credenziali di Servizi di ripristino** per aggiungere l'opzione alla barra di spostamento rapido. 
 1. Selezionare **Insiemi di credenziali di Servizi di ripristino** quindi selezionare l'insieme di credenziali di Servizi di ripristino creato. 
-1. Nel riquadro **Panoramica** selezionare **Replica**. 
+1. Nel riquadro **Panoramica** selezionare **Replica** . 
 
    ![Configurare la replica](./media/move-sql-vm-different-region/configure-replication.png)
 
-1. Selezionare **Origine**, quindi selezionare **Azure** come origine. Selezionare i valori appropriati per gli altri campi a discesa, ad esempio il percorso per le macchine virtuali di origine. Solo i gruppi di risorse che si trovano nell'area **Percorso di origine** saranno visibili nel campo **Gruppo di risorse di origine**. 
+1. Selezionare **Origine** , quindi selezionare **Azure** come origine. Selezionare i valori appropriati per gli altri campi a discesa, ad esempio il percorso per le macchine virtuali di origine. Solo i gruppi di risorse che si trovano nell'area **Percorso di origine** saranno visibili nel campo **Gruppo di risorse di origine** . 
 1. Selezionare **Macchine virtuali** e quindi scegliere le macchine virtuali di cui eseguire la migrazione. Selezionare **OK** per salvare la selezione di VM. 
-1. Selezionare **Impostazioni**, quindi scegliere il **percorso di destinazione** dall'elenco a discesa. Deve essere il gruppo di risorse preparato in precedenza. 
+1. Selezionare **Impostazioni** , quindi scegliere il **percorso di destinazione** dall'elenco a discesa. Deve essere il gruppo di risorse preparato in precedenza. 
 1. Dopo aver personalizzato la replica, selezionare **Crea risorse di destinazione** per creare le risorse nel nuovo percorso. 
 1. Completata la creazione delle risorse, selezionare **Abilita replica** per avviare la replica della VM di SQL Server dall'area di origine a quella di destinazione.
 1. È possibile controllare lo stato della replica passando all'insieme di credenziali di ripristino, selezionando **Elementi replicati** e visualizzando lo **stato** della VM di SQL Server. Lo stato **Protetto** indica che la replica è stata completata. 
@@ -98,8 +98,8 @@ La procedura seguente illustra come usare Azure Site Recovery per copiare i dati
 ## <a name="test-move-process"></a>Testare il processo di spostamento
 La procedura seguente illustra come usare Azure Site Recovery per testare il processo di spostamento. 
 
-1. Passare all'**insieme di credenziali di Servizi di ripristino** nel [portale di Azure](https://portal.azure.com) e selezionare **Elementi replicati**. 
-1. Selezionare la VM di SQL Server da spostare, verificare che in **Integrità della replica** sia indicato **Integra** e quindi selezionare **Failover di test**. 
+1. Passare all' **insieme di credenziali di Servizi di ripristino** nel [portale di Azure](https://portal.azure.com) e selezionare **Elementi replicati** . 
+1. Selezionare la VM di SQL Server da spostare, verificare che in **Integrità della replica** sia indicato **Integra** e quindi selezionare **Failover di test** . 
 
    ![Testare il failover per la macchina virtuale](./media/move-sql-vm-different-region/test-failover-of-replicated-vm.png)
 
@@ -109,28 +109,28 @@ La procedura seguente illustra come usare Azure Site Recovery per testare il pro
    >[!IMPORTANT]
    > Per testare il failover è consigliabile usare una rete di macchine virtuali di Azure separata. Non usare la rete di produzione che è stata configurata quando è stata abilitata la replica e in cui si vogliono spostare infine le VM. 
 
-1. Per monitorare lo stato di avanzamento, passare all'insieme di credenziali, selezionare **Processi di Site Recovery** in **Monitoraggio**, quindi selezionare il processo di **failover di test** in corso.
+1. Per monitorare lo stato di avanzamento, passare all'insieme di credenziali, selezionare **Processi di Site Recovery** in **Monitoraggio** , quindi selezionare il processo di **failover di test** in corso.
 
    ![Monitorare lo stato di avanzamento del test di failover](./media/move-sql-vm-different-region/monitor-failover-test-job.png)
 
 1. Al termine del test, passare a **Macchine virtuali** nel portale ed esaminare la macchina virtuale appena creata. Verificare che la VM di SQL Server sia in esecuzione, sia di dimensioni appropriate e sia connessa alla rete corretta. 
-1. Eliminare la VM creata come parte del test, poiché l'opzione **Failover** sarà disabilitata finché non viene eseguita la pulizia delle risorse di test del failover. Tornare all'insieme di credenziali, selezionare **Elementi replicati**, selezionare la VM di SQL Server e quindi selezionare **Pulisci failover di test**. Registrare e salvare eventuali osservazioni associate al test nella sezione **Note** e selezionare la casella di controllo accanto a **Il test è stato completato. Eliminare le macchine virtuali del failover di test**. Selezionare **OK** per pulire le risorse dopo il test. 
+1. Eliminare la VM creata come parte del test, poiché l'opzione **Failover** sarà disabilitata finché non viene eseguita la pulizia delle risorse di test del failover. Tornare all'insieme di credenziali, selezionare **Elementi replicati** , selezionare la VM di SQL Server e quindi selezionare **Pulisci failover di test** . Registrare e salvare eventuali osservazioni associate al test nella sezione **Note** e selezionare la casella di controllo accanto a **Il test è stato completato. Eliminare le macchine virtuali del failover di test** . Selezionare **OK** per pulire le risorse dopo il test. 
 
    ![Pulire gli elementi dopo il test di failover](./media/move-sql-vm-different-region/cleanup-test-items.png)
 
 ## <a name="move-the-sql-server-vm"></a>Spostare la VM di SQL Server 
 I passaggi seguenti illustrano come spostare la VM di SQL Server dall'area di origine all'area di destinazione. 
 
-1. Passare all'insieme di credenziali di **Servizi di ripristino**, selezionare **Elementi replicati**, selezionare la VM e quindi selezionare **Failover**. 
+1. Passare all'insieme di credenziali di **Servizi di ripristino** , selezionare **Elementi replicati** , selezionare la VM e quindi selezionare **Failover** . 
 
    ![Avviare il failover](./media/move-sql-vm-different-region/initiate-failover.png)
 
-1. Selezionare il punto di ripristino **coerente con l'app più recente** in **Punto di ripristino**. 
-1. Selezionare la casella di controllo accanto a **Arresta il computer prima di avviare il failover**. Site Recovery tenta di arrestare la VM di origine prima di attivare il failover. Il failover continuerà anche se l'arresto ha esito negativo. 
+1. Selezionare il punto di ripristino **coerente con l'app più recente** in **Punto di ripristino** . 
+1. Selezionare la casella di controllo accanto a **Arresta il computer prima di avviare il failover** . Site Recovery tenta di arrestare la VM di origine prima di attivare il failover. Il failover continuerà anche se l'arresto ha esito negativo. 
 1. Selezionare **OK** per avviare il failover.
 1. È possibile monitorare il processo di failover dalla stessa pagina **Processi di Site Recovery** visualizzata durante il monitoraggio del test di failover nella sezione precedente. 
 1. Al termine del processo, verificare che la VM di SQL Server si trovi nell'area di destinazione come previsto. 
-1. Tornare all'insieme di credenziali, selezionare **Elementi replicati**, selezionare la VM di SQL Server e selezionare **Commit** per terminare il processo di spostamento nell'area di destinazione. Attendere il completamento del processo di commit. 
+1. Tornare all'insieme di credenziali, selezionare **Elementi replicati** , selezionare la VM di SQL Server e selezionare **Commit** per terminare il processo di spostamento nell'area di destinazione. Attendere il completamento del processo di commit. 
 1. Registrare la VM di SQL Server con il provider di risorse per VM SQL per abilitare la gestibilità delle **macchine virtuali SQL** nel portale di Azure e le funzionalità associate al provider di risorse. Per altre informazioni, vedere [registrare SQL Server VM con il provider di risorse della macchina virtuale SQL](sql-vm-resource-provider-register.md). 
 
   > [!WARNING]
@@ -139,8 +139,8 @@ I passaggi seguenti illustrano come spostare la VM di SQL Server dall'area di or
 ## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 Per evitare addebiti nella fatturazione, rimuovere dall'insieme di credenziali la VM di SQL Server ed eliminare eventuali risorse associate non necessarie. 
 
-1. Tornare all'insieme di credenziali di **Site Recovery**, selezionare **Elementi replicati** e selezionare la VM di SQL Server. 
-1. Selezionare **Disabilita replica**. Selezionare un motivo per disabilitare la protezione, quindi selezionare **OK** per disabilitare la replica. 
+1. Tornare all'insieme di credenziali di **Site Recovery** , selezionare **Elementi replicati** e selezionare la VM di SQL Server. 
+1. Selezionare **Disabilita replica** . Selezionare un motivo per disabilitare la protezione, quindi selezionare **OK** per disabilitare la replica. 
 
    >[!IMPORTANT]
    > È importante eseguire questo passaggio per evitare addebiti per la replica di Azure Site Recovery. 
@@ -156,5 +156,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [SQL Server sulle domande frequenti di una macchina virtuale Windows](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 * [SQL Server sulle note sulla versione della macchina virtuale Windows](doc-changes-updates-release-notes.md)
-
-

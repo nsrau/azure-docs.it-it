@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668747"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784865"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ I clienti con SQL Server 2008 dovranno eseguire l'installazione automatica o l'a
 Nelle immagini distribuite con Azure Marketplace è preinstallata l'estensione SQL IaaS. L'estensione SQL IaaS è un requisito per le licenze flessibili e l'applicazione automatica delle patch. I clienti che distribuiscono macchine virtuali installate automaticamente dovranno installare manualmente l'estensione SQL IaaS. L'estensione SQL IaaS non è supportata in Windows Server 2008.
 
 > [!NOTE]
-> Sebbene i pannelli **Crea** e **Gestisci** di SQL Server funzionino con l'immagine di SQL Server 2008 R2 nel portale di Azure, le funzionalità seguenti _non sono supportate_: backup automatici, integrazione di Azure Key Vault, R Services e configurazione dell'archiviazione.
+> Sebbene i pannelli **Crea** e **Gestisci** di SQL Server funzionino con l'immagine di SQL Server 2008 R2 nel portale di Azure, le funzionalità seguenti _non sono supportate_ : backup automatici, integrazione di Azure Key Vault, R Services e configurazione dell'archiviazione.
 
 ## <a name="licensing"></a>Gestione delle licenze
 Le distribuzioni con pagamento in base al consumo di SQL Server 2008 R2 possono essere convertite in [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -54,21 +54,21 @@ Le istanze di SQL Server 2008 o SQL Server 2008 R2 installate automaticamente in
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Per le migrazioni in blocco, è consigliabile il servizio [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Con Azure Site Recovery, i clienti possono replicare l'intera macchina virtuale, incluso SQL Server da locale a macchina virtuale di Azure.
+Per le migrazioni in blocco, è consigliabile il servizio [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). Con Azure Site Recovery, i clienti possono replicare l'intera macchina virtuale, incluso SQL Server da locale a macchina virtuale di Azure.
 
 SQL Server richiede snapshot di Azure Site Recovery coerenti con l'app per garantire il ripristino. Azure Site Recovery supporta snapshot coerenti con l'app con un intervallo minimo di 1 ora. L'obiettivo del punto di ripristino (RPO) minimo possibile per le migrazioni di SQL Server con Azure Site Recovery è 1 ora. L'obiettivo del tempo di ripristino (RTO) è 2 ore più il tempo di ripristino di SQL Server.
 
 ### <a name="database-migration-service"></a>Servizio Migrazione del database
 
-Il [servizio migrazione del database di Azure](/azure/dms/dms-overview) è un'opzione per i clienti che eseguono la migrazione dall'ambiente locale a una macchina virtuale di Azure aggiornando SQL Server alla versione 2012 o successiva.
+Il [servizio migrazione del database di Azure](../../../dms/dms-overview.md) è un'opzione per i clienti che eseguono la migrazione dall'ambiente locale a una macchina virtuale di Azure aggiornando SQL Server alla versione 2012 o successiva.
 
 ## <a name="disaster-recovery"></a>Ripristino di emergenza
 
 Le soluzioni di ripristino di emergenza per la versione EOS di SQL Server in una macchina virtuale di Azure sono le seguenti:
 
-- **Backup di SQL Server**: usare Backup di Azure per proteggere la versione EOS di SQL Server 2008 e 2008 R2 da al ransomware, eliminazione accidentale e danneggiamento con RPO di 15 minuti e recupero temporizzato. Per altri dettagli, vedere [questo articolo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
-- **Log shipping**: è possibile creare una replica di log shipping in un'altra zona o un'area di Azure con ripristini continui per ridurre il tempo di ripristino. È necessario configurare manualmente il log shipping.
-- **Azure Site Recovery**: è possibile replicare la macchina virtuale tra zone e aree usando la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
+- **Backup di SQL Server** : usare Backup di Azure per proteggere la versione EOS di SQL Server 2008 e 2008 R2 da al ransomware, eliminazione accidentale e danneggiamento con RPO di 15 minuti e recupero temporizzato. Per altri dettagli, vedere [questo articolo](../../../backup/sql-support-matrix.md#scenario-support).
+- **Log shipping** : è possibile creare una replica di log shipping in un'altra zona o un'area di Azure con ripristini continui per ridurre il tempo di ripristino. È necessario configurare manualmente il log shipping.
+- **Azure Site Recovery** : è possibile replicare la macchina virtuale tra zone e aree usando la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
 
 ## <a name="security-patching"></a>Patch di sicurezza
 Gli aggiornamenti della sicurezza estesi per le macchine virtuali di SQL Server vengono distribuiti attraverso i canali Microsoft Update dopo che la VM di SQL Server viene registrata con il [provider di risorse](sql-vm-resource-provider-register.md) per VM SQL. Le patch possono essere scaricate manualmente o automaticamente.
