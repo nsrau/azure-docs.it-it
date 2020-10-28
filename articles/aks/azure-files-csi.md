@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078358"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745787"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usare i driver CSI (container Storage Interface) di File di Azure in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -33,13 +33,13 @@ Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione p
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Creare in modo dinamico File di Azure PVs usando le classi di archiviazione predefinite
 
-Una classe di archiviazione viene usata per definire la modalità di creazione di una condivisione di File di Azure. Viene creato automaticamente un account di archiviazione nel [gruppo di risorse nodo][node-resource-group] da usare con la classe di archiviazione per conservare le condivisioni di file di Azure. Scegliere uno degli SKU di [ridondanza di archiviazione di Azure][storage-skus] seguenti per *SKUName*:
+Una classe di archiviazione viene usata per definire la modalità di creazione di una condivisione di File di Azure. Viene creato automaticamente un account di archiviazione nel [gruppo di risorse nodo][node-resource-group] da usare con la classe di archiviazione per conservare le condivisioni di file di Azure. Scegliere uno degli SKU di [ridondanza di archiviazione di Azure][storage-skus] seguenti per *SKUName* :
 
-* **Standard_LRS**: archiviazione con ridondanza locale standard
-* **Standard_GRS**: archiviazione con ridondanza geografica standard
-* **Standard_ZRS**: archiviazione con ridondanza della zona standard
-* **Standard_RAGRS**: archiviazione con ridondanza geografica e accesso in lettura standard
-* **Premium_LRS**: archiviazione con ridondanza locale Premium
+* **Standard_LRS** : archiviazione con ridondanza locale standard
+* **Standard_GRS** : archiviazione con ridondanza geografica standard
+* **Standard_ZRS** : archiviazione con ridondanza della zona standard
+* **Standard_RAGRS** : archiviazione con ridondanza geografica e accesso in lettura standard
+* **Premium_LRS** : archiviazione con ridondanza locale Premium
 
 > [!NOTE]
 > File di Azure supporta archiviazione Premium di Azure. La condivisione file Premium minima è di 100 GB.
@@ -212,7 +212,7 @@ Registrare il `AllowNfsFileShares` flag funzionalità usando il comando [AZ feat
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. Verificare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
+Sono necessari alcuni minuti per visualizzare lo stato *Registered* . Verificare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 È possibile distribuire un [set con stato](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) di esempio che salva i timestamp in un file `data.txt` distribuendo il comando seguente con il comando [kubectl Apply][kubectl-apply] :
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

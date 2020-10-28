@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356886"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744750"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloud
 
@@ -205,7 +205,7 @@ Per costruire l'URI assoluto di un artefatto, il metodo preferito consiste nell'
 }
 ```
 
-Con questo approccio, tutti gli artefatti dell'installazione, inclusi gli script di configurazione, possono essere memorizzati nella stessa posizione del modello stesso. Per modificare la posizione di tutti i collegamenti, è sufficiente specificare un URL di base diverso per i _parametri artifactsLocation_.
+Con questo approccio, tutti gli artefatti dell'installazione, inclusi gli script di configurazione, possono essere memorizzati nella stessa posizione del modello stesso. Per modificare la posizione di tutti i collegamenti, è sufficiente specificare un URL di base diverso per i _parametri artifactsLocation_ .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Tenere in considerazione diverse funzionalità a livello di area
 
@@ -611,7 +611,7 @@ Poiché le estensioni di macchina virtuale sono risorse di Resource Manager di M
 
 La versione API della risorsa di estensione di macchina virtuale deve essere presente in tutte le posizioni che si prevede di raggiungere con il modello. La dipendenza dalla posizione funziona come la disponibilità della versione API del provider di risorse discussa in precedenza nella sezione "Verificare la versione di tutti i tipi di risorse".
 
-Per recuperare un elenco delle versioni API disponibili per la risorsa dell'estensione di macchina virtuale, usare il cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con il provider di risorse **Microsoft.Compute**, come illustrato:
+Per recuperare un elenco delle versioni API disponibili per la risorsa dell'estensione di macchina virtuale, usare il cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con il provider di risorse **Microsoft.Compute** , come illustrato:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -641,7 +641,7 @@ Ogni estensione specifica è dotata di una versione. Questa versione è mostrata
         ...
 ```
 
-Per recuperare un elenco delle versioni disponibili per un'estensione di macchina virtuale specifica, usare il cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). Nell'esempio seguente vengono recuperate le versioni disponibili per l'estensione PowerShell DSC (Configurazione dello stato desiderato) della macchina virtuale da **myLocation**:
+Per recuperare un elenco delle versioni disponibili per un'estensione di macchina virtuale specifica, usare il cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). Nell'esempio seguente vengono recuperate le versioni disponibili per l'estensione PowerShell DSC (Configurazione dello stato desiderato) della macchina virtuale da **myLocation** :
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

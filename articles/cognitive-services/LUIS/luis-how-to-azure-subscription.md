@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151584"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744703"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -29,7 +29,7 @@ LUIS consente tre tipi di risorse di Azure e una risorsa non di Azure:
 
 |Risorsa|Scopo|Servizio cognitivo `kind`|Servizio cognitivo `type`|
 |--|--|--|--|
-|Creazione di una risorsa|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. [Creare una risorsa Luis authoring](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se si vuole creare Luis Apps programtically o dal portale Luis. È necessario prima [eseguire la migrazione dell'account Luis](luis-migration-authoring.md#what-is-migration) per poter collegare le risorse Authroring di Azure all'applicazione. È possibile controllare le autorizzazioni per la risorsa di creazione assegnando persone al [ruolo Collaboratore](#contributions-from-other-authors). <br><br> Esiste un avialable di livello per la risorsa LUIS Authoring:<br> * **Risorsa di authoring F0 gratuita** che offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite per i test mensili. |`LUIS.Authoring`|`Cognitive Services`|
+|Creazione di una risorsa|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. [Creare una risorsa Luis authoring](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se si vuole creare Luis Apps programtically o dal portale Luis. È necessario prima [eseguire la migrazione dell'account Luis](luis-migration-authoring.md#what-is-migration) per poter collegare le risorse di creazione di Azure all'applicazione. È possibile controllare le autorizzazioni per la risorsa di creazione assegnando persone al [ruolo Collaboratore](#contributions-from-other-authors). <br><br> È disponibile un livello per la risorsa LUIS Authoring:<br> * **Risorsa di authoring F0 gratuita** che offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite per i test mensili. |`LUIS.Authoring`|`Cognitive Services`|
 |Risorsa di stima| Dopo la pubblicazione dell'applicazione LUIS, utilizzare la risorsa/chiave di stima per eseguire query sulle richieste dell'endpoint di stima. Creare una risorsa di stima LUIS prima che l'app client richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione o di avvio. <br><br> Sono disponibili due livelli di avialble per la risorsa di stima:<br> * **Risorsa di stima F0 gratuita** che fornisce 10.000 richieste di endpoint di stima gratuite mensili<br> * **Risorsa di stima S0 standard** che corrisponde al livello a pagamento. [Ulteriori informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Risorsa di avvio/versione di valutazione|Consente di creare, gestire, eseguire il training, testare e pubblicare le applicazioni. Questa operazione viene creata da predefinito se si sceglie l'opzione della risorsa di avvio durante la prima iscrizione di TP LUIS. Tuttavia, la chiave di avvio sarà deprecata e tutti gli utenti LUIS dovranno eseguire la [migrazione dei propri account](luis-migration-authoring.md#what-is-migration) e collegare le applicazioni Luis a una risorsa di creazione. Questa risorsa non fornisce le autorizzazioni per il controllo degli accessi in base al ruolo di Azure, come la risorsa di creazione. <br><br> Proprio come la risorsa di creazione, la risorsa iniziale offre 1 milione di transazioni di creazione gratuite e 1000 richieste di endpoint di stima gratuite.|-|Non è una risorsa di Azure|
 |[Chiave di risorsa multiservizio di servizi cognitivi](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Richieste di endpoint di stima delle query condivise con LUIS e altri servizi cognitivi supportati.|`CognitiveServices`|`Cognitive Services`|
@@ -190,20 +190,20 @@ Risorsa `kind` :
 
     Verrà visualizzato un browser che consente di selezionare l'account corretto e di fornire l'autenticazione.
 
-1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring` , denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area.
+1. Creare una **risorsa Luis authoring** , di tipo `LUIS.Authoring` , denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Creare una **risorsa dell'endpoint di stima Luis**, di tipo `LUIS` , denominata `my-luis-prediction-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area. Se si desidera una velocità effettiva superiore a quella del livello gratuito, modificare `F0` in `S0` . Altre informazioni sui [piani tariffari e la velocità effettiva](luis-limits.md#key-limits).
+1. Creare una **risorsa dell'endpoint di stima Luis** , di tipo `LUIS` , denominata `my-luis-prediction-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area. Se si desidera una velocità effettiva superiore a quella del livello gratuito, modificare `F0` in `S0` . Altre informazioni sui [piani tariffari e la velocità effettiva](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > Queste chiavi **non** vengono usate dal portale Luis fino a quando non vengono assegnate nel portale Luis sulle **risorse di Azure manage->**.
+    > Queste chiavi **non** vengono usate dal portale Luis fino a quando non vengono assegnate nel portale Luis sulle **risorse di Azure manage->** .
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -212,8 +212,8 @@ Risorsa `kind` :
 È possibile assegnare una risorsa di creazione per una singola app o per tutte le app in LUIS. La procedura seguente consente di assegnare tutte le app a una singola risorsa di creazione.
 
 1. Accedere al [portale LUIS](https://www.luis.ai).
-1. Nella barra di spostamento superiore, all'estrema destra, selezionare l'account utente e quindi selezionare **Impostazioni**.
-1. Nella pagina **impostazioni utente** selezionare **Aggiungi risorsa di creazione** e quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**.
+1. Nella barra di spostamento superiore, all'estrema destra, selezionare l'account utente e quindi selezionare **Impostazioni** .
+1. Nella pagina **impostazioni utente** selezionare **Aggiungi risorsa di creazione** e quindi selezionare una risorsa di creazione esistente. Selezionare **Salva** .
 
 ## <a name="assign-a-resource-to-an-app"></a>Assegnare una risorsa a un'app
 
@@ -254,7 +254,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Type|Impostazione|Valore|
+    |Type|Impostazione|valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore della proprietà `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
@@ -292,7 +292,7 @@ Per informazioni sui dati che vengono eliminati quando viene eliminato l'account
 ## <a name="viewing-azure-resource-metrics"></a>Visualizzazione delle metriche delle risorse di Azure
 
 ### <a name="viewing-azure-resource-summary-usage"></a>Visualizzazione dell'utilizzo di riepilogo delle risorse di Azure
-È possibile visualizzare le informazioni sull'utilizzo di LUIS in Azure. La pagina **Panoramica** contiene informazioni di riepilogo recenti, incluse chiamate ed errori. Se effettui una richiesta LUIS di endpoint, quindi osservi la **pagina Panoramica**, attendi fino a cinque minuti perché compaia l'utilizzo.
+È possibile visualizzare le informazioni sull'utilizzo di LUIS in Azure. La pagina **Panoramica** contiene informazioni di riepilogo recenti, incluse chiamate ed errori. Se effettui una richiesta LUIS di endpoint, quindi osservi la **pagina Panoramica** , attendi fino a cinque minuti perché compaia l'utilizzo.
 
 ![Visualizzazione del riepilogo dell'utilizzo](./media/luis-usage-tiers/overview.png)
 

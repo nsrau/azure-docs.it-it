@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 03b112466ef094a578d47586a44ab383a5da1a9b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151226"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744892"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -57,16 +57,16 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 2. Per l'account, passare a **Impostazioni** > **Impostazioni modalità sviluppatore** e fare clic su **Register a new application** (Registra una nuova applicazione) o **New OAuth App** (Nuova app OAuth) sotto *OAuth Apps* (App OAuth).
 
-3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application**(Registra applicazione):
+3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application** (Registra applicazione):
 
     | Nome impostazione | Valore consigliato | Descrizione |
     | ------------ | --------------- | ----------- |
     | Nome applicazione | *Chat Azure SignalR* | L'utente di GitHub deve essere in grado di riconoscere e considerare attendibile l'app con cui sta eseguendo l'autenticazione.   |
     | URL della home page | `http://localhost:5000/home` | |
     | Descrizione applicazione | *Un esempio di chat room che usa il servizio Azure SignalR con l'autenticazione di GitHub* | Una descrizione utile dell'applicazione che consenta agli utenti di comprendere il contesto di autenticazione utilizzato. |
-    | URL di callback dell'autorizzazione | `http://localhost:5000/signin-github` | Questa impostazione è la più importante per l'applicazione OAuth. È l'URL di callback che GitHub restituisce all'utente al termine dell'autenticazione. In questa esercitazione è necessario usare l'URL di callback predefinito per il pacchetto *AspNet.Security.OAuth.GitHub*, ovvero */signin-github*.  |
+    | URL di callback dell'autorizzazione | `http://localhost:5000/signin-github` | Questa impostazione è la più importante per l'applicazione OAuth. È l'URL di callback che GitHub restituisce all'utente al termine dell'autenticazione. In questa esercitazione è necessario usare l'URL di callback predefinito per il pacchetto *AspNet.Security.OAuth.GitHub* , ovvero */signin-github* .  |
 
-4. Una volta completata la registrazione della nuova app OAuth, aggiungere l'*ID client* e il *segreto client* a Secret Manager usando i comandi seguenti. Sostituire *Your_GitHub_Client_Id* e *Your_GitHub_Client_Secret* con i valori per l'app OAuth.
+4. Una volta completata la registrazione della nuova app OAuth, aggiungere l' *ID client* e il *segreto client* a Secret Manager usando i comandi seguenti. Sostituire *Your_GitHub_Client_Id* e *Your_GitHub_Client_Secret* con i valori per l'app OAuth.
 
     ```dotnetcli
     dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
@@ -155,9 +155,9 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 In questa sezione sarà implementata un'API `Login` che autentica i client che usano l'app OAuth di GitHub. Dopo l'autenticazione, l'API aggiungerà un cookie alla risposta del client Web prima di reindirizzare il client all'app di chat. Quel cookie si userà in seguito per identificare il client.
 
-1. Aggiungere un nuovo file di codice controller alla directory *chattest\Controllers*. Assegnare il nome *AuthController.cs* al file.
+1. Aggiungere un nuovo file di codice controller alla directory *chattest\Controllers* . Assegnare il nome *AuthController.cs* al file.
 
-2. Aggiungere il codice seguente per il controller di autenticazione. Assicurarsi di aggiornare lo spazio dei nomi, se la directory di progetto non era *chattest*:
+2. Aggiungere il codice seguente per il controller di autenticazione. Assicurarsi di aggiornare lo spazio dei nomi, se la directory di progetto non era *chattest* :
 
     ```csharp
     using AspNet.Security.OAuth.GitHub;
@@ -232,7 +232,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
 1. Aprire *wwwroot\index.html* e sostituire il codice che richiede il nome utente con il codice che usa il cookie restituito dal controller di autenticazione.
 
-    Rimuovere il codice seguente da *index.html*:
+    Rimuovere il codice seguente da *index.html* :
 
     ```javascript
     // Get the user name and store it to prepend to messages.
@@ -374,7 +374,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
     ![OAuth completa ospitato in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-    Viene chiesto di autorizzare l'accesso dell'app chat al proprio account GitHub. Fare clic sul pulsante **Autorizza**.
+    Viene chiesto di autorizzare l'accesso dell'app chat al proprio account GitHub. Fare clic sul pulsante **Autorizza** .
 
     ![Autorizzare l'app OAuth](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 
@@ -396,7 +396,7 @@ I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia dell
 az extension add -n signalr
 ```
 
-Quando si creano le risorse seguenti, assicurarsi di usare lo stesso gruppo di risorse in cui si trova la risorsa servizio SignalR. Questo approccio semplificherà la pulizia quando in seguito si vorrà rimuovere tutte le risorse. Gli esempi proposti presuppongono che si usi il nome di gruppo consigliato nelle esercitazioni precedenti: *SignalRTestResources*.
+Quando si creano le risorse seguenti, assicurarsi di usare lo stesso gruppo di risorse in cui si trova la risorsa servizio SignalR. Questo approccio semplificherà la pulizia quando in seguito si vorrà rimuovere tutte le risorse. Gli esempi proposti presuppongono che si usi il nome di gruppo consigliato nelle esercitazioni precedenti: *SignalRTestResources* .
 
 ### <a name="create-the-web-app-and-plan"></a>Creare l'app Web e un piano
 
@@ -548,11 +548,11 @@ Per distribuire il codice, eseguire i comandi seguenti in una shell di Git.
 
 ### <a name="update-the-github-oauth-app"></a>Aggiornare l'app OAuth di GitHub
 
-L'ultima operazione da eseguire è l'aggiornamento dell'**URL della home page** e dell'**URL di callback dell'autorizzazione** dell'app OAuth di GitHub in modo da puntare alla nuova app ospitata.
+L'ultima operazione da eseguire è l'aggiornamento dell' **URL della home page** e dell' **URL di callback dell'autorizzazione** dell'app OAuth di GitHub in modo da puntare alla nuova app ospitata.
 
 1. Aprire [https://github.com](https://github.com) in un browser e passare a **Impostazioni** > **Impostazioni modalità sviluppatore** > **Oauth Apps** (Oauth App) per il proprio account.
 
-2. Fare clic sull'app di autenticazione e aggiornare l'**URL della home page** e l'**URL di callback dell'autorizzazione** come illustrato di seguito:
+2. Fare clic sull'app di autenticazione e aggiornare l' **URL della home page** e l' **URL di callback dell'autorizzazione** come illustrato di seguito:
 
     | Impostazione | Esempio |
     | ------- | ------- |
@@ -572,13 +572,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse** .
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources* . Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse** .
 
 ![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina** .
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 

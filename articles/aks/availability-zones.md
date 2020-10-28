@@ -2,15 +2,15 @@
 title: Usare le zone di disponibilità nel servizio Azure Kubernetes
 description: Informazioni su come creare un cluster che distribuisce nodi tra le zone di disponibilità nel servizio Azure Kubernetes
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165809"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745805"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes che usi le zone di disponibilità
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare un cluster del servizio Azure Kubernetes e 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.76 o versioni successive. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.76 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitazioni e disponibilità in base all'area geografica
 
@@ -56,11 +56,11 @@ Se è necessario eseguire carichi di lavoro con stato, usare taint e tolleranze 
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Panoramica delle zone di disponibilità per cluster del servizio Azure Kubernetes
 
-Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate delle zone. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center.
+Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, è sempre presente più di una zona in tutte le aree abilitate per la zona. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center.
 
 Per altre informazioni, vedere [Informazioni sulle zone di disponibilità di Azure][az-overview].
 
-I cluster del servizio Azure Kubernetes distribuiti usando le zone di disponibilità possono distribuire nodi in più zone all'interno di una singola area. Ad esempio, un cluster nell'area  *Stati Uniti orientali 2* può creare nodi in tutte e tre le zone di disponibilità in *Stati Uniti orientali 2*. Questa distribuzione delle risorse cluster del servizio Azure Kubernetes migliora la disponibilità del cluster perché sono resilienti agli errori di una zona specifica.
+I cluster del servizio Azure Kubernetes distribuiti usando le zone di disponibilità possono distribuire nodi in più zone all'interno di una singola area. Ad esempio, un cluster nell'area  *Stati Uniti orientali 2* può creare nodi in tutte e tre le zone di disponibilità in *Stati Uniti orientali 2* . Questa distribuzione delle risorse cluster del servizio Azure Kubernetes migliora la disponibilità del cluster perché sono resilienti agli errori di una zona specifica.
 
 ![Distribuzione del nodo del servizio Azure Kubernetes tra le zone di disponibilità](media/availability-zones/aks-availability-zones.png)
 
@@ -68,11 +68,11 @@ Se una singola zona diventa non disponibile, le applicazioni continuano a essere
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes tra le zone di disponibilità
 
-Quando si crea un cluster usando il comando [az aks create][az-aks-create], il parametro `--zones` definisce in quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo, ad esempio etcd, vengono distribuiti in tre zone se si definisce il parametro `--zones` al momento della creazione del cluster. Le zone specifiche in cui sono distribuiti i componenti del piano di controllo sono indipendenti dalle zone esplicite selezionate per il pool di nodi iniziale.
+Quando si crea un cluster usando il comando [az aks create][az-aks-create], il parametro `--zones` definisce in quali zone vengono distribuiti i nodi agenti. I componenti del piano di controllo, ad esempio ETCD o l'API, vengono distribuiti tra le zone disponibili nell'area se si definisce il `--zones` parametro in fase di creazione del cluster. Le zone specifiche in cui sono distribuiti i componenti del piano di controllo sono indipendenti dalle zone esplicite selezionate per il pool di nodi iniziale.
 
 Se non si definiscono zone per il pool di agenti predefinito quando si crea un cluster del servizio Azure Kubernetes, non è garantito che i componenti del piano di controllo vengano distribuiti tra le zone di disponibilità. È possibile aggiungere altri pool di nodi usando il comando [az aks nodepool add][az-aks-nodepool-add] e specificare `--zones` per i nuovi nodi, ma ciò non modificherà il modo in cui il piano di controllo è stato distribuito tra le zone. Le impostazioni della zona di disponibilità possono essere definite solo in fase di creazione del cluster o del pool di nodi.
 
-L'esempio seguente crea un cluster del servizio Azure Kubernetes denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Viene creato un totale di *3* nodi: un agente nella zona *1*, uno nella *2* e uno nella *3*.
+L'esempio seguente crea un cluster del servizio Azure Kubernetes denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup* . Viene creato un totale di *3* nodi: un agente nella zona *1* , uno nella *2* e uno nella *3* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

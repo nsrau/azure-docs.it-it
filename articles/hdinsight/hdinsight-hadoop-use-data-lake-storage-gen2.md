@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332026"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744592"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -28,7 +28,7 @@ Per un confronto completo delle opzioni di creazione del cluster con Data Lake S
 Data Lake Storage Gen2 è disponibile come opzione di archiviazione per quasi tutti i tipi di cluster HDInsight di Azure sia come predefinito che come account di archiviazione aggiuntivo. HBase, tuttavia, può avere un solo account con Data Lake Storage Gen2.
 
 > [!Note]  
-> Dopo aver selezionato Data Lake Storage Gen2 come **tipo di archiviazione primario**, non è possibile selezionare una data Lake storage Gen1 come risorsa di archiviazione aggiuntiva.
+> Dopo aver selezionato Data Lake Storage Gen2 come **tipo di archiviazione primario** , non è possibile selezionare una data Lake storage Gen1 come risorsa di archiviazione aggiuntiva.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Creare cluster HDInsight usando Data Lake Storage Gen2
 
@@ -66,19 +66,19 @@ Per impostare le autorizzazioni per consentire agli utenti di eseguire query sui
 
 È possibile accedere ai file in Data Lake Storage Gen2 da un cluster HDInsight in diversi modi.
 
-* **Uso di nomi completi**. Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
+* **Uso di nomi completi** . Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
+* **Uso del formato con percorso abbreviato** . Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Uso del percorso relativo**. Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
+* **Uso del percorso relativo** . Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
 
     ```
     /<file.path>/

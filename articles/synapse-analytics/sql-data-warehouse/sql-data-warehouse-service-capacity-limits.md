@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742457"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
 
@@ -24,7 +24,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="workload-management"></a>Gestione dei carichi di lavoro
 
-| Categoria | Descrizione | Massimo |
+| Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità del pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a DW5000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *quota* come tipo di richiesta.  Per calcolare le esigenze di DTU, moltiplicare il 7,5 per il totale DWU necessario oppure moltiplicare 9,5 per il totale DWU necessario. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW5000c x 9,5 = 47.500 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
@@ -36,7 +36,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="database-objects"></a>Oggetti di database
 
-| Categoria | Descrizione | Massimo |
+| Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Gen2: archiviazione illimitata per le tabelle columnstore.  La parte rowstore del database è ancora limitata a 240 TB compressi sul disco. |
 | Tabella |Dimensioni massime |Dimensioni illimitate per le tabelle columnstore. <br>60 TB per le tabelle rowstore compresse su disco. |
@@ -59,14 +59,14 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="loads"></a>Carichi
 
-| Categoria | Descrizione | Massimo |
+| Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/><br/> |
-||||
+| Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/> |
+|Operazioni di caricamento di PolyBase|Numero totale di file|1\.000.000<br/><br/>I carichi di base non possono superare i 1 milione di file. È possibile che si verifichi l'errore seguente: **operazione non riuscita perché il numero di suddivisione supera il limite superiore 1 milione** .|
 
 ## <a name="queries"></a>Query
 
-| Categoria | Descrizione | Massimo |
+| Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Query |Query in coda nelle tabelle utente |1000 |
 | Query |Query simultanee nelle viste di sistema |100 |

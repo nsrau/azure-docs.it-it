@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744725"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Anteprima: applicazione automatica delle patch guest alle macchine virtuali Windows in Azure
 
@@ -80,17 +80,20 @@ Le macchine virtuali Windows in Azure supportano ora le modalità di orchestrazi
 
 **AutomaticByPlatform:**
 - Questa modalità consente l'applicazione automatica delle patch Guest per la macchina virtuale Windows e l'installazione della patch successiva è orchestrata da Azure.
+- Questa modalità è obbligatoria per la prima applicazione di patch.
 - L'impostazione di questa modalità Disabilita inoltre la Aggiornamenti automatici nativa nella macchina virtuale Windows per evitare la duplicazione.
 - Questa modalità è supportata solo per le macchine virtuali create con le immagini della piattaforma del sistema operativo supportate sopra.
 - Per usare questa modalità, impostare la proprietà `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e impostare la proprietà  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` nel modello di macchina virtuale.
 
 **AutomaticByOS:**
 - Questa modalità Abilita Aggiornamenti automatici nella macchina virtuale Windows e le patch vengono installate nella VM tramite Aggiornamenti automatici.
+- Questa modalità non supporta l'applicazione di patch prima della disponibilità.
 - Questa modalità è impostata per impostazione predefinita se non viene specificata nessun'altra modalità di patch.
 - Per usare questa modalità, impostare la proprietà `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e impostare la proprietà  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` nel modello di macchina virtuale.
 
 **Manuale:**
 - Questa modalità Disabilita Aggiornamenti automatici nella macchina virtuale Windows.
+- Questa modalità non supporta l'applicazione di patch prima della disponibilità.
 - Questa modalità deve essere impostata quando si utilizzano soluzioni di applicazione di patch personalizzate.
 - Per usare questa modalità, impostare la proprietà `osProfile.windowsConfiguration.enableAutomaticUpdates=false` e impostare la proprietà  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` nel modello di macchina virtuale.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [AZ VM create](/cli/azure/vm#az-vm-create) per abilitare l'applicazione automatica delle patch Guest per le VM quando si crea una nuova macchina virtuale. Nell'esempio seguente viene configurata l'applicazione automatica delle patch Guest per una macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
+Usare [AZ VM create](/cli/azure/vm#az-vm-create) per abilitare l'applicazione automatica delle patch Guest per le VM quando si crea una nuova macchina virtuale. Nell'esempio seguente viene configurata l'applicazione automatica delle patch Guest per una macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup* :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

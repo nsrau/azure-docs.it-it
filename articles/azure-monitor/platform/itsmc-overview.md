@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676910"
+ms.locfileid: "92745695"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -125,7 +125,7 @@ Utilizzare la procedura seguente:
 1. In portale di Azure fare clic su  **avvisi** .
 2. Nel riquadro superiore fare clic su  **Gestisci azioni** . Viene visualizzata la finestra **Aggiungi gruppo di azioni** .
 
-    ![Gruppi di azioni](media/itsmc-overview/action-groups.png)
+    [![Gruppi di azioni](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole creare il gruppo di azioni. Specificare il **nome del gruppo di azioni** e il **nome visualizzato** per il gruppo di azioni. Fare clic su **Avanti: notifiche** .
 
@@ -135,7 +135,7 @@ Utilizzare la procedura seguente:
 5. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione** . Specificare un **nome** per l'azione e fare clic sulla penna che rappresenta i **Dettagli di modifica** .
 6. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione** , ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
-    ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
+    ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-configuration.png)
 
 7. Selezionare il tipo di **Elemento di lavoro** dal menu a discesa.
 

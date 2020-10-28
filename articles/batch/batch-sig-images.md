@@ -3,13 +3,13 @@ title: Usare la raccolta di immagini condivise per creare un pool di immagini pe
 description: I pool di immagini personalizzati sono un modo efficiente per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di batch.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605193"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745525"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
@@ -27,7 +27,7 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 
 - **Usare le stesse immagini tra le diverse aree.** È possibile creare repliche di Immagini condivise tra diverse aree in modo che tutti i pool usino la stessa immagine.
 - **Configurare il sistema operativo.** È possibile personalizzare la configurazione del disco del sistema operativo dell'immagine.
-- **Pre-installare applicazioni**. La pre-installazione delle applicazioni sul disco del sistema operativo risulta essere più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo con un'attività di avvio.
+- **Pre-installare applicazioni** . La pre-installazione delle applicazioni sul disco del sistema operativo risulta essere più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo con un'attività di avvio.
 - **Copiare grandi quantità di dati una volta sola.** Incorporare i dati statici nell'Immagine condivisa gestita copiandoli nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
 - **Aumentare le dimensioni dei pool.** Con la Raccolta immagini condivise è possibile creare pool di dimensioni maggiori con le immagini personalizzate, insieme a un maggior numero di repliche di Immagini condivise.
 - **Prestazioni migliori rispetto all'utilizzo di una sola immagine gestita come immagine personalizzata.** Per un pool di immagini personalizzate per immagini condivise, il tempo per raggiungere lo stato stabile è più veloce del 25% e la latenza di inattività della macchina virtuale è fino al 30% più breve.
@@ -38,9 +38,9 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 > [!NOTE]
 > È necessario eseguire l'autenticazione con Azure AD. Se si usa shared-key-auth, si riceve un errore di autenticazione.  
 
-- Un **account Azure Batch**. Per creare un account Batch, vedere le guide introduttive di Batch con il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
+- Un **account Azure Batch** . Per creare un account Batch, vedere le guide introduttive di Batch con il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
 
-- **Un'immagine Raccolta immagini condivise**. Per creare un'Immagine condivisa, è necessario avere o creare una risorsa immagine gestita. È consigliabile creare l'immagine dagli snapshot del disco del sistema operativo della macchina virtuale e, facoltativamente, i relativi dischi dati collegati.
+- **Un'immagine Raccolta immagini condivise** . Per creare un'Immagine condivisa, è necessario avere o creare una risorsa immagine gestita. È consigliabile creare l'immagine dagli snapshot del disco del sistema operativo della macchina virtuale e, facoltativamente, i relativi dischi dati collegati.
 
 > [!NOTE]
 > Se l'immagine condivisa non si trova nella stessa sottoscrizione dell'account batch, è necessario [registrare il provider di risorse Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) per tale sottoscrizione. Le due sottoscrizioni devono trovarsi nello stesso tenant Azure AD.
@@ -208,9 +208,9 @@ Usare la procedura seguente per creare un pool da un'Immagine condivisa nel port
 1. Aprire il [portale di Azure](https://portal.azure.com).
 1. Passare ad **account Batch** e selezionare l'account.
 1. Selezionare **Pool** quindi **Aggiungi** per creare un nuovo pool.
-1. Nella sezione **Tipo di immagine** selezionare **Raccolta immagini condivise**.
+1. Nella sezione **Tipo di immagine** selezionare **Raccolta immagini condivise** .
 1. Completare le sezioni rimanenti con le informazioni relative all'immagine gestita.
-1. Selezionare **OK**.
+1. Selezionare **OK** .
 
 ![Creare un pool da un'Immagine condivisa con il portale.](media/batch-sig-images/create-custom-pool.png)
 

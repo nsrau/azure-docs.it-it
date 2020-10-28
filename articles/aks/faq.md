@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494521"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745757"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -57,14 +57,14 @@ Il servizio Azure Kubernetes si basa su una serie di risorse dell'infrastruttura
 
 Per rendere disponibile questa architettura, ogni distribuzione del servizio Azure Kubernetes include due gruppi di risorse:
 
-1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse del servizio Azure Kubernetes crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome di questo secondo gruppo di risorse, vedere la sezione successiva.
-1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse di infrastruttura associate al cluster, come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse nodo ha un nome simile a *MC_myResourceGroup_myAKSCluster_eastus*. Il servizio Azure Kubernetes elimina automaticamente la risorsa nodo ogni volta che viene eliminato il cluster, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
+1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse del servizio Azure Kubernetes crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus* . Per informazioni su come specificare il nome di questo secondo gruppo di risorse, vedere la sezione successiva.
+1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo* , contiene tutte le risorse di infrastruttura associate al cluster, come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse nodo ha un nome simile a *MC_myResourceGroup_myAKSCluster_eastus* . Il servizio Azure Kubernetes elimina automaticamente la risorsa nodo ogni volta che viene eliminato il cluster, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse nodo del servizio Azure Kubernetes?
 
-Sì. Per impostazione predefinita, il servizio Azure Kubernetes assegna al gruppo di risorse nodo il nome *MC_resourcegroupname_clustername_location*, ma è anche possibile specificare un nome personalizzato.
+Sì. Per impostazione predefinita, il servizio Azure Kubernetes assegna al gruppo di risorse nodo il nome *MC_resourcegroupname_clustername_location* , ma è anche possibile specificare un nome personalizzato.
 
-Per specificare un nome personalizzato per il gruppo di risorse, installare l'estensione [aks-preview][aks-preview-cli] versione *0.3.2* o successiva dell'interfaccia della riga di comando di Azure. Quando si crea un cluster del servizio Azure Kubernetes con il comando [az aks create][az-aks-create], usare il parametro *--node-resource-group* e specificare un nome per il gruppo di risorse. Se si [usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster del servizio Azure Kubernetes, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup*.
+Per specificare un nome personalizzato per il gruppo di risorse, installare l'estensione [aks-preview][aks-preview-cli] versione *0.3.2* o successiva dell'interfaccia della riga di comando di Azure. Quando si crea un cluster del servizio Azure Kubernetes con il comando [az aks create][az-aks-create], usare il parametro *--node-resource-group* e specificare un nome per il gruppo di risorse. Se si [usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster del servizio Azure Kubernetes, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup* .
 
 * Il gruppo di risorse secondario viene creato automaticamente dal provider di risorse di Azure nella propria sottoscrizione.
 * È possibile specificare un nome di gruppo di risorse personalizzato solo quando si crea il cluster.
@@ -95,12 +95,15 @@ Il servizio Azure Kubernetes supporta i seguenti [controller di ammissione][admi
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 Attualmente non è possibile modificare l'elenco di controller di ammissione nel servizio Azure Kubernetes.
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>È possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes?
 
-Sì, è possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes. È consigliabile escludere gli spazi dei nomi interni del servizio Azure Kubernetes contrassegnati con l'**etichetta del piano di controllo.** Ad esempio, aggiungere quanto segue alla configurazione del webhook:
+Sì, è possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes. È consigliabile escludere gli spazi dei nomi interni del servizio Azure Kubernetes contrassegnati con l' **etichetta del piano di controllo.** Ad esempio, aggiungere quanto segue alla configurazione del webhook:
 
 ```
 namespaceSelector:
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS firewall il server API in uscita in modo che i webhook del controller di ammissione debbano essere accessibili dal cluster.
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>I webhook dei controller di ammissione possono influire sugli spazi dei nomi di kube-system e su quelli interni del servizio Azure Kubernetes?
 
-Per proteggere la stabilità del sistema ed evitare che i controller di ammissione personalizzati influiscano sui servizi interni in kube-system, lo spazio dei nomi del servizio Azure Kubernetes include la funzionalità **Admissions Enforcer**, che esclude automaticamente gli spazi dei nomi di kube-system e quelli interni del servizio Azure Kubernetes. Questo servizio garantisce che i controller di ammissione personalizzati non influiscano sui servizi in esecuzione in kube-system.
+Per proteggere la stabilità del sistema ed evitare che i controller di ammissione personalizzati influiscano sui servizi interni in kube-system, lo spazio dei nomi del servizio Azure Kubernetes include la funzionalità **Admissions Enforcer** , che esclude automaticamente gli spazi dei nomi di kube-system e quelli interni del servizio Azure Kubernetes. Questo servizio garantisce che i controller di ammissione personalizzati non influiscano sui servizi in esecuzione in kube-system.
 
 Se si ha un caso d'uso critico per una distribuzione obbligatoria in kube-system (scelta non consigliata), che è necessario coprire con il webhook di ammissione personalizzato, è possibile aggiungere l'etichetta o l'annotazione seguente in modo che Admissions Enforcers lo ignori.
 

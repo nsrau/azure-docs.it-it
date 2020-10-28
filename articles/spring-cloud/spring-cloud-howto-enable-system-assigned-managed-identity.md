@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093991"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742806"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Come abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring Cloud
 
@@ -34,8 +34,8 @@ Per configurare un'identità gestita nel [portale di Azure](https://portal.azure
 
 1. Creare un'app nel portale come di consueto. Accedervi nel portale.
 2. Scorrere verso il basso fino al gruppo di **Impostazioni** nel riquadro di spostamento a sinistra.
-3. Selezionare **Identità**.
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su *Attivato*. Fare clic su **Salva**.
+3. Selezionare **Identità** .
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su *Attivato* . Fare clic su **Salva** .
 
  ![Identità gestita nel portale](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,8 +72,8 @@ La rimozione di un'identità assegnata dal sistema lo eliminerà anche dal Azure
 Per rimuovere l'identità gestita assegnata dal sistema da un'app che non è più necessaria:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account associato alla sottoscrizione di Azure che contiene l'istanza di Azure Spring cloud.
-1. Passare alla macchina virtuale desiderata e selezionare **Identità**.
-1. In **stato assegnato al sistema** / **Status**selezionare **disattivato** , quindi fare clic su **Salva**:
+1. Passare alla macchina virtuale desiderata e selezionare **Identità** .
+1. In **stato assegnato al sistema** / **Status** selezionare **disattivato** , quindi fare clic su **Salva** :
 
  ![Identità gestita](./media/spring-cloud-managed-identity/remove-identity.png)
 

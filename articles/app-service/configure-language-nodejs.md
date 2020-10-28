@@ -1,17 +1,17 @@
 ---
 title: Configurare app Node.js
 description: Informazioni su come configurare un'app Node.js nelle istanze di Windows native o in un contenitore Linux predefinito in app Azure servizio. Questo articolo illustra le attività di configurazione più comuni.
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744058"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurare un'app Node.js per il servizio app Azure
 
@@ -93,8 +93,8 @@ Se si distribuisce l'app usando pacchetti GIT o ZIP con l'automazione della comp
 
 1. Esegue lo script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
 1. Eseguire `npm install` senza flag, che include NPM `preinstall` e `postinstall` script e installa anche `devDependencies` .
-1. Eseguire `npm run build` se nel *package.js*viene specificato uno script di compilazione.
-1. Eseguire `npm run build:azure` se una compilazione: lo script di Azure è specificato nella *package.js*.
+1. Eseguire `npm run build` se nel *package.js* viene specificato uno script di compilazione.
+1. Eseguire `npm run build:azure` se una compilazione: lo script di Azure è specificato nella *package.js* .
 1. Esegue lo script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
@@ -123,7 +123,7 @@ I contenitori di Node.js sono dotati di [PM2](https://pm2.keymetrics.io/), un ge
 
 ### <a name="run-custom-command"></a>Esegui comando personalizzato
 
-Il servizio app può avviare l'app usando un comando personalizzato, ad esempio un eseguibile come *Run.sh*. Per eseguire ad esempio `npm run start:prod` , eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
+Il servizio app può avviare l'app usando un comando personalizzato, ad esempio un eseguibile come *Run.sh* . Per eseguire ad esempio `npm run start:prod` , eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -164,7 +164,7 @@ Il contenitore avvia automaticamente l'app con PM2 quando si trova uno dei file 
 È anche possibile configurare un file di avvio personalizzato con le estensioni seguenti:
 
 - Un file con *estensione js*
-- Un [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con estensione *JSON*, *.config.js*, *YAML*o *yml*
+- Un [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con estensione *JSON* , *.config.js* , *YAML* o *yml*
 
 Per aggiungere un file di avvio personalizzato, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
@@ -177,7 +177,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Il debug remoto è attualmente in fase di anteprima.
 
-È possibile eseguire il debug dell'app Node.js in modalità remota [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con * .config.js, *. yml o *. YAML*.
+È possibile eseguire il debug dell'app Node.js in modalità remota [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con * .config.js, *. yml o *. YAML* .
 
 Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un *process.jssu* file (impostazione predefinita o personalizzata), deve avere una `script` proprietà nella radice JSON. Ad esempio:
 
@@ -191,9 +191,9 @@ Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva
 
 Per configurare Visual Studio Code per il debug remoto, installare l' [estensione del servizio app](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Seguire le istruzioni nella pagina di estensione e accedere ad Azure in Visual Studio Code.
 
-In Azure Explorer trovare l'app di cui si vuole eseguire il debug, fare clic con il pulsante destro del mouse su di essa e scegliere **Avvia debug remoto**. Fare clic su **Sì** per abilitarla per l'app. Il servizio app avvia un proxy di tunneling per l'utente e connette il debugger. È quindi possibile effettuare richieste all'app e vedere il debugger che sospende i punti di interruzione.
+In Azure Explorer trovare l'app di cui si vuole eseguire il debug, fare clic con il pulsante destro del mouse su di essa e scegliere **Avvia debug remoto** . Fare clic su **Sì** per abilitarla per l'app. Il servizio app avvia un proxy di tunneling per l'utente e connette il debugger. È quindi possibile effettuare richieste all'app e vedere il debugger che sospende i punti di interruzione.
 
-Al termine del debug, arrestare il debugger selezionando **Disconnetti**. Quando richiesto, fare clic su **Sì** per disabilitare il debug remoto. Per disabilitarlo in un secondo momento, fare di nuovo clic con il pulsante destro del mouse sull'app in Azure Explorer e scegliere **Disabilita debug remoto**.
+Al termine del debug, arrestare il debugger selezionando **Disconnetti** . Quando richiesto, fare clic su **Sì** per disabilitare il debug remoto. Per disabilitarlo in un secondo momento, fare di nuovo clic con il pulsante destro del mouse sull'app in Azure Explorer e scegliere **Disabilita debug remoto** .
 
 ::: zone-end
 
@@ -227,7 +227,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-La radice del repository dispone ora di due file aggiuntivi: *. Deployment* e *deploy.sh*.
+La radice del repository dispone ora di due file aggiuntivi: *. Deployment* e *deploy.sh* .
 
 Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile al seguente:
 
@@ -318,7 +318,7 @@ Quando un'app Node.js funzionante si comporta in modo diverso nel servizio app o
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
 - Testare l'app in locale nella modalità di produzione. Il servizio app esegue le app Node.js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione in locale. Ad esempio:
-    - A seconda del *package.jsin*, è possibile installare pacchetti diversi per la modalità di produzione ( `dependencies` rispetto a `devDependencies` ).
+    - A seconda del *package.jsin* , è possibile installare pacchetti diversi per la modalità di produzione ( `dependencies` rispetto a `devDependencies` ).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.
 - Eseguire l'app nel servizio app in modalità di sviluppo. Ad esempio, in [MEAN.js](https://meanjs.org/), è possibile impostare l'app sulla modalità di sviluppo in fase di esecuzione impostando [l' `NODE_ENV` impostazione dell'app](configure-common.md).

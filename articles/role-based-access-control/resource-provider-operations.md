@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631105"
+ms.locfileid: "92745139"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -158,6 +158,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft.Intune](#microsoftintune) |
 | **Altro** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>Generale
@@ -9663,6 +9664,45 @@ Servizio di Azure: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | Elenca i segreti per Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/Action | Elencare le metriche per Microsoft. BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | Elencare le operazioni per Microsoft. BingMaps |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
+
+Servizio di Azure: dispositivi [gemelli digitali di Azure](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Azione | Descrizione |
+> | --- | --- |
+> | Microsoft. DigitalTwins/Register/Action | Registrare la sottoscrizione per il provider di risorse di dispositivi gemelli digitali e abilitare la creazione di istanze di dispositivi gemelli digitali. |
+> | Microsoft. DigitalTwins/Annulla registrazione/azione | Annullare la registrazione della sottoscrizione per il provider di risorse di dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Read | Leggi tutte le risorse Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Write | Crea o aggiorna qualsiasi risorsa Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Delete | Eliminare una risorsa Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Read | Ottiene le impostazioni di diagnostica per la risorsa |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Write | Imposta le impostazioni di diagnostica per la risorsa |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Delete | Eliminare qualsiasi endpoint di una risorsa di dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Read | Legge tutti gli endpoint di una risorsa di dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Write | Crea o aggiorna qualsiasi endpoint di una risorsa di dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/logDefinitions/Read | Ottiene le impostazioni del log per il monitoraggio di Azure della risorsa |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/metricDefinitions/Read | Ottiene le impostazioni della metrica per il monitoraggio di Azure della risorsa |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/operationsResults/Read | Leggi tutti i risultati delle operazioni |
+> | Microsoft. DigitalTwins/locations/checkNameAvailability/Action | Controllare la disponibilità del nome di una risorsa nel provider di risorse di dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/locations/operationsResults/Read | Leggi tutti i risultati delle operazioni |
+> | Microsoft. DigitalTwins/Operations/Read | Lettura di tutte le operazioni |
+> | **DataAction** | **Descrizione** |
+> | Microsoft. DigitalTwins/query/Action | Eseguire una query su qualsiasi grafico gemello digitale |
+> | Microsoft. DigitalTwins/DigitalTwins/Read | Leggi tutti i dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/DigitalTwins/Write | Crea o aggiorna i dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/DigitalTwins/Delete | Elimina tutti i dispositivi gemelli digitali |
+> | Microsoft. DigitalTwins/DigitalTwins/Commands/Action | Richiama qualsiasi comando in un dispositivo gemello digitale |
+> | Microsoft. DigitalTwins/DigitalTwins/relationships/Read | Leggi qualsiasi relazione digitale gemello |
+> | Microsoft. DigitalTwins/DigitalTwins/relationships/Write | Crea o aggiorna qualsiasi relazione digitale gemello |
+> | Microsoft. DigitalTwins/DigitalTwins/relationships/Delete | Elimina qualsiasi relazione di dispositivo gemello digitale |
+> | Microsoft. DigitalTwins/eventroutes/Read | Leggi qualsiasi route dell'evento |
+> | Microsoft. DigitalTwins/eventroutes/Delete | Elimina qualsiasi route dell'evento |
+> | Microsoft. DigitalTwins/eventroutes/Write | Crea o aggiorna qualsiasi route dell'evento |
+> | Microsoft. DigitalTwins/Models/Read | Lettura di qualsiasi modello |
+> | Microsoft. DigitalTwins/Models/Write | Crea o aggiorna qualsiasi modello |
+> | Microsoft. DigitalTwins/Models/Delete | Elimina qualsiasi modello |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

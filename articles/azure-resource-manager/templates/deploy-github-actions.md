@@ -3,13 +3,13 @@ title: Distribuire modelli di Resource Manager tramite GitHub Actions
 description: Viene illustrato come distribuire modelli di Azure Resource Manager tramite GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282843"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746104"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuire modelli di Azure Resource Manager tramite GitHub Actions
 
@@ -24,7 +24,7 @@ Usare l' [azione Distribuisci modello di Azure Resource Manager](https://github.
     - Repository GitHub in cui archiviare i modelli di Gestione risorse e i file del flusso di lavoro. Per crearne uno, vedere [Creazione di un nuovo repository](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
 
-## <a name="workflow-file-overview"></a>Panoramica dei file di flusso di lavoro
+## <a name="workflow-file-overview"></a>Panoramica dei file del flusso di lavoro
 
 Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro.
 
@@ -32,13 +32,13 @@ Il file è costituito da due sezioni:
 
 |Sezione  |Attività  |
 |---------|---------|
-|**autenticazione** | 1. definire un'entità servizio. <br /> 2. creare un segreto GitHub. |
+|**autenticazione** | 1. Definire un'entità servizio. <br /> 2. Creare un segreto GitHub. |
 |**Distribuzione** | 1. distribuire il modello di Gestione risorse. |
 
-## <a name="generate-deployment-credentials"></a>Genera credenziali di distribuzione
+## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
 
-È possibile creare un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) nell'interfaccia della riga di comando di [Azure](/cli/azure/). Eseguire questo comando con [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
+È possibile creare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova** .
 
 Se non si dispone già di un gruppo di risorse, crearne uno. 
 
@@ -73,11 +73,11 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nom
 
 È necessario creare segreti per le credenziali, il gruppo di risorse e le sottoscrizioni di Azure. 
 
-1. In [GitHub](https://github.com/)esplorare il repository.
+1. In [GitHub](https://github.com/) esplorare il repository.
 
-1. Selezionare **impostazioni > segreti > nuovo segreto**.
+1. Selezionare **Settings > Secrets > New secret** (Impostazioni > Segreti > Nuovo segreto).
 
-1. Incollare l'intero output JSON dal comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto il nome `AZURE_CREDENTIALS` .
+1. Incollare l'intero output JSON del comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto il nome `AZURE_CREDENTIALS`.
 
 1. Creare un altro segreto denominato `AZURE_RG` . Aggiungere il nome del gruppo di risorse al campo del valore del segreto, ad esempio: `myResourceGroup` . 
 
@@ -91,16 +91,16 @@ Aggiungere un modello di Gestione risorse al repository GitHub. Questo modello c
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-È possibile inserire il file in un punto qualsiasi del repository. Nell'esempio di flusso di lavoro nella sezione successiva si presuppone che il file di modello sia denominato **azuredeploy.json**e che sia archiviato nella radice del repository.
+È possibile inserire il file in un punto qualsiasi del repository. Nell'esempio di flusso di lavoro nella sezione successiva si presuppone che il file di modello sia denominato **azuredeploy.json** e che sia archiviato nella radice del repository.
 
 ## <a name="create-workflow"></a>Creare un flusso di lavoro
 
-Il file del flusso di lavoro deve essere archiviato nella cartella **. github/workflows** nella radice del repository. Il file del flusso di lavoro può avere estensione **.yml** o **.yaml**.
+Il file del flusso di lavoro deve essere archiviato nella cartella **. github/workflows** nella radice del repository. Il file del flusso di lavoro può avere estensione **.yml** o **.yaml** .
 
 1. Dal repository GitHub, selezionare **Actions** dal menu in alto.
-1. Selezionare **Nuovo flusso di lavoro**.
+1. Selezionare **Nuovo flusso di lavoro** .
 1. Selezionare **Set up a workflow yourself** (Configurare manualmente un flusso di lavoro).
-1. Se si preferisce un nome diverso da **main.yml**, rinominare il file del flusso di lavoro. Ad esempio: **deployStorageAccount.yml**.
+1. Se si preferisce un nome diverso da **main.yml** , rinominare il file del flusso di lavoro. Ad esempio: **deployStorageAccount.yml** .
 1. Sostituire il contenuto del file .yml con quanto segue:
 
     ```yml
@@ -136,12 +136,12 @@ Il file del flusso di lavoro deve essere archiviato nella cartella **. github/wo
 
     La prima sezione del file del flusso di lavoro include:
 
-    - **name**: Nome del flusso di lavoro.
-    - **on**: Nome degli eventi GitHub che attivano il flusso di lavoro. Il flusso di lavoro viene attivato quando si verifica un evento push nel ramo master che modifica almeno uno dei due file specificati. I due file sono il file del flusso di lavoro e il file di modello.
+    - **name** : Nome del flusso di lavoro.
+    - **on** : Nome degli eventi GitHub che attivano il flusso di lavoro. Il flusso di lavoro viene attivato quando si verifica un evento push nel ramo master che modifica almeno uno dei due file specificati. I due file sono il file del flusso di lavoro e il file di modello.
 
 1. Selezionare **Start commit** (Avvia commit).
 1. Selezionare **Commit directly to the master branch** (Esegui il commit direttamente nel ramo master).
-1. Selezionare **Commit new file** (Commit nuovo file) (o **Commit modifiche**).
+1. Selezionare **Commit new file** (Commit nuovo file) (o **Commit modifiche** ).
 
 Dato che il flusso di lavoro è configurato per essere attivato dal file del flusso di lavoro o dal file di modello da aggiornare, il flusso di lavoro viene avviato subito dopo il commit delle modifiche.
 

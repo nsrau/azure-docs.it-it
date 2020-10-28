@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527422"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744848"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Ripristini automatici delle istanze per i set di scalabilità di macchine virtuali di Azure
 
@@ -62,13 +62,13 @@ Le operazioni di ripristino automatico dell'istanza vengono eseguite in batch. I
 
 ### <a name="grace-period"></a>Periodo di tolleranza
 
-Quando un'istanza passa attraverso un'operazione di modifica dello stato a causa di un'azione PUT, PATCH o POST eseguita sul set di scalabilità (ad esempio, la ricreazione dell'immagine, la ridistribuzione, l'aggiornamento e così via), qualsiasi azione di ripristino sull'istanza viene eseguita solo dopo l'attesa del periodo di tolleranza. Il periodo di tolleranza è la quantità di tempo per consentire all'istanza di tornare allo stato integro. Il periodo di tolleranza inizia dopo il completamento della modifica dello stato. Questo consente di evitare operazioni di ripristino prematura o accidentale. Il periodo di tolleranza viene rispettato per tutte le istanze appena create nel set di scalabilità (incluso quello creato come risultato dell'operazione di ripristino). Il periodo di tolleranza viene specificato in minuti nel formato ISO 8601 e può essere impostato utilizzando la proprietà *automaticRepairsPolicy. gracePeriod*. Il periodo di tolleranza può essere compreso tra 30 minuti e 90 minuti e il valore predefinito è 30 minuti.
+Quando un'istanza passa attraverso un'operazione di modifica dello stato a causa di un'azione PUT, PATCH o POST eseguita sul set di scalabilità (ad esempio, la ricreazione dell'immagine, la ridistribuzione, l'aggiornamento e così via), qualsiasi azione di ripristino sull'istanza viene eseguita solo dopo l'attesa del periodo di tolleranza. Il periodo di tolleranza è la quantità di tempo per consentire all'istanza di tornare allo stato integro. Il periodo di tolleranza inizia dopo il completamento della modifica dello stato. Questo consente di evitare operazioni di ripristino prematura o accidentale. Il periodo di tolleranza viene rispettato per tutte le istanze appena create nel set di scalabilità (incluso quello creato come risultato dell'operazione di ripristino). Il periodo di tolleranza viene specificato in minuti nel formato ISO 8601 e può essere impostato utilizzando la proprietà *automaticRepairsPolicy. gracePeriod* . Il periodo di tolleranza può essere compreso tra 30 minuti e 90 minuti e il valore predefinito è 30 minuti.
 
 ### <a name="suspension-of-repairs"></a>Sospensione delle riparazioni 
 
-I set di scalabilità di macchine virtuali offrono la possibilità di sospendere temporaneamente le riparazioni automatiche dell'istanza se necessario. Il *serviceState* per le riparazioni automatiche nella proprietà *orchestrationServices* nella visualizzazione dell'istanza del set di scalabilità di macchine virtuali Mostra lo stato corrente delle riparazioni automatiche. Quando un set di scalabilità viene scelto per la riparazione automatica, il valore del parametro *serviceState* è impostato su *in esecuzione*. Quando le riparazioni automatiche vengono sospese per un set di scalabilità, il parametro *serviceState* è impostato su *suspended*. Se *automaticRepairsPolicy* è definito in un set di scalabilità ma la funzionalità di riparazione automatica non è abilitata, il parametro *serviceState* è impostato su *non in esecuzione*.
+I set di scalabilità di macchine virtuali offrono la possibilità di sospendere temporaneamente le riparazioni automatiche dell'istanza se necessario. Il *serviceState* per le riparazioni automatiche nella proprietà *orchestrationServices* nella visualizzazione dell'istanza del set di scalabilità di macchine virtuali Mostra lo stato corrente delle riparazioni automatiche. Quando un set di scalabilità viene scelto per la riparazione automatica, il valore del parametro *serviceState* è impostato su *in esecuzione* . Quando le riparazioni automatiche vengono sospese per un set di scalabilità, il parametro *serviceState* è impostato su *suspended* . Se *automaticRepairsPolicy* è definito in un set di scalabilità ma la funzionalità di riparazione automatica non è abilitata, il parametro *serviceState* è impostato su *non in esecuzione* .
 
-Se le istanze appena create per la sostituzione di quelle non integre in un set di scalabilità continuano a rimanere non integre anche dopo aver eseguito ripetutamente le operazioni di ripristino, quindi, come misura di sicurezza, la piattaforma aggiorna la *serviceState* per le riparazioni automatiche da *sospendere*. È possibile riprendere le riparazioni automatiche impostando il valore di *serviceState* per le riparazioni automatiche in *esecuzione*. Le istruzioni dettagliate sono disponibili nella sezione sulla [visualizzazione e l'aggiornamento dello stato del servizio dei criteri di riparazione automatici](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) per il set di scalabilità. 
+Se le istanze appena create per la sostituzione di quelle non integre in un set di scalabilità continuano a rimanere non integre anche dopo aver eseguito ripetutamente le operazioni di ripristino, quindi, come misura di sicurezza, la piattaforma aggiorna la *serviceState* per le riparazioni automatiche da *sospendere* . È possibile riprendere le riparazioni automatiche impostando il valore di *serviceState* per le riparazioni automatiche in *esecuzione* . Le istruzioni dettagliate sono disponibili nella sezione sulla [visualizzazione e l'aggiornamento dello stato del servizio dei criteri di riparazione automatici](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) per il set di scalabilità. 
 
 Il processo di ripristino automatico delle istanze funziona nel modo seguente:
 
@@ -96,7 +96,7 @@ Per abilitare i criteri di riparazione automatica durante la creazione di un nuo
  
 I passaggi seguenti abilitano i criteri di riparazione automatica quando si crea un nuovo set di scalabilità.
  
-1. Passare a **set di scalabilità di macchine virtuali**.
+1. Passare a **set di scalabilità di macchine virtuali** .
 1. Selezionare **+ Aggiungi** per creare un nuovo set di scalabilità.
 1. Passare alla scheda **Health (integrità** ). 
 1. Individuare la sezione relativa all' **integrità** .
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Nell'esempio seguente vengono abilitati i criteri di riparazione automatica durante la creazione di un nuovo set di scalabilità con *[AZ vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Creare innanzitutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con il periodo di tolleranza dei criteri di riparazione automatica impostato su 30 minuti.
+Nell'esempio seguente vengono abilitati i criteri di riparazione automatica durante la creazione di un nuovo set di scalabilità con *[AZ vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* . Creare innanzitutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con il periodo di tolleranza dei criteri di riparazione automatica impostato su 30 minuti.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-L'esempio precedente usa un servizio di bilanciamento del carico esistente e un probe di integrità per monitorare lo stato di integrità dell'applicazione delle istanze. Se invece si preferisce usare un'estensione per l'integrità dell'applicazione per il monitoraggio, è possibile creare un set di scalabilità, configurare l'estensione per l'integrità dell'applicazione e quindi abilitare i criteri di riparazione automatica dell'istanza usando il comando *AZ vmss Update*, come illustrato nella sezione successiva.
+L'esempio precedente usa un servizio di bilanciamento del carico esistente e un probe di integrità per monitorare lo stato di integrità dell'applicazione delle istanze. Se invece si preferisce usare un'estensione per l'integrità dell'applicazione per il monitoraggio, è possibile creare un set di scalabilità, configurare l'estensione per l'integrità dell'applicazione e quindi abilitare i criteri di riparazione automatica dell'istanza usando il comando *AZ vmss Update* , come illustrato nella sezione successiva.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Abilitazione dei criteri di riparazione automatica quando si aggiorna un set di scalabilità esistente
 
@@ -169,12 +169,12 @@ Dopo aver aggiornato il modello di un set di scalabilità esistente, verificare 
 È possibile modificare i criteri di riparazione automatica di un set di scalabilità esistente tramite il portale di Azure. 
  
 1. Passare a un set di scalabilità di macchine virtuali esistente.
-1. In **Impostazioni** nel menu a sinistra selezionare **stato e ripristina**.
+1. In **Impostazioni** nel menu a sinistra selezionare **stato e ripristina** .
 1. Abilitare l'opzione **Monitoraggio integrità applicazione** .
 1. Individuare la sezione **criteri di ripristino automatico** .
 1. Attivare l'opzione **di** **Ripristino automatico** .
 1. In **periodo di tolleranza (min)** specificare il periodo di tolleranza in minuti. i valori consentiti sono compresi tra 30 e 90 minuti. 
-1. Al termine, selezionare **Salva**. 
+1. Al termine, selezionare **Salva** . 
 
 ### <a name="rest-api"></a>API REST
 
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Di seguito è riportato un esempio per aggiornare i criteri di ripristino automatico delle istanze di un set di scalabilità esistente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Di seguito è riportato un esempio per aggiornare i criteri di ripristino automatico delle istanze di un set di scalabilità esistente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* .
 
 ```azurecli-interactive
 az vmss update \  
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>API REST 
 
-Usare [ottenere la visualizzazione dell'istanza](/rest/api/compute/virtualmachinescalesets/getinstanceview) con l'API versione 2019-12-01 o successiva per il set di scalabilità di macchine virtuali per visualizzare la *serviceState* per le riparazioni automatiche nella proprietà *orchestrationServices*. 
+Usare [ottenere la visualizzazione dell'istanza](/rest/api/compute/virtualmachinescalesets/getinstanceview) con l'API versione 2019-12-01 o successiva per il set di scalabilità di macchine virtuali per visualizzare la *serviceState* per le riparazioni automatiche nella proprietà *orchestrationServices* . 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -309,7 +309,7 @@ L'istanza potrebbe essere nel periodo di tolleranza. Si tratta dell'intervallo d
 
 **Visualizzazione dello stato di integrità dell'applicazione per istanze del set di scalabilità**
 
-È possibile usare l' [API visualizzazione dell'istanza](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) per le istanze in un set di scalabilità di macchine virtuali per visualizzare lo stato di integrità dell'applicazione. Con Azure PowerShell, è possibile usare il cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) con il flag *-InstanceView* . Lo stato di integrità dell'applicazione viene fornito sotto la proprietà *vmHealth*.
+È possibile usare l' [API visualizzazione dell'istanza](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) per le istanze in un set di scalabilità di macchine virtuali per visualizzare lo stato di integrità dell'applicazione. Con Azure PowerShell, è possibile usare il cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) con il flag *-InstanceView* . Lo stato di integrità dell'applicazione viene fornito sotto la proprietà *vmHealth* .
 
 Nella portale di Azure è possibile visualizzare anche lo stato di integrità. Passare a un set di scalabilità esistente, selezionare **istanze** dal menu a sinistra ed esaminare la colonna **stato** di integrità per lo stato di integrità di ogni istanza del set di scalabilità. 
 
