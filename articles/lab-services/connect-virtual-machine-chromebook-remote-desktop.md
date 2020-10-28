@@ -6,29 +6,29 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445662"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892231"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Connettersi a una macchina virtuale con Remote Desktop Protocol in un Chromebook
 Questa sezione illustra come uno studente può connettersi a una macchina virtuale di un lab per le classi da un Chromebook usando Remote Desktop Protocol (RDP).
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Installare Desktop remoto Microsoft in un Chromebook
-1. Aprire l'App Store nel Chromebook e cercare **Desktop remoto Microsoft**.
+1. Aprire l'App Store nel Chromebook e cercare **Desktop remoto Microsoft** .
 
     ![Desktop remoto Microsoft](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
 1. Installare la versione più recente di Desktop remoto Microsoft. 
 
 ## <a name="access-the-vm-from-your-chromebook-using-rdp"></a>Accedere alla macchina virtuale dal Chromebook usando RDP
-1. Aprire il file **RDP** scaricato nel computer in cui è installato **Desktop remoto Microsoft**. Dovrebbe iniziare a connettersi alla macchina virtuale. 
+1. Aprire il file **RDP** scaricato nel computer in cui è installato **Desktop remoto Microsoft** . Dovrebbe iniziare a connettersi alla macchina virtuale. 
 
     ![Connettersi alla macchina virtuale](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Quando viene richiesto, immettere la password.
-    ![Connettersi a una macchina virtuale](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Screenshot che mostra la schermata di accesso in cui immettere il nome utente e la password.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. Selezionare **Continua** se viene visualizzato il seguente avviso. 

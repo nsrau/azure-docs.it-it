@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c67ff71ccc7690fbf3362b423ba4b6a56091684
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713182"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891245"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -29,19 +29,19 @@ Microsoft ISV partner Network estende le funzionalità della soluzione per facil
 
 | Partner ISV | Procedure dettagliate per la descrizione e l'integrazione  |
 | :--- | :--- |
-| ![Logo](./media/partner-gallery/arkose-logo.png) | [Arcose Labs](./partner-arkose-labs.md) è un provider di soluzioni per la prevenzione delle frodi che consente alle organizzazioni di proteggersi da attacchi bot, attacchi di acquisizione di account e aperture fraudolente degli account.
-| ![Logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) è un provider di verifica dell'identità e di correzione che esegue valutazioni del rischio in base agli attributi dell'utente per prevenire le frodi.|
-| ![Logo](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) è un vero e proprio provider di autenticazione senza password, che sostituisce le password con crittografia a chiave pubblica, eliminando la frode, il phishing e il riutilizzo delle credenziali.|
-| ![Logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) è un provider di verifica dell'identità e di correzione con soluzioni di verifica ID, soluzioni per la prevenzione di frodi, soluzioni di conformità e altro ancora.|
-| ![Logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) è una soluzione di identificazione digitale conforme ai servizi di identificazione, autenticazione e attendibilità (eiDAS) per consentire agli utenti di accedere in modo sicuro senza lettori di schede, password, autenticazione a due fattori e codici pin multipli. |
-| ![Logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |
-| ![Logo](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) è un provider di convalida dell'identità e di profilatura che verifica l'identificazione dell'utente e fornisce una valutazione completa dei rischi in base al dispositivo dell'utente. |
-| ![Logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) è un ID documento e una soluzione di verifica biometria facciale che consente alle aziende di soddisfare i requisiti dei *clienti* e delle identità in tempo reale.  |
-| ![Logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) cloud-native Platform usa l'analisi intelligente e fornisce l'integrazione tra applicazioni per semplificare la modernizzazione it e promuovere una migliore sicurezza, governance e conformità. La modernizzazione aziendale cambia il modo in cui le aziende verificano le richieste di accesso, le verifiche di accesso, le analisi dei report e semplificano le campagne di certificazione.  |
-| ![Logo](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali.|
-| ![Logo](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite la password monouso (OTP) SMS, la password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per la direttiva 2 (PSD2) dei servizi di pagamento.|
-| ![Logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) è un provider di verifica dell'identità e di correzione basato sul modello di digitazione degli utenti, fornisce soluzioni di verifica dell'ID che forzano l'autenticazione a più fattori e contribuisce a conformarsi ai requisiti SCA per la direttiva 2 (PSD2) di Payment Services. |
-| ![Logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) è un'applicazione con un sistema di gestione delle identità personalizzato che consente alle organizzazioni di verificare la propria base di utenti tramite voce, SMS e posta elettronica. 
+| ![Screenshot di un logo di Arkos Labs.](./media/partner-gallery/arkose-logo.png) | [Arcose Labs](./partner-arkose-labs.md) è un provider di soluzioni per la prevenzione delle frodi che consente alle organizzazioni di proteggersi da attacchi bot, attacchi di acquisizione di account e aperture fraudolente degli account.
+| ![Screenshot di un logo Experian.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) è un provider di verifica dell'identità e di correzione che esegue valutazioni del rischio in base agli attributi dell'utente per prevenire le frodi.|
+| ![Screenshot di un logo HYPR.](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) è un vero e proprio provider di autenticazione senza password, che sostituisce le password con crittografia a chiave pubblica, eliminando la frode, il phishing e il riutilizzo delle credenziali.|
+| ![Screenshot di un logo IDology.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) è un provider di verifica dell'identità e di correzione con soluzioni di verifica ID, soluzioni per la prevenzione di frodi, soluzioni di conformità e altro ancora.|
+| ![Screenshot di un logo itsme.](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) è una soluzione di identificazione digitale conforme ai servizi di identificazione, autenticazione e attendibilità (eiDAS) per consentire agli utenti di accedere in modo sicuro senza lettori di schede, password, autenticazione a due fattori e codici pin multipli. |
+| ![Screenshot di un logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |
+| ![Screenshot di un logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) è un provider di convalida dell'identità e di profilatura che verifica l'identificazione dell'utente e fornisce una valutazione completa dei rischi in base al dispositivo dell'utente. |
+| ![Screenshot di un logo onfido.](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) è un ID documento e una soluzione di verifica biometria facciale che consente alle aziende di soddisfare i requisiti dei *clienti* e delle identità in tempo reale.  |
+| ![Screenshot di un logo Saviynt.](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) cloud-native Platform usa l'analisi intelligente e fornisce l'integrazione tra applicazioni per semplificare la modernizzazione it e promuovere una migliore sicurezza, governance e conformità. La modernizzazione aziendale cambia il modo in cui le aziende verificano le richieste di accesso, le verifiche di accesso, le analisi dei report e semplificano le campagne di certificazione.  |
+| ![Screenshot di un logo Trusona.](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali.|
+| ![Screenshot di un logo Twilio Verify app.](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite la password monouso (OTP) SMS, la password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per la direttiva 2 (PSD2) dei servizi di pagamento.|
+| ![Screenshot che mostra un logo TypingDNA.](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) è un provider di verifica dell'identità e di correzione basato sul modello di digitazione degli utenti, fornisce soluzioni di verifica dell'ID che forzano l'autenticazione a più fattori e contribuisce a conformarsi ai requisiti SCA per la direttiva 2 (PSD2) di Payment Services. |
+| ![Screenshot che mostra un logo WhoIAM.](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) è un'applicazione con un sistema di gestione delle identità personalizzato che consente alle organizzazioni di verificare la propria base di utenti tramite voce, SMS e posta elettronica. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

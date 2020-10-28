@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ecefac68a4348eeae23860d542f949b1c7ff23a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890701"
 ---
 # <a name="get-shape-data"></a>Ottenere i dati della forma
 
-Questo articolo illustra come ottenere dati di forme disegnate sulla mappa. Si usa la funzione **drawingManager. GetSource ()** all'interno di [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Esistono diversi scenari in cui si desidera estrarre i dati GeoJSON di una forma disegnata e utilizzarli altrove.  
+Questo articolo illustra come ottenere dati di forme disegnate sulla mappa. Si usa la funzione **drawingManager. GetSource ()** all'interno di [Drawing Manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Esistono diversi scenari in cui si desidera estrarre i dati GeoJSON di una forma disegnata e utilizzarli altrove.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Recupera dati dalla forma disegnata
@@ -54,10 +54,10 @@ Vedere le informazioni su come usare le funzionalità aggiuntive del modulo stru
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Gestione disegno](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Barra degli strumenti disegno](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

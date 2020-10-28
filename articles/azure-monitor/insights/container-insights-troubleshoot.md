@@ -3,12 +3,12 @@ title: Come risolvere i problemi di Monitoraggio di Azure per contenitori | Micr
 description: Questo articolo illustra come individuare e risolvere i problemi con Monitoraggio di Azure per contenitori.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092831"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890361"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
 
@@ -23,9 +23,9 @@ Durante il processo di onboarding o di aggiornamento, viene effettuato un tentat
 È anche possibile concedere manualmente questo ruolo dal portale di Azure attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **Kubernetes**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Azure Kubernetes**.
+2. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **Kubernetes** . Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Azure Kubernetes** .
 3. Nell'elenco dei cluster Kubernetes selezionarne uno dall'elenco.
-2. Nel menu a sinistra fare clic su **controllo di accesso (IAM)**.
+2. Nel menu a sinistra fare clic su **controllo di accesso (IAM)** .
 3. Selezionare **+ Aggiungi** per aggiungere un'assegnazione di ruolo e selezionare il ruolo **server di pubblicazione metriche di monitoraggio** e nella casella di **selezione** digitare **AKS** per filtrare i risultati solo nelle entità servizio del cluster definite nella sottoscrizione. Selezionare quello nell'elenco specifico del cluster.
 4. Selezionare **Salva** per completare l'assegnazione del ruolo.
 
@@ -92,7 +92,7 @@ La tabella seguente riepiloga gli errori noti che è possibile si verifichino du
 | Messaggio di errore `Error retrieving data` | Mentre il cluster di servizi Kubernetes di Azure è configurato per il monitoraggio dello stato e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro di Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata. Controllare se l'area di lavoro è stata eliminata e, in tal caso, è necessario abilitare di nuovo il monitoraggio del cluster con monitoraggio di Azure per i contenitori e specificare un'area di lavoro esistente o crearne una nuova. Per abilitare nuovamente, è necessario [disabilitare](container-insights-optout.md) il monitoraggio per il cluster e [abilitare](container-insights-enable-new-cluster.md) di nuovo monitoraggio di Azure per i contenitori. |
 | `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando si Abilita il monitoraggio usando `az aks cli` , monitoraggio di Azure per i contenitori potrebbe non essere distribuito correttamente. Controllare se la soluzione è stata distribuita. Per verificare, passare all'area di lavoro di Log Analytics e verificare se la soluzione è disponibile selezionando **soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md) |
 
-Per eseguire la diagnosi del problema, è disponibile uno script di risoluzione dei problemi [qui](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
+Per facilitare la diagnosi del problema, è stato fornito uno [script per la risoluzione dei problemi](https://aka.ms/troubleshooting-script).
 
 ## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Il monitoraggio di Azure per i pod ReplicaSet dell'agente contenitori non è pianificato in un cluster Kubernetes non Azure
 
@@ -112,7 +112,7 @@ Il monitoraggio di Azure per i contenitori dell'agente di contenitori usa l'endp
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Il cluster Kubernetes non Azure non viene visualizzato in monitoraggio di Azure per i contenitori
 
-Per visualizzare il cluster non Azure Kubernetes in monitoraggio di Azure per i contenitori, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights (*area di lavoro*)**.
+Per visualizzare il cluster non Azure Kubernetes in monitoraggio di Azure per i contenitori, è necessario l'accesso in lettura nell'area di lavoro Log Analytics che supporta questa informazione e nella risorsa della soluzione contenitore Insights **ContainerInsights ( *area di lavoro* )** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

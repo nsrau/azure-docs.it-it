@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8450fbd5287c88431f21753a9c88e8603455f844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310425"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890978"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
 Questo articolo illustra come sovrapporre un livello sezione sulla mappa. I livelli riquadro consentono di sovrapporre immagini sopra i riquadri mappa di base in Mappe di Azure. Per altre informazioni sul sistema di affiancamento delle mappe di Azure, vedere [livelli di zoom e griglia dei riquadri](zoom-levels-and-tile-grid.md).
 
-Un livello sezione viene caricato in riquadri da un server. Queste immagini possono essere pre-renderizzate o sottoposte a rendering dinamico. Le immagini con rendering preliminare vengono archiviate come qualsiasi altra immagine in un server utilizzando una convenzione di denominazione riconosciuta dal livello sezione. Le immagini sottoposte a rendering dinamico usano un servizio per caricare le immagini quasi in tempo reale. Sono supportate tre diverse convenzioni di denominazione del servizio affiancate dalla classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) di Azure Maps: 
+Un livello sezione viene caricato in riquadri da un server. Queste immagini possono essere pre-renderizzate o sottoposte a rendering dinamico. Le immagini con rendering preliminare vengono archiviate come qualsiasi altra immagine in un server utilizzando una convenzione di denominazione riconosciuta dal livello sezione. Le immagini sottoposte a rendering dinamico usano un servizio per caricare le immagini quasi in tempo reale. Sono supportate tre diverse convenzioni di denominazione del servizio affiancate dalla classe [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) di Azure Maps: 
 
 * X, Y, notazione zoom-X è la colonna, Y è la posizione della riga del riquadro nella griglia affiancata e la notazione di zoom un valore in base al livello di zoom.
 * Notazione quadkey: combina le informazioni x, y e zoom in un unico valore stringa. Questo valore stringa diventa un identificatore univoco per un singolo riquadro.
 * Rettangolo di delimitazione: specificare un'immagine nel formato delle coordinate del rettangolo di delimitazione: `{west},{south},{east},{north}` . Questo formato viene comunemente usato da [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) è un ottimo modo per visualizzare grandi set di dati sulla mappa. Non solo è possibile generare un livello sezione da un'immagine. anche i dati vettoriali possono essere visualizzati come livello sezione. Eseguendo il rendering dei dati vettoriali come livello sezione, il controllo mappa deve caricare solo i riquadri più piccoli nelle dimensioni dei file rispetto ai dati vettoriali che rappresentano. Questa tecnica viene comunemente usata per eseguire il rendering di milioni di righe di dati sulla mappa.
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) è un ottimo modo per visualizzare grandi set di dati sulla mappa. Non solo è possibile generare un livello sezione da un'immagine. anche i dati vettoriali possono essere visualizzati come livello sezione. Eseguendo il rendering dei dati vettoriali come livello sezione, il controllo mappa deve caricare solo i riquadri più piccoli nelle dimensioni dei file rispetto ai dati vettoriali che rappresentano. Questa tecnica viene comunemente usata per eseguire il rendering di milioni di righe di dati sulla mappa.
 
 L'URL del riquadro passato a un livello sezione deve essere un URL http o HTTPS per una risorsa TileJSON o un modello di URL di riquadro che usa i parametri seguenti: 
 
@@ -74,10 +74,10 @@ La classe del livello sezione presenta molte opzioni di stile. Lo strumento segu
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+> [TileLayerOptions](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 

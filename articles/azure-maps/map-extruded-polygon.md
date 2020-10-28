@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310255"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890769"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Aggiungere un livello di estrusione poligono alla mappa
 
-Questo articolo illustra come usare il livello di estrusione poligono per eseguire il rendering delle aree `Polygon` e delle `MultiPolygon` geometrie delle funzionalità come forme estruse. Azure Maps Web SDK supporta il rendering delle geometrie del cerchio come definito nello [schema GeoJSON esteso](extend-geojson.md#circle). Questi cerchi possono essere trasformati in poligoni quando vengono sottoposti a rendering sulla mappa. Tutte le geometrie della funzionalità possono essere aggiornate facilmente quando viene eseguito il wrapped con l' [Atlante. Classe Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) .
+Questo articolo illustra come usare il livello di estrusione poligono per eseguire il rendering delle aree `Polygon` e delle `MultiPolygon` geometrie delle funzionalità come forme estruse. Azure Maps Web SDK supporta il rendering delle geometrie del cerchio come definito nello [schema GeoJSON esteso](extend-geojson.md#circle). Questi cerchi possono essere trasformati in poligoni quando vengono sottoposti a rendering sulla mappa. Tutte le geometrie della funzionalità possono essere aggiornate facilmente quando viene eseguito il wrapped con l' [Atlante. Classe Shape](/javascript/api/azure-maps-control/atlas.shape) .
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Usare un livello di estrusione poligono
 
-Connettere il [livello di estrusione poligono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un'origine dati. Quindi, è stato caricato sulla mappa. Il livello di estrusione poligono esegue il rendering delle aree di un `Polygon` e delle `MultiPolygon` funzionalità come forme estruse. Le  `height` `base` proprietà e del livello di estrusione poligono definiscono la distanza di base dalla superficie e dall'altezza della forma estrusa in **metri**. Il codice seguente illustra come creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering usando la classe del livello di estrusione poligono.
+Connettere il [livello di estrusione poligono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un'origine dati. Quindi, è stato caricato sulla mappa. Il livello di estrusione poligono esegue il rendering delle aree di un `Polygon` e delle `MultiPolygon` funzionalità come forme estruse. Le  `height` `base` proprietà e del livello di estrusione poligono definiscono la distanza di base dalla superficie e dall'altezza della forma estrusa in **metri** . Il codice seguente illustra come creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering usando la classe del livello di estrusione poligono.
 
 > [!Note]
 > Il `base` valore definito nel livello di estrusione poligono deve essere minore o uguale a quello di `height` .
@@ -45,7 +45,7 @@ Vedere la <a href='https://codepen.io/azuremaps/pen/eYYYNox'>mappa choropleth di
 
 ## <a name="add-a-circle-to-the-map"></a>Aggiungere un cerchio alla mappa
 
-Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi come indicato [qui](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). È possibile eseguire il rendering di un cerchio estruso sulla mappa creando una `point` funzionalità con una `subType` proprietà di `Circle` e una proprietà numerata `Radius` che rappresenta il raggio in **metri**. Ad esempio:
+Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi come indicato [qui](./extend-geojson.md#circle). È possibile eseguire il rendering di un cerchio estruso sulla mappa creando una `point` funzionalità con una `subType` proprietà di `Circle` e una proprietà numerata `Radius` che rappresenta il raggio in **metri** . Esempio:
 
 ```javascript
 {
@@ -83,10 +83,10 @@ Il livello di estrusione poligono presenta diverse opzioni di stile. Lo strument
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [livello estrusione poligono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [livello estrusione poligono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Risorse aggiuntive:
 

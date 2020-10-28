@@ -3,12 +3,12 @@ title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i con
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994434"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890463"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
@@ -16,14 +16,12 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avan
 
 ## <a name="supported-configurations"></a>Configurazioni supportate
 
-Le configurazioni seguenti sono ufficialmente supportate con monitoraggio di Azure per i contenitori.
+Le configurazioni seguenti sono ufficialmente supportate con monitoraggio di Azure per i contenitori. Se si dispone di una versione diversa di Kubernetes e versioni del sistema operativo, inviare un messaggio di posta elettronica a askcoin@microsoft.com .
 
 - Ambienti
 
     - Kubernetes locale
-    
-    - Motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - Motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versione 4 e successive, in locale o in altri ambienti cloud.
 
 - Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md).
@@ -110,7 +108,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di Log
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Copiare il valore per **SubscriptionId**.
+    Copiare il valore per **SubscriptionId** .
 
 2. Passare alla sottoscrizione che ospita l'area di lavoro Log Analytics usando il comando seguente:
 
@@ -124,7 +122,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di Log
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
+    Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID** campo.
 
 4. Copiare e incollare nel file la sintassi JSON seguente:
 
@@ -204,7 +202,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di Log
     }
     ```
 
-7. Modificare i valori per **workspaceResourceId** usando il valore copiato nel passaggio 3 e per **workspaceRegion** copiare il valore **Region** dopo l'esecuzione del comando dell'interfaccia della riga di comando di Azure [AZ monitor log-Analytics Workspace Show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Modificare i valori per **workspaceResourceId** usando il valore copiato nel passaggio 3 e per **workspaceRegion** copiare il valore **Region** dopo l'esecuzione del comando dell'interfaccia della riga di comando di Azure [AZ monitor log-Analytics Workspace Show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Salvare il file come containerSolutionParams.jsin una cartella locale.
 
@@ -260,13 +258,13 @@ In questa sezione si installa l'agente in contenitori per monitoraggio di Azure 
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    Nell'output trovare il nome dell'area di lavoro sotto il **nome**del campo, quindi copiare l'ID dell'area di lavoro log Analytics nel campo **CustomerID**.
+    Nell'output trovare il nome dell'area di lavoro sotto il **nome** del campo, quindi copiare l'ID dell'area di lavoro log Analytics nel campo **CustomerID** .
 
 2. Eseguire il comando seguente per identificare la chiave primaria per l'area di lavoro:
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    Nell'output trovare la chiave primaria nel campo **primarySharedKey**, quindi copiare il valore.
+    Nell'output trovare la chiave primaria nel campo **primarySharedKey** , quindi copiare il valore.
 
 >[!NOTE]
 >I comandi seguenti sono applicabili solo per Helm versione 2. L'uso del `--name` parametro non è applicabile con Helm versione 3. 
@@ -277,14 +275,14 @@ In questa sezione si installa l'agente in contenitori per monitoraggio di Azure 
 3. Aggiungere il repository dei grafici di Azure all'elenco locale eseguendo il comando seguente:
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. Installare il grafico eseguendo il comando seguente:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     Se l'area di lavoro Log Analytics è in Azure Cina 21Vianet, eseguire il comando seguente:
@@ -305,7 +303,7 @@ In questa sezione si installa l'agente in contenitori per monitoraggio di Azure 
 
 È possibile specificare un addon nel file JSON della specifica del cluster del motore AKS, noto anche come modello API. In questo addon fornire la versione con codifica Base64 di `WorkspaceGUID` e `WorkspaceKey` dell'area di lavoro log Analytics in cui sono archiviati i dati di monitoraggio raccolti. È possibile trovare `WorkspaceGUID` e `WorkspaceKey` usando i passaggi 1 e 2 della sezione precedente.
 
-Le definizioni API supportate per il cluster di hub Azure Stack sono disponibili in questo esempio: [kubernetes-container-monitoring_existing_workspace_id_and_key.jssu](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). In particolare, trovare la proprietà **addons** in **kubernetesConfig**:
+Le definizioni API supportate per il cluster di hub Azure Stack sono disponibili in questo esempio: [kubernetes-container-monitoring_existing_workspace_id_and_key.jssu](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). In particolare, trovare la proprietà **addons** in **kubernetesConfig** :
 
 ```json
 "orchestratorType": "Kubernetes",
@@ -349,13 +347,13 @@ Il valore di configurazione proxy ha la sintassi seguente: `[protocol://][user:p
 |proxyhost | Indirizzo o FQDN del server proxy |
 |port | Numero di porta facoltativo per il server proxy |
 
-Ad esempio: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+ad esempio `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-Se si specifica il protocollo come **http**, le richieste HTTP vengono create usando la connessione protetta SSL/TLS. Il server proxy deve supportare i protocolli SSL/TLS.
+Se si specifica il protocollo come **http** , le richieste HTTP vengono create usando la connessione protetta SSL/TLS. Il server proxy deve supportare i protocolli SSL/TLS.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si verifica un errore durante il tentativo di abilitare il monitoraggio per il cluster Kubernetes ibrido, copiare lo script di PowerShell [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e salvarlo in una cartella nel computer. Questo script viene fornito per facilitare il rilevamento e la risoluzione dei problemi rilevati. Di seguito sono riportati i problemi che è stato progettato per rilevare e tentare la correzione:
+Se si verifica un errore durante il tentativo di abilitare il monitoraggio per il cluster Kubernetes ibrido, copiare lo script di PowerShell [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) e salvarlo in una cartella nel computer. Questo script viene fornito per facilitare il rilevamento e la risoluzione dei problemi rilevati. Di seguito sono riportati i problemi che è stato progettato per rilevare e tentare la correzione:
 
 - L'area di lavoro Log Analytics specificata è valida
 - L'area di lavoro Log Analytics è configurata con la soluzione monitoraggio di Azure per contenitori. In caso contrario, configurare l'area di lavoro.

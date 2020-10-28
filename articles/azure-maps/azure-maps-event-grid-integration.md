@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036811"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889767"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Rispondere agli eventi di Mappe di Azure con Griglia di eventi
 
 Azure Maps si integra con griglia di eventi di Azure, in modo che gli utenti possano inviare notifiche degli eventi ad altri servizi e attivare processi downstream. Lo scopo di questo articolo è semplificare la configurazione delle applicazioni aziendali per l'ascolto degli eventi di Azure maps. Ciò consente agli utenti di rispondere a eventi critici in modo affidabile, scalabile e sicuro. Ad esempio, gli utenti possono compilare un'applicazione per aggiornare un database, creare un ticket e recapitare una notifica di posta elettronica, ogni volta che un dispositivo immette una rete perimetrale.
 
-Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi offre supporto incorporato per alcuni servizi di Azure, ad esempio [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [App per la logica di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi offre supporto incorporato per alcuni servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../azure-functions/functions-overview.md). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
 
 ![Modello funzionale di Griglia di eventi di Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -28,7 +28,7 @@ Griglia di eventi di Azure è un servizio di routing di eventi completamente ges
 
 ## <a name="azure-maps-events-types"></a>Tipi di eventi di Mappe di Azure
 
-Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Un account di Mappe di Azure genera i tipi di eventi seguenti: 
+Griglia di eventi usa le [sottoscrizioni di eventi](../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Un account di Mappe di Azure genera i tipi di eventi seguenti: 
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |

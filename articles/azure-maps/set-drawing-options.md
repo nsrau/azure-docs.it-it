@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b40dbd91357038d1e98b04628bd866ebb336381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328888"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890633"
 ---
 # <a name="use-the-drawing-tools-module"></a>Usare il modulo Strumenti di disegno
 
-Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo consente di creare e modificare facilmente forme sulla mappa usando un dispositivo di input, ad esempio un mouse o un touchscreen. La classe principale di questo modulo è [gestione del disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Il gestore di disegno offre tutte le funzionalità necessarie per disegnare e modificare forme sulla mappa. Può essere usato direttamente ed è integrato con un'interfaccia utente personalizzata della barra degli strumenti. È anche possibile usare la classe della [barra degli strumenti di disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporata. 
+Azure Maps Web SDK fornisce un *modulo di strumenti di disegno* . Questo modulo consente di creare e modificare facilmente forme sulla mappa usando un dispositivo di input, ad esempio un mouse o un touchscreen. La classe principale di questo modulo è [gestione del disegno](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Il gestore di disegno offre tutte le funzionalità necessarie per disegnare e modificare forme sulla mappa. Può essere usato direttamente ed è integrato con un'interfaccia utente personalizzata della barra degli strumenti. È anche possibile usare la classe della [barra degli strumenti di disegno](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporata. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Caricamento del modulo strumenti di disegno in una pagina Web
 
-1. Creare un nuovo file HTML e [implementare la mappa come di consueto](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+1. Creare un nuovo file HTML e [implementare la mappa come di consueto](./how-to-use-map-control.md).
 2. Caricare il modulo Azure Maps Drawing Tools. È possibile caricarlo in uno dei due modi seguenti:
     - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento al foglio di stile CSS e JavaScript nell' `<head>` elemento del file:
 
@@ -44,7 +44,7 @@ Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo c
 
 ## <a name="use-the-drawing-manager-directly"></a>Usare direttamente gestione disegno
 
-Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o usare la funzione in alternativa `drawingManager.setOptions()` .
+Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o usare la funzione in alternativa `drawingManager.setOptions()` .
 
 ### <a name="set-the-drawing-mode"></a>Impostare la modalità di disegno
 
@@ -122,10 +122,10 @@ Vedere le informazioni su come usare le funzionalità aggiuntive del modulo stru
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Gestione disegno](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Barra degli strumenti disegno](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

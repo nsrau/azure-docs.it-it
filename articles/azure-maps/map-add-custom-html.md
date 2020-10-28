@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 25ed41be53c114c258e5c63437ff2b5df875af75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310731"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891194"
 ---
 # <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
 Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esempio un file di immagine, alla mappa come indicatore HTML.
 
 > [!NOTE]
-> Gli indicatore HTML non si connettono alle origini dati. Le informazioni sulla posizione sono invece aggiunte direttamente all'indicatore, il quale viene aggiunto alla proprietà `markers` delle mappe, un [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
+> Gli indicatore HTML non si connettono alle origini dati. Le informazioni sulla posizione sono invece aggiunte direttamente all'indicatore, il quale viene aggiunto alla proprietà `markers` delle mappe, un [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
 
 > [!IMPORTANT]
 > A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, più si aggiungono indicatori HTML a una pagina, più saranno disponibili elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
 
 ## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
 
-La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe HtmlMarker è un modello SVG con un segnaposto `{color}` e `{text}`. Configurare le proprietà di colore e testo nelle opzioni dell'indicatore HTML per una rapida personalizzazione. 
+La classe [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe HtmlMarker è un modello SVG con un segnaposto `{color}` e `{text}`. Configurare le proprietà di colore e testo nelle opzioni dell'indicatore HTML per una rapida personalizzazione. 
 
 Il codice seguente crea un indicatore HTML e imposta la proprietà del colore su "DodgerBlue" e la proprietà del testo su "10". All'indicatore viene associato un popup e, per attivare la visibilità del popup, viene usato l'evento `click`.
 
@@ -103,13 +103,13 @@ Questi esempi illustrano come aggiungere eventi mouse-and-drag a un marcatore HT
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+> [HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
+> [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 

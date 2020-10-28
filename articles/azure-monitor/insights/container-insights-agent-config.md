@@ -3,12 +3,12 @@ title: Configurare monitoraggio di Azure per la raccolta dati degli agenti di co
 description: Questo articolo descrive come configurare l'agente di monitoraggio di Azure per i contenitori per controllare la raccolta di log delle variabili di ambiente e stdout/stderr.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320401"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890497"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per Monitoraggio di Azure per i contenitori
 
@@ -31,7 +31,7 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Nella tabella seguente vengono descritte le impostazioni che è possibile configurare per controllare la raccolta dei dati:
 
-| Chiave | Tipo di dati | Valore | Descrizione |
+| Chiave | Tipo di dati | valore | Description |
 |--|--|--|--|
 | `schema-version` | Stringa (maiuscole/minuscole) | v1 | Si tratta della versione dello schema utilizzata dall'agente<br> durante l'analisi di questo ConfigMap.<br> La versione dello schema attualmente supportata è V1.<br> La modifica di questo valore non è supportata e sarà<br> rifiutato quando viene valutato ConfigMap. |
 | `config-version` | string |  | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente.<br> I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
@@ -47,7 +47,7 @@ Nella tabella seguente vengono descritte le impostazioni che è possibile config
 
 La tabella seguente descrive le impostazioni che è possibile configurare per controllare la raccolta delle metriche:
 
-| Chiave | Tipo di dati | Valore | Descrizione |
+| Chiave | Tipo di dati | valore | Description |
 |--|--|--|--|
 | `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true o false | Questa impostazione consente di raccogliere le metriche di utilizzo del volume permanente (PV) nello spazio dei nomi Kube-System. Per impostazione predefinita, le metriche di utilizzo per i volumi permanenti con attestazioni del volume permanenti nello spazio dei nomi Kube-System non vengono raccolte. Quando questa impostazione è impostata su `true` , vengono raccolte le metriche di utilizzo PV per tutti gli spazi dei nomi. Per impostazione predefinita, il parametro è impostato su `false`. |
 
@@ -57,7 +57,7 @@ ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'ag
 
 Per configurare e distribuire il file di configurazione ConfigMap nel cluster, seguire questa procedura.
 
-1. Scaricare il [modello CONFIGMAP YAML file](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) e salvarlo come container-AZM-MS-agentconfig. yaml. 
+1. Scaricare il [modello CONFIGMAP YAML file](https://aka.ms/container-azm-ms-agentconfig) e salvarlo come container-AZM-MS-agentconfig. yaml. 
 
    > [!NOTE]
    > Questo passaggio non è necessario quando si lavora con Azure Red Hat OpenShift perché il modello ConfigMap esiste già nel cluster.
@@ -101,7 +101,7 @@ Gli errori correlati all'applicazione delle modifiche di configurazione sono dis
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- Dalla tabella **KubeMonAgentEvents** nell'area di lavoro log Analytics. I dati vengono inviati ogni ora con gravità dell' *errore* per gli errori di configurazione. Se non sono presenti errori, la voce nella tabella avrà dati con *informazioni*di gravità, che non segnalano errori. La proprietà **Tags** contiene altre informazioni sul Pod e sull'ID contenitore in cui si è verificato l'errore, nonché la prima occorrenza, l'ultima occorrenza e il conteggio nell'ultima ora.
+- Dalla tabella **KubeMonAgentEvents** nell'area di lavoro log Analytics. I dati vengono inviati ogni ora con gravità dell' *errore* per gli errori di configurazione. Se non sono presenti errori, la voce nella tabella avrà dati con *informazioni* di gravità, che non segnalano errori. La proprietà **Tags** contiene altre informazioni sul Pod e sull'ID contenitore in cui si è verificato l'errore, nonché la prima occorrenza, l'ultima occorrenza e il conteggio nell'ultima ora.
 
 - Con Azure Red Hat OpenShift, controllare i log omsagent cercando la tabella **ContainerLog** per verificare se è abilitata la raccolta dei log di OpenShift-Azure-Logging.
 

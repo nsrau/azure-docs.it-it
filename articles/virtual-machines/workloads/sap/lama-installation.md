@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361365"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890480"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -93,7 +93,7 @@ Il connettore di Azure può usare un'entità servizio per autorizzare la Microso
 
 L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È quindi necessario concedere all'entità servizio le autorizzazioni di accesso.
 
-1. Passare a https://portal.azure.com.
+1. Passare a https://portal.azure.com
 1. Aprire il pannello Gruppi di risorse
 1. Selezionare il gruppo di risorse da usare
 1. Fare clic su Controllo di accesso (IAM)
@@ -109,7 +109,7 @@ Per poter usare un'identità gestita, è necessario che l'istanza di SAP LaMa ve
 
 Per impostazione predefinita, l'identità gestita non ha le autorizzazioni per accedere alle risorse di Azure. È necessario concedere le autorizzazioni per accedervi.
 
-1. Passare a https://portal.azure.com.
+1. Passare a https://portal.azure.com
 1. Aprire il pannello Gruppi di risorse
 1. Selezionare il gruppo di risorse da usare
 1. Fare clic su Controllo di accesso (IAM)
@@ -181,7 +181,7 @@ Creare una nuova macchina virtuale con uno dei sistemi operativi supportati per 
 
 Il database Oracle richiede dischi per /oracle, /home/oraod1 e /home/oracle.
 
-![Database Oracle su Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagramma che illustra un database Oracle in Linux e i dischi necessari.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Distribuzione manuale per Microsoft SQL Server
 
@@ -319,7 +319,7 @@ Nell'account NetApp il pool di capacità specifica le dimensioni e il tipo di di
 
 ![Pool di capacità NetApp di SAP LaMa creato ](media/lama/sap-lama-capacitypool-list.png)
 
-È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i montaggi seguenti: */sapmnt/ \<SID\> *, */usr/SAP/ \<SID\> *e */Home/ \<sid\> adm*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
+È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i montaggi seguenti: */sapmnt/ \<SID\>* , */usr/SAP/ \<SID\>* e */Home/ \<sid\> adm* . Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
 
 > [!NOTE]
 > Durante la fase BETA il nome dei volumi deve essere univoco all'interno della sottoscrizione.
@@ -447,9 +447,9 @@ Eseguire SWPM e usare *as1-ascs* per *ASCS Instance Host Name* (Nome host istanz
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Eseguire l'installazione dell'istanza di database di SWPM nella macchina virtuale di SQL Server. Usare SAPINST_USE_HOSTNAME=*as1-db* per ignorare il nome host usato per connettersi a SQL Server. Se si è distribuita la macchina virtuale usando il modello di Azure Resource Manager, assicurarsi di impostare la directory usata per i file di dati del database su *C:\sql\data* e quella per il file di log del database su *C:\sql\log*.
+Eseguire l'installazione dell'istanza di database di SWPM nella macchina virtuale di SQL Server. Usare SAPINST_USE_HOSTNAME= *as1-db* per ignorare il nome host usato per connettersi a SQL Server. Se si è distribuita la macchina virtuale usando il modello di Azure Resource Manager, assicurarsi di impostare la directory usata per i file di dati del database su *C:\sql\data* e quella per il file di log del database su *C:\sql\log* .
 
-Verificare che l'utente *NT AUTHORITY\SYSTEM* disponga dell'accesso a SQL Server e del ruolo server *sysadmin*. Per altre informazioni, vedere le note SAP [1877727] e [2562184].
+Verificare che l'utente *NT AUTHORITY\SYSTEM* disponga dell'accesso a SQL Server e del ruolo server *sysadmin* . Per altre informazioni, vedere le note SAP [1877727] e [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Installare il server applicazioni SAP NetWeaver
 

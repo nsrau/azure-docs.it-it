@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: c1968df19ebc62d47da77b0338d93ceb5f49f2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310527"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891160"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Aggiungere un livello linea alla mappa
 
@@ -23,7 +23,7 @@ Un livello linea può essere usato per eseguire il rendering delle funzionalità
 > [!TIP]
 > Per impostazione predefinita, i livelli linea eseguiranno il rendering delle coordinate dei poligoni e delle linee in un'origine dati. Per limitare il livello in modo che esegua solo il rendering delle funzionalità LineString, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]`, se si vuole includere anche le funzionalità MultiLineString.
 
-Il codice seguente illustra come creare una linea. Aggiungere la linea a un'origine dati e quindi eseguirne il rendering con un livello linea usando la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer).
+Il codice seguente illustra come creare una linea. Aggiungere la linea a un'origine dati e quindi eseguirne il rendering con un livello linea usando la classe [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -88,7 +88,7 @@ Per il livello linea sono disponibili varie opzioni di stile. Lo strumento segue
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 
+> [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 
 
 > [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 54a196cc8323e676dfb054a5fad260302833fa53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d0197a16c8074ce961c2b403724149929f566f7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090687"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890718"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visualizzare le indicazioni stradali da A a B
 
 Questo articolo illustra come effettuare una richiesta di pianificazione percorso e visualizzare il percorso sulla mappa.
 
-È possibile eseguire questa operazione in due modi. Il primo modo consiste nell'eseguire una query all'[API di pianificazione percorso di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) tramite un modulo del servizio. Il secondo consiste nell'usare l'[API Fetch](https://fetch.spec.whatwg.org/) per effettuare una richiesta di ricerca all'[API Route di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Entrambe le modalità vengono descritte di seguito.
+È possibile eseguire questa operazione in due modi. Il primo modo consiste nell'eseguire una query all'[API di pianificazione percorso di Mappe di Azure](/rest/api/maps/route/getroutedirections) tramite un modulo del servizio. Il secondo consiste nell'usare l'[API Fetch](https://fetch.spec.whatwg.org/) per effettuare una richiesta di ricerca all'[API Route di Mappe di Azure](/rest/api/maps/route/getroutedirections). Entrambe le modalità vengono descritte di seguito.
 
 ## <a name="query-the-route-via-service-module"></a>Eseguire una query del percorso tramite il modulo del servizio
 
@@ -29,21 +29,21 @@ Questo articolo illustra come effettuare una richiesta di pianificazione percors
 
 Nel codice precedente il primo blocco costruisce un oggetto mappa e imposta il meccanismo di autenticazione per l'uso del token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un oggetto `TokenCredential` per autenticare le richieste HTTP a Mappe di Azure con il token di accesso. Passa quindi `TokenCredential` a `atlas.service.MapsURL.newPipeline()` e crea un'istanza di [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
+Il secondo blocco di codice crea un oggetto `TokenCredential` per autenticare le richieste HTTP a Mappe di Azure con il token di accesso. Passa quindi `TokenCredential` a `atlas.service.MapsURL.newPipeline()` e crea un'istanza di [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](/rest/api/maps/route) di Mappe di Azure.
 
-Il terzo blocco di codice crea e aggiunge un oggetto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) alla mappa.
+Il terzo blocco di codice crea e aggiunge un oggetto [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) alla mappa.
 
-Il quarto blocco di codice crea due oggetti [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point) (uno iniziale e uno finale) e li aggiunge all'oggetto dataSource.
+Il quarto blocco di codice crea due oggetti [point](/javascript/api/azure-maps-control/atlas.data.point) (uno iniziale e uno finale) e li aggiunge all'oggetto dataSource.
 
-Una linea è un oggetto [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) per LineString. [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) esegue il rendering degli oggetti linea con wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) come linee sulla mappa. Il quarto blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions).
+Una linea è un oggetto [Feature](/javascript/api/azure-maps-control/atlas.data.feature) per LineString. [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) esegue il rendering degli oggetti linea con wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) come linee sulla mappa. Il quarto blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LinestringLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testi o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource). Il rendering dei testi o delle icone viene eseguito come simboli sulla mappa. Il quinto blocco di codice crea e aggiunge un livello simbolo alla mappa.
+Un [livello simbolo](/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testi o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource). Il rendering dei testi o delle icone viene eseguito come simboli sulla mappa. Il quinto blocco di codice crea e aggiunge un livello simbolo alla mappa.
 
-Il sesto blocco di codice esegue query sul servizio di pianificazione percorso di Mappe di Azure, che fa parte del [modulo del servizio](how-to-use-services-module.md). Il metodo [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#methods) di RouteURL viene usato per ottenere un percorso tra i punti iniziale e finale. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati. Viene quindi eseguito il rendering della risposta come un percorso sulla mappa. Per altre informazioni sull'aggiunta di una linea alla mappa, vedere [Aggiungere una linea](map-add-line-layer.md).
+Il sesto blocco di codice esegue query sul servizio di pianificazione percorso di Mappe di Azure, che fa parte del [modulo del servizio](how-to-use-services-module.md). Il metodo [calculateRouteDirections](/javascript/api/azure-maps-rest/atlas.service.routeurl#methods) di RouteURL viene usato per ottenere un percorso tra i punti iniziale e finale. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati. Viene quindi eseguito il rendering della risposta come un percorso sulla mappa. Per altre informazioni sull'aggiunta di una linea alla mappa, vedere [Aggiungere una linea](map-add-line-layer.md).
 
-L'ultimo blocco di codice imposta i limiti della mappa usando la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+L'ultimo blocco di codice imposta i limiti della mappa usando la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
 
-La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti della fotocamera vengono creati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). Questa struttura di codice assicura che i risultati vengano visualizzati solo dopo il caricamento completo della mappa.
+La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti della fotocamera vengono creati all'interno del [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events). Questa struttura di codice assicura che i risultati vengano visualizzati solo dopo il caricamento completo della mappa.
 
 ## <a name="query-the-route-via-fetch-api"></a>Eseguire query sul percorso tramite l'API Fetch
 
@@ -52,19 +52,19 @@ La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti de
 
 Nel codice precedente il primo blocco di codice costruisce un oggetto mappa e imposta il meccanismo di autenticazione per l'uso del token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea e aggiunge un oggetto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) alla mappa.
+Il secondo blocco di codice crea e aggiunge un oggetto [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) alla mappa.
 
-Il terzo blocco di codice crea i punti di inizio e di destinazione per il percorso e quindi li aggiunge all'origine dati. Per istruzioni sull'uso di [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map), è possibile vedere [Aggiungere i segnaposto alla mappa](map-add-pin.md).
+Il terzo blocco di codice crea i punti di inizio e di destinazione per il percorso e quindi li aggiunge all'origine dati. Per istruzioni sull'uso di [addPins](/javascript/api/azure-maps-control/atlas.map), è possibile vedere [Aggiungere i segnaposto alla mappa](map-add-pin.md).
 
-[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) esegue il rendering degli oggetti linea con wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) come linee sulla mappa. Il quarto blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions).
+[LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) esegue il rendering degli oggetti linea con wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) come linee sulla mappa. Il quarto blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa. Il quinto blocco di codice crea e aggiunge un livello simbolo alla mappa. Vedere le proprietà di un livello simbolo in [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions).
+Un [livello simbolo](/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa. Il quinto blocco di codice crea e aggiunge un livello simbolo alla mappa. Vedere le proprietà di un livello simbolo in [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
-Il blocco di codice successivo crea i punti `SouthWest` e `NorthEast` dai punti di inizio e di destinazione e imposta i limiti della mappa tramite la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+Il blocco di codice successivo crea i punti `SouthWest` e `NorthEast` dai punti di inizio e di destinazione e imposta i limiti della mappa tramite la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
 
-L'ultimo blocco di codice usa l'[API Fetch](https://fetch.spec.whatwg.org/) per effettuare una richiesta di ricerca all'[API Route di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). La risposta viene quindi analizzata. Se la risposta ha esito positivo, le informazioni di latitudine e longitudine vengono usate per creare una matrice, ovvero una linea, connettendo tali punti. I dati della linea vengono quindi aggiunti all'origine dati per eseguire il rendering del percorso sulla mappa. Per le istruzioni, è possibile vedere [add a line on the map](map-add-line-layer.md) (Aggiungere una linea sulla mappa).
+L'ultimo blocco di codice usa l'[API Fetch](https://fetch.spec.whatwg.org/) per effettuare una richiesta di ricerca all'[API Route di Mappe di Azure](/rest/api/maps/route/getroutedirections). La risposta viene quindi analizzata. Se la risposta ha esito positivo, le informazioni di latitudine e longitudine vengono usate per creare una matrice, ovvero una linea, connettendo tali punti. I dati della linea vengono quindi aggiunti all'origine dati per eseguire il rendering del percorso sulla mappa. Per le istruzioni, è possibile vedere [add a line on the map](map-add-line-layer.md) (Aggiungere una linea sulla mappa).
 
-La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti della fotocamera vengono creati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). Anche in questo caso, è necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
+La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti della fotocamera vengono creati all'interno del [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events). Anche in questo caso, è necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -74,7 +74,7 @@ La query sul percorso, l'origine dati, il simbolo, i livelli linea e i limiti de
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](/javascript/api/azure-maps-control/atlas.map)
 
 Per esempi di codice completi, vedere gli articoli seguenti:
 

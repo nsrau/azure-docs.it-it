@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119005"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892316"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Risolvere i problemi di connettività-griglia di eventi di Azure
 
@@ -22,7 +22,7 @@ Questo articolo fornisce suggerimenti per la risoluzione dei problemi di connett
 
 Se l'applicazione non è in grado di connettersi alla griglia di eventi, attenersi alla procedura descritta in questa sezione per risolvere il problema.
 
-### <a name="check-if-there-is-a-service-outage"></a>Controllare se è presente un'interruzione del servizio
+### <a name="check-if-theres-a-service-outage"></a>Controllare se è presente un'interruzione del servizio
 
 Verificare l'interruzione del servizio griglia di eventi di Azure nel [sito stato dei servizi di Azure](https://azure.microsoft.com/status/).
 
@@ -50,6 +50,8 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Quando si lavora con Azure, a volte è necessario consentire URL o intervalli di indirizzi IP specifici nel firewall o nel proxy aziendale per accedere a tutti i servizi di Azure in uso o che si sta tentando di usare. Verificare che il traffico sia consentito sugli indirizzi IP usati da griglia di eventi. Per gli indirizzi IP usati da griglia di eventi di Azure: vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) e [tag del servizio-AzureEventGrid](network-security.md#service-tags).
 
+Gli [intervalli IP di Azure e i tag di servizio-documento cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) elencano anche gli indirizzi IP **in base all'area** . È possibile consentire gli intervalli di indirizzi per l' **area dell'argomento** e l' **area abbinata** nel firewall o nel proxy aziendale. Per un'area abbinata per un'area, vedere [continuità aziendale e ripristino di emergenza (BCdR): aree abbinate di Azure](/azure/best-practices-availability-paired-regions). 
+
 > [!NOTE]
 > È possibile aggiungere nuovi indirizzi IP al tag del servizio AzureEventGrid, anche se non è usuale. Quindi, è opportuno eseguire un controllo settimanale sui tag del servizio.
 
@@ -63,13 +65,13 @@ Verificare che l'indirizzo IP pubblico del computer in cui è in esecuzione l'ap
 
 Per impostazione predefinita, gli argomenti/domini della griglia di eventi sono accessibili da Internet purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Le regole del firewall IP vengono applicate a livello di argomento/dominio di griglia di eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione da un indirizzo IP che non corrisponde a una regola IP consentita nell'argomento o dominio di griglia di eventi viene rifiutato come non consentito. Nella risposta non viene fatto riferimento alla regola IP.
+Le regole del firewall IP vengono applicate a livello di argomento/dominio di griglia di eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione da un indirizzo IP che non corrisponde a una regola IP consentita nell'argomento o dominio di griglia di eventi viene rifiutato come non consentito. La risposta non menziona la regola IP.
 
 Per altre informazioni, vedere [configurare le regole del firewall IP per un argomento/dominio di griglia di eventi di Azure](configure-firewall.md).
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Trovare gli indirizzi IP bloccati dal firewall IP
 
-Abilitare i log di diagnostica per l'argomento o il dominio di griglia di eventi [abilitare i log di diagnostica](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Viene visualizzato l'indirizzo IP per la connessione negata.
+Abilitare i log di diagnostica per l'argomento o il dominio di griglia di eventi [abilitare i log di diagnostica](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Verrà visualizzato l'indirizzo IP per la connessione negata.
 
 ```json
 {
@@ -83,7 +85,7 @@ Abilitare i log di diagnostica per l'argomento o il dominio di griglia di eventi
 
 ### <a name="check-if-the-eventgrid-topicdomain-can-be-accessed-using-only-a-private-endpoint"></a>Controllare se è possibile accedere all'argomento o al dominio EventGrid usando solo un endpoint privato
 
-Se l'argomento o il dominio di griglia di eventi è configurato per essere accessibile solo tramite endpoint privato, verificare che l'applicazione client acceda all'argomento o al dominio sull'endpoint privato. Per confermare questo problema, controllare se l'applicazione client è in esecuzione all'interno di una subnet ed esiste un endpoint privato per l'argomento o il dominio di griglia di eventi in tale subnet.
+Se l'argomento o il dominio di griglia di eventi è configurato per essere accessibile solo tramite endpoint privato, verificare che l'applicazione client acceda all'argomento o al dominio sull'endpoint privato. Per confermarlo, controllare se l'applicazione client è in esecuzione all'interno di una subnet ed è presente un endpoint privato per l'argomento o il dominio di griglia di eventi in tale subnet.
 
 Il [servizio di collegamento privato di Azure](../private-link/private-link-overview.md) consente di accedere a griglia di eventi di Azure tramite un **endpoint privato** nella rete virtuale. Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
