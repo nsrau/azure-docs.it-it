@@ -13,20 +13,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677665"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789795"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Eseguire una VM di SQL Server in un host dedicato di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo illustra in dettaglio le specifiche dell'uso di una VM di SQL Server con un [host dedicato di Azure](/azure/virtual-machines/windows/dedicated-hosts). Altre informazioni sull'host dedicato di Azure sono disponibili nel post di blog [Introduzione all'host dedicato di Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+Questo articolo illustra in dettaglio le specifiche dell'uso di una VM di SQL Server con un [host dedicato di Azure](../../../virtual-machines/dedicated-hosts.md). Altre informazioni sull'host dedicato di Azure sono disponibili nel post di blog [Introduzione all'host dedicato di Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Panoramica
-L'[host dedicato di Azure](/azure/virtual-machines/windows/dedicated-hosts) è un servizio che offre server fisici, in grado di ospitare una o più macchine virtuali, dedicati a una sottoscrizione di Azure. Gli host dedicati sono gli stessi server fisici usati nei data center di Microsoft, offerti come risorsa. È possibile effettuare il provisioning di host dedicati all'interno di un'area, di una zona di disponibilità e di un dominio di errore. In seguito è possibile inserire le VM direttamente negli host con provisioning, nella configurazione più adatta alle proprie esigenze.
+L'[host dedicato di Azure](../../../virtual-machines/dedicated-hosts.md) è un servizio che offre server fisici, in grado di ospitare una o più macchine virtuali, dedicati a una sottoscrizione di Azure. Gli host dedicati sono gli stessi server fisici usati nei data center di Microsoft, offerti come risorsa. È possibile effettuare il provisioning di host dedicati all'interno di un'area, di una zona di disponibilità e di un dominio di errore. In seguito è possibile inserire le VM direttamente negli host con provisioning, nella configurazione più adatta alle proprie esigenze.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -54,7 +54,7 @@ Opzioni a livello di host per l'uso di licenze di SQL Server esistenti:
 
 
 ## <a name="provisioning"></a>Provisioning  
-Il provisioning di una VM di SQL Server nell'host dedicato non è diverso da qualsiasi altra macchina virtuale di Azure. È possibile eseguirlo usando[Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), il [portale di Azure](../../../virtual-machines/windows/dedicated-hosts-portal.md) e l'[interfaccia della riga di comando di Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+Il provisioning di una VM di SQL Server nell'host dedicato non è diverso da qualsiasi altra macchina virtuale di Azure. È possibile eseguirlo usando[Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), il [portale di Azure](../../../virtual-machines/dedicated-hosts-portal.md) e l'[interfaccia della riga di comando di Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 Il processo di aggiunta di una VM di SQL Server esistente all'host dedicato richiede tempi di inattività, ma non influisce sui dati e non implica perdite di dati. Tuttavia, prima dello spostamento è necessario eseguire il backup di tutti i database, inclusi i database di sistema.
 
@@ -78,5 +78,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
 * [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
 * [Note sulla versione di SQL Server in una VM di Windows](doc-changes-updates-release-notes.md)
-
-

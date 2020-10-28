@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978357"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790628"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusi orari in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Quando si immettono i parametri per una nuova istanza, selezionare un fuso orari
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Specificare la proprietà timezoneId nel [modello di gestione risorse](https://aka.ms/sql-mi-create-arm-posh) per impostare il fuso orario durante la creazione dell'istanza.
+Specificare la proprietà timezoneId nel [modello di gestione risorse](./scripts/create-powershell-azure-resource-manager-template.md) per impostare il fuso orario durante la creazione dell'istanza.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 
 ## <a name="limitations"></a>Limitazioni
 
-- Il fuso orario dell'istanza gestita esistente non può essere modificato. Per risolvere il problema, creare una nuova istanza gestita con il fuso orario appropriato, quindi eseguire un backup manuale e un ripristino o quello che si consiglia di eseguire un [ripristino temporizzato tra istanze](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- Il fuso orario dell'istanza gestita esistente non può essere modificato. Per risolvere il problema, creare una nuova istanza gestita con il fuso orario appropriato, quindi eseguire un backup manuale e un ripristino o quello che si consiglia di eseguire un [ripristino temporizzato tra istanze](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - I processi esterni avviati dal SQL Server Agent processi non osservano il fuso orario dell'istanza.
 
 ## <a name="list-of-supported-time-zones"></a>Elenco di fusi orari supportati
@@ -243,7 +243,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620189"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791308"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91620189"
 
 Si desidera un esempio di codice completo per un modo affidabile per acquisire e segnalare informazioni per un evento esteso.
 
-In Microsoft SQL Server la [destinazione del file evento](https://msdn.microsoft.com/library/ff878115.aspx) viene utilizzata per archiviare l'output di eventi in un file di disco rigido locale. Tuttavia, tali file non sono disponibili per il database SQL di Azure. Invece, utilizziamo il servizio Archiviazione di Azure per supportare la destinazione del file evento.
+In Microsoft SQL Server la [destinazione del file evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) viene utilizzata per archiviare l'output di eventi in un file di disco rigido locale. Tuttavia, tali file non sono disponibili per il database SQL di Azure. Invece, utilizziamo il servizio Archiviazione di Azure per supportare la destinazione del file evento.
 
 Questo argomento presenta un esempio di codice in due fasi:
 
@@ -39,7 +39,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
 - Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Qualsiasi database in cui è possibile creare una tabella.
@@ -49,12 +49,12 @@ Questo argomento presenta un esempio di codice in due fasi:
 - SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile.
   È possibile scaricare la versione più recente di ssms.exe da:
   
-  - Argomento intitolato [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  - Argomento intitolato [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [Un collegamento diretto al download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - È necessario che i [moduli di Azure PowerShell](https://go.microsoft.com/?linkid=9811175) siano installati.
 
-  - I moduli forniscono comandi come **New-AzStorageAccount**.
+  - I moduli forniscono comandi come **New-AzStorageAccount** .
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 
@@ -62,7 +62,7 @@ Questo PowerShell è la fase 1 dell'esempio di codice in due fasi.
 
 Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente ed è eseguibile di nuovo.
 
-1. Incollare lo script di PowerShell in un editor di testo semplice, ad esempio Notepad.exe e salvare lo script come file con estensione **.ps1**.
+1. Incollare lo script di PowerShell in un editor di testo semplice, ad esempio Notepad.exe e salvare lo script come file con estensione **.ps1** .
 2. Avviare PowerShell ISE come amministratore.
 3. Al prompt dei comandi, digitare<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e quindi premere INVIO.
 4. In PowerShell ISE, aprire il file **.ps1** . Eseguire lo script.
@@ -258,7 +258,7 @@ Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È 
 6. Salvare e quindi eseguire lo script.
 
 > [!WARNING]
-> Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"*. Le attività in caso contrario potrebbero essere bloccate dalla protezione.
+> Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"* . Le attività in caso contrario potrebbero essere bloccate dalla protezione.
 
 ### <a name="transact-sql-code"></a>Codice Transact-SQL
 
@@ -451,7 +451,7 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un elemento **\<event>** che mostra un'istruzione UPDATE.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML** . Viene visualizzato un elemento **\<event>** che mostra un'istruzione UPDATE.
 
 Di seguito è riportato un elemento **\<event>** generato durante il test:
 
@@ -496,19 +496,19 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event_file:
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustrate all'indirizzo:
 
-- [Visualizzazione avanzata dei dati di destinazione da eventi estesi](https://msdn.microsoft.com/library/mt752502.aspx)
+- [Visualizzazione avanzata dei dati di destinazione da eventi estesi](/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversione dell’esempio di codice da eseguire in SQL Server
 
 Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft SQL Server.
 
-- Per semplicità, si desidera sostituire completamente l'uso del contenitore di Archiviazione di Azure con un semplice file, come *C:\myeventdata.xel*. Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
-- Non è necessaria alcuna tipologia di istruzioni di Transact-SQL per **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
-- Nell'istruzione **CREATE EVENT SESSION**, nella relativa clausola **ADD TARGET**, sostituire il valore di Http assegnato a **filename =** con una stringa di percorso completo *C:\myfile.xel*.
+- Per semplicità, si desidera sostituire completamente l'uso del contenitore di Archiviazione di Azure con un semplice file, come *C:\myeventdata.xel* . Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
+- Non è necessaria alcuna tipologia di istruzioni di Transact-SQL per **CREATE MASTER KEY** e **CREATE CREDENTIAL** .
+- Nell'istruzione **CREATE EVENT SESSION** , nella relativa clausola **ADD TARGET** , sostituire il valore di Http assegnato a **filename =** con una stringa di percorso completo *C:\myfile.xel* .
   
   - Nessun account di Archiviazione di Azure deve essere coinvolto.
 
@@ -517,8 +517,8 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
 - [Come usare l'archiviazione BLOB da .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Denominazione e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [Lavorare con il contenitore radice](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lezione 1: creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lezione 2: Creare credenziali di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
-- [Eventi estesi per Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
+- [Denominazione e riferimento a contenitori, BLOB e metadati](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [Lavorare con il contenitore radice](/rest/api/storageservices/Working-with-the-Root-Container)
+- [Lezione 1: creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [Lezione 2: Creare credenziali di SQL Server usando una firma di accesso condiviso](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
+- [Eventi estesi per Microsoft SQL Server](/sql/relational-databases/extended-events/extended-events)

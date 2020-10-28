@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283208"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790815"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replica transazionale con Istanza gestita SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ La replica transazionale è attualmente disponibile in anteprima pubblica per l'
 - Un database di istanza in Azure SQL Istanza gestita
 
   > [!NOTE]
-  > Per usare tutte le funzionalità di Istanza gestita SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Per usare tutte le funzionalità di Istanza gestita SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Componenti
 
-I componenti principali della replica transazionale sono **server di pubblicazione**, **server di distribuzione**e **Sottoscrittore**, come illustrato nell'immagine seguente:  
+I componenti principali della replica transazionale sono **server di pubblicazione** , **server di distribuzione** e **Sottoscrittore** , come illustrato nell'immagine seguente:  
 
 ![Replica con database SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -65,21 +65,21 @@ Istanza gestita SQL di Azure può supportare l'esecuzione di un Sottoscrittore d
 
    > [!NOTE]
    >
-   > - Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server.
+   > - Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server.
    > - Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084 (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQ_REPL40532 (Impossibile aprire il server \<name> richiesto dall'account di accesso. Accesso non riuscito).
 
 ### <a name="types-of-replication"></a>Tipi di replica
 
-Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Esistono diversi [tipi di replica](/sql/relational-databases/replication/types-of-replication):
 
 | Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
-| [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì |
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
-| [**Replica di tipo merge**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Sì|
-| [**Sottoscrizioni aggiornabili**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
+| [**Transazionale standard**](/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì |
+| [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
+| [**Replica di tipo merge**](/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirezionale**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Sì|
+| [**Sottoscrizioni aggiornabili**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matrice di supporto
@@ -148,7 +148,7 @@ In questa configurazione, un database nel database SQL di Azure o in Azure SQL I
 - Configurare il peering VPN tra le reti virtuali dei partecipanti alla replica se le reti virtuali sono diverse.
 
 > [!NOTE]
-> È possibile che si verifichi l'errore 53 quando ci si connette a un file di archiviazione di Azure se la porta 445 del gruppo di sicurezza di rete (NSG) in uscita è bloccata quando il server di distribuzione è un database SQL di Azure Istanza gestita e il Sottoscrittore è in locale. [Aggiornare il NSG di vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) per risolvere il problema.
+> È possibile che si verifichi l'errore 53 quando ci si connette a un file di archiviazione di Azure se la porta 445 del gruppo di sicurezza di rete (NSG) in uscita è bloccata quando il server di distribuzione è un database SQL di Azure Istanza gestita e il Sottoscrittore è in locale. [Aggiornare il NSG di vNet](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) per risolvere il problema.
 
 ## <a name="with-failover-groups"></a>Con gruppi di failover
 
@@ -196,16 +196,16 @@ Per ulteriori informazioni sulla configurazione della replica transazionale, ved
 
 - [Configurare la replica tra un server di pubblicazione e un Sottoscrittore SQL Istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configurare la replica tra un server di pubblicazione SQL Istanza gestita, un server di distribuzione SQL Istanza gestita e un Sottoscrittore SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server come Sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net` , e il database nel nome del database SQL di Azure come database di destinazione, ad esempio **AdventureWorks**. )
+- [Creare una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication).
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server come Sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net` , e il database nel nome del database SQL di Azure come database di destinazione, ad esempio **AdventureWorks** . )
 
 ## <a name="see-also"></a>Vedere anche  
 
 - [Replica con un Istanza gestita SQL e un gruppo di failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replica nel database SQL](../database/replication-to-sql-database.md)
 - [Replica nell'istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inizializzare una sottoscrizione](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Creare una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipi di replica](/sql/relational-databases/replication/types-of-replication)
+- [Monitoraggio (replica)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inizializzare una sottoscrizione](/sql/relational-databases/replication/initialize-a-subscription)

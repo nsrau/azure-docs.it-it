@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533955"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790951"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure
 
@@ -24,7 +24,11 @@ Quando viene effettuata una richiesta all'app, l'indirizzo FROM viene valutato i
 
 La funzionalità restrizioni di accesso è implementata nei ruoli front-end del servizio app, che sono upstream degli host di lavoro in cui viene eseguito il codice. Di conseguenza, le restrizioni di accesso sono gli ACL di rete.
 
-La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure (VNet) viene definita [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalle subnet selezionate. È necessario abilitarla sia sul lato rete che sul servizio con cui è abilitata. Non funziona per limitare il traffico alle app ospitate in un ambiente del servizio app. Se ci si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole degli indirizzi IP.
+La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure (VNet) viene definita [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalle subnet selezionate. Non funziona per limitare il traffico alle app ospitate in un ambiente del servizio app. Se ci si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole degli indirizzi IP.
+
+> [!NOTE]
+> Gli endpoint di servizio devono essere abilitati sul lato rete e per il servizio di Azure con cui è abilitato. Per un elenco dei servizi di Azure che supportano gli endpoint di servizio, vedere [endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![flusso restrizioni di accesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164568"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790101"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Usare portale di Azure per configurare un gruppo di disponibilità (anteprima) per SQL Server nella macchina virtuale di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Per configurare un gruppo di disponibilità Always On usando il portale di Azure
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Un gruppo di risorse con un controller di dominio. 
-- Una o più macchine virtuali appartenenti a un dominio [in Azure che eseguono SQL Server 2016 (o versione successiva) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) nello *stesso* set di disponibilità o in *diverse* zone di disponibilità [registrate con il provider di risorse VM SQL in modalità di gestibilità completa](sql-vm-resource-provider-register.md) e usano lo stesso account di dominio per il servizio di SQL Server in ogni macchina virtuale.
+- Una o più macchine virtuali appartenenti a un dominio [in Azure che eseguono SQL Server 2016 (o versione successiva) Enterprise Edition](./create-sql-vm-portal.md) nello *stesso* set di disponibilità o in *diverse* zone di disponibilità [registrate con il provider di risorse VM SQL in modalità di gestibilità completa](sql-vm-resource-provider-register.md) e usano lo stesso account di dominio per il servizio di SQL Server in ogni macchina virtuale.
 - Due indirizzi IP disponibili, non usati da alcuna entità. Uno è per il bilanciamento del carico interno, l'altro è per il listener del gruppo di disponibilità all'interno della stessa subnet del gruppo di disponibilità. Se si usa un servizio di bilanciamento del carico esistente, è necessario un solo indirizzo IP disponibile per il listener del gruppo di disponibilità. 
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -61,7 +61,7 @@ Se non si dispone già di un cluster esistente, crearlo utilizzando la portale d
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Selezionare **disponibilità elevata** in **Impostazioni**. 
+1. Selezionare **disponibilità elevata** in **Impostazioni** . 
 1. Selezionare **+ nuovo cluster di failover di Windows Server** per aprire la pagina **Configura cluster di failover Windows** .  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
@@ -70,7 +70,7 @@ Se non si dispone già di un cluster esistente, crearlo utilizzando la portale d
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
 
-1. Espandere **credenziali del cluster di failover di Windows Server** per fornire le [credenziali](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) per l'account del servizio SQL Server, nonché per l'operatore del cluster e gli account bootstrap se sono diversi dall'account utilizzato per il servizio SQL Server. 
+1. Espandere **credenziali del cluster di failover di Windows Server** per fornire le [credenziali](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) per l'account del servizio SQL Server, nonché per l'operatore del cluster e gli account bootstrap se sono diversi dall'account utilizzato per il servizio SQL Server. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale"
     ```
@@ -81,11 +81,11 @@ Se non si dispone già di un cluster esistente, crearlo utilizzando la portale d
 
 Se si dispone già di un cluster configurato nell'ambiente SQL Server VM, è possibile caricarlo dal portale di Azure.
 
-A tale scopo, seguire questa procedura:
+A questo scopo, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Selezionare **disponibilità elevata** in **Impostazioni**. 
+1. Selezionare **disponibilità elevata** in **Impostazioni** . 
 1. Selezionare **onboarding cluster di failover di Windows Server esistente** per aprire la pagina **onboarding Windows Server failover cluster** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
@@ -98,11 +98,11 @@ A tale scopo, seguire questa procedura:
 
 ## <a name="create-availability-group"></a>Creare un gruppo di disponibilità
 
-Dopo la creazione o l'onboarding del cluster, creare il gruppo di disponibilità usando il portale di Azure. A tale scopo, seguire questa procedura:
+Dopo la creazione o l'onboarding del cluster, creare il gruppo di disponibilità usando il portale di Azure. A questo scopo, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Selezionare **disponibilità elevata** in **Impostazioni**. 
+1. Selezionare **disponibilità elevata** in **Impostazioni** . 
 1. Selezionare **+ nuovo always on gruppo di disponibilità** per aprire la pagina **Crea gruppo di disponibilità** .
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
@@ -138,8 +138,8 @@ Per aggiungere database al gruppo di disponibilità tramite SQL Server Managemen
 1. Connettersi a una delle macchine virtuali SQL Server usando il metodo preferito, ad esempio Connessione Desktop remoto (RDP). 
 1. Aprire SQL Server Management Studio (SSMS).
 1. Connettersi all'istanza di SQL Server. 
-1. Espandere **Always on disponibilità elevata** in **Esplora oggetti**.
-1. Espandere **gruppi di disponibilità**, fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Aggiungi database..**..
+1. Espandere **Always on disponibilità elevata** in **Esplora oggetti** .
+1. Espandere **gruppi di disponibilità** , fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Aggiungi database..** ..
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
 
@@ -157,14 +157,14 @@ Per aggiungere altre macchine virtuali SQL Server al cluster, seguire questa pro
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla risorsa [macchine virtuali SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Selezionare **disponibilità elevata** in **Impostazioni**. 
+1. Selezionare **disponibilità elevata** in **Impostazioni** . 
 1. Selezionare **configura Windows Server failover cluster** per aprire la pagina **Configura cluster di failover di Windows Server** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
 
 1. Espandere **credenziali del cluster di failover di Windows Server** e immettere gli account usati per gli account servizio SQL Server, operatore cluster e bootstrap del cluster. 
 1. Selezionare le macchine virtuali SQL Server che si desidera aggiungere al cluster. 
-1. Selezionare **Applica**. 
+1. Selezionare **Applica** . 
 
 È possibile controllare lo stato della distribuzione nel **log attività** , accessibile dall'icona a campana nella barra di spostamento superiore. 
 
@@ -172,7 +172,7 @@ Per aggiungere altre macchine virtuali SQL Server al cluster, seguire questa pro
 ## <a name="modify-availability-group"></a>Modificare il gruppo di disponibilità 
 
 
-È possibile **aggiungere altre repliche** al gruppo di disponibilità, **configurare il listener**o **eliminare il listener** dalla pagina di **disponibilità elevata** nel portale di Azure selezionando i puntini di sospensione (...) accanto al gruppo di disponibilità: 
+È possibile **aggiungere altre repliche** al gruppo di disponibilità, **configurare il listener** o **eliminare il listener** dalla pagina di **disponibilità elevata** nel portale di Azure selezionando i puntini di sospensione (...) accanto al gruppo di disponibilità: 
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Creare un nuovo cluster selezionando + nuovo cluster nel portale":::
 
@@ -245,7 +245,7 @@ Per visualizzare i log per la distribuzione e verificare la cronologia di distri
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare al gruppo di risorse.
-1. Fare clic su **Distribuzioni** in **Impostazioni**.
+1. Fare clic su **Distribuzioni** in **Impostazioni** .
 1. Selezionare la distribuzione di interesse per ulteriori informazioni sulla distribuzione. 
 
 

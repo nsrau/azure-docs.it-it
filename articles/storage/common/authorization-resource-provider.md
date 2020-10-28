@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822285"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789676"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
 
-Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Il provider di risorse di archiviazione di Azure è un servizio basato su Azure Resource Manager e che fornisce l'accesso alle risorse di gestione per archiviazione di Azure. È possibile usare il provider di risorse di archiviazione di Azure per creare, aggiornare, gestire ed eliminare risorse quali account di archiviazione, endpoint privati e chiavi di accesso all'account. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Il provider di risorse di archiviazione di Azure è un servizio basato su Azure Resource Manager e che fornisce l'accesso alle risorse di gestione per archiviazione di Azure. È possibile usare il provider di risorse di archiviazione di Azure per creare, aggiornare, gestire ed eliminare risorse quali account di archiviazione, endpoint privati e chiavi di accesso all'account. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 È possibile usare il provider di risorse di archiviazione di Azure per eseguire azioni, ad esempio la creazione o l'eliminazione di un account di archiviazione o l'ottenimento di un elenco di account di archiviazione in una sottoscrizione. Per autorizzare le richieste nel provider di risorse di archiviazione di Azure, usare Azure Active Directory (Azure AD). Questo articolo descrive come assegnare le autorizzazioni alle risorse di gestione e punta ad esempi che illustrano come effettuare richieste nel provider di risorse di archiviazione di Azure.
 
@@ -32,9 +32,9 @@ Archiviazione di Azure supporta l'uso di Azure AD per autorizzare le richieste s
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Assegnare le autorizzazioni di gestione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 
-A ogni sottoscrizione di Azure è associato un Azure Active Directory che gestisce utenti, gruppi e applicazioni. Un utente, un gruppo o un'applicazione viene definito anche entità di sicurezza nel contesto della [piattaforma di identità Microsoft](/azure/active-directory/develop/). È possibile concedere l'accesso alle risorse in una sottoscrizione a un'entità di sicurezza definita nella Active Directory usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
+A ogni sottoscrizione di Azure è associato un Azure Active Directory che gestisce utenti, gruppi e applicazioni. Un utente, un gruppo o un'applicazione viene definito anche entità di sicurezza nel contesto della [piattaforma di identità Microsoft](../../active-directory/develop/index.yml). È possibile concedere l'accesso alle risorse in una sottoscrizione a un'entità di sicurezza definita nella Active Directory usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
-Quando si assegna un ruolo di Azure a un'entità di sicurezza, viene indicato anche l'ambito in cui sono attive le autorizzazioni concesse dal ruolo. Per le operazioni di gestione, è possibile assegnare un ruolo a livello di sottoscrizione, gruppo di risorse o account di archiviazione. È possibile assegnare un ruolo di Azure a un'entità di sicurezza usando il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia](../../cli-install-nodejs.md)della riga di comando di Azure, [PowerShell](/powershell/azure/)o l' [API REST del provider di risorse di archiviazione di Azure](/rest/api/storagerp).
+Quando si assegna un ruolo di Azure a un'entità di sicurezza, viene indicato anche l'ambito in cui sono attive le autorizzazioni concesse dal ruolo. Per le operazioni di gestione, è possibile assegnare un ruolo a livello di sottoscrizione, gruppo di risorse o account di archiviazione. È possibile assegnare un ruolo di Azure a un'entità di sicurezza usando il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia](/cli/azure/install-classic-cli)della riga di comando di Azure, [PowerShell](/powershell/azure/)o l' [API REST del provider di risorse di archiviazione di Azure](/rest/api/storagerp).
 
 Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure).](../../role-based-access-control/overview.md) e i ruoli di [amministratore della sottoscrizione classica, i ruoli di Azure e](../../role-based-access-control/rbac-and-directory-admin-roles.md)i ruoli di amministratore Azure ad.
 
@@ -53,7 +53,7 @@ I ruoli predefiniti che concedono le autorizzazioni per chiamare le operazioni d
 | **Amministratore accessi utente** | Può gestire l'accesso all'account di archiviazione.   | Sì, consente a un'entità di sicurezza di assegnare autorizzazioni a se stessi e ad altri utenti. |
 | **Collaboratore macchine virtuali** | Consente di gestire le macchine virtuali, ma non l'account di archiviazione a cui sono connesse.   | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
 
-La terza colonna della tabella indica se il ruolo predefinito supporta **Microsoft. storage/storageAccounts/listkeys/Action**. Questa azione concede le autorizzazioni per la lettura e la rigenerazione delle chiavi dell'account di archiviazione. Le autorizzazioni per accedere alle risorse di gestione archiviazione di Azure non includono anche le autorizzazioni per accedere ai dati. Tuttavia, se un utente ha accesso alle chiavi dell'account, può usare le chiavi dell'account per accedere ai dati di archiviazione di Azure tramite l'autorizzazione della chiave condivisa.
+La terza colonna della tabella indica se il ruolo predefinito supporta **Microsoft. storage/storageAccounts/listkeys/Action** . Questa azione concede le autorizzazioni per la lettura e la rigenerazione delle chiavi dell'account di archiviazione. Le autorizzazioni per accedere alle risorse di gestione archiviazione di Azure non includono anche le autorizzazioni per accedere ai dati. Tuttavia, se un utente ha accesso alle chiavi dell'account, può usare le chiavi dell'account per accedere ai dati di archiviazione di Azure tramite l'autorizzazione della chiave condivisa.
 
 ### <a name="custom-roles-for-management-operations"></a>Ruoli personalizzati per le operazioni di gestione
 
@@ -76,6 +76,6 @@ Per ulteriori informazioni sui modelli di distribuzione di Azure, vedere [Gestio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md)
 - [Obiettivi di scalabilità per il provider di risorse di archiviazione di Azure](scalability-targets-resource-provider.md)

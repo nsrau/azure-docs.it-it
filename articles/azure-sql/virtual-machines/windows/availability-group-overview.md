@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166540"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789914"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Gruppi di disponibilità AlwaysOn per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Il diagramma seguente illustra un gruppo di disponibilità per SQL Server in Mac
 
 ## <a name="vm-redundancy"></a>Ridondanza di VM 
 
-Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o in diverse [zone di disponibilità](/azure/availability-zones/az-overview).
+Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o in diverse [zone di disponibilità](../../../availability-zones/az-overview.md).
 
 Un set di disponibilità è un raggruppamento di risorse configurate in modo tale che non ne siano presenti due nella stessa zona di disponibilità. Ciò impedisce l'impatto su più risorse nel gruppo durante l'implementazione delle distribuzioni. 
 
@@ -74,7 +74,7 @@ Sono disponibili diverse opzioni per la distribuzione di un gruppo di disponibil
 
 La tabella seguente include un confronto delle opzioni disponibili: 
 
-| |**[Portale di Azure](availability-group-azure-portal-configure.md)**|**[Interfaccia della riga di comando di Azure/PowerShell](availability-group-az-cli-configure.md)**|**[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)**|**[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Portale di Azure](availability-group-azure-portal-configure.md)**|**[Interfaccia della riga di comando di Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)**|**[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Versione di SQL Server** |2016 e successive |2016 e successive|2016 e successive|2012 e successive|
 |**Edizione di SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -100,6 +100,6 @@ In un cluster di failover guest di macchine virtuali IaaS di Azure è consigliab
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [procedure consigliate per disponibilità elevata e ripristino di emergenza](hadr-cluster-best-practices.md) e quindi iniziare a distribuire un gruppo di disponibilità con il [portale di Azure](availability-group-azure-portal-configure.md), l'[interfaccia della riga di comando di Azure/PowerShell](availability-group-az-cli-configure.md), i [modelli di avvio rapido](availability-group-quickstart-template-configure.md) oppure [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
+Vedere le [procedure consigliate per disponibilità elevata e ripristino di emergenza](hadr-cluster-best-practices.md) e quindi iniziare a distribuire un gruppo di disponibilità con il [portale di Azure](availability-group-azure-portal-configure.md), l'[interfaccia della riga di comando di Azure/PowerShell](./availability-group-az-commandline-configure.md), i [modelli di avvio rapido](availability-group-quickstart-template-configure.md) oppure [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 
-In alternativa, è possibile distribuire un [gruppo di disponibilità senza cluster](availability-group-clusterless-workgroup-configure.md) o un gruppo di disponibilità [in più aree](availability-group-manually-configure-multiple-regions.md). 
+In alternativa, è possibile distribuire un [gruppo di disponibilità senza cluster](availability-group-clusterless-workgroup-configure.md) o un gruppo di disponibilità [in più aree](availability-group-manually-configure-multiple-regions.md).

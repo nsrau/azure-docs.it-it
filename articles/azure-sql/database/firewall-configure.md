@@ -12,20 +12,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9b6b0ee6fa33ecd0d677d7d075236517d85d4ab7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789642"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e della sinapsi di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer*, ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*). Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer* , ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET* ). Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a *Istanza gestita di SQL di Azure*. Per informazioni sulla configurazione di rete, vedere [connettere l'applicazione ad Azure SQL istanza gestita](../managed-instance/connect-application-instance.md).
+> Questo articolo *non* si applica a *Istanza gestita di SQL di Azure* . Per informazioni sulla configurazione di rete, vedere [connettere l'applicazione ad Azure SQL istanza gestita](../managed-instance/connect-application-instance.md).
 >
 > La sinapsi di Azure supporta solo le regole del firewall IP a livello di server. Non supporta le regole del firewall IP a livello di database.
 
@@ -50,7 +50,7 @@ Le regole del firewall IP a livello di database consentono ai client di accedere
   
 - È possibile creare e gestire solo le regole del firewall IP a livello di database per i database master e utente usando le istruzioni Transact-SQL e solo dopo aver configurato il primo firewall a livello di server.
 - Se si specifica un intervallo di indirizzi IP nella regola del firewall IP a livello di database non compreso nell'intervallo nella regola del firewall IP a livello di server, solo i client che dispongono di indirizzi IP nell'intervallo a livello di database potranno accedere al database.
-- Per un database è possibile avere un massimo di 128 regole del firewall IP a livello di database. Per ulteriori informazioni sulla configurazione delle regole del firewall IP a livello di database, vedere l'esempio più avanti in questo articolo e vedere [sp_set_database_firewall_rule (database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+- Per un database è possibile avere un massimo di 128 regole del firewall IP a livello di database. Per ulteriori informazioni sulla configurazione delle regole del firewall IP a livello di database, vedere l'esempio più avanti in questo articolo e vedere [sp_set_database_firewall_rule (database SQL di Azure)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>Indicazioni su come impostare le regole del firewall
 
@@ -63,11 +63,11 @@ Quando possibile, è consigliabile usare le regole del firewall IP a livello di 
 
 *Gli utenti di un database devono essere completamente isolati da un altro database?*
 
-In caso *affermativo*, usare le regole del firewall IP a livello di database per concedere l'accesso. Questo metodo consente di evitare l'utilizzo di regole firewall IP a livello di server, che consentono l'accesso attraverso il firewall a tutti i database. Questo ridurrebbe la profondità delle difese.
+In caso *affermativo* , usare le regole del firewall IP a livello di database per concedere l'accesso. Questo metodo consente di evitare l'utilizzo di regole firewall IP a livello di server, che consentono l'accesso attraverso il firewall a tutti i database. Questo ridurrebbe la profondità delle difese.
 
 *Gli utenti degli indirizzi IP devono accedere a tutti i database?*
 
-In caso *affermativo*, usare le regole del firewall IP a livello di server per ridurre il numero di volte in cui è necessario configurare le regole del firewall IP.
+In caso *affermativo* , usare le regole del firewall IP a livello di server per ridurre il numero di volte in cui è necessario configurare le regole del firewall IP.
 
 *La persona o il team che configura le regole del firewall IP può accedere solo tramite il portale di Azure, PowerShell o l'API REST?*
 
@@ -107,18 +107,18 @@ Per consentire alle applicazioni ospitate all'interno di Azure di connettersi a 
 
 Per poter creare e gestire le regole del firewall IP per SQL Server di Azure, sarà necessario avere:
 
-- nel ruolo [SQL Server collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
-- nel ruolo [Gestione sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- nel ruolo [SQL Server collaboratore](../../role-based-access-control/built-in-roles.md#sql-server-contributor)
+- nel ruolo [Gestione sicurezza SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager)
 - proprietario della risorsa che contiene il SQL Server di Azure
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Creare e gestire le regole del firewall IP
 
-Si crea la prima impostazione del firewall a livello di server usando il [portale di Azure](https://portal.azure.com/) o a livello di codice usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule)o un' [API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)di Azure. È possibile creare e gestire regole aggiuntive del firewall IP a livello di server usando questi metodi o Transact-SQL.
+Si crea la prima impostazione del firewall a livello di server usando il [portale di Azure](https://portal.azure.com/) o a livello di codice usando [Azure PowerShell](/powershell/module/az.sql), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/server/firewall-rule)o un' [API REST](/rest/api/sql/firewallrules/createorupdate)di Azure. È possibile creare e gestire regole aggiuntive del firewall IP a livello di server usando questi metodi o Transact-SQL.
 
 > [!IMPORTANT]
 > Le regole del firewall IP a livello di database possono essere create e gestite solo tramite Transact-SQL.
 
-Per migliorare le prestazioni, le regole del firewall IP a livello di server vengono temporaneamente memorizzate nella cache a livello di database. Per aggiornare la cache, vedere [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+Per migliorare le prestazioni, le regole del firewall IP a livello di server vengono temporaneamente memorizzate nella cache a livello di database. Per aggiornare la cache, vedere [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql).
 
 > [!TIP]
 > È possibile utilizzare il [controllo del database](../../azure-sql/database/auditing-overview.md) per controllare le modifiche del firewall a livello di server e a livello di database.
@@ -138,17 +138,17 @@ Per impostare una regola del firewall IP a livello di server nel portale di Azur
 
     Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
 
-2. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer in uso e quindi selezionare **Salva**. Una regola del firewall IP a livello di server viene creata per l'indirizzo IP corrente.
+2. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer in uso e quindi selezionare **Salva** . Una regola del firewall IP a livello di server viene creata per l'indirizzo IP corrente.
 
     ![Imposta regola firewall IP a livello di server](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>Dalla pagina di panoramica del server
 
-Verrà visualizzata la pagina Panoramica del server. Mostra il nome completo del server (ad esempio *mynewserver20170403.database.Windows.NET*) e fornisce le opzioni per un'ulteriore configurazione.
+Verrà visualizzata la pagina Panoramica del server. Mostra il nome completo del server (ad esempio *mynewserver20170403.database.Windows.NET* ) e fornisce le opzioni per un'ulteriore configurazione.
 
 1. Per impostare una regola a livello di server da questa pagina, selezionare **Firewall** dal menu **Impostazioni** sul lato sinistro.
 
-2. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer in uso e quindi selezionare **Salva**. Una regola del firewall IP a livello di server viene creata per l'indirizzo IP corrente.
+2. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer in uso e quindi selezionare **Salva** . Una regola del firewall IP a livello di server viene creata per l'indirizzo IP corrente.
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Usare Transact-SQL per gestire le regole del firewall IP
 
@@ -161,7 +161,7 @@ Verrà visualizzata la pagina Panoramica del server. Mostra il nome completo del
 | [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) |Database |Crea o aggiorna regole del firewall IP a livello di database |
 | [sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database) |Database |Rimuove le regole del firewall IP a livello di database |
 
-Nell'esempio seguente vengono esaminate le regole esistenti, viene abilitato un intervallo di indirizzi IP nel server *Contoso*e viene eliminata una regola del firewall IP:
+Nell'esempio seguente vengono esaminate le regole esistenti, viene abilitato un intervallo di indirizzi IP nel server *Contoso* e viene eliminata una regola del firewall IP:
 
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Per eliminare una regola del firewall IP a livello di server, eseguire il *sp_delete_firewall_rule* stored procedure. Nell'esempio seguente viene eliminata la regola *ContosoFirewallRule*:
+Per eliminare una regola del firewall IP a livello di server, eseguire il *sp_delete_firewall_rule* stored procedure. Nell'esempio seguente viene eliminata la regola *ContosoFirewallRule* :
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
@@ -232,10 +232,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | Descrizione |
 | --- | --- | --- |
-| [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visualizza le regole del firewall IP a livello di server correnti |
-| [Creare o aggiornare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Crea o aggiorna regole del firewall IP a livello di server |
-| [Elimina regole firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Rimuove regole del firewall IP a livello di server |
-| [Ottenere le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Ottiene regole del firewall IP a livello di server |
+| [Elencare le regole del firewall](/rest/api/sql/firewallrules/listbyserver) |Server |Visualizza le regole del firewall IP a livello di server correnti |
+| [Creare o aggiornare le regole del firewall](/rest/api/sql/firewallrules/createorupdate) |Server |Crea o aggiorna regole del firewall IP a livello di server |
+| [Elimina regole firewall](/rest/api/sql/firewallrules/delete) |Server |Rimuove regole del firewall IP a livello di server |
+| [Ottenere le regole del firewall](/rest/api/sql/firewallrules/get) | Server | Ottiene regole del firewall IP a livello di server |
 
 ## <a name="troubleshoot-the-database-firewall"></a>Eseguire la risoluzione dei problemi del firewall del database
 

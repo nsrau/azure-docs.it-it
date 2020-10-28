@@ -4,24 +4,24 @@ description: Eseguire la migrazione di un certificato che protegge la chiave di 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618166"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790696"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Eseguire la migrazione di un certificato di un database protetto con Transparent Data Encryption in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Quando si esegue la migrazione di un database protetto da Transparent Data Encryption (Transparent Data [Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) ad Azure SQL istanza gestita con l'opzione di ripristino nativo, è necessario eseguire la migrazione del certificato corrispondente dall'istanza di SQL Server prima del ripristino del database. Questo articolo illustra il processo di migrazione manuale del certificato al Istanza gestita SQL di Azure:
+Quando si esegue la migrazione di un database protetto da Transparent Data Encryption (Transparent Data [Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption) ad Azure SQL istanza gestita con l'opzione di ripristino nativo, è necessario eseguire la migrazione del certificato corrispondente dall'istanza di SQL Server prima del ripristino del database. Questo articolo illustra il processo di migrazione manuale del certificato al Istanza gestita SQL di Azure:
 
 > [!div class="checklist"]
 >
@@ -38,20 +38,20 @@ Per un'opzione alternativa che usa un servizio completamente gestito per la migr
 
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
-* Strumento da riga di comando [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) installato nel server locale o in un altro computer con accesso al certificato esportato come file. Lo strumento Pvk2Pfx fa parte di [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un ambiente della riga di comando autonomo.
+* Strumento da riga di comando [Pvk2Pfx](/windows-hardware/drivers/devtest/pvk2pfx) installato nel server locale o in un altro computer con accesso al certificato esportato come file. Lo strumento Pvk2Pfx fa parte di [Enterprise Windows Driver Kit](/windows-hardware/drivers/download-the-wdk), un ambiente della riga di comando autonomo.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) versione 5.0 o successiva installato.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Assicurarsi che sia disponibile quanto segue:
 
-* Modulo Azure PowerShell [installato e aggiornato](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* Modulo Azure PowerShell [installato e aggiornato](/powershell/azure/install-az-ps).
 * [AZ. SQL Module](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Istanza gestita SQL di Azure, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRM sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Istanza gestita SQL di Azure, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRM sono sostanzialmente identici.
 
 Eseguire i comandi seguenti in PowerShell per installare/aggiornare il modulo:
 
@@ -125,7 +125,7 @@ Se il certificato viene mantenuto nell'archivio certificati del computer locale 
 
 2. Nello snap-in MMC certificati espandere il percorso Personal > Certificates per visualizzare l'elenco dei certificati.
 
-3. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Esporta**.
+3. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Esporta** .
 
 4. Eseguire la procedura guidata per esportare il certificato e la chiave privata in un formato pfx.
 
@@ -160,7 +160,7 @@ Se il certificato viene mantenuto nell'archivio certificati del computer locale 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-È necessario prima di tutto [configurare un insieme](/azure/key-vault/key-vault-manage-with-cli2) di credenziali delle chiavi di Azure con il file con *estensione pfx* .
+È necessario prima di tutto [configurare un insieme](../../key-vault/general/manage-with-cli2.md) di credenziali delle chiavi di Azure con il file con *estensione pfx* .
 
 1. Per iniziare, eseguire i passaggi di preparazione in PowerShell:
 

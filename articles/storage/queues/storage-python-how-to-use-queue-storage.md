@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855555"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790509"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Come usare l'archiviazione di Accodamento di Azure da Python
 
@@ -299,7 +299,7 @@ Ora che sono state apprese le nozioni di base dell'archiviazione code, seguire q
 
 * [Informazioni di riferimento sull'API Python per le code di Azure](/python/api/azure-storage-queue)
 * [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
-* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355)
+* [API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/)
 
 [Libreria client di archiviazione code di Azure per Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Azure SDK per Python]: https://github.com/azure/azure-sdk-for-python

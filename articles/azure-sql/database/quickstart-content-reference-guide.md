@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: cd1880f58d4ef457cdc411e065588204a5ad6672
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448768"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790305"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introduzione ai database singoli in Database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,15 @@ Questa sezione contiene una panoramica degli articoli disponibili da consultare 
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrazione a un database singolo con tempo di inattività minimo
 
-Queste guide introduttive consentono di creare o importare rapidamente il database in Azure usando un file `.bacpac`. Tuttavia, i file`.bacpac` e `.dacpac` sono progettati per spostare rapidamente i database tra diverse versioni di SQL Server e all'interno di Azure SQL oppure per implementare l'integrazione continua nella pipeline DevOps. Questo metodo non è invece indicato per la migrazione dei database di produzione con tempo di inattività minimo, perché sarebbe necessario interrompere l'aggiunta di nuovi dati, attendere il completamento dell'esportazione del database di origine in un file `.bacpac` e quindi attendere il completamento dell'importazione in Database SQL di Azure. Tutta questa attesa genera tempo di inattività dell'applicazione, soprattutto per i database di grandi dimensioni. Per spostare il database di produzione, è consigliabile scegliere un metodo di migrazione più efficace che garantisca un tempo di inattività minimo. A questo scopo, usare il [Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database singolo da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con il tempo di inattività minimo.
+Queste guide introduttive consentono di creare o importare rapidamente il database in Azure usando un file `.bacpac`. Tuttavia, i file`.bacpac` e `.dacpac` sono progettati per spostare rapidamente i database tra diverse versioni di SQL Server e all'interno di Azure SQL oppure per implementare l'integrazione continua nella pipeline DevOps. Questo metodo non è invece indicato per la migrazione dei database di produzione con tempo di inattività minimo, perché sarebbe necessario interrompere l'aggiunta di nuovi dati, attendere il completamento dell'esportazione del database di origine in un file `.bacpac` e quindi attendere il completamento dell'importazione in Database SQL di Azure. Tutta questa attesa genera tempo di inattività dell'applicazione, soprattutto per i database di grandi dimensioni. Per spostare il database di produzione, è consigliabile scegliere un metodo di migrazione più efficace che garantisca un tempo di inattività minimo. A questo scopo, usare il [Servizio Migrazione del database](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database singolo da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con il tempo di inattività minimo.
 
 ## <a name="hands-on-learning-modules"></a>Moduli di apprendimento pratico
 
 I seguenti moduli gratuiti di Microsoft Learn riguardano Database SQL di Azure.
 
-- [Effettuare il provisioning di un database nel database SQL per archiviare i dati dell'applicazione](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Proteggere un database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Effettuare il provisioning di un database nel database SQL per archiviare i dati dell'applicazione](/learn/modules/provision-azure-sql-db/)
+- [Sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](/learn/modules/develop-app-that-queries-azure-sql/)
+- [Proteggere un database nel database SQL di Azure](/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

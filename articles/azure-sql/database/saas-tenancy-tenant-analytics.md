@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331669"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790934"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,11 +69,11 @@ Le informazioni sulle modalità in cui ogni tenant usa il servizio vengono usate
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-- È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md)
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) dell'applicazione SaaS di database per tenant Wingtip Tickets sono stati scaricati da GitHub. Vedere le istruzioni di download. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 - Power BI Desktop è installato. [Scarica Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l' [**esercitazione sul provisioning di tenant**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
-- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell' [**esercitazione sulla gestione dello schema**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l' [**esercitazione sul provisioning di tenant**](./saas-dbpertenant-provision-and-catalog.md).
+- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell' [**esercitazione sulla gestione dello schema**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creare dati per la dimostrazione
 
@@ -93,7 +93,7 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
 3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics\<XX>.ps1* e crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;Utente&gt;** e **catalog-dpt-&lt;Utente&gt;** con l'account di accesso *developer* e la password *P\@ssword1* . Per altre indicazioni, vedere l'[esercitazione introduttiva](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;Utente&gt;** e **catalog-dpt-&lt;Utente&gt;** con l'account di accesso *developer* e la password *P\@ssword1* . Per altre indicazioni, vedere l'[esercitazione introduttiva](./saas-dbpertenant-wingtip-app-overview.md).
 
 ![Screenshot che mostra le informazioni necessarie per connettersi a SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -240,6 +240,6 @@ Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Altre [esercitazioni basate sull'applicazione SaaS Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Processi elastici](../../sql-database/elastic-jobs-overview.md).
-- [Analisi su più tenant con dati estratti in un'app multi-tenant](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- Altre [esercitazioni basate sull'applicazione SaaS Wingtip](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Processi elastici](./elastic-jobs-overview.md).
+- [Analisi su più tenant con dati estratti in un'app multi-tenant](./saas-multitenantdb-tenant-analytics.md)

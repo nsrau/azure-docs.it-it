@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619815"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791274"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventi estesi nel database SQL di Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,14 +66,14 @@ Gli argomenti correlati forniscono due esempi di codice:
 - Quando si esegue il comando [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) su SQL Server, si utilizza la clausola **ON SERVER** . Tuttavia, nel database SQL di Azure si usa invece la clausola **on database** .
 - La clausola **ON DATABASE** riguarda anche i comandi Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) e [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
+- Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION** .
   - Il valore **= ON** supporta un riavvio automatico dopo una riconfigurazione del database logico a causa di un failover.
 
 ## <a name="new-catalog-views"></a>Nuove viste del catalogo
 
-La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](https://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
+La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
 
-| Nome della<br/>vista del catalogo | Description |
+| Nome della<br/>vista del catalogo | Descrizione |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione dell'evento. |
 | **sys.database_event_session_events** |Restituisce una riga per ogni evento in una sessione di eventi. |
@@ -81,13 +81,13 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 | **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database. |
 
-In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
+In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvs"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>[DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
+Il database SQL di Azure include [viste a gestione dinamica (DMV)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
-| Nome della DMV | Description |
+| Nome della DMV | Descrizione |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni di sessione di evento. |
 | **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi di sessione. |
@@ -95,9 +95,9 @@ Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.
 | **sys.dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
 | **sys.dm_xe_database_sessions** |Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
 
-In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome del * \_ database* , ad esempio:
+In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome del *\_ database* , ad esempio:
 
-- **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions** , anziché il nome<br/>**sys.dm_xe_database_sessions** .
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
 
@@ -140,22 +140,22 @@ SELECT
 
 Di seguito sono riportate le destinazioni che consentono di acquisire i risultati delle sessioni di eventi nel database SQL di Azure:
 
-- [Destinazione buffer circolare](https://msdn.microsoft.com/library/ff878182.aspx) : contiene per un tempo breve i dati degli eventi nella memoria.
-- [Destinazione contatore eventi](https://msdn.microsoft.com/library/ff878025.aspx) : conta tutti gli eventi che si verificano durante una sessione di eventi estesi.
-- [Destinazione file evento](https://msdn.microsoft.com/library/ff878115.aspx) : scrive buffer completi in un contenitore di Archiviazione di Azure.
+- [Destinazione buffer circolare](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) : contiene per un tempo breve i dati degli eventi nella memoria.
+- [Destinazione contatore eventi](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) : conta tutti gli eventi che si verificano durante una sessione di eventi estesi.
+- [Destinazione file evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) : scrive buffer completi in un contenitore di Archiviazione di Azure.
 
-L'API [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) non è disponibile per gli eventi estesi nel database SQL di Azure.
+L'API [Event Tracing for Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) non è disponibile per gli eventi estesi nel database SQL di Azure.
 
 ## <a name="restrictions"></a>Restrizioni
 
 Esistono un paio di differenze relative alla sicurezza che si comportano nell'ambiente cloud del database SQL di Azure:
 
 - Gli eventi estesi si basano sul modello di isolamento single-tenant. Una sessione di eventi in un database non può accedere a dati o eventi da un altro database.
-- Non è possibile emettere un'istruzione **CREATE EVENT SESSION** nel contesto del database **master**.
+- Non è possibile emettere un'istruzione **CREATE EVENT SESSION** nel contesto del database **master** .
 
 ## <a name="permission-model"></a>Modello di autorizzazione
 
-È necessario avere l'autorizzazione **Controllo** nel database per emettere un'istruzione **CREATE EVENT SESSION**. Il proprietario del database (dbo) dispone dell’autorizzazione **controllo** .
+È necessario avere l'autorizzazione **Controllo** nel database per emettere un'istruzione **CREATE EVENT SESSION** . Il proprietario del database (dbo) dispone dell’autorizzazione **controllo** .
 
 ### <a name="storage-container-authorizations"></a>Autorizzazioni del contenitore di archiviazione
 
@@ -172,7 +172,7 @@ Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più m
 Se si riceve un messaggio di errore che indica che è stato applicato un massimo di memoria, alcune azioni correttive da eseguire sono:
 
 - Eseguire meno sessioni di eventi simultanee.
-- Tramite le istruzioni **CREATE** e **ALTER** per le sessioni di eventi, ridurre la quantità di memoria specificata nella clausola **MAX\_MEMORY**.
+- Tramite le istruzioni **CREATE** e **ALTER** per le sessioni di eventi, ridurre la quantità di memoria specificata nella clausola **MAX\_MEMORY** .
 
 ### <a name="network-latency"></a>Latenza di rete
 
@@ -183,18 +183,18 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 ## <a name="related-links"></a>Collegamenti correlati
 
 - [Uso di Azure PowerShell con archiviazione di Azure](/powershell/module/az.storage/).
-- [Cmdlet di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Cmdlet di Archiviazione di Azure](/powershell/module/Azure.Storage)
 - [Uso di Azure PowerShell con Archiviazione di Azure](/powershell/module/az.storage/)
 - [Come usare l'archiviazione BLOB da .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
-- La pagina Web *Aggiornamenti di Azure*, con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:
+- La pagina Web *Aggiornamenti di Azure* , con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

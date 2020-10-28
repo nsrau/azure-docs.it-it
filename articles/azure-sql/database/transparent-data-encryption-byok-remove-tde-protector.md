@@ -5,19 +5,19 @@ description: Informazioni su come rispondere a una protezione Transparent Data E
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617402"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791376"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,16 +26,16 @@ ms.locfileid: "91617402"
 Questo argomento descrive come rispondere a una protezione Transparent Data Encryption potenzialmente compromessa per il database SQL di Azure o per l'analisi delle sinapsi di Azure che usa Transparent Data Encryption con chiavi gestite dal cliente nel supporto Azure Key Vault-Bring Your Own Key (BYOK). Per altre informazioni sul supporto BYOK per TDE, vedere la [pagina di panoramica](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> Le procedure descritte in questo articolo devono essere eseguite solo in casi estremi o in ambienti di test. Esaminare con attenzione i passaggi, poiché l'eliminazione di protezioni Transparent Data Encryption da Azure Key Vault comporterà la mancata **disponibilità del database**.
+> Le procedure descritte in questo articolo devono essere eseguite solo in casi estremi o in ambienti di test. Esaminare con attenzione i passaggi, poiché l'eliminazione di protezioni Transparent Data Encryption da Azure Key Vault comporterà la mancata **disponibilità del database** .
 
 Se si sospetta che una chiave sia compromessa, in modo che un servizio o un utente abbia accesso non autorizzato alla chiave, è consigliabile eliminare la chiave.
 
-Tenere presente che quando la protezione Transparent Data Encryption viene eliminata in Key Vault, in un massimo di 10 minuti, tutti i database crittografati inizieranno a negare tutte le connessioni con il messaggio di errore corrispondente e a impostare lo stato su [inaccessibile](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+Tenere presente che quando la protezione Transparent Data Encryption viene eliminata in Key Vault, in un massimo di 10 minuti, tutti i database crittografati inizieranno a negare tutte le connessioni con il messaggio di errore corrispondente e a impostare lo stato su [inaccessibile](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
 Questa guida dettagliata passa a due approcci a seconda del risultato desiderato dopo una risposta a un evento imprevisto compromesso:
 
-- Per rendere **inaccessibili**i database nel database SQL di Azure o in Azure sinapsi Analytics.
-- Per rendere **inaccessibili**i database nel database SQL di Azure/Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
+- Per rendere **inaccessibili** i database nel database SQL di Azure o in Azure sinapsi Analytics.
+- Per rendere **inaccessibili** i database nel database SQL di Azure/Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ Questa guida dettagliata passa a due approcci a seconda del risultato desiderato
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+ Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).

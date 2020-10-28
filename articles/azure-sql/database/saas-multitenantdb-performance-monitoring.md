@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3307e31935377f55f792e640934e59017c1980c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37bf2c84b74dba76e5d1921ed67072af7f6c328
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619619"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790900"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,8 +36,8 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
+* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduzione ai modelli di gestione delle prestazioni SaaS
 
@@ -45,10 +45,10 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 
 ### <a name="performance-management-strategies"></a>Strategie per la gestione delle prestazioni
 
-* Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database superano i normali intervalli**.
-* Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo di un database, **è possibile scegliere un livello superiore o inferiore di DTU**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del database**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
-* Per rispondere a fluttuazioni a più lungo termine o a variazioni del numero di tenant, **è possibile spostare singoli tenant in un altro database**.
-* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro specifiche dimensioni di calcolo**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database superano i normali intervalli** .
+* Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo di un database, **è possibile scegliere un livello superiore o inferiore di DTU** . Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del database** . Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
+* Per rispondere a fluttuazioni a più lungo termine o a variazioni del numero di tenant, **è possibile spostare singoli tenant in un altro database** .
+* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro specifiche dimensioni di calcolo** . Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
@@ -64,8 +64,8 @@ Per illustrare meglio il funzionamento della gestione e del monitoraggio delle p
 
 Se si è già effettuato il provisioning di un batch di tenant in un'esercitazione precedente, passare alla sezione [Simulare l'utilizzo in tutti i database tenant](#simulate-usage-on-all-tenant-databases).
 
-1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
-1. Impostare **$DemoScenario** = **1**, _Effettuare il provisioning di un batch di tenant_
+1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* . Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
+1. Impostare **$DemoScenario** = **1** , _Effettuare il provisioning di un batch di tenant_
 1. Premere **F5** per eseguire lo script.
 
 In pochi minuti lo script distribuisce 17 tenant nel database multi-tenant. 
@@ -74,7 +74,7 @@ Lo script *New-TenantBatch* crea nuovi tenant con chiavi univoche all'interno de
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulare l'utilizzo in tutti i database tenant
 
-Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è disponibile lo script *Demo-PerformanceMonitoringAndManagement.ps1*. Il carico viene generato usando uno degli scenari di caricamento disponibili:
+Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è disponibile lo script *Demo-PerformanceMonitoringAndManagement.ps1* . Il carico viene generato usando uno degli scenari di caricamento disponibili:
 
 | Demo | Scenario |
 |:--|:--|
@@ -85,8 +85,8 @@ Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è di
 
 Il generatore di carico applica un carico di solo CPU *sintetico* a ogni database tenant. Il generatore avvia un processo per ogni database tenant, che chiama periodicamente una stored procedure che genera il carico. I livelli di carico, espressi in DTU, la durata e gli intervalli sono diversi per i vari database, in modo da simulare un'attività imprevedibile dei tenant.
 
-1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
-1. Impostare **$DemoScenario** = **2**, _Generare un carico di normale intensità_.
+1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* . Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
+1. Impostare **$DemoScenario** = **2** , _Generare un carico di normale intensità_ .
 1. Premere **F5** per applicare un carico a tutti i tenant.
 
 L'app di database multi-tenant Wingtip Tickets è un'app SaaS e il carico di lavoro reale sulle app di questo tipo è in genere sporadico e imprevedibile. Per simulare questa situazione, il generatore produce un carico casuale distribuito tra tutti i tenant. Servono alcuni minuti perché emerga il modello di carico, quindi eseguire il generatore di carico per 3-5 minuti prima di provare a monitorare il carico come descritto nelle sezioni seguenti.
@@ -96,31 +96,31 @@ L'app di database multi-tenant Wingtip Tickets è un'app SaaS e il carico di lav
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Monitorare l'utilizzo delle risorse usando il portale di Azure
 
-Per monitorare l'utilizzo delle risorse risultante dal carico applicato, aprire il portale per il database multi-tenant, **tenants1**, che contiene i tenant:
+Per monitorare l'utilizzo delle risorse risultante dal carico applicato, aprire il portale per il database multi-tenant, **tenants1** , che contiene i tenant:
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;*.
-1. Scorrere verso il basso per individuare i database e fare clic su **tenants1**. Questo database multi-tenant partizionato contiene tutti i tenant creati finora.
+1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;* .
+1. Scorrere verso il basso per individuare i database e fare clic su **tenants1** . Questo database multi-tenant partizionato contiene tutti i tenant creati finora.
 
 ![grafico dei database](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
 
-Osservare il grafico **DTU**.
+Osservare il grafico **DTU** .
 
 ## <a name="set-performance-alerts-on-the-database"></a>Impostare avvisi sulle prestazioni per il database
 
 Impostare un avviso per il database da attivare quando l'utilizzo raggiunge il \>75%, come indicato di seguito:
 
-1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;*) nel [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Regole di avviso** e quindi fare clic su **+ Aggiungi avviso**:
+1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;* ) nel [portale di Azure](https://portal.azure.com).
+1. Fare clic su **Regole di avviso** e quindi fare clic su **+ Aggiungi avviso** :
 
    ![aggiungere un avviso](./media/saas-multitenantdb-performance-monitoring/add-alert.png)
 
-1. Specificare un nome, ad esempio **DTU elevate**.
+1. Specificare un nome, ad esempio **DTU elevate** .
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale DTU**
    * **Condizione = maggiore di**
-   * **Soglia = 75**.
+   * **Soglia = 75** .
    * **Periodo = Negli ultimi 30 minuti**
-1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.
+1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK** .
 
    ![impostare l'avviso](./media/saas-multitenantdb-performance-monitoring/set-alert.png)
 
@@ -128,20 +128,20 @@ Impostare un avviso per il database da attivare quando l'utilizzo raggiunge il \
 
 Se il livello di carico per un database aumenta fino a superarne la capacità massima e raggiunge il 100% di utilizzo delle DTU, ciò ha un impatto negativo sulle prestazioni del database e può determinare un rallentamento dei tempi di risposta alle query.
 
-**Come soluzione a breve termine**, valutare l'opportunità di aumentare le prestazioni del database fornendo risorse aggiuntive oppure di rimuovere tenant dal database multi-tenant e spostarli in un database autonomo.
+**Come soluzione a breve termine** , valutare l'opportunità di aumentare le prestazioni del database fornendo risorse aggiuntive oppure di rimuovere tenant dal database multi-tenant e spostarli in un database autonomo.
 
-**Nel lungo termine**, prendere in considerazione l'ottimizzazione delle query o dell'utilizzo degli indici per migliorare le prestazioni dei database. A seconda di quanto un'applicazione è sensibile agli effetti dei problemi di prestazioni, è buona norma aumentare le prestazioni di un database prima che venga raggiunto il 100% di utilizzo delle DTU. Usare un avviso per ricevere segnalazioni con il dovuto anticipo.
+**Nel lungo termine** , prendere in considerazione l'ottimizzazione delle query o dell'utilizzo degli indici per migliorare le prestazioni dei database. A seconda di quanto un'applicazione è sensibile agli effetti dei problemi di prestazioni, è buona norma aumentare le prestazioni di un database prima che venga raggiunto il 100% di utilizzo delle DTU. Usare un avviso per ricevere segnalazioni con il dovuto anticipo.
 
 È possibile simulare le condizioni di carico eccessivo per un database aumentando il carico prodotto dal generatore. Creando picchi più frequenti e di maggiore durata per i tenant si aumenta il carico del database multi-tenant senza modificare i requisiti dei singoli tenant. È possibile aumentare con facilità le prestazioni del database usando il portale o PowerShell. In questo esercizio viene usato il portale.
 
-1. Impostare *$DemoScenario* = **3**, _Generare un carico con picchi più lunghi e più frequenti per ogni database_ per aumentare l'intensità del carico aggregato del database senza modificare il carico di picco necessario per ogni tenant.
+1. Impostare *$DemoScenario* = **3** , _Generare un carico con picchi più lunghi e più frequenti per ogni database_ per aumentare l'intensità del carico aggregato del database senza modificare il carico di picco necessario per ogni tenant.
 1. Premere **F5** per applicare un carico a tutti i database tenant.
 1. Passare al database **tenants1** nel portale di Azure.
 
 Monitorare il maggiore utilizzo di DTU del database nel grafico superiore. Prima di poter osservare gli effetti del maggiore carico di lavoro devono trascorrere alcuni minuti, ma presto il database dovrebbe raggiungere il massimo utilizzo. Pertanto, con il progressivo e costante aumento del carico, si verificherà presto un sovraccarico del database.
 
 1. Per aumentare le prestazioni del database, fare clic su **Piano tariffario (piano DTU)** nel pannello delle impostazioni.
-1. Impostare **DTU** su **100**. 
+1. Impostare **DTU** su **100** . 
 1. Fare clic su **Applica** per inviare la richiesta di ridimensionamento del database.
 
 Tornare a **tenants1** > **Panoramica** per visualizzare i grafici di monitoraggio. Monitorare l'effetto dell'assegnazione di altre risorse al database, anche se, con pochi tenant e un carico casuale, non sempre è facile notare conseguenze evidenti finché non si prolunga l'esecuzione per un certo periodo di tempo. Mentre si esaminano i grafici, tenere presente che il valore 100% nel grafico superiore rappresenta ora 100 DTU, mentre lo stesso valore nel grafico inferiore corrisponde ancora a 50 DTU.
@@ -154,9 +154,9 @@ Il modello multi-tenant partizionato consente di scegliere se effettuare il prov
 
 Se si è già effettuato il provisioning di un nuovo tenant in un database autonomo, ignorare i passaggi successivi.
 
-1. In **PowerShell ISE**, aprire …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**.
-1. Impostare **$Scenario** = **2**, _Effettuare il provisioning di un tenant in un nuovo database a tenant singolo_.
+1. In **PowerShell ISE** , aprire …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* . 
+1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"** .
+1. Impostare **$Scenario** = **2** , _Effettuare il provisioning di un tenant in un nuovo database a tenant singolo_ .
 1. Premere **F5** per eseguire lo script.
 
 Lo script effettuerà il provisioning del tenant in un database separato, registrerà il database e il tenant nel catalogo e quindi aprirà la pagina degli eventi del tenant nel browser. Aggiornare la pagina Events Hub (Hub eventi). Si noterà che "Salix Salsa" è stato aggiunto come sede di eventi.
@@ -167,10 +167,10 @@ Se un tenant singolo all'interno di un database multi-tenant è sottoposto a un 
 
 Questo esercizio simula l'effetto di un carico elevato per Salix Salsa in concomitanza con l'inizio della vendita dei biglietti per un evento di grande richiamo.
 
-1. Aprire lo script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Impostare **$DemoScenario = 5**, _Generare un carico normale e un carico elevato in un tenant singolo (circa 90 DTU)_ .
-1. Impostare **$SingleTenantName = Salix Salsa**.
-1. Eseguire lo script con **F5**.
+1. Aprire lo script …\\*Demo-PerformanceMonitoringAndManagement.ps1* .
+1. Impostare **$DemoScenario = 5** , _Generare un carico normale e un carico elevato in un tenant singolo (circa 90 DTU)_ .
+1. Impostare **$SingleTenantName = Salix Salsa** .
+1. Eseguire lo script con **F5** .
 
 Accedere al portale e passare a **salixsalsa** > **Panoramica** per visualizzare i grafici di monitoraggio. 
 

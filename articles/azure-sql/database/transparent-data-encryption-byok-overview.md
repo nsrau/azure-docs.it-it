@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441131"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790883"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Per il database SQL di Azure e l'analisi delle sinapsi di Azure, la protezione T
 > Per gli utenti che usano Transparent Data Encryption gestita dal servizio e vogliono iniziare a usare Transparent Data Encryption gestita dal cliente, i dati rimangono crittografati durante il passaggio e non si verifica alcun tempo di inattività o riesecuzione della crittografia dei file di database. Il passaggio da una chiave gestita dal servizio a una chiave gestita dal cliente richiede la riesecuzione della crittografia della chiave DEK, che è un'operazione online rapida.
 
 > [!NOTE]
-> Per fornire ai clienti di Azure SQL due livelli di crittografia dei dati inattivi, viene implementata la crittografia dell'infrastruttura (usando l'algoritmo di crittografia AES-256) con chiavi gestite dalla piattaforma. Questo offre un livello aggiuntivo di crittografia dei componenti inattivi insieme a Transparent Data Encryption con chiavi gestite dal cliente, che è già disponibile. Per il database SQL di Azure e Istanza gestita, tutti i database, inclusi il database master e altri database di sistema, verranno crittografati quando si attiva la crittografia dell'infrastruttura. Al momento, i clienti devono richiedere l'accesso a questa funzionalità. Se si è interessati a questa funzionalità, contattare AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> Per fornire ai clienti di Azure SQL due livelli di crittografia dei dati inattivi, viene implementata la crittografia dell'infrastruttura (usando l'algoritmo di crittografia AES-256) con chiavi gestite dalla piattaforma. Questo offre un livello aggiuntivo di crittografia dei componenti inattivi insieme a Transparent Data Encryption con chiavi gestite dal cliente, che è già disponibile. Per il database SQL di Azure e Istanza gestita, tutti i database, inclusi il database master e altri database di sistema, verranno crittografati quando si attiva la crittografia dell'infrastruttura. Al momento, i clienti devono richiedere l'accesso a questa funzionalità. Se si è interessati a questa funzionalità, contattare AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Vantaggi di Transparent Data Encryption gestita dal cliente
 
@@ -56,11 +56,11 @@ Transparent Data Encryption gestita dal cliente offre al cliente i vantaggi segu
 
 Per consentire al server di usare la protezione Transparent Data Encryption archiviata in AKV per la crittografia della chiave di crittografia, l'amministratore dell'insieme di credenziali delle chiavi deve concedere al server i seguenti diritti di accesso usando l'identità univoca Azure Active Directory (Azure AD):
 
-- **get**: per recuperare la parte pubblica e le proprietà della chiave nel Key Vault
+- **get** : per recuperare la parte pubblica e le proprietà della chiave nel Key Vault
 
-- **wrapKey**: per proteggere (crittografare) la chiave DEK
+- **wrapKey** : per proteggere (crittografare) la chiave DEK
 
-- **unwrapKey**: per rimuovere la protezione (decrittografare) la chiave DEK
+- **unwrapKey** : per rimuovere la protezione (decrittografare) la chiave DEK
 
 L'amministratore del Key Vault può anche [abilitare la registrazione degli eventi di controllo del Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
 
@@ -90,12 +90,12 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
 
-- La chiave deve avere lo stato *Abilitato*.
+- La chiave deve avere lo stato *Abilitato* .
 
 - Se si importa una chiave esistente nel Key Vault, assicurarsi di specificarla nei formati di file supportati (pfx, byok o backup).
 
 > [!NOTE]
-> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica**. Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](https://aka.ms/mhsm).
+> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica** . Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Suggerimenti per la configurazione di Transparent Data Encryption gestita dal cliente
@@ -106,7 +106,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - Impostare un blocco di risorsa nel Key Vault per controllare chi può eliminare questa risorsa critica e impedire l'eliminazione accidentale o non autorizzata. Altre informazioni sui [blocchi delle risorse](../../azure-resource-manager/management/lock-resources.md).
 
-- Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia: Il Key Vault offre log che possono essere facilmente inclusi in altri strumenti di gestione delle informazioni di sicurezza e di gestione degli eventi. [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) di Operations Management Suite è un esempio di un servizio già integrato.
+- Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia: Il Key Vault offre log che possono essere facilmente inclusi in altri strumenti di gestione delle informazioni di sicurezza e di gestione degli eventi. [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) di Operations Management Suite è un esempio di un servizio già integrato.
 
 - Collegare ogni server a due Key Vault che risiedono in aree diverse e contengono lo stesso materiale della chiave per garantire la disponibilità elevata dei database crittografati. Contrassegnare solo la chiave del Key Vault nella stessa area della protezione TDE. Se si verifica un'interruzione che interessa il Key Vault nella stessa area, il sistema passa automaticamente al Key Vault nell'area remota.
 
@@ -126,7 +126,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 ## <a name="inaccessible-tde-protector"></a>Protezione TDE non accessibile
 
-Quando Transparent Data Encryption è configurata per l'uso di una chiave gestita dal cliente, è necessario l'accesso continuo alla protezione TDE affinché il database rimanga online. Se il server perde l'accesso alla protezione TDE gestita dal cliente in Azure Key Vault, dopo un massimo di 10 minuti il database inizierà a negare tutte le connessioni con il messaggio di errore corrispondente e cambierà lo stato in *Inaccessibile*. L'unica azione consentita in un database con stato Inaccessibile è l'eliminazione.
+Quando Transparent Data Encryption è configurata per l'uso di una chiave gestita dal cliente, è necessario l'accesso continuo alla protezione TDE affinché il database rimanga online. Se il server perde l'accesso alla protezione TDE gestita dal cliente in Azure Key Vault, dopo un massimo di 10 minuti il database inizierà a negare tutte le connessioni con il messaggio di errore corrispondente e cambierà lo stato in *Inaccessibile* . L'unica azione consentita in un database con stato Inaccessibile è l'eliminazione.
 
 > [!NOTE]
 > Se il database è inaccessibile a causa di un'interruzione di rete intermittente, non sarà necessario eseguire alcuna azione e i database torneranno online automaticamente.
@@ -135,7 +135,7 @@ Dopo il ripristino dell'accesso alla chiave, per riportare online il database so
 
 - Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà riparato automaticamente entro un'ora.
 
-- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la riparazione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi**. È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
+- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la riparazione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi** . È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
 
 Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari nel portale per riportare online un database inaccessibile.
 
@@ -146,7 +146,7 @@ Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari ne
 
 È possibile che un utente con diritti di accesso sufficienti al Key Vault disabiliti accidentalmente l'accesso del server alla chiave eseguendo le operazioni seguenti:
 
-- revoca delle autorizzazioni *Get*, *wrapKey*, *unwrapKey* del Key Vault dal server
+- revoca delle autorizzazioni *Get* , *wrapKey* , *unwrapKey* del Key Vault dal server
 
 - eliminazione della chiave
 
@@ -163,7 +163,7 @@ Altre informazioni sulle [cause comuni per cui il database diventa inaccessibile
 Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'accesso alla protezione TDE, configurare le funzionalità di Azure seguenti:
 
 - [Integrità risorse di Azure](../../service-health/resource-health-overview.md). Un database non accessibile che ha perso l'accesso alla protezione TDE viene visualizzato come "Non disponibile" dopo che è stata negata la prima connessione al database.
-- [Log attività](../../service-health/alerts-activity-log-service-notifications.md). Quando si verifica un errore durante l'accesso alla protezione TDE nel Key Vault gestito dal cliente, vengono aggiunte voci al log attività.  La creazione di avvisi per questi eventi consente di ripristinare l'accesso appena possibile.
+- [Log attività](../../service-health/alerts-activity-log-service-notifications-portal.md). Quando si verifica un errore durante l'accesso alla protezione TDE nel Key Vault gestito dal cliente, vengono aggiunte voci al log attività.  La creazione di avvisi per questi eventi consente di ripristinare l'accesso appena possibile.
 - [Gruppi di azioni](../../azure-monitor/platform/action-groups.md). È possibile definire gruppi di azioni per inviare notifiche e avvisi in base alle preferenze, ad esempio Posta elettronica/SMS/Push/Messaggio vocale, App per la logica, Webhook, Gestione dei servizi IT o Runbook di Automazione.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup e ripristino di database con Transparent Data Encryption gestita dal cliente

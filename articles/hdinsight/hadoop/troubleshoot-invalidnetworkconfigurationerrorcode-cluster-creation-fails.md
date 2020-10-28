@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790917"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La creazione del cluster non riesce con InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -68,6 +68,19 @@ Archiviazione di Azure e SQL non hanno indirizzi IP fissi, quindi è necessario 
 
     Se sono presenti route definite, assicurarsi che siano presenti route per gli indirizzi IP per l'area in cui è stato distribuito il cluster e che il **NextHopType** per ogni route sia **Internet** . Deve essere definita una route per ogni indirizzo IP richiesto documentato nell'articolo citato sopra.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Non è stato possibile stabilire una connessione in uscita dal cluster per la comunicazione con il provider di risorse HDInsight. Verificare che la connettività in uscita sia consentita. "
+
+### <a name="issue"></a>Problema
+
+La descrizione dell'errore contiene "Impossibile stabilire una connessione in uscita dal cluster per la comunicazione con il provider di risorse HDInsight. Verificare che la connettività in uscita sia consentita. "
+
+### <a name="cause"></a>Causa
+
+Quando si usano cluster HDInsight collegati privata, l'accesso in uscita dal cluster deve essere configurato per consentire la connessione al provider di risorse HDInsight.
+
+### <a name="resolution"></a>Soluzione
+
+* Per risolvere questo problema, vedere la procedura di configurazione del collegamento privato HDInsight in [configurazione del collegamento privato](../hdinsight-private-link.md)
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"La configurazione della rete virtuale non è compatibile con il requisito di HDInsight"

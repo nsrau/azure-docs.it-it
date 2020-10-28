@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168240"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789761"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Distribuire un disco SSD Premium gestito con la funzionalità disco condiviso ab
 Aggiungere un disco condiviso di Azure seguendo questa procedura: 
 
 
-1. Salvare lo script seguente come *SharedDiskConfig.jsin*: 
+1. Salvare lo script seguente come *SharedDiskConfig.jsin* : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
 Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni seguenti in una delle macchine virtuali:
 
-1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover**.
-1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione**.
-1. Selezionare **Avanti**.
+1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover** .
+1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione** .
+1. Selezionare **Avanti** .
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
-1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
-1. Selezionare **Avanti**.
-1. In **selezione test**selezionare tutti i test *eccetto* **archiviazione**
+1. In **Opzioni di testing** selezionare **Esegui solo test selezionati** . 
+1. Selezionare **Avanti** .
+1. In **selezione test** selezionare tutti i test *eccetto* **archiviazione**
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
 
-Testare il failover del cluster. In **Gestione cluster di failover**fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo** , quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
 
@@ -171,15 +171,15 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Connettersi alla prima macchina virtuale usando Remote Desktop Protocol (RDP).
 
-1. In **Gestione cluster di failover**assicurarsi che tutte le risorse cluster principali siano nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
+1. In **Gestione cluster di failover** assicurarsi che tutte le risorse cluster principali siano nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
 
 1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. 
 
-1. Selezionare **Imposta**.
+1. Selezionare **Imposta** .
 
-1. In **Centro installazione SQL Server** selezionare **Installazione**.
+1. In **Centro installazione SQL Server** selezionare **Installazione** .
 
-1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
+1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
 Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure. 
 
@@ -187,12 +187,12 @@ Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure.
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire **Centro installazione SQL Server**, quindi selezionare **installazione**.
+1. Aprire **Centro installazione SQL Server** , quindi selezionare **installazione** .
 
-1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
+1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
-   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>Eseguire la registrazione con la macchina virtuale SQL RP

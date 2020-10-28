@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628367"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791257"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connettere l'applicazione a un'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Sono disponibili due opzioni per la connessione di reti virtuali:
 Il peering è preferibile perché usa la rete backbone Microsoft. Pertanto, dal punto di vista della connettività, non esiste alcuna differenza evidente nella latenza tra le macchine virtuali in una rete virtuale con peering e nella stessa rete virtuale. Il peering di rete virtuale è supportato tra le reti nella stessa area. Il peering di rete virtuale globale è supportato anche con la limitazione descritta nella nota riportata di seguito.  
 
 > [!IMPORTANT]
-> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-from-on-premises"></a>Connetti da locale 
 
@@ -71,10 +71,10 @@ Un altro scenario implementato dai clienti è la posizione in cui un gateway VPN
 
 ![Peering di rete virtuale](./media/connect-application-instance/vnet-peering.png)
 
-Dopo aver configurato l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa visualizzare gli indirizzi IP nella rete virtuale che ospita SQL Istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering**.
+Dopo aver configurato l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa visualizzare gli indirizzi IP nella rete virtuale che ospita SQL Istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering** .
 
-1. Nella rete virtuale che ospita il gateway VPN passare a **peering**, passare alla connessione di rete virtuale con peering per SQL istanza gestita e quindi fare clic su **Consenti transito gateway**.
-2. Nella rete virtuale che ospita Istanza gestita SQL passare a **peering**, passare alla connessione di rete virtuale con peering per il gateway VPN e quindi fare clic su **Usa gateway remoti**.
+1. Nella rete virtuale che ospita il gateway VPN passare a **peering** , passare alla connessione di rete virtuale con peering per SQL istanza gestita e quindi fare clic su **Consenti transito gateway** .
+2. Nella rete virtuale che ospita Istanza gestita SQL passare a **peering** , passare alla connessione di rete virtuale con peering per il gateway VPN e quindi fare clic su **Usa gateway remoti** .
 
 ## <a name="connect-azure-app-service"></a>Connetti app Azure servizio 
 
@@ -101,7 +101,7 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
 - Se non si è in grado di connettersi a SQL Istanza gestita da una macchina virtuale di Azure all'interno della stessa rete virtuale, ma di una subnet diversa, verificare se è stato impostato un gruppo di sicurezza di rete nella subnet VM che potrebbe bloccare l'accesso. Aprire inoltre la connessione in uscita sulla porta SQL 1433 e le porte nell'intervallo 11000-11999, perché sono necessarie per la connessione tramite reindirizzamento all'interno del limite di Azure.
 - Assicurarsi che la propagazione BGP sia impostata su **abilitato** per la tabella di route associata alla rete virtuale.
-- Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
+- Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita** . I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 
    ![Numeri in ingresso/in uscita](./media/connect-application-instance/ingress-egress-numbers.png)
 
@@ -151,8 +151,8 @@ Le seguenti versioni minime degli strumenti e dei driver sono consigliate Se si 
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLEDB| 18.0.2.0 |
-|SSMS| 18.0 o [successiva](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o successiva |
+|SSMS| 18.0 o [successiva](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o successiva |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

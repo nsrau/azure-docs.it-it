@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263182"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789982"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurare un gruppo di disponibilità SQL Server Always On tra diverse aree di Azure
 
@@ -69,7 +69,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
    >[!NOTE]
    >In alcuni casi, potrebbe essere necessario usare PowerShell per creare la connessione da rete virtuale a rete virtuale. Se, ad esempio, si usano account Azure diversi, non è possibile configurare la connessione nel portale. In questi casi, vedere [Configurare una connessione da rete virtuale a rete virtuale con il portale di Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Creare un controller di dominio nella nuova area](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Creare un controller di dominio nella nuova area](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    Questo controller di dominio fornisce l'autenticazione se il controller di dominio nel sito primario non è disponibile.
 
@@ -84,7 +84,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
    - Includere un pool back-end costituito solo dalle macchine virtuali nella stessa area del servizio di bilanciamento del carico.
    - Usare il probe di una porta TCP specifico dell'indirizzo IP.
    - Avere una regola di bilanciamento del carico specifica dell'istanza di SQL Server nella stessa area.  
-   - Essere un'istanza di Load Balancer Standard se le macchine virtuali nel pool di back-end non fanno parte né di un singolo set di disponibilità né di un set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Panoramica dello SKU Standard di Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Essere un'istanza di Load Balancer Standard se le macchine virtuali nel pool di back-end non fanno parte né di un singolo set di disponibilità né di un set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Panoramica dello SKU Standard di Azure Load Balancer](../../../load-balancer/load-balancer-overview.md).
 
 1. [Aggiungere la funzionalità di clustering di failover alla nuova istanza di SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -96,7 +96,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 1. Aggiungere una risorsa indirizzo IP al cluster.
 
-   È possibile creare la risorsa indirizzo IP in Gestione cluster di failover. Selezionare il nome del cluster, fare clic con il pulsante destro del mouse sul nome del cluster in **Risorse principali del cluster** e selezionare **Proprietà**: 
+   È possibile creare la risorsa indirizzo IP in Gestione cluster di failover. Selezionare il nome del cluster, fare clic con il pulsante destro del mouse sul nome del cluster in **Risorse principali del cluster** e selezionare **Proprietà** : 
 
    ![Proprietà del cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
@@ -113,7 +113,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 1. Aggiungere una risorsa indirizzo IP al ruolo del gruppo di disponibilità nel cluster. 
 
-   Fare clic con il pulsante destro del mouse sul ruolo del gruppo di disponibilità in Gestione cluster di failover, scegliere **Aggiungi risorsa**, **altre risorse**e selezionare **indirizzo IP**.
+   Fare clic con il pulsante destro del mouse sul ruolo del gruppo di disponibilità in Gestione cluster di failover, scegliere **Aggiungi risorsa** , **altre risorse** e selezionare **indirizzo IP** .
 
    ![Creare un indirizzo IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -161,7 +161,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 La replica nel data center remoto fa parte del gruppo di disponibilità, ma si trova in un'altra subnet. Se questa replica diventa quella primaria, possono verificarsi timeout della connessione dell'applicazione. Questo comportamento è lo stesso di un gruppo di disponibilità locale in una distribuzione su più subnet. Per consentire le connessioni dalle applicazioni client, aggiornare la connessione client o configurare la memorizzazione nella cache della risoluzione dei nomi nella risorsa nome di rete del cluster.
 
-È preferibile aggiornare le stringhe di connessione client per impostare `MultiSubnetFailover=Yes`. Vedere [Connessione con MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+È preferibile aggiornare le stringhe di connessione client per impostare `MultiSubnetFailover=Yes`. Vedere [Connessione con MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Se non è possibile modificare le stringhe di connessione, è possibile configurare la memorizzazione nella cache della risoluzione dei nomi. Vedere [Time-out error and you cannot connect to a SQL Server 2012 AlwaysOn availability group listener in a multi-subnet environment](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av) (Errore di timeout e impossibilità a connettersi a un listener del gruppo di disponibilità AlwaysOn di SQL Server 2012 in un ambiente con più subnet).
 
@@ -170,16 +170,16 @@ Se non è possibile modificare le stringhe di connessione, è possibile configur
 Per testare la connettività del listener all'area remota, è possibile effettuare il failover della replica nell'area remota. Mentre la replica è asincrona, il failover è soggetto a perdita potenziale di dati. Per effettuare il failover senza perdita di dati, impostare la modalità di disponibilità come sincrona e la modalità di failover come automatica. Eseguire la procedura descritta di seguito:
 
 1. In **Esplora oggetti** connettersi all'istanza di SQL Server che ospita la replica primaria.
-1. In **gruppi di disponibilità AlwaysOn**, **gruppi di disponibilità**, fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **proprietà**.
-1. Nella pagina **Generale** in **Repliche di disponibilità** impostare la replica secondaria nel sito di ripristino di emergenza per l'uso della modalità di disponibilità **Commit sincrono** e della modalità di failover **Automatico**.
-1. Se è presente una replica secondaria nello stesso sito della replica primaria per la disponibilità elevata, impostare questa replica su **Commit asincrono** e **Manuale**.
+1. In **gruppi di disponibilità AlwaysOn** , **gruppi di disponibilità** , fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **proprietà** .
+1. Nella pagina **Generale** in **Repliche di disponibilità** impostare la replica secondaria nel sito di ripristino di emergenza per l'uso della modalità di disponibilità **Commit sincrono** e della modalità di failover **Automatico** .
+1. Se è presente una replica secondaria nello stesso sito della replica primaria per la disponibilità elevata, impostare questa replica su **Commit asincrono** e **Manuale** .
 1. Selezionare OK.
-1. In **Esplora oggetti**fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Mostra dashboard**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Mostra dashboard** .
 1. Nel dashboard verificare che la replica nel sito di ripristino di emergenza sia sincronizzata.
-1. In **Esplora oggetti**fare clic con il pulsante destro del mouse sul gruppo di disponibilità e selezionare **failover.** SQL Server Management Studio apre una procedura guidata per eseguire il failover SQL Server.  
-1. Selezionare **Avanti**e selezionare l'istanza SQL Server nel sito di ripristino di emergenza. Fare di nuovo clic su **Avanti** .
-1. Connettersi all'istanza di SQL Server nel sito di ripristino di emergenza e selezionare **Avanti**.
-1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **fine**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e selezionare **failover.** SQL Server Management Studio apre una procedura guidata per eseguire il failover SQL Server.  
+1. Selezionare **Avanti** e selezionare l'istanza SQL Server nel sito di ripristino di emergenza. Fare di nuovo clic su **Avanti** .
+1. Connettersi all'istanza di SQL Server nel sito di ripristino di emergenza e selezionare **Avanti** .
+1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **fine** .
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 
@@ -194,12 +194,12 @@ Dopo avere testato la connettività, spostare di nuovo la replica primaria nel d
 
 Per altre informazioni, vedere gli argomenti seguenti:
 
-- [Eseguire un failover manuale pianificato di un gruppo di disponibilità (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Eseguire un failover manuale forzato di un gruppo di disponibilità (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Eseguire un failover manuale pianificato di un gruppo di disponibilità (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Eseguire un failover manuale forzato di un gruppo di disponibilità (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gruppi di disponibilità AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Gruppi di disponibilità AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Macchine virtuali di Azure](../../../virtual-machines/windows/index.yml)
 * [Servizi di bilanciamento del carico di Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Set di disponibilità di Azure](../../../virtual-machines/linux/manage-availability.md)
+* [Set di disponibilità di Azure](../../../virtual-machines/manage-availability.md)

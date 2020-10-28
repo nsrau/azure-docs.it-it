@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de7e428bff0feaafdec00b0c0014bbaf6acb917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619645"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790968"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Questo modello consente di archiviare uno o più tenant in ogni partizione o dat
 
 ## <a name="app-deploys-quickly"></a>Distribuzione rapida dell'app
 
-L'app viene eseguita nel cloud di Azure e usa il database SQL di Azure. Nella sezione seguente relativa alla distribuzione prevede viene usato il pulsante azzurro **Distribuisci in Azure**. Quando si preme il pulsante, l'app viene distribuita completamente nella sottoscrizione di Azure entro cinque minuti. Si ha così l'accesso completo per l'uso dei singoli componenti dell'applicazione.
+L'app viene eseguita nel cloud di Azure e usa il database SQL di Azure. Nella sezione seguente relativa alla distribuzione prevede viene usato il pulsante azzurro **Distribuisci in Azure** . Quando si preme il pulsante, l'app viene distribuita completamente nella sottoscrizione di Azure entro cinque minuti. Si ha così l'accesso completo per l'uso dei singoli componenti dell'applicazione.
 
 L'applicazione viene distribuita con i dati relativi a tre tenant di esempio, archiviati insieme in un unico database multi-tenant.
 
@@ -58,7 +58,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 ### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
-- *Utente:* **af1**, *ossia le iniziali e un numero. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
+- *Utente:* **af1** , *ossia le iniziali e un numero. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
 - *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
 
 Scegliere ora i nomi e annotarli. 
@@ -73,19 +73,19 @@ Scegliere ora i nomi e annotarli.
 1. Immettere i valori dei parametri necessari per la distribuzione.
 
     > [!IMPORTANT]
-    > Per questa dimostrazione non usare gruppi di risorse, server o pool preesistenti. Scegliere invece **Crea un nuovo gruppo di risorse**. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione, per interrompere la fatturazione correlata.
+    > Per questa dimostrazione non usare gruppi di risorse, server o pool preesistenti. Scegliere invece **Crea un nuovo gruppo di risorse** . Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione, per interrompere la fatturazione correlata.
     > Non utilizzare l'applicazione o le risorse che crea per la produzione. Per alcuni aspetti dell'autenticazione e per le impostazioni relative al firewall del server sono stati scelti intenzionalmente valori non sicuri nell'app allo scopo di facilitare la dimostrazione.
 
-    - Per **Gruppo di risorse**, selezionare **Crea nuovo** e quindi specificare un valore in **Nome**, rispettando la distinzione tra maiuscole e minuscole.
+    - Per **Gruppo di risorse** , selezionare **Crea nuovo** e quindi specificare un valore in **Nome** , rispettando la distinzione tra maiuscole e minuscole.
         - Selezionare un **percorso** nell'elenco a discesa.
-    - Per **Utente**: si consiglia di scegliere un valore **Utente** breve.
+    - Per **Utente** : si consiglia di scegliere un valore **Utente** breve.
 
-1. **Distribuire l'applicazione**.
+1. **Distribuire l'applicazione** .
 
     - Fare clic per accettare i termini e le condizioni.
-    - Fare clic su **Acquista**.
+    - Fare clic su **Acquista** .
 
-1. Monitorare lo stato della distribuzione facendo clic su **Notifiche**, l'icona a forma di campanella a destra della casella di ricerca. La distribuzione dell'app Wingtip richiede circa cinque minuti.
+1. Monitorare lo stato della distribuzione facendo clic su **Notifiche** , l'icona a forma di campanella a destra della casella di ricerca. La distribuzione dell'app Wingtip richiede circa cinque minuti.
 
    ![distribuzione completata](./media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -97,20 +97,20 @@ Durante la distribuzione dell'applicazione, scaricare gli script di gestione e i
 > I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando si scaricano i file ZIP da un'origine esterna e si estraggono. Quando si estraggono gli script da un file con estensione zip, seguire questa procedura per sbloccare il file prima di estrarlo. Lo sblocco del file con estensione zip consente di poter eseguire gli script.
 
 1. Passare al [repository WingtipTicketsSaaS-MultiTenantDb di GitHub](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
-2. Fare clic su **Clona o scarica**.
+2. Fare clic su **Clona o scarica** .
 3. Fare clic su **Scarica ZIP** e salvare il file.
-4. Fare clic con il pulsante destro del mouse su **WingtipTicketsSaaS-MultiTenantDb-master.zip** e scegliere **Proprietà**.
-5. Nella scheda **Generale** selezionare **Annulla blocco** e fare clic su **Applica**.
-6. Fare clic su **OK**.
+4. Fare clic con il pulsante destro del mouse su **WingtipTicketsSaaS-MultiTenantDb-master.zip** e scegliere **Proprietà** .
+5. Nella scheda **Generale** selezionare **Annulla blocco** e fare clic su **Applica** .
+6. Fare clic su **OK** .
 7. Estrarre i file.
 
 Gli script si trovano nella cartella *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Aggiornare il file di configurazione per la distribuzione
 
-Prima di eseguire qualsiasi script, impostare i valori *gruppo di risorse* e *utente* in **UserConfig.psm1**. Impostare queste variabili sugli stessi valori usati durante la distribuzione.
+Prima di eseguire qualsiasi script, impostare i valori *gruppo di risorse* e *utente* in **UserConfig.psm1** . Impostare queste variabili sugli stessi valori usati durante la distribuzione.
 
-1. Aprire ...\\Learning Modules\\*UserConfig.psm1* in *PowerShell ISE*.
+1. Aprire ...\\Learning Modules\\*UserConfig.psm1* in *PowerShell ISE* .
 2. Aggiornare *ResourceGroupName* e *Name* con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
 3. Salvare le modifiche.
 
@@ -125,7 +125,7 @@ Ogni sede è associata a un'app Web personalizzata in cui sono elencati i relati
 In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegamenti ai tenant nella distribuzione specifica. Attenersi alla seguente procedura per provare la pagina Web **Events Hub** (Hub eventi) e un'app Web singola:
 
 1. Aprire la pagina **Events Hub** (Hub eventi) nel Web browser:
-   - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp; *Sostituire &lt; utente&gt; con il valore corrispondente all'utente della distribuzione*.
+   - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp; *Sostituire &lt; utente&gt; con il valore corrispondente all'utente della distribuzione* .
 
      ![Hub eventi](./media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -137,7 +137,7 @@ In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegame
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md). La pagina degli eventi per ogni tenant include il nome del tenant nell'URL. Ogni URL include anche il valore di utente specifico. Ogni URL rispetta il formato indicato usando la procedura seguente:
 
-- http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net/ *fabrikamjazzclub*
 
 1. L'app degli eventi analizza il nome del tenant nell'URL. Il nome del tenant è *fabrikamjazzclub* nell'URL di esempio precedente.
 2. L'app esegue quindi l'hash del nome del tenant per creare una chiave di accesso a un catalogo usando il [gestore delle mappe partizioni](elastic-scale-shard-map-management.md).
@@ -146,7 +146,7 @@ Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestion
 
 ### <a name="events-hub"></a>Hub eventi
 
-1. L'**hub eventi** elenca tutti i tenant registrati nel catalogo e le relative sedi.
+1. L' **hub eventi** elenca tutti i tenant registrati nel catalogo e le relative sedi.
 2. **e** usa i metadati estesi nel catalogo per recuperare il nome del tenant associato a ogni mapping in modo da generare gli URL.
 
 In un ambiente di produzione si crea in genere un record DNS CNAME per [impostare un dominio Internet aziendale in modo che punti](../../traffic-manager/traffic-manager-point-internet-domain.md) al profilo di Gestione traffico.
@@ -155,7 +155,7 @@ In un ambiente di produzione si crea in genere un record DNS CNAME per [impostar
 
 Dopo la distribuzione, è possibile usare l'app. Lo script di PowerShell *Demo-LoadGenerator* avvia un carico di lavoro per ogni tenant. Il carico del mondo reale in molte app SaaS è generalmente sporadico e imprevedibile. Per simulare questo tipo di carico, il generatore produce un carico distribuito tra tutti i tenant. Il carico include picchi casuali su ogni tenant che si verificano a intervalli casuali. Il modello di carico si manifesta completamente solo dopo alcuni minuti. È pertanto consigliabile lasciare agire il generatore per almeno tre o quattro minuti prima di monitorare il carico.
 
-1. In *PowerShell ISE* aprire lo script \\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
+1. In *PowerShell ISE* aprire lo script \\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* .
 2. Premere **F5** per eseguire lo script e avviare il generatore di carico (lasciare i valori dei parametri predefiniti per il momento).
 
 Lo script *Demo-LoadGenerator.ps1* apre un'altra sessione di PowerShell in cui viene eseguito il generatore di carico. In questa sessione il generatore di carico viene eseguito come attività in primo piano che richiama i processi in background di generazione del carico, uno per ogni tenant.
@@ -164,23 +164,23 @@ Dopo l'avvio dell'attività in primo piano, il generatore rimane in uno stato di
 
 Se si chiude la sessione di PowerShell, tutti i processi vengono arrestati.
 
-Può essere opportuno riavviare la sessione del generatore di carico per usare valori di parametro diversi. In questo caso, chiudere la sessione di generazione di PowerShell ed eseguire nuovamente lo script *Demo-LoadGenerator.ps1*.
+Può essere opportuno riavviare la sessione del generatore di carico per usare valori di parametro diversi. In questo caso, chiudere la sessione di generazione di PowerShell ed eseguire nuovamente lo script *Demo-LoadGenerator.ps1* .
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Effettuare il provisioning di un nuovo tenant nel database partizionato
 
-La distribuzione iniziale include tre tenant di esempio nel database *Tenants1*. Ora si creerà un altro tenant e si osserveranno i relativi effetti sull'applicazione distribuita. In questo passaggio si preme un tasto per creare un nuovo tenant:
+La distribuzione iniziale include tre tenant di esempio nel database *Tenants1* . Ora si creerà un altro tenant e si osserveranno i relativi effetti sull'applicazione distribuita. In questo passaggio si preme un tasto per creare un nuovo tenant:
 
-1. Aprire ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in *PowerShell ISE*.
-2. Premere **F5** (non **F8**) per eseguire lo script; lasciare i valori predefiniti per il momento.
+1. Aprire ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in *PowerShell ISE* .
+2. Premere **F5** (non **F8** ) per eseguire lo script; lasciare i valori predefiniti per il momento.
 
    > [!NOTE]
-   > È necessario eseguire gli script di PowerShell premendo **F5**, non **F8**, per eseguire solo una parte selezionata dello script. Il problema con **F8** è che la variabile *$PSScriptRoot* non viene valutata. Questa variabile è necessaria in molti script per esplorare le cartelle, richiamare altri script o importare moduli.
+   > È necessario eseguire gli script di PowerShell premendo **F5** , non **F8** , per eseguire solo una parte selezionata dello script. Il problema con **F8** è che la variabile *$PSScriptRoot* non viene valutata. Questa variabile è necessaria in molti script per esplorare le cartelle, richiamare altri script o importare moduli.
 
 Il nuovo tenant Red Maple Racing viene aggiunto al database *Tenants1* e registrato nel catalogo. Nel browser viene visualizzato il sito degli **eventi** del nuovo tenant per la vendita di biglietti:
 
 ![Nuovo tenant](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Aggiornare la pagina dell'**hub eventi** per includere il nuovo tenant nell'elenco.
+Aggiornare la pagina dell' **hub eventi** per includere il nuovo tenant nell'elenco.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Effettuare il provisioning di un nuovo tenant in un database autonomo
 
@@ -193,7 +193,7 @@ Può essere utile inserire i sottoscrittori di una versione di prova gratuita, o
 
 Successivamente si effettua il provisioning di un altro tenant, questa volta in un database autonomo:
 
-1. In \\...Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* modificare *$TenantName* su **Salix Salsa**, *$VenueType* su **dance** e *$Scenario* su **2**.
+1. In \\...Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* modificare *$TenantName* su **Salix Salsa** , *$VenueType* su **dance** e *$Scenario* su **2** .
 
 2. Premere **F5** per eseguire nuovamente lo script.
     - Premendo **F5** si effettua il provisioning del nuovo tenant in un database separato. Il database e il tenant vengono registrati nel catalogo e quindi viene visualizzata la pagina degli eventi del tenant nel browser.
@@ -202,7 +202,7 @@ Successivamente si effettua il provisioning di un altro tenant, questa volta in 
 
    - Scorrere fino alla parte inferiore della pagina. Nel banner viene visualizzato il nome del database in cui sono archiviati i dati del tenant.
 
-3. Aggiornare la pagina dell'**hub eventi** per includere i due nuovi tenant nell'elenco.
+3. Aggiornare la pagina dell' **hub eventi** per includere i due nuovi tenant nell'elenco.
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Esplorare i server e i database tenant
 
@@ -212,7 +212,7 @@ Ora si esamineranno alcune delle risorse distribuite:
 
    ![gruppo di risorse](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Fare clic sul server **catalog-mt&lt;utente&gt;** . Il server di catalogo contiene due database denominati *tenantcatalog* e *basetenantdb*. Il database *basetenantdb* è un database modello vuoto. Viene copiato per creare un nuovo database, da usare per più tenant o per uno solo.
+2. Fare clic sul server **catalog-mt&lt;utente&gt;** . Il server di catalogo contiene due database denominati *tenantcatalog* e *basetenantdb* . Il database *basetenantdb* è un database modello vuoto. Viene copiato per creare un nuovo database, da usare per più tenant o per uno solo.
 
    ![server di catalogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -232,11 +232,11 @@ Se il generatore di carico è rimasto in esecuzione per diversi minuti, sarà di
 
    Il grafico relativo all'utilizzo delle DTU illustra chiaramente come un database multi-tenant può supportare un carico di lavoro imprevisto su più tenant. In questo caso, il generatore di carico applica sporadicamente un carico di circa 30 DTU a ogni tenant. Questo carico equivale al 60% di utilizzo di un database da 50 DTU. Si verificano picchi superiori al 60% quando il carico viene applicato contemporaneamente a più di un tenant.
 
-2. Individuare il server **tenants1 mt&lt;utente&gt;** e scegliere il database **salixsalsa**. È possibile esaminare l'utilizzo delle risorse in questo database che contiene un solo tenant.
+2. Individuare il server **tenants1 mt&lt;utente&gt;** e scegliere il database **salixsalsa** . È possibile esaminare l'utilizzo delle risorse in questo database che contiene un solo tenant.
 
    ![database salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
-Il generatore di carico applica un carico simile a ogni tenant, indipendentemente dal database in cui si trova. Con un solo tenant nel database **salixsalsa**, è possibile osservare che il database è riuscito a sostenere un carico decisamente superiore rispetto al database con più tenant. 
+Il generatore di carico applica un carico simile a ogni tenant, indipendentemente dal database in cui si trova. Con un solo tenant nel database **salixsalsa** , è possibile osservare che il database è riuscito a sostenere un carico decisamente superiore rispetto al database con più tenant. 
 
 ### <a name="resource-allocations-vary-by-workload"></a>Le allocazioni delle risorse variano a seconda del carico di lavoro
 
@@ -260,7 +260,7 @@ In questa esercitazione si è appreso:
 > [!div class="checklist"]
 > - Come distribuire l'applicazione SaaS Wingtip Tickets per database multi-tenant.
 > - Informazioni su server e database che costituiscono l'app
-> - I tenant vengono mappati ai relativi dati con il *catalogo*.
+> - I tenant vengono mappati ai relativi dati con il *catalogo* .
 > - Come effettuare il provisioning di nuovi tenant, in un database multi-tenant e in un database a tenant singolo
 > - Come visualizzare l'utilizzo del pool per monitorare l'attività dei tenant
 > - Come eliminare le risorse di esempio per interrompere la fatturazione correlata
@@ -278,7 +278,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 [link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
-[link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
+[link-azure-get-started-powershell-41q]: /powershell/azure/get-started-azureps
 
 [link-github-wingtip-multitenantdb-55g]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB/
 
@@ -290,4 +290,3 @@ A [series of related tutorials] is available that build upon this initial deploy
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Pulsante per la distribuzione in Azure."
-

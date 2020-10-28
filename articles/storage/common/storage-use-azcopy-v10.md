@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b1d25ae127d9a732225859a09622bb057c348e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ce6398f63149a7f5dd3102d75c8db324f526c419
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488487"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791155"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -37,7 +37,7 @@ Prima di tutto, scaricare il file eseguibile AzCopy V10 in qualsiasi directory d
 Questi file vengono compressi come file zip (Windows e Mac) o file con estensione tar (Linux). Per scaricare e decomprimere il file tar in Linux, vedere la documentazione per la distribuzione di Linux.
 
 > [!NOTE]
-> Se si vogliono copiare dati da e verso il servizio di [archiviazione tabelle di Azure](/azure/storage/tables/table-storage-overview) , installare [AzCopy versione 7,3](https://aka.ms/downloadazcopynet).
+> Se si vogliono copiare dati da e verso il servizio di [archiviazione tabelle di Azure](../tables/table-storage-overview.md) , installare [AzCopy versione 7,3](https://aka.ms/downloadazcopynet).
 
 
 ## <a name="run-azcopy"></a>Eseguire Azcopy
@@ -80,14 +80,14 @@ Con Azure Active Directory è possibile fornire le credenziali una sola volta an
 
 Il livello di autorizzazione necessario si basa sul fatto che si preveda di caricare i file o semplicemente scaricarli.
 
-Se si vuole solo scaricare i file, verificare che il [lettore di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) sia stato assegnato all'identità utente, all'identità gestita o all'entità servizio.
+Se si vuole solo scaricare i file, verificare che il [lettore di dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) sia stato assegnato all'identità utente, all'identità gestita o all'entità servizio.
 
-> Le identità utente, le identità gestite e le entità servizio sono ognuna un tipo di *entità di sicurezza*, quindi si userà il termine *entità di sicurezza* per la parte restante di questo articolo.
+> Le identità utente, le identità gestite e le entità servizio sono ognuna un tipo di *entità di sicurezza* , quindi si userà il termine *entità di sicurezza* per la parte restante di questo articolo.
 
 Se si vuole caricare i file, verificare che uno di questi ruoli sia stato assegnato all'entità di sicurezza:
 
-- [Collaboratore ai dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Proprietario dei dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Collaboratore ai dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Proprietario dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi ambiti:
 
@@ -96,14 +96,14 @@ Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi 
 - Resource group
 - Subscription
 
-Per informazioni su come verificare e assegnare i ruoli, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni su come verificare e assegnare i ruoli, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 > [!NOTE]
 > Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione.
 
 Non è necessario che uno di questi ruoli sia assegnato all'entità di sicurezza se l'entità di sicurezza viene aggiunta all'elenco di controllo di accesso (ACL) del contenitore o della directory di destinazione. Nell'ACL l'entità di sicurezza necessita dell'autorizzazione di scrittura per la directory di destinazione e dell'autorizzazione Execute per il contenitore e ogni directory padre.
 
-Per altre informazioni, vedere [controllo di accesso in Azure Data Lake storage Gen2](/azure/storage/blobs/data-lake-storage-access-control).
+Per altre informazioni, vedere [controllo di accesso in Azure Data Lake storage Gen2](../blobs/data-lake-storage-access-control.md).
 
 #### <a name="authenticate-a-user-identity"></a>Autenticare un'identità utente
 
@@ -121,7 +121,7 @@ azcopy login --tenant-id=<tenant-id>
 
 Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > proprietà > ID directory** nella portale di Azure.
 
-Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. Aprire il sito Web, immettere il codice e quindi scegliere il pulsante **Avanti**.
+Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. Aprire il sito Web, immettere il codice e quindi scegliere il pulsante **Avanti** .
 
 ![Creare un contenitore](media/storage-use-azcopy-v10/azcopy-login.png)
 
@@ -137,9 +137,9 @@ Prima di eseguire uno script, è necessario eseguire l'accesso in modo interatti
 
 È possibile accedere all'account usando un segreto client o usando la password di un certificato associato alla registrazione dell'app dell'entità servizio.
 
-Per altre informazioni sulla creazione di un'entità servizio, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](/azure/active-directory/develop/howto-create-service-principal-portal).
+Per altre informazioni sulla creazione di un'entità servizio, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-Per ulteriori informazioni sulle entità servizio in generale, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
+Per ulteriori informazioni sulle entità servizio in generale, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 
 ##### <a name="using-a-client-secret"></a>Uso di un segreto client
 
@@ -205,7 +205,7 @@ Per altre informazioni su come abilitare un'identità gestita a livello di siste
 
 ##### <a name="using-a-system-wide-managed-identity"></a>Uso di un'identità gestita a livello di sistema
 
-Assicurarsi prima di tutto che sia stata abilitata un'identità gestita a livello di sistema nella macchina virtuale. Vedere [identità gestita assegnata dal sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita a livello di sistema nella macchina virtuale. Vedere [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
 Quindi, nella console dei comandi, digitare il comando seguente, quindi premere il tasto INVIO.
 
@@ -215,7 +215,7 @@ azcopy login --identity
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>Uso di un'identità gestita assegnata dall'utente
 
-Assicurarsi prima di tutto che sia stata abilitata un'identità gestita assegnata dall'utente nella macchina virtuale. Vedere [identità gestita assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita assegnata dall'utente nella macchina virtuale. Vedere [identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
 Quindi, nella console dei comandi, digitare uno dei comandi seguenti, quindi premere il tasto INVIO.
 
@@ -247,7 +247,7 @@ Questo comando di esempio copia in modo ricorsivo i dati da una directory locale
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Per altre informazioni sui token SAS e su come ottenerne uno, vedere [uso delle firme di accesso condiviso (SAS)](/azure/storage/common/storage-sas-overview).
+Per altre informazioni sui token SAS e su come ottenerne uno, vedere [uso delle firme di accesso condiviso (SAS)](./storage-sas-overview.md).
 
 ## <a name="transfer-files"></a>Trasferire i file
 

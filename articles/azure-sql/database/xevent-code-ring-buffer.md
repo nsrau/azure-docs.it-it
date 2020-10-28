@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619832"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791291"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Codice di destinazione del buffer circolare per eventi estesi nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Si desidera un esempio di codice completo per il modo più semplice e rapido per acquisire e segnalare informazioni per un evento esteso durante un test. La destinazione più semplice per i dati degli eventi estesi è la [destinazione del buffer circolare](https://msdn.microsoft.com/library/ff878182.aspx).
+Si desidera un esempio di codice completo per il modo più semplice e rapido per acquisire e segnalare informazioni per un evento esteso durante un test. La destinazione più semplice per i dati degli eventi estesi è la [destinazione del buffer circolare](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 In questo argomento viene presentato un esempio di codice Transact-SQL che:
 
 1. Crea una tabella con i dati a scopo dimostrativo.
-2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql_statement_starting**.
+2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql_statement_starting** .
 
-   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
-   * Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring_buffer**.
+   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'** .
+   * Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring_buffer** .
 3. Avvia la sessione dell'evento.
 4. Esegue un paio di semplici istruzioni SQL UPDATE.
 5. Esegue un'istruzione SQL SELECT per recuperare l'output dell'evento dal buffer circolare.
@@ -50,7 +50,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 * SQL Server Management Studio (ssms.exe), idealmente l'ultima versione di aggiornamento mensile.
   È possibile scaricare la versione più recente di ssms.exe da:
   
-  * Argomento intitolato [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Argomento intitolato [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Un collegamento diretto al download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Esempio di codice
@@ -218,9 +218,9 @@ GO
 
 Per eseguire l'esempio di codice, è stato usato `ssms.exe`.
 
-Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**.
+Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML** .
 
-Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
+Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML** . Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
 L'output è illustrato nella sezione seguente. Sembra lungo, ma è composto solo da due elementi **\<event>** .
 
@@ -349,6 +349,6 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

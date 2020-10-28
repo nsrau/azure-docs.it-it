@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951996"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789489"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e di Azure sinapsi Analytics
 
-Quando si crea un server SQL logico dal [portale di Azure](single-database-create-quickstart.md) per il database SQL di Azure e Azure sinapsi Analytics, il risultato è un endpoint pubblico nel formato *yourservername.database.Windows.NET*.
+Quando si crea un server SQL logico dal [portale di Azure](single-database-create-quickstart.md) per il database SQL di Azure e Azure sinapsi Analytics, il risultato è un endpoint pubblico nel formato *yourservername.database.Windows.NET* .
 
 È possibile utilizzare i seguenti controlli di accesso alla rete per consentire selettivamente l'accesso a un database tramite l'endpoint pubblico:
 
@@ -34,7 +34,7 @@ Quando si crea un server SQL logico dal [portale di Azure](single-database-creat
 - Collegamento privato: usare questa funzionalità per creare un endpoint privato per [SQL Server logico](logical-servers.md) all'interno di una rete virtuale specifica
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a **SQL istanza gestita**. Per altre informazioni sulla configurazione di rete, vedere [connessione al istanza gestita SQL di Azure](../managed-instance/connect-application-instance.md) .
+> Questo articolo *non* si applica a **SQL istanza gestita** . Per altre informazioni sulla configurazione di rete, vedere [connessione al istanza gestita SQL di Azure](../managed-instance/connect-application-instance.md) .
 
 Vedere il video seguente per una spiegazione generale di questi controlli di accesso e delle operazioni eseguite:
 
@@ -42,13 +42,13 @@ Vedere il video seguente per una spiegazione generale di questi controlli di acc
 
 ## <a name="allow-azure-services"></a>Consenti i servizi di Azure
 
-Per impostazione predefinita, durante la creazione di un nuovo SQL Server logico [dal portale di Azure](single-database-create-quickstart.md), questa impostazione è impostata su **off**. Questa impostazione viene visualizzata quando la connettività è consentita tramite l'endpoint di servizio pubblico.
+Per impostazione predefinita, durante la creazione di un nuovo SQL Server logico [dal portale di Azure](single-database-create-quickstart.md), questa impostazione è impostata su **off** . Questa impostazione viene visualizzata quando la connettività è consentita tramite l'endpoint di servizio pubblico.
 
 È anche possibile modificare questa impostazione tramite il riquadro Firewall dopo aver creato il server SQL logico come indicato di seguito.
   
 ![Screenshot della gestione del firewall del server][2]
 
-Quando è impostata **su on**, il server consente le comunicazioni da tutte le risorse all'interno del limite di Azure, che possono o meno far parte della sottoscrizione.
+Quando è impostata **su on** , il server consente le comunicazioni da tutte le risorse all'interno del limite di Azure, che possono o meno far parte della sottoscrizione.
 
 In molti casi, l'impostazione on è più permissiva rispetto **a** quella che la maggior parte dei clienti desidera. È consigliabile impostare questa impostazione su **off** e sostituirla con regole del firewall IP più restrittive o regole del firewall della rete virtuale. 
 
@@ -56,11 +56,11 @@ Questa operazione influisca tuttavia sulle funzionalità seguenti che vengono es
 
 ### <a name="import-export-service"></a>Servizio Importazione/Esportazione di Azure
 
-Il servizio importazione/esportazione non funziona quando **l'opzione Consenti l'accesso a servizi di Azure** è impostata su **disattivato**. Tuttavia, è possibile aggirare il problema eseguendo [manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direttamente nel codice usando l'API DACFx.
+Il servizio importazione/esportazione non funziona quando **l'opzione Consenti l'accesso a servizi di Azure** è impostata su **disattivato** . Tuttavia, è possibile aggirare il problema eseguendo [manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione](./database-import-export-azure-services-off.md) direttamente nel codice usando l'API DACFx.
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
 
-Per usare la funzionalità di sincronizzazione dei dati con **Consenti l'accesso a servizi di Azure** impostati su **disattivato**, è necessario creare singole voci di regole del firewall per [aggiungere indirizzi IP](firewall-create-server-level-portal-quickstart.md) dal **tag del servizio SQL** per l'area che ospita il database **Hub** .
+Per usare la funzionalità di sincronizzazione dei dati con **Consenti l'accesso a servizi di Azure** impostati su **disattivato** , è necessario creare singole voci di regole del firewall per [aggiungere indirizzi IP](firewall-create-server-level-portal-quickstart.md) dal **tag del servizio SQL** per l'area che ospita il database **Hub** .
 Aggiungere queste regole del firewall a livello di server ai server che ospitano i database di **Hub** e **membri** (che possono trovarsi in aree diverse)
 
 Usare lo script di PowerShell seguente per generare indirizzi IP corrispondenti al tag del servizio SQL per l'area Stati Uniti occidentali
@@ -110,7 +110,7 @@ Il firewall basato su IP è una funzionalità di SQL Server logico in Azure che 
 
 ## <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
-Oltre alle regole IP, il firewall del server consente di definire *le regole della rete virtuale*.  
+Oltre alle regole IP, il firewall del server consente di definire *le regole della rete virtuale* .  
 Per altre informazioni, vedere [endpoint del servizio di rete virtuale e regole per il database SQL di Azure](vnet-service-endpoint-rule-overview.md) o guardare questo video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -121,9 +121,9 @@ Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le 
 
 **Rete virtuale:** È possibile avere reti virtuali associate alla sottoscrizione di Azure
 
-**Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedere alla rete virtuale, a meno che non si configuri la sicurezza per consentire l'accesso.
+**Subnet:** una rete virtuale contiene **subnet** . Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedere alla rete virtuale, a meno che non si configuri la sicurezza per consentire l'accesso.
 
-**Endpoint servizio rete virtuale:** Un [endpoint del servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. In questo articolo si è interessati al nome del tipo di **Microsoft. SQL**, che fa riferimento al servizio di Azure denominato database SQL.
+**Endpoint servizio rete virtuale:** Un [endpoint del servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. In questo articolo si è interessati al nome del tipo di **Microsoft. SQL** , che fa riferimento al servizio di Azure denominato database SQL.
 
 **Regola della rete virtuale:** Una regola della rete virtuale per il server è una subnet elencata nell'elenco di controllo di accesso (ACL) del server. Per trovarsi nell'ACL del database nel database SQL, la subnet deve contenere il nome del tipo **Microsoft. SQL** . Una regola della rete virtuale indica al server di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 
@@ -140,7 +140,7 @@ Le regole della rete virtuale sono un'alternativa più semplice per definire e g
 
 ## <a name="private-link"></a>Collegamento privato
 
-Collegamento privato consente di connettersi a un server tramite un **endpoint privato**. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
+Collegamento privato consente di connettersi a un server tramite un **endpoint privato** . Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -148,7 +148,7 @@ Collegamento privato consente di connettersi a un server tramite un **endpoint p
 
 - Per una guida introduttiva alla creazione di una regola del firewall di rete virtuale a livello di server, vedere [endpoint e regole del servizio rete virtuale per il database SQL di Azure](vnet-service-endpoint-rule-overview.md).
 
-- Per informazioni sulla connessione a un database nel database SQL da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Per informazioni sulla connessione a un database nel database SQL da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL](/previous-versions/azure/ee336282(v=azure.100)).
 
 - Per informazioni sulle porte aggiuntive che si possono dover aprire vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 
@@ -159,4 +159,3 @@ Collegamento privato consente di connettersi a un server tramite un **endpoint p
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

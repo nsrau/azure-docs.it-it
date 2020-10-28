@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448788"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789557"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita di SQL di Azure tramite le viste a gestione dinamica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Database SQL di Microsoft Azure e Azure SQL Istanza gestita supportano parzialme
 - Visualizzazioni a gestione dinamica relative all'esecuzione.
 - Visualizzazioni a gestione dinamica relative alle transazioni.
 
-Per informazioni dettagliate sulle viste a gestione dinamica, vedere [funzioni e viste a gestione dinamica (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Per informazioni dettagliate sulle viste a gestione dinamica, vedere [funzioni e viste a gestione dinamica (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -94,7 +94,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>Il problema della CPU si è verificato in precedenza
 
-Se il problema si è verificato in precedenza e si vuole eseguire l'analisi della causa radice, usare [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Gli utenti con accesso al database possono usare T-SQL per eseguire query sui dati di Query Store. Le configurazioni predefinite di Query Store usano una granularità di 1 ora. Usare la query seguente per esaminare l'attività di query con un utilizzo elevato della CPU. Questa query restituisce le 15 query con un maggior utilizzo della CPU. Ricordarsi di modificare `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Se il problema si è verificato in precedenza e si vuole eseguire l'analisi della causa radice, usare [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Gli utenti con accesso al database possono usare T-SQL per eseguire query sui dati di Query Store. Le configurazioni predefinite di Query Store usano una granularità di 1 ora. Usare la query seguente per esaminare l'attività di query con un utilizzo elevato della CPU. Questa query restituisce le 15 query con un maggior utilizzo della CPU. Ricordarsi di modificare `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -123,7 +123,7 @@ Quando si identificano i problemi di prestazioni di IO, i tipi di attesa più fr
 
 - `PAGEIOLATCH_*`
 
-  Per i problemi di IO dei file di dati (inclusi `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se il nome del tipo di attesa include **IO**, il tipo di attesa punta a un problema di IO. Se il nome di attesa latch della pagina non include **IO**, il tipo di attesa punta a un tipo di problema diverso, ad esempio alla contesa di tempdb.
+  Per i problemi di IO dei file di dati (inclusi `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se il nome del tipo di attesa contiene **io** , punta a un problema di io. Se non esiste alcun **io** nel nome dell'attesa del latch di pagina, fa riferimento a un tipo di problema diverso (ad esempio, la contesa di tempdb).
 
 - `WRITE_LOG`
 
@@ -131,7 +131,7 @@ Quando si identificano i problemi di prestazioni di IO, i tipi di attesa più fr
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Se il problema di IO si sta verificando in questo momento
 
-Usare [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) o [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per visualizzare `wait_type` e `wait_time`.
+Usare [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) o [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per visualizzare `wait_type` e `wait_time`.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identificare l'utilizzo di IO dei dati e dei log
 
@@ -252,7 +252,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente la `tempdb` contesa, utilizzare [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia con `2:x:y` dove 2 è l'ID del `tempdb` database, `x` è l'ID del file e `y` è l'ID della pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente la `tempdb` contesa, utilizzare [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia con `2:x:y` dove 2 è l'ID del `tempdb` database, `x` è l'ID del file e `y` è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 
@@ -517,21 +517,21 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Quando si eseguono **sys.dm_exec_requests** e **sys.dm_exec_sessions**, se si dispone di un'autorizzazione **VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
+> Quando si eseguono **sys.dm_exec_requests** e **sys.dm_exec_sessions** , se si dispone di un'autorizzazione **VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
 
 ## <a name="monitor-resource-use"></a>Monitorare l'uso delle risorse
 
-È possibile monitorare l'utilizzo delle risorse del database SQL di Azure usando il [database sql informazioni dettagliate prestazioni query](query-performance-insight-use.md). Per il database SQL di Azure e Istanza gestita SQL di Azure è possibile monitorare l'uso di [query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+È possibile monitorare l'utilizzo delle risorse del database SQL di Azure usando il [database sql informazioni dettagliate prestazioni query](query-performance-insight-use.md). Per il database SQL di Azure e Istanza gestita SQL di Azure è possibile monitorare l'uso di [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 È anche possibile monitorare l'utilizzo usando le visualizzazioni seguenti:
 
 - Database SQL di Azure: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Istanza gestita SQL di Azure: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Database SQL di Azure e Azure SQL Istanza gestita: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Database SQL di Azure e Azure SQL Istanza gestita: [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-È possibile utilizzare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in ogni database. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Le percentuali medie relative a CPU, I/O dei dati, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
+È possibile utilizzare la vista [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) in ogni database. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Le percentuali medie relative a CPU, I/O dei dati, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
 Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, usare prima **sys.dm_db_resource_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, questa query descrive l'uso medio e massimo delle risorse per il database corrente nell'ultima ora:
 
@@ -548,7 +548,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Per altre query, vedere gli esempi in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Per altre query, vedere gli esempi in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-Nella visualizzazione [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **Master** sono disponibili informazioni aggiuntive che consentono di monitorare le prestazioni del database a livello di servizio e di calcolo specifici. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per un'analisi cronologica a lungo termine del modo in cui il database usa le risorse.
+Nella visualizzazione [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) nel database **Master** sono disponibili informazioni aggiuntive che consentono di monitorare le prestazioni del database a livello di servizio e di calcolo specifici. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per un'analisi cronologica a lungo termine del modo in cui il database usa le risorse.
 
 Il grafico seguente illustra l'uso di risorse della CPU per un database Premium con dimensioni di calcolo P2 per ogni ora nell'arco di una settimana. Questo grafico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'uso di risorse nell'applicazione è molto inferiore.
 
@@ -606,7 +606,7 @@ Nell'esempio seguente vengono illustrati diversi modi per utilizzare la vista de
     ORDER BY start_time DESC;
     ```
 
-2. Per verificare l'idoneità del carico di lavoro per le dimensioni di calcolo, è necessario eseguire il drill-down in ogni aspetto delle metriche delle risorse, ovvero CPU, operazioni di lettura e scrittura, numero di thread di lavoro e numero di sessioni. Ecco la query modificata usando**sys.resource_stats** per segnalare i valori medi e massimi di queste metriche delle risorse:
+2. Per verificare l'idoneità del carico di lavoro per le dimensioni di calcolo, è necessario eseguire il drill-down in ogni aspetto delle metriche delle risorse, ovvero CPU, operazioni di lettura e scrittura, numero di thread di lavoro e numero di sessioni. Ecco la query modificata usando **sys.resource_stats** per segnalare i valori medi e massimi di queste metriche delle risorse:
 
     ```sql
     SELECT
@@ -743,11 +743,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitoraggio delle query bloccate
 
-Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la vista sys.dm_tran_locks per ottenere informazioni sull'attività di blocco corrente nel database. Per un esempio di codice, vedere [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la vista sys.dm_tran_locks per ottenere informazioni sull'attività di blocco corrente nel database. Per un esempio di codice, vedere [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### <a name="monitoring-query-plans"></a>Monitoraggio dei piani di query
 
-Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'esempio seguente viene usata la visualizzazione [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) per determinare la query che usa la CPU cumulativa maggiore.
+Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'esempio seguente viene usata la visualizzazione [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) per determinare la query che usa la CPU cumulativa maggiore.
 
 ```sql
 SELECT

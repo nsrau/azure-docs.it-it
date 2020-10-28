@@ -18,6 +18,7 @@
         - name: Creare una zona pubblica - Interfaccia della riga di comando
           href: dns-getstarted-cli.md
         - name: Creare una zona pubblica - Modello di Azure Resource Manager
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: DNS privato
       items:
@@ -45,7 +46,7 @@
           href: tutorial-alias-rr.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md

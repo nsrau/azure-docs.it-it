@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616704"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791325"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -89,7 +89,7 @@ Per il database SQL di Azure, la funzionalità delle regole di rete virtuale pre
 
 Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere le considerazioni seguenti:
 
-- **In uscita verso gli indirizzi IP pubblici del Database SQL di Azure è necessario che** i gruppi di sicurezza di rete devono essere aperti gli indirizzi IP del Database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../../virtual-network/security-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
+- **In uscita verso gli indirizzi IP pubblici del Database SQL di Azure è necessario che** i gruppi di sicurezza di rete devono essere aperti gli indirizzi IP del Database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../../virtual-network/network-security-groups-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,9 +112,9 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
 
 #### <a name="prerequisites"></a>Prerequisiti
 
-- Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. L'abilitazione di questa configurazione consentirà a polibase e all'istruzione COPY di connettersi all'account di archiviazione usando l'autenticazione avanzata in cui il traffico di rete rimane nel backbone di Azure. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Installare Azure PowerShell usando questa [guida](/powershell/azure/install-az-ps).
+- Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](../../storage/common/storage-account-upgrade.md).
+- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. L'abilitazione di questa configurazione consentirà a polibase e all'istruzione COPY di connettersi all'account di archiviazione usando l'autenticazione avanzata in cui il traffico di rete rimane nel backbone di Azure. Per altre informazioni, fare riferimento a [questa guida](../../storage/common/storage-network-security.md#exceptions).
 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -129,27 +129,27 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Creare **un account di archiviazione per utilizzo generico v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Creare **un account di archiviazione per utilizzo generico v2** usando questa [guida](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](../../storage/common/storage-account-upgrade.md).
+   > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo** . Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
 
    > [!NOTE]
-   > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](../../role-based-access-control/built-in-roles.md).
   
 1. **Connettività di Polybase all'account di archiviazione di Azure:**
 
-   1. Creare una **[chiave master](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** del database, se non è stata creata in precedenza:
+   1. Creare una **[chiave master](/sql/t-sql/statements/create-master-key-transact-sql)** del database, se non è stata creata in precedenza:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'**:
+   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'** :
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -157,7 +157,7 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
 
        > [!NOTE]
        >
-       > - Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+       > - Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md).
        > - Il nome IDENTITY deve essere **'Managed Service Identity'** affinché la connettività di PolyBase funzioni con l'account di archiviazione di Azure protetto con la rete virtuale.
 
    1. Creare un'origine dati esterna con `abfss://` lo schema per la connessione all'account di archiviazione per utilizzo generico v2 tramite polibase:
@@ -168,11 +168,11 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
 
        > [!NOTE]
        >
-       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. Quindi creare un'origine dati esterna con `abfss://` lo schema per la connessione all'account di archiviazione per utilizzo generico v2 come descritto in precedenza e ricreare tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
-       > - Per ulteriori informazioni sullo `abfss://` schema, fare riferimento a questa [Guida](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - Per altre informazioni su CREATE EXTERNAL DATA SOURCE, fare riferimento a questa [guida](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. Quindi creare un'origine dati esterna con `abfss://` lo schema per la connessione all'account di archiviazione per utilizzo generico v2 come descritto in precedenza e ricreare tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
+       > - Per ulteriori informazioni sullo `abfss://` schema, fare riferimento a questa [Guida](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - Per altre informazioni su CREATE EXTERNAL DATA SOURCE, fare riferimento a questa [guida](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Eseguire le query come di consueto usando le [tabelle esterne](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Eseguire le query come di consueto usando le [tabelle esterne](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Controllo BLOB del database SQL di Azure
 
@@ -180,7 +180,7 @@ Il controllo BLOB esegue il push dei log di controllo nell'account di archiviazi
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Aggiunta di una regola del firewall della rete virtuale al server senza attivare gli endpoint di servizio di rete virtuale
 
-In passato, prima che questa funzionalità fosse migliorata, era necessario attivare gli endpoint servizio di rete virtuale prima di poter implementare una regola di rete virtuale attiva nel firewall. Gli endpoint correlano una determinata subnet di VNet a un database nel database SQL di Azure. A partire da gennaio 2018 è invece possibile aggirare questo requisito impostando il flag **IgnoreMissingVNetServiceEndpoint**.
+In passato, prima che questa funzionalità fosse migliorata, era necessario attivare gli endpoint servizio di rete virtuale prima di poter implementare una regola di rete virtuale attiva nel firewall. Gli endpoint correlano una determinata subnet di VNet a un database nel database SQL di Azure. A partire da gennaio 2018 è invece possibile aggirare questo requisito impostando il flag **IgnoreMissingVNetServiceEndpoint** .
 
 La semplice impostazione di una regola del firewall non consente di proteggere il server. Per garantire la sicurezza, è anche necessario attivare gli endpoint di servizio di rete virtuale. Quando si attivano gli endpoint di servizio, la subnet della rete virtuale registra un tempo di inattività fino al termine della transizione dallo stato inattivo a quello attivo. Questo vale soprattutto per le reti virtuali di grandi dimensioni. È possibile usare il flag **IgnoreMissingVNetServiceEndpoint** per ridurre o eliminare il tempo di inattività durante la transizione.
 
@@ -188,11 +188,11 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="errors-40914-and-40615"></a>Errori 40914 e 40615
 
-L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come specificato nel riquadro Firewall nel portale di Azure. L'errore 40615 è simile, ma è correlato alle *regole degli indirizzi IP* in Firewall.
+L'errore di connessione 40914 è correlato alle *regole di rete virtuale* , come specificato nel riquadro Firewall nel portale di Azure. L'errore 40615 è simile, ma è correlato alle *regole degli indirizzi IP* in Firewall.
 
 ### <a name="error-40914"></a>Errore 40914
 
-*Testo del messaggio:* Impossibile aprire il server '*[nome-server]*' richiesto dall'accesso. Al client non è consentito accedere al server.
+*Testo del messaggio:* Impossibile aprire il server ' *[nome-server]* ' richiesto dall'accesso. Al client non è consentito accedere al server.
 
 *Descrizione dell'errore:* il client si trova in una subnet che include endpoint server di rete virtuale. Tuttavia, il server non dispone di alcuna regola di rete virtuale che conceda alla subnet il diritto di comunicare con il database.
 
@@ -210,7 +210,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Il portale può creare una regola di rete virtuale
 
-Questa sezione illustra come è possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola di rete virtuale* nel database nel database SQL di Azure. La regola indica al database di accettare la comunicazione da una determinata subnet contrassegnata come *endpoint del servizio di rete virtuale*.
+Questa sezione illustra come è possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola di rete virtuale* nel database nel database SQL di Azure. La regola indica al database di accettare la comunicazione da una determinata subnet contrassegnata come *endpoint del servizio di rete virtuale* .
 
 > [!NOTE]
 > Se si intende aggiungere un endpoint di servizio alle regole del firewall VNet del server, verificare innanzitutto che gli endpoint di servizio siano attivati per la subnet.
@@ -231,7 +231,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 È necessario avere già una subnet contrassegnata con lo specifico *nome del tipo* di endpoint servizio di rete virtuale pertinente per il database SQL di Azure.
 
-- Il nome del tipo di endpoint pertinente è **Microsoft.Sql**.
+- Il nome del tipo di endpoint pertinente è **Microsoft.Sql** .
 - Se la subnet non è contrassegnata con il nome del tipo, vedere [Verificare che la subnet sia un endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,14 +240,14 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
-2. Cercare e selezionare **SQL Server**, quindi selezionare il server. In **sicurezza**selezionare **firewall e reti virtuali**.
+2. Cercare e selezionare **SQL Server** , quindi selezionare il server. In **sicurezza** selezionare **firewall e reti virtuali** .
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 
     > [!IMPORTANT]
     > Se si lascia il controllo impostato su ON, il server accetta la comunicazione da qualsiasi subnet all'interno del limite di Azure, ad esempio l'origine da uno degli indirizzi IP riconosciuti come quelli compresi negli intervalli definiti per i Data Center di Azure. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità di endpoint servizio di rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole di rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
 
-4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali**.
+4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali** .
 
     ![Fare clic su Aggiungi esistenti (endpoint della subnet, come regola SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
@@ -255,7 +255,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
     > [!TIP]
     > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale.
-    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
+    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali** . Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet** . La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
 
     ![Compilare i campi per la nuova regola.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -298,12 +298,12 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3a715538afba181a067e4cecd8c1941a76ae36d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298854"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790050"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 
@@ -30,7 +30,7 @@ Questo documento illustra come usare PowerShell per eseguire una delle attività
 
 Un listener del gruppo di disponibilità è un nome di rete virtuale al quale si connettono i client per l'accesso ai database. In macchine virtuali di Azure, un servizio di bilanciamento del carico include l'indirizzo IP per il listener. Il servizio di bilanciamento del carico indirizza il traffico all'istanza di SQL Server in ascolto nella porta probe. In genere, un gruppo di disponibilità usa un servizio di bilanciamento del carico interno. Un servizio di bilanciamento del carico interno di Azure può ospitare uno o più indirizzi IP. Ogni indirizzo IP usa una porta probe specifica. 
 
-La possibilità di assegnare più indirizzi IP a un servizio di bilanciamento del carico interno è una novità di Azure ed è disponibile solo nel modello di Gestione risorse. Per completare questa attività, è necessario disporre di un gruppo di disponibilità SQL Server distribuito in macchine virtuali di Azure nel modello di Gestione risorse. Entrambe le macchine virtuali di SQL Server devono appartenere allo stesso set di disponibilità. È possibile usare il [modello Microsoft](availability-group-azure-marketplace-template-configure.md) per creare automaticamente il gruppo di disponibilità in Azure Resource Manager. Questo modello crea automaticamente il gruppo di disponibilità, che include il servizio di bilanciamento del carico interno. Se si preferisce, è possibile [configurare manualmente un gruppo di disponibilità AlwaysOn](availability-group-manually-configure-tutorial.md).
+La possibilità di assegnare più indirizzi IP a un servizio di bilanciamento del carico interno è una novità di Azure ed è disponibile solo nel modello di Gestione risorse. Per completare questa attività, è necessario disporre di un gruppo di disponibilità SQL Server distribuito in macchine virtuali di Azure nel modello di Gestione risorse. Entrambe le macchine virtuali di SQL Server devono appartenere allo stesso set di disponibilità. È possibile usare il [modello Microsoft](./availability-group-quickstart-template-configure.md) per creare automaticamente il gruppo di disponibilità in Azure Resource Manager. Questo modello crea automaticamente il gruppo di disponibilità, che include il servizio di bilanciamento del carico interno. Se si preferisce, è possibile [configurare manualmente un gruppo di disponibilità AlwaysOn](availability-group-manually-configure-tutorial.md).
 
 Per completare i passaggi descritti in questo articolo, è necessario che i gruppi di disponibilità siano già configurati.  
 
@@ -49,11 +49,11 @@ Gli esempi di questo articolo sono stati testati usando la versione 5.4.1 del mo
 
 Verificare che il modulo di PowerShell sia 5.4.1 o versione successiva.
 
-Vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="configure-the-windows-firewall"></a>Configurare Windows Firewall
 
-Configurare Windows Firewall per consentire l'accesso a SQL Server. Le regole del firewall consentono le connessioni TCP alle porte usate dall'istanza di SQL Server e al probe di listener. Per informazioni dettagliate, vedere [Configurazione di Windows Firewall per l'accesso al Motore di database](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Creare una regola in entrata per la porta SQL Server e per la porta probe.
+Configurare Windows Firewall per consentire l'accesso a SQL Server. Le regole del firewall consentono le connessioni TCP alle porte usate dall'istanza di SQL Server e al probe di listener. Per informazioni dettagliate, vedere [Configurazione di Windows Firewall per l'accesso al Motore di database](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access#Anchor_1). Creare una regola in entrata per la porta SQL Server e per la porta probe.
 
 Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
 
@@ -61,10 +61,10 @@ Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi 
 
 Il servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-overview.md) è disponibile in due SKU: Basic & standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Se le macchine virtuali sono in una zona di disponibilità, è necessario l'uso di Load Balancer Standard. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
 
-Il [modello Microsoft](availability-group-azure-marketplace-template-configure.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
+Il [modello Microsoft](./availability-group-quickstart-template-configure.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
 
    > [!NOTE]
-   > Se si usa un Load Balancer Standard e l'Archiviazione di Azure per il cloud di controllo, è necessario configurare un [endpoint di servizio](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
+   > Se si usa un Load Balancer Standard e l'Archiviazione di Azure per il cloud di controllo, è necessario configurare un [endpoint di servizio](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network). 
    > 
 
 Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Standard. Negli esempi lo script include `-sku Standard`.
@@ -82,7 +82,7 @@ $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: Creare un servizio di bilanciamento del carico interno con PowerShell
 
 > [!NOTE]
-> Se il gruppo di disponibilità è stato creato con il [modello Microsoft](availability-group-azure-marketplace-template-configure.md), il bilanciamento del carico interno è già stato creato.
+> Se il gruppo di disponibilità è stato creato con il [modello Microsoft](./availability-group-quickstart-template-configure.md), il bilanciamento del carico interno è già stato creato.
 
 Lo script di PowerShell seguente crea un servizio di bilanciamento del carico interno, configura le regole di bilanciamento del carico e imposta un indirizzo IP per il servizio di bilanciamento del carico. Per eseguire lo script, aprire Windows PowerShell ISE, quindi incollare lo script nel riquadro di script. Usare `Connect-AzAccount` per l'accesso a PowerShell. Se si dispone di più sottoscrizioni di Azure, usare `Select-AzSubscription` per impostare la sottoscrizione. 
 
@@ -144,7 +144,7 @@ La porta front-end è quella usata dalle applicazioni per connettersi all'istanz
 > Per i gruppi di disponibilità di SQL Server, ogni indirizzo IP richiede una porta probe specifica. Ad esempio, se un indirizzo IP su un servizio di bilanciamento del carico usa la porta probe 59999, nessun altro indirizzo IP in tale servizio di bilanciamento del carico può usare la porta probe 59999.
 
 * Per informazioni sui limiti del servizio di bilanciamento del carico, vedere **IP front-end privato per ogni servizio di bilanciamento del carico** in [Limiti relativi alle reti - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Per informazioni sui limiti dei gruppi di disponibilità, vedere [Restrizioni (gruppi di disponibilità)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Per informazioni sui limiti dei gruppi di disponibilità, vedere [Restrizioni (gruppi di disponibilità)](/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability#RestrictionsAG).
 
 Lo script seguente aggiunge un nuovo indirizzo IP a un servizio di bilanciamento del carico esistente. ILB usa la porta del listener per la porta front-end di bilanciamento del carico. Questa porta può essere la porta su cui SQL Server è in ascolto. Per le istanze predefinite di SQL Server, la porta è la numero 1433. La regola di bilanciamento del carico per un gruppo di disponibilità richiede un indirizzo IP mobile (Direct Server Return), quindi la porta back-end corrisponde alla porta front-end. Aggiornare le variabili per l'ambiente. 
 
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Avviare SQL Server Management Studio e connettersi alla replica primaria.
 
-1. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **Listener gruppo di disponibilità**. 
+1. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **Listener gruppo di disponibilità** . 
 
-1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Proprietà**.
+1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Proprietà** .
 
-1. Nella casella **porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il $EndpointPort usato in precedenza (1433 è il valore predefinito), quindi fare clic su **OK**.
+1. Nella casella **porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il $EndpointPort usato in precedenza (1433 è il valore predefinito), quindi fare clic su **OK** .
 
 ## <a name="test-the-connection-to-the-listener"></a>Testare la connessione al listener
 
@@ -222,7 +222,7 @@ Per testare la connessione:
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria. 
 
 > [!NOTE]
-> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx). 
+> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Linee guida e limitazioni
@@ -236,7 +236,7 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
   - Indirizzi IP mobili del servizio di bilanciamento del carico per il listener del gruppo di disponibilità
   - Indirizzo IP principale del cluster, se applicabile.
 
-* Creare un endpoint di servizio quando si usa un Load Balancer Standard con l'Archiviazione di Azure per il cloud di controllo. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+* Creare un endpoint di servizio quando si usa un Load Balancer Standard con l'Archiviazione di Azure per il cloud di controllo. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Per ulteriori informazioni
 
@@ -246,9 +246,9 @@ Per altre informazioni, vedere [Configurare manualmente i gruppi di disponibilit
 
 Usare i cmdlet di PowerShell seguenti per creare un servizio di bilanciamento del carico interno per le macchine virtuali di Azure.
 
-* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) crea un'istanza di Load Balancer. 
-* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) crea una configurazione IP front-end per un'istanza di Load Balancer. 
-* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) crea una regola di configurazione per un'istanza di Load Balancer. 
-* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) crea una configurazione di pool di indirizzi back-end per un'istanza di Load Balancer. 
-* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) crea una configurazione di probe per un'istanza di Load Balancer.
-* [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) rimuove un'istanza di Load Balancer da un gruppo di risorse di Azure.
+* [New-AzLoadBalancer](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancer) crea un'istanza di Load Balancer. 
+* [New-AzLoadBalancerFrontendIpConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerFrontendIpConfig) crea una configurazione IP front-end per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerRuleConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerRuleConfig) crea una regola di configurazione per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) crea una configurazione di pool di indirizzi back-end per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) crea una configurazione di probe per un'istanza di Load Balancer.
+* [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) rimuove un'istanza di Load Balancer da un gruppo di risorse di Azure.

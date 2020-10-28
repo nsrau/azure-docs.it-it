@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: fb64348e53dc92ef8f5830f2649afdf9eca3a9ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616483"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790186"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Il trigger inserisce un record nella tabella di rilevamento delle modifiche dello schema per ogni comando ALTER TABLE. Questo esempio aggiunge un filtro per evitare di replicare le modifiche dello schema apportate nello schema **DataSync**, perché queste sono molto probabilmente effettuate dal servizio di sincronizzazione dati. Aggiungere altri filtri se si vuole replicare solo alcuni tipi di modifiche dello schema.
+Il trigger inserisce un record nella tabella di rilevamento delle modifiche dello schema per ogni comando ALTER TABLE. Questo esempio aggiunge un filtro per evitare di replicare le modifiche dello schema apportate nello schema **DataSync** , perché queste sono molto probabilmente effettuate dal servizio di sincronizzazione dati. Aggiungere altri filtri se si vuole replicare solo alcuni tipi di modifiche dello schema.
 
 È possibile anche aggiungere altri trigger per replicare altri tipi di modifiche dello schema. Ad esempio, creare trigger CREATE_PROCEDURE, ALTER_PROCEDURE e DROP_PROCEDURE per replicare le modifiche alle stored procedure.
 
@@ -231,7 +231,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
         -  [Usare PowerShell per la sincronizzazione tra un database nel database SQL di Azure e un database in un'istanza di SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente di sincronizzazione dei dati: [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure](sql-data-sync-agent-overview.md)
 -   Procedure consigliate: [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-data-sync-best-practices.md)
--   Monitoraggio: [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](sql-data-sync-monitor-sync.md)
+-   Monitoraggio: [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](./monitor-tune-overview.md)
 -   Risoluzione dei problemi: [Risolvere i problemi della sincronizzazione dati SQL di Azure]()
 -   Aggiornare lo schema di sincronizzazione
     -   Con PowerShell: [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/update-sync-schema-in-sync-group.md)

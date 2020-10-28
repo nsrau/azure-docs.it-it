@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426852"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790577"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di Servizi multimediali v3
 
@@ -32,10 +32,10 @@ Questo articolo descrive le regole applicabili alle entità e alle API quando ve
 
 Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. Servizi multimediali supporta l'autenticazione [basata su Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Esistono due opzioni di autenticazione comuni:
  
-* **Autenticazione tramite entità servizio**: usata per autenticare un servizio, ad esempio app Web, app per le funzioni, app per la logica, API e microservizi. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le app Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a Servizi multimediali con un'entità servizio.
-* **Autenticazione utente**: usata per autenticare una persona che usa l'app per interagire con le risorse di Servizi multimediali. L'app interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
+* **Autenticazione tramite entità servizio** : usata per autenticare un servizio, ad esempio app Web, app per le funzioni, app per la logica, API e microservizi. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le app Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a Servizi multimediali con un'entità servizio.
+* **Autenticazione utente** : usata per autenticare una persona che usa l'app per interagire con le risorse di Servizi multimediali. L'app interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-Per l'API di Servizi multimediali è necessario che l'utente o l'app che effettua le richieste all'API REST possa accedere alla risorsa dell'account di Servizi multimediali e usi un ruolo **Collaboratore** o **Proprietario**. È possibile accedere all'API con il ruolo **Lettore**, ma saranno disponibili solo operazioni **Get** o **List**. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali](rbac-overview.md).
+Per l'API di Servizi multimediali è necessario che l'utente o l'app che effettua le richieste all'API REST possa accedere alla risorsa dell'account di Servizi multimediali e usi un ruolo **Collaboratore** o **Proprietario** . È possibile accedere all'API con il ruolo **Lettore** , ma saranno disponibili solo operazioni **Get** o **List** . Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali](rbac-overview.md).
 
 Invece di creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di Servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -109,11 +109,11 @@ Servizi multimediali include le seguenti operazioni a esecuzione prolungata:
 * [Arrestare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Dimensionare un'entità StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Dopo l'invio di un'operazione di lunga durata, viene visualizzato un messaggio "202 Accettato" ed è necessario eseguire il polling dell'operazione completata usando l'ID operazione restituito.
+Al termine dell'invio di un'operazione di lunga durata, viene visualizzato il valore "201 creato" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
 
 L'articolo [Tenere traccia delle operazioni asincrone](../../azure-resource-manager/management/async-operations.md) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
 
-Per un determinato evento live o per qualsiasi output live associato è supportata una sola operazione a esecuzione prolungata. Dopo l'avvio, un'operazione a esecuzione prolungata deve essere completata prima di avviare una successiva operazione a esecuzione prolungata per lo stesso evento live o per qualsiasi output live associato. Per gli eventi live con più output live, è necessario attendere il completamento di un'operazione a esecuzione prolungata per un output live prima di attivare un'operazione a esecuzione prolungata per un altro output live. 
+Per un determinato evento live o per qualsiasi output live associato è supportata una sola operazione a esecuzione prolungata. Dopo l'avvio, un'operazione a esecuzione prolungata deve essere completata prima di avviare una successiva operazione a esecuzione prolungata per lo stesso evento live o per qualsiasi output live associato. Per gli eventi live con più output live, è necessario attendere il completamento di un'operazione a esecuzione prolungata per un output live prima di attivare un'operazione a esecuzione prolungata per un altro output live.
 
 ## <a name="sdks"></a>SDK
 

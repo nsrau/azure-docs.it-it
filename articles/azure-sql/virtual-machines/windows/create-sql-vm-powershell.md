@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3fd9136f78a332a22f973d211dec748c4fb260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317073"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789812"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Come usare Azure PowerShell per eseguire il provisioning di SQL Server in macchine virtuali di Azure
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="configure-your-subscription"></a>Configurare la sottoscrizione
 
-1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzAccount**.
+1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzAccount** .
 
    ```powershell
    Connect-AzAccount
@@ -135,7 +135,7 @@ Usare le variabili seguenti per definire l'immagine di SQL Server da usare per l
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. Per questa esercitazione, usare l'edizione SQL Server 2017 Developer (**SQLDEV**). L'edizione Developer è concessa in licenza gratuitamente per test e sviluppo e si paga solo il costo di esecuzione della VM.
+1. Per questa esercitazione, usare l'edizione SQL Server 2017 Developer ( **SQLDEV** ). L'edizione Developer è concessa in licenza gratuitamente per test e sviluppo e si paga solo il costo di esecuzione della VM.
 
    ```powershell
    $Sku = "SQLDEV"
@@ -143,7 +143,7 @@ Usare le variabili seguenti per definire l'immagine di SQL Server da usare per l
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Il primo oggetto creato con il modello di distribuzione Resource Manager è il gruppo di risorse. Usare il cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) per creare un gruppo di risorse di Azure e le relative risorse. Specificare le variabili inizializzate in precedenza per nome e posizione del gruppo di risorse.
+Il primo oggetto creato con il modello di distribuzione Resource Manager è il gruppo di risorse. Usare il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) per creare un gruppo di risorse di Azure e le relative risorse. Specificare le variabili inizializzate in precedenza per nome e posizione del gruppo di risorse.
 
 Eseguire questo cmdlet per creare un nuovo gruppo di risorse.
 
@@ -153,7 +153,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-La macchina virtuale richiede risorse di archiviazione per il disco del sistema operativo e per i file di dati e di log di SQL Server. Per semplificare, verrà creato un singolo disco per entrambi. Successivamente è possibile collegare dischi aggiuntivi usando il cmdlet [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) per posizionare i file di dati e di log di SQL Server in dischi dedicati. Usare il cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) per creare un account di archiviazione standard nel nuovo gruppo di risorse. Specificare le variabili inizializzate in precedenza per il nome dell'account di archiviazione, il nome dello SKU di archiviazione e la posizione.
+La macchina virtuale richiede risorse di archiviazione per il disco del sistema operativo e per i file di dati e di log di SQL Server. Per semplificare, verrà creato un singolo disco per entrambi. Successivamente è possibile collegare dischi aggiuntivi usando il cmdlet [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) per posizionare i file di dati e di log di SQL Server in dischi dedicati. Usare il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) per creare un account di archiviazione standard nel nuovo gruppo di risorse. Specificare le variabili inizializzate in precedenza per il nome dell'account di archiviazione, il nome dello SKU di archiviazione e la posizione.
 
 Eseguire questo cmdlet per creare il nuovo account di archiviazione.
 
@@ -176,7 +176,7 @@ La macchina virtuale richiede alcune risorse di rete per la connettività di ret
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>Creare una configurazione di subnet di rete virtuale
 
-Per prima cosa, creare una configurazione di subnet per la rete virtuale. Per questa esercitazione, creare una subnet predefinita mediante il cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Specificare le variabili inizializzate in precedenza per nome della subnet, posizione e prefisso dell'indirizzo.
+Per prima cosa, creare una configurazione di subnet per la rete virtuale. Per questa esercitazione, creare una subnet predefinita mediante il cmdlet [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Specificare le variabili inizializzate in precedenza per nome della subnet, posizione e prefisso dell'indirizzo.
 
 > [!NOTE]
 > È possibile definire altre proprietà della configurazione della subnet della rete virtuale usando questo cmdlet, ma questa operazione non rientra nell'ambito dell'esercitazione.
@@ -189,7 +189,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare quindi la rete virtuale nel nuovo gruppo di risorse mediante il cmdlet [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). Specificare le variabili inizializzate in precedenza per nome, posizione e prefisso dell'indirizzo. Usare la configurazione di subnet definita nel passaggio precedente.
+Creare quindi la rete virtuale nel nuovo gruppo di risorse mediante il cmdlet [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Specificare le variabili inizializzate in precedenza per nome, posizione e prefisso dell'indirizzo. Usare la configurazione di subnet definita nel passaggio precedente.
 
 Eseguire questo cmdlet per creare la rete virtuale.
 
@@ -201,7 +201,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### <a name="create-the-public-ip-address"></a>Creare l'indirizzo IP pubblico
 
-Dopo avere definito la rete virtuale, è necessario configurare un indirizzo IP per la connettività alla macchina virtuale. Per questa esercitazione, creare un indirizzo IP pubblico mediante indirizzi IP dinamici per supportare la connettività Internet. Usare il cmdlet [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) per creare l'indirizzo IP pubblico nel nuovo gruppo di risorse. Specificare le variabili inizializzate in precedenza per nome, posizione, metodo di allocazione ed etichetta del nome di dominio DNS.
+Dopo avere definito la rete virtuale, è necessario configurare un indirizzo IP per la connettività alla macchina virtuale. Per questa esercitazione, creare un indirizzo IP pubblico mediante indirizzi IP dinamici per supportare la connettività Internet. Usare il cmdlet [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare l'indirizzo IP pubblico nel nuovo gruppo di risorse. Specificare le variabili inizializzate in precedenza per nome, posizione, metodo di allocazione ed etichetta del nome di dominio DNS.
 
 > [!NOTE]
 > È possibile definire altre proprietà dell'indirizzo IP pubblico usando questo cmdlet, ma questa operazione non rientra nell'ambito dell'esercitazione. È anche possibile creare un indirizzo privato o un indirizzo di tipo statico, ma anche questa procedura non rientra nell'ambito dell'esercitazione.
@@ -243,7 +243,7 @@ Per proteggere la macchina virtuale e il traffico di SQL Server, creare un grupp
 
 ### <a name="create-the-network-interface"></a>Creare l'interfaccia di rete
 
-A questo punto si è pronti per creare l'interfaccia di rete per la macchina virtuale. Usare il cmdlet [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) per creare l'interfaccia di rete nel nuovo gruppo di risorse. Specificare il nome, la posizione, la subnet e l'indirizzo IP pubblico definiti in precedenza.
+A questo punto si è pronti per creare l'interfaccia di rete per la macchina virtuale. Usare il cmdlet [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) per creare l'interfaccia di rete nel nuovo gruppo di risorse. Specificare il nome, la posizione, la subnet e l'indirizzo IP pubblico definiti in precedenza.
 
 Eseguire questo cmdlet per creare l'interfaccia di rete.
 
@@ -265,7 +265,7 @@ Dopo avere definito le risorse di archiviazione e di rete, è possibile definire
 
 ### <a name="create-the-vm-object"></a>Creare l'oggetto macchina virtuale
 
-Specificare prima di tutto le dimensioni della macchina virtuale. Per questa esercitazione, specificare DS13. Usare il cmdlet [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) per creare un oggetto macchina virtuale configurabile. Specificare le variabili inizializzate in precedenza per nome e dimensioni.
+Specificare prima di tutto le dimensioni della macchina virtuale. Per questa esercitazione, specificare DS13. Usare il cmdlet [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) per creare un oggetto macchina virtuale configurabile. Specificare le variabili inizializzate in precedenza per nome e dimensioni.
 
 Eseguire questo cmdlet per creare l'oggetto macchina virtuale.
 
@@ -275,7 +275,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>Creare un oggetto credenziali per includere il nome e la password per le credenziali di amministratore locale
 
-Prima che sia possibile configurare le proprietà del sistema operativo per la macchina virtuale, è necessario specificare le credenziali per l'account di amministratore locale sotto forma di stringa sicura. Per eseguire questa operazione usare il cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+Prima che sia possibile configurare le proprietà del sistema operativo per la macchina virtuale, è necessario specificare le credenziali per l'account di amministratore locale sotto forma di stringa sicura. Per eseguire questa operazione usare il cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 Eseguire il cmdlet seguente. È necessario digitare il nome e la password dell'amministratore locale della macchina virtuale nella finestra di richiesta delle credenziali di PowerShell.
 
@@ -285,7 +285,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Configurare le proprietà del sistema operativo per la macchina virtuale
 
-A questo punto, è possibile impostare le proprietà del sistema operativo della macchina virtuale con il cmdlet [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem).
+A questo punto, è possibile impostare le proprietà del sistema operativo della macchina virtuale con il cmdlet [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem).
 
 - Impostare il tipo di sistema operativo Windows.
 - Richiedere l'installazione dell'[agente per la macchina virtuale](../../../virtual-machines/extensions/agent-windows.md).
@@ -302,7 +302,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>Aggiungere l'interfaccia di rete alla macchina virtuale
 
-Successivamente, usare il cmdlet [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) per aggiungere l'interfaccia di rete usando la variabile definita in precedenza.
+Successivamente, usare il cmdlet [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) per aggiungere l'interfaccia di rete usando la variabile definita in precedenza.
 
 Eseguire questo cmdlet per configurare l'interfaccia di rete per la macchina virtuale.
 
@@ -322,7 +322,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>Configurare le proprietà del disco del sistema operativo per la macchina virtuale
 
-Configurare quindi le proprietà del disco del sistema operativo per la macchina virtuale usando il cmdlet [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). 
+Configurare quindi le proprietà del disco del sistema operativo per la macchina virtuale usando il cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). 
 
 - Specificare che il sistema operativo per la macchina virtuale verrà da un'immagine.
 - Impostare la memorizzazione nella cache sulla modalità di sola lettura, perché SQL Server viene installato nello stesso disco.
@@ -337,7 +337,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Specificare l'immagine di piattaforma per la macchina virtuale
 
-L'ultimo passaggio della configurazione consiste nello specificare l'immagine della piattaforma per la macchina virtuale. Per questa esercitazione, usare l'immagine più recente per SQL Server 2016 CTP. Usare il cmdlet [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) per usare questa immagine con le variabili definite in precedenza.
+L'ultimo passaggio della configurazione consiste nello specificare l'immagine della piattaforma per la macchina virtuale. Per questa esercitazione, usare l'immagine più recente per SQL Server 2016 CTP. Usare il cmdlet [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) per usare questa immagine con le variabili definite in precedenza.
 
 Eseguire questo cmdlet per specificare l'immagine della piattaforma per la macchina virtuale.
 
@@ -349,7 +349,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## <a name="create-the-sql-vm"></a>Creare la macchina virtuale SQL
 
-Al termine della procedura di configurazione, è possibile creare la macchina virtuale. Usare il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) per creare la macchina virtuale usando le variabili definite.
+Al termine della procedura di configurazione, è possibile creare la macchina virtuale. Usare il cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm) per creare la macchina virtuale usando le variabili definite.
 
 > [!TIP]
 > La creazione della macchina virtuale può richiedere alcuni minuti.
@@ -383,11 +383,11 @@ Se non è necessario che la macchina virtuale sia continuamente in esecuzione, �
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-È anche possibile eliminare definitivamente tutte le risorse associate alla macchina virtuale con il comando **Remove-AzResourceGroup**. In questo modo viene eliminata definitivamente anche la macchina virtuale, quindi usare questo comando con cautela.
+È anche possibile eliminare definitivamente tutte le risorse associate alla macchina virtuale con il comando **Remove-AzResourceGroup** . In questo modo viene eliminata definitivamente anche la macchina virtuale, quindi usare questo comando con cautela.
 
 ## <a name="example-script"></a>Script di esempio
 
-Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia già stata impostata la sottoscrizione di Azure da usare con i comandi **Connect-AzAccount** e **Select-AzSubscription**.
+Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia già stata impostata la sottoscrizione di Azure da usare con i comandi **Connect-AzAccount** e **Select-AzSubscription** .
 
 ```powershell
 # Variables

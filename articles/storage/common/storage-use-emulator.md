@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588195"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790560"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -44,7 +44,7 @@ Esistono alcune differenze nelle funzionalità tra l'emulatore di archiviazione 
 
 Per avviare l'emulatore di archiviazione di Azure:
 
-1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS**.
+1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS** .
 2. Iniziare a digitare `Azure Storage Emulator`.
 3. Selezionare l'emulatore nell'elenco delle applicazioni visualizzate.
 
@@ -95,7 +95,7 @@ Dopo aver installato e avviato l'emulatore di archiviazione, è possibile testar
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](../storage-configure-connection-string.md).
+Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](./storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autorizzazione con una firma di accesso condiviso
 
@@ -161,7 +161,7 @@ A partire dalla versione 3,1, l'emulatore di archiviazione supporta la replica g
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Per l'accesso a livello di codice al database secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3,2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) .
+> Per l'accesso a livello di codice al database secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3,2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](/previous-versions/azure/dn261237(v=azure.100)) .
 >
 >
 
@@ -184,11 +184,11 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
 | Opzione | Descrizione | Comando | Argomenti |
 | --- | --- | --- | --- |
-| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare*: avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare* : avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Arresta l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
-| **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
-| **Init** |Esegue l'inizializzazione una sola volta per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate*: ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports*: tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports*: tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
+| **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : cancella i dati BLOB. <br/>*queue* : cancella i dati della coda. <br/>*table* : cancella i dati delle tabelle. <br/>*all* : cancella tutti i dati in tutti i servizi. |
+| **Init** |Esegue l'inizializzazione una sola volta per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName* : specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate* : forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate* : ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports* : tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports* : tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess* : esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Differenze tra l'emulatore di archiviazione e l'archiviazione di Azure
 
@@ -310,7 +310,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ### <a name="version-40"></a>Versione 4.0
 
-* Il file eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe*.
+* Il file eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe* .
 
 ### <a name="version-32"></a>Versione 3.2
 
@@ -329,7 +329,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Valutare l'emulatore di archiviazione open source gestito dalla community multipiattaforma [azzurrite](https://github.com/azure/azurite). 
-* L'articolo [Esempi di Archiviazione di Azure che usano .NET](../storage-samples-dotnet.md) contiene collegamenti a diversi esempi di codice che è possibile usare durante lo sviluppo dell'applicazione.
+* L'articolo [Esempi di Archiviazione di Azure che usano .NET](./storage-samples-dotnet.md) contiene collegamenti a diversi esempi di codice che è possibile usare durante lo sviluppo dell'applicazione.
 * È possibile usare la [Microsoft Azure Storage Explorer](https://storageexplorer.com) per lavorare con le risorse nell'account di archiviazione cloud e nell'emulatore di archiviazione.
 
 ## <a name="see-also"></a>Vedere anche

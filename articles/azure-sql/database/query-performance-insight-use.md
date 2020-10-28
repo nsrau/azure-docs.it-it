@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448893"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790373"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Informazioni dettagliate prestazioni query fornisce un'analisi intelligente delle query per i database singoli e in pool. Consente di identificare le prime query per consumo di risorse e con esecuzione prolungata nel carico di lavoro. Questo consente di trovare le query da ottimizzare per migliorare le prestazioni complessive del carico di lavoro e usare in modo efficiente la risorsa a cui si sta effettuando il pagamento. Informazioni dettagliate prestazioni query consente di dedicare meno tempo alla risoluzione dei problemi relativi alle prestazioni del database fornendo:
+Informazioni dettagliate prestazioni query fornisce un'analisi intelligente delle query per i database singoli e in pool. Consente di identificare le query che utilizzano più risorse e con esecuzione più prolungata nel carico di lavoro. Consente anche di trovare le query da ottimizzare per migliorare le prestazioni complessive del carico di lavoro e usare in modo efficiente la risorsa che si sta pagando. Informazioni dettagliate prestazioni query consente di dedicare meno tempo alla risoluzione dei problemi relativi alle prestazioni del database fornendo:
 
 * Informazioni più approfondite sull'utilizzo delle risorse dei database (DTU)
 * Dettagli sulle query principali sul database in base alla CPU, alla durata e al numero di esecuzioni (potenziali candidati di ottimizzazione per miglioramenti delle prestazioni)
@@ -32,7 +32,7 @@ Informazioni dettagliate prestazioni query fornisce un'analisi intelligente dell
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Per impostazione predefinita, viene abilitato automaticamente per tutti i database nel database SQL di Azure. Se Query Store non è in esecuzione, il portale di Azure richiederà di abilitarlo.
+Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) sia attivo nel database. Per impostazione predefinita, viene abilitato automaticamente per tutti i database nel database SQL di Azure. Se Query Store non è in esecuzione, il portale di Azure richiederà di abilitarlo.
 
 > [!NOTE]
 > Se nel portale viene visualizzato un messaggio che indica che Query Store non è configurato correttamente nel database, vedere [Ottimizzare la configurazione di Query Store](#optimize-the-query-store-configuration).
@@ -41,15 +41,15 @@ Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' 
 
 Sono necessarie le seguenti autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) per usare informazioni dettagliate prestazioni query:
 
-* Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali a livello di uso delle risorse e i grafici.
-* Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
+* Le autorizzazioni **Lettore** , **Proprietario** , **Collaboratore** , **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali a livello di uso delle risorse e i grafici.
+* Le autorizzazioni **Proprietario** , **Collaboratore** , **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
 
 ## <a name="use-query-performance-insight"></a>Usare Informazioni dettagliate prestazioni query
 
 Query Performance Insight è facile da usare:
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e individuare il database da esaminare.
-2. Dal menu a sinistra aprire **Intelligent Performance**  >  **informazioni dettagliate prestazioni query**.
+2. Dal menu a sinistra aprire **Intelligent Performance**  >  **informazioni dettagliate prestazioni query** .
   
    ![Informazioni dettagliate prestazioni query nel menu](./media/query-performance-insight-use/tile.png)
 
@@ -61,7 +61,7 @@ Query Performance Insight è facile da usare:
    ![Dashboard delle prestazioni](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Affinché il database SQL di Azure esegua il rendering delle informazioni in Informazioni dettagliate prestazioni query, Query Store necessario acquisire un paio di ore di dati. Se il database non ha alcuna attività o Query Store non è attivo in un determinato periodo, i grafici saranno vuoti quando si visualizza tale intervallo di tempo in Informazioni dettagliate prestazioni query. È possibile abilitare Query Store in qualsiasi momento, se non è in esecuzione. Per altre informazioni, vedere [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store) (Procedure consigliate per Query Store).
+> Affinché il database SQL di Azure esegua il rendering delle informazioni in Informazioni dettagliate prestazioni query, Query Store necessario acquisire un paio di ore di dati. Se il database non ha alcuna attività o Query Store non è attivo in un determinato periodo, i grafici saranno vuoti quando si visualizza tale intervallo di tempo in Informazioni dettagliate prestazioni query. È possibile abilitare Query Store in qualsiasi momento, se non è in esecuzione. Per altre informazioni, vedere [Best practices with Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store) (Procedure consigliate per Query Store).
 >
 
 Per altri suggerimenti sulle prestazioni del database, selezionare [Raccomandazioni](database-advisor-implement-performance-recommendations.md) nel pannello di spostamento di Informazioni dettagliate prestazioni query.
@@ -74,7 +74,7 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
 
 1. Selezionare o deselezionare le singole query per includerle o escluderle dal grafico usando le caselle di controllo.
 
-   La linea superiore visualizza la percentuale DTU complessiva per il database. Le barre mostrano la percentuale di uso della CPU per le query selezionate durante l'intervallo selezionato. Ad esempio, se è selezionata l'opzione **Settimana precedente**, ogni barra rappresenta un singolo giorno.
+   La linea superiore visualizza la percentuale DTU complessiva per il database. Le barre mostrano la percentuale di uso della CPU per le query selezionate durante l'intervallo selezionato. Ad esempio, se è selezionata l'opzione **Settimana precedente** , ogni barra rappresenta un singolo giorno.
 
    ![Query principali](./media/query-performance-insight-use/top-queries.png)
 
@@ -85,9 +85,9 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
    >
    > Per un confronto più preciso (fino a 1 minuto), è consigliabile creare un grafico dell'uso DTU personalizzato:
    >
-   > 1. Nella portale di Azure selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
-   > 2. Selezionare **Metriche**.
-   > 3. Selezionare **+Aggiungi grafico**.
+   > 1. Nella portale di Azure selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring** .
+   > 2. Selezionare **Metriche** .
+   > 3. Selezionare **+Aggiungi grafico** .
    > 4. Selezionare la percentuale DTU nel grafico.
    > 5. Inoltre, selezionare **Ultime 24 ore** nel menu superiore sinistro e impostare l'opzione su un minuto.
    >
@@ -100,7 +100,7 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
    * Durata per ogni query, che anche in questo caso dipende dalla funzione di aggregazione.
    * Numero totale di esecuzioni per una query specifica.
 
-2. Se i dati non sono aggiornati, selezionare il pulsante **Aggiorna**.
+2. Se i dati non sono aggiornati, selezionare il pulsante **Aggiorna** .
 
 3. Usare i dispositivi di scorrimento e i pulsanti dello zoom per modificare l'intervallo di osservazione ed esaminare i picchi nel consumo:
 
@@ -160,7 +160,7 @@ Le query con esecuzione prolungata hanno le maggiori probabilità di bloccare gl
 Per identificare le query con esecuzione prolungata:
 
 1. Aprire la scheda **Personalizzato** in Informazioni dettagliate prestazioni query per il database selezionato.
-2. Impostare le metriche su **Durata**.
+2. Impostare le metriche su **Durata** .
 3. Selezionare il numero di query e l'intervallo di osservazione.
 4. Selezionare la funzione di aggregazione:
 
@@ -177,9 +177,9 @@ Per identificare le query con esecuzione prolungata:
    >
    > Per comprendere più in dettaglio il consumo di DTU del database (fino a 1 minuto), è consigliabile creare un grafico personalizzato nel portale di Azure:
    >
-   > 1. Selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
-   > 2. Selezionare **Metriche**.
-   > 3. Selezionare **+Aggiungi grafico**.
+   > 1. Selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring** .
+   > 2. Selezionare **Metriche** .
+   > 3. Selezionare **+Aggiungi grafico** .
    > 4. Selezionare la percentuale DTU nel grafico.
    > 5. Inoltre, selezionare **Ultime 24 ore** nel menu superiore sinistro e impostare l'opzione su un minuto.
    >
@@ -197,7 +197,7 @@ Ad esempio, molti siti Web basati sui dati accedono in maniera massiccia al data
 Per identificare le query eseguite di frequente ("Chaty"):
 
 1. Aprire la scheda **Personalizzato** in Informazioni dettagliate prestazioni query per il database selezionato.
-2. Impostare le metriche su **Conteggio delle esecuzioni**.
+2. Impostare le metriche su **Conteggio delle esecuzioni** .
 3. Selezionare il numero di query e l'intervallo di osservazione.
 4. Selezionare il pulsante **Vai >** per accedere alla visualizzazione personalizzata.
 
@@ -232,22 +232,22 @@ Il primo caso si verifica quando Query Store è in stato di sola lettura e i par
 
    ![Dettagli di Query Store](./media/query-performance-insight-use/qds-off.png)
 
-Il secondo caso si verifica quando Query Store non è abilitato o se i parametri non sono impostati in modo ottimale. È possibile modificare i criteri di conservazione e acquisizione e anche abilitare Query Store eseguendo i comandi seguenti forniti da [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o dal portale di Azure.
+Il secondo caso si verifica quando Query Store non è abilitato o se i parametri non sono impostati in modo ottimale. È possibile modificare i criteri di conservazione e acquisizione e anche abilitare Query Store eseguendo i comandi seguenti forniti da [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) o dal portale di Azure.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Criteri di conservazione e acquisizione consigliati
 
 Esistono due tipi di criteri di conservazione:
 
-* **Basato sulle dimensioni**: se il criterio è impostato su **automatico**, i dati verranno puliti automaticamente quando viene raggiunta la dimensione massima.
-* **Basato su tempo**: per impostazione predefinita, questo criterio è impostato su 30 giorni. Se Query Store esaurisce lo spazio, verranno eliminate le informazioni sulle query più vecchie di 30 giorni.
+* **Basato sulle dimensioni** : se il criterio è impostato su **automatico** , i dati verranno puliti automaticamente quando viene raggiunta la dimensione massima.
+* **Basato su tempo** : per impostazione predefinita, questo criterio è impostato su 30 giorni. Se Query Store esaurisce lo spazio, verranno eliminate le informazioni sulle query più vecchie di 30 giorni.
 
 È possibile impostare i criteri di acquisizione su:
 
-* **All**: query Store acquisisce tutte le query.
-* **Auto**: query Store ignora le query e le query non frequenti con una durata di compilazione e di esecuzione non significativa. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
-* **None**: query Store interrompe l'acquisizione di nuove query, ma vengono comunque raccolte le statistiche di runtime per le query già acquisite.
+* **All** : query Store acquisisce tutte le query.
+* **Auto** : query Store ignora le query e le query non frequenti con una durata di compilazione e di esecuzione non significativa. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
+* **None** : query Store interrompe l'acquisizione di nuove query, ma vengono comunque raccolte le statistiche di runtime per le query già acquisite.
 
-È consigliabile impostare tutti i criteri su **AUTOMATICO** e i criteri di pulizia su 30 giorni eseguendo i comandi seguenti da [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o dal portale di Azure. Sostituire `YourDB` con il nome del database.
+È consigliabile impostare tutti i criteri su **AUTOMATICO** e i criteri di pulizia su 30 giorni eseguendo i comandi seguenti da [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) o dal portale di Azure. Sostituire `YourDB` con il nome del database.
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Esistono due tipi di criteri di conservazione:
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Per aumentare le dimensioni di Query Store, connettersi a un database tramite [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o il portale di Azure ed eseguire la query seguente. Sostituire `YourDB` con il nome del database.
+Per aumentare le dimensioni di Query Store, connettersi a un database tramite [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) o il portale di Azure ed eseguire la query seguente. Sostituire `YourDB` con il nome del database.
 
 ```SQL
     ALTER DATABASE [YourDB]

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168155"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790067"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità (SQL Server in Macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Sebbene questo articolo configuri manualmente l'ambiente del gruppo di disponibi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'esercitazione presuppone conoscenze di base dei gruppi di disponibilità AlwaysOn di SQL Server. Se sono necessarie altre informazioni, vedere [Panoramica dei gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+L'esercitazione presuppone conoscenze di base dei gruppi di disponibilità AlwaysOn di SQL Server. Se sono necessarie altre informazioni, vedere [Panoramica dei gruppi di disponibilità AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure](availability-group-manually-configure-prerequisites-tutorial.md). Se questi prerequisiti sono già stati completati, è possibile passare a [Creare il cluster](#CreateCluster).
 
@@ -51,7 +51,7 @@ La tabella seguente elenca i prerequisiti da completare prima di iniziare l'eser
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Account di dominio dell'installazione** | - Amministratore locale in ogni istanza di SQL Server <br/> - Membro del ruolo predefinito del server sysadmin di SQL Server per ogni istanza di SQL Server  |
 
 >[!NOTE]
-> Molti passaggi descritti in questa esercitazione possono ora essere automatizzati con il [portale di Azure](availability-group-azure-portal-configure.md), [PowerShell e l'interfaccia della riga di comando di Azure](availability-group-az-cli-configure.md) e i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md).
+> Molti passaggi descritti in questa esercitazione possono ora essere automatizzati con il [portale di Azure](availability-group-azure-portal-configure.md), [PowerShell e l'interfaccia della riga di comando di Azure](./availability-group-az-commandline-configure.md) e i [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ Aggiungere l'altra istanza di SQL Server al cluster.
    ![Confermare l'aggiunta del nodo](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >Se si usa Spazi di archiviazione e non si deseleziona **Aggiungi tutte le risorse di archiviazione idonee al cluster** , Windows rende non visibili i dischi virtuali durante il processo di clustering. Di conseguenza, questi dischi non vengono visualizzati in Gestione disco o in Esplora risorse fino a quando gli spazi di archiviazione non vengono rimossi dal cluster e ricollegati usando PowerShell. Spazi di archiviazione consente di raggruppare più dischi in pool di archiviazione. Per altre informazioni, vedere [Spazi di archiviazione](https://technet.microsoft.com/library/hh831739).
+   >Se si usa Spazi di archiviazione e non si deseleziona **Aggiungi tutte le risorse di archiviazione idonee al cluster** , Windows rende non visibili i dischi virtuali durante il processo di clustering. Di conseguenza, questi dischi non vengono visualizzati in Gestione disco o in Esplora risorse fino a quando gli spazi di archiviazione non vengono rimossi dal cluster e ricollegati usando PowerShell. Spazi di archiviazione consente di raggruppare più dischi in pool di archiviazione. Per altre informazioni, vedere [Spazi di archiviazione](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    >
 
 1. Selezionare **Avanti** .
@@ -127,7 +127,7 @@ Aggiungere l'altra istanza di SQL Server al cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Aggiungere una condivisione file di quorum del cluster
 
-In questo esempio il cluster Windows usa una condivisione file per creare un quorum. Questa esercitazione usa un quorum Maggioranza dei nodi e delle condivisioni file. Per altre informazioni, vedere [Informazioni sulle configurazioni quorum in un cluster di failover](https://technet.microsoft.com/library/cc731739.aspx).
+In questo esempio il cluster Windows usa una condivisione file per creare un quorum. Questa esercitazione usa un quorum Maggioranza dei nodi e delle condivisioni file. Per altre informazioni, vedere [Informazioni sulle configurazioni quorum in un cluster di failover](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
 
 1. Connettersi al server membro di controllo della condivisione file con una sessione Desktop remoto.
 
@@ -176,7 +176,7 @@ Impostare ora il quorum del cluster.
 1. In **Selezione quorum di controllo** selezionare **Configura condivisione file di controllo** .
 
    >[!TIP]
-   >Windows Server 2016 supporta un cloud di controllo. Se si sceglie questo tipo di controllo, non è necessario un controllo di condivisione file. Per altre informazioni, vedere [Distribuire un cloud di controllo per un cluster di failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Questa esercitazione usa un controllo di condivisione file, supportato dai sistemi operativi precedenti.
+   >Windows Server 2016 supporta un cloud di controllo. Se si sceglie questo tipo di controllo, non è necessario un controllo di condivisione file. Per altre informazioni, vedere [Distribuire un cloud di controllo per un cluster di failover](/windows-server/failover-clustering/deploy-cloud-witness). Questa esercitazione usa un controllo di condivisione file, supportato dai sistemi operativi precedenti.
    >
 
 1. In **Configurazione condivisione file di controllo** digitare il percorso per la condivisione creata. Selezionare **Avanti** .
@@ -347,7 +347,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
    ![Gruppo di disponibilità in Gestione cluster di failover](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Non tentare di eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere [Limitazioni sull'uso di Gestione cluster di failover con i gruppi di disponibilità](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Non tentare di eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere [Limitazioni sull'uso di Gestione cluster di failover con i gruppi di disponibilità](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
 A questo punto, è presente un gruppo di disponibilità con repliche in due istanze di SQL Server. È possibile spostare il gruppo di disponibilità tra le istanze. Non è ancora possibile connettersi al gruppo di disponibilità perché non si ha un listener. Nelle macchine virtuali di Azure il listener richiede un servizio di bilanciamento del carico. Il passaggio successivo consiste nel creare il servizio di bilanciamento del carico in Azure.
@@ -535,7 +535,7 @@ Per testare la connessione:
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria.
 
 > [!TIP]
-> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx).
+> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)).
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

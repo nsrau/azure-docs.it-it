@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428320"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789506"
 ---
 # <a name="what-is-azure-sql-database"></a>Che cos'è il database SQL di Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Il database SQL di Azure è un motore di database PaaS (piattaforma distribuita 
 
 Con il database SQL di Azure è possibile creare un livello di archiviazione dei dati a disponibilità elevata e ad alte prestazioni per le applicazioni e le soluzioni in Azure. Database SQL può essere la scelta ideale per un'ampia varietà di applicazioni cloud moderne, perché consente di elaborare sia dati relazionali che [strutture non relazionali](../multi-model-features.md), ad esempio grafi, JSON, dati spaziali e XML.
 
-Il database SQL di Azure è basato sull'ultima versione stabile del [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). È possibile usare funzionalità avanzate di elaborazione delle query, ad esempio [tecnologie in memoria a elevate prestazioni](../in-memory-oltp-overview.md) ed [elaborazione intelligente di query](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Le funzionalità più recenti di SQL Server vengono infatti rilasciate prima per il database SQL e quindi per SQL Server. È possibile ottenere le funzionalità più recenti di SQL Server senza sovraccarico per l'applicazione di patch o l'aggiornamento, testate in milioni di database. 
+Il database SQL di Azure è basato sull'ultima versione stabile del [motore di database di Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). È possibile usare funzionalità avanzate di elaborazione delle query, ad esempio [tecnologie in memoria a elevate prestazioni](../in-memory-oltp-overview.md) ed [elaborazione intelligente di query](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). Le funzionalità più recenti di SQL Server vengono infatti rilasciate prima per il database SQL e quindi per SQL Server. È possibile ottenere le funzionalità più recenti di SQL Server senza sovraccarico per l'applicazione di patch o l'aggiornamento, testate in milioni di database. 
 
 Database SQL offre prestazioni scalabili e facilmente definibili all'interno di due diversi modelli di acquisto: un [modello di acquisto basato su vCore](service-tiers-vcore.md) e un [modello di acquisto basato su DTU](service-tiers-dtu.md). Il database SQL è un servizio completamente gestito che fornisce per impostazione predefinita disponibilità elevata, backup e altre operazioni di manutenzione comuni. Microsoft si occupa di tutta la distribuzione di patch e aggiornamenti del codice di SQL e del sistema operativo. Non è necessario gestire l'infrastruttura sottostante.
 
@@ -37,7 +37,7 @@ Se non si ha familiarità con il database SQL di Azure, vedere il video *Panoram
 
 Per la distribuzione di un database sono disponibili le opzioni seguenti:
 
-- Il [database singolo](single-database-overview.md) rappresenta un database completamente gestito e isolato. Usare questa opzione se è necessario avere una singola origine dati affidabile per applicazioni cloud e microservizi moderni. Un database singolo è simile a un [database indipendente](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) nel [motore di database di SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- Il [database singolo](single-database-overview.md) rappresenta un database completamente gestito e isolato. Usare questa opzione se è necessario avere una singola origine dati affidabile per applicazioni cloud e microservizi moderni. Un database singolo è simile a un [database indipendente](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) nel [motore di database di SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
 - Il [pool elastico](elastic-pool-overview.md) è una raccolta di [database singoli](single-database-overview.md) con un set condiviso di risorse, ad esempio CPU o memoria. I database singoli possono essere spostati all'interno e all'esterno di un pool elastico.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Database SQL offre prestazioni prevedibili con più tipi di risorse, livelli di 
 
 Si può creare la prima app in un piccolo database singolo, a un costo ridotto al mese, nel livello di servizio per utilizzo generico. È quindi possibile cambiare in qualsiasi momento il livello di servizio, manualmente o a livello di codice, per passare al livello di servizio business critical e soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie.
 
-La *scalabilità dinamica* è diversa dalla *scalabilità automatica*. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. L'opzione del database singolo supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più automatica, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Un'altra opzione consiste nell'uso di script che consentono di automatizzare la scalabilità per un database singolo. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un database singolo SQL](scripts/monitor-and-scale-database-powershell.md).
+La *scalabilità dinamica* è diversa dalla *scalabilità automatica* . Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. L'opzione del database singolo supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più automatica, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Un'altra opzione consiste nell'uso di script che consentono di automatizzare la scalabilità per un database singolo. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un database singolo SQL](scripts/monitor-and-scale-database-powershell.md).
 
 ### <a name="purchasing-models"></a>Modelli di acquisto
 
@@ -92,13 +92,13 @@ Database SQL di Azure offre funzionalità avanzate di monitoraggio e risoluzione
  - Funzionalità predefinite di monitoraggio fornite dalla versione più recente del motore di database di SQL Server. Consentono di trovare informazioni dettagliate sulle prestazioni in tempo reale. 
  - Funzionalità di monitoraggio di soluzioni PaaS fornite da Azure, che consentono di monitorare e risolvere i problemi di un numero elevato di istanze di database.
 
-[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), una funzionalità di monitoraggio predefinita di SQL Server, che registra le prestazioni delle query in tempo reale e consente di identificare i potenziali problemi di prestazioni e i principali consumer di risorse. L'ottimizzazione automatica e le raccomandazioni forniscono consigli riguardo alle query con prestazioni ridotte e agli indici mancanti o duplicati. Con l'ottimizzazione automatica disponibile in Database SQL, è possibile applicare manualmente gli script che possono risolvere i problemi o consentire a Database SQL di applicare la correzione automaticamente. Database SQL può anche testare e verificare che la correzione offra un vantaggio e quindi mantenere o annullare la modifica a seconda del risultato. Oltre a Query Store e alle funzionalità di ottimizzazione automatica, è possibile usare [DMV e XEvent](monitoring-with-dmvs.md) standard per monitorare le prestazioni del carico di lavoro.
+[Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store), una funzionalità di monitoraggio predefinita di SQL Server, che registra le prestazioni delle query in tempo reale e consente di identificare i potenziali problemi di prestazioni e i principali consumer di risorse. L'ottimizzazione automatica e le raccomandazioni forniscono consigli riguardo alle query con prestazioni ridotte e agli indici mancanti o duplicati. Con l'ottimizzazione automatica disponibile in Database SQL, è possibile applicare manualmente gli script che possono risolvere i problemi o consentire a Database SQL di applicare la correzione automaticamente. Database SQL può anche testare e verificare che la correzione offra un vantaggio e quindi mantenere o annullare la modifica a seconda del risultato. Oltre a Query Store e alle funzionalità di ottimizzazione automatica, è possibile usare [DMV e XEvent](monitoring-with-dmvs.md) standard per monitorare le prestazioni del carico di lavoro.
 
 Azure include strumenti predefiniti di [monitoraggio delle prestazioni](performance-guidance.md) e [invio di avvisi](alerts-insights-configure-portal.md), oltre a valutazioni delle prestazioni, che consentono di monitorare lo stato di migliaia di database. Con questi strumenti è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle risorse in base ai requisiti di prestazioni correnti o previsti. Inoltre, Database SQL può [generare log di metriche e di risorse](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) per semplificare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
-- **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente.
-- **Hub eventi di Azure**: per l'integrazione dei dati di telemetria di Database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
-- **Log di Monitoraggio di Azure**: per usare una soluzione di monitoraggio predefinita con funzionalità di report, avvisi e mitigazione.
+- **Archiviazione di Azure** : per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente.
+- **Hub eventi di Azure** : per l'integrazione dei dati di telemetria di Database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
+- **Log di Monitoraggio di Azure** : per usare una soluzione di monitoraggio predefinita con funzionalità di report, avvisi e mitigazione.
 
 ![Diagramma dell'architettura di monitoraggio di Azure](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ Molti partner Microsoft che eseguono [app multi-tenant SaaS](saas-tenancy-app-de
 
 In [Database SQL sono disponibili](automatic-tuning-overview.md) due aspetti di ottimizzazione automatica:
 
-- **Gestione automatica degli indici**: consente di identificare gli indici da aggiungere al database e quelli che è consigliabile rimuovere.
-- **Correzione automatica dei piani**: identifica i piani problematici e corregge i problemi di prestazioni dei piani di SQL.
+- **Gestione automatica degli indici** : consente di identificare gli indici da aggiungere al database e quelli che è consigliabile rimuovere.
+- **Correzione automatica dei piani** : identifica i piani problematici e corregge i problemi di prestazioni dei piani di SQL.
 
 ### <a name="adaptive-query-processing"></a>Elaborazione di query adattive
 
@@ -158,7 +158,7 @@ In [Database SQL sono disponibili](automatic-tuning-overview.md) due aspetti di 
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate
 
-Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](../../active-directory/identity-protection/security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
+Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](../../active-directory/identity-protection/concept-identity-protection-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
 > Microsoft ha certificato Database SQL di Azure (tutte le opzioni di distribuzione) rispetto a diversi standard di conformità. Per altre informazioni, visitare il [Centro protezione di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), dove è possibile trovare l'elenco più aggiornato di certificazioni di conformità del database SQL.
@@ -180,7 +180,7 @@ Il servizio di [controllo](../../azure-sql/database/auditing-overview.md) tiene 
 
 ### <a name="data-encryption"></a>Crittografia dei dati
 
-Il database SQL consente di proteggere i dati fornendo la crittografia. Per i dati in movimento, usa [Transport Layer Security](https://support.microsoft.com/kb/3135244). Per i dati inattivi, usa [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Per i dati in uso, usa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+Il database SQL consente di proteggere i dati fornendo la crittografia. Per i dati in movimento, usa [Transport Layer Security](https://support.microsoft.com/kb/3135244). Per i dati inattivi, usa [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Per i dati in uso, usa [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
 
@@ -198,8 +198,8 @@ Il database SQL consente di creare e gestire le applicazioni in modo più facile
 |:---|:---|
 |[Il portale di Azure](https://portal.azure.com/)|un'applicazione Web per la gestione di tutti i servizi di Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Strumento per database multipiattaforma eseguito in Windows, macOS e Linux.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|un'applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, da SQL Server a Database SQL.|
-|[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali di SQL Server, database nel database SQL di Azure, pacchetti di Integration Services, modelli di dati di Analysis Services e report di Reporting Services.|
+|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|un'applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, da SQL Server a Database SQL.|
+|[SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali di SQL Server, database nel database SQL di Azure, pacchetti di Integration Services, modelli di dati di Analysis Services e report di Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|un editor di codice open source, gratuito e scaricabile per Windows, macOS e Linux. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query in Microsoft SQL Server, database SQL di Azure e Azure Synapse Analytics (in precedenza SQL Data Warehouse).|
 
 Database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, PHP, Ruby e .NET in macOS, Linux e Windows. Il database SQL supporta le stesse [librerie di connessione](connect-query-content-reference-guide.md#libraries) di SQL Server.
@@ -218,7 +218,7 @@ No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impie
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): per domande relative all'amministrazione dei database.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): per domande relative allo sviluppo.
-- [Pagina di domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): per domande di carattere tecnico.
+- [Pagina di domande e risposte Microsoft](/answers/topics/azure-synapse-analytics.html): per domande di carattere tecnico.
 - [Commenti e suggerimenti](https://aka.ms/sqlfeedback): per segnalare bug e richiedere funzionalità.
 - [Reddit](https://www.reddit.com/r/SQLServer/): per comunicazioni su SQL Server.
 
@@ -237,4 +237,3 @@ No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impie
 
 - Per informazioni sulle nuove funzionalità annunciate, vedere [Roadmap di Azure per Database SQL](https://azure.microsoft.com/roadmap/?category=databases).
 - Visitare il [blog di Database SQL di Azure](https://azure.microsoft.com/blog/topics/database), in cui i membri del team di prodotto SQL Server annunciano novità e funzionalità di Database SQL.
-

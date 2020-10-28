@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293459"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789931"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuità aziendale e HADR per la SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Azure supporta le tecnologie SQL Server per la continuità aziendale:
 
 | Tecnologia | Architetture di esempio |
 | --- | --- |
-| **Gruppi di disponibilità** |Le repliche di disponibilità in esecuzione nelle macchine virtuali di Azure nella stessa area assicurano disponibilità elevata. È necessario configurare una macchina virtuale da usare come controller di dominio perché il servizio Clustering di failover di Windows richiede un dominio di Active Directory.<br/><br/> Per una maggiore ridondanza e disponibilità, le macchine virtuali di Azure possono essere distribuite in diverse [zone di disponibilità](../../../availability-zones/az-overview.md) , come illustrato nella panoramica del [gruppo di disponibilità](availability-group-overview.md). Se le macchine virtuali SQL Server in un gruppo di disponibilità vengono distribuite in zone di disponibilità, usare [Azure Load Balancer standard](../../../load-balancer/load-balancer-standard-overview.md) per il listener, come documentato nell'interfaccia della riga di comando della [VM SQL di Azure](availability-group-az-cli-configure.md) e nei [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md) .<br/> ![Gruppi di disponibilità](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Per altre informazioni, vedere [Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager](availability-group-azure-marketplace-template-configure.md). |
+| **Gruppi di disponibilità** |Le repliche di disponibilità in esecuzione nelle macchine virtuali di Azure nella stessa area assicurano disponibilità elevata. È necessario configurare una macchina virtuale da usare come controller di dominio perché il servizio Clustering di failover di Windows richiede un dominio di Active Directory.<br/><br/> Per una maggiore ridondanza e disponibilità, le macchine virtuali di Azure possono essere distribuite in diverse [zone di disponibilità](../../../availability-zones/az-overview.md) , come illustrato nella panoramica del [gruppo di disponibilità](availability-group-overview.md). Se le macchine virtuali SQL Server in un gruppo di disponibilità vengono distribuite in zone di disponibilità, usare [Azure Load Balancer standard](../../../load-balancer/load-balancer-overview.md) per il listener, come documentato nell'interfaccia della riga di comando della [VM SQL di Azure](./availability-group-az-commandline-configure.md) e nei [modelli di avvio rapido di Azure](availability-group-quickstart-template-configure.md) .<br/> ![Gruppi di disponibilità](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Per altre informazioni, vedere [Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager](./availability-group-quickstart-template-configure.md). |
 | **Istanze del cluster di failover** |Le istanze del cluster di failover sono supportate in macchine virtuali SQL Server. Poiché la funzionalità FCI richiede l'archiviazione condivisa, cinque soluzioni funzioneranno con SQL Server nelle macchine virtuali di Azure: <br/><br/> -Uso di [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) per Windows Server 2019. Managed disks condiviso è un prodotto di Azure che consente il fissaggio simultaneo di un disco gestito a più macchine virtuali. Le macchine virtuali nel cluster possono leggere o scrivere sul disco collegato in base alla prenotazione scelta dall'applicazione in cluster tramite le prenotazioni permanenti SCSI (SCSI PR). La richiesta pull SCSI è una soluzione di archiviazione standard del settore usata dalle applicazioni in esecuzione in una rete di archiviazione (SAN) in locale. L'abilitazione della richiesta pull SCSI in un disco gestito consente di eseguire la migrazione di queste applicazioni in Azure così come sono. <br/><br/>-Uso [di \( spazi di archiviazione diretta \) S2D](failover-cluster-instance-storage-spaces-direct-manually-configure.md) per fornire una San virtuale basata su software per Windows Server 2016 e versioni successive.<br/><br/>-Uso di una [condivisione file Premium](failover-cluster-instance-premium-file-share-manually-configure.md) per Windows Server 2012 e versioni successive. Le condivisioni file Premium sono basate su SSD, hanno una latenza costantemente bassa e sono completamente supportate per l'uso con FCI.<br/><br/>-Uso dell'archiviazione supportata da una soluzione partner per il clustering. Per un esempio specifico che usa il tipo di elemento di datakeeper, vedere il post di Blog sul [clustering di failover e il tipo di Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>-Uso dell'archiviazione a blocchi condivisa per una destinazione iSCSI remota tramite Azure ExpressRoute. Ad esempio, NetApp Private Storage (NPS) espone una destinazione iSCSI tramite ExpressRoute con Equinix a macchine virtuali di Azure.<br/><br/>Per le soluzioni di replica dei dati e archiviazione condivisa dei partner Microsoft, contattare il fornitore in caso di problemi di accesso ai dati durante il failover.<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Solo Azure: soluzioni di ripristino di emergenza
@@ -90,7 +90,7 @@ Nell'immagine seguente il programma di installazione usa SQL Server in esecuzion
 
 Per altre informazioni, vedere le [condizioni di licenza per il prodotto](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Per abilitare questo vantaggio, passare alla [risorsa SQL Server macchina virtuale](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selezionare **Configura** in **Impostazioni**, quindi scegliere l'opzione **ripristino di emergenza** in **SQL Server licenza**. Selezionare la casella di controllo per confermare che questa SQL Server VM verrà usata come replica passiva, quindi selezionare **applica** per salvare le impostazioni. 
+Per abilitare questo vantaggio, passare alla [risorsa SQL Server macchina virtuale](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selezionare **Configura** in **Impostazioni** , quindi scegliere l'opzione **ripristino di emergenza** in **SQL Server licenza** . Selezionare la casella di controllo per confermare che questa SQL Server VM verrà usata come replica passiva, quindi selezionare **applica** per salvare le impostazioni. 
 
 ![Configurare una replica di ripristino di emergenza in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,12 +101,12 @@ La macchina virtuale, l'archiviazione e la rete di Azure hanno caratteristiche o
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nodi a disponibilità elevata in un set di disponibilità
 I set di disponibilità in Azure consentono di collocare i nodi a disponibilità elevata in domini di errore e domini di aggiornamento separati. La piattaforma Azure assegna un dominio di aggiornamento e un dominio di errore a ogni macchina virtuale nel set di disponibilità. Questa configurazione all'interno di un data center garantisce che durante un evento di manutenzione pianificato o non pianificato sia disponibile almeno una macchina virtuale e soddisfi il contratto di sicurezza di Azure del 99,95%. 
 
-Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per configurare un'installazione a disponibilità elevata, inserire tutte le macchine virtuali SQL Server coinvolte nello stesso set di disponibilità per evitare perdite di dati o applicazioni durante un evento di manutenzione. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nodi a disponibilità elevata in una zona di disponibilità
 Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dagli errori dei data center assicurando che almeno una macchina virtuale sia disponibile e soddisfi il contratto di assistenza di Azure del 99,99%. 
 
-Per configurare la disponibilità elevata, collocare la partecipazione SQL Server macchine virtuali distribuite tra le zone di disponibilità nell'area. Verranno addebitati altri addebiti per i trasferimenti da rete a rete tra le zone di disponibilità. Per altre informazioni, vedere [Zone di disponibilità](/azure/availability-zones/az-overview). 
+Per configurare la disponibilità elevata, collocare la partecipazione SQL Server macchine virtuali distribuite tra le zone di disponibilità nell'area. Verranno addebitati altri addebiti per i trasferimenti da rete a rete tra le zone di disponibilità. Per altre informazioni, vedere [Zone di disponibilità](../../../availability-zones/az-overview.md). 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportamento del cluster di failover nella rete di Azure
@@ -123,7 +123,7 @@ Si consideri uno scenario in cui viene creato e portato online un cluster a due 
 
 È possibile evitare questo scenario assegnando un indirizzo IP statico inutilizzato al nome di rete del cluster per portare online il nome di rete del cluster. Ad esempio, è possibile usare un indirizzo IP locale del collegamento come 169.254.1.1. Per semplificare il processo, vedere [Configuring Windows failover cluster in Azure for availability groups](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx) (Configurazione del cluster di failover di Windows in Azure per i gruppi di disponibilità).
 
-Per altre informazioni, vedere [Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager](availability-group-azure-marketplace-template-configure.md).
+Per altre informazioni, vedere [Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager](./availability-group-quickstart-template-configure.md).
 
 ### <a name="support-for-availability-group-listeners"></a>Supporto per i listener del gruppo di disponibilità
 I listener del gruppo di disponibilità sono supportati nelle macchine virtuali di Azure che eseguono Windows Server 2012 e versioni successive. Questo supporto viene fornito attraverso l'uso di endpoint con carico bilanciato abilitato nelle macchine virtuali di Azure che costituiscono nodi del gruppo di disponibilità. È necessario seguire i passaggi di configurazione speciali affinché i listener funzionino sia per le applicazioni client in esecuzione in Azure che per quelli in esecuzione in locale.
@@ -136,7 +136,7 @@ Se il gruppo di disponibilità si estende su più subnet di Azure, ad esempio un
 È comunque possibile connettersi separatamente a ogni replica di disponibilità effettuando la connessione direttamente all'istanza del servizio. Inoltre, poiché i gruppi di disponibilità sono compatibili con le versioni precedenti dei client di mirroring del database, è possibile connettersi alle repliche di disponibilità come partner di mirroring del database purché le repliche siano configurate in modo analogo al mirroring del database:
 
 * Esiste una replica primaria e una replica secondaria.
-* La replica secondaria è configurata come non leggibile (opzione**secondaria leggibile** impostata su **No**).
+* La replica secondaria è configurata come non leggibile (opzione **secondaria leggibile** impostata su **No** ).
 
 Di seguito è riportato un esempio di stringa di connessione del client che corrisponde a questa configurazione simile al mirroring del database tramite ADO.NET o SQL Server Native Client:
 
@@ -146,11 +146,11 @@ Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=Avail
 
 Per altre informazioni sulla connettività client, vedere:
 
-* [Utilizzo delle parole chiave delle stringhe di connessione con SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
-* [Connessione di client a una sessione di mirroring del database (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Connessione al listener del gruppo di disponibilità in ambiente IT ibrido](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Listener del gruppo di disponibilità, connettività client e failover dell'applicazione (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Utilizzo delle stringhe di connessione per il mirroring del database con Gruppi di disponibilità](https://technet.microsoft.com/library/hh213417.aspx)
+* [Utilizzo delle parole chiave delle stringhe di connessione con SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
+* [Connessione di client a una sessione di mirroring del database (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
+* [Connessione al listener del gruppo di disponibilità in ambiente IT ibrido](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
+* [Listener del gruppo di disponibilità, connettività client e failover dell'applicazione (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
+* [Utilizzo delle stringhe di connessione per il mirroring del database con Gruppi di disponibilità](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
 
 ### <a name="network-latency-in-hybrid-it"></a>Latenza di rete in ambiente IT ibrido
 Distribuire la soluzione HADR con il presupposto che potrebbero essere presenti periodi di latenza di rete elevata tra la rete locale e Azure. Quando si distribuiscono le repliche in Azure, usare il commit asincrono anziché il commit sincrono per la modalità di sincronizzazione. Quando si distribuiscono server di mirroring del database in locale e in Azure, usare la modalità a prestazioni elevate anziché la modalità a sicurezza elevata.
@@ -162,8 +162,4 @@ Se non è possibile disabilitare la replica geografica nell'account di archiviaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Decidere se un [gruppo di disponibilità](availability-group-overview.md) o un' [istanza del cluster di failover](failover-cluster-instance-overview.md) è la migliore soluzione di continuità aziendale per l'azienda. Esaminare quindi le [procedure consigliate](hadr-cluster-best-practices.md) per la configurazione dell'ambiente per la disponibilità elevata e il ripristino di emergenza. 
-
-
-
-
+Decidere se un [gruppo di disponibilità](availability-group-overview.md) o un' [istanza del cluster di failover](failover-cluster-instance-overview.md) è la migliore soluzione di continuità aziendale per l'azienda. Esaminare quindi le [procedure consigliate](hadr-cluster-best-practices.md) per la configurazione dell'ambiente per la disponibilità elevata e il ripristino di emergenza.

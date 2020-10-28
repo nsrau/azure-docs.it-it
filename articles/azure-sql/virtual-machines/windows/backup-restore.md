@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a386ea5149b36a4e82b4c935e2373f505c6c83cf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360787"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789880"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e ripristino per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,23 +55,23 @@ Per ripristinare un database, è necessario individuare i file di backup richies
 
 Per altre informazioni su come configurare Backup automatizzato per le macchine virtuali SQL, vedere uno degli articoli seguenti:
 
-- **SQL Server 2016/2017**: [backup automatico v2 per macchine virtuali di Azure](automated-backup.md)
-- **SQL Server 2014**: [backup automatico per macchine virtuali SQL Server 2014](automated-backup-sql-2014.md)
+- **SQL Server 2016/2017** : [backup automatico v2 per macchine virtuali di Azure](automated-backup.md)
+- **SQL Server 2014** : [backup automatico per macchine virtuali SQL Server 2014](automated-backup-sql-2014.md)
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Backup di Azure per macchine virtuali SQL
 
-[Backup di Azure](/azure/backup/) offre una funzionalità di backup adatta alle grandi aziende per SQL Server in macchine virtuali di Azure. Tutti i backup vengono archiviati e gestiti in un insieme di credenziali di Servizi di ripristino. Esistono diversi vantaggi offerti da questa soluzione, in particolare per le aziende di grandi dimensioni:
+[Backup di Azure](../../../backup/index.yml) offre una funzionalità di backup adatta alle grandi aziende per SQL Server in macchine virtuali di Azure. Tutti i backup vengono archiviati e gestiti in un insieme di credenziali di Servizi di ripristino. Esistono diversi vantaggi offerti da questa soluzione, in particolare per le aziende di grandi dimensioni:
 
-- **Backup senza infrastruttura**: non è necessario gestire i server di backup o le posizioni di archiviazione.
-- **Scalabilità**: è possibile proteggere molte macchine virtuali SQL e migliaia di database.
-- **Pagamento in base al consumo**: questa funzionalità è un servizio separato fornito da Backup di Azure, ma come con tutti i servizi di Azure, si paga solo per ciò che si usa.
-- **Gestione e monitoraggio centralizzati**: gestione centralizzata di tutti i backup, inclusi altri carichi di lavoro supportati da Backup di Azure, da un singolo dashboard in Azure.
-- **Backup e conservazione basati su criteri**: creare criteri di backup standard per backup a intervalli regolari. Stabilire i criteri di conservazione per mantenere i backup per anni.
-- **Supporto per SQL Always On**: rilevare e proteggere una configurazione di SQL Server Always On e rispettare le preferenze di backup dei gruppi di disponibilità.
-- **Obiettivo del punto di ripristino (RPO) di 15 minuti**: configurare i backup del log delle transazioni di SQL Server con intervalli fino a ogni 15 minuti.
-- **Ripristino temporizzato**: usare il portale per ripristinare i database in un punto specifico nel tempo senza dover ripristinare manualmente più backup completi, differenziali e del log.
-- **Consolidamento degli avvisi tramite posta elettronica per gli errori**: configurare notifiche tramite posta elettronica consolidate per eventuali errori.
-- **Controllo degli accessi in base al ruolo**: determinare chi può gestire le operazioni di backup e ripristino tramite il portale.
+- **Backup senza infrastruttura** : non è necessario gestire i server di backup o le posizioni di archiviazione.
+- **Scalabilità** : è possibile proteggere molte macchine virtuali SQL e migliaia di database.
+- **Pagamento in base al consumo** : questa funzionalità è un servizio separato fornito da Backup di Azure, ma come con tutti i servizi di Azure, si paga solo per ciò che si usa.
+- **Gestione e monitoraggio centralizzati** : gestione centralizzata di tutti i backup, inclusi altri carichi di lavoro supportati da Backup di Azure, da un singolo dashboard in Azure.
+- **Backup e conservazione basati su criteri** : creare criteri di backup standard per backup a intervalli regolari. Stabilire i criteri di conservazione per mantenere i backup per anni.
+- **Supporto per SQL Always On** : rilevare e proteggere una configurazione di SQL Server Always On e rispettare le preferenze di backup dei gruppi di disponibilità.
+- **Obiettivo del punto di ripristino (RPO) di 15 minuti** : configurare i backup del log delle transazioni di SQL Server con intervalli fino a ogni 15 minuti.
+- **Ripristino temporizzato** : usare il portale per ripristinare i database in un punto specifico nel tempo senza dover ripristinare manualmente più backup completi, differenziali e del log.
+- **Consolidamento degli avvisi tramite posta elettronica per gli errori** : configurare notifiche tramite posta elettronica consolidate per eventuali errori.
+- **Controllo degli accessi in base al ruolo** : determinare chi può gestire le operazioni di backup e ripristino tramite il portale.
 
 Per una rapida panoramica del funzionamento con una demo, guardare il video seguente:
 
@@ -83,19 +83,19 @@ Questa soluzione di Backup di Azure per le macchine virtuali SQL è disponibile 
 
 Se si vogliono gestire manualmente le operazioni di backup e ripristino nelle macchine virtuali SQL, sono disponibili varie opzioni a seconda della versione di SQL Server in uso. Per una panoramica delle operazioni di backup e ripristino, vedere uno degli articoli seguenti in base alla versione di SQL Server:
 
-- [Backup e ripristino per SQL Server 2016 e versioni successive](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Backup e ripristino per SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
-- [Backup e ripristino per SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
-- [Backup e ripristino per SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
-- [Backup e ripristino per SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
+- [Backup e ripristino per SQL Server 2016 e versioni successive](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Backup e ripristino per SQL Server 2014](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases?viewFallbackFrom=sql-server-2014)
+- [Backup e ripristino per SQL Server 2012](/previous-versions/sql/sql-server-2012/ms187048(v=sql.110))
+- [Backup e ripristino per SQL Server 2008 R2](/previous-versions/sql/sql-server-2008-r2/ms187048(v=sql.105))
+- [Backup e ripristino per SQL Server 2008](/previous-versions/sql/sql-server-2008/ms187048(v=sql.100))
 
 Le sezioni seguenti descrivono varie opzioni per il backup e il ripristino manuali in modo più dettagliato.
 
 ### <a name="backup-to-attached-disks"></a>Backup su dischi collegati
 
-Per SQL Server nelle macchine virtuali di Azure, è possibile usare le tecniche di backup e ripristino native con dischi collegati alla macchina virtuale come destinazione dei file di backup. Vi è tuttavia un limite al numero di dischi che è possibile collegare a una macchina virtuale di Azure, a seconda della [dimensione della macchina virtuale](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È inoltre da prendere in considerazione l'overhead della gestione disco.
+Per SQL Server nelle macchine virtuali di Azure, è possibile usare le tecniche di backup e ripristino native con dischi collegati alla macchina virtuale come destinazione dei file di backup. Vi è tuttavia un limite al numero di dischi che è possibile collegare a una macchina virtuale di Azure, a seconda della [dimensione della macchina virtuale](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). È inoltre da prendere in considerazione l'overhead della gestione disco.
 
-Per un esempio di come creare manualmente un backup completo del database usando SQL Server Management Studio (SSMS) o Transact-SQL, vedere [Creare un backup completo del database](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
+Per un esempio di come creare manualmente un backup completo del database usando SQL Server Management Studio (SSMS) o Transact-SQL, vedere [Creare un backup completo del database](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
 ### <a name="backup-to-url"></a>Backup su URL
 
@@ -104,13 +104,13 @@ A partire da SQL Server 2012 SP1 CU2, è possibile eseguire backup e ripristino 
 | Miglioramento nella versione 2016 | Dettagli |
 | --- | --- |
 | **Striping** |Quando si esegue un backup nell'archivio BLOB di Microsoft Azure, SQL Server 2016 supporta il backup di più BLOB per abilitare il backup di database di grandi dimensioni, fino a un massimo di 12,8 TB. |
-| **Backup di snapshot** |Grazie all'usp di snapshot di Azure, la funzionalità di backup di snapshot dei file di SQL Server fornisce backup quasi istantanei e ripristini rapidi per i file di database archiviati con il servizio di archiviazione BLOB di Azure. Questa funzionalità consente di semplificare i criteri di backup e ripristino. Backup di snapshot di file supporta anche il ripristino temporizzato. Per altre informazioni, vedere [Backup di snapshot di file di database in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Backup di snapshot** |Grazie all'usp di snapshot di Azure, la funzionalità di backup di snapshot dei file di SQL Server fornisce backup quasi istantanei e ripristini rapidi per i file di database archiviati con il servizio di archiviazione BLOB di Azure. Questa funzionalità consente di semplificare i criteri di backup e ripristino. Backup di snapshot di file supporta anche il ripristino temporizzato. Per altre informazioni, vedere [Backup di snapshot di file di database in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Per altre informazioni, vedere uno degli articoli seguenti in base alla versione di SQL Server:
 
-- **SQL Server 2016/2017**: [Backup di SQL Server in un URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**: [Backup di SQL Server 2014 in un URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**: [Backup di SQL Server 2012 in un URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017** : [Backup di SQL Server in un URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014** : [Backup di SQL Server 2014 in un URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012** : [Backup di SQL Server 2012 in un URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>Backup gestito
 
@@ -120,8 +120,8 @@ A partire da SQL Server 2016, Backup gestito include ulteriori opzioni per la pi
 
 Per altre informazioni, vedere uno degli articoli seguenti in base alla versione di SQL Server:
 
-- [Backup gestito di SQL Server in Microsoft Azure per SQL Server 2016 e versioni successive](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- [Backup gestito di SQL Server in Microsoft Azure per SQL Server 2014](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- [Backup gestito di SQL Server in Microsoft Azure per SQL Server 2016 e versioni successive](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
+- [Backup gestito di SQL Server in Microsoft Azure per SQL Server 2014](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?viewFallbackFrom=sql-server-2014)
 
 ## <a name="decision-matrix"></a>Matrice decisionale
 

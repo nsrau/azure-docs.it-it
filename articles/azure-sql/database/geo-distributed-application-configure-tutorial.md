@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335060"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789625"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Esercitazione: implementare un database con distribuzione geografica (database SQL di Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
@@ -47,9 +47,9 @@ Per completare l'esercitazione, verificare di avere installato i componenti segu
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > In questa esercitazione viene usato il database di esempio *AdventureWorksLT*.
+  > In questa esercitazione viene usato il database di esempio *AdventureWorksLT* .
 
-- Java e Maven. Vedere [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Creare un'app con SQL Server), evidenziare **Java**, selezionare l'ambiente in uso e quindi seguire i passaggi.
+- Java e Maven. Vedere [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Creare un'app con SQL Server), evidenziare **Java** , selezionare l'ambiente in uso e quindi seguire i passaggi.
 
 > [!IMPORTANT]
 > Assicurarsi di configurare le regole del firewall in modo da usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi dell'esercitazione. Le regole del firewall a livello di database verranno replicate automaticamente nel server secondario.
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-È anche possibile modificare le impostazioni di replica geografica nella portale di Azure, selezionando il database, quindi **Impostazioni**  >  **replica geografica**.
+È anche possibile modificare le impostazioni di replica geografica nella portale di Azure, selezionando il database, quindi **Impostazioni**  >  **replica geografica** .
 
 ![Impostazioni di replica geografica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Digitare **Y** e premere **INVIO**.
+1. Digitare **Y** e premere **INVIO** .
 
 1. Passare alla directory del nuovo progetto.
 
@@ -182,7 +182,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    </build>
    ```
 
-1. Salvare e chiudere il file *pom.xml*.
+1. Salvare e chiudere il file *pom.xml* .
 
 1. Aprire il file *App.java* in ..\SqlDbSample\src\main\java\com\sqldbsamples e sostituirne il contenuto con il codice seguente:
 

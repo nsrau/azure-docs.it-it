@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790611"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Limitazioni
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="auditing"></a>Controllo
 
@@ -114,7 +114,7 @@ SQL Istanza gestita non può accedere alle condivisioni file e alle cartelle di 
 
 Vedere [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) e [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Soluzione alternativa**: anziché creare il backup del certificato e ripristinare il backup, [ottenere il contenuto binario e la chiave privata del certificato, archiviarlo come file con estensione SQL e crearlo da binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Soluzione alternativa** : anziché creare il backup del certificato e ripristinare il backup, [ottenere il contenuto binario e la chiave privata del certificato, archiviarlo come file con estensione SQL e crearlo da binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -153,7 +153,7 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
 - L'impostazione di un account di accesso di Azure AD mappato a un gruppo di Azure AD come proprietario del database non è supportata.
 - È supportata la rappresentazione di entità Azure AD a livello di server utilizzando altre entità Azure AD, ad esempio la clausola [Execute As](/sql/t-sql/statements/execute-as-transact-sql) . Le limitazioni EXECUTE AS sono:
 
-  - L'opzione EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome dell'account di accesso. Un esempio è quando l'utente viene creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e la rappresentazione viene tentata tramite exec come user = _myAadUser_. Quando si crea un **utente** da un'entità di Azure ad server (account di accesso), specificare il user_name come lo stesso Login_name da **login**.
+  - L'opzione EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome dell'account di accesso. Un esempio è quando l'utente viene creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e la rappresentazione viene tentata tramite exec come user = _myAadUser_ . Quando si crea un **utente** da un'entità di Azure ad server (account di accesso), specificare il user_name come lo stesso Login_name da **login** .
   - Solo le entità a livello di SQL Server (account di accesso) che fanno parte del `sysadmin` ruolo possono eseguire le operazioni seguenti destinate a Azure ad entità:
 
     - EXECUTE AS USER
@@ -220,7 +220,7 @@ Per altre informazioni, vedere [ALTER DATABASE SET PARTNER e SET WITNESS](/sql/t
 
 - I file di log multipli non sono supportati.
 - Gli oggetti in memoria non sono supportati nel livello di servizio per utilizzo generico. 
-- È previsto un limite di 280 file per ogni istanza per utilizzo generico, che implica un massimo di 280 file per database. I dati e i file di log nel livello per utilizzo generico vengono conteggiati per questo limite. [Il livello business critical supporta 32.767 file per database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- È previsto un limite di 280 file per ogni istanza per utilizzo generico, che implica un massimo di 280 file per database. I dati e i file di log nel livello per utilizzo generico vengono conteggiati per questo limite. [Il livello business critical supporta 32.767 file per database](./resource-limits.md#service-tier-characteristics).
 - Il database non può contenere filegroup contenenti dati FILESTREAM. Il ripristino ha esito negativo se. bak contiene `FILESTREAM` dati. 
 - Ogni file viene inserito in Archiviazione BLOB di Azure. L'I/O e la velocità effettiva per file dipendono dalle dimensioni di ogni singolo file.
 
@@ -354,7 +354,7 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate i
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
 Il supporto parziale per [le transazioni distribuite](../database/elastic-transactions-overview.md) è attualmente disponibile in anteprima pubblica. Gli scenari supportati sono:
-* Le transazioni in cui i partecipanti sono solo istanze gestite da SQL di Azure che fanno parte del [gruppo di attendibilità del server](https://aka.ms/mitrusted-groups).
+* Le transazioni in cui i partecipanti sono solo istanze gestite da SQL di Azure che fanno parte del [gruppo di attendibilità del server](./server-trust-group-overview.md).
 * Transazioni avviate da .NET (TransactionScope Class) e Transact-SQL.
 
 Azure SQL Istanza gestita attualmente non supporta altri scenari che sono supportati regolarmente da MSDTC in locale o in macchine virtuali di Azure.
@@ -482,7 +482,7 @@ Il broker di servizio tra istanze non è supportato:
   - `remote proc trans`
 - `sp_execute_external_scripts` non è supportata. Vedere [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` non è supportata. Vedere [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures`non sono supportati, che include `sp_addextendedproc`   e `sp_dropextendedproc` . Vedere [stored procedure estese](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` non sono supportati, che include `sp_addextendedproc` e `sp_dropextendedproc` . Vedere [stored procedure estese](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportate. Vedere [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Funzioni e variabili di sistema
@@ -527,13 +527,13 @@ Gli schemi MSDB seguenti in SQL Istanza gestita devono essere di proprietà dei 
 
 - Ruoli generali
   - TargetServersRole
-- [Ruoli predefiniti del database](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Ruoli predefiniti del database](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Ruoli DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Ruoli DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Ruoli di Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Ruoli di Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Gli schemi MSDB seguenti in SQL Istanza gestita devono essere di proprietà dei 
 
 ### <a name="error-logs"></a>Log degli errori
 
-SQL Istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono stati registrati molti eventi di sistema interni. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [sql istanza gestita – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) o [SQL istanza gestita Extension (anteprima)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) per Azure Data Studio.
+SQL Istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono stati registrati molti eventi di sistema interni. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [sql istanza gestita – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) o [SQL istanza gestita Extension (anteprima)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) per Azure Data Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

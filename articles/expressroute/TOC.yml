@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è ExpressRoute?
       href: expressroute-introduction.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare un circuito ExpressRoute - Portale
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -13,6 +13,7 @@
     - name: Creare un circuito ExpressRoute - Interfaccia della riga di comando
       href: howto-circuit-cli.md
     - name: Creare un circuito ExpressRoute - Modello di Resource Manager
+      displayName: Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Esercitazioni
@@ -95,7 +96,7 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Connettività tra reti
       href: cross-network-connectivity.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md

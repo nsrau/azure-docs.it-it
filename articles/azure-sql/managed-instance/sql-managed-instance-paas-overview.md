@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424236"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790713"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita di SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,12 +44,12 @@ Istanza gestita di SQL combina le migliori funzionalità disponibili sia nel dat
 
 | **Vantaggi di PaaS** | **Continuità aziendale** |
 | --- | --- |
-|Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](../database/high-availability-sla.md) predefinita <br>Dati protetti con [backup automatici](../database/automated-backups-overview.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) avviati dall'utente <br>Funzionalità di [ripristino temporizzato di un database](../database/recovery-using-backups.md#point-in-time-restore) |
+|Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](../database/high-availability-sla.md) predefinita <br>Dati protetti con [backup automatici](../database/automated-backups-overview.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) avviati dall'utente <br>Funzionalità di [ripristino temporizzato di un database](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Sicurezza e conformità** | **Gestione**|
-|Ambiente isolato ([integrazione della rete virtuale](connectivity-architecture-overview.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità server (account di accesso) di Azure AD</a>  <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
+|Ambiente isolato ([integrazione della rete virtuale](connectivity-architecture-overview.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità server (account di accesso) di Azure AD</a>  <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
 
 > [!IMPORTANT]
-> Istanza gestita di SQL di Azure è certificato rispetto a diversi standard di conformità. Per altre informazioni, vedere le [offerte di conformità di Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), dove è possibile trovare l'elenco più recente di certificazioni di conformità di Istanza gestita di SQL di Azure, nella sezione relativa al **database SQL**.
+> Istanza gestita di SQL di Azure è certificato rispetto a diversi standard di conformità. Per altre informazioni, vedere le [offerte di conformità di Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), dove è possibile trovare l'elenco più recente di certificazioni di conformità di Istanza gestita di SQL di Azure, nella sezione relativa al **database SQL** .
 
 Nella tabella seguente sono elencate le principali funzionalità di Istanza gestita di SQL:
 
@@ -65,9 +65,9 @@ Nella tabella seguente sono elencate le principali funzionalità di Istanza gest
 | Rete virtuale: distribuzione di Azure Resource Manager | Sì |
 | Rete virtuale: modello di distribuzione classica | No |
 | Supporto del portale | Sì|
-| Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
-| Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
-| Reporting Services (SSRS) incorporato | No - usare [report impaginati di Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) o ospitare SSRS in una macchina virtuale di Azure. Istanza gestita di SQL non può eseguire SSRS come servizio, ma può ospitare i [database di catalogo di SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) per un server di report installato nella macchina virtuale di Azure, usando l'autenticazione di SQL Server. |
+| Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md) |
+| Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](../../analysis-services/analysis-services-overview.md) distinta |
+| Reporting Services (SSRS) incorporato | No - usare [report impaginati di Power BI](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) o ospitare SSRS in una macchina virtuale di Azure. Istanza gestita di SQL non può eseguire SSRS come servizio, ma può ospitare i [database di catalogo di SSRS](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) per un server di report installato nella macchina virtuale di Azure, usando l'autenticazione di SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
@@ -85,8 +85,8 @@ Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [
 
 L'istanza gestita di SQL è disponibile in due livelli di servizio:
 
-- **Utilizzo generico**: progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
-- **Business Critical**: progettato per applicazioni con requisiti di latenza di I/O bassa e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
+- **Utilizzo generico** : progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
+- **Business Critical** : progettato per applicazioni con requisiti di latenza di I/O bassa e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
 
 Entrambi i livelli di servizio garantiscono una disponibilità del 99,99% e consentono di selezionare le dimensioni di archiviazione e capacità di calcolo in modo indipendente. Per altre informazioni sull'architettura di disponibilità elevata di Istanza gestita di SQL di Azure, vedere [Disponibilità elevata e Istanza gestita di SQL di Azure](../database/high-availability-sla.md).
 
@@ -98,7 +98,7 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 - Archiviazione BLOB di Azure ad alte prestazioni (8 TB)
 - [Disponibilità elevata](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) predefinita basata sull'affidabilità di Archiviazione BLOB di Azure e su [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
-Per altre informazioni, vedere [Storage layer in the General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) (Livello Archiviazione nel livello di servizio Utilizzo generico) e [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita di SQL (Utilizzo generico)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Per altre informazioni, vedere [Storage layer in the General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) (Livello Archiviazione nel livello di servizio Utilizzo generico) e [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita di SQL (Utilizzo generico)](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose).
 
 Per altre informazioni sulle differenze tra i livelli di servizio, vedere [Limiti delle risorse per Istanza gestita di SQL](resource-limits.md#service-tier-characteristics).
 
@@ -110,7 +110,7 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 
 - Progettato per applicazioni aziendali con le prestazioni e i requisiti di disponibilità più elevati
 - Viene fornito con l'archiviazione SSD locale estremamente rapida (fino a 1 TB nella quarta generazione e fino a 4 TB nella quinta generazione)
-- [Disponibilità elevata](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) predefinita in base ai [gruppi di disponibilità Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e ad [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Disponibilità elevata](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) predefinita in base ai [gruppi di disponibilità Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e ad [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - [Replica di database di sola lettura](../database/read-scale-out.md) integrata aggiuntiva che può essere usata per la creazione di report e altri carichi di lavoro di sola lettura
 - [OLTP in memoria](../in-memory-oltp-overview.md) che può essere usato per il carico di lavoro con requisiti di prestazioni elevate  
 
@@ -156,9 +156,9 @@ La migrazione di un database crittografato in Istanza gestita di SQL è supporta
 
 ## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
 
-Istanza gestita di SQL supporta i tradizionali account di accesso del motore di database di SQL server e gli account di accesso integrati con Azure AD. Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure AD come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
+Istanza gestita di SQL supporta i tradizionali account di accesso del motore di database di SQL server e gli account di accesso integrati con Azure AD. Le entità server (account di accesso) di Azure AD ( **anteprima pubblica** ) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure AD come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
 
-È stata introdotta una nuova sintassi per creare le entità server (account di accesso) di Azure AD, ovvero **FROM EXTERNAL PROVIDER**. Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per Istanza gestita di SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+È stata introdotta una nuova sintassi per creare le entità server (account di accesso) di Azure AD, ovvero **FROM EXTERNAL PROVIDER** . Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per Istanza gestita di SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
@@ -168,12 +168,12 @@ Istanza gestita di SQL consente di gestire a livello centralizzato le identità 
 
 Per autenticazione di Istanza gestita di SQL si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Istanza gestita di SQL supporta due tipi di autenticazione:  
 
-- **Autenticazione SQL**:
+- **Autenticazione SQL** :
 
   Questo metodo di autenticazione usa nome utente e password.
-- **Autenticazione di Azure Active Directory**:
+- **Autenticazione di Azure Active Directory** :
 
-  Questo metodo di autenticazione usa identità gestite da Azure Active Directory ed è supportato per domini gestiti e integrati. [Quando possibile](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode), usare l'autenticazione di Active Directory (sicurezza integrata).
+  Questo metodo di autenticazione usa identità gestite da Azure Active Directory ed è supportato per domini gestiti e integrati. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode), usare l'autenticazione di Active Directory (sicurezza integrata).
 
 ### <a name="authorization"></a>Autorizzazione
 
@@ -185,7 +185,7 @@ Il servizio Istanza gestita di SQL è destinato a scenari utente con migrazione 
 
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
-L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in un BLOB di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
+L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in un BLOB di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - Per una guida di avvio rapido su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a managed instance](restore-sample-database-quickstart.md) (Ripristinare un file di backup in un'istanza gestita). Questo argomento di avvio rapido mostra che è necessario caricare un file di backup in un archivio BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
 - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -195,7 +195,7 @@ L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Az
 
 ### <a name="database-migration-service"></a>Servizio Migrazione del database
 
-Il Servizio Migrazione del database di Azure è un servizio completamente gestito, progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti nel database SQL di Azure, in Istanza gestita di SQL di Azure e in SQL Server nella macchina virtuale di Azure. Vedere [Come eseguire la migrazione del database locale in Istanza gestita di SQL usando il Servizio Migrazione del database](https://aka.ms/migratetoMIusingDMS).
+Il Servizio Migrazione del database di Azure è un servizio completamente gestito, progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti nel database SQL di Azure, in Istanza gestita di SQL di Azure e in SQL Server nella macchina virtuale di Azure. Vedere [Come eseguire la migrazione del database locale in Istanza gestita di SQL usando il Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="sql-features-supported"></a>Funzionalità di SQL supportate
 
@@ -213,12 +213,12 @@ Istanza gestita di SQL offre vantaggi derivanti dall'essere sempre aggiornati ne
 
 Alcune differenze principali:
 
-- La disponibilità elevata è predefinita e preconfigurata tramite una tecnologia simile a [Gruppi di disponibilità Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
+- La disponibilità elevata è predefinita e preconfigurata tramite una tecnologia simile a [Gruppi di disponibilità Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Sono disponibili solo backup automatizzati e ripristino temporizzato. I clienti possono avviare backup `copy-only` che non interferiscono con la catena di backup automatica.
 - L'uso di percorsi fisici completi non è supportato, quindi tutti gli scenari corrispondenti devono essere supportati in modo diverso: RESTORE DB non supporta WITH MOVE, CREATE DB non consente i percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via.
 - Istanza gestita di SQL supporta l'[autenticazione di Azure AD](../database/authentication-aad-overview.md) come alternativa cloud all'autenticazione di Windows.
 - Istanza gestita di SQL gestisce automaticamente i filegroup XTP e i file per i database contenenti oggetti di OLTP in memoria.
-- Istanza gestita di SQL supporta SQL Server Integration Services e può ospitare un catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un'istanza gestita di Azure-SSIS Integration Runtime in Azure Data Factory. Vedere [Creare Azure-SSIS IR in Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzionalità SSIS, vedere [Confrontare il database SQL con Istanza gestita di SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
+- Istanza gestita di SQL supporta SQL Server Integration Services e può ospitare un catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un'istanza gestita di Azure-SSIS Integration Runtime in Azure Data Factory. Vedere [Creare Azure-SSIS IR in Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md). Per confrontare le funzionalità SSIS, vedere [Confrontare il database SQL con Istanza gestita di SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
 
 ### <a name="administration-features"></a>Funzionalità di amministrazione
 

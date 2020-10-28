@@ -2,13 +2,13 @@
 title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518025"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789370"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -90,7 +90,7 @@ Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario ese
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
+2. Annotare il nome nella sezione di **risposta non autorevole** , presente in uno dei formati seguenti: 
 
     ```
     <name>-s1.cloudapp.net
@@ -184,8 +184,19 @@ Se la velocità effettiva totale **in uscita** o la frequenza degli eventi total
 
 Le quote in ingresso e uscita vengono applicate separatamente, in modo che nessun mittente possa causare il rallentamento dell'utilizzo e nessun destinatario possa impedire l'invio di eventi a un hub eventi.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Esiste un limite al numero di unità elaborate che possono essere riservate/selezionate?
-In un'offerta multi-tenant le unità elaborate possono aumentare fino a 40 (è possibile selezionare fino a 20 unità elaborate nel portale e generare un ticket di supporto per raggiungere 40 unità elaborate nello stesso spazio dei nomi). Al di sopra delle 40 unità elaborate, Hub eventi offre il modello basato su risorse/capacità, i cosiddetti **cluster Hub eventi Dedicato**. I cluster Hub eventi Dedicato vengono venduti in unità di capacità.
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>È previsto un limite per il numero di unità di velocità effettiva che è possibile riservare/selezionare?
+
+Quando si crea uno spazio dei nomi di livello Basic o standard nella portale di Azure, è possibile selezionare fino a 20 TUs per lo spazio dei nomi. Per elevarlo **esattamente** 40 Tus, inviare una  [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).  
+
+1. Nella pagina **spazio dei nomi del bus di eventi** selezionare **nuova richiesta di supporto** nel menu a sinistra. 
+1. Nella pagina **nuova richiesta di supporto** , attenersi alla seguente procedura:
+    1. Per **Riepilogo** , descrivere il problema in poche parole. 
+    1. Per **Tipo di problema** selezionare **Quota** . 
+    1. Per **sottotipo di problema** selezionare **Richiedi aumento o riduzione unità di velocità effettiva** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Pagina Richiesta di supporto":::
+
+Al di sopra delle 40 unità elaborate, Hub eventi offre il modello basato su risorse/capacità, i cosiddetti cluster Hub eventi Dedicato. I cluster Hub eventi Dedicato vengono venduti in unità di capacità. Per ulteriori informazioni, vedere [Hub eventi dedicato-Overview](event-hubs-dedicated-overview.md).
 
 ## <a name="dedicated-clusters"></a>Cluster Hub eventi Dedicato
 
@@ -199,7 +210,7 @@ Per istruzioni dettagliate e altre informazioni sulla configurazione di un clust
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>Procedure consigliate
+## <a name="partitions"></a>Partizioni
 
 ### <a name="how-many-partitions-do-i-need"></a>Quante partizioni sono necessarie?
 Il numero di partizioni viene specificato al momento della creazione e deve essere compreso tra 1 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per altre informazioni sulle partizioni, vedere [Partizioni](event-hubs-features.md#partitions).
@@ -209,6 +220,21 @@ Il numero di partizioni viene specificato al momento della creazione e deve esse
 Hub eventi è progettato per consentire un solo lettore di partizione per ogni gruppo di consumer. Nella maggior parte dei casi, è sufficiente l'impostazione predefinita di quattro partizioni. Se si intende ridimensionare l'elaborazione degli eventi, è possibile considerare di aggiungere altre partizioni. Non esiste alcun limite specifico della velocità effettiva in una partizione. Tuttavia, la velocità effettiva aggregata nello spazio dei nomi è limitata dal numero di unità elaborate. Quando si aumenta il numero di unità della velocità effettiva nello spazio dei nomi, è opportuno aggiungere partizioni per consentire ai lettori simultanei di raggiungere la velocità effettiva personale massima.
 
 Tuttavia, se si dispone di un modello in cui l'applicazione ha un'affinità con una determinata partizione, l'aumento del numero di partizioni non comporta alcun vantaggio. Per altre informazioni, vedere [Disponibilità e coerenza](event-hubs-availability-and-consistency.md).
+
+### <a name="increase-partitions"></a>Aumentare le partizioni
+È possibile richiedere l'aumento del numero di partizioni a 40 (Exact) inviando una richiesta di supporto. 
+
+1. Nella pagina **spazio dei nomi del bus di eventi** selezionare **nuova richiesta di supporto** nel menu a sinistra. 
+1. Nella pagina **nuova richiesta di supporto** , attenersi alla seguente procedura:
+    1. Per **Riepilogo** , descrivere il problema in poche parole. 
+    1. Per **Tipo di problema** selezionare **Quota** . 
+    1. Per **sottotipo di problema** selezionare **Richiedi modifica partizione** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Pagina Richiesta di supporto":::
+
+Il numero di partizioni può essere aumentato esattamente 40. In questo caso, è necessario aumentare anche il numero di TUs fino a 40. Se successivamente si decide di abbassare il limite di ur fino a <= 20, anche il limite massimo della partizione viene ridotto a 32. 
+
+La riduzione delle partizioni non influisce sugli hub eventi esistenti perché le partizioni vengono applicate a livello di hub eventi e non sono modificabili dopo la creazione dell'hub. 
 
 ## <a name="pricing"></a>Prezzi
 

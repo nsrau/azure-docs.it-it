@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474853"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789013"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurare Azure Defender per l'archiviazione
 
@@ -37,7 +37,7 @@ Nell'elenco seguente viene riepilogata la disponibilità di Azure Defender per l
 
 - Stato della versione:
   - [Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) (disponibilità generale)
-  - [File di Azure](/azure/storage/files/storage-files-introduction) (disponibilità generale)
+  - [File di Azure](../files/storage-files-introduction.md) (disponibilità generale)
   - Azure Data Lake Storage Gen2 (disponibilità generale)
 - Cloud:<br>
     ✔ Cloud commerciali<br>
@@ -53,10 +53,10 @@ Nell'elenco seguente viene riepilogata la disponibilità di Azure Defender per l
 Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Azure Defender viene impostato automaticamente su tutti gli account di archiviazione. È possibile abilitare o disabilitare Azure Defender per gli account di archiviazione in una sottoscrizione specifica, come indicato di seguito:
 
 1. Avviare il **Centro sicurezza di Azure** nella [portale di Azure](https://portal.azure.com).
-1. Dal menu principale, in **gestione**, selezionare **prezzi & impostazioni**.
+1. Dal menu principale, in **gestione** , selezionare **prezzi & impostazioni** .
 1. Selezionare la sottoscrizione per cui si vuole abilitare o disabilitare Azure Defender.
 1. Selezionare **Azure Defender in** per abilitare Azure Defender per la sottoscrizione.
-1. In **selezione piano di Azure Defender per tipo di risorsa**individuare la riga di **archiviazione** e selezionare **abilitata** nella colonna **piano** .
+1. In **selezione piano di Azure Defender per tipo di risorsa** individuare la riga di **archiviazione** e selezionare **abilitata** nella colonna **piano** .
 1. Salvare le modifiche.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
@@ -66,8 +66,8 @@ Azure Defender è ora abilitato per tutti gli account di archiviazione in questa
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Avviare il [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di archiviazione. In **Impostazioni**selezionare **sicurezza avanzata**.
-1. Selezionare **Abilita Azure Defender per l'archiviazione**.
+1. Passare all'account di archiviazione. In **Impostazioni** selezionare **sicurezza avanzata** .
+1. Selezionare **Abilita Azure Defender per l'archiviazione** .
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot che illustra come abilitare Azure Defender per l'archiviazione nel centro sicurezza":::
 
@@ -138,4 +138,4 @@ Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di acce
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sui [log negli account di archiviazione di Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Altre informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-intro.md)
+- Altre informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-introduction.md)
