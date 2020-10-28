@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082852"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636069"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Che cosa sono i flussi di dati?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082852"
 
 Le organizzazioni devono eseguire la preparazione dei dati e la disputa per un'analisi accurata dei dati complessi che continuano a crescere ogni giorno. La preparazione dei dati è necessaria in modo che le organizzazioni possano usare i dati in vari processi aziendali e ridurre il tempo di valore.
 
-La disputa dei flussi di dati in Azure Data Factory consente di eseguire in modo iterativo la preparazione dei dati senza codice a livello di cloud. L'integrazione di flussi di dati con [Power query online](https://docs.microsoft.com/power-query/) e rende disponibili funzioni Power query M per gli utenti di data factory.
+La disputa dei flussi di dati in Azure Data Factory consente di eseguire in modo iterativo la preparazione dei dati senza codice a livello di cloud. L'integrazione di flussi di dati con [Power query online](/power-query/) e rende disponibili funzioni Power query M per gli utenti di data factory.
 
 La verifica del flusso di dati converte i M generati dall'editor di mashup di Power Query online in codice Spark per l'esecuzione su scala cloud.
 

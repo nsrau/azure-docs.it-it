@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 55a49ac13cdfd3f6157ae7495403f76056e734ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be49d56d301c23791777f4d89e8c6c6fd35d7035
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86184098"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636307"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Provisioning della Enterprise Edition per il Runtime di integrazione Azure-SSIS
 
@@ -38,7 +38,7 @@ Alcune di queste funzionalità richiedono l'installazione di componenti aggiunti
 | Connettori Oracle | La gestione connessione, l'origine e la destinazione Oracle sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. Occorre inoltre installare il driver OCI (Oracle Call Interface) e, se necessario, configurare il servizio TNS (Transport Network Substrate) Oracle nel runtime di integrazione Azure-SSIS. Per altre informazioni, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Connettori Teradata | È necessario installare nel runtime di integrazione Azure-SSIS Enterprise Edition la gestione connessione, l'origine e la destinazione Teradata, nonché l'API TPT (Teradata Parallel Transporter) e il driver ODBC di Teradata. Per altre informazioni, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Connettori SAP BW | La gestione connessione, l'origine e la destinazione SAP BW sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. È inoltre necessario installare il driver SAP BW nel runtime di integrazione Azure-SSIS. Questi connettori supportano SAP BW 7.0 o versioni precedenti. Per eseguire la connessione a versioni successive di SAP BW o ad altri prodotti SAP, è possibile acquistare connettori SAP da ISV di terze parti e installarli nel runtime di integrazione Azure-SSIS. Per altre informazioni su come installare componenti aggiuntivi, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Componenti di Analysis Services               | La destinazione Training modello di data mining, la destinazione Elaborazione dimensione, la destinazione Elaborazione partizione e la trasformazione Query di data mining sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. Tutti questi componenti supportano SQL Server Analysis Services (SSAS), ma solo la destinazione Elaborazione partizione supporta Azure Analysis Services (AAS). Per connettersi a SSAS, è anche necessario [configurare le credenziali di autenticazione di Windows in SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Oltre a questi componenti, nel runtime di integrazione Azure-SSIS Standard/Enterprise Edition sono preinstallate l'attività Esegui DDL Analysis Services, l'attività Elaborazione Analysis Services e l'attività Query di data mining. |
+| Componenti di Analysis Services               | La destinazione Training modello di data mining, la destinazione Elaborazione dimensione, la destinazione Elaborazione partizione e la trasformazione Query di data mining sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. Tutti questi componenti supportano SQL Server Analysis Services (SSAS), ma solo la destinazione Elaborazione partizione supporta Azure Analysis Services (AAS). Per connettersi a SSAS, è anche necessario [configurare le credenziali di autenticazione di Windows in SSISDB](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Oltre a questi componenti, nel runtime di integrazione Azure-SSIS Standard/Enterprise Edition sono preinstallate l'attività Esegui DDL Analysis Services, l'attività Elaborazione Analysis Services e l'attività Query di data mining. |
 | Trasformazioni Raggruppamento fuzzy e Ricerca fuzzy  | Le trasformazioni Raggruppamento fuzzy e Ricerca fuzzy sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. Questi componenti supportano sia SQL Server che il database SQL di Azure per l'archiviazione dei dati di riferimento. |
 | Trasformazioni Estrazione termini e Ricerca termini | Le trasformazioni Estrazione termini e Ricerca termini sono preinstallate nel runtime di integrazione Azure-SSIS Enterprise Edition. Questi componenti supportano sia SQL Server che il database SQL di Azure per l'archiviazione dei dati di riferimento. |
 

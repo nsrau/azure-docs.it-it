@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086909"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636919"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiare o spostare facilmente i dati con Copia guidata di Azure Data Factory
 > [!NOTE]
@@ -62,7 +62,7 @@ Nell'esempio, la query SQL usa la funzione `Text.Format` e la variabile `WindowS
 ![Espressione di convalida](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtro dei dati in una cartella BLOB di Azure
-È possibile usare le variabili nel percorso della cartella per copiare dati da una cartella determinata in fase di esecuzione in base alle [variabili di sistema](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** e **{custom}**. Esempio: inputfolder/{year}/{month}/{day}.
+È possibile usare le variabili nel percorso della cartella per copiare dati da una cartella determinata in fase di esecuzione in base alle [variabili di sistema](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** e **{custom}** . Esempio: inputfolder/{year}/{month}/{day}.
 
 Si supponga di avere cartelle di input nel formato seguente:
 
@@ -73,11 +73,11 @@ Si supponga di avere cartelle di input nel formato seguente:
 ...
 ```
 
-Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. A questo punto, sostituire **2016** con **{year}**, **03** con **{Month}**, **01** con **{Day}** e **02** con **{hour}** e premere TAB. Verranno visualizzati gli elenchi a discesa per selezionare il formato per le quattro variabili seguenti:
+Fare clic sul pulsante **Esplora** per **File o cartella** , passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli** . Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. A questo punto, sostituire **2016** con **{year}** , **03** con **{Month}** , **01** con **{Day}** e **02** con **{hour}** e premere TAB. Verranno visualizzati gli elenchi a discesa per selezionare il formato per le quattro variabili seguenti:
 
 ![Uso di variabili di sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Come mostra lo screenshot seguente, è anche possibile usare una variabile **personalizzata** e qualsiasi [stringa di formato supportato](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Per selezionare una cartella con tale struttura, usare prima di tutto il pulsante **Esplora** . Sostituire un valore con **{custom}** e quindi premere TAB per visualizzare la casella di testo in cui è possibile digitare la stringa di formato.     
+Come mostra lo screenshot seguente, è anche possibile usare una variabile **personalizzata** e qualsiasi [stringa di formato supportato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Per selezionare una cartella con tale struttura, usare prima di tutto il pulsante **Esplora** . Sostituire un valore con **{custom}** e quindi premere TAB per visualizzare la casella di testo in cui è possibile digitare la stringa di formato.     
 
 ![Uso di variabili personalizzate](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
-

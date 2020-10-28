@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 33f67e1bfa27f4314f64cbcc4d472905fcb15099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874ee264d2d8778e2ea413575c3b8b2ab6c5373d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318765"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636137"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
 *Questo argomento si applica ai connettori seguenti: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOB di Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [file system](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
@@ -33,17 +33,17 @@ Azure Data Factory supporta i tipi di formato di file seguenti:
 * [Formato Parquet](#parquet-format)
 
 ## <a name="text-format"></a>Formato testo
-Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
+Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat** . È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che è probabile non esista nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è **virgola (',')**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
+| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che è probabile non esista nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è **virgola (',')** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
 | rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Il valore **predefinito** è uno dei valori seguenti in lettura: **["\r\n", ",", "\n"]** e **"\r\n"** durante la scrittura. |No |
 | escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
 | nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\n" e "null"** in lettura e **"\n"** in scrittura. |No |
-| encodingName |specifica il nome della codifica. |Un nome di codifica valido. vedere [Proprietà Encoding. EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
-| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/><b>False (impostazione predefinita)</b> |No |
+| encodingName |specifica il nome della codifica. |Un nome di codifica valido. vedere [Proprietà Encoding. EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8** . |No |
+| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Vero<br/><b>False (impostazione predefinita)</b> |No |
 | skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
 | treatEmptyAsNull |specifica se considerare una stringa null o vuota come valore null durante la lettura dei dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
 
@@ -81,16 +81,16 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
 ## <a name="json-format"></a>Formato JSON
-Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso Azure Cosmos DB](data-factory-azure-documentdb-connector.md).
+Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB** , vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso Azure Cosmos DB](data-factory-azure-documentdb-connector.md).
 
-Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
+Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat** . È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
+| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects** . Il valore **predefinito** è **setOfObjects** . Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No |
 | jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
-| encodingName |specifica il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No |
+| encodingName |specifica il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](/dotnet/api/system.text.encoding) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8** . |No |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
@@ -299,7 +299,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 Il set di dati di input con il tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
-- `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
+- `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice** .
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
 
 ```json
@@ -399,7 +399,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 ```
 
 ## <a name="avro-format"></a>Formato AVRO
-Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat** . Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -415,7 +415,7 @@ Tenere presente quanto segue:
 * I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
 ## <a name="orc-format"></a>Formato ORC
-Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat** . Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -435,7 +435,7 @@ Tenere presente quanto segue:
 * Il file ORC dispone di tre [opzioni relative alla compressione](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
 ## <a name="parquet-format"></a>Formato Parquet
-Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat** . Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -483,17 +483,17 @@ Per specificare la compressione per un set di dati, usare la proprietà **compre
 Si supponga che il set di dati di esempio venga usato come output di un'attività di copia, l'attività di copia comprime i dati di output con il codec GZIP usando un rapporto ottimale e quindi scrive i dati compressi in un file denominato pagecounts.csv.gz in Archiviazione BLOB di Azure.
 
 > [!NOTE]
-> Le impostazioni di compressione non sono attualmente supportate per i dati in **AvroFormat**, **OrcFormat** o **ParquetFormat**. Quando si leggono file in questi formati, Data Factory rileva e usa il codec di compressione nei metadati. Quando si scrive in un file che si presenta in uno di questi formati, Data Factory sceglie il codice di compressione predefinito per il formato specifico. ad esempio ZLIB per OrcFormat e SNAPPY per ParquetFormat.   
+> Le impostazioni di compressione non sono attualmente supportate per i dati in **AvroFormat** , **OrcFormat** o **ParquetFormat** . Quando si leggono file in questi formati, Data Factory rileva e usa il codec di compressione nei metadati. Quando si scrive in un file che si presenta in uno di questi formati, Data Factory sceglie il codice di compressione predefinito per il formato specifico. ad esempio ZLIB per OrcFormat e SNAPPY per ParquetFormat.   
 
 La sezione **compression** ha due proprietà:  
 
-* **Tipo:** codec di compressione, che può essere **gzip**, **deflate**, **bzip2**o **ZipDeflate**.  
-* **Level:** rapporto di compressione, che può essere **Optimal** o **Fastest**.
+* **Tipo:** codec di compressione, che può essere **gzip** , **deflate** , **bzip2** o **ZipDeflate** .  
+* **Level:** rapporto di compressione, che può essere **Optimal** o **Fastest** .
 
   * **Fastest:** l'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale.
-  * **Optimal**: l'operazione di compressione deve comprimere il file in modo ottimale, anche se il completamento richiede più tempo.
+  * **Optimal** : l'operazione di compressione deve comprimere il file in modo ottimale, anche se il completamento richiede più tempo.
 
-    Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) .
+    Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](/dotnet/api/system.io.compression.compressionlevel) .
 
 Quando si specifica una proprietà `compression` in un set di dati di input JSON, la pipeline può leggere i dati compressi dall'origine. Quando si specifica la proprietà in un set di dati di output JSON, l'attività di copia può scrivere i dati compressi nella destinazione. Di seguito vengono forniti alcuni scenari di esempio:
 

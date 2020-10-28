@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441109"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637344"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -36,6 +36,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - La configurazione può attualmente essere eseguita solo usando l'interfaccia della riga di comando o le richieste REST. Non è possibile usare il portale di Azure o PowerShell.
+- L' ```--export-all-tables``` opzione nell'interfaccia della riga di comando e REST non è supportata e verrà rimossa. È necessario specificare in modo esplicito l'elenco delle tabelle nelle regole di esportazione.
 - Le tabelle supportate sono attualmente limitate a quelle specifiche nella sezione [tabelle supportate](#supported-tables) riportata di seguito. Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace.```
 - L'area di lavoro Log Analytics può trovarsi in qualsiasi area, ad eccezione di quanto segue:
   - Svizzera settentrionale
@@ -63,9 +64,9 @@ Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esport
 ## <a name="export-destinations"></a>Esporta destinazioni
 
 ### <a name="storage-account"></a>Account di archiviazione
-I dati vengono inviati ogni ora agli account di archiviazione. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent*.
+I dati vengono inviati ogni ora agli account di archiviazione. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent* .
 
-Il percorso del BLOB dell'account di archiviazione è *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Poiché i BLOB di Accodamento sono limitati a 50.000 scritture nell'archivio, il numero di BLOB esportati può estendersi se il numero di Append è elevato. Il modello di denominazione per i BLOB in tal caso verrebbe PT1H_ #. JSON, dove # è il numero di BLOB incrementali.
+Il percorso del BLOB dell'account di archiviazione è *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json* . Poiché i BLOB di Accodamento sono limitati a 50.000 scritture nell'archivio, il numero di BLOB esportati può estendersi se il numero di Append è elevato. Il modello di denominazione per i BLOB in tal caso verrebbe PT1H_ #. JSON, dove # è il numero di BLOB incrementali.
 
 Il formato dei dati dell'account di archiviazione è di [righe JSON](diagnostic-logs-append-blobs.md). Questo significa che ogni record è delimitato da una nuova riga, senza matrice di record esterni e senza virgole tra record JSON. 
 
@@ -74,7 +75,7 @@ Il formato dei dati dell'account di archiviazione è di [righe JSON](diagnostic-
 Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account di archiviazione non modificabili quando i criteri di conservazione basati sul tempo hanno l'impostazione *allowProtectedAppendWrites* abilitata. In questo modo è possibile scrivere nuovi blocchi in un BLOB di Accodamento, mantenendo al tempo stesso la protezione e la conformità. Vedere [Consenti scritture di BLOB di Accodamento protette](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Hub eventi
-I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutte le tabelle.
+I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent* . Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
 
 Il volume dei dati esportati aumenta spesso nel tempo e la scalabilità dell'hub eventi deve essere aumentata per gestire velocità di trasferimento maggiori ed evitare la limitazione degli scenari e la latenza dei dati. È consigliabile usare la funzionalità di aumento automatico degli hub eventi per aumentare automaticamente le prestazioni e aumentare il numero di unità di velocità effettiva e soddisfare le esigenze di utilizzo. Per informazioni dettagliate, vedere [ridimensionare automaticamente le unità di velocità effettiva di hub eventi di Azure](../../event-hubs/event-hubs-auto-inflate.md) .
 
@@ -98,7 +99,7 @@ Per abilitare l'esportazione dei dati Log Analytics, è necessario registrare il
 
 - Microsoft.Insights
 
-Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights**. Se lo stato è **registrato**, è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
+Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights** . Se lo stato è **registrato** , è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
 
 È anche possibile usare uno dei metodi disponibili per registrare un provider di risorse, come descritto in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Di seguito è riportato un comando di esempio con PowerShell:
 
@@ -107,13 +108,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Consenti servizi Microsoft attendibili
-Se l'account di archiviazione è stato configurato per consentire l'accesso da reti selezionate, è necessario aggiungere un'eccezione per consentire a monitoraggio di Azure di scrivere nell'account. Da **firewall e reti virtuali** per l'account di archiviazione selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**.
+Se l'account di archiviazione è stato configurato per consentire l'accesso da reti selezionate, è necessario aggiungere un'eccezione per consentire a monitoraggio di Azure di scrivere nell'account. Da **firewall e reti virtuali** per l'account di archiviazione selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** .
 
 [![Firewall e reti virtuali dell'account di archiviazione](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
 ### <a name="create-or-update-data-export-rule"></a>Crea o Aggiorna regola di esportazione dei dati
-Una regola di esportazione dei dati definisce i dati che devono essere esportati da tutte le tabelle o da un determinato set di tabelle in una singola destinazione. Creare più regole se è necessario inviare a più destinazioni.
+Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una regola per ogni destinazione.
+
+Usare il comando dell'interfaccia della riga di comando seguente per visualizzare le tabelle nell'area di lavoro. Consente di copiare le tabelle desiderate e includere nella regola di esportazione dei dati.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Usare il comando seguente per creare una regola di esportazione dei dati in un account di archiviazione usando l'interfaccia della riga di comando.
 
@@ -142,8 +148,8 @@ Il corpo della richiesta specifica la destinazione Tables. Di seguito è riporta
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eve
         "enable": true
     }
 }
-
 ```
 
+Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eventi in cui viene fornito il nome dell'hub eventi. In questo caso, tutti i dati esportati vengono inviati a questo hub eventi.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Visualizza configurazione esportazione dati
 Usare il comando seguente per visualizzare la configurazione di una regola di esportazione dei dati tramite l'interfaccia della riga di comando.
@@ -406,7 +429,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | Aggiornamento | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
 | UpdateRunProgress | |
 | UpdateSummary | |
-| Utilizzo | |
+| Usage | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
 | Watchlist | |

@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042593"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636409"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Il sistema di metadati Common Data Model (CDM) consente di condividere facilmente i dati e il relativo significato tra applicazioni e processi aziendali. Per altre informazioni, vedere Panoramica di [Common Data Model](https://docs.microsoft.com/common-data-model/) .
+Il sistema di metadati Common Data Model (CDM) consente di condividere facilmente i dati e il relativo significato tra applicazioni e processi aziendali. Per altre informazioni, vedere Panoramica di [Common Data Model](/common-data-model/) .
 
 In Azure Data Factory, gli utenti possono trasformare i dati da entità CDM in model.jse in formato manifesto archiviati in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando i flussi di dati di mapping. È anche possibile affondare i dati in formato CDM usando i riferimenti alle entità CDM che definiranno i dati in formato CSV o parquet in cartelle partizionate. 
 
@@ -37,10 +37,10 @@ La tabella seguente elenca le proprietà supportate da un'origine CDM. È possib
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
+| Formato | Il formato deve essere `cdm` | yes | `cdm` | format |
 | Formato metadati | Dove si trova il riferimento all'entità nei dati. Se si usa CDM versione 1,0, scegliere manifesto. Se si usa una versione CDM prima del 1,0, scegliere model.json. | Sì | `'manifest'` o `'model'` | manifestType |
-| Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
-| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
+| Percorso radice: contenitore | Nome del contenitore della cartella CDM | yes | string | fileSystem |
+| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | yes | string | folderPath |
 | File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default '  | No | string | manifestName |
 | Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore | 
@@ -49,7 +49,7 @@ La tabella seguente elenca le proprietà supportate da un'origine CDM. È possib
 | Repository di riferimento all'entità | Nome repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string | github_repository |
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string |  github_branch |
 | Cartella Corpus | posizione radice del Corpus | Sì, se si usa il manifesto | string | corpusPath |
-| Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
+| Entità Corpus | Percorso del riferimento all'entità | yes | string | Entità |
 | Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 Se la definizione di entità che si desidera utilizzare nella trasformazione origine si trova nella stessa directory della cartella dati, è possibile deselezionare "utilizza entità da Corpus" e digitare semplicemente l'entità dell'entità che si desidera utilizzare come riferimento all'entità.
@@ -116,17 +116,17 @@ La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
-| Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
-| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
+| Formato | Il formato deve essere `cdm` | yes | `cdm` | format |
+| Percorso radice: contenitore | Nome del contenitore della cartella CDM | yes | string | fileSystem |
+| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | yes | string | folderPath |
 | File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default ' | No | string | manifestName |
-| Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | sì | `'adlsgen2'` o `'github'` | corpusStore | 
+| Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | yes | `'adlsgen2'` o `'github'` | corpusStore | 
 | Contenitore di riferimento all'entità | Il corpo del contenitore è in | Sì, se Corpus in ADLS Gen2 | string | adlsgen2_fileSystem |
 | Repository di riferimento all'entità | Nome repository GitHub | Sì, se Corpus in GitHub | string | github_repository |
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se Corpus in GitHub | string |  github_branch |
-| Cartella Corpus | posizione radice del Corpus | sì | string | corpusPath |
-| Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
+| Cartella Corpus | posizione radice del Corpus | yes | string | corpusPath |
+| Entità Corpus | Percorso del riferimento all'entità | yes | string | Entità |
 | Percorso partizione | Posizione in cui verrà scritta la partizione | no | string | partitionPath |
 | Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
 | Tipo di formato | Scegliere di specificare il formato parquet | no | `parquet` Se specificato | sottoformati |

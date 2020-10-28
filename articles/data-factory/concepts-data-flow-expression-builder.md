@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531058"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635372"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Espressioni di compilazione nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione. Il mapping dei flussi di dati offre un'esperienza dedicata per facilitare la creazione di queste espressioni, denominato **Generatore di espressioni**. Utilizzando il completamento del codice  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) per l'evidenziazione, il controllo della sintassi e il completamento automatico, il generatore di espressioni è progettato per semplificare la creazione di flussi di dati. In questo articolo viene illustrato come utilizzare il generatore di espressioni per compilare efficacemente la logica di business.
+Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione. Il mapping dei flussi di dati offre un'esperienza dedicata per facilitare la creazione di queste espressioni, denominato **Generatore di espressioni** . Utilizzando il completamento del codice  [IntelliSense](/visualstudio/ide/using-intellisense) per l'evidenziazione, il controllo della sintassi e il completamento automatico, il generatore di espressioni è progettato per semplificare la creazione di flussi di dati. In questo articolo viene illustrato come utilizzare il generatore di espressioni per compilare efficacemente la logica di business.
 
 ![Generatore di espressioni](media/data-flow/expresion-builder.png "Generatore di espressioni")
 
@@ -32,7 +32,7 @@ In alcune trasformazioni come [filtro](data-flow-filter.md), facendo clic su una
 
 ![Casella espressione blu](media/data-flow/expressionbox.png "Generatore di espressioni")
 
-Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata**.
+Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata** .
 
 ![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Generatore di espressioni")
 

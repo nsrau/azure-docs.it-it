@@ -11,24 +11,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184cd7ec0dd490152e7234383bffe4f0fd822913
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88186047"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635712"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migrazione SSIS con SQL di Azure Istanza gestita come destinazione del carico di lavoro del database
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Quando si esegue la migrazione dei carichi di lavoro del database da un'istanza di SQL Server al Istanza gestita SQL di Azure, è necessario avere familiarità con il [servizio di migrazione dei dati di Azure](https://docs.microsoft.com/azure/dms/dms-overview)e le [topologie di rete per le migrazioni SQL istanza gestita con DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
+Quando si esegue la migrazione dei carichi di lavoro del database da un'istanza di SQL Server al Istanza gestita SQL di Azure, è necessario avere familiarità con il [servizio di migrazione dei dati di Azure](../dms/dms-overview.md)e le [topologie di rete per le migrazioni SQL istanza gestita con DMS](../dms/resource-network-topologies.md).
 
 Questo articolo è incentrato sulla migrazione dei pacchetti di SQL Server Integration Service (SSIS) archiviati nel catalogo SSIS (SSISDB) e SQL Server Agent processi che pianificano le esecuzioni del pacchetto SSIS.
 
 ## <a name="migrate-ssis-catalog-ssisdb"></a>Eseguire la migrazione del catalogo SSIS (SSISDB)
 
-La migrazione di SSISDB può essere eseguita tramite DMS, come descritto nell'articolo [eseguire la migrazione di pacchetti SSIS a SQL istanza gestita](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance).
+La migrazione di SSISDB può essere eseguita tramite DMS, come descritto nell'articolo [eseguire la migrazione di pacchetti SSIS a SQL istanza gestita](../dms/how-to-migrate-ssis-packages-managed-instance.md).
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>Processi SSIS a SQL Istanza gestita Agent
 
@@ -38,13 +38,13 @@ Poiché uno strumento di migrazione per i processi SSIS non è ancora disponibil
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
-- [Runtime di integrazione Azure-SSIS](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
-- [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview)
-- [Topologie di rete per le migrazioni di SQL Istanza gestita tramite DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)
-- [Eseguire la migrazione di pacchetti SSIS a un Istanza gestita SQL](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
+- [Azure Data Factory](./introduction.md)
+- [Runtime di integrazione Azure-SSIS](./create-azure-ssis-integration-runtime.md)
+- [Servizio Migrazione del database di Azure](../dms/dms-overview.md)
+- [Topologie di rete per le migrazioni di SQL Istanza gestita tramite DMS](../dms/resource-network-topologies.md)
+- [Eseguire la migrazione di pacchetti SSIS a un Istanza gestita SQL](../dms/how-to-migrate-ssis-packages-managed-instance.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Connettersi al catalogo SSIS (SSISDB) in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
-- [Eseguire pacchetti SSIS distribuiti in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)
+- [Connettersi al catalogo SSIS (SSISDB) in Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
+- [Eseguire pacchetti SSIS distribuiti in Azure](/sql/integration-services/lift-shift/ssis-azure-run-packages)

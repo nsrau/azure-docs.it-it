@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440644"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634778"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -93,7 +93,7 @@ path | Percorso dei file di log. | Specificare il percorso usato per archiviare 
 > - Solo se quando si specificano più file nel set di dati di origine, che può essere una cartella, un carattere jolly o un elenco di file, l'attività di copia può ignorare i file di errore specifici. Se nel set di dati di origine viene specificato un singolo file da copiare nella destinazione, l'attività di copia avrà esito negativo se si verifica un errore.
 >
 > Per ignorare file specifici quando vengono verificati come incoerenti tra l'archivio di origine e quello di destinazione:
-> - [Qui](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)è possibile ottenere altri dettagli dalla documentazione sulla coerenza dei dati.
+> - [Qui](./copy-activity-data-consistency.md)è possibile ottenere altri dettagli dalla documentazione sulla coerenza dei dati.
 
 ### <a name="monitoring"></a>Monitoraggio 
 
@@ -146,22 +146,22 @@ Dal log precedente è possibile vedere che il file bigfile.csv è stato ignorato
 ### <a name="supported-scenarios"></a>Scenari supportati
 L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i dati tabulari incompatibili:
 
-- **Incompatibilità tra il tipo di dati di origine e il tipo nativo sink**. 
+- **Incompatibilità tra il tipo di dati di origine e il tipo nativo sink** . 
 
     Ad esempio: si vogliono copiare dati da un file CSV nell'archiviazione BLOB a un database SQL con una definizione di schema che contiene tre colonne di tipo INT. Le righe del file CSV contenenti dati numerici, ad esempio 123, 456, 789, vengono copiate nell'archivio sink. Tuttavia, le righe che contengono valori non numerici, ad esempio 123, 456, abc, vengono rilevate come incompatibili e vengono ignorate.
 
-- **Mancata corrispondenza nel numero di colonne tra l'origine e il sink**.
+- **Mancata corrispondenza nel numero di colonne tra l'origine e il sink** .
 
     Ad esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più di sei colonne vengono rilevate come incompatibili e vengono ignorate.
 
-- **Violazione della chiave primaria per la scrittura in SQL Server/database SQL di Azure/Azure Cosmos DB**.
+- **Violazione della chiave primaria per la scrittura in SQL Server/database SQL di Azure/Azure Cosmos DB** .
 
     Ad esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 >[!NOTE]
 >- Per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando la polibase, configurare le impostazioni di tolleranza di errore native della polibase specificando i criteri di rifiuto tramite "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" nell'attività di copia. È comunque possibile abilitare il reindirizzamento delle righe incompatibili di PolyBase a BLOB o ADLS come di consueto, come illustrato di seguito.
 >- Questa funzionalità non è applicabile quando è configurata l'attività di copia per richiamare lo strumento [Unload di Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Questa funzionalità non è applicabile quando l'attività di copia è configurata per richiamare [una stored procedure da un sink SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- Questa funzionalità non è applicabile quando l'attività di copia è configurata per richiamare [una stored procedure da un sink SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### <a name="configuration"></a>Configurazione
 L'esempio seguente offre la definizione JSON per specificare di ignorare le righe incompatibili nell'attività di copia:
@@ -298,5 +298,3 @@ Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
 - [Prestazioni dell'attività di copia](copy-activity-performance.md)
-
-

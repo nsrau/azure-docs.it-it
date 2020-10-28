@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417879"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634981"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 
@@ -60,16 +60,16 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 **Metodo** | Metodo dell'API REST per l'endpoint di destinazione. | Stringa. Il tipo supportato è "POST". | Sì |
 **url** | Endpoint e percorso di destinazione. | Stringa o espressione con il valore **ResultType** di una stringa. | Sì |
 **intestazioni** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che imposta il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Stringa o espressione con il valore **ResultType** di una stringa. | Sì. `Content-Type`È necessaria un'intestazione come `"headers":{ "Content-Type":"application/json"}` . |
-**body** | Rappresenta il payload inviato all'endpoint. | JSON valido o espressione con valore **RESULTTYPE** JSON. Vedere [schema del payload della richiesta](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) per lo schema del payload della richiesta. | Sì |
-**autenticazione** | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa o espressione con il valore **ResultType** di una stringa. | No |
-**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *HH*:*mm*:*SS*. | string | No |
+**body** | Rappresenta il payload inviato all'endpoint. | JSON valido o espressione con valore **RESULTTYPE** JSON. Vedere [schema del payload della richiesta](./control-flow-web-activity.md#request-payload-schema) per lo schema del payload della richiesta. | Sì |
+**autenticazione** | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](./control-flow-web-activity.md#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa o espressione con il valore **ResultType** di una stringa. | No |
+**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d* . *HH* : *mm* : *SS* . | string | No |
 **Segnala stato del callback** | Consente a un utente di segnalare lo stato di errore di un'attività webhook. | Boolean | No |
 
 ## <a name="authentication"></a>Authentication
 
 Un'attività webhook supporta i tipi di autenticazione seguenti.
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà di **autenticazione** .
 
@@ -99,7 +99,7 @@ Specificare il contenuto con codifica Base64 di un file PFX e una password.
 
 ### <a name="managed-identity"></a>Identità gestita
 
-Usare l'identità gestita del data factory per specificare l'URI della risorsa per cui viene richiesto il token di accesso. Per chiamare l'API di gestione delle risorse di Azure, usare `https://management.azure.com/`. Per altre informazioni sul funzionamento delle identità gestite, vedere [Cenni preliminari sulle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Usare l'identità gestita del data factory per specificare l'URI della risorsa per cui viene richiesto il token di accesso. Per chiamare l'API di gestione delle risorse di Azure, usare `https://management.azure.com/`. Per altre informazioni sul funzionamento delle identità gestite, vedere [Cenni preliminari sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,7 +119,7 @@ L'attività del webhook ha esito negativo quando la chiamata all'endpoint person
 
 Per ogni chiamata all'API REST, si verifica il timeout del client se l'endpoint non risponde entro un minuto. Questo comportamento è la procedura consigliata standard HTTP. Per risolvere il problema, implementare uno schema 202. Nel caso corrente, l'endpoint restituisce 202 (accettato) e il client esegue il polling.
 
-Il timeout di un minuto per la richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene usato per attendere il callback specificato da **callbackUri**.
+Il timeout di un minuto per la richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene usato per attendere il callback specificato da **callbackUri** .
 
 Il corpo passato all'URI di callback deve essere JSON valido. Impostare l'intestazione `Content-Type` su `application/json`.
 

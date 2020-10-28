@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 10/26/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dc7458dd905ff84455927c81b4ea93765d4f5cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928820"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635463"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
@@ -24,7 +24,10 @@ La crittografia CMK dipende dalla [Azure Key Vault](../key-vault/general/overvie
 
 La crittografia con chiavi gestite dal cliente viene applicata a singoli indici o mappe sinonimi quando tali oggetti vengono creati e non è specificato nel livello di servizio di ricerca stesso. È possibile crittografare solo nuovi oggetti. Non è possibile crittografare il contenuto già esistente.
 
-Non è necessario che tutte le chiavi si trovino nello stesso insieme di credenziali delle chiavi. Un singolo servizio di ricerca può ospitare più indici crittografati o mappe sinonime, ciascuno crittografato con le proprie chiavi di crittografia gestite dal cliente, archiviate in insiemi di credenziali delle chiavi diversi. È anche possibile avere indici e mappe sinonimi nello stesso servizio che non sono crittografati con chiavi gestite dal cliente. 
+Non è necessario che tutte le chiavi si trovino nello stesso insieme di credenziali delle chiavi. Un singolo servizio di ricerca può ospitare più indici crittografati o mappe sinonime, ciascuno crittografato con le proprie chiavi di crittografia gestite dal cliente, archiviate in insiemi di credenziali delle chiavi diversi. È anche possibile avere indici e mappe sinonimi nello stesso servizio che non sono crittografati con chiavi gestite dal cliente.
+
+>[!Important]
+> Se si implementano chiavi gestite dal cliente, assicurarsi di seguire le procedure rigorose durante la rotazione di routine delle chiavi dell'insieme di credenziali delle chiavi e Active Directory la registrazione e i segreti dell'applicazione. Aggiornare sempre tutti i contenuti crittografati per usare nuovi segreti e chiavi prima di eliminare quelli precedenti. Se non si esegue questo passaggio, non sarà possibile decrittografare il contenuto.
 
 ## <a name="double-encryption"></a>Crittografia doppia
 
@@ -40,24 +43,32 @@ Se si usa un'area diversa o un servizio creato prima del 1 ° agosto, la crittog
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questo esempio vengono usati i servizi e i servizi seguenti. 
+In questo esempio vengono usati gli strumenti e i servizi seguenti. 
 
-+ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
++ [Creare un servizio ricerca cognitiva](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Creare una risorsa Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) o trovare un insieme di credenziali esistente nella stessa sottoscrizione di Azure ricerca cognitiva. Questa funzionalità presenta uno stesso requisito di sottoscrizione.
++ [Creare una risorsa Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) o trovarne una esistente. Sia Key Vault che ricerca cognitiva devono trovarsi nella stessa sottoscrizione. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
 
-+ [Azure PowerShell](/powershell/azure/) o l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) viene usata per attività di configurazione.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) per registrare un'applicazione e creare una stringa segreta usata dall'applicazione per l'autenticazione. Se non si dispone di un [nuovo tenant, configurare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-+ Per chiamare l'API REST per la creazione di indici e mappe sinonimi che includono un parametro della chiave di crittografia, è possibile usare l'anteprima di [postazione](search-get-started-postman.md), [Azure PowerShell](./search-get-started-powershell.md) e [.NET SDK](https://aka.ms/search-sdk-preview) . Al momento non è disponibile il supporto del portale per l'aggiunta di una chiave a indici o mappe sinonimi.
+È necessario disporre di un'applicazione di ricerca in grado di creare l'oggetto crittografato. In questo codice si farà riferimento a una chiave dell'insieme di credenziali delle chiavi e Active Directory informazioni di registrazione. Questo codice può essere un'app funzionante o un codice del prototipo, ad esempio il codice [C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
->[!Note]
-> A causa della natura della crittografia con chiavi gestite dal cliente, Azure ricerca cognitiva non sarà in grado di recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è necessario abilitare la protezione di eliminazione temporanea e ripulitura nell'insieme di credenziali delle chiavi. L'eliminazione temporanea è abilitata per impostazione predefinita, pertanto si verificheranno problemi solo se lo si disabilita intenzionalmente. Il ripulitura della protezione non è abilitata per impostazione predefinita, ma è necessaria per la crittografia CMK di Azure ricerca cognitiva. Per ulteriori informazioni, vedere la panoramica sulla protezione con [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea e [ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection) .
+> [!TIP]
+> Per chiamare le API REST per la creazione di indici e mappe sinonimo che includono un parametro della chiave di crittografia, è possibile usare il [post](search-get-started-postman.md) o il [Azure PowerShell](./search-get-started-powershell.md) . Al momento non è disponibile il supporto del portale per l'aggiunta di una chiave a indici o mappe sinonimi.
 
 ## <a name="1---enable-key-recovery"></a>1-Abilita ripristino chiavi
 
-Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** . È possibile impostare queste funzionalità usando il portale o i comandi di PowerShell o dell'interfaccia della riga di comando di Azure seguenti.
+A causa della natura della crittografia con chiavi gestite dal cliente, nessuno può recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è necessario abilitare la protezione di eliminazione temporanea e ripulitura nell'insieme di credenziali delle chiavi. L'eliminazione temporanea è abilitata per impostazione predefinita, pertanto si verificheranno problemi solo se lo si disabilita intenzionalmente. Il ripulitura della protezione non è abilitata per impostazione predefinita, ma è necessaria per la crittografia CMK di Azure ricerca cognitiva. Per ulteriori informazioni, vedere la panoramica sulla protezione con [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea e [ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection) .
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+È possibile impostare entrambe le proprietà usando il portale, PowerShell o i comandi dell'interfaccia della riga di comando di Azure.
+
+### <a name="using-azure-portal"></a>Uso del portale di Azure
+
+1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina Panoramica di Key Vault.
+
+1. Nella pagina **Overview** in **Essentials** abilitare l' **eliminazione** temporanea e l' **eliminazione della protezione** .
+
+### <a name="using-powershell"></a>Uso di PowerShell
 
 1. Eseguire `Connect-AzAccount` per configurare le credenziali di Azure.
 
@@ -87,98 +98,85 @@ Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-```azurecli-interactive
-az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
-```
++ Se si dispone [di un'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), è possibile eseguire il comando seguente per abilitare le proprietà necessarie.
 
-## <a name="2---create-a-new-key"></a>2-creare una nuova chiave
+   ```azurecli-interactive
+   az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
+   ```
 
-Se si usa una chiave esistente per crittografare il contenuto di Azure ricerca cognitiva, ignorare questo passaggio.
+## <a name="2---create-a-key-in-key-vault"></a>2-creare una chiave in Key Vault
+
+Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina Panoramica di Key Vault.
 
-1. Selezionare l'impostazione **chiavi** dal riquadro di spostamento a sinistra e fare clic su **+ genera/importa**.
+1. Selezionare **chiavi** a sinistra e quindi selezionare **+ genera/importa** .
 
-1. Nell'elenco di **Opzioni**del riquadro **Crea chiave** scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **generare** una nuova chiave, **caricare** una chiave esistente o usare **Restore backup** per selezionare un backup di una chiave.
+1. Nell'elenco di **Opzioni** del riquadro **Crea chiave** scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **generare** una nuova chiave, **caricare** una chiave esistente o usare **Restore backup** per selezionare un backup di una chiave.
 
 1. Immettere un **nome** per la chiave e, facoltativamente, selezionare altre proprietà chiave.
 
-1. Fare clic sul pulsante **Crea** per avviare la distribuzione.
+1. Selezionare **Crea** per avviare la distribuzione.
 
-Prendere nota dell'identificatore di chiave, che è composto dall'URI del **valore della chiave**, dal **nome della chiave**e dalla **versione della chiave**. Questi sono necessari per definire un indice crittografato in ricerca cognitiva di Azure.
- 
-![Creare una nuova chiave di Key Vault](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Creare una nuova chiave di Key Vault")
+1. Prendere nota dell'identificatore di chiave, composto dall'URI del valore della **chiave** , dal nome della **chiave** e dalla versione della **chiave** . È necessario l'identificatore per definire un indice crittografato in ricerca cognitiva di Azure.
 
-## <a name="3---create-a-service-identity"></a>3-creare un'identità del servizio
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Creare una nuova chiave di Key Vault":::
 
-L'assegnazione di un'identità al servizio di ricerca consente di concedere Key Vault autorizzazioni di accesso al servizio di ricerca. Il servizio di ricerca userà la propria identità per l'autenticazione con Azure Key Vault.
+## <a name="3---register-an-app-in-active-directory"></a>3-registrare un'app in Active Directory
 
-Azure ricerca cognitiva supporta due modi per assegnare l'identità, ovvero un'identità gestita o un'applicazione Azure Active Directory gestita esternamente. 
+1. In [portale di Azure](https://portal.azure.com)trovare la risorsa Azure Active Directory per la sottoscrizione.
 
-Se possibile, usare un'identità gestita. È il modo più semplice per assegnare un'identità al servizio di ricerca e dovrebbe funzionare nella maggior parte degli scenari. Se si usano più chiavi per gli indici e le mappe sinonimi oppure se la soluzione si trova in un'architettura distribuita che impedisce l'autenticazione basata sull'identità, usare l' [approccio avanzato Azure Active Directory gestito esternamente](#aad-app) , descritto alla fine di questo articolo.
+1. A sinistra, in **Gestisci** selezionare **registrazioni app** , quindi selezionare **nuova registrazione** .
 
- In generale, un'identità gestita consente al servizio di ricerca di eseguire l'autenticazione a Azure Key Vault senza archiviare le credenziali nel codice. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita del servizio di ricerca, che può avere una sola identità gestita. [Altre informazioni sulle identità gestite](../active-directory/managed-identities-azure-resources/overview.md).
+1. Assegnare un nome alla registrazione, ad esempio un nome simile al nome dell'applicazione di ricerca. Selezionare **Registra** .
 
-1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina di panoramica del servizio di ricerca. 
+1. Dopo la creazione della registrazione dell'app, copiare l'ID applicazione. Sarà necessario specificare questa stringa per l'applicazione. 
 
-1. Fare clic su **Identity** nel riquadro di spostamento a sinistra, impostare lo stato **su on**e quindi fare clic su **Save**.
+   Se si esegue l'istruzione/routine di [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), incollare questo valore nel **appsettings.jssu** file.
 
-![Abilitare un'identità gestita](./media/search-enable-msi/enable-identity-portal.png "Abilitare un'identità alterata")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Creare una nuova chiave di Key Vault":::
+
+1. Selezionare quindi **certificati & segreti** a sinistra.
+
+1. Selezionare **Nuovo segreto client** . Assegnare al segreto un nome visualizzato e selezionare **Aggiungi** .
+
+1. Copiare il segreto dell'applicazione. Se si esegue l'istruzione nell'esempio, incollare questo valore nella **appsettings.jssu** file.
+
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Creare una nuova chiave di Key Vault":::
 
 ## <a name="4---grant-key-access-permissions"></a>4-concedere le autorizzazioni di accesso alla chiave
 
-Per consentire al servizio di ricerca di usare la chiave di Key Vault, è necessario concedere al servizio di ricerca determinate autorizzazioni di accesso.
+In questo passaggio verrà creato un criterio di accesso in Key Vault. Questo criterio assegna all'applicazione registrata con Active Directory autorizzazione per usare la chiave gestita dal cliente.
 
 È possibile revocare le autorizzazioni di accesso in un determinato momento. Una volta revocato, qualsiasi indice del servizio di ricerca o mappa di sinonimi che usa tale Key Vault diventerà inutilizzabile. Il ripristino delle autorizzazioni di accesso di Key Vault in un secondo momento ripristinerà l'accesso alla mappa index\synonym. Per altre informazioni, vedere [proteggere l'accesso a un insieme di](../key-vault/general/secure-your-key-vault.md)credenziali delle chiavi.
 
-1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina Panoramica di Key Vault. 
+1. Sempre nella portale di Azure aprire la pagina **Panoramica** di Key Vault. 
 
-1. Selezionare l'impostazione **criteri di accesso** nel riquadro di spostamento a sinistra e fare clic su **+ Aggiungi nuovo**.
+1. Selezionare i **criteri di accesso** a sinistra e selezionare **+ Aggiungi criteri di accesso** .
 
-   ![Aggiungere nuovi criteri di accesso di Key Vault](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Aggiungere nuovi criteri di accesso di Key Vault")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Creare una nuova chiave di Key Vault":::
 
-1. Fare clic su **Seleziona entità** e selezionare il servizio ricerca cognitiva di Azure. È possibile cercarlo in base al nome o all'ID oggetto visualizzato dopo aver abilitato l'identità gestita.
+1. Scegliere **Seleziona entità** e selezionare l'applicazione registrata con Active Directory. È possibile cercarlo in base al nome.
 
-   ![Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Creare una nuova chiave di Key Vault":::
 
-1. Fare clic su **autorizzazioni chiave** e selezionare *Get*, *Unwrap Key* e *Wrap Key*. È possibile usare il modello di *archiviazione Azure Data Lake storage o Azure* per selezionare rapidamente le autorizzazioni necessarie.
+1. In **autorizzazioni chiave** scegliere *Get* , *Unwrap Key* e *Wrap Key* .
 
-   È necessario concedere il ricerca cognitiva di Azure con le [autorizzazioni di accesso](../key-vault/keys/about-keys.md#key-operations)seguenti:
+1. In **autorizzazioni segrete** selezionare *Get* .
 
-   * *Get* : consente al servizio di ricerca di recuperare le parti pubbliche della chiave in un Key Vault
-   * *Chiave a capo* : consente al servizio di ricerca di usare la chiave per proteggere la chiave di crittografia interna
-   * *Unwrap Key* : consente al servizio di ricerca di usare la chiave per annullare il wrapping della chiave di crittografia interna
+1. In **autorizzazioni certificato** selezionare *Get* .
 
-   ![Selezionare le autorizzazioni chiave dei criteri di accesso di Key Vault](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Selezionare le autorizzazioni chiave dei criteri di accesso di Key Vault")
-
-1. Per **autorizzazioni segrete**selezionare *Get*.
-
-1. Per **autorizzazioni certificato**selezionare *Get*.
-
-1. Fare clic su **OK** e **salvare** le modifiche ai criteri di accesso.
+1. Selezionare **Aggiungi** e quindi **Salva** .
 
 > [!Important]
-> Il contenuto crittografato in ricerca cognitiva di Azure è configurato per l'uso di una chiave di Azure Key Vault specifica con una **versione**specifica. Se si modifica la chiave o la versione, è necessario aggiornare la mappa degli indici o dei sinonimi per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il rendering dell'indice o della mappa dei sinonimi sarà inutilizzabile e non sarà possibile decrittografare il contenuto quando l'accesso alla chiave viene perso.   
+> Il contenuto crittografato in ricerca cognitiva di Azure è configurato per l'uso di una chiave di Azure Key Vault specifica con una **versione** specifica. Se si modifica la chiave o la versione, è necessario aggiornare la mappa degli indici o dei sinonimi per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il rendering dell'indice o della mappa dei sinonimi sarà inutilizzabile e non sarà possibile decrittografare il contenuto quando l'accesso alla chiave viene perso.
 
 ## <a name="5---encrypt-content"></a>5-crittografare il contenuto
 
-Per aggiungere una chiave gestita dal cliente in una mappa di indici o sinonimi, è necessario usare l' [API REST di ricerca](/rest/api/searchservice/) o un SDK. Il portale non espone le mappe dei sinonimi o le proprietà di crittografia. Quando si usa un'API valida, sia gli indici che le mappe sinonime supportano una proprietà **encryptionKey** di primo livello. 
+Per aggiungere una chiave gestita dal cliente in un indice o in una mappa di sinonimi, usare un'API REST o un SDK per creare un oggetto la cui definizione includa `encryptionKey` .
 
-Usando l' **URI**dell'insieme di credenziali delle chiavi, il **nome** della chiave e la **versione** della chiave di Key Vault, creare una definizione **encryptionKey** come segue:
+Questo esempio usa l'API REST con i valori per Azure Key Vault e Azure Active Directory:
 
-```json
-{
-  "encryptionKey": {
-    "keyVaultUri": "https://demokeyvault.vault.azure.net",
-    "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
-  }
-}
-```
-> [!Note] 
-> Nessuno di questi dettagli dell'insieme di credenziali delle chiavi è considerato segreto e può essere facilmente recuperato passando alla pagina chiave Azure Key Vault pertinente in portale di Azure.
-
-Se si usa un'applicazione AAD per l'autenticazione Key Vault invece di usare un'identità gestita, aggiungere le credenziali di **accesso** dell'applicazione AAD alla chiave di crittografia: 
 ```json
 {
   "encryptionKey": {
@@ -193,8 +191,16 @@ Se si usa un'applicazione AAD per l'autenticazione Key Vault invece di usare un'
 }
 ```
 
-## <a name="example-index-encryption"></a>Esempio: crittografia degli indici
-Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API REST, vedere [create index (API REST di Azure ricerca cognitiva)](/rest/api/searchservice/create-index), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione dell'indice: 
+> [!Note]
+> Nessuno di questi dettagli dell'insieme di credenziali delle chiavi è considerato segreto e può essere facilmente recuperato passando alla pagina chiave Azure Key Vault pertinente in portale di Azure.
+
+## <a name="rest-examples"></a>Esempi REST
+
+Questa sezione illustra il codice JSON completo per un indice crittografato e una mappa di sinonimi
+
+### <a name="index-encryption"></a>Crittografia dell'indice
+
+Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API REST, vedere [create index (API REST)](/rest/api/searchservice/create-index), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione dell'indice:
 
 ```json
 {
@@ -211,18 +217,23 @@ Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API RE
   {"name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true},
   {"name": "Location", "type": "Edm.GeographyPoint", "filterable": true, "sortable": true},
  ],
- "encryptionKey": {
-   "keyVaultUri": "https://demokeyvault.vault.azure.net",
-   "keyVaultKeyName": "myEncryptionKey",
-   "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
- }
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
 }
 ```
+
 È ora possibile inviare la richiesta di creazione dell'indice, quindi iniziare a utilizzare l'indice normalmente.
 
-## <a name="example-synonym-map-encryption"></a>Esempio: crittografia mappa sinonimo
+### <a name="synonym-map-encryption"></a>Crittografia mappa sinonimi
 
-Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tramite l'API REST, vedere creare una mappa di sinonimi [(API REST di Azure ricerca cognitiva)](/rest/api/searchservice/create-synonym-map), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione della mappa dei sinonimi: 
+Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tramite l'API REST, vedere creare una mappa di sinonimi [(API REST)](/rest/api/searchservice/create-synonym-map), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione della mappa sinonimi: 
 
 ```json
 {   
@@ -233,35 +244,51 @@ Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tra
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "activeDirectoryAccessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
   }
 }
 ```
+
 È ora possibile inviare la richiesta di creazione della mappa di sinonimi e iniziare a usarla normalmente.
 
->[!Important] 
-> Sebbene non sia possibile aggiungere **encryptionKey** a indici o mappe sinonimi esistenti di Azure ricerca cognitiva, è possibile aggiornarli specificando valori diversi per uno dei tre dettagli dell'insieme di credenziali delle chiavi (ad esempio, l'aggiornamento della versione della chiave). Quando si passa a una nuova chiave di Key Vault o a una nuova versione della chiave, qualsiasi mappa di sinonimi o di ricerca cognitiva di Azure che usa la chiave deve prima essere aggiornata per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso.   
-> Il ripristino delle autorizzazioni di accesso di Key Vault in un secondo momento ripristinerà l'accesso al contenuto.
-
-## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a> Avanzate: usare un'applicazione Azure Active Directory gestita esternamente
-
-Quando non è possibile usare un'identità gestita, è possibile creare un'applicazione Azure Active Directory con un'entità di sicurezza per il servizio ricerca cognitiva di Azure. In particolare, un'identità gestita non è valida in queste condizioni:
-
-* Non è possibile concedere direttamente le autorizzazioni di accesso al servizio di ricerca all'insieme di credenziali delle chiavi, ad esempio se il servizio di ricerca si trova in un tenant di Active Directory diverso rispetto a quello Azure Key Vault.
-
-* È necessario un singolo servizio di ricerca per ospitare più mappe indexes\synonym crittografate, ognuna con una chiave diversa da un insieme di credenziali delle chiavi diverso, in cui ogni insieme di credenziali delle chiavi deve usare **un'identità diversa** per l'autenticazione. Se usare un'identità diversa per gestire insiemi di credenziali delle chiavi diverse non è un requisito, provare a usare l'opzione di identità gestita riportata sopra.  
-
-Per supportare queste topologie, Azure ricerca cognitiva supporta l'uso di applicazioni Azure Active Directory (AAD) per l'autenticazione tra il servizio di ricerca e Key Vault.    
-Per creare un'applicazione AAD nel portale:
-
-1. [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
-
-1. [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) che saranno necessari per la creazione di un indice crittografato. I valori che è necessario specificare includono l' **ID applicazione** e la **chiave di autenticazione**.
-
 >[!Important]
-> Quando si decide di usare un'applicazione AAD di autenticazione anziché un'identità gestita, tenere presente che il ricerca cognitiva di Azure non è autorizzato a gestire l'applicazione AAD per conto dell'utente e la gestione dell'applicazione AAD, ad esempio la rotazione periodica della chiave di autenticazione dell'applicazione.
-> Quando si modifica un'applicazione AAD o la relativa chiave di autenticazione, qualsiasi mappa di sinonimi o di ricerca cognitiva di Azure che usa tale applicazione deve prima essere aggiornata per usare la nuova applicazione ID\key **prima** di eliminare l'applicazione precedente o la relativa chiave di autorizzazione e prima di revocare l'accesso al Key Vault.
-> In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso.
+> Sebbene `encryptionKey` non possa essere aggiunto agli indici di ricerca o ai mapping sinonimi esistenti, può essere aggiornato fornendo valori diversi per uno dei tre dettagli dell'insieme di credenziali delle chiavi (ad esempio, l'aggiornamento della versione della chiave). Quando si passa a una nuova chiave di Key Vault o a una nuova versione della chiave, qualsiasi indice di ricerca o mappa di sinonimi che usa la chiave deve prima essere aggiornato per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso. Sebbene il ripristino delle autorizzazioni di accesso all'insieme di credenziali delle chiavi in un secondo momento ripristinerà l'accesso al contenuto
+
+## <a name="simpler-alternative-trusted-service"></a>Alternativa più semplice: servizio attendibile
+
+A seconda dei requisiti di autenticazione e configurazione del tenant, potrebbe essere possibile implementare un approccio più semplice per accedere a una chiave di Key Vault. Anziché creare e usare un'applicazione Active Directory, è possibile rendere un servizio di ricerca un servizio attendibile abilitando un'identità gestita dal sistema. Per accedere alla chiave dell'insieme di credenziali delle chiavi, si userà quindi il servizio di ricerca attendibile come principio di sicurezza, anziché come applicazione registrata AD.
+
+Questo approccio consente di omettere i passaggi per la registrazione dell'applicazione e i segreti dell'applicazione e semplifica la definizione di una chiave di crittografia solo per i componenti dell'insieme di credenziali delle chiavi (URI, nome dell'insieme di credenziali, versione della chiave).
+
+In generale, un'identità gestita consente al servizio di ricerca di eseguire l'autenticazione a Azure Key Vault senza archiviare le credenziali (ApplicationID o ApplicationSecret) nel codice. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita del servizio di ricerca, che può avere una sola identità gestita. Per altre informazioni sul funzionamento delle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+1. Rendere il servizio di ricerca un servizio attendibile.
+
+   ![Attivare l'identità gestita assegnata dal sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Attivare l'identità gestita assegnata dal sistema")
+
+1. Quando si configurano i criteri di accesso in Azure Key Vault, scegliere il servizio di ricerca attendibile come principio, anziché l'applicazione registrata AD. Assegnare le stesse autorizzazioni (multiple GETs, WRAP e unwrap) come indicato nel passaggio concedere le autorizzazioni per la chiave di accesso.
+
+1. Utilizzare una costruzione semplificata dell'oggetto `encryptionKey` che omette le proprietà del Active Directory.
+
+    ```json
+    {
+      "encryptionKey": {
+        "keyVaultUri": "https://demokeyvault.vault.azure.net",
+        "keyVaultKeyName": "myEncryptionKey",
+        "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+      }
+    }
+    ```
+
+Le condizioni che impediscono l'adozione di questo approccio semplificato includono:
+
++ Non è possibile concedere direttamente le autorizzazioni di accesso al servizio di ricerca all'insieme di credenziali delle chiavi, ad esempio se il servizio di ricerca si trova in un tenant di Active Directory diverso rispetto a quello Azure Key Vault.
+
++ È necessario un singolo servizio di ricerca per ospitare più mappe indexes\synonym crittografate, ognuna con una chiave diversa da un insieme di credenziali delle chiavi diverso, in cui ogni insieme di credenziali delle chiavi deve usare **un'identità diversa** per l'autenticazione. Poiché un servizio di ricerca può avere solo un'identità gestita, i requisiti per più identità hanno lo stesso approccio semplificato per lo scenario.  
 
 ## <a name="work-with-encrypted-content"></a>Usare il contenuto crittografato
 

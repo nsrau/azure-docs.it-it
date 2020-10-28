@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c308bd038f273a7cec0442e42f8a749bc4bb8fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073557"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636630"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Pulizia di log SSISDB tramite processi di Database elastico di Azure | Microsoft Docs
 
@@ -160,7 +160,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Pulire i log con Transact-SQL
 
-I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico per attivare la stored procedure per la pulizia del registro SSISDB. Per altre informazioni, vedere [Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico](../sql-database/elastic-jobs-tsql.md).
+I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico per attivare la stored procedure per la pulizia del registro SSISDB. Per altre informazioni, vedere [Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Creare o identificare un database SQL di Azure S0 o superiore vuoto perché funga da database di processo SSISDBCleanup. Creare un agente processo elastico nel [Portale di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 

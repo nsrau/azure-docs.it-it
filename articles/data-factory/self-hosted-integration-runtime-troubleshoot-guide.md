@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629382"
+ms.locfileid: "92637191"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -183,7 +183,7 @@ Dall'errore riportato di seguito, è possibile vedere chiaramente che l'assembly
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Per ulteriori informazioni sulla GAC, vedere [questo articolo](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Per ulteriori informazioni sulla GAC, vedere [questo articolo](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Come controllare la mancanza di una chiave di runtime di integrazione self-hosted
@@ -468,7 +468,7 @@ La risposta prevista è la seguente:
 
 > [!NOTE] 
 > Considerazioni sul proxy:
-> *    Verificare se il server proxy deve essere inserito nell'elenco Destinatari attendibili. In tal caso, verificare che [questi domini](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) siano nell'elenco Destinatari attendibili.
+> *    Verificare se il server proxy deve essere inserito nell'elenco Destinatari attendibili. In tal caso, verificare che [questi domini](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) siano nell'elenco Destinatari attendibili.
 > *    Verificare che il certificato TLS/SSL "wu2.frontend.clouddatahub.net/" sia attendibile nel server proxy.
 > *    Se si usa l'autenticazione Active Directory sul proxy, sostituire l'account del servizio con l'account utente che può accedere al proxy come "servizio Integration Runtime".
 
@@ -632,7 +632,7 @@ Come determinare se si è interessati:
 - L'utente non ha alcun effetto se si definiscono regole del firewall basate sui nomi FQDN usando l'approccio descritto in questo documento: [configurazione del firewall e configurazione dell'elenco Consenti per l'indirizzo IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
 - Tuttavia, se si Abilita in modo esplicito l'elenco Consenti per gli IP in uscita nel firewall aziendale.
 
-Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare la configurazione di rete in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare la configurazione di rete in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scenario 2: comunicazione in uscita da Integration Runtime self-hosted in esecuzione in una macchina virtuale di Azure all'interno della rete virtuale di Azure gestita dal cliente
 Come determinare se si è interessati:
@@ -641,14 +641,14 @@ Come determinare se si è interessati:
  ![Verifica destinazione](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - Tuttavia, se si Abilita in modo esplicito l'elenco Consenti per gli indirizzi IP in uscita nell'impostazione delle regole di NSG nella rete virtuale di Azure, si è interessati.
 
-Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenario 3: comunicazione in uscita da SSIS Integration Runtime nella rete virtuale di Azure gestita dal cliente
 - Verificare la presenza di regole NSG in uscita nella rete privata che contiene Integration Runtime SSIS. Se non sono presenti restrizioni in uscita, non vi è alcun effetto.
 - Se sono presenti restrizioni per le regole in uscita, controllare se si usa o meno il tag di servizio. Se si usa il tag di servizio, non è necessario modificare o aggiungere nulla perché i nuovi intervalli IP sono sotto il tag del servizio esistente.
 - Tuttavia, se si Abilita in modo esplicito l'elenco Consenti per l'indirizzo IP in uscita nell'impostazione delle regole di NSG nella rete virtuale di Azure, si è interessati.
 
-Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Azione da intraprendere in caso di conseguenze: inviare una notifica al team dell'infrastruttura di rete per aggiornare le regole di NSG nella configurazione della rete virtuale di Azure in modo da usare gli indirizzi IP Data Factory più recenti entro l'8 novembre 2020.  Per scaricare gli indirizzi IP più recenti, vedere il [collegamento di download dell'intervallo IP dei tag di servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Non è stato possibile stabilire una relazione di trust per il canale sicuro SSLTLS 
 
@@ -709,7 +709,7 @@ Per ulteriori informazioni sulla risoluzione dei problemi, provare a usare le ri
 *  [Blog di Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Richieste di funzionalità di Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Video di Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-data-factory.html)
 *  [Forum di stack overflow per Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informazioni su Twitter su Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guida alle prestazioni dei flussi di dati di mapping](concepts-data-flow-performance.md)

@@ -13,12 +13,12 @@ ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16cef1fb35efcbe12a4054304e3f354c03b37227
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019539"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637650"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiare dati da e in Data Lake Storage di 1° generazione usando Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -35,7 +35,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-È possibile copiare i dati dagli archivi dati seguenti **a Azure Data Lake Store**:
+È possibile copiare i dati dagli archivi dati seguenti **a Azure Data Lake Store** :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -49,16 +49,16 @@ Il connettore Data Lake Store supporta questi tipi di autenticazione:
 
 È consigliabile usare l'autenticazione basata su entità servizio, in particolare per una copia di dati pianificata. Con l'autenticazione basata sulle credenziali dell'utente può verificarsi la scadenza del token. Per i dettagli di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Data Lake Store usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline per copiare dati è usare la **Copia guidata**. Per un'esercitazione sulla creazione di una pipeline usando la Copia guidata, vedere [Esercitazione: creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Il modo più semplice per creare una pipeline per copiare dati è usare la **Copia guidata** . Per un'esercitazione sulla creazione di una pipeline usando la Copia guidata, vedere [Esercitazione: creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager modello** , **API .NET** e **API REST** . Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
-1. Creare un **Data Factory**. Una data factory può contenere una o più pipeline.
+1. Creare un **Data Factory** . Una data factory può contenere una o più pipeline.
 2. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory. Ad esempio, se si copiano i dati da un archivio BLOB di Azure in un Azure Data Lake Store, si creano due servizi collegati per collegare l'account di archiviazione di Azure e l' Azure Data Lake Store alla data factory. Per le proprietà del servizio collegato specifiche dell'Azure Data Lake Store, vedere la sezione sulle [proprietà del servizio collegato](#linked-service-properties).
 2. Creare **set** di dati per rappresentare i dati di input e di output per l'operazione di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare il percorso di cartella e file nel Data Lake Store che contiene i dati copiati dall'archivio BLOB. Per le proprietà del set di dati specifiche per Azure Data Lake Store, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e AzureDataLakeStoreSink come sink per l'attività di copia. Analogamente, se si effettua la copia da Azure Data Lake Store all'archiviazione BLOB di Azure, si usa AzureDataLakeStoreSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche di Azure Data Lake Store, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
@@ -72,22 +72,22 @@ Un servizio collegato collega un archivio dati a una data factory. Si crea un se
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| **type** | La proprietà type deve essere impostata su **AzureDataLakeStore**. | Sì |
+| **type** | La proprietà type deve essere impostata su **AzureDataLakeStore** . | Sì |
 | **dataLakeStoreUri** | Informazioni sull'account Azure Data Lake Storage. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
 | **subscriptionId** | ID sottoscrizione di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | **resourceGroupName** | Nome del gruppo di risorse di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticazione basata su entità servizio (opzione consigliata)
-Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a tale entità l'accesso a Data Lake Store. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
+Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a tale entità l'accesso a Data Lake Store. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
 * ID applicazione
 * Chiave applicazione
 * ID tenant
 
 > [!IMPORTANT]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
->- **Per usare Data Lake Store come origine**, concedere almeno l'autorizzazione di accesso ai dati **Read + Execute** per elencare e copiare il contenuto di una cartella oppure l'autorizzazione **lettura** per copiare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
->- **Per utilizzare Data Lake Store come sink**, concedere almeno l'autorizzazione di accesso ai dati **Write + Execute** per creare elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
->- Se si **Usa la copia guidata per creare pipeline**, concedere almeno il ruolo **lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
+>- **Per usare Data Lake Store come origine** , concedere almeno l'autorizzazione di accesso ai dati **Read + Execute** per elencare e copiare il contenuto di una cartella oppure l'autorizzazione **lettura** per copiare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
+>- **Per utilizzare Data Lake Store come sink** , concedere almeno l'autorizzazione di accesso ai dati **Write + Execute** per creare elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
+>- Se si **Usa la copia guidata per creare pipeline** , concedere almeno il ruolo **lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
@@ -125,9 +125,9 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 
 > [!IMPORTANT]
 > Assicurarsi di concedere all'utente un'autorizzazione appropriata in Azure Data Lake Store:
->- **Per usare Data Lake Store come origine**, concedere almeno l'autorizzazione di accesso ai dati **Read + Execute** per elencare e copiare il contenuto di una cartella oppure l'autorizzazione **lettura** per copiare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
->- **Per utilizzare Data Lake Store come sink**, concedere almeno l'autorizzazione di accesso ai dati **Write + Execute** per creare elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
->- Se si **Usa la copia guidata per creare pipeline**, concedere almeno il ruolo **lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
+>- **Per usare Data Lake Store come origine** , concedere almeno l'autorizzazione di accesso ai dati **Read + Execute** per elencare e copiare il contenuto di una cartella oppure l'autorizzazione **lettura** per copiare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
+>- **Per utilizzare Data Lake Store come sink** , concedere almeno l'autorizzazione di accesso ai dati **Write + Execute** per creare elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
+>- Se si **Usa la copia guidata per creare pipeline** , concedere almeno il ruolo **lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
 
 **Esempio: autenticazione basata su credenziali utente**
 ```json
@@ -187,7 +187,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Aggiungere un riferimento alla versione `2.9.10826.1824` di `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` per la classe `WindowsFormsWebAuthenticationDialog` usata nel codice.
+Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [AzureDataLakeStoreLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice), [AzureDataLakeAnalyticsLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice) e [AuthorizationSessionGetResponse Class](/dotnet/api/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse). Aggiungere un riferimento alla versione `2.9.10826.1824` di `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` per la classe `WindowsFormsWebAuthenticationDialog` usata nel codice.
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
@@ -233,20 +233,20 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
     ```
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
-Per specificare un set di dati per rappresentare i dati di input in Data Lake Store, impostare la proprietà **type** del set di dati su **AzureDataLakeStore**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato Data Lake Store. Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni di un set di dati in JSON, quali **struttura**, **disponibilità**, e **criteri**, sono simili per tutti i tipi di set di dati (ad esempio database SQL di Azure, BLOB Azure e tabelle di Azure). La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni quali la posizione e il formato dei dati nell'archivio dati.
+Per specificare un set di dati per rappresentare i dati di input in Data Lake Store, impostare la proprietà **type** del set di dati su **AzureDataLakeStore** . Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato Data Lake Store. Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni di un set di dati in JSON, quali **struttura** , **disponibilità** , e **criteri** , sono simili per tutti i tipi di set di dati (ad esempio database SQL di Azure, BLOB Azure e tabelle di Azure). La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni quali la posizione e il formato dei dati nell'archivio dati.
 
 La sezione **typeProperties** per un set di dati di tipo **AzureDataLakeStore** contiene le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | **folderPath** |Percorso del contenitore e della cartella in Data Lake Store. |Sì |
-| **fileName** |Nome del file in Azure Data Lake Store. La proprietà **fileName** è facoltativa e fa distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica **fileName**, l'attività (inclusa la copia) viene eseguita sul file specifico.<br/><br/>Quando **fileName** non è specificato, l'attività di copia include tutti i file in **folderPath** nel set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato è nel formato `Data._Guid_.txt` . Ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
-| **partitionedBy** |La proprietà **partitionedBy** è facoltativa. Può essere utilizzata per specificare un percorso dinamico e un nome file per dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in **folderPath**. Per dettagli ed esempio, vedere Proprietà partitionedBy. |No |
-| **format** | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) nell'articolo [Formati di file e di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Per copiare i file "così come sono" tra archivi basati su file (copia binaria), è possibile ignorare la sezione `format` nelle definizioni dei set di dati di input e di output. |No |
-| **compressione** | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| **fileName** |Nome del file in Azure Data Lake Store. La proprietà **fileName** è facoltativa e fa distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica **fileName** , l'attività (inclusa la copia) viene eseguita sul file specifico.<br/><br/>Quando **fileName** non è specificato, l'attività di copia include tutti i file in **folderPath** nel set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato è nel formato `Data._Guid_.txt` . Ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
+| **partitionedBy** |La proprietà **partitionedBy** è facoltativa. Può essere utilizzata per specificare un percorso dinamico e un nome file per dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in **folderPath** . Per dettagli ed esempio, vedere Proprietà partitionedBy. |No |
+| **format** | Sono supportati i tipi di formato seguenti: **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** e **ParquetFormat** . Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) nell'articolo [Formati di file e di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Per copiare i file "così come sono" tra archivi basati su file (copia binaria), è possibile ignorare la sezione `format` nelle definizioni dei set di dati di input e di output. |No |
+| **compressione** | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip** , **Deflate** , **BZip2** e **ZipDeflate** . I livelli supportati sono **Ottimale** e **Più veloce** . Per altre informazioni, vedere [File e formati di compressione supportati da Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### <a name="the-partitionedby-property"></a>Proprietà partitionedBy
-È possibile specificare proprietà **folderPath** e **fileName** dinamiche per i dati di una serie temporale con la proprietà **partitionedBy**, le funzioni di Data Factory e le variabili di sistema. Per dettagli, vedere l'articolo [Azure Data Factory - Funzioni e variabili di sistema](data-factory-functions-variables.md).
+È possibile specificare proprietà **folderPath** e **fileName** dinamiche per i dati di una serie temporale con la proprietà **partitionedBy** , le funzioni di Data Factory e le variabili di sistema. Per dettagli, vedere l'articolo [Azure Data Factory - Funzioni e variabili di sistema](data-factory-functions-variables.md).
 
 
 Nell'esempio seguente, `{Slice}` è sostituito con il valore della variabile di sistema `SliceStart` di Data Factory nel formato specificato (`yyyyMMddHH`). Il nome `SliceStart` fa riferimento all'ora di inizio della sezione. La proprietà `folderPath` è diversa per ogni sezione, come in `wikidatagateway/wikisampledataout/2014100103` o `wikidatagateway/wikisampledataout/2014100104`.
@@ -279,13 +279,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per un'attività di copia, variano in base ai tipi di origine e sink.
 
-**AzureDataLakeStoreSource** supporta la proprietà seguente nella sezione **typeProperties**:
+**AzureDataLakeStoreSource** supporta la proprietà seguente nella sezione **typeProperties** :
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | **ricorsivi** |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
-**AzureDataLakeStoreSource** supporta le proprietà seguenti nella sezione **typeProperties**:
+**AzureDataLakeStoreSource** supporta le proprietà seguenti nella sezione **typeProperties** :
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |

@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93c697162bfcb51b77c2e6f48b5824b81070bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6120283ec240441cc62cad642bbeda0b735abc0f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816417"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637327"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -31,7 +31,7 @@ La configurazione del portale non offre una soluzione pronta all'uso per present
 
 Prima di tutto, nella pagina **Autenticazione/Autorizzazione** nel portale di Azure configurare ogni provider di identità che si vuole abilitare.
 
-In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)**.
+In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)** .
 
 Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio:
 
@@ -170,21 +170,21 @@ Dal codice client (ad esempio un'app per dispositivi mobili o JavaScript nel bro
 
 Quando il token di accesso del provider (non il [token di sessione](#extend-session-token-expiration-grace-period)) scade, è necessario autenticare nuovamente l'utente prima di riutilizzare tale token. È possibile evitare la scadenza del token eseguendo una chiamata di `GET` nell'endpoint `/.auth/refresh` dell'applicazione. Quando viene chiamato, il servizio app Aggiorna automaticamente i token di accesso nell' [Archivio di token](overview-authentication-authorization.md#token-store) per l'utente autenticato. Le successive richieste di token dal codice dell'app ottengono i token aggiornati. Affinché l'aggiornamento dei token funzioni, tuttavia, l'archivio di token deve contenere i [token di aggiornamento](https://auth0.com/learn/refresh-tokens/) per il provider. Il modo per ottenere i token di aggiornamento dipende dal provider, ma di seguito viene riportato un breve riepilogo:
 
-- **Google**: aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
-- **Facebook**: non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).
-- **Twitter**: i token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ).
-- **Account Microsoft**: in fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
-- **Azure Active Directory**: in [https://resources.azure.com](https://resources.azure.com) seguire questa procedura:
-    1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
-    2. Nel browser a sinistra passare a **sottoscrizioni** > * *_ \<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider**>  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
-    3. Fare clic su **Modifica**.
+- **Google** : aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
+- **Facebook** : non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).
+- **Twitter** : i token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ).
+- **Account Microsoft** : in fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
+- **Azure Active Directory** : in [https://resources.azure.com](https://resources.azure.com) seguire questa procedura:
+    1. Nella parte superiore della pagina selezionare **Lettura/scrittura** .
+    2. Nel browser a sinistra passare a **sottoscrizioni** > * * _\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider** >  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
+    3. Fare clic su **Modifica** .
     4. Modificare la proprietà seguente. Sostituire _\<app\_id>_ con il Azure Active Directory ID applicazione del servizio a cui si vuole accedere.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Fare clic su **Put**. 
+    5. Fare clic su **Put** . 
 
 Dopo aver configurato il provider è possibile [trovare il token di aggiornamento e l'ora di scadenza del token di accesso](#retrieve-tokens-in-app-code) nell'archivio token. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitare il dominio degli account di accesso
 
-Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure AD consente un numero qualsiasi di domini personalizzati per gli account di accesso. Tuttavia, potrebbe essere necessario accelerare gli utenti direttamente alla pagina di accesso personalizzata Azure AD (ad esempio `contoso.com` ). Per suggerire il nome di dominio degli account di accesso, seguire questa procedura.
+Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_ , _live.com_ e _hotmail.com_ . Azure AD consente un numero qualsiasi di domini personalizzati per gli account di accesso. Tuttavia, potrebbe essere necessario accelerare gli utenti direttamente alla pagina di accesso personalizzata Azure AD (ad esempio `contoso.com` ). Per suggerire il nome di dominio degli account di accesso, seguire questa procedura.
 
-In [https://resources.azure.com](https://resources.azure.com) passare a **sottoscrizioni** > * *_ \<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider**>  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com) passare a **sottoscrizioni** > * * _\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider** >  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
 
-Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
+Fare clic su **Modifica** , modificare la proprietà seguente e quindi fare clic su **Put** . Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Sebbene il servizio app si occupi del caso di autorizzazione più semplice (ovve
 
 ### <a name="server-level-windows-apps-only"></a>Livello server (solo app di Windows)
 
-Per qualsiasi app di Windows, è possibile definire il comportamento di autorizzazione del server Web IIS modificando il file di *Web.config* . Le app Linux non usano IIS e non possono essere configurate tramite *Web.config*.
+Per qualsiasi app di Windows, è possibile definire il comportamento di autorizzazione del server Web IIS modificando il file di *Web.config* . Le app Linux non usano IIS e non possono essere configurate tramite *Web.config* .
 
 1. Passare a `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. In Esplora browser dei file del servizio app passare a *site/wwwroot*. Se un *Web.config* non esiste, crearlo selezionando **+**  >  **nuovo file**. 
+1. In Esplora browser dei file del servizio app passare a *site/wwwroot* . Se un *Web.config* non esiste, crearlo selezionando **+**  >  **nuovo file** . 
 
-1. Selezionare la matita per *Web.config* per modificarla. Aggiungere il codice di configurazione seguente e fare clic su **Salva**. Se *Web.config* esiste già, è sufficiente aggiungere l' `<authorization>` elemento con tutti gli elementi al suo interno. Aggiungere gli account che si desidera consentire nell' `<allow>` elemento.
+1. Selezionare la matita per *Web.config* per modificarla. Aggiungere il codice di configurazione seguente e fare clic su **Salva** . Se *Web.config* esiste già, è sufficiente aggiungere l' `<authorization>` elemento con tutti gli elementi al suo interno. Aggiungere gli account che si desidera consentire nell' `<allow>` elemento.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -393,7 +393,7 @@ Di seguito sono riportate le possibili opzioni di configurazione all'interno del
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },

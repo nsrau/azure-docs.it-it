@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276664"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635321"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -118,11 +118,11 @@ L'asse y è il numero di pacchetti che hanno completato l'esecuzione in un'ora. 
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** regola la scalabilità del runtime di integrazione. La velocità effettiva del runtime di integrazione è proporzionale al valore di **AzureSSISNodeNumber**. Impostare inizialmente **AzureSSISNodeNumber** su un valore contenuto, monitorare la velocità effettiva del runtime di integrazione, quindi regolare il valore per lo scenario in uso. Per riconfigurare il conteggio dei nodi del ruolo di lavoro, vedere [Gestire un runtime di integrazione SSIS-Azure](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** regola la scalabilità del runtime di integrazione. La velocità effettiva del runtime di integrazione è proporzionale al valore di **AzureSSISNodeNumber** . Impostare inizialmente **AzureSSISNodeNumber** su un valore contenuto, monitorare la velocità effettiva del runtime di integrazione, quindi regolare il valore per lo scenario in uso. Per riconfigurare il conteggio dei nodi del ruolo di lavoro, vedere [Gestire un runtime di integrazione SSIS-Azure](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Se si desidera aumentare il valore massimo, è necessario utilizzare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode**. È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/windows/sizes-general.md).
+Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode** , può aumentare la velocità effettiva complessiva del runtime di integrazione. Se si desidera aumentare il valore massimo, è necessario utilizzare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode** . È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/sizes-general.md).
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +145,7 @@ Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti,
 | \_E32 standard \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
 | \_E64 standard \_ v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
-Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode**: 
+Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode** : 
 
 1. Impostare la proprietà inizialmente su un valore ridotto.
 2. Aumentare il valore di una piccola quantità per controllare se la velocità effettiva complessiva migliora.
@@ -161,7 +161,7 @@ Di seguito sono riportate le linee guida per l'impostazione del valore corretto 
 
 -   Scegliere un database più potente, ad esempio S3 se il livello di registrazione è impostato su Verbose. Secondo il test interno non ufficiale, il piano tariffario S3 può supportare l'esecuzione di pacchetti SSIS con 2 nodi, conteggi paralleli 128 e un livello di registrazione dettagliata.
 
-È inoltre possibile regolare il piano tariffario del database in base alle informazioni sull'utilizzo in [unità di trasmissione dati](../sql-database/sql-database-what-is-a-dtu.md) (DTU) disponibili nel portale di Azure.
+È inoltre possibile regolare il piano tariffario del database in base alle informazioni sull'utilizzo in [unità di trasmissione dati](../azure-sql/database/service-tiers-dtu.md) (DTU) disponibili nel portale di Azure.
 
 ## <a name="design-for-high-performance"></a>Progettare per prestazioni elevate
 Progettare un pacchetto SSIS da eseguire in Azure è diverso dal progettare un pacchetto da eseguire in locale. Affinché il runtime di integrazione Azure-SSIS venga eseguito in modo più efficiente, è consigliabile separare le attività indipendenti in più pacchetti anziché combinarle nello stesso pacchetto. Creare un'esecuzione di pacchetto per ogni pacchetto, affinché ogni pacchetto non debba attendere il completamento del pacchetto precedente. Questo approccio beneficia della scalabilità del runtime di integrazione Azure-SSIS e migliora la velocità effettiva complessiva.

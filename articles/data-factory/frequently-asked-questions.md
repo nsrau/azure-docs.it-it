@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440508"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635763"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -67,10 +67,10 @@ Gli utenti possono anche usare le API REST documentate per interfacciarsi con Da
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Sviluppo e debug iterativi tramite strumenti visivi
 Azure Data Factory strumenti visivi abilitano lo sviluppo e il debug iterativi. È possibile creare le pipeline ed eseguire le esecuzioni dei test usando la funzionalità di **debug** nel Canvas della pipeline senza scrivere una sola riga di codice. È possibile visualizzare i risultati delle esecuzioni dei test nella finestra **output** dell'area di disegno della pipeline. Una volta completata l'esecuzione dei test, è possibile aggiungere altre attività alla pipeline e continuare il debug in modo iterativo. È anche possibile annullare le esecuzioni dei test dopo che sono in corso. 
 
-Non è necessario pubblicare le modifiche nel servizio data factory prima di selezionare **debug**. Questa operazione è utile negli scenari in cui si desidera assicurarsi che le nuove aggiunte o modifiche funzioneranno come previsto prima di aggiornare i flussi di lavoro di data factory in ambienti di sviluppo, test o produzione. 
+Non è necessario pubblicare le modifiche nel servizio data factory prima di selezionare **debug** . Questa operazione è utile negli scenari in cui si desidera assicurarsi che le nuove aggiunte o modifiche funzioneranno come previsto prima di aggiornare i flussi di lavoro di data factory in ambienti di sviluppo, test o produzione. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Possibilità di distribuire pacchetti SSIS in Azure 
-Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Un runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Un runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](./tutorial-deploy-ssis-packages-azure.md). 
  
 ### <a name="sdks"></a>SDK
 Se si è un utente avanzato e si cerca un'interfaccia a livello di codice, Data Factory offre un set completo di SDK che è possibile usare per creare, gestire o monitorare le pipeline usando l'IDE preferito. Sono supportati, tra gli altri, i linguaggi .NET, PowerShell, Python e REST.
@@ -95,9 +95,9 @@ Dalla versione di anteprima pubblica iniziale in 2017, Data Factory ha aggiunto 
 ## <a name="what-is-the-integration-runtime"></a>Che cos'è il runtime di integrazione?
 Integration Runtime è l'infrastruttura di calcolo che Azure Data Factory USA per fornire le funzionalità di integrazione dei dati seguenti in diversi ambienti di rete:
 
-- **Spostamento dei**dati: per lo spostamento dei dati, il runtime di integrazione Sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formato, mapping di colonne e trasferimento di dati scalabile e a prestazioni elevate.
-- **Attività di invio**: per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
-- **Eseguire pacchetti SSIS**: il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
+- **Spostamento dei** dati: per lo spostamento dei dati, il runtime di integrazione Sposta i dati tra gli archivi dati di origine e di destinazione, fornendo al tempo stesso il supporto per connettori incorporati, conversione di formato, mapping di colonne e trasferimento di dati scalabile e a prestazioni elevate.
+- **Attività di invio** : per la trasformazione, il runtime di integrazione fornisce funzionalità per l'esecuzione nativa di pacchetti SSIS.
+- **Eseguire pacchetti SSIS** : il runtime di integrazione esegue in modo nativo i pacchetti SSIS in un ambiente di calcolo di Azure gestito. Integration Runtime supporta anche l'invio e il monitoraggio delle attività di trasformazione in esecuzione in un'ampia gamma di servizi di calcolo, ad esempio Azure HDInsight, Azure Machine Learning, database SQL e SQL Server.
 
 È possibile distribuire una o più istanze del runtime di integrazione come richiesto per lo spostamento e la trasformazione dei dati. Il runtime di integrazione può essere eseguito in una rete pubblica di Azure o in una rete privata (locale, rete virtuale di Azure o Amazon Web Services cloud privato virtuale [VPC]). 
 
@@ -159,7 +159,7 @@ Per informazioni dettagliate sui prezzi di Azure Data Factory, vedere [Dettagli 
 Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguenti:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Home page della documentazione](/azure/data-factory)
+- [Home page della documentazione](./index.yml)
 - [Home page prodotti](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Approfondimento tecnico 
@@ -209,7 +209,7 @@ La verifica del flusso di dati è attualmente supportata nelle data factory crea
 
 * Australia orientale
 * Canada centrale
-* Central India
+* India centrale
 * Stati Uniti orientali
 * Stati Uniti orientali 2
 * Giappone orientale
@@ -257,7 +257,7 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * NCHAR
 * varchar
 * NVARCHAR
-* numero intero
+* integer
 * INT
 * bit
 * boolean
@@ -270,7 +270,7 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * Datetime
 * datetime2
 * smalldatetime
-*  timestamp
+* timestamp
 * UNIQUEIDENTIFIER
 * Xml
 

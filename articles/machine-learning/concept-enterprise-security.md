@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496006"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637089"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -111,7 +111,7 @@ Per altre informazioni, vedere [Panoramica della privacy e dell'isolamento rete 
 ## <a name="data-encryption"></a>Crittografia dei dati
 
 > [!IMPORTANT]
-> Per la crittografia di livello produzione durante il __Training__, Microsoft consiglia di usare Azure Machine Learning cluster di elaborazione. Per la crittografia di livello produzione durante l' __inferenza__, Microsoft consiglia di usare il servizio Azure Kubernetes.
+> Per la crittografia di livello produzione durante il __Training__ , Microsoft consiglia di usare Azure Machine Learning cluster di elaborazione. Per la crittografia di livello produzione durante l' __inferenza__ , Microsoft consiglia di usare il servizio Azure Kubernetes.
 >
 > Azure Machine Learning istanza di calcolo è un ambiente di sviluppo/test. Quando si usa, è consigliabile archiviare i file, ad esempio notebook e script, in una condivisione file. I dati devono essere archiviati in un archivio dati.
 
@@ -158,12 +158,7 @@ Per abilitare il provisioning di un'istanza di Cosmos DB nella sottoscrizione co
         > [!NOTE]
         > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning durante il provisioning dell'area di lavoro. Se si desidera usare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro usando il [parametro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Questa istanza di Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella sottoscrizione, insieme alle risorse necessarie. Al gruppo di risorse gestito viene assegnato un nome nel formato `<AML Workspace Resource Group Name><GUID>`. Se l'area di lavoro Azure Machine Learning usa un endpoint privato, viene creata anche una rete virtuale per l'istanza di Cosmos DB. Questo VNet viene usato per proteggere le comunicazioni tra Cosmos DB e Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Non eliminare il gruppo di risorse che contiene questa istanza di Cosmos DB o una delle risorse create automaticamente in questo gruppo. Se è necessario eliminare il gruppo di risorse, Cosmos DB istanza e così via, è necessario eliminare l'area di lavoro Azure Machine Learning che la utilizza. Il gruppo di risorse, l'istanza Cosmos DB e altre risorse create automaticamente vengono eliminate quando l'area di lavoro associata viene eliminata.
-> * Le [__Unità richiesta__](../cosmos-db/request-units.md) per l'account Cosmos DB sono impostate su __8000__. La modifica di questo valore non è supportata.
-> * Non è possibile specificare VNet personalizzati da usare con l'istanza di Cosmos DB creata. Non è inoltre possibile modificare la rete virtuale. Ad esempio, non è possibile modificare l'intervallo di indirizzi IP usato.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Se è necessario __ruotare o revocare__ la chiave, è possibile farlo in qualsiasi momento. Durante la rotazione di una chiave, Cosmos DB inizierà a usare la nuova chiave, ovvero la versione più recente, per crittografare i dati inattivi. Durante la revoca,ovvero la disabilitazione di una chiave, Cosmos DB si occupa delle richieste non riuscite. Gli effetti della rotazione o della revoca vengono in genere visualizzati dopo un'ora.
 
@@ -261,7 +256,7 @@ Potrebbe anche essere necessario crittografare le [informazioni di diagnostica r
 
 ### <a name="metrics"></a>Metriche
 
-È possibile usare le metriche di Monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nel [portale di Azure](https://portal.azure.com) selezionare l'area di lavoro e quindi **Metrica**:
+È possibile usare le metriche di Monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nel [portale di Azure](https://portal.azure.com) selezionare l'area di lavoro e quindi **Metrica** :
 
 [![Screenshot che illustra le metriche di esempio per un'area di lavoro](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -371,8 +366,8 @@ Di seguito sono riportati i dettagli:
 
 [Criteri di Azure](/azure/governance/policy) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. Con Azure Machine Learning è possibile assegnare i seguenti criteri:
 
-* **Chiave gestita dal cliente**: controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
-* **Collegamento privato**: controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
+* **Chiave gestita dal cliente** : controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
+* **Collegamento privato** : controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
 
 Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](/azure/governance/policy/overview).
 

@@ -9,21 +9,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328284"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636341"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Seguire questo articolo quando si desidera **analizzare i file di Excel**. Azure Data Factory supporta sia ". xls" sia ". xlsx".
+Seguire questo articolo quando si desidera **analizzare i file di Excel** . Azure Data Factory supporta sia ". xls" sia ". xlsx".
 
 Il formato Excel è supportato per i connettori seguenti [: Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md). È supportato come origine ma non come sink. 
 
-**Nota**: il formato ". xls" non è supportato quando si usa [http](connector-http.md). 
+**Nota** : il formato ". xls" non è supportato quando si usa [http](connector-http.md). 
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -31,15 +31,15 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **Excel**.   | Sì      |
+| type             | La proprietà Type del set di dati deve essere impostata su **Excel** .   | Sì      |
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` . | Sì      |
 | Nomefoglio        | Nome del foglio di lavoro di Excel per la lettura dei dati.                       | Sì      |
 | range            | Intervallo di celle del foglio di dati specificato per individuare i dati selettivi, ad esempio:<br>-Non specificato: legge l'intero foglio di foglio come tabella dalla prima riga e colonna non vuota<br>- `A3`: legge una tabella a partire dalla cella specificata, rileva in modo dinamico tutte le righe sottostanti e tutte le colonne a destra<br>- `A3:H5`: legge questo intervallo fisso come tabella<br>- `A3:A3`: legge questa singola cella | No       |
 | firstRowAsHeader | Specifica se trattare la prima riga del foglio di dati o dell'intervallo specificato come riga di intestazione con i nomi delle colonne.<br>I valori consentiti sono **true** e **false** (impostazione predefinita). | No       |
-| nullValue        | Specifica la rappresentazione di stringa del valore null. <br>Il valore predefinito è una **stringa vuota**. | No       |
+| nullValue        | Specifica la rappresentazione di stringa del valore null. <br>Il valore predefinito è una **stringa vuota** . | No       |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| type<br/>(*in `compression` *) | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Snapper**o **LZ4**. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file **ZipDeflate** e scrivere nell'archivio dati sink basato su file, i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` . | No.  |
-| livello<br/>(*in `compression` *) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| type<br/>( *in `compression`* ) | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **Snapper** o **LZ4** . Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file **ZipDeflate** e scrivere nell'archivio dati sink basato su file, i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` . | No.  |
+| livello<br/>( *in `compression`* ) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci** .<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale** : l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 Di seguito è riportato un esempio di set di dati di Excel nell'archivio BLOB di Azure:
 
@@ -73,11 +73,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="excel-as-source"></a>Excel come origine 
 
-Nella sezione attività di copia **_ \_ source \* *** sono supportate le proprietà seguenti.
+Nella sezione attività di copia **_ \_ source \*** * sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ExcelSource**. | Sì      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ExcelSource** . | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings` . | No       |
 
 ```json
@@ -108,7 +108,7 @@ In mapping dei flussi di dati è possibile leggere il formato Excel negli archiv
 
 La tabella seguente elenca le proprietà supportate da un'origine Excel. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Name                      | Descrizione                                                  | Obbligatorio | Valori consentiti                                            | Proprietà script flusso di dati         |
+| Nome                      | Descrizione                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no       | String[]                                                  | wildcardPaths                     |
 | Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no       | string                                                    | partitionRootPath                 |

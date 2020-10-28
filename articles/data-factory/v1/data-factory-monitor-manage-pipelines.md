@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666973"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636936"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Questo articolo descrive come monitorare e gestire le pipeline ed eseguirne il d
 > L'applicazione di monitoraggio e gestione offre un supporto migliore per il monitoraggio e la gestione delle pipeline di dati, nonché per la risoluzione di eventuali problemi. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory versione 1 usa ora la nuova [infrastruttura di avvisi di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). L'infrastruttura di avvisi precedente è stata deprecata. Di conseguenza, gli avvisi esistenti configurati per la versione 1 delle data factory non funzionano più. Gli avvisi esistenti per le data factory versione 1 non vengono migrati automaticamente. È necessario ricreare questi avvisi per la nuova infrastruttura di avvisi. Accedere al portale di Azure e selezionare **Monitoraggio** per creare nuovi avvisi sulle metriche (ad esempio esecuzioni non riuscite o con esito positivo) per la versione 1 delle data factory.
+> Azure Data Factory versione 1 usa ora la nuova [infrastruttura di avvisi di Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md). L'infrastruttura di avvisi precedente è stata deprecata. Di conseguenza, gli avvisi esistenti configurati per la versione 1 delle data factory non funzionano più. Gli avvisi esistenti per le data factory versione 1 non vengono migrati automaticamente. È necessario ricreare questi avvisi per la nuova infrastruttura di avvisi. Accedere al portale di Azure e selezionare **Monitoraggio** per creare nuovi avvisi sulle metriche (ad esempio esecuzioni non riuscite o con esito positivo) per la versione 1 delle data factory.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Questa sezione illustra anche come avviene la transizione di una sezione di un s
 
 ### <a name="navigate-to-your-data-factory"></a>Passare alla data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >**, quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
+2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >** , quindi selezionare **Data factory** nella categoria **Intelligence e analisi** .
 
    ![Esplora tutto > Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Nel pannello **Data factory** selezionare la data factory a cui si è interessati.
@@ -79,7 +79,7 @@ La vista **Diagramma** di una data factory offre un'unica console da cui monitor
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visualizzare lo stato di ogni attività all'interno di una pipeline
 Per visualizzare lo stato corrente di un'attività, visualizzare lo stato di uno dei set di dati generati dall'attività.
 
-Facendo doppio clic su **OutputBlobTable** nella vista **Diagramma**, è possibile visualizzare tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che l'attività di copia è stata eseguita correttamente nelle ultime otto ore e ha generato sezioni con lo stato **Pronto**.  
+Facendo doppio clic su **OutputBlobTable** nella vista **Diagramma** , è possibile visualizzare tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che l'attività di copia è stata eseguita correttamente nelle ultime otto ore e ha generato sezioni con lo stato **Pronto** .  
 
 ![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -87,7 +87,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
+    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
 </tr>
 <tr>
     <td rowspan="8">Attesa</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
@@ -144,7 +144,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 
 
-Per visualizzare i dettagli di una sezione, fare clic sulla voce di una sezione nel pannello **Sezioni aggiornate di recente**.
+Per visualizzare i dettagli di una sezione, fare clic sulla voce di una sezione nel pannello **Sezioni aggiornate di recente** .
 
 ![Dettagli della sezione](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
@@ -152,7 +152,7 @@ Se la sezione è stata eseguita più volte, vengono visualizzate più righe nell
 
 ![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Questa funzionalità è utile quando lo stato della sezione è **In attesa** e si vogliono conoscere le dipendenze upstream di cui la sezione è in attesa.
+Se lo stato della sezione non è **Pronto** , sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte** . Questa funzionalità è utile quando lo stato della sezione è **In attesa** e si vogliono conoscere le dipendenze upstream di cui la sezione è in attesa.
 
 ![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -163,9 +163,9 @@ Quando la data factory è stata distribuita e le pipeline hanno un periodo attiv
 
 Il flusso di transizione di stato del set dati nella data factory è il seguente: In attesa -> In corso/In corso (Convalida) -> Pronto/Non riuscito.
 
-La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è necessario che vengano soddisfatte le precondizioni. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso**. L'esecuzione dell'attività può avere esito positivo o negativo. Lo stato della sezione sarà **Pronto** o **Non riuscito** in base al risultato dell'esecuzione.
+La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è necessario che vengano soddisfatte le precondizioni. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso** . L'esecuzione dell'attività può avere esito positivo o negativo. Lo stato della sezione sarà **Pronto** o **Non riuscito** in base al risultato dell'esecuzione.
 
-È possibile reimpostare la sezione in modo che dallo stato **Pronto** o **Non riuscito** torni allo stato **In attesa**. È anche possibile impostare lo stato della sezione su **Ignora**per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
+È possibile reimpostare la sezione in modo che dallo stato **Pronto** o **Non riuscito** torni allo stato **In attesa** . È anche possibile impostare lo stato della sezione su **Ignora** per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
 
 ## <a name="pause-and-resume-pipelines"></a>Sospendere e riprendere le pipeline
 È possibile gestire le pipeline usando Azure PowerShell. Ad esempio, è possibile sospendere e riprendere le pipeline eseguendo i cmdlet di Azure PowerShell. 
@@ -205,7 +205,7 @@ Azure Data Factory offre funzionalità avanzate per il debug e la risoluzione de
 Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Azure Data Factory usando i metodi seguenti.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Usare il portale di Azure per eseguire il debug di un errore
-1. Nel pannello **Tabella** fare clic sulla sezione con errori con **Stato** impostato su **Non riuscito**.
+1. Nel pannello **Tabella** fare clic sulla sezione con errori con **Stato** impostato su **Non riuscito** .
 
    ![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. Nel pannello **Sezione dati** fare clic sull'esecuzione dell'attività non riuscita.
@@ -216,8 +216,8 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
    ![Pannello Dettagli esecuzione attività con errore](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Usare PowerShell per eseguire il debug di un errore
-1. Avviare **PowerShell**.
-2. Eseguire il comando **Get-AzDataFactorySlice** per visualizzare le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.        
+1. Avviare **PowerShell** .
+2. Eseguire il comando **Get-AzDataFactorySlice** per visualizzare le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito** .        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,7 +288,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 ![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usare Azure PowerShell
-È possibile rieseguire gli errori usando il cmdlet **set-AzDataFactorySliceStatus** . Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) .
+È possibile rieseguire gli errori usando il cmdlet **set-AzDataFactorySliceStatus** . Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) .
 
 **Esempio:**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Creare un nuovo avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data Factory** nel campo **Filtra per tipo di risorsa** . È inoltre possibile specificare i valori per le **dimensioni**.
+3.  Definire la **condizione di avviso** . Assicurarsi di selezionare **Data Factory** nel campo **Filtra per tipo di risorsa** . È inoltre possibile specificare i valori per le **dimensioni** .
 
     ![Definire la condizione dell'avviso: selezionare la destinazione](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definire la condizione dell'avviso: aggiungere la logica di avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Definire i **Dettagli dell'avviso**.
+4.  Definire i **Dettagli dell'avviso** .
 
     ![Definire i dettagli dell'avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Definire il **gruppo di azioni**.
+5.  Definire il **gruppo di azioni** .
 
     ![Definire il gruppo di azioni: creare un nuovo gruppo di azioni](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

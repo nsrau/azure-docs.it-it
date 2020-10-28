@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927564"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634539"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Come eseguire Self-Hosted Integration Runtime nel contenitore Windows
 
@@ -26,10 +26,10 @@ In questo articolo viene illustrato come eseguire Self-Hosted Integration Runtim
 Azure Data Factory offrono il supporto ufficiale dei contenitori di Windows per Self-Hosted Integration Runtime. È possibile scaricare il codice sorgente di compilazione Docker e combinare il processo di compilazione ed esecuzione nella pipeline di recapito continuo. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
-- [Requisiti dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Requisiti dei contenitori di Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker versione 2,3 e successive 
 - Self-Hosted Integration Runtime versione 4.11.7512.1 e successive 
-## <a name="get-started"></a>Operazioni preliminari 
+## <a name="get-started"></a>Introduzione 
 1.  Installare Docker e abilitare il contenitore Windows 
 2.  Scaricare il codice sorgente da https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
 3.  Scaricare la versione più recente di "cazzi" nella cartella 
@@ -61,7 +61,5 @@ Attualmente non sono supportate le funzionalità seguenti quando si esegue Self-
 - Aggiornamento automatico 
 
 ### <a name="next-steps"></a>Passaggi successivi
-- Vedere [Concetti relativi al runtime di integrazione in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
-- Informazioni su come [creare un runtime di integrazione self-hosted nel portale di Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
-
-
+- Vedere [Concetti relativi al runtime di integrazione in Azure Data Factory](./concepts-integration-runtime.md).
+- Informazioni su come [creare un runtime di integrazione self-hosted nel portale di Azure](./create-self-hosted-integration-runtime.md).

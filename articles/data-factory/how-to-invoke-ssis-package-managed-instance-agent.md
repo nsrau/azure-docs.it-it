@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: cf1bf9e05f83610fd43146cf4c99c5006fdc97b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98484655dec069c3a284dce0ea83477faf75d9a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171459"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637752"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Eseguire pacchetti SSIS con SQL Istanza gestita Agent di Azure
 
@@ -24,19 +24,19 @@ Con questa funzionalità è possibile eseguire pacchetti SSIS archiviati in SSIS
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare questa funzionalità, [scaricare](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e installare la versione più recente di SQL Server Management Studio (SSMS). Dettagli supporto versione come riportato di seguito:
+Per usare questa funzionalità, [scaricare](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e installare la versione più recente di SQL Server Management Studio (SSMS). Dettagli supporto versione come riportato di seguito:
 
 - Per eseguire pacchetti in SSISDB o file system, installare SSMS 18,5 o versione successiva.
 - Per eseguire i pacchetti nell'archivio pacchetti, installare SSMS versione 18,6 o successiva.
 
-È anche necessario effettuare il [provisioning di un runtime di integrazione SSIS di Azure](tutorial-create-azure-ssis-runtime-portal.md) in Azure Data Factory. Usa un Istanza gestita SQL come server endpoint.
+È anche necessario effettuare il [provisioning di un runtime di integrazione SSIS di Azure](./tutorial-deploy-ssis-packages-azure.md) in Azure Data Factory. Usa un Istanza gestita SQL come server endpoint.
 
 ## <a name="run-an-ssis-package-in-ssisdb"></a>Eseguire un pacchetto SSIS in SSISDB
 
 In questa procedura si userà SQL Istanza gestita Agent per richiamare un pacchetto SSIS archiviato in SSISDB.
 
 1. Nella versione più recente di SSMS connettersi a un Istanza gestita SQL.
-1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent**fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo**.
+1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent** fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo** .
 
    ![Selezioni per la creazione di un nuovo processo di Agent](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -52,9 +52,9 @@ In questa procedura si userà SQL Istanza gestita Agent per richiamare un pacche
 
 1. Nella scheda **configurazione** è possibile:
   
-   - Specificare i valori dei parametri in **Parameters**.
-   - Eseguire l'override dei valori nelle **gestioni connessioni**.
-   - Eseguire l'override della proprietà e scegliere il livello di registrazione in **Avanzate**.
+   - Specificare i valori dei parametri in **Parameters** .
+   - Eseguire l'override dei valori nelle **gestioni connessioni** .
+   - Eseguire l'override della proprietà e scegliere il livello di registrazione in **Avanzate** .
 
    ![Scheda configurazione con selezioni per il tipo di origine del pacchetto](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
@@ -66,7 +66,7 @@ In questa procedura si userà SQL Istanza gestita Agent per richiamare un pacche
 In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un pacchetto SSIS archiviato nel file system.
 
 1. Nella versione più recente di SSMS connettersi a un Istanza gestita SQL.
-1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent**fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo**.
+1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent** fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo** .
 
    ![Selezioni per la creazione di un nuovo processo di Agent](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -76,19 +76,19 @@ In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un p
 
 1. Nella scheda **pacchetto** :
 
-   1. In **percorso pacchetto**selezionare **file System**.
+   1. In **percorso pacchetto** selezionare **file System** .
 
-   1. Per il **tipo di origine file**:
+   1. Per il **tipo di origine file** :
 
-      - Se il pacchetto viene caricato in File di Azure, selezionare **condivisione file di Azure**.
+      - Se il pacchetto viene caricato in File di Azure, selezionare **condivisione file di Azure** .
 
         ![Opzioni per il tipo di origine file](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
 
         Il percorso del pacchetto è **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** .
 
-        In **credenziali di accesso al file del pacchetto**immettere il nome dell'account file di Azure e la chiave dell'account per accedere al file di Azure. Il dominio è impostato come **Azure**.
+        In **credenziali di accesso al file del pacchetto** immettere il nome dell'account file di Azure e la chiave dell'account per accedere al file di Azure. Il dominio è impostato come **Azure** .
 
-      - Se il pacchetto viene caricato in una condivisione di rete, selezionare **condivisione di rete**.
+      - Se il pacchetto viene caricato in una condivisione di rete, selezionare **condivisione di rete** .
 
         Il percorso del pacchetto è il percorso UNC del file di pacchetto con estensione dtsx.
 
@@ -111,7 +111,7 @@ In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un p
 In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un pacchetto SSIS archiviato nell'archivio pacchetti di Azure-SSIS IR.
 
 1. Nella versione più recente di SSMS connettersi a un Istanza gestita SQL.
-1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent**fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo**.
+1. Creare un nuovo processo di Agent e un nuovo passaggio di processo. In **SQL Server Agent** fare clic con il pulsante destro del mouse sulla cartella **processi** , quindi scegliere **nuovo processo** .
 
    ![Selezioni per la creazione di un nuovo processo di Agent](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -121,9 +121,9 @@ In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un p
 
 1. Nella scheda **pacchetto** :
 
-   1. In **percorso pacchetto**selezionare **Archivio pacchetti**.
+   1. In **percorso pacchetto** selezionare **Archivio pacchetti** .
 
-   1. Per il **percorso del pacchetto**:
+   1. Per il **percorso del pacchetto** :
 
       Il percorso del pacchetto è **`<package store name>\<folder name>\<package name>`** .
 
@@ -146,17 +146,17 @@ In questa procedura viene utilizzato SQL Istanza gestita Agent per eseguire un p
 
 Per annullare l'esecuzione del pacchetto da un processo di SQL Istanza gestita Agent, seguire questa procedura anziché arrestare direttamente il processo di Agent:
 
-1. Trovare il **JobID** di SQL agent da **msdb.dbo.sysprocessi**.
+1. Trovare il **JobID** di SQL agent da **msdb.dbo.sysprocessi** .
 1. Trovare il **EXECUTIONID** SSIS corrispondente in base all'ID processo, usando questa query:
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Se i pacchetti SSIS sono in SSISDB, utilizzare **ssisdb.internal.execution_parameter_values** come tabella per l'esecuzione del processo. Se i pacchetti SSIS sono in file system, utilizzare **ssisdb.internal.execution_parameter_values_noncatalog**.
-1. Fare clic con il pulsante destro del mouse sul catalogo SSISDB, quindi selezionare **operazioni attive**.
+   Se i pacchetti SSIS sono in SSISDB, utilizzare **ssisdb.internal.execution_parameter_values** come tabella per l'esecuzione del processo. Se i pacchetti SSIS sono in file system, utilizzare **ssisdb.internal.execution_parameter_values_noncatalog** .
+1. Fare clic con il pulsante destro del mouse sul catalogo SSISDB, quindi selezionare **operazioni attive** .
 
    !["Operazioni attive" nel menu di scelta rapida per il catalogo SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
 
-1. Arrestare l'operazione corrispondente in base a **ExecutionID**.
+1. Arrestare l'operazione corrispondente in base a **ExecutionID** .
 
 ## <a name="next-steps"></a>Passaggi successivi
-È inoltre possibile pianificare i pacchetti SSIS utilizzando Azure Data Factory. Per istruzioni dettagliate, vedere [Azure Data Factory trigger di evento](how-to-create-event-trigger.md). 
+È inoltre possibile pianificare i pacchetti SSIS utilizzando Azure Data Factory. Per istruzioni dettagliate, vedere [Azure Data Factory trigger di evento](how-to-create-event-trigger.md).

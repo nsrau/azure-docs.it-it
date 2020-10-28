@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: ddae4a99964e438c003fe0ff0db91c5808fa7631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761108"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636545"
 ---
 # <a name="how-to-store-user-preferences"></a>Come archiviare le preferenze utente
 
 Questo articolo illustra come archiviare le impostazioni dell'interfaccia utente, note formalmente come **Preferenze dell'** utente, tramite le opzioni [-Preferenze](./reference.md#options) e [-onPreferencesChanged](./reference.md#options) immersive Reader SDK.
 
-Quando l'opzione [CookiePolicy](./reference.md#cookiepolicy-options) SDK è impostata su *Enabled*, l'applicazione immersive Reader archivia le **Preferenze dell'utente** (dimensione del testo, colore del tema, carattere e così via) nei cookie, che sono locali per un browser e un dispositivo specifici. Ogni volta che l'utente avvia il lettore immersivo sullo stesso browser e dispositivo, si aprirà con le preferenze dell'utente dall'ultima sessione del dispositivo. Tuttavia, se l'utente apre il lettore immersivo in un altro browser o dispositivo, le impostazioni verranno inizialmente configurate con le impostazioni predefinite del lettore immersivo e l'utente dovrà impostare di nuovo le preferenze e così via per ogni dispositivo usato. Le `-preferences` `-onPreferencesChanged` Opzioni dell'SDK e Immersive Reader consentono alle applicazioni di eseguire il roaming delle preferenze di un utente in vari browser e dispositivi, in modo che l'utente abbia un'esperienza coerente ovunque usino l'applicazione.
+Quando l'opzione [CookiePolicy](./reference.md#cookiepolicy-options) SDK è impostata su *Enabled* , l'applicazione immersive Reader archivia le **Preferenze dell'utente** (dimensione del testo, colore del tema, carattere e così via) nei cookie, che sono locali per un browser e un dispositivo specifici. Ogni volta che l'utente avvia il lettore immersivo sullo stesso browser e dispositivo, si aprirà con le preferenze dell'utente dall'ultima sessione del dispositivo. Tuttavia, se l'utente apre il lettore immersivo in un altro browser o dispositivo, le impostazioni verranno inizialmente configurate con le impostazioni predefinite del lettore immersivo e l'utente dovrà impostare di nuovo le preferenze e così via per ogni dispositivo usato. Le `-preferences` `-onPreferencesChanged` Opzioni dell'SDK e Immersive Reader consentono alle applicazioni di eseguire il roaming delle preferenze di un utente in vari browser e dispositivi, in modo che l'utente abbia un'esperienza coerente ovunque usino l'applicazione.
 
 Per prima cosa, specificando l' `-onPreferencesChanged` opzione di callback SDK quando si avvia l'applicazione immersiva Reader, il lettore immersivo invierà una `-preferences` stringa all'applicazione host ogni volta che l'utente modifica le preferenze durante la sessione di lettura immersiva. L'applicazione host è quindi responsabile dell'archiviazione delle preferenze utente nel proprio sistema. Quindi, quando lo stesso utente avvia di nuovo il lettore immersivo, l'applicazione host può recuperare le preferenze dell'utente dalla risorsa di archiviazione e fornirle come `-preferences` opzione di stringa SDK quando viene avviata l'applicazione immersiva Reader, in modo da ripristinare le preferenze dell'utente.
 

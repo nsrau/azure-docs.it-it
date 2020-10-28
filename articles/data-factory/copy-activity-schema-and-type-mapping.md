@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249653"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637259"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ Se l'origine è un file di testo senza riga di intestazione, il [mapping esplici
 2. Applica il mapping definito.
 3. Scrive i dati nel sink.
 
-Sono disponibili altre informazioni su:
+Altre informazioni su:
 
 - [Da origine tabulare a sink tabulare](#tabular-source-to-tabular-sink)
 - [Da origine gerarchica a sink tabulare](#hierarchical-source-to-tabular-sink)
@@ -54,7 +54,7 @@ Sono disponibili altre informazioni su:
 | path     | Espressione del percorso JSON per ogni campo da estrarre o mappare. Applicare per l'origine e il sink gerarchici, ad esempio Cosmos DB, MongoDB o i connettori REST.<br>Per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice. `$` per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice senza `$` . | No       |
 | type     | Data Factory tipo di dati provvisori della colonna di origine o sink. In generale, non è necessario specificare o modificare questa proprietà. Altre informazioni sul [mapping dei tipi di dati](#data-type-mapping). | No       |
 | culture  | Impostazioni cultura della colonna di origine o sink. Applicare quando il tipo è `Datetime` o `Datetimeoffset` . Il valore predefinito è `en-us`.<br>In generale, non è necessario specificare o modificare questa proprietà. Altre informazioni sul [mapping dei tipi di dati](#data-type-mapping). | No       |
-| format   | Stringa di formato da utilizzare quando il tipo è `Datetime` o `Datetimeoffset` . Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). In generale, non è necessario specificare o modificare questa proprietà. Altre informazioni sul [mapping dei tipi di dati](#data-type-mapping). | No       |
+| format   | Stringa di formato da utilizzare quando il tipo è `Datetime` o `Datetimeoffset` . Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). In generale, non è necessario specificare o modificare questa proprietà. Altre informazioni sul [mapping dei tipi di dati](#data-type-mapping). | No       |
 
 Le proprietà seguenti sono supportate `translator` in oltre a `mappings` :
 
@@ -170,7 +170,7 @@ Ad esempio, se si dispone di un documento di origine MongoDB con il contenuto se
 }
 ```
 
-E si desidera copiarlo in un file di testo nel formato seguente con la riga di intestazione, rendendo flat i dati all'interno della matrice *(order_pd e order_price)* e cross join con le informazioni radice comuni *(numero, data e città)*:
+E si desidera copiarlo in un file di testo nel formato seguente con la riga di intestazione, rendendo flat i dati all'interno della matrice *(order_pd e order_price)* e cross join con le informazioni radice comuni *(numero, data e città)* :
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -182,13 +182,13 @@ E si desidera copiarlo in un file di testo nel formato seguente con la riga di i
 
 1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schema** per importare gli schemi di origine e sink. Data Factory esegue il campionamento dei primi oggetti quando si importa lo schema, se un campo non viene visualizzato, è possibile aggiungerlo al livello corretto nella gerarchia-passare il puntatore del mouse su un nome di campo esistente e scegliere di aggiungere un nodo, un oggetto o una matrice.
 
-2. Selezionare la matrice da cui si desidera eseguire l'iterazione ed estrarre i dati. Verrà popolato automaticamente come **riferimento alla raccolta**. Si noti che per tale operazione è supportata una sola matrice.
+2. Selezionare la matrice da cui si desidera eseguire l'iterazione ed estrarre i dati. Verrà popolato automaticamente come **riferimento alla raccolta** . Si noti che per tale operazione è supportata una sola matrice.
 
 3. Eseguire il mapping dei campi necessari per il sink. Data Factory determina automaticamente i percorsi JSON corrispondenti per il lato gerarchico.
 
 ![Mappa gerarchica a tabulare usando l'interfaccia utente](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-È anche possibile passare all' **Editor avanzato**, nel qual caso è possibile visualizzare e modificare direttamente i percorsi JSON dei campi. Se si sceglie di aggiungere nuovo mapping in questa visualizzazione, specificare il percorso JSON.
+È anche possibile passare all' **Editor avanzato** , nel qual caso è possibile visualizzare e modificare direttamente i percorsi JSON dei campi. Se si sceglie di aggiungere nuovo mapping in questa visualizzazione, specificare il percorso JSON.
 
 ![Eseguire il mapping gerarchico a tabulare mediante l'editor avanzato](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -314,9 +314,9 @@ Le proprietà seguenti sono supportate nell'attività di copia per la conversion
 | *In `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Consente il troncamento dei dati durante la conversione dei dati di origine in sink con tipo diverso durante la copia, ad esempio da Decimal a Integer, da DatetimeOffset a DateTime. <br>Il valore predefinito è true. | No       |
 | treatBooleanAsNumber             | Considera i valori booleani come numeri, ad esempio true come 1.<br>Il valore predefinito è false. | No       |
-| dateTimeFormat                   | Stringa di formato quando si esegue la conversione tra date senza offset di fuso orario e stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
-| dateTimeOffsetFormat             | Stringa di formato quando si esegue la conversione tra le date con la differenza di fuso orario e le stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff zzz` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
-| timeSpanFormat                   | Stringa di formato durante la conversione tra i periodi di tempo e le stringhe, ad esempio `dd\.hh\:mm` . Per informazioni dettagliate, vedere [stringhe di formato TimeSpan personalizzate](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) . | No       |
+| dateTimeFormat                   | Stringa di formato quando si esegue la conversione tra date senza offset di fuso orario e stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
+| dateTimeOffsetFormat             | Stringa di formato quando si esegue la conversione tra le date con la differenza di fuso orario e le stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff zzz` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
+| timeSpanFormat                   | Stringa di formato durante la conversione tra i periodi di tempo e le stringhe, ad esempio `dd\.hh\:mm` . Per informazioni dettagliate, vedere [stringhe di formato TimeSpan personalizzate](/dotnet/standard/base-types/custom-timespan-format-strings) . | No       |
 | culture                          | Informazioni sulle impostazioni cultura da utilizzare quando si convertono i tipi, ad esempio `en-us` o `fr-fr` . | No       |
 
 **Esempio:**
@@ -356,7 +356,7 @@ Le proprietà seguenti sono supportate nell'attività di copia per la conversion
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Mapping di colonne alternativo (modello Legacy)
 
-È possibile specificare l'attività di copia-> per eseguire il `translator`  ->  `columnMappings` mapping tra dati a forma di tabulazione. In questo caso, la sezione "Structure" è obbligatoria per i set di dati di input e di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink**. Le seguenti sono condizioni di errore che generano un'eccezione:
+È possibile specificare l'attività di copia-> per eseguire il `translator`  ->  `columnMappings` mapping tra dati a forma di tabulazione. In questo caso, la sezione "Structure" è obbligatoria per i set di dati di input e di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink** . Le seguenti sono condizioni di errore che generano un'eccezione:
 
 - Il risultato della query dell'archivio dati di origine non ha un nome colonna specificato nella sezione "struttura" del set di dati di input.
 - L'archivio dati sink (con schema predefinito) non ha un nome colonna specificato nella sezione "struttura" del set di dati di output.
@@ -455,7 +455,7 @@ La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyNam
 | Proprietà            | Descrizione                                                  | Obbligatoria |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | La proprietà Type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì      |
-| schemaMapping       | Raccolta di coppie chiave-valore che rappresenta la relazione di mapping **dal lato di origine al lato del sink**.<br/>- **Key:** rappresenta l'origine. Per l' **origine tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per l' **origine gerarchica**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per il **sink tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per il **sink gerarchico**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso di dati gerarchici, per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice. | Sì      |
+| schemaMapping       | Raccolta di coppie chiave-valore che rappresenta la relazione di mapping **dal lato di origine al lato del sink** .<br/>- **Key:** rappresenta l'origine. Per l' **origine tabulare** , specificare il nome della colonna come definito nella struttura del set di dati. per l' **origine gerarchica** , specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per il **sink tabulare** , specificare il nome della colonna come definito nella struttura del set di dati. per il **sink gerarchico** , specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso di dati gerarchici, per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice. | Sì      |
 | collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No       |
 
 **Esempio: copia da MongoDB a Oracle:**
@@ -487,7 +487,7 @@ Se ad esempio si ha un il documento di MongoDB con il contenuto seguente:
 }
 ```
 
-e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)*:
+e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)* :
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |

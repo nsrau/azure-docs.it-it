@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 45f9f61712903436d63f483673705650f5470b3f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426361"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635950"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -24,9 +24,9 @@ Questo articolo contiene informazioni su come creare un’area di lavoro di Azur
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure** . Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall' **ambiente locale** , è necessaria l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Se si usa [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l'interfaccia della riga di comando è accessibile tramite il browser e si trova nel cloud.
 
@@ -78,7 +78,7 @@ L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità s
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-L’area di lavoro di Azure Machine Learning deve essere creata all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Per __creare un nuovo gruppo di risorse__, usare il comando seguente. Sostituire `<resource-group-name>` con il nome da usare per questo gruppo di risorse. Sostituire `<location>` con l'area di Azure da usare per questo gruppo di risorse:
+L’area di lavoro di Azure Machine Learning deve essere creata all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Per __creare un nuovo gruppo di risorse__ , usare il comando seguente. Sostituire `<resource-group-name>` con il nome da usare per questo gruppo di risorse. Sostituire `<location>` con l'area di Azure da usare per questo gruppo di risorse:
 
 > [!TIP]
 > È necessario selezionare un'area in cui è disponibile Azure Machine Learning. Per informazioni, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -107,7 +107,7 @@ Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](https:/
 
 ### <a name="automatically-create-required-resources"></a>Creare automaticamente le risorse necessarie
 
-Per creare una nuova area di lavoro in cui i __servizi vengono creati automaticamente__, utilizzare il comando seguente:
+Per creare una nuova area di lavoro in cui i __servizi vengono creati automaticamente__ , utilizzare il comando seguente:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -160,18 +160,17 @@ Per impostazione predefinita, le metriche e i metadati per l'area di lavoro veng
 
 Invece di usare la chiave gestita da Microsoft, è possibile usare la chiave specifica. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
 
-> [!IMPORTANT]
-> Prima di usare `--cmk-keyvault` i `--resource-cmk-uri` parametri e, è prima necessario eseguire le azioni seguenti:
->
-> 1. Autorizzare l' __App Machine Learning__ (in gestione delle identità e degli accessi) con le autorizzazioni di collaboratore per la sottoscrizione.
-> 1. Seguire i passaggi in [configurare le chiavi gestite dal cliente](/azure/cosmos-db/how-to-setup-cmk) per:
->     * Registrare il provider di Azure Cosmos DB
->     * Creare e configurare un Azure Key Vault
->     * Genera una chiave
->
->     Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
->
-> Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro. Se si elimina il Azure Cosmos DB usato dall'area di lavoro, è necessario eliminare anche l'area di lavoro che lo usa.
+Prima di usare `--cmk-keyvault` i `--resource-cmk-uri` parametri e, è prima necessario eseguire le azioni seguenti:
+
+1. Autorizzare l' __App Machine Learning__ (in gestione delle identità e degli accessi) con le autorizzazioni di collaboratore per la sottoscrizione.
+1. Seguire i passaggi in [configurare le chiavi gestite dal cliente](/azure/cosmos-db/how-to-setup-cmk) per:
+    * Registrare il provider di Azure Cosmos DB
+    * Creare e configurare un Azure Key Vault
+    * Genera una chiave
+
+Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Per limitare i dati raccolti da Microsoft nell'area di lavoro, usare il `--hbi-workspace` parametro. 
 
@@ -187,7 +186,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 > [!IMPORTANT]
 > Non è necessario specificare tutte le risorse esistenti. È sufficiente specificarne minimo una. Ad esempio, è possibile specificare un account di archiviazione esistente e l'area di lavoro creerà le altre risorse.
 
-+ **Account di archiviazione di Microsoft Azure**: `az storage account show --name <storage-account-name> --query "id"`
++ **Account di archiviazione di Microsoft Azure** : `az storage account show --name <storage-account-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'account di archiviazione:
 
@@ -196,7 +195,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
     > [!IMPORTANT]
     > Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
 
-+ **Azure Application Insights**:
++ **Azure Application Insights** :
 
     1. Installare l'estensione Application Insights:
 
@@ -214,13 +213,13 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'insieme di credenziali delle chiavi:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Registro Azure Container**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Registro Azure Container** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID del registro contenitori:
 
