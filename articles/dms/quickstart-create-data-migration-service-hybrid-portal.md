@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84195681"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331805"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Avvio rapido: Creare un'istanza in modalità ibrida con il portale di Azure e il Servizio Migrazione del database di Azure
 
@@ -51,11 +51,11 @@ La visualizzazione predefinita è il dashboard del servizio.
 
 Prima di creare la prima istanza del Servizio Migrazione del database di Azure, registrare il provider di risorse Microsoft.DataMigration.
 
-1. Nel portale di Azure selezionare **Sottoscrizioni**, selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
+1. Nel portale di Azure selezionare **Sottoscrizioni** , selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse** .
 
     ![Cercare il provider di risorse](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-search-resource-provider.png)
 
-2. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
+2. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro** .
 
     ![Registrare il provider di risorse](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-register-resource-provider.png)
 
@@ -63,21 +63,21 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
 1. Selezionare **+ Create a resource** (+ Crea una risorsa) per creare un'istanza del Servizio Migrazione del database di Azure.
 
-2. Cercare "migrazione" nel Marketplace, selezionare **Servizio Migrazione del database di Azure** e quindi nella schermata **Servizio Migrazione del database di Azure** selezionare **Crea**.
+2. Cercare "migrazione" nel Marketplace, selezionare **Servizio Migrazione del database di Azure** e quindi nella schermata **Servizio Migrazione del database di Azure** selezionare **Crea** .
 
-3. Nella schermata **Crea servizio Migrazione**:
+3. Nella schermata **Crea servizio Migrazione** :
 
     - Per **Nome servizio** scegliere un nome facile da ricordare e univoco per identificare l'istanza del Servizio Migrazione del database di Azure.
     - Selezionare la **sottoscrizione** di Azure in cui creare l'istanza.
     - Selezionare un gruppo esistente in **Gruppo di risorse** oppure creare un nuovo gruppo.
     - Scegliere la **Posizione** più vicina al server di origine o di destinazione.
-    - Per **Modalità servizio**, selezionare **Ruolo di lavoro ibrido (Anteprima)** .
+    - Per **Modalità servizio** , selezionare **Ruolo di lavoro ibrido (Anteprima)** .
 
          ![Creare il servizio di migrazione - Nozioni di base](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
-4. Selezionare **Rivedi e crea**.
+4. Selezionare **Rivedi e crea** .
 
-5. Nella scheda **Rivedi e crea** rivedere le condizioni, verificare le altre informazioni specificate e quindi selezionare **Crea**.
+5. Nella scheda **Rivedi e crea** rivedere le condizioni, verificare le altre informazioni specificate e quindi selezionare **Crea** .
 
     ![Creare il servizio di migrazione - Rivedi e crea](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-review-and-create.png)
 
@@ -85,7 +85,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
     ![Istanza in modalità ibrida del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode.png)
 
-6. Dopo aver creato il servizio, selezionare **Proprietà**, quindi copiare il valore visualizzato nella casella **ID risorsa** che verrà usato per installare il ruolo di lavoro ibrido del Servizio Migrazione del database di Azure.
+6. Dopo aver creato il servizio, selezionare **Proprietà** , quindi copiare il valore visualizzato nella casella **ID risorsa** che verrà usato per installare il ruolo di lavoro ibrido del Servizio Migrazione del database di Azure.
 
     ![Proprietà della modalità ibrida del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-copy-resource-id.png)
 
@@ -93,20 +93,20 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
 È necessario creare un ID registrazione dell'app Azure che il ruolo di lavoro ibrido locale può usare per comunicare con il Servizio Migrazione del database di Azure nel cloud.
 
-1. Nel portale di Azure selezionare **Azure Active Directory**, selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+1. Nel portale di Azure selezionare **Azure Active Directory** , selezionare **Registrazioni app** e quindi **Nuova registrazione** .
 2. Specificare un nome per l'applicazione e quindi in **Tipi di account supportati** selezionare il tipo di account da supportare per specificare gli utenti che possono usare l'applicazione.
 
     ![Applicazione registro della modalità ibrida del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
 
-3. Usare i valori predefiniti per i campi **URI di reindirizzamento (facoltativo)** e quindi selezionare **Registra**.
+3. Usare i valori predefiniti per i campi **URI di reindirizzamento (facoltativo)** e quindi selezionare **Registra** .
 
-4. Al termine della registrazione dell'ID app, prendere nota dell'**ID client applicazione** che verrà usato durante l'installazione del ruolo di lavoro ibrido.
+4. Al termine della registrazione dell'ID app, prendere nota dell' **ID client applicazione** che verrà usato durante l'installazione del ruolo di lavoro ibrido.
 
 5. Nel portale di Azure passare al Servizio Migrazione del database di Azure, selezionare **Controllo di accesso (IAM)** e quindi selezionare **Aggiungi un'assegnazione di ruolo** per assegnare l'accesso collaboratore all'ID app.
 
     ![Assegnazione di ruolo collaboratore della modalità ibrida del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-assign-contributor.png)
 
-6. Selezionare **Collaboratore** come ruolo, assegnare l'accesso all'**utente di Azure AD o all'entità servizio**, quindi selezionare il nome dell'ID app.
+6. Selezionare **Collaboratore** come ruolo, assegnare l'accesso all' **utente di Azure AD o all'entità servizio** , quindi selezionare il nome dell'ID app.
 
     ![Dettagli dell'assegnazione di ruolo collaboratore della modalità ibrida del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-add-role-assignment.png)
 
@@ -125,7 +125,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
     > [!IMPORTANT]
     > Il programma di installazione ibrido del Servizio Migrazione del database di Azure richiede .NET 4.7.2 o versione successiva. Per trovare le versioni più recenti di .NET, vedere la pagina di [download di .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
-4. Nella cartella di installazione individuare e aprire il file **dmsSettings.json**, specificare **ApplicationId** e **resourceId** e quindi salvare il file.
+4. Nella cartella di installazione individuare e aprire il file **dmsSettings.json** , specificare **ApplicationId** e **resourceId** e quindi salvare il file.
 
     ![Impostazioni del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 
@@ -139,7 +139,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
     ![Certificato del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. Nel portale di Azure passare all'ID app in **Gestisci**, selezionare **Certificati e segreti** e quindi selezionare **Carica certificato** per selezionare il certificato pubblico generato.
+6. Nel portale di Azure passare all'ID app in **Gestisci** , selezionare **Certificati e segreti** e quindi selezionare **Carica certificato** per selezionare il certificato pubblico generato.
 
     ![Caricamento del certificato del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 
@@ -152,7 +152,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
     > [!NOTE]
     > Quando si esegue il comando di installazione, è anche possibile usare i parametri seguenti:
     >
-    > - **-TelemetryOptOut**: impedisce al ruolo di lavoro di inviare i dati di telemetria ma continua a eseguire localmente operazioni con registrazione minima.  Il programma di installazione invia comunque i dati di telemetria.
+    > - **-TelemetryOptOut** : impedisce al ruolo di lavoro di inviare i dati di telemetria ma continua a eseguire localmente operazioni con registrazione minima.  Il programma di installazione invia comunque i dati di telemetria.
     > - **-p {InstallLocation}** . Consente di modificare il percorso di installazione, che per impostazione predefinita è "C:\Program Files\DatabaseMigrationServiceHybrid".
 
 8. Se il programma di installazione viene eseguito senza errori, il servizio visualizzerà uno stato online nel Servizio Migrazione del database di Azure e si sarà pronti per eseguire la migrazione dei database.
@@ -184,7 +184,7 @@ Oltre a installare il ruolo di lavoro ibrido del servizio Migrazione del databas
 Questo script è progettato per la creazione rapida di prototipi quando l'utente dispone già di tutte le autorizzazioni necessarie nell'ambiente. Si noti che nell'ambiente di produzione, AdApp and Cert possono avere requisiti diversi, quindi lo script potrebbe non riuscire.
 
 > [!IMPORTANT]
-> Questo script presuppone che sia presente un'istanza esistente del Servizio Migrazione del database di Azure in modalità ibrida e che l'account Azure usato abbia le autorizzazioni per creare AdApps nel tenant e per modificare il Controllo degli accessi in base al ruolo nella sottoscrizione.
+> Questo script presuppone che sia presente un'istanza esistente del Servizio Migrazione del database di Azure in modalità ibrida e che l'account Azure usato abbia le autorizzazioni per creare AdApps nel tenant e per modificare il Controllo degli accessi in base al ruolo di Azure nella sottoscrizione.
 
 Inserire i parametri nella parte superiore dello script, quindi eseguire lo script da un'istanza di PowerShell di amministratore.
 

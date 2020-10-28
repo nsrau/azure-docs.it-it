@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207053"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628831"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -28,7 +28,8 @@ Il servizio app Azure è un sistema distribuito. I ruoli che gestiscono le richi
 |---------------------|-------------------|
 | Indirizzo assegnato dall'app | connessioni ibride |
 | Restrizioni di accesso | Integrazione VNet necessaria per il gateway |
-| Endpoint servizio | Integrazione rete virtuale |
+| Endpoint di servizio | Integrazione rete virtuale |
+| Endpoint privati ||
 
 Se non diversamente specificato, tutte le funzionalità possono essere usate insieme. È possibile combinare le funzionalità per risolvere i diversi problemi.
 
@@ -41,7 +42,7 @@ Per ogni caso di utilizzo specifico, è possibile risolvere il problema in alcun
 | Supportare le esigenze SSL basate su IP per l'app | indirizzo assegnato dall'app |
 | Indirizzo in ingresso non condiviso e dedicato per l'app | indirizzo assegnato dall'app |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
-| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privati |
+| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint di servizio </br> Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privati |
 | Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> Endpoint privati </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio |
 | Proteggi l'app con un Web Application Firewall (WAF) | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint privati </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
 | Bilanciare il carico del traffico verso le app personali in aree diverse | Sportello anteriore di Azure con restrizioni di accesso | 
@@ -89,20 +90,23 @@ Per informazioni su come impostare un indirizzo nell'app, vedere l'esercitazione
 
 ### <a name="access-restrictions"></a>Restrizioni di accesso 
 
-La funzionalità restrizioni di accesso consente di filtrare le richieste in **ingresso** in base all'indirizzo IP di origine. L'azione di filtro si verifica nei ruoli front-end che sono upstream dai ruoli di lavoro in cui sono in esecuzione le app. Poiché i ruoli front-end sono upstream dai ruoli di lavoro, la funzionalità restrizioni di accesso può essere considerata come protezione a livello di rete per le app. La funzionalità consente di compilare un elenco di blocchi di indirizzi allow e Deny che vengono valutati in ordine di priorità. È simile alla funzionalità del gruppo di sicurezza di rete (NSG) presente nella rete di Azure.  È possibile usare questa funzionalità in un ambiente del servizio app o nel servizio multi-tenant. Quando viene usato con un ambiente del servizio app ILB, è possibile limitare l'accesso da blocchi di indirizzi privati.
+La funzionalità restrizioni di accesso consente di filtrare le richieste in **ingresso** . L'azione di filtro si verifica nei ruoli front-end che sono upstream dai ruoli di lavoro in cui sono in esecuzione le app. Poiché i ruoli front-end sono upstream dai ruoli di lavoro, la funzionalità restrizioni di accesso può essere considerata come protezione a livello di rete per le app. La funzionalità consente di compilare un elenco di regole di autorizzazione e di negazione che vengono valutate in ordine di priorità. È simile alla funzionalità del gruppo di sicurezza di rete (NSG) presente nella rete di Azure.  È possibile usare questa funzionalità in un ambiente del servizio app o nel servizio multi-tenant. Quando viene usato con un ambiente del servizio app ILB o un endpoint privato, è possibile limitare l'accesso da blocchi di indirizzi privati.
+> [!NOTE]
+> È possibile configurare fino a 512 regole di restrizione dell'accesso per ogni app. 
 
 ![Restrizioni di accesso](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Regole di restrizione dell'accesso basato su IP
 
-La funzionalità restrizioni di accesso è utile negli scenari in cui si vuole limitare gli indirizzi IP che possono essere usati per raggiungere l'app. Tra i casi d'uso per questa funzionalità:
+La funzionalità restrizioni di accesso basato su IP aiuta in scenari in cui si vuole limitare gli indirizzi IP che possono essere usati per raggiungere l'app. IPv4 e IPv6 sono entrambi supportati. Tra i casi d'uso per questa funzionalità:
 
 * Limitare l'accesso all'app da un set di indirizzi ben definiti 
-* Limitare l'accesso in modo che arrivi attraverso un servizio di bilanciamento del carico, ad esempio front door di Azure. Se si vuole bloccare il traffico in ingresso verso la porta anteriore di Azure, creare regole per consentire il traffico da 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Limitare l'accesso in ingresso tramite un servizio di bilanciamento del carico, ad esempio front door di Azure
 
 ![Limitazioni di accesso con sportello anteriore](media/networking-features/access-restrictions-afd.png)
 
-Se si vuole bloccare l'accesso all'app in modo che possa essere raggiunto solo dalle risorse nella rete virtuale di Azure (VNet), è necessario un indirizzo pubblico statico in qualunque sia l'origine nel VNet. Se le risorse non dispongono di un indirizzo pubblico, è consigliabile utilizzare la funzionalità endpoint del servizio. Informazioni su come abilitare questa funzionalità con l'esercitazione sulla [configurazione delle restrizioni di accesso][iprestrictions].
+Informazioni su come abilitare questa funzionalità con l'esercitazione sulla [configurazione delle restrizioni di accesso][iprestrictions].
 
-### <a name="service-endpoints"></a>Endpoint di servizio
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Regole di restrizione dell'accesso basato su endpoint servizio
 
 Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'app in modo che l'indirizzo di origine debba provenire da un set di subnet selezionato. Questa funzionalità funziona insieme alle restrizioni di accesso IP. Gli endpoint di servizio non sono compatibili con il debug remoto. Per usare il debug remoto con l'app, il client non può trovarsi in una subnet con gli endpoint di servizio abilitati. Gli endpoint di servizio vengono impostati nella stessa esperienza utente delle restrizioni di accesso IP. È possibile compilare un elenco Consenti/Nega di regole di accesso che include indirizzi pubblici e subnet nella reti virtuali. Questa funzionalità supporta scenari come:
 
@@ -225,7 +229,7 @@ Questo stile di distribuzione non fornisce un indirizzo dedicato per il traffico
 
 ### <a name="create-multi-tier-applications"></a>Creazione di applicazioni multilivello
 
-Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una VNet. Questa operazione consentirà all'app Web di effettuare chiamate a VNet. Dopo che l'app front-end è connessa alla VNet, è necessario scegliere come bloccare l'accesso all'applicazione per le API.  è possibile:
+Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una VNet. Questa operazione consentirà all'app Web di effettuare chiamate a VNet. Dopo che l'app front-end è connessa alla VNet, è necessario scegliere come bloccare l'accesso all'applicazione per le API.  È possibile:
 
 * ospitare sia il front-end che l'app per le API nello stesso ambiente del servizio app ILB ed esporre l'app front-end a Internet con un gateway applicazione
 * ospitare il front-end nel servizio multi-tenant e il back-end in un ambiente del servizio app ILB
@@ -261,7 +265,7 @@ In caso contrario, è preferibile usare endpoint privati. Con gli endpoint priva
 
 Se si analizza il servizio app, saranno disponibili diverse porte esposte per le connessioni in ingresso. Non è possibile bloccare o controllare l'accesso a queste porte nel servizio multi-tenant. Le porte esposte sono le seguenti:
 
-| Usa | Porte |
+| Uso | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gestione | 454, 455 |

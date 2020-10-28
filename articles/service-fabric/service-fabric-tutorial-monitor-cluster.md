@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020100"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331992"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
 
@@ -57,7 +57,7 @@ Selezionare la risorsa **ServiceFabric(mysfomsworkspace)** .
 
 In **Panoramica** vengono visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 
-![Soluzione Service Fabric](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Screenshot che mostra il grafo Service Fabric.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 L'immagine seguente mostra la home page della soluzione Analisi Service Fabric. La home page fornisce una visualizzazione di riepilogo delle operazioni eseguite nel cluster.
 
@@ -74,7 +74,7 @@ L'immagine seguente mostra la home page della soluzione Analisi Service Fabric. 
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visualizzare gli eventi di Service Fabric che includono azioni sui nodi
 
-Nella pagina Analisi Service Fabric fare clic sul grafo di **Eventi del cluster**.  Vengono visualizzati i log per tutti gli eventi di sistema che sono stati raccolti. Come riferimento, questi elementi provengono da **WADServiceFabricSystemEventsTable** nell'account di Archiviazione di Azure. Analogamente, gli eventi di Reliable Services e Reliable Actors visualizzati accanto provengono dalle rispettive tabelle.
+Nella pagina Analisi Service Fabric fare clic sul grafo di **Eventi del cluster** .  Vengono visualizzati i log per tutti gli eventi di sistema che sono stati raccolti. Come riferimento, questi elementi provengono da **WADServiceFabricSystemEventsTable** nell'account di Archiviazione di Azure. Analogamente, gli eventi di Reliable Services e Reliable Actors visualizzati accanto provengono dalle rispettive tabelle.
     
 ![Canale operativo della query](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Visualizzare gli eventi delle applicazioni di Service Fabric
 
-È possibile visualizzare gli eventi per le applicazioni Reliable Services e Reliable Actors distribuite nel cluster.  Nella pagina Analisi Service Fabric fare clic sul grafo di **Eventi dell'applicazione**.
+È possibile visualizzare gli eventi per le applicazioni Reliable Services e Reliable Actors distribuite nel cluster.  Nella pagina Analisi Service Fabric fare clic sul grafo di **Eventi dell'applicazione** .
 
 Eseguire la query seguente per visualizzare gli eventi delle applicazioni Reliable Services:
 ```kusto
@@ -227,13 +227,13 @@ Per configurare eventi più dettagliati per Reliable Actors, è possibile modifi
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Visualizzare i contatori delle prestazioni con i log di Monitoraggio di Azure
 Per visualizzare i contatori delle prestazioni, passare al [portale di Azure](https://portal.azure.com) e al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. 
 
-Selezionare la risorsa **ServiceFabric(mysfomsworkspace)** , quindi l'**Area di lavoro di Log Analytics** e infine **Impostazioni avanzate**.
+Selezionare la risorsa **ServiceFabric(mysfomsworkspace)** , quindi l' **Area di lavoro di Log Analytics** e infine **Impostazioni avanzate** .
 
-Fare clic su **Dati**, quindi fare clic su **Contatori delle prestazioni di Windows**. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Fare clic su **Salva**, quindi su **OK**.
+Fare clic su **Dati** , quindi fare clic su **Contatori delle prestazioni di Windows** . È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Fare clic su **Salva** , quindi su **OK** .
 
-Chiudere il pannello Impostazioni avanzate e selezionare **Riepilogo dell'area di lavoro** sotto l'intestazione **Generale**. Per ognuna delle soluzioni abilitate è presente un riquadro grafico, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
+Chiudere il pannello Impostazioni avanzate e selezionare **Riepilogo dell'area di lavoro** sotto l'intestazione **Generale** . Per ognuna delle soluzioni abilitate è presente un riquadro grafico, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 
-Sono presenti riquadri grafici per eventi del canale operativo e di Reliable Services. La rappresentazione grafica dei dati trasmessi ai contatori selezionati sarà visualizzata sotto **Metriche del nodo**. 
+Sono presenti riquadri grafici per eventi del canale operativo e di Reliable Services. La rappresentazione grafica dei dati trasmessi ai contatori selezionati sarà visualizzata sotto **Metriche del nodo** . 
 
 Selezionare il grafico **Metriche del contenitore** per visualizzare dettagli aggiuntivi. È anche possibile eseguire query sui dati dei contatori delle prestazioni in modo analogo agli eventi cluster e applicare filtri sui nodi, sul nome del contatore delle prestazioni e sui valori usando il linguaggio di query Kusto.
 

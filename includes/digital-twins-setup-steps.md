@@ -17,6 +17,6 @@ ms.locfileid: "92478853"
 
 La configurazione completa per una nuova istanza di Azure Digital Twins è costituita da due parti:
 1. **Creazione dell'istanza**
-2. **Impostazione delle autorizzazioni di accesso utente**: gli utenti di Azure devono avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di Azure Digital Twins per poterli gestire e i relativi dati. In questo passaggio, come proprietario/amministratore della sottoscrizione di Azure, questo ruolo verrà assegnato alla persona che gestirà l'istanza di Azure Digital gemelli. Potrebbe trattarsi di un utente o di un altro utente nell'organizzazione.
+2. **Impostazione delle autorizzazioni di accesso utente** : gli utenti di Azure devono avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di Azure Digital Twins per poterli gestire e i relativi dati. In questo passaggio, come proprietario/amministratore della sottoscrizione di Azure, questo ruolo verrà assegnato alla persona che gestirà l'istanza di Azure Digital gemelli. Potrebbe trattarsi di un utente o di un altro utente nell'organizzazione.
 
 [!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]

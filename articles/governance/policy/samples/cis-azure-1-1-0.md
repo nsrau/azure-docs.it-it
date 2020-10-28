@@ -1,23 +1,23 @@
 ---
 title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 5da46631d0b6cfcd142ab32172de306115a080bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932159"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320597"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
 
 L'articolo seguente definisce il mapping dell'iniziativa predefinita di conformità alle normative di Criteri di Azure ai **domini di conformità** e ai **controlli** di CIS Microsoft Azure Foundations Benchmark.
-Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_ , vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti riguardano i controlli di **CIS Microsoft Azure Foundations Benchmark**. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+I mapping seguenti riguardano i controlli di **CIS Microsoft Azure Foundations Benchmark** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni** .
+Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **CIS Microsoft Azure Foundations Benchmark 1.1.0** .
 
 Questa iniziativa predefinita viene distribuita come parte dell'[esempio di progetto CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -29,7 +29,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Assicurarsi che la funzionalità di autenticazione a più fattori sia abilitata per tutti gli utenti con privilegi
 
-**ID**: CIS Azure 1.1 **Proprietà**: Customer
+**ID** : CIS Azure 1.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>Assicurarsi che la funzionalità di autenticazione a più fattori sia abilitata per tutti gli utenti senza privilegi
 
-**ID**: CIS Azure 1.2 **Proprietà**: Customer
+**ID** : CIS Azure 1.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Assicurarsi che non siano presenti utenti guest
 
-**ID**: CIS Azure 1.3 **Proprietà**: Customer
+**ID** : CIS Azure 1.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati
 
-**ID**: CIS Azure 1.23 **Proprietà**: Customer
+**ID** : CIS Azure 1.23 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Assicurarsi che "Provisioning automatico dell'agente di monitoraggio" sia impostata su "Sì"
 
-**ID**: CIS Azure 2.2 **Proprietà**: Customer
+**ID** : CIS Azure 2.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora aggiornamenti del sistema" non sia disabilitata
 
-**ID**: CIS Azure 2.3 **Proprietà**: Customer
+**ID** : CIS Azure 2.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora vulnerabilità del sistema operativo" non sia disabilitata
 
-**ID**: CIS Azure 2.4 **Proprietà**: Customer
+**ID** : CIS Azure 2.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora protezione endpoint" non sia disabilitata
 
-**ID**: CIS Azure 2.5 **Proprietà**: Customer
+**ID** : CIS Azure 2.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora crittografia disco" non sia disabilitata
 
-**ID**: CIS Azure 2.6 **Proprietà**: Customer
+**ID** : CIS Azure 2.6 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora gruppi di sicurezza di rete" non sia disabilitata
 
-**ID**: CIS Azure 2.7 **Proprietà**: Customer
+**ID** : CIS Azure 2.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -114,7 +114,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Abilita monitoraggio firewall di nuova generazione" non sia disabilitata
 
-**ID**: CIS Azure 2.9 **Proprietà**: Customer
+**ID** : CIS Azure 2.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora la valutazione della vulnerabilità" non sia disabilitata
 
-**ID**: CIS Azure 2.10 **Proprietà**: Customer
+**ID** : CIS Azure 2.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora accesso JIT alla rete" non sia disabilitata
 
-**ID**: CIS Azure 2.12 **Proprietà**: Customer
+**ID** : CIS Azure 2.12 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora l'inserimento delle applicazioni adattive nell'elenco elementi consentiti" non sia disabilitata
 
-**ID**: CIS Azure 2.13 **Proprietà**: Customer
+**ID** : CIS Azure 2.13 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora controllo SQL" non sia disabilitata
 
-**ID**: CIS Azure 2.14 **Proprietà**: Customer
+**ID** : CIS Azure 2.14 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora crittografia SQL" non sia disabilitata
 
-**ID**: CIS Azure 2.15 **Proprietà**: Customer
+**ID** : CIS Azure 2.15 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Assicurarsi che il criterio "Indirizzi di posta elettronica dei contatti di sicurezza" sia configurato
 
-**ID**: CIS Azure 2.16 **Proprietà**: Customer
+**ID** : CIS Azure 2.16 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Assicurarsi che il criterio "Numero di telefono" del contatto di sicurezza sia configurato
 
-**ID**: CIS Azure 2.17 **Proprietà**: Customer
+**ID** : CIS Azure 2.17 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Assicurarsi che il criterio "Invia una notifica tramite posta elettronica per avvisi con gravità elevata" sia impostato su "Sì"
 
-**ID**: CIS Azure 2.18 **Proprietà**: Customer
+**ID** : CIS Azure 2.18 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Assicurarsi che "Invia un messaggio di posta elettronica anche ai proprietari della sottoscrizione" sia impostata su 'Sì'
 
-**ID**: CIS Azure 2.19 **Proprietà**: Customer
+**ID** : CIS Azure 2.19 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Assicurarsi che l'opzione "Trasferimento sicuro obbligatorio" sia impostata su "Abilitato".
 
-**ID**: CIS Azure 3.1 **Proprietà**: Customer
+**ID** : CIS Azure 3.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Assicurarsi che la regola di accesso alla rete predefinita per gli account di archiviazione sia impostata su Nega
 
-**ID**: CIS Azure 3.7 **Proprietà**: Customer
+**ID** : CIS Azure 3.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Assicurarsi che il criterio "Servizi Microsoft attendibili" sia abilitato per l'accesso all'account di archiviazione
 
-**ID**: CIS Azure 3.8 **Proprietà**: Customer
+**ID** : CIS Azure 3.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Assicurarsi che "Controllo" sia impostato su "Attivato"
 
-**ID**: CIS Azure 4.1 **Proprietà**: Customer
+**ID** : CIS Azure 4.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Assicurarsi che "AuditActionGroups" nel criterio "controllo" per un server SQL sia impostato correttamente
 
-**ID**: CIS Azure 4.2 **Proprietà**: Customer
+**ID** : CIS Azure 4.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Assicurarsi che il periodo di conservazione dei dati di controllo sia "superiore a 90 giorni"
 
-**ID**: CIS Azure 4.3 **Proprietà**: Customer
+**ID** : CIS Azure 4.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Assicurarsi che "Sicurezza dei dati avanzata" in un server SQL sia impostata su "Attivata"
 
-**ID**: CIS Azure 4.4 **Proprietà**: Customer
+**ID** : CIS Azure 4.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Assicurarsi che l'amministratore di Azure Active Directory sia configurato
 
-**ID**: CIS Azure 4.8 **Proprietà**: Customer
+**ID** : CIS Azure 4.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Assicurarsi che "Crittografia dati" sia impostato su "Attivato" in un database SQL
 
-**ID**: CIS Azure 4.9 **Proprietà**: Customer
+**ID** : CIS Azure 4.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Assicurarsi che la protezione TDE di SQL Server sia crittografata con BYOK (Bring Your Own Key)
 
-**ID**: CIS Azure 4.10 **Proprietà**: Customer
+**ID** : CIS Azure 4.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Assicurarsi che il criterio "Imponi connessione SSL" sia abilitato per il server di database MySQL
 
-**ID**: CIS Azure 4.11 **Proprietà**: Customer
+**ID** : CIS Azure 4.11 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_checkpoints" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.12 **Proprietà**: Customer
+**ID** : CIS Azure 4.12 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Assicurarsi che il criterio "Imponi connessione SSL" sia abilitato per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.13 **Proprietà**: Customer
+**ID** : CIS Azure 4.13 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_connections" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.14 **Proprietà**: Customer
+**ID** : CIS Azure 4.14 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_disconnections" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.15 **Proprietà**: Customer
+**ID** : CIS Azure 4.15 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "connection_throttling" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.17 **Proprietà**: Customer
+**ID** : CIS Azure 4.17 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Assicurarsi che esista un profilo di log
 
-**ID**: CIS Azure 5.1.1 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Assicurarsi che la conservazione del log attività sia impostata su un valore di 365 giorni o superiore
 
-**ID**: CIS Azure 5.1.2 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>Assicurarsi che il profilo di controllo acquisisca tutte le attività
 
-**ID**: CIS Azure 5.1.3 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Assicurarsi che il profilo di log acquisisca i log attività per tutte le aree, incluse quelle globali
 
-**ID**: CIS Azure 5.1.4 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Assicurarsi che l'account di archiviazione contenente il contenitore con i log attività sia crittografato con BYOK (Bring Your Own Key)
 
-**ID**: CIS Azure 5.1.6 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.6 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Assicurarsi che la registrazione per l'insieme di credenziali delle credenziali di Azure sia abilitata
 
-**ID**: CIS Azure 5.1.7 **Proprietà**: Customer
+**ID** : CIS Azure 5.1.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,7 +379,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
 
-**ID**: CIS Azure 5.2.1 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -387,7 +387,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento del gruppo di sicurezza di rete
 
-**ID**: CIS Azure 5.2.2 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Assicurarsi che esista un avviso del log attività per l'eliminazione del gruppo di sicurezza di rete
 
-**ID**: CIS Azure 5.2.3 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento di una regola del gruppo di sicurezza di rete
 
-**ID**: CIS Azure 5.2.4 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Assicurarsi che esista un avviso del log attività per l'eliminazione di una regola del gruppo di sicurezza di rete
 
-**ID**: CIS Azure 5.2.5 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento di una soluzione di sicurezza
 
-**ID**: CIS Azure 5.2.6 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.6 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Assicurarsi che esista un avviso del log attività per l'eliminazione di una soluzione di sicurezza
 
-**ID**: CIS Azure 5.2.7 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Assicurarsi che esista un avviso del log attività per la creazione, l'aggiornamento o l'eliminazione di una regola del firewall di SQL Server
 
-**ID**: CIS Azure 5.2.8 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Assicurarsi che esista un avviso del log attività per l'aggiornamento dei criteri di sicurezza
 
-**ID**: CIS Azure 5.2.9 **Proprietà**: Customer
+**ID** : CIS Azure 5.2.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Assicurarsi che l'accesso RDP sia limitato da Internet
 
-**ID**: CIS Azure 6.1 **Proprietà**: Customer
+**ID** : CIS Azure 6.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Assicurarsi che l'accesso SSH sia limitato da Internet
 
-**ID**: CIS Azure 6.2 **Proprietà**: Customer
+**ID** : CIS Azure 6.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Assicurarsi che Network Watcher sia abilitato
 
-**ID**: CIS Azure 6.5 **Proprietà**: Customer
+**ID** : CIS Azure 6.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Assicurarsi che il "Disco del sistema operativo" sia crittografato
 
-**ID**: CIS Azure 7.1 **Proprietà**: Customer
+**ID** : CIS Azure 7.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Assicurarsi che i "Dischi dati" siano crittografati
 
-**ID**: CIS Azure 7.2 **Proprietà**: Customer
+**ID** : CIS Azure 7.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Assicurarsi che i "Dischi non collegati" siano crittografati
 
-**ID**: CIS Azure 7.3 **Proprietà**: Customer
+**ID** : CIS Azure 7.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Assicurarsi che siano installate solo le estensioni approvate
 
-**ID**: CIS Azure 7.4 **Proprietà**: Customer
+**ID** : CIS Azure 7.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Assicurarsi che vengano applicate le patch più recenti del sistema operativo per tutte le macchine virtuali
 
-**ID**: CIS Azure 7.5 **Proprietà**: Customer
+**ID** : CIS Azure 7.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Assicurarsi che venga installata la protezione endpoint per tutte le Macchine virtuali di Microsoft Azure
 
-**ID**: CIS Azure 7.6 **Proprietà**: Customer
+**ID** : CIS Azure 7.6 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,7 +529,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Assicurarsi che l'insieme di credenziali delle chiavi sia recuperabile
 
-**ID**: CIS Azure 8.4 **Proprietà**: Customer
+**ID** : CIS Azure 8.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -537,7 +537,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Abilitare il controllo degli accessi in base al ruolo con il servizio Azure Kubernetes
 
-**ID**: CIS Azure 8.5 **Proprietà**: Customer
+**ID** : CIS Azure 8.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>Assicurarsi che l'autenticazione del servizio app sia impostata nel servizio app di Azure
 
-**ID**: CIS Azure 9.1 **Proprietà**: Customer
+**ID** : CIS Azure 9.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Assicurarsi che l'app Web reindirizzi tutto il traffico HTTP a HTTPS nel servizio app Azure
 
-**ID**: CIS Azure 9.2 **Proprietà**: Customer
+**ID** : CIS Azure 9.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>Assicurarsi che l'app Web usi la versione più recente della crittografia TLS
 
-**ID**: CIS Azure 9.3 **Proprietà**: Customer
+**ID** : CIS Azure 9.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>Assicurarsi che l'opzione "Certificati client (certificati client in ingresso)" dell'app Web sia impostata su "Sì"
 
-**ID**: CIS Azure 9.4 **Proprietà**: Customer
+**ID** : CIS Azure 9.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>Assicurarsi che l'opzione Registra con Azure Active Directory sia abilitata nel Servizio app
 
-**ID**: CIS Azure 9.5 **Proprietà**: Customer
+**ID** : CIS Azure 9.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,42 +595,42 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Assicurarsi che la "versione di PHP" sia la più recente, se usata per eseguire l'app Web
 
-**ID**: CIS Azure 9.7 **Proprietà**: Customer
+**ID** : CIS Azure 9.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Assicurarsi che la "versione di Python" sia la più recente, se usata per eseguire l'app Web
 
-**ID**: CIS Azure 9.8 **Proprietà**: Customer
+**ID** : CIS Azure 9.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Assicurarsi che la "versione di Java" sia la più recente, se usata per eseguire l'app Web
 
-**ID**: CIS Azure 9.9 **Proprietà**: Customer
+**ID** : CIS Azure 9.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Periodicamente, per Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Periodicamente, per Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>Assicurarsi che la "versione di HTTP" sia la più recente, se usata per eseguire l'app Web
 
-**ID**: CIS Azure 9.10 **Proprietà**: Customer
+**ID** : CIS Azure 9.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F991310cd-e9f3-47bc-b7b6-f57b557d07db) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_HTTP_Latest.json) |
-|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_HTTP_Latest.json) |
-|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_HTTP_Latest.json) |
+|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F991310cd-e9f3-47bc-b7b6-f57b557d07db) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_HTTP_Latest.json) |
+|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_HTTP_Latest.json) |
+|[Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |Periodicamente, per HTTP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di HTTP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_HTTP_Latest.json) |
 
 > [!NOTE]
 > La disponibilità di specifiche definizioni di Criteri di Azure può variare in Azure per enti pubblici e in altri cloud nazionali.

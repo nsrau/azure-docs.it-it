@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588926"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327417"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrazione di Key Vault con l'autorità di certificazione DigiCert
 
@@ -51,17 +51,17 @@ Dopo aver raccolto le informazioni sopra riportate dall'account CertCentral di D
 ### <a name="azure-portal"></a>Portale di Azure
 
 1.  Per aggiungere l'autorità di certificazione DigiCert, passare all'insieme di credenziali delle chiavi in cui inserirla. 
-2.  Nella pagina delle proprietà di Key Vault selezionare **Certificati**.
-3.  Selezionare la scheda **Autorità di certificazione**. ![Proprietà del certificato](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Selezionare l'opzione **Aggiungi**.
- ![Proprietà del certificato](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+2.  Nella pagina delle proprietà di Key Vault selezionare **Certificati** .
+3.  Selezionare la scheda **Autorità di certificazione** . ![Selezionare Autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Selezionare l'opzione **Aggiungi** .
+ ![Aggiungere autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Nella schermata **Crea un'autorità di certificazione** scegliere i valori seguenti:
-    -   **Name**: aggiungere un nome di autorità emittente identificabile. Esempio: DigicertCA
-    -   **Provider**: scegliere DigiCert dal menu.
-    -   **ID account**: immettere l'ID dell'account CertCentral di DigiCert
-    -   **Password account**: immettere la chiave API generata nell'account CertCentral di DigiCert
-    -   **ID organizzazione**: immettere l'ID organizzazione raccolto dall'account CertCentral di DigiCert 
-    -   Fare clic su **Crea**.
+    -   **Name** : aggiungere un nome di autorità emittente identificabile. Esempio: DigicertCA
+    -   **Provider** : scegliere DigiCert dal menu.
+    -   **ID account** : immettere l'ID dell'account CertCentral di DigiCert
+    -   **Password account** : immettere la chiave API generata nell'account CertCentral di DigiCert
+    -   **ID organizzazione** : immettere l'ID organizzazione raccolto dall'account CertCentral di DigiCert 
+    -   Fare clic su **Crea** .
    
 6.  Si noterà che DigicertCA è stata aggiunta all'elenco delle autorità di certificazione.
 
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Definire la variabile per **ID account**
 - Definire la variabile per **ID organizzazione**
 - Definire la variabile per **Chiave API**
-- Definire la variabile per **Nome dell'autorità emittente**
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Impostare **Autorità emittente**. Nell'insieme di credenziali delle chiavi verrà aggiunta DigiCert come autorità di certificazione.
+4. Impostare **Autorità emittente** . Nell'insieme di credenziali delle chiavi verrà aggiunta DigiCert come autorità di certificazione. Per altre informazioni sui parametri, [vedere qui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Impostazione dei criteri per il certificato ed emissione del certificato** da DigiCert direttamente all'interno di Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ Il certificato è stato emesso correttamente dall'autorità di certificazione Di
 
 Se il certificato emesso ha lo stato 'disabilitato' nel portale di Azure, vedere **Operazione relativa al certificato** per esaminare il messaggio di errore di DigiCert per il certificato.
 
- ![Proprietà del certificato](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Operazione relativa al certificato](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
 
@@ -136,8 +134,15 @@ Per altre informazioni, vedere le [operazioni relative ai certificati nell'artic
 
 - È possibile generare un certificato con caratteri jolly DigiCert tramite KeyVault? 
    Sì. Dipende dal modo in cui è stato configurato l'account DigiCert.
-- Se si vuole creare un certificato EV, come si specifica questo tipo di certificato? 
-   Durante la creazione di un certificato, fare clic su Configurazione avanzata dei criteri, quindi specificare il Tipo di certificato. I valori supportati sono: OV-SSL, EV-SSL
+- Come si crea un certificato **OV-SSL o EV-SSL** con DigiCert? 
+   Key Vault supporta la creazione di certificati OV-SSL ed EV-SSL. Durante la creazione di un certificato, fare clic su Configurazione avanzata dei criteri, quindi specificare il Tipo di certificato. I valori supportati sono: OV-SSL, EV-SSL
+   
+   È possibile creare questo tipo di certificato in Key Vault se l'account Digicert lo consente. Per questo tipo di certificato la convalida viene eseguita da DigiCert. Se la convalida non riesce, il team di supporto di DigiCert dovrebbe fornire assistenza. È possibile aggiungere altre informazioni durante la creazione di un certificato definendole in subjectName.
+
+Esempio
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - È previsto un ritardo durante la creazione di un certificato DigiCert tramite l'integrazione rispetto all'acquisizione di un certificato direttamente tramite DigiCert?
    No. Durante la creazione di un certificato, il processo di verifica richiede più tempo rispetto agli altri e tale verifica dipende dal processo seguito da DigiCert.
 

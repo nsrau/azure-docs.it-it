@@ -3,16 +3,16 @@ title: Esempi di Archiviazione di Azure che usano .NET | Microsoft Docs
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare esempi introduttivi per BLOB, code, tabelle e file usando le librerie client di archiviazione .NET.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81010495"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359782"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Esempi di Archiviazione di Azure che usano le librerie client .NET v12
 
@@ -336,4 +336,5 @@ Per informazioni su esempi con altri linguaggi:
 * Java: [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
 * Python: [Esempi di Archiviazione di Azure che usano Python](storage-samples-python.md)
 * JavaScript/Node.js: [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
+* C++: [Esempi di Archiviazione di Azure che usano C++](storage-samples-c-plus-plus.md)
 * Tutti gli altri linguaggi: [Esempi di Archiviazione di Azure](storage-samples.md)

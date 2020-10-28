@@ -14,7 +14,7 @@ ms.locfileid: "92478852"
 ---
 I dispositivi gemelli digitali di Azure usano [Azure Active Directory (Azure ad)](../articles/active-directory/fundamentals/active-directory-whatis.md) per il controllo degli accessi in base al ruolo (RBAC). Ciò significa che prima che un utente possa effettuare chiamate del piano dati all'istanza di Azure Digital Twins, a tale utente deve essere assegnato un ruolo con le autorizzazioni appropriate.
 
-Per i dispositivi gemelli digitali di Azure, questo ruolo è il _**proprietario dei dati di Azure Digital gemelli**_. Per altre informazioni sui ruoli e sulla sicurezza, vedere Concetti relativi alla [*sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*](../articles/digital-twins/concepts-security.md).
+Per i dispositivi gemelli digitali di Azure, questo ruolo è il _**proprietario dei dati di Azure Digital gemelli**_ . Per altre informazioni sui ruoli e sulla sicurezza, vedere Concetti relativi alla [*sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*](../articles/digital-twins/concepts-security.md).
 
 [!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
 
@@ -25,4 +25,4 @@ Questa sezione illustra come creare un'assegnazione di ruolo per un utente nell'
 Per concedere a un utente le autorizzazioni per la gestione di un'istanza di dispositivi gemelli digitali di Azure, è necessario assegnare loro il ruolo di _**proprietario dei dati di Azure Digital Twins**_ all'interno dell'istanza.
 
 > [!NOTE]
-> Si noti che questo ruolo è diverso dal ruolo *proprietario* Azure ad, che può essere assegnato anche nell'ambito dell'istanza di Azure Digital gemelli. Si tratta di due ruoli di gestione distinti e Azure AD *proprietario* non concede l'accesso alle funzionalità del piano dati concesse con il *proprietario dei dati di Azure Digital gemelli*.
+> Si noti che questo ruolo è diverso dal ruolo *proprietario* Azure ad, che può essere assegnato anche nell'ambito dell'istanza di Azure Digital gemelli. Si tratta di due ruoli di gestione distinti e Azure AD *proprietario* non concede l'accesso alle funzionalità del piano dati concesse con il *proprietario dei dati di Azure Digital gemelli* .

@@ -18,7 +18,7 @@ ms.locfileid: "92478851"
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-Questo articolo illustra i passaggi per **configurare una nuova istanza di Azure Digital Twins**, inclusa la creazione dell'istanza e la configurazione dell'autenticazione. Al termine dell'articolo, si disporrà di un'istanza di gemelli digitali di Azure pronta per iniziare la programmazione.
+Questo articolo illustra i passaggi per **configurare una nuova istanza di Azure Digital Twins** , inclusa la creazione dell'istanza e la configurazione dell'autenticazione. Al termine dell'articolo, si disporrà di un'istanza di gemelli digitali di Azure pronta per iniziare la programmazione.
 
 Questa versione di questo articolo descrive manualmente questa procedura, una alla volta, usando il portale di Azure. Il portale di Azure è una console unificata basata sul Web che offre un'alternativa agli strumenti da riga di comando.
 * Per eseguire questa procedura manualmente usando l'interfaccia della riga di comando, vedere la versione dell'interfaccia della riga di comando di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md).
@@ -40,18 +40,18 @@ Cercare i dispositivi *gemelli digitali di Azure* nella casella di ricerca e sce
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
 Nella pagina *Crea risorsa* seguente inserire i valori indicati di seguito:
-* **Sottoscrizione**: la sottoscrizione di Azure in uso
-  - **Gruppo di risorse**: gruppo di risorse in cui distribuire l'istanza. Se non è già presente un gruppo di risorse esistente, è possibile crearne uno selezionando il collegamento *Crea nuovo* e immettendo un nome per un nuovo gruppo di risorse
-* **Location**: area abilitata per i dispositivi gemelli di Azure per la distribuzione. Per altri dettagli sul supporto regionale, visita i [*prodotti Azure disponibili in base all'area (gemelli digitali di Azure)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nome della risorsa**: un nome per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
+* **Sottoscrizione** : la sottoscrizione di Azure in uso
+  - **Gruppo di risorse** : gruppo di risorse in cui distribuire l'istanza. Se non è già presente un gruppo di risorse esistente, è possibile crearne uno selezionando il collegamento *Crea nuovo* e immettendo un nome per un nuovo gruppo di risorse
+* **Location** : area abilitata per i dispositivi gemelli di Azure per la distribuzione. Per altri dettagli sul supporto regionale, visita i [*prodotti Azure disponibili in base all'area (gemelli digitali di Azure)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Nome della risorsa** : un nome per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
-Al termine, selezionare _Verifica + crea_. Verrà visualizzata una pagina di riepilogo in cui è possibile esaminare i dettagli dell'istanza immessi e quindi fare clic su _Crea_. 
+Al termine, selezionare _Verifica + crea_ . Verrà visualizzata una pagina di riepilogo in cui è possibile esaminare i dettagli dell'istanza immessi e quindi fare clic su _Crea_ . 
 
 ### <a name="verify-success-and-collect-important-values"></a>Verificare l'esito positivo e raccogliere i valori importanti
 
-Dopo aver premuto *Crea*, è possibile visualizzare lo stato della distribuzione dell'istanza nelle notifiche di Azure lungo la barra delle icone del portale. La notifica indicherà quando la distribuzione ha avuto esito positivo e sarà possibile selezionare il pulsante _Vai alla risorsa_ per visualizzare l'istanza creata.
+Dopo aver premuto *Crea* , è possibile visualizzare lo stato della distribuzione dell'istanza nelle notifiche di Azure lungo la barra delle icone del portale. La notifica indicherà quando la distribuzione ha avuto esito positivo e sarà possibile selezionare il pulsante _Vai alla risorsa_ per visualizzare l'istanza creata.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
@@ -60,7 +60,7 @@ In alternativa, se la distribuzione ha esito negativo, la notifica indicherà il
 >[!TIP]
 >Una volta creata l'istanza, è possibile tornare alla relativa pagina in qualsiasi momento cercando il nome dell'istanza nella barra di ricerca portale di Azure.
 
-Dalla pagina *Panoramica* dell'istanza, annotare il *nome*, il *gruppo di risorse*e il *nome host*. Questi sono tutti i valori importanti che potrebbero essere necessari quando si continua a usare l'istanza di Azure Digital gemelli. Se altri utenti eseguiranno la programmazione in base all'istanza, è necessario condividerli con questi valori.
+Dalla pagina *Panoramica* dell'istanza, annotare il *nome* , il *gruppo di risorse* e il *nome host* . Questi sono tutti i valori importanti che potrebbero essere necessari quando si continua a usare l'istanza di Azure Digital gemelli. Se altri utenti eseguiranno la programmazione in base all'istanza, è necessario condividerli con questi valori.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
@@ -70,14 +70,14 @@ A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso. Success
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'portale di Azure. Selezionare *controllo di accesso (IAM)* dal menu dell'istanza. Selezionare il pulsante  *Aggiungi* in *Aggiungi un'assegnazione di ruolo*.
+Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'portale di Azure. Selezionare *controllo di accesso (IAM)* dal menu dell'istanza. Selezionare il pulsante  *Aggiungi* in *Aggiungi un'assegnazione di ruolo* .
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
 Nella pagina *Aggiungi assegnazione ruolo* , inserire i valori (che devono essere completati da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
-* **Ruolo**: selezionare il *proprietario dei dati di Azure Digital gemelli* dal menu a discesa
-* **Assegnare l'accesso a**: selezionare *Azure ad utente, gruppo o entità servizio* dal menu a discesa
-* **Select**: consente di cercare il nome o l'indirizzo di posta elettronica dell'utente da assegnare. Quando si seleziona il risultato, l'utente viene visualizzato nella sezione *membri selezionati* .
+* **Ruolo** : selezionare il *proprietario dei dati di Azure Digital gemelli* dal menu a discesa
+* **Assegnare l'accesso a** : selezionare *Azure ad utente, gruppo o entità servizio* dal menu a discesa
+* **Select** : consente di cercare il nome o l'indirizzo di posta elettronica dell'utente da assegnare. Quando si seleziona il risultato, l'utente viene visualizzato nella sezione *membri selezionati* .
 
 :::row:::
     :::column:::
@@ -91,7 +91,7 @@ Al termine dell'immissione dei dettagli, fare clic sul pulsante *Salva* .
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
-È possibile visualizzare l'assegnazione di ruolo configurata in *controllo di accesso (IAM) > assegnazioni di ruolo*. L'utente dovrebbe essere visualizzato nell'elenco con un ruolo di *proprietario dei dati di Azure Digital gemelli*. 
+È possibile visualizzare l'assegnazione di ruolo configurata in *controllo di accesso (IAM) > assegnazioni di ruolo* . L'utente dovrebbe essere visualizzato nell'elenco con un ruolo di *proprietario dei dati di Azure Digital gemelli* . 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 

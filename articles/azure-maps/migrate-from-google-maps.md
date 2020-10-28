@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3ece62e671caa0838bbf4713c0ad4a74f19fd6cb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876312"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518875"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Esercitazione - Eseguire la migrazione da Google Maps a Mappe di Azure
 
-Questo articolo fornisce informazioni dettagliate su come eseguire la migrazione di applicazioni Web, per dispositivi mobili e basate su server da Google Maps alla piattaforma Mappe di Microsoft Azure. L'esercitazione include esempi di codice comparativi, suggerimenti per la migrazione e procedure consigliate per la migrazione a Mappe di Azure.
+Questo articolo fornisce informazioni dettagliate su come eseguire la migrazione di applicazioni Web, per dispositivi mobili e basate su server da Google Maps alla piattaforma Mappe di Microsoft Azure. L'esercitazione include esempi di codice comparativi, suggerimenti per la migrazione e procedure consigliate per la migrazione a Mappe di Azure. In questa esercitazione si apprenderà:
+
+> [!div class="checklist"]
+> * Confronto generale tra funzionalità equivalenti di Google Maps disponibili in Mappe di Azure
+> * Quali differenze di licenza prendere in considerazione
+> * Come pianificare la migrazione
+> * Dove trovare risorse tecniche e il supporto.
+
+## <a name="prerequisites"></a>Prerequisiti 
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="azure-maps-platform-overview"></a>Panoramica della piattaforma Mappe di Azure
 
@@ -107,10 +119,15 @@ Ecco un elenco di risorse tecniche utili per Mappe di Azure.
 
 Gli sviluppatori possono richiedere supporto per la migrazione nei [forum](https://aka.ms/AzureMapsForums) o tramite una delle numerose opzioni di supporto di Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-Per informazioni su come eseguire la migrazione dell'applicazione Google Maps, vedere: 
+## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire la migrazione di un'app Android](migrate-from-google-maps-android-app.md) 
+Per informazioni dettagliate su come eseguire la migrazione dell'applicazione Google Maps, vedere questi articoli:
 
-[Eseguire la migrazione di un servizio Web](migrate-from-google-maps-web-services.md) 
+> [!div class="nextstepaction"]
+> [Eseguire la migrazione di un'app Web](migrate-from-google-maps-web-app.md)
 
-[Eseguire la migrazione di un'app Web](migrate-from-google-maps-web-app.md)
+> [!div class="nextstepaction"]
+> [Eseguire la migrazione di un servizio Web](migrate-from-google-maps-web-services.md) 
+
+> [!div class="nextstepaction"]
+> [Eseguire la migrazione di un'app Android](migrate-from-google-maps-android-app.md) 

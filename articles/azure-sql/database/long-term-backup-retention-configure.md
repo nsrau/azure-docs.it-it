@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450282"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629137"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 È possibile configurare il database SQL per [conservare i backup automatizzati](long-term-retention-overview.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio.
 
-1. Nella portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup**. Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup. Se la casella di controllo accanto al database non è selezionata, le modifiche dei criteri non verranno applicate al database.  
+1. Nella portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup** . Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup. Se la casella di controllo accanto al database non è selezionata, le modifiche dei criteri non verranno applicate al database.  
 
    ![collegamento di gestione backup](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
    ![Configurare criteri](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Al termine, fare clic su **Applica**.
+3. Al termine, fare clic su **Applica** .
 
 > [!IMPORTANT]
 > Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 Visualizzare i backup conservati per un database specifico con un criterio LTR e ripristinare da tali backup.
 
-1. Nella portale di Azure selezionare il server e quindi fare clic su **Gestisci backup**. Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili.
+1. Nella portale di Azure selezionare il server e quindi fare clic su **Gestisci backup** . Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili.
 
    ![Selezionare il database](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -71,7 +71,7 @@ Visualizzare i backup conservati per un database specifico con un criterio LTR e
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](recovery-using-backups.md#point-in-time-restore).
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ Le sezioni seguenti illustrano come usare PowerShell per configurare la conserva
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>Ruoli di Azure per gestire la conservazione a lungo termine
 
-Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**è necessario disporre di uno dei ruoli seguenti:
+Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** è necessario disporre di uno dei ruoli seguenti:
 
 - Ruolo proprietario sottoscrizione o
 - SQL Server ruolo Collaboratore o
@@ -90,7 +90,7 @@ Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**è n
 
    Microsoft. SQL/locations/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Read
 
-Per **Remove-AzSqlDatabaseLongTermRetentionBackup**è necessario disporre di uno dei ruoli seguenti:
+Per **Remove-AzSqlDatabaseLongTermRetentionBackup** è necessario disporre di uno dei ruoli seguenti:
 
 - Ruolo proprietario sottoscrizione o
 - Ruolo personalizzato con l'autorizzazione seguente:
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente. Vedere [ripristino temporizzato](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Limitazioni
+- Quando si esegue il ripristino da un backup di LTR, la proprietà scala lettura è disabilitata. Per abilitare, leggere la scalabilità nel database ripristinato, aggiornare il database dopo che è stato creato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

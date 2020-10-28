@@ -3,17 +3,17 @@ title: Esempi di Archiviazione di Azure che usano Python | Microsoft Docs
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare esempi introduttivi per BLOB, code, tabelle e file usando le librerie client di archiviazione Python.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848187"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371359"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Esempi di Archiviazione di Azure con librerie client Python v12
 
@@ -594,4 +594,5 @@ Per informazioni su esempi con altri linguaggi:
 * .NET: [Esempi di Archiviazione di Azure che usano .NET](storage-samples-dotnet.md)
 * Java: [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
 * JavaScript/Node.js: [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
+* C++: [Esempi di Archiviazione di Azure che usano C++](storage-samples-c-plus-plus.md)
 * Tutti gli altri linguaggi: [Esempi di Archiviazione di Azure](storage-samples.md)

@@ -32,7 +32,7 @@ Per risolvere il problema, eseguire nuovamente il `az login` comando in cloud Sh
 
 In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure e completare il lavoro Cloud Shell da questa posizione:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione della portale di Azure con l'icona ' Cloud Shell ' evidenziata e la Cloud Shell visualizzata nella parte inferiore della finestra del portale":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione del portale di Azure con l'icona Cloud Shell evidenziata e il riquadro di Cloud Shell visualizzato nella parte inferiore della finestra del portale":::
 
 Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 
@@ -66,9 +66,9 @@ Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personal
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problemi con l'autenticazione interattiva del browser
 
-Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
+Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
-Questa non è la versione più recente della libreria. La versione più recente è la **1.2.2**.
+Questa non è la versione più recente della libreria. La versione più recente è la **1.2.2** .
 
 Il metodo interessato viene usato negli articoli seguenti: 
 * [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)
@@ -79,11 +79,11 @@ Il problema include una risposta di errore "Azure. Identity. AuthenticationFaile
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-Per risolvere il, aggiornare le applicazioni in modo da usare la `Azure.Identity` versione **1.2.2**. Con questa versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto.
+Per risolvere il, aggiornare le applicazioni in modo da usare la `Azure.Identity` versione **1.2.2** . Con questa versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto.
 
 ### <a name="possible-causes"></a>Possibili cause
 
-Questo problema è correlato a un problema aperto con la versione più recente della `Azure.Identity` libreria (versione **1.2.0**): [*non è possibile eseguire l'autenticazione quando si usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Questo problema è correlato a un problema aperto con la versione più recente della `Azure.Identity` libreria (versione **1.2.0** ): [*non è possibile eseguire l'autenticazione quando si usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Questo problema verrà visualizzato se si usa la versione **1.2.0** nell'applicazione Digital gemelli di Azure o se si aggiunge la libreria al progetto senza specificare una versione (come per impostazione predefinita la versione più recente).
 

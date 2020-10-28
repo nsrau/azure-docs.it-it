@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629049"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629426"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiare file da più contenitori con Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia più cartelle con Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questo articolo descrive un modello di soluzione che è possibile usare per copiare file da più contenitori tra archivi di file. Ad esempio, è possibile usarlo per eseguire la migrazione di data Lake da AWS S3 a Azure Data Lake Store. In alternativa, è possibile usare il modello per replicare tutti gli elementi da un account di archiviazione BLOB di Azure a un altro.
+Questo articolo descrive un modello di soluzione che è possibile usare più attività di copia per copiare contenitori o cartelle tra archivi basati su file, in cui ogni attività di copia dovrebbe copiare un singolo contenitore o una cartella. 
 
 > [!NOTE]
 > Se si desidera copiare i file da un singolo contenitore, è più efficiente utilizzare lo [strumento copia dati](copy-data-tool.md) per creare una pipeline con un'unica attività di copia. Il modello in questo articolo è più di quello necessario per questo semplice scenario.
 
 ## <a name="about-this-solution-template"></a>Informazioni sul modello di soluzione
 
-Questo modello enumera i contenitori dall'archivio di archiviazione di origine. Quindi copia i contenitori nell'archivio di destinazione.
+Questo modello enumera le cartelle da una determinata cartella padre nell'archivio di archiviazione di origine. Ogni cartella viene quindi copiata nell'archivio di destinazione.
 
 Il modello contiene tre attività:
-- **GetMetadata** analizza l'archivio di archiviazione di origine e ottiene l'elenco dei contenitori.
-- **Foreach** Ottiene l'elenco di contenitori dall'attività **GetMetadata** , quindi scorre l'elenco e passa ogni contenitore all'attività di copia.
-- **Copy copia** ogni contenitore dall'archivio di archiviazione di origine nell'archivio di destinazione.
+- **GetMetadata** analizza l'archivio di archiviazione di origine e ottiene l'elenco di sottocartelle da una cartella padre specificata.
+- **Foreach** Ottiene l'elenco di sottocartelle dall'attività **GetMetadata** , quindi scorre l'elenco e passa ogni cartella all'attività di copia.
+- **Copia** copia ogni cartella dall'archivio di archiviazione di origine nell'archivio di destinazione.
 
 Il modello definisce i parametri seguenti:
-- *SourceFileFolder* è il percorso della cartella dell'archivio dell'origine dati, in cui è possibile ottenere un elenco dei contenitori. Il percorso è la directory radice, che contiene più cartelle del contenitore. Il valore predefinito di questo parametro è `sourcefolder`.
-- *SourceFileDirectory* è il percorso della sottocartella nella directory radice dell'archivio dell'origine dati. Il valore predefinito di questo parametro è `subfolder`.
-- *DestinationFileFolder* è il percorso della cartella in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito di questo parametro è `destinationfolder`.
-- *DestinationFileDirectory* è il percorso della sottocartella in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito di questo parametro è `subfolder`.
+- *SourceFileFolder* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory* , in cui è possibile ottenere un elenco delle sottocartelle. 
+- *SourceFileDirectory* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory* , in cui è possibile ottenere un elenco delle sottocartelle. 
+- *DestinationFileFolder* fa parte del percorso della cartella padre: *DestinationFileFolder/DestinationFileDirectory* in cui verranno copiati i file nell'archivio di destinazione. 
+- *DestinationFileDirectory* fa parte del percorso della cartella padre: *DestinationFileFolder/DestinationFileDirectory* in cui verranno copiati i file nell'archivio di destinazione. 
+
+Se si desidera copiare più contenitori in cartelle radice tra gli archivi di archiviazione, è possibile immettere tutti e quattro i parametri come */* . In questo modo si eseguirà la replica di tutti gli archivi di archiviazione.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
@@ -52,7 +54,7 @@ Il modello definisce i parametri seguenti:
 
     ![Creare una nuova connessione alla destinazione](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selezionare **Usa questo modello**.
+3. Selezionare **Usa questo modello** .
 
     ![Usa questo modello](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -60,7 +62,7 @@ Il modello definisce i parametri seguenti:
 
     ![Mostra la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
+5. Selezionare **Debug** , immettere i valori in **Parametri** , quindi selezionare **Fine** .
 
     ![Eseguire la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

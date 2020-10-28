@@ -399,6 +399,7 @@
             - name: Interfaccia della riga di comando di Azure
               href: flexible-server/quickstart-create-server-cli.md
             - name: Modello ARM
+              displayName: Resource Manager
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Connessione ed esecuzione di query
           items:

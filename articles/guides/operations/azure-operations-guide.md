@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397811"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327774"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -130,7 +130,7 @@ Servizi di rete sia all'interno di Azure che tra Azure e i centri dati locali:
 
 - Rete per la distribuzione di contenuti di Azure
 
-Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazione dei servizi di Azure](https://docs.microsoft.com/azure).
+Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazione dei servizi di Azure](/azure).
 
 ## <a name="azure-key-concepts"></a>Concetti chiave di Azure
 
@@ -142,7 +142,7 @@ Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicaz
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il Portale di Azure, disponibile all'indirizzo [portal.azure.com](https://portal.azure.com). include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il Portale di Azure, disponibile all'indirizzo [portal.azure.com](https://portal.azure.com). include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### <a name="resources"></a>Risorse
 
@@ -170,11 +170,11 @@ L'interfaccia della riga di comando di Azure è uno strumento con cui è possibi
 
 #### <a name="rest-apis"></a>API REST
 
-Azure si basa su un set di API REST che supportano l'interfaccia utente del Portale Azure. La maggior parte di queste API REST è supportata anche per consentire il provisioning e la gestione a livello di codice delle risorse e delle app di Azure da qualsiasi dispositivo abilitato per Internet. Per altre informazioni, vedere [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index) (Informazioni di riferimento per Azure REST SDK).
+Azure si basa su un set di API REST che supportano l'interfaccia utente del Portale Azure. La maggior parte di queste API REST è supportata anche per consentire il provisioning e la gestione a livello di codice delle risorse e delle app di Azure da qualsiasi dispositivo abilitato per Internet. Per altre informazioni, vedere [Azure REST SDK Reference](/rest/api/index) (Informazioni di riferimento per Azure REST SDK).
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della riga di comando di Azure tramite un'esperienza accessibile tramite browser denominata Azure Cloud Shell. Questa interfaccia interattiva fornisce uno strumento flessibile per gli amministratori di Linux e Windows per usare la propria interfaccia della riga di comando scelta: Bash o PowerShell. È possibile accedere ad Azure Cloud Shell tramite il portale, come un'interfaccia web autonoma su [shell.azure.com](https://shell.azure.com), o da altri punti di accesso. Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della riga di comando di Azure tramite un'esperienza accessibile tramite browser denominata Azure Cloud Shell. Questa interfaccia interattiva fornisce uno strumento flessibile per gli amministratori di Linux e Windows per usare la propria interfaccia della riga di comando scelta: Bash o PowerShell. È possibile accedere ad Azure Cloud Shell tramite il portale, come un'interfaccia web autonoma su [shell.azure.com](https://shell.azure.com), o da altri punti di accesso. Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
@@ -184,23 +184,23 @@ Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a u
 
 Per poter usare i servizi di Azure è necessaria una sottoscrizione. Sono disponibili diversi tipi di sottoscrizione.
 
-**Account gratuiti**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
+**Account gratuiti** : il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
-**Sottoscrizioni MSDN**: con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
+**Sottoscrizioni MSDN** : con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
 
 Se si supera il credito disponibile, il servizio viene disabilitato fino all'inizio del mese successivo. È possibile disattivare il limite di spesa e aggiungere una carta di credito da usare per i costi aggiuntivi. Per alcuni di questi costi vengono applicati sconti agli account MSDN. Ad esempio, per le macchine virtuali che eseguono Windows Server si paga il prezzo della sottoscrizione per Linux e non sono previsti costi aggiuntivi per i server Microsoft, come Microsoft SQL Server. Per questo motivo gli account MSDN sono ideali per gli scenari di sviluppo e test.
 
-**Account BizSpark**: il programma Microsoft BizSpark offre numerosi vantaggi per le startup, ad esempio la possibilità di accedere a tutto il software Microsoft per gli ambienti di sviluppo e test per un numero di account MSDN fino a cinque. Per ognuno di questi cinque account MSDN si ottiene un credito Azure di $ 150 e una riduzione della tariffa per diversi servizi di Azure, ad esempio le macchine virtuali.
+**Account BizSpark** : il programma Microsoft BizSpark offre numerosi vantaggi per le startup, ad esempio la possibilità di accedere a tutto il software Microsoft per gli ambienti di sviluppo e test per un numero di account MSDN fino a cinque. Per ognuno di questi cinque account MSDN si ottiene un credito Azure di $ 150 e una riduzione della tariffa per diversi servizi di Azure, ad esempio le macchine virtuali.
 
-**Pagamento in base al consumo**: con questa sottoscrizione si paga in base all'uso, associando una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
+**Pagamento in base al consumo** : con questa sottoscrizione si paga in base all'uso, associando una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
 
-**Contratti Enterprise**: con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
+**Contratti Enterprise** : con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concedere l'accesso amministrativo a una sottoscrizione di Azure
 
-RBAC dispone di diversi ruoli predefiniti che è possibile usare per assegnare le autorizzazioni. Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargli il ruolo di [Proprietario](../../role-based-access-control/built-in-roles.md#owner) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti.
+Il controllo degli accessi in base al ruolo di Azure include diversi ruoli predefiniti che è possibile usare per assegnare autorizzazioni. Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargli il ruolo di [Proprietario](../../role-based-access-control/built-in-roles.md#owner) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti.
 
-Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visualizzare le informazioni di fatturazione nel Portale di Azure
 
@@ -238,7 +238,7 @@ Gestione risorse offre numerosi vantaggi:
 
 - È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
 
-- È possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse, perché il controllo di accesso basato sui ruoli è integrato in modo nativo nella piattaforma di gestione.
+- È possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse, perché il controllo degli accessi in base al ruolo di Azure è integrato in modalità nativa nella piattaforma di gestione.
 
 - È anche possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 
@@ -266,27 +266,27 @@ I modelli di Resource Manager definiscono in modo dichiarativo le risorse e le c
 
 Un modello di Resource Manager è costituito da quattro sezioni:
 
-- **Parametri**: input nella distribuzione. I valori dei parametri possono essere specificati da un utente o un da processo automatizzato. Un parametro di esempio può essere costituito dal nome utente amministratore e dalla password per una macchina virtuale di Windows. Se specificati, i valori dei parametri vengono usati per tutta la distribuzione.
+- **Parametri** : input nella distribuzione. I valori dei parametri possono essere specificati da un utente o un da processo automatizzato. Un parametro di esempio può essere costituito dal nome utente amministratore e dalla password per una macchina virtuale di Windows. Se specificati, i valori dei parametri vengono usati per tutta la distribuzione.
 
-- **Variabili**: contengono valori usati nel corso dell'intera distribuzione. A differenza dei parametri, i valori delle variabili non vengono specificati in fase di distribuzione, ma sono hardcoded codice o generati in modo dinamico.
+- **Variabili** : contengono valori usati nel corso dell'intera distribuzione. A differenza dei parametri, i valori delle variabili non vengono specificati in fase di distribuzione, ma sono hardcoded codice o generati in modo dinamico.
 
-- **Risorse**: questa sezione del modello definisce le risorse da distribuire, ad esempio macchine virtuali, account di archiviazione e reti virtuali.
+- **Risorse** : questa sezione del modello definisce le risorse da distribuire, ad esempio macchine virtuali, account di archiviazione e reti virtuali.
 
-- **Output**: al termine di una distribuzione, Resource Manager può restituire dati, ad esempio stringhe di connessione generate dinamicamente.
+- **Output** : al termine di una distribuzione, Resource Manager può restituire dati, ad esempio stringhe di connessione generate dinamicamente.
 
 Per l'automazione della distribuzione sono disponibili i meccanismi seguenti:
 
-- **Funzioni**: nei modelli di Resource Manager è possibile usare diverse funzioni. Queste prevedono l'esecuzione di operazioni, ad esempio la conversione di una stringa in lettere minuscole, la distribuzione di più istanze di una risorsa definita e la restituzione dinamica del gruppo di risorse di destinazione. Le funzioni di Resource Manager facilitano la creazione di distribuzioni dinamiche.
+- **Funzioni** : nei modelli di Resource Manager è possibile usare diverse funzioni. Queste prevedono l'esecuzione di operazioni, ad esempio la conversione di una stringa in lettere minuscole, la distribuzione di più istanze di una risorsa definita e la restituzione dinamica del gruppo di risorse di destinazione. Le funzioni di Resource Manager facilitano la creazione di distribuzioni dinamiche.
 
-- **Dipendenze delle risorse**: quando si distribuiscono più risorse, alcune saranno dipendenti da altre. Per semplificare la distribuzione, è possibile usare una dichiarazione di dipendenza, in modo che le risorse dipendenti vengono distribuite prima delle altre.
+- **Dipendenze delle risorse** : quando si distribuiscono più risorse, alcune saranno dipendenti da altre. Per semplificare la distribuzione, è possibile usare una dichiarazione di dipendenza, in modo che le risorse dipendenti vengono distribuite prima delle altre.
 
-- **Collegamento di modelli**: dall'interno di un modello di Resource Manager è possibile collegarsi a un altro modello. Ciò consente la scomposizione della distribuzione in un set di modelli di destinazione con scopi specifici.
+- **Collegamento di modelli** : dall'interno di un modello di Resource Manager è possibile collegarsi a un altro modello. Ciò consente la scomposizione della distribuzione in un set di modelli di destinazione con scopi specifici.
 
-È possibile creare modelli di Resource Manager in qualsiasi editor di testo. Tuttavia, Azure SDK per Visual Studio include strumenti che facilitano questa operazione. Con Visual Studio è possibile aggiungere risorse al modello tramite una procedura guidata e quindi eseguire la distribuzione e il debug del modello direttamente da Visual Studio. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
+È possibile creare modelli di Resource Manager in qualsiasi editor di testo. Tuttavia, Azure SDK per Visual Studio include strumenti che facilitano questa operazione. Con Visual Studio è possibile aggiungere risorse al modello tramite una procedura guidata e quindi eseguire la distribuzione e il debug del modello direttamente da Visual Studio. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 Infine, dal Portale di Azure è possibile convertire gruppi di risorse esistenti in un modello riutilizzabile. Ciò può essere utile se si vuole creare un modello distribuibile di un gruppo di risorse esistente o si vuole solo esaminare il codice JSON sottostante. Per esportare un gruppo di risorse, selezionare il pulsante **Script di automazione** dalle impostazioni del gruppo di risorse.
 
-## <a name="security-of-azure-resources-rbac"></a>Sicurezza delle risorse di Azure (Controllo degli accessi in base al ruolo)
+## <a name="security-of-azure-resources-azure-rbac"></a>Sicurezza delle risorse di Azure (controllo degli accessi in base al ruolo di Azure)
 
 È possibile concedere agli account utente l'accesso operativo per un ambito specifico: sottoscrizione, gruppo di risorse o risorsa singola. Ciò significa che è possibile distribuire un set di risorse in un gruppo di risorse, ad esempio una macchina virtuale e tutte le risorse correlate, e concedere autorizzazioni a un utente o a un gruppo specifico. Questo approccio consente di limitare l'accesso alle risorse appartenenti al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale.
 
@@ -294,19 +294,19 @@ Per concedere l'accesso, si assegna un ruolo all'utente o al gruppo di utenti. S
 
 Ecco alcuni esempi di [ruoli incorporati in Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Proprietario**: un utente con questo ruolo può gestire qualsiasi aspetto, incluso l'accesso.
+- **Proprietario** : un utente con questo ruolo può gestire qualsiasi aspetto, incluso l'accesso.
 
-- **Lettore**: un utente con questo ruolo può accedere in lettura alle risorse di qualsiasi tipo, ad eccezione dei segreti, ma non può apportare modifiche.
+- **Lettore** : un utente con questo ruolo può accedere in lettura alle risorse di qualsiasi tipo, ad eccezione dei segreti, ma non può apportare modifiche.
 
-- **Collaboratore Macchina virtuale**: un utente con questo ruolo può gestire le macchine virtuali ma non la rete virtuale alla quale sono connesse o l'account di archiviazione in cui risiede il file del disco rigido virtuale.
+- **Collaboratore Macchina virtuale** : un utente con questo ruolo può gestire le macchine virtuali ma non la rete virtuale alla quale sono connesse o l'account di archiviazione in cui risiede il file del disco rigido virtuale.
 
-- **Collaboratore Database SQL**: un utente con questo ruolo può gestire database SQL, ma non i criteri correlati alla sicurezza.
+- **Collaboratore Database SQL** : un utente con questo ruolo può gestire database SQL, ma non i criteri correlati alla sicurezza.
 
-- **Gestore Sicurezza SQL**: un utente con questo ruolo può gestire i criteri correlati alla sicurezza di server e database SQL.
+- **Gestore Sicurezza SQL** : un utente con questo ruolo può gestire i criteri correlati alla sicurezza di server e database SQL.
 
-- **Collaboratore Account di archiviazione**: un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
+- **Collaboratore Account di archiviazione** : un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
 
-Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
@@ -314,7 +314,7 @@ Macchine virtuali di Azure è uno dei servizi IaaS più importanti di Azure. Mac
 
 Quando si distribuisce una VM di Azure, è possibile selezionare un'immagine da Azure Marketplace oppure fornire una propria immagine generalizzata. Questa immagine viene usata per applicare il sistema operativo e la configurazione iniziale. Durante la distribuzione, Resource Manager gestisce alcune impostazioni di configurazione, ad esempio l'assegnazione del nome computer, le credenziali amministrative e la configurazione di rete. È possibile usare le estensioni macchina virtuale di Azure per automatizzare ancora di più le operazioni di configurazione, ad esempio l'installazione di software, la configurazione dell'antivirus e il monitoraggio delle soluzioni.
 
-È possibile creare macchine virtuali con un'ampia scelta di dimensioni. Le dimensioni della macchina virtuale determinano l'allocazione delle risorse, ad esempio la capacità di elaborazione e di archiviazione e la memoria. In alcuni casi, funzionalità specifiche quali le schede di interfaccia di rete abilitate per RDMA e i dischi SSD sono disponibili solo con determinate dimensioni di VM. Per l'elenco completo delle funzionalità e delle dimensioni delle VM, vedere "Dimensioni per le macchine virtuali in Azure" per [Windows](../../virtual-machines/windows/sizes.md) e [Linux](../../virtual-machines/linux/sizes.md).
+È possibile creare macchine virtuali con un'ampia scelta di dimensioni. Le dimensioni della macchina virtuale determinano l'allocazione delle risorse, ad esempio la capacità di elaborazione e di archiviazione e la memoria. In alcuni casi, funzionalità specifiche quali le schede di interfaccia di rete abilitate per RDMA e i dischi SSD sono disponibili solo con determinate dimensioni di VM. Per l'elenco completo delle funzionalità e delle dimensioni delle VM, vedere "Dimensioni per le macchine virtuali in Azure" per [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Casi d'uso
 
@@ -344,7 +344,7 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 ### <a name="access-and-security-for-virtual-machines"></a>Accesso e sicurezza delle macchine virtuali
 
-L'accesso a una macchina virtuale da Internet richiede la configurazione dell'interfaccia di rete associata, o del bilanciamento del carico, se applicabile, con un indirizzo IP pubblico. L'indirizzo IP pubblico include un nome DNS che si risolve nella macchina virtuale o nel bilanciamento del carico. Per altre informazioni, vedere [Indirizzi IP in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+L'accesso a una macchina virtuale da Internet richiede la configurazione dell'interfaccia di rete associata, o del bilanciamento del carico, se applicabile, con un indirizzo IP pubblico. L'indirizzo IP pubblico include un nome DNS che si risolve nella macchina virtuale o nel bilanciamento del carico. Per altre informazioni, vedere [Indirizzi IP in Azure](../../virtual-network/public-ip-addresses.md).
 
 La gestione dell'accesso alla macchina virtuale tramite l'indirizzo IP pubblico viene eseguita tramite una risorsa gruppo di sicurezza di rete (NSG, Network Security Group). Un gruppo NSG funge da firewall, consentendo o impedendo il traffico attraverso l'interfaccia di rete o la subnet in un set di porte definite. Ad esempio, per creare una sessione di Desktop remoto con una VM di Azure, è necessario configurare il gruppo NSG in modo che consenta il traffico in ingresso attraverso la porta 3389. Per altre informazioni, vedere [Aprire le porte in una VM in Azure con il Portale di Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -356,11 +356,11 @@ Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di 
 
 Gli account di archiviazione di Azure possono essere configurati con diversi livelli di ridondanza:
 
-- L'**archiviazione con ridondanza locale** garantisce la disponibilità elevata considerando riuscita un'operazione di scrittura solo se vengono eseguite in modo sincrono tre copie di tutti i dati. Queste copie vengono archiviate in un'unica struttura in un'unica area. Le repliche risiedono in domini di errore e domini di aggiornamento distinti. Ciò significa che i dati sono disponibili anche se un nodo di archiviazione contenente i dati si guasta o viene disconnesso per un aggiornamento.
+- L' **archiviazione con ridondanza locale** garantisce la disponibilità elevata considerando riuscita un'operazione di scrittura solo se vengono eseguite in modo sincrono tre copie di tutti i dati. Queste copie vengono archiviate in un'unica struttura in un'unica area. Le repliche risiedono in domini di errore e domini di aggiornamento distinti. Ciò significa che i dati sono disponibili anche se un nodo di archiviazione contenente i dati si guasta o viene disconnesso per un aggiornamento.
 
-- L'**archiviazione con ridondanza geografica** crea tre copie sincrone dei dati nell'area primaria per la disponibilità elevata e quindi esegue tre repliche asincrone in un'area abbinata da usare per un eventuale ripristino di emergenza.
+- L' **archiviazione con ridondanza geografica** crea tre copie sincrone dei dati nell'area primaria per la disponibilità elevata e quindi esegue tre repliche asincrone in un'area abbinata da usare per un eventuale ripristino di emergenza.
 
-- L'**archiviazione con ridondanza geografica e accesso in lettura** corrisponde all'archiviazione con ridondanza geografica, con in più la possibilità di leggere i dati nell'area secondaria. Questa possibilità rende questa opzione ideale per il ripristino di emergenza parziale. Nel caso di un problema con l'area primaria, è possibile modificare l'applicazione in modo che possa accedere in sola lettura all'area abbinata.
+- L' **archiviazione con ridondanza geografica e accesso in lettura** corrisponde all'archiviazione con ridondanza geografica, con in più la possibilità di leggere i dati nell'area secondaria. Questa possibilità rende questa opzione ideale per il ripristino di emergenza parziale. Nel caso di un problema con l'area primaria, è possibile modificare l'applicazione in modo che possa accedere in sola lettura all'area abbinata.
 
 ### <a name="use-cases"></a>Casi d'uso
 
@@ -372,13 +372,13 @@ Il termine *BLOB* è l'acronimo di *Binary Large OBject* (oggetto binario di gra
 
 Archiviazione di Azure supporta tre tipi di BLOB:
 
-- **BLOB in blocchi**, usati per contenere file normali con dimensioni fino a 195 GB (4 MB × 50.000 blocchi). Il caso d'uso principale dei BLOB in blocchi è l'archiviazione di file che vengono letti dall'inizio alla fine, ad esempio i file multimediali o di immagine per i siti Web. Si chiamano BLOB in blocchi perché i file più grandi di 64 MB devono essere caricati come blocchi di piccole dimensioni. Questi blocchi vengono quindi consolidati (ne viene eseguito il commit) nell'oggetto BLOB finale.
+- **BLOB in blocchi** , usati per contenere file normali con dimensioni fino a 195 GB (4 MB × 50.000 blocchi). Il caso d'uso principale dei BLOB in blocchi è l'archiviazione di file che vengono letti dall'inizio alla fine, ad esempio i file multimediali o di immagine per i siti Web. Si chiamano BLOB in blocchi perché i file più grandi di 64 MB devono essere caricati come blocchi di piccole dimensioni. Questi blocchi vengono quindi consolidati (ne viene eseguito il commit) nell'oggetto BLOB finale.
 
-- **BLOB di pagine**, usati per contenere file ad accesso casuale con dimensioni fino a 1 TB. I BLOB di pagine vengono usati principalmente per l'archiviazione di backup dei dischi rigidi virtuali che fungono da dischi durevoli di Macchine virtuali di Azure, il servizio di calcolo IaaS di Azure. Si chiamano BLOB di pagine perché consentono l'accesso in lettura/scrittura casuale a pagine da 512 byte.
+- **BLOB di pagine** , usati per contenere file ad accesso casuale con dimensioni fino a 1 TB. I BLOB di pagine vengono usati principalmente per l'archiviazione di backup dei dischi rigidi virtuali che fungono da dischi durevoli di Macchine virtuali di Azure, il servizio di calcolo IaaS di Azure. Si chiamano BLOB di pagine perché consentono l'accesso in lettura/scrittura casuale a pagine da 512 byte.
 
-- **BLOB di accodamento**, costituiti da blocchi come i BLOB in blocchi, ma ottimizzati per le operazioni di accodamento. Questi vengono spesso usati per la registrazione di informazioni da una o più origini nello stesso BLOB. È ad esempio possibile scrivere nello stesso BLOB di accodamento tutte le informazioni di registrazione traccia per un'applicazione in esecuzione in più VM. Le dimensioni di un BLOB di accodamento singolo possono arrivare fino a un massimo di 195 GB.
+- **BLOB di accodamento** , costituiti da blocchi come i BLOB in blocchi, ma ottimizzati per le operazioni di accodamento. Questi vengono spesso usati per la registrazione di informazioni da una o più origini nello stesso BLOB. È ad esempio possibile scrivere nello stesso BLOB di accodamento tutte le informazioni di registrazione traccia per un'applicazione in esecuzione in più VM. Le dimensioni di un BLOB di accodamento singolo possono arrivare fino a un massimo di 195 GB.
 
-Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
+Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md) .
 
 #### <a name="file-storage"></a>Archiviazione file
 
@@ -394,7 +394,7 @@ Il servizio di archiviazione tabelle di Azure archivia dati NoSQL non strutturat
 
 È possibile usare l'archiviazione tabelle per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi e altri tipi di metadati richiesti dal servizio. In una tabella è possibile archiviare qualsiasi numero di entità. Un account di archiviazione può contenere un numero qualsiasi di tabelle, fino al raggiungimento del limite di capacità dell'account stesso.
 
-Per altre informazioni, vedere [Introduzione all'archiviazione tabelle di Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Per altre informazioni, vedere [Introduzione all'archiviazione tabelle di Azure](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### <a name="queue-storage"></a>Archiviazione code
 
@@ -414,15 +414,15 @@ Oltre agli account di archiviazione, dal Portale di Azure è possibile distribui
 
 #### <a name="powershell"></a>PowerShell
 
-La distribuzione di un account di archiviazione di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../../storage/common/storage-powershell-guide-full.md).
+La distribuzione di un account di archiviazione di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](/powershell/module/az.storage/).
 
 Oltre a distribuire singole risorse di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando (CLI)
 
-Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. È possibile usare il comando **storage account create** dell'interfaccia della riga di comando di Azure per creare un account di archiviazione. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/common/storage-azure-cli.md).
+Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. È possibile usare il comando **storage account create** dell'interfaccia della riga di comando di Azure per creare un account di archiviazione. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
-Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../resource-group-template-deploy-cli.md).
+Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-azure-storage"></a>Accesso e sicurezza per Archiviazione di Azure
 
@@ -446,7 +446,7 @@ Per ogni account di archiviazione esistono due chiavi di autenticazione: una chi
 
 #### <a name="shared-access-signatures"></a>Firme di accesso condiviso
 
-Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chi possiede il token può accedere alla risorsa a cui questo fa riferimento con le autorizzazioni specificate all'interno di esso per il periodo di validità del token stesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chi possiede il token può accedere alla risorsa a cui questo fa riferimento con le autorizzazioni specificate all'interno di esso per il periodo di validità del token stesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Rete virtuale di Azure
 
@@ -456,7 +456,7 @@ Le reti virtuali sono necessarie per supportare le comunicazioni tra macchine vi
 
 Per impostazione predefinita, una rete virtuale di Azure è accessibile solo per le risorse archiviate in Azure. Le risorse connesse alla stessa rete virtuale possono comunicare tra loro. È possibile associare le interfacce di rete delle macchine virtuali e i sistemi di bilanciamento del carico a un indirizzo IP pubblico per rendere accessibili le macchine virtuali da Internet. Per proteggere l'accesso alle risorse esposte pubblicamente è possibile usare un gruppo di sicurezza di rete.
 
-![Rete virtuale di Azure per un'applicazione Web di livello 2](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Rete virtuale di Azure per un'applicazione Web di livello 2](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>Reti virtuali di Azure
 
@@ -473,13 +473,13 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 - Modelli di Azure Resource Manager
 
-> **Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
+> **Uso consigliato** : ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
 >
-> **Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
+> **Come iniziare** : Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali
 
-È possibile contribuire alla sicurezza delle reti virtuali di Azure usando un gruppo di sicurezza di rete. I gruppi di sicurezza di rete (NSG) contengono un elenco di regole dell'elenco di controllo di accesso (ACL, Access Control List) che consentono o impediscono il traffico di rete alle istanze delle VM in una rete virtuale. È possibile associare un gruppo NSG a una subnet o a singole istanze di VM all'interno di tale subnet. Quando si associa un gruppo NSG a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. È anche possibile limitare ulteriormente il traffico verso una singola VM associando un gruppo NSG direttamente a tale VM. Per altre informazioni, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
+È possibile contribuire alla sicurezza delle reti virtuali di Azure usando un gruppo di sicurezza di rete. I gruppi di sicurezza di rete (NSG) contengono un elenco di regole dell'elenco di controllo di accesso (ACL, Access Control List) che consentono o impediscono il traffico di rete alle istanze delle VM in una rete virtuale. È possibile associare un gruppo NSG a una subnet o a singole istanze di VM all'interno di tale subnet. Quando si associa un gruppo NSG a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. È anche possibile limitare ulteriormente il traffico verso una singola VM associando un gruppo NSG direttamente a tale VM. Per altre informazioni, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619458"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332196"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,13 +39,13 @@ Quando si distribuisce un'applicazione per un tenant, il provisioning dell'app e
 
 Sebbene l'app e il database di ogni tenant siano completamente isolati, alcuni scenari di gestione e di analisi possono usare più tenant.  Ad esempio, l'applicazione di una modifica apportata allo schema per una nuova versione dell'applicazione richiede modifiche allo schema di ogni database tenant. Anche gli scenari di reporting e di analisi possono richiedere l'accesso a tutti i database tenant indipendentemente dalla posizione in cui vengono distribuiti.
 
-   ![modello di applicazione per ogni tenant](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagramma che mostra come usare un catalogo di tenant con il modello di applicazione per tenant.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 Il catalogo di tenant contiene un mapping tra un identificatore del tenant e un database tenant, consentendo la risoluzione di un identificatore in un nome di server e di database.  Nell'app SaaS Wingtip Tickets l'identificatore del tenant viene calcolato come hash del nome del tenant, anche se possono essere usati altri schemi.  Sebbene le applicazioni autonome non necessitino del catalogo per la gestione delle connessioni, è possibile usare il catalogo per definire l'ambito di altre azioni a un set di database tenant. Ad esempio, la query elastica può usare il catalogo per determinare il set di database attraverso cui le query vengono distribuite per il reporting tra tenant.
 
 ## <a name="elastic-database-client-library"></a>Libreria client del database elastico
 
-Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](elastic-database-client-library.md).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant*.  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
+Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](elastic-database-client-library.md).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant* .  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
 
 È possibile chiamare le funzioni della libreria client dei database elastici dalle applicazioni o dagli script di PowerShell per creare e gestire le voci della mappa partizioni. Altre funzioni della libreria client dei database elastici consentono il recupero del set di partizioni o la connessione al database corretto per una specifica chiave del tenant.
 
@@ -82,14 +82,14 @@ In questa attività si apprenderà come effettuare il provisioning del catalogo 
 * **Effettuare il provisioning del database di catalogo** usando un modello di gestione delle risorse di Azure. Il database viene inizializzato importando un file BACPAC.
 * **Registrare le app del tenant di esempio** che sono state distribuite in precedenza.  Ogni tenant viene registrato con una chiave calcolata da un hash del nome del tenant.  Anche il nome del tenant viene archiviato in una tabella di estensione nel catalogo.
 
-1. In PowerShell ISE aprire *...\Learning Modules\UserConfig.psm* e aggiornare il valore **\<user\>** in base al valore usato per la distribuzione delle tre applicazioni di esempio.  **Salvare il file**.
-1. In PowerShell ISE aprire *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e impostare **$Scenario = 1**. Distribuire il catalogo di tenant e registrare i tenant predefiniti.
+1. In PowerShell ISE aprire *...\Learning Modules\UserConfig.psm* e aggiornare il valore **\<user\>** in base al valore usato per la distribuzione delle tre applicazioni di esempio.  **Salvare il file** .
+1. In PowerShell ISE aprire *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e impostare **$Scenario = 1** . Distribuire il catalogo di tenant e registrare i tenant predefiniti.
 
-1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga contenente il testo `& $PSScriptRoot\New-Catalog.ps1`, quindi premere **F9**.
+1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga contenente il testo `& $PSScriptRoot\New-Catalog.ps1`, quindi premere **F9** .
 
     ![impostazione di un punto di interruzione per l'analisi](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Eseguire lo script premendo **F5**.
+1. Eseguire lo script premendo **F5** .
 1.  Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione nello script New-Catalog.ps1.
 1.  Analizzare l'esecuzione dello script usando le opzioni F10 e F11 del menu Debug per eseguire un'istruzione alla volta o singolarmente le varie funzioni chiamate.
     *   Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
@@ -99,10 +99,10 @@ Al completamento dello script il catalogo sarà disponibile e saranno stati regi
 A questo punto esaminare le risorse appena create.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) ed esplorare i gruppi di risorse.  Aprire il gruppo di risorse **wingtip-sa-catalog-\<user\>** e prendere nota del server e del database del catalogo.
-1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando Accesso e quindi immettere la password = **P\@ssword1**.
+1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando Accesso e quindi immettere la password = **P\@ssword1** .
 
 
-1. Esplorare lo schema del database *tenantcatalog*.
+1. Esplorare lo schema del database *tenantcatalog* .
    * Gli oggetti nello schema `__ShardManagement` vengono tutti forniti dalla libreria client dei database elastici.
    * La tabella `Tenants` e la visualizzazione `TenantsExtended` sono le estensioni aggiunte nell'esempio che illustrano come è possibile estendere il catalogo per fornire valore aggiunto.
 1. Eseguire la query, `SELECT * FROM dbo.TenantsExtended`.
@@ -120,13 +120,13 @@ In questa attività si apprenderà come effettuare il provisioning di una singol
 
 * **Creare un nuovo gruppo di risorse** per il tenant.
 * **Effettuare il provisioning dell'applicazione e del database** nel nuovo gruppo di risorse usando un modello di gestione delle risorse di Azure.  Questa azione include l'inizializzazione del database con i dati di riferimento e lo schema comune importando un file BACPAC.
-* **Inizializzare il database con le informazioni di base sul tenant**. Questa azione include la specifica del tipo di sede, che determina la fotografia usata come sfondo per il sito Web degli eventi.
-* **Registrare il database nel database di catalogo**.
+* **Inizializzare il database con le informazioni di base sul tenant** . Questa azione include la specifica del tipo di sede, che determina la fotografia usata come sfondo per il sito Web degli eventi.
+* **Registrare il database nel database di catalogo** .
 
-1. In PowerShell ISE aprire *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e impostare **$Scenario = 2**. Distribuire il catalogo di tenant e registrare i tenant predefiniti.
+1. In PowerShell ISE aprire *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e impostare **$Scenario = 2** . Distribuire il catalogo di tenant e registrare i tenant predefiniti.
 
-1. Aggiungere un punto di interruzione nello script posizionando il cursore in un punto qualsiasi sulla riga 49 contenente il testo `& $PSScriptRoot\New-TenantApp.ps1`, quindi premere **F9**.
-1. Eseguire lo script premendo **F5**.
+1. Aggiungere un punto di interruzione nello script posizionando il cursore in un punto qualsiasi sulla riga 49 contenente il testo `& $PSScriptRoot\New-TenantApp.ps1`, quindi premere **F9** .
+1. Eseguire lo script premendo **F5** .
 1.  Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione nello script New-Catalog.ps1.
 1.  Analizzare l'esecuzione dello script usando le opzioni F10 e F11 del menu Debug per eseguire un'istruzione alla volta o singolarmente le varie funzioni chiamate.
 

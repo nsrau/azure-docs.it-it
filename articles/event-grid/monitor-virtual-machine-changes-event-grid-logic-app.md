@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a5d8c36382433024efd1f1cc6ba9fd878d28ddc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461273"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329526"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure
 
@@ -58,11 +58,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
-1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
+1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica** .
 
    ![Screenshot del portale di Azure che mostra il pulsante per la creazione di una risorsa dell'app per la logica.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-1. In **App per la logica** fornire informazioni sulla risorsa app per la logica. Al termine, selezionare **Crea**.
+1. In **App per la logica** fornire informazioni sulla risorsa app per la logica. Al termine, selezionare **Crea** .
 
    ![Screenshot del menu di creazione di app per la logica che mostra dettagli quali nome, sottoscrizione, gruppo di risorse e posizione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
@@ -76,7 +76,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Dopo che Azure ha distribuito l'app per la logica, Progettazione app per la logica visualizza una pagina con un video introduttivo e i trigger più usati. Scorrere dopo il video e i trigger.
 
-1. In **Modelli** selezionare **App per la logica vuota**.
+1. In **Modelli** selezionare **App per la logica vuota** .
 
    ![Screenshot dei modelli di app per la logica che mostra la selezione per la creazione di un'app per la logica vuota.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
@@ -86,11 +86,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Aggiungere ora un trigger di Griglia di eventi, da usare per monitorare il gruppo di risorse per la macchina virtuale.
 
-1. Nella casella di ricerca della finestra di progettazione immettere `event grid` come filtro. Nell'elenco di trigger selezionare **Quando si verifica un evento della risorsa**.
+1. Nella casella di ricerca della finestra di progettazione immettere `event grid` come filtro. Nell'elenco di trigger selezionare **Quando si verifica un evento della risorsa** .
 
    ![Screenshot di Progettazione app per la logica che mostra la selezione del trigger di Griglia di eventi in un evento di risorsa.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
-1. Quando richiesto, accedere a Griglia di eventi di Azure con le credenziali dell'account Azure. Nell'elenco **Tenant**, che mostra il tenant di Azure Active Directory associato alla sottoscrizione di Azure, verificare che venga visualizzato il tenant corretto, ad esempio:
+1. Quando richiesto, accedere a Griglia di eventi di Azure con le credenziali dell'account Azure. Nell'elenco **Tenant** , che mostra il tenant di Azure Active Directory associato alla sottoscrizione di Azure, verificare che venga visualizzato il tenant corretto, ad esempio:
 
    ![Screenshot di Progettazione app per la logica che mostra la richiesta di accesso di Azure per la connessione a Griglia di eventi.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
@@ -103,14 +103,14 @@ Aggiungere ora un trigger di Griglia di eventi, da usare per monitorare il grupp
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    | -------- | -------- | ----- | ----------- |
-   | **Sottoscrizione** | Sì | <*event-publisher-Azure-subscription-name*> | Selezionare il nome della sottoscrizione di Azure associata all'*autore di eventi*. Per questa esercitazione selezionare il nome della sottoscrizione di Azure per la macchina virtuale. |
+   | **Sottoscrizione** | Sì | <*event-publisher-Azure-subscription-name*> | Selezionare il nome della sottoscrizione di Azure associata all' *autore di eventi* . Per questa esercitazione selezionare il nome della sottoscrizione di Azure per la macchina virtuale. |
    | **Tipo di risorsa** | Sì | <*event-publisher-Azure-resource-type*> | Selezionare il tipo di risorsa di Azure per l'autore di eventi. Per altre informazioni sui tipi di risorse di Azure, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md). Per questa esercitazione, selezionare il valore `Microsoft.Resources.ResourceGroups` per monitorare i gruppi di risorse di Azure. |
    | **Nome risorsa** |  Sì | <*event-publisher-Azure-resource-name*> | Selezionare il nome della risorsa di Azure per l'autore di eventi. Questo elenco varia in base al tipo di risorsa selezionato. Per questa esercitazione, selezionare il nome per il gruppo di risorse di Azure che include la macchina virtuale. |
    | **Elemento tipo di evento** |  No | <*event-types*> | Selezionare uno o più tipi di evento specifici per filtrare e inviare alla griglia di eventi. Ad esempio, è facoltativamente possibile aggiungere questi tipi di evento per rilevare quando le risorse vengono modificate o eliminate: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>- [Schema di eventi di Griglia di eventi di Azure per i gruppi di risorse](../event-grid/event-schema-resource-groups.md) <br>- [Comprendere il filtro eventi](../event-grid/event-filtering.md) <br>- [Filtrare gli eventi per Griglia di eventi](../event-grid/how-to-filter-events.md) |
-   | Per aggiungere proprietà facoltative, selezionare **Aggiungi nuovo parametro** e quindi le proprietà desiderate. | No | {vedere descrizioni} | * **Filtro per prefisso**: Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di prefisso come filtro, ad esempio un percorso o un parametro relativo a una determinata risorsa. <p>* **Filtro per suffisso**: Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di suffisso come filtro, ad esempio un'estensione se si vuole usare solo specifici tipi di file. <p>* **Nome della sottoscrizione**: per questa esercitazione, è possibile specificare un nome univoco per la sottoscrizione di eventi. |
+   | Per aggiungere proprietà facoltative, selezionare **Aggiungi nuovo parametro** e quindi le proprietà desiderate. | No | {vedere descrizioni} | * **Filtro per prefisso** : Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di prefisso come filtro, ad esempio un percorso o un parametro relativo a una determinata risorsa. <p>* **Filtro per suffisso** : Per questa esercitazione, lasciare vuota questa proprietà. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di suffisso come filtro, ad esempio un'estensione se si vuole usare solo specifici tipi di file. <p>* **Nome della sottoscrizione** : per questa esercitazione, è possibile specificare un nome univoco per la sottoscrizione di eventi. |
    |||
 
-1. Salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. Per comprimere e nascondere i dettagli di un'azione nell'app per la logica, selezionare la relativa barra del titolo.
+1. Salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva** . Per comprimere e nascondere i dettagli di un'azione nell'app per la logica, selezionare la relativa barra del titolo.
 
    ![Screenshot di Progettazione app per la logica che mostra il pulsante Salva per il salvataggio delle modifiche del flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -122,11 +122,11 @@ L'app per la logica è ora disponibile e in ascolto degli eventi generati da Gri
 
 Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno specifico evento o un'operazione, aggiungere una condizione che controlli l'operazione `Microsoft.Compute/virtualMachines/write`. Se questa condizione viene soddisfatta, l'app per la logica invia un messaggio di posta elettronica con i dettagli della macchina virtuale aggiornata.
 
-1. In Progettazione app per la logica, nel trigger di Griglia di eventi, selezionare **Nuovo passaggio**.
+1. In Progettazione app per la logica, nel trigger di Griglia di eventi, selezionare **Nuovo passaggio** .
 
    ![Screenshot di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un nuovo passaggio al flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
 
-1. Nella casella di ricerca di **Scegliere un'azione** immettere `condition` come filtro. Nell'elenco di azioni selezionare **Condizione**.
+1. Nella casella di ricerca di **Scegliere un'azione** immettere `condition` come filtro. Nell'elenco di azioni selezionare **Condizione** .
 
    ![Screenshot di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un'azione di condizione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
@@ -134,17 +134,17 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
    ![Screenshot di Progettazione app per la logica che mostra una condizione vuota aggiunta al flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
-1. Rinominare il riquadro della condizione in `If a virtual machine in your resource group has changed`. Sulla barra del titolo della condizione fare clic sui puntini di sospensione ( **...** ) e scegliere **Rinomina**.
+1. Rinominare il riquadro della condizione in `If a virtual machine in your resource group has changed`. Sulla barra del titolo della condizione fare clic sui puntini di sospensione ( **...** ) e scegliere **Rinomina** .
 
    ![Screenshot di Progettazione app per la logica che mostra il menu di scelta rapida dell'editor delle condizioni con l'opzione Rinomina selezionata.](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
 1. Creare una condizione che controlli l'evento `body` per un oggetto `data` in cui la proprietà `operationName` è uguale all'operazione `Microsoft.Compute/virtualMachines/write`. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi](../event-grid/event-schema.md).
 
-   1. Nella prima riga sotto **E** fare clic all'interno della casella di sinistra. Nell'elenco di contenuto dinamico che viene visualizzato selezionare **Espressione**.
+   1. Nella prima riga sotto **E** fare clic all'interno della casella di sinistra. Nell'elenco di contenuto dinamico che viene visualizzato selezionare **Espressione** .
 
       ![Screenshot di Progettazione app per la logica che mostra la condizione con l'editor di espressioni selezionato.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
 
-   1. Nell'editor di espressioni immettere l'espressione, che restituisce il nome dell'operazione del trigger, quindi selezionare **OK**:
+   1. Nell'editor di espressioni immettere l'espressione, che restituisce il nome dell'operazione del trigger, quindi selezionare **OK** :
 
       `triggerBody()?['data']['operationName']`
 
@@ -152,7 +152,7 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
       ![Screenshot di Progettazione app per la logica che mostra l'editor delle condizioni con l'espressione per l'estrazione del nome dell'operazione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
-   1. Nella casella centrale mantenere l'operatore **è uguale a**.
+   1. Nella casella centrale mantenere l'operatore **è uguale a** .
 
    1. Nella casella destra immettere questo valore, che corrisponde all'operazione specifica da monitorare:
 
@@ -162,7 +162,7 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
    ![Screenshot di Progettazione app per la logica che mostra una condizione che confronta l'operazione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
-   Se si passa dalla visualizzazione progettazione per creare il codice di visualizzazione e nuovamente alla visualizzazione progettazione, l'espressione specificata nella condizione si risolve nel token **data.operationName**:
+   Se si passa dalla visualizzazione progettazione per creare il codice di visualizzazione e nuovamente alla visualizzazione progettazione, l'espressione specificata nella condizione si risolve nel token **data.operationName** :
 
    ![Screenshot di Progettazione app per la logica che mostra una condizione con token risolti.](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
 
@@ -170,9 +170,9 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
 ## <a name="send-email-notifications"></a>Inviare notifiche di posta elettronica
 
-Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-concepts) che consenta di ricevere un messaggio di posta elettronica quando viene soddisfatta la condizione specificata.
+Aggiungere ora un' [*azione*](../logic-apps/logic-apps-overview.md#logic-app-concepts) che consenta di ricevere un messaggio di posta elettronica quando viene soddisfatta la condizione specificata.
 
-1. Nella casella **È true** della condizione selezionare **Aggiungi un'azione**.
+1. Nella casella **È true** della condizione selezionare **Aggiungi un'azione** .
 
    ![Screenshot dell'editor delle condizioni di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un'azione quando la condizione è true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
@@ -197,13 +197,13 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
    ![Screenshot di Progettazione app per la logica che mostra il contenuto dinamico aggiunto alla riga dell'oggetto di un messaggio di posta elettronica per una condizione true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > Per selezionare l'output dei passaggi precedenti nel flusso di lavoro, fare clic in una casella di modifica in modo che venga visualizzato l'elenco di contenuto dinamico oppure selezionare **Aggiungi contenuto dinamico**. Per altri risultati, selezionare **Vedi altro** per ogni sezione nell'elenco. Per chiudere l'elenco di contenuto dinamico selezionare nuovamente **Aggiungi contenuto dinamico**.
+   > Per selezionare l'output dei passaggi precedenti nel flusso di lavoro, fare clic in una casella di modifica in modo che venga visualizzato l'elenco di contenuto dinamico oppure selezionare **Aggiungi contenuto dinamico** . Per altri risultati, selezionare **Vedi altro** per ogni sezione nell'elenco. Per chiudere l'elenco di contenuto dinamico selezionare nuovamente **Aggiungi contenuto dinamico** .
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    | -------- | -------- | ----- | ----------- |
    | **To** | Sì | <*recipient\@domain*> | Immettere l'indirizzo di posta elettronica del destinatario. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. |
    | **Oggetto** | Sì | `Resource updated:` **Oggetto** | Immettere il contenuto per l'oggetto del messaggio di posta elettronica. Per questa esercitazione, immettere il testo specificato e selezionare il campo **Oggetto** dell'evento. In questo caso, l'oggetto del messaggio di posta elettronica include il nome per la risorsa aggiornata (macchina virtuale). |
-   | **Corpo** | Sì | `Resource:` **Argomento** <p>`Event type:` **Tipo di evento**<p>`Event ID:` **ID**<p>`Time:` **Ora dell'evento** | Immettere il contenuto per il corpo del messaggio di posta elettronica. Per questa esercitazione immettere il testo specificato e selezionare **Argomento**, Tipo di evento**Argomento**, **ID** e **Ora evento** per l'evento in modo che nel messaggio di posta elettronica siano riportata la risorsa che ha attivato l'evento, il tipo di evento, il timestamp dell'evento e l'ID dell'evento relativo all'aggiornamento. Per questa esercitazione la risorsa è il gruppo di risorse di Azure selezionato nel trigger. <p>Per aggiungere righe vuote nel contenuto, premere MAIUSC + INVIO. |
+   | **Corpo** | Sì | `Resource:` **Argomento** <p>`Event type:` **Tipo di evento**<p>`Event ID:` **ID**<p>`Time:` **Ora dell'evento** | Immettere il contenuto per il corpo del messaggio di posta elettronica. Per questa esercitazione immettere il testo specificato e selezionare **Argomento** , Tipo di evento **Argomento** , **ID** e **Ora evento** per l'evento in modo che nel messaggio di posta elettronica siano riportata la risorsa che ha attivato l'evento, il tipo di evento, il timestamp dell'evento e l'ID dell'evento relativo all'aggiornamento. Per questa esercitazione la risorsa è il gruppo di risorse di Azure selezionato nel trigger. <p>Per aggiungere righe vuote nel contenuto, premere MAIUSC + INVIO. |
    ||||
 
    > [!NOTE]
@@ -243,7 +243,7 @@ Congratulazioni, è stata creata ed eseguita un'app per la logica in grado di mo
 
 È possibile monitorare altre modifiche alla configurazione con le griglie di evento e le app per la logica, ad esempio:
 
-* L'acquisizione da parte di una macchina virtuale dei diritti di controllo degli accessi in base al ruolo.
+* L'acquisizione da parte di una macchina virtuale dei diritti di controllo degli accessi in base al ruolo di Azure.
 * L'implementazione di modifiche a un gruppo di sicurezza di rete o a un'interfaccia di rete.
 * L'aggiunta o la rimozione di dischi in una macchina virtuale.
 * L'assegnazione di un indirizzo IP pubblico all'interfaccia di rete di una macchina virtuale.
@@ -252,14 +252,14 @@ Congratulazioni, è stata creata ed eseguita un'app per la logica in grado di mo
 
 In questa esercitazione vengono usate risorse ed eseguite azioni che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dei test, accertarsi di disabilitare o eliminare le risorse per evitare di incorrere in addebiti.
 
-* Per interrompere l'esecuzione dell'app per la logica senza eliminare il lavoro, disabilitare l'app. Selezionare **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti selezionare **Disabilita**.
+* Per interrompere l'esecuzione dell'app per la logica senza eliminare il lavoro, disabilitare l'app. Selezionare **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti selezionare **Disabilita** .
 
   ![Screenshot della panoramica dell'app per la logica che mostra il pulsante Disabilita selezionato per la disabilitazione dell'app per la logica.](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
   > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
 
-* Per eliminare in modo definitivo l'app per la logica, selezionare **Panoramica** dal menu delle app per la logica. Sulla barra degli strumenti selezionare **Elimina**. Confermare di voler eliminare l'app per la logica e selezionare **Elimina**.
+* Per eliminare in modo definitivo l'app per la logica, selezionare **Panoramica** dal menu delle app per la logica. Sulla barra degli strumenti selezionare **Elimina** . Confermare di voler eliminare l'app per la logica e selezionare **Elimina** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

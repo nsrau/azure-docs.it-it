@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: bac1d1e41cab4aa3be10fb226df57277db20c78e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030277"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368333"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -59,7 +59,7 @@ Quando si usa un certificato gestito dal servizio Frontdoor di Azure, è possibi
 
 Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa procedura:
 
-1. Nel [portale di Azure](https://portal.azure.com) passare al profilo di **Frontdoor**.
+1. Nel [portale di Azure](https://portal.azure.com) passare al profilo di **Frontdoor** .
 
 2. Nell'elenco degli host front-end, selezionare il dominio personalizzato per cui si vuole abilitare HTTPS.
 
@@ -84,7 +84,7 @@ Per abilitare la funzionalità HTTPS, è possibile usare un certificato personal
 > [!WARNING]
 > Il servizio Frontdoor di Azure attualmente supporta solo account Key Vault nella stessa sottoscrizione della configurazione della frontdoor. La scelta di un insieme di credenziali delle chiavi in una sottoscrizione diversa da quella della frontdoor genererà un errore.
 
-2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. Caricare il certificato come oggetto **certificato**, anziché come **segreto**.
+2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. Caricare il certificato come oggetto **certificato** , anziché come **segreto** .
 
 > [!NOTE]
 > Per il certificato TLS/SSL, il servizio Frontdoor non supporta i certificati con algoritmi basati su crittografia a curva ellittica.
@@ -108,13 +108,13 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
 
 1. Nell'account Key Vault selezionare **Criteri di accesso** in IMPOSTAZIONI e quindi **Aggiungi nuovo** per creare un nuovo criterio.
 
-2. In **Selezionare un'entità** cercare **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e scegliere **Microsoft.Azure.Frontdoor**. Fare clic su **Seleziona**.
+2. In **Selezionare un'entità** cercare **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e scegliere **Microsoft.Azure.Frontdoor** . Fare clic su **Seleziona** .
 
 3. In **Autorizzazioni dei segreti** selezionare **Recupera** per consentire a Frontdoor di recuperare il certificato.
 
 4. In **Autorizzazioni del certificato** selezionare **Recupera** per consentire a Frontdoor di recuperare il certificato.
 
-5. Selezionare **OK**. 
+5. Selezionare **OK** . 
 
     Il servizio Frontdoor di Azure può ora accedere a questa istanza di Key Vault e ai certificati archiviati.
  
@@ -124,9 +124,9 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
 
 2. Nell'elenco di domini personalizzati selezionare il dominio personalizzato per cui si vuole abilitare il protocollo HTTPS.
 
-    Viene visualizzata la pagina **Dominio personalizzato**.
+    Viene visualizzata la pagina **Dominio personalizzato** .
 
-3. In Tipo di gestione dei certificati selezionare **Usa certificato personale**. 
+3. In Tipo di gestione dei certificati selezionare **Usa certificato personale** . 
 
 4. Il servizio Frontdoor di Azure richiede che la sottoscrizione dell'account Key Vault sia identica a quella della frontdoor. Selezionare un insieme di credenziali delle chiavi, un certificato (segreto) e una versione del certificato.
 
@@ -134,6 +134,11 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
     - Account Key Vault per l'ID sottoscrizione. 
     - Certificati (segreti) nell'insieme di credenziali delle chiavi selezionato. 
     - Versioni del certificato disponibili. 
+
+> [!NOTE]
+> Se non si specifica la versione del certificato, è possibile che:
+> - Venga selezionata la versione più recente del certificato.
+> - Venga eseguita la rotazione automatica dei certificati alla versione più recente, quando nell'insieme di credenziali delle chiavi è disponibile una versione più recente del certificato.
  
 5. Quando si usa un certificato proprio, la convalida del dominio non è necessaria. Passare ad [Attendere la propagazione](#wait-for-propagation).
 
@@ -154,7 +159,7 @@ Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del domin
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-Per altre informazioni sui record CNAME, vedere [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain) (Creare un record DNS CNAME).
+Per altre informazioni sui record CNAME, vedere [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md) (Creare un record DNS CNAME).
 
 Se il record CNAME è nel formato corretto, DigiCert verifica automaticamente il nome di dominio personalizzato e crea un certificato dedicato per il nome di dominio. DigitCert non invia alcun messaggio di verifica e non sarà necessario approvare la richiesta. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza. Passare ad [Attendere la propagazione](#wait-for-propagation). 
 
@@ -247,11 +252,11 @@ Nei passaggi precedenti è stato abilitato il protocollo HTTPS nel dominio perso
 
 ### <a name="disable-the-https-feature"></a>Disabilitare la funzionalità HTTPS 
 
-1. Nel [portale di Azure](https://portal.azure.com) passare alla configurazione del **servizio Frontdoor di Azure**.
+1. Nel [portale di Azure](https://portal.azure.com) passare alla configurazione del **servizio Frontdoor di Azure** .
 
 2. Nell'elenco degli host front-end fare clic sul dominio personalizzato per il quale si vuole disabilitare HTTPS.
 
-3. Fare clic su **Disabilitato** per disabilitare HTTPS e quindi fare clic su **Salva**.
+3. Fare clic su **Disabilitato** per disabilitare HTTPS e quindi fare clic su **Salva** .
 
 ### <a name="wait-for-propagation"></a>Attendere la propagazione
 

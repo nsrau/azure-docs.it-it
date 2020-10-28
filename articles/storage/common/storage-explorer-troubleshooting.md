@@ -23,7 +23,7 @@ Questa guida riepiloga le soluzioni per i problemi che si verificano comunemente
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemi relativi alle autorizzazioni RBAC di Azure
 
-Il controllo degli accessi in base al ruolo [di Azure consente](/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
+Il controllo degli accessi in base al ruolo [di Azure consente](/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_ . Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Ricerca per categorie accedere alle risorse in Storage Explorer?
 
@@ -46,7 +46,7 @@ Storage Explorer inoltre possibile utilizzare le chiavi dell'account per autenti
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Perché è necessario un ruolo del livello di gestione per visualizzare le risorse in Storage Explorer?
 
-Archiviazione di Azure offre due livelli di accesso: _gestione_ e _dati_. Le sottoscrizioni e gli account di archiviazione sono accessibili tramite il livello di gestione. È possibile accedere a contenitori, BLOB e altre risorse dati tramite il livello dati. Se ad esempio si vuole ottenere un elenco degli account di archiviazione da Azure, si invia una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori BLOB in un account, inviare una richiesta all'endpoint di servizio appropriato.
+Archiviazione di Azure offre due livelli di accesso: _gestione_ e _dati_ . Le sottoscrizioni e gli account di archiviazione sono accessibili tramite il livello di gestione. È possibile accedere a contenitori, BLOB e altre risorse dati tramite il livello dati. Se ad esempio si vuole ottenere un elenco degli account di archiviazione da Azure, si invia una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori BLOB in un account, inviare una richiesta all'endpoint di servizio appropriato.
 
 I ruoli di Azure possono concedere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo Reader, ad esempio, concede l'accesso in sola lettura alle risorse del livello di gestione.
 
@@ -70,10 +70,10 @@ Per altri tipi di risorse, non è attualmente disponibile una soluzione correlat
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 
 Sono disponibili diversi ruoli predefiniti di Azure che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
-- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
-- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
+- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
+- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota** : questo ruolo fornirà l'accesso alla chiave.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader): leggere ed elencare le risorse.
-- [Collaboratore account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gestione completa degli account di archiviazione. **Nota**: questo ruolo fornirà l'accesso alla chiave.
+- [Collaboratore account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gestione completa degli account di archiviazione. **Nota** : questo ruolo fornirà l'accesso alla chiave.
 - [Proprietario dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
 - [Collaboratore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
 - [Lettore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
@@ -82,13 +82,13 @@ Sono disponibili diversi ruoli predefiniti di Azure che possono fornire le autor
 
 Gli errori dei certificati si verificano in genere in una delle situazioni seguenti:
 
-- L'app è connessa tramite un _proxy trasparente_. Ciò significa che un server (ad esempio il server aziendale) intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa usando un certificato autofirmato.
+- L'app è connessa tramite un _proxy trasparente_ . Ciò significa che un server (ad esempio il server aziendale) intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa usando un certificato autofirmato.
 - Si sta eseguendo un'applicazione che inserisce un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e di ispezione del traffico di rete.
 
 Quando Storage Explorer visualizza un certificato autofirmato o non attendibile, non è più in grado di riconoscere se il messaggio HTTPS ricevuto è stato modificato. Se si dispone di una copia del certificato autofirmato, è possibile indicare Storage Explorer di considerarla attendibile attenendosi alla procedura seguente:
 
 1. Ottenere una copia X. 509 (. cer) codificata in base 64 del certificato.
-2. Passare a **modifica**certificati  >  **SSL**  >  **Importa certificati**, quindi usare il selettore file per trovare, selezionare e aprire il file con estensione cer.
+2. Passare a **modifica** certificati  >  **SSL**  >  **Importa certificati** , quindi usare il selettore file per trovare, selezionare e aprire il file con estensione cer.
 
 Questo problema può verificarsi anche se sono presenti più certificati (radice e intermedio). Per correggere l'errore, è necessario aggiungere entrambi i certificati.
 
@@ -98,12 +98,12 @@ Se non si è certi della provenienza del certificato, attenersi alla procedura s
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): una qualsiasi delle versioni leggere dovrebbe essere sufficiente.
     * Mac e Linux: devono essere inclusi nel sistema operativo.
 2. Eseguire OpenSSL.
-    * Windows: aprire la directory di installazione, selezionare **/bin/**, quindi fare doppio clic su **openssl.exe**.
+    * Windows: aprire la directory di installazione, selezionare **/bin/** , quindi fare doppio clic su **openssl.exe** .
     * Mac e Linux: eseguire `openssl` da un terminale.
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`.
 4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, prendere nota di dove si trova l'oggetto `("s:")` e l'emittente `("i:")` .
 5. Quando si individuano certificati autofirmati, per ognuno di essi copiare e incollare tutti gli elementi da (e inclusi) `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` in un nuovo file con estensione cer.
-6. Aprire Storage Explorer e passare a **modifica**  >  **certificati SSL**  >  **Importa certificati**. Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
+6. Aprire Storage Explorer e passare a **modifica**  >  **certificati SSL**  >  **Importa certificati** . Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
 
 Se non è possibile trovare alcun certificato autofirmato seguendo questa procedura, contattare Microsoft tramite lo strumento di feedback. È anche possibile aprire Storage Explorer dalla riga di comando usando il `--ignore-certificate-errors` flag. Quando viene aperto con questo flag, Storage Explorer ignora gli errori del certificato.
 
@@ -113,10 +113,10 @@ Se non è possibile trovare alcun certificato autofirmato seguendo questa proced
 
 Le finestre di dialogo di accesso vuote si verificano spesso quando Active Directory Federation Services (AD FS) richiede Storage Explorer di eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, attenersi alla procedura seguente:
 
-1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione**  >  **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
+1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni** . Nel pannello impostazioni passare ad **applicazione**  >  **Accedi** . Abilitare l' **accesso tramite il flusso di codice del dispositivo** .
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
-4. Selezionare **Accedi**.
+4. Selezionare **Accedi** .
 5. Seguire le istruzioni visualizzate.
 
 Se non è possibile accedere all'account che si vuole usare perché il browser predefinito è già connesso a un altro account, effettuare una delle operazioni seguenti:
@@ -130,7 +130,7 @@ Se si è in un ciclo di riautenticazione o è stato modificato l'UPN di uno degl
 
 1. Rimuovere tutti gli account e quindi chiudere Storage Explorer.
 2. Eliminare la cartella .IdentityService dal computer. In Windows, la cartella si trova in `C:\users\<username>\AppData\Local`. Per Mac e Linux, è possibile trovare la cartella nella radice della directory dell'utente.
-3. Se si esegue Mac o Linux, sarà anche necessario eliminare la voce Microsoft. Developer. IdentityService dall'archivio chiavi del sistema operativo. Nel Mac, l'archivio chiavi è l'applicazione di *Keychain per GNOME* . In Linux, l'applicazione è in genere denominata _portachiavi_, ma il nome potrebbe variare a seconda della distribuzione.
+3. Se si esegue Mac o Linux, sarà anche necessario eliminare la voce Microsoft. Developer. IdentityService dall'archivio chiavi del sistema operativo. Nel Mac, l'archivio chiavi è l'applicazione di *Keychain per GNOME* . In Linux, l'applicazione è in genere denominata _portachiavi_ , ma il nome potrebbe variare a seconda della distribuzione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
@@ -141,7 +141,7 @@ A causa di una limitazione nella libreria Azure AD usata da Storage Explorer, l'
 Il keychain di macOS può talvolta entrare in uno stato che causa problemi per la libreria di autenticazione Storage Explorer. Per ottenere il keychain da questo stato, seguire questa procedura:
 
 1. Chiudere Azure Storage Explorer.
-2. Aprire keychain (premere comando + barra spaziatrice, digitare **Keychain**e premere INVIO).
+2. Aprire keychain (premere comando + barra spaziatrice, digitare **Keychain** e premere INVIO).
 3. Selezionare il keychain "login".
 4. Selezionare l'icona del lucchetto per bloccare il keychain. Il lucchetto verrà visualizzato al termine del processo. L'operazione potrebbe richiedere alcuni secondi, a seconda delle app aperte.
 
@@ -230,7 +230,7 @@ Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del 
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Per la stringa di connessione non sono disponibili impostazioni di configurazione complete
 
-Se viene visualizzato questo messaggio di errore, è possibile che non si disponga delle autorizzazioni necessarie per ottenere le chiavi per l'account di archiviazione. Per confermare che questo è il caso, passare al portale e individuare l'account di archiviazione. A tale scopo, fare clic con il pulsante destro del mouse sul nodo dell'account di archiviazione e scegliere **Apri nel portale**. Passare quindi al pannello **chiavi di accesso** . Se non si hanno le autorizzazioni per visualizzare le chiavi, verrà visualizzato il messaggio "non si ha accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da un altro utente e collegarla tramite il nome e la chiave oppure è possibile chiedere a una firma di accesso condiviso per l'account di archiviazione e usarla per allegare l'account di archiviazione.
+Se viene visualizzato questo messaggio di errore, è possibile che non si disponga delle autorizzazioni necessarie per ottenere le chiavi per l'account di archiviazione. Per confermare che questo è il caso, passare al portale e individuare l'account di archiviazione. A tale scopo, fare clic con il pulsante destro del mouse sul nodo dell'account di archiviazione e scegliere **Apri nel portale** . Passare quindi al pannello **chiavi di accesso** . Se non si hanno le autorizzazioni per visualizzare le chiavi, verrà visualizzato il messaggio "non si ha accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da un altro utente e collegarla tramite il nome e la chiave oppure è possibile chiedere a una firma di accesso condiviso per l'account di archiviazione e usarla per allegare l'account di archiviazione.
 
 Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub in modo da consentire la risoluzione del problema.
 
@@ -238,8 +238,8 @@ Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub
 
 Se si riceve questo messaggio di errore quando si tenta di aggiungere una connessione personalizzata, i dati di connessione archiviati in Gestione credenziali locale potrebbero essere danneggiati. Per risolvere il problema, provare a eliminare le connessioni locali danneggiate, quindi aggiungerle nuovamente:
 
-1. Avviare Storage Explorer. Dal menu, passare a **Guida**  >  **strumenti di sviluppo**.
-2. Nella finestra aperta, nella scheda **applicazione** , passare alla risorsa di **archiviazione locale** (lato sinistro) > **file://**.
+1. Avviare Storage Explorer. Dal menu, passare a **Guida**  >  **strumenti di sviluppo** .
+2. Nella finestra aperta, nella scheda **applicazione** , passare alla risorsa di **archiviazione locale** (lato sinistro) > **file://** .
 3. A seconda del tipo di connessione con cui si verifica un problema, cercare la relativa chiave e quindi copiarne il valore in un editor di testo. Il valore è una matrice dei nomi di connessione personalizzati, come il seguente:
     * Account di archiviazione
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +265,13 @@ Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni 
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. Nel menu **Start** cercare **Gestione credenziali** e aprirlo.
-2. Passare a **Windows credentials**.
-3. In **credenziali generiche**cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
+2. Passare a **Windows credentials** .
+3. In **credenziali generiche** cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain**.
+1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain** .
 2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 

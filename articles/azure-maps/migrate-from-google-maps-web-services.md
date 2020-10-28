@@ -9,16 +9,32 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874459"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518892"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Google Maps
 
 Sia Mappe di Azure che Google Maps forniscono l'accesso alle API spaziali tramite i servizi Web REST. Le interfacce API di queste piattaforme eseguono funzionalità simili. Tuttavia, ognuna di esse usa convenzioni di denominazione e oggetti di risposta diversi.
+
+In questa esercitazione verranno illustrate le procedure per:
+
+> * Geocodifica diretta e inversa
+> * Cercare i punti di interesse
+> * Calcolare percorsi e indicazioni
+> * Recuperare un'immagine mappa
+> * Calcolare una matrice di distanze
+> * Ottenere dettagli sul fuso orario
+
+Verrà inoltre descritto: 
+
+> [!div class="checklist"]
+> * Quale servizio REST di Mappe di Azure usare per la migrazione da un servizio Web di Google Maps
+> * Suggerimenti su come sfruttare al meglio i servizi di Mappe di Azure
+> * Informazioni dettagliate su altri servizi di Mappe di Azure correlati
 
 La tabella seguente illustra le API del servizio Mappe di Azure che forniscono funzionalità simili alle API del servizio Google Maps elencate.
 
@@ -48,6 +64,12 @@ Mappe di Azure offre numerosi servizi Web REST aggiuntivi che possono risultare 
 
 - [Operazioni spaziali](https://docs.microsoft.com/rest/api/maps/spatial): consente di eseguire l'offload di operazioni e calcoli spaziali complessi, ad esempio il geofencing, in un servizio.
 - [Traffico](https://docs.microsoft.com/rest/api/maps/traffic): consente di accedere ai dati degli eventi e del flusso di traffico in tempo reale.
+
+## <a name="prerequisites"></a>Prerequisiti 
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="geocoding-addresses"></a>Geocodifica di indirizzi
 
@@ -110,7 +132,7 @@ L'API di geocodifica inversa di Mappe di Azure include alcune funzionalità aggi
 È possibile cercare i dati del punto di interesse in Google Maps usando l'API di ricerca luoghi. Questa API offre tre modi diversi per cercare i punti di interesse:
 
 - **Ricerca di un luogo dal testo:** cerca un punto di interesse in base al nome, all'indirizzo o al numero di telefono.
-- **Ricerca nelle vicinanze**: cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
+- **Ricerca nelle vicinanze** : cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
 - **Ricerca testuale:** cerca i luoghi usando un testo in formato libero contenente informazioni sul punto di interesse e sulla posizione. Ad esempio: "pizza a New York" o "ristoranti vicino a Main St".
 
 Mappe di Azure offre numerose API di ricerca per i punti di interesse:
@@ -197,11 +219,11 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro *countrySet* quando si usa l'API di geocodifica di Mappe di Azure.  |
-| `traffic_model`               | *N/D*: può specificare solo se usare o meno i dati del traffico con il parametro *traffic*. |
+| `region`                       | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro *countrySet* quando si usa l'API di geocodifica di Mappe di Azure.  |
+| `traffic_model`               | *N/D* : può specificare solo se usare o meno i dati del traffico con il parametro *traffic* . |
 | `transit_mode`                | Vedere la [documentazione dei servizi di mobilità](https://docs.microsoft.com/rest/api/maps/mobility) |
 | `transit_routing_preference` | Vedere la [documentazione dei servizi di mobilità](https://docs.microsoft.com/rest/api/maps/mobility) |
-| `units`                        | *N/D*: Mappe di Azure usa solo il sistema metrico.  |
+| `units`                        | *N/D* : Mappe di Azure usa solo il sistema metrico.  |
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
@@ -242,7 +264,7 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 | `maptype`                   | `layer` e `style`: vedere la documentazione relativa agli [stili mappa supportati](supported-map-styles.md). |
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
-| `region`                    | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure.  |
+| `region`                    | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure.  |
 | `scale`                     | *N/D*                              |
 | `size`                      | `width` e `height`: dimensioni massime fino a 8192x8192. |
 | `style`                     | *N/D*                              |
@@ -334,7 +356,6 @@ Ora verrà aggiunta un'icona predefinita rossa (`FF0000`) con l'etichetta "Space
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Marcatore di Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
@@ -342,8 +363,6 @@ Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Più indicatori in Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -424,11 +443,11 @@ Questa tabella offre un riferimento incrociato dei parametri dell'API Google Map
 | `language`                     | `language`: vedere la documentazione relativa alle [lingue supportate](supported-languages.md).  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins`: specificare nel corpo della richiesta POST come GeoJSON.  |
-| `region`                       | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure. |
-| `traffic_model`                | *N/D*: può specificare solo se usare o meno i dati del traffico con il parametro `traffic`. |
-| `transit_mode`                 | *N/D*: le matrici di distanze basate su transito non sono attualmente supportate.  |
-| `transit_routing_preference`   | *N/D*: le matrici di distanze basate su transito non sono attualmente supportate.  |
-| `units`                        | *N/D*: Mappe di Azure usa solo il sistema metrico. |
+| `region`                       | *N/D* : si tratta di una funzionalità relativa alla geocodifica. Usare il parametro `countrySet` quando si usa l'API di geocodifica di Mappe di Azure. |
+| `traffic_model`                | *N/D* : può specificare solo se usare o meno i dati del traffico con il parametro `traffic`. |
+| `transit_mode`                 | *N/D* : le matrici di distanze basate su transito non sono attualmente supportate.  |
+| `transit_routing_preference`   | *N/D* : le matrici di distanze basate su transito non sono attualmente supportate.  |
+| `units`                        | *N/D* : Mappe di Azure usa solo il sistema metrico. |
 
 > [!TIP]
 > Tutte le opzioni di pianificazione percorso avanzate disponibili nell'API di pianificazione percorso di Mappe di Azure sono supportate nell'API della matrice di distanze di Mappe di Azure. Le opzioni di pianificazione percorso avanzate includono: percorso autocarro, specifiche del motore e così via.
@@ -468,13 +487,24 @@ Queste librerie client open source sono destinate ad altri linguaggi di programm
 
 - .NET Standard 2.0 - [Progetto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacchetto NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 
-Di seguito sono riportate alcune risorse e documentazione aggiuntive per i servizi REST di Mappe di Azure.
+Altre informazioni sui servizi REST di Mappe di Azure:
 
-- [Procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md)
-- [Cercare un indirizzo](how-to-search-for-address.md)
-- [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
-- [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
-- [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Cercare un indirizzo](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)

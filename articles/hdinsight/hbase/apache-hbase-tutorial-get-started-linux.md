@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958362"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370322"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
@@ -50,14 +50,14 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
     |Resource group|creare un nuovo gruppo di Azure Resource Manager o usarne uno esistente.|
     |Location|consente di specificare la posizione del gruppo di risorse. |
     |ClusterName|immettere un nome per il cluster HBase.|
-    |ID di accesso e password del cluster|Il nome di accesso predefinito è **admin**.|
-    |Nome utente e password SSH|Il nome utente predefinito è **sshuser**.|
+    |ID di accesso e password del cluster|Il nome di accesso predefinito è **admin** .|
+    |Nome utente e password SSH|Il nome utente predefinito è **sshuser** .|
 
     Gli altri parametri sono facoltativi.  
 
     Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Dopo aver eliminato un cluster, i dati rimangono nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
 
-3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. La creazione di un cluster richiede circa 20 minuti.
+3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista** . La creazione di un cluster richiede circa 20 minuti.
 
 Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso contenitore di BLOB predefinito. Il nuovo cluster seleziona le tabelle HBase create nel cluster originale. Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
 
@@ -207,9 +207,51 @@ Questa procedura usa la tabella HBase `Contacts` creata nella procedura preceden
 
 1. Per chiudere la connessione SSH, usare `exit`.
 
+### <a name="separate-hive-and-hbase-clusters"></a>Separare i cluster Hive e HBase
+
+Non è necessario eseguire la query Hive per accedere ai dati di HBase dal cluster HBase. Per eseguire query sui dati di HBase si può usare qualsiasi cluster fornito con Hive (inclusi Spark, Hadoop, HBase o Interactive Query), purché siano stati completati i passaggi seguenti:
+
+1. Collegare entrambi i cluster alla stessa rete virtuale e alla stessa subnet
+2. Copiare `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` dai nodi head del cluster HBase ai nodi head del cluster Hive
+
+### <a name="secure-clusters"></a>Proteggere i cluster
+
+È possibile eseguire query sui dati di HBase da Hive anche tramite HBase abilitato per ESP: 
+
+1. Se si segue un modello multicluster, entrambi i cluster devono essere abilitati per ESP. 
+2. Per consentire a Hive di eseguire query sui dati di HBase, assicurarsi che all'utente `hive` siano concesse le autorizzazioni per accedere ai dati di HBase tramite il plug-in Apache Ranger HBase
+3. Se si usano cluster abilitati per ESP distinti, il contenuto di `/etc/hosts` dei nodi head del cluster HBase deve essere accodato al contenuto di `/etc/hosts` dei nodi head del cluster Hive. 
+> [!NOTE]
+> Se si ridimensiona uno dei cluster, `/etc/hosts` deve essere accodato di nuovo
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Usare le API REST HBase mediante Curl
 
 L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikipedia.org/wiki/Basic_access_authentication). Le richieste vengono sempre eseguite usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
+
+1. Per abilitare le API REST HBase nel cluster HDInsight, aggiungere lo script di avvio personalizzato seguente alla sezione **Script Action** . È possibile aggiungere lo script di avvio durante la creazione del cluster o successivamente. Per **Tipo di nodo** selezionare **Server di area** per assicurarsi che lo script venga eseguito solo in server di area HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Impostare la variabile di ambiente per semplicità d'uso. Modificare i comandi seguenti sostituendo `MYPASSWORD` con la password dell'account di accesso del cluster. Sostituire `MYCLUSTERNAME` con il nome del cluster HBase e quindi immettere i comandi.
 
@@ -307,10 +349,10 @@ HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoragg
 Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster. È possibile usare il comando HBase `disable 'Contacts'`. Se non si intende continuare a usare questa applicazione, eliminare il cluster HBase creato con i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Nella casella **Ricerca** in alto digitare **HDInsight**.
-1. Selezionare **Cluster HDInsight** in **Servizi**.
+1. Nella casella **Ricerca** in alto digitare **HDInsight** .
+1. Selezionare **Cluster HDInsight** in **Servizi** .
 1. Nell'elenco di cluster HDInsight visualizzato, fare clic su **...** accanto al cluster creato per questa esercitazione.
-1. Fare clic su **Elimina**. Fare clic su **Sì**.
+1. Fare clic su **Elimina** . Fare clic su **Sì** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

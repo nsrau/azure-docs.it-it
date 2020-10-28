@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614162"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359000"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Esercitazione: Valutare, analizzare e rispondere agli avvisi di sicurezza
-Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a specifici indicatori o origini di intelligence. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. 
+Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence sulle minacce per segnalare attività potenzialmente dannose nelle risorse cloud. Nel Centro sicurezza è anche possibile integrare gli avvisi di altri prodotti e servizi di sicurezza. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione del potenziale problema di sicurezza. 
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -40,7 +40,7 @@ Per esaminare le funzionalità descritte in questa esercitazione, Azure Defender
 ## <a name="triage-security-alerts"></a>Valutare gli avvisi di sicurezza
 Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurezza. Gli avvisi di sicurezza sono classificati in base alla gravità dell'attività individuata. 
 
-Valutare gli avvisi nella pagina **Avvisi di sicurezza**:
+Valutare gli avvisi nella pagina **Avvisi di sicurezza** :
 
 :::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Pagina Avvisi di sicurezza" lightbox="./media/tutorial-security-incident/alerts-list.png":::
 
@@ -68,7 +68,7 @@ Dopo aver stabilito quale avviso analizzare per primo:
     - Risorse interessate
     - Finalità dell'attività nel modello kill chain della matrice MITRE ATT&CK
 
-1. Per informazioni più dettagliate che possono risultare utili per analizzare l'attività sospetta, esaminare la scheda **Dettagli avviso**.
+1. Per informazioni più dettagliate che possono risultare utili per analizzare l'attività sospetta, esaminare la scheda **Dettagli avviso** .
 
 1. Una volta esaminate le informazioni in questa pagina, si avranno dati sufficienti per procedere con una risposta. Se invece sono necessari ulteriori dettagli:
 
@@ -83,18 +83,18 @@ Dopo aver analizzato un avviso e averne compreso l'ambito, è possibile risponde
     :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Pagina Avvisi di sicurezza" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Esaminare la sezione **Mitiga la minaccia** per la procedura di analisi manuale da eseguire per mitigare il problema.
-1.  Per rafforzare le risorse ed evitare attacchi futuri di questo tipo, seguire le raccomandazioni per la sicurezza riportate nella sezione **Evita attacchi futuri**.
-1.  Per attivare un'app per la logica con passaggi di risposta automatizzati, usare la sezione **Attiva la risposta automatica**.
-1.  Se l'attività rilevata *non è* dannosa, è possibile eliminare gli avvisi futuri di questo tipo usando la sezione **Elimina avvisi simili**.
+1.  Per rafforzare le risorse ed evitare attacchi futuri di questo tipo, seguire le raccomandazioni per la sicurezza riportate nella sezione **Evita attacchi futuri** .
+1.  Per attivare un'app per la logica con passaggi di risposta automatizzati, usare la sezione **Attiva la risposta automatica** .
+1.  Se l'attività rilevata *non è* dannosa, è possibile eliminare gli avvisi futuri di questo tipo usando la sezione **Elimina avvisi simili** .
 
-1.  Dopo aver completato l'analisi dell'avviso e aver risposto nel modo appropriato, cambiare lo stato in **Ignorato**.
+1.  Dopo aver completato l'analisi dell'avviso e aver risposto nel modo appropriato, cambiare lo stato in **Ignorato** .
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Pagina Avvisi di sicurezza":::
 
-    L'avviso verrà rimosso dall'elenco principale. È possibile usare il filtro nella pagina dell'elenco degli avvisi per visualizzare tutti gli avvisi con lo stato **Ignorato**.
+    L'avviso verrà rimosso dall'elenco principale. È possibile usare il filtro nella pagina dell'elenco degli avvisi per visualizzare tutti gli avvisi con lo stato **Ignorato** .
 
-1.  Facoltativamente, inviare feedback su un avviso a Microsoft:
-    1. Indicare se l'avviso è risultato **utile** o **non utile**
+1.  Microsoft incoraggia l'invio di feedback sull'avviso
+    1. contrassegnandolo come **utile** o **non utile** .
     1. Selezionare un motivo e aggiungere un commento.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Pagina Avvisi di sicurezza":::
@@ -108,11 +108,11 @@ Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se
 
 Se non si prevede di continuare o si vogliono disabilitare queste funzionalità:
 
-1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
+1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni** .
 1. Selezionare la sottoscrizione pertinente.
-1. Per effettuare il downgrade, selezionare **Azure Defender - Off**.
-1. Per disabilitare il provisioning automatico, aprire la pagina **Raccolta dati** e disattivare l'opzione**Provisioning automatico**.
-4. Selezionare **Salva**.
+1. Per effettuare il downgrade, selezionare **Azure Defender - Off** .
+1. Per disabilitare il provisioning automatico, aprire la pagina **Raccolta dati** e disattivare l'opzione **Provisioning automatico** .
+4. Selezionare **Salva** .
 
 >[!NOTE]
 > La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure che contengono già l'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.

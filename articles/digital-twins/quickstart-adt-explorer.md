@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048509"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331567"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
 
-Con Gemelli digitali di Azure è possibile creare e interagire con modelli live degli ambienti reali. A questo scopo occorre modellare singoli elementi come **gemelli digitali**, quindi connetterli in un **grafo** della conoscenza che possa rispondere agli eventi live ed essere sottoposto a query per ottenere informazioni.
+Con Gemelli digitali di Azure è possibile creare e interagire con modelli live degli ambienti reali. A questo scopo occorre modellare singoli elementi come **gemelli digitali** , quindi connetterli in un **grafo** della conoscenza che possa rispondere agli eventi live ed essere sottoposto a query per ottenere informazioni.
 
 In questo argomento di avvio rapido si esplorerà un grafo predefinito di Gemelli digitali di Azure con l'aiuto di un'applicazione di esempio denominata [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer consente di caricare una rappresentazione digitale di un ambiente, visualizzare immagini visive dei gemelli e del grafo creati per rappresentare l'ambiente in Gemelli digitali di Azure ed eseguire altre attività di gestione tramite un'esperienza visiva basata sul browser.
 
@@ -38,36 +38,35 @@ Per completare questa guida di avvio rapido è necessaria una sottoscrizione di 
 È anche necessario **Node.js** nel computer. È possibile scaricare la versione più recente da questo collegamento: [Node.js](https://nodejs.org/).
 
 Infine, occorre anche scaricare due esempi da usare durante la procedura descritta nell'argomento di avvio rapido:
-* L'applicazione di esempio **ADT Explorer**. Questo esempio contiene l'app principale usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. È possibile ottenere l'app in [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins__ADT__explorer.zip**_. Decomprimere la cartella ed estrarre i file.
-* Lo **scenario di esempio di Gemelli digitali di Azure**. È incluso un grafo predefinito di Gemelli digitali di Azure da caricare e usare in ADT Explorer. È possibile ottenere lo scenario in [Esempi di Gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins_samples.zip**_. Decomprimere la cartella ed estrarre i file.
+* L'applicazione di esempio **ADT Explorer** . Questo esempio contiene l'app principale usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. È possibile ottenere l'app in [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins__ADT__explorer.zip**_ . Decomprimere la cartella ed estrarre i file.
+* Lo **scenario di esempio di Gemelli digitali di Azure** . È incluso un grafo predefinito di Gemelli digitali di Azure da caricare e usare in ADT Explorer. È possibile ottenere lo scenario in [Esempi end-to-end di Gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Decomprimere la cartella ed estrarre i file.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurare Gemelli digitali di Azure e ADT Explorer
 
-La prima cosa da fare per usare Gemelli digitali di Azure è configurare un'**istanza di Gemelli digitali di Azure**. Dopo aver creato un'istanza del servizio, sarà possibile popolarla con i dati di esempio più avanti nella guida di avvio rapido.
+La prima cosa da fare per usare Gemelli digitali di Azure è configurare un' **istanza di Gemelli digitali di Azure** . Dopo aver creato un'istanza del servizio, sarà possibile popolarla con i dati di esempio più avanti nella guida di avvio rapido.
 
 Occorre anche configurare le autorizzazioni per l'esecuzione di ADT Explorer nel computer e l'accesso all'istanza di Gemelli digitali di Azure. In questo modo sarà possibile usare l'app di esempio per esplorare l'istanza e i relativi dati.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Configurare l'istanza di Gemelli digitali di Azure
+### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Configurare un'istanza di Gemelli digitali di Azure e una registrazione dell'app
 
-Prima di tutto, configurare un'istanza di Gemelli digitali di Azure e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
+Prima di tutto, **configurare un'istanza di Gemelli digitali di Azure** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
+* Dopo aver configurato l'istanza di Gemelli digitali di Azure, è necessario avere il **_nome host_** dell'istanza, [reperibile nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values).
 
-In questo avvio rapido saranno necessari i valori seguenti ottenuti al momento della configurazione dell'istanza. Se è necessario raccogliere nuovamente questi valori, usare i collegamenti seguenti alle sezioni corrispondenti nell'articolo relativo alla configurazione per individuarli nel [portale di Azure](https://portal.azure.com).
-* **_Nome host_** dell'istanza di Gemelli digitali di Azure ([trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_ID applicazione (client)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
-* **_ID directory (tenant)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
+Per autenticare l'applicazione ADT Explorer, è anche necessario configurare una **registrazione dell'app** . Seguire le istruzioni in [*Procedura dettagliata: Creare una registrazione dell'app*](how-to-create-app-registration.md) per configurare questa impostazione. 
+* Una volta eseguita la registrazione dell'app, è necessario avere l' **_ID applicazione (client)_** e l' **_ID directory (tenant)_** della registrazione, [reperibili nel portale](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 ### <a name="set-adt-explorer-permissions"></a>Impostare le autorizzazioni di ADT Explorer
 
-Preparare quindi l'istanza di Gemelli digitali di Azure creata per lavorare con ADT Explorer, che è un'applicazione Web ospitata in locale. Accedere alla pagina [Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) nel portale di Azure e selezionare il nome della registrazione dell'app dall'elenco.
+Preparare quindi l'istanza di Gemelli digitali di Azure creata per lavorare con ADT Explorer, che è un'applicazione Web ospitata in locale. Accedere alla pagina [Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) nel portale di Azure e selezionare nell'elenco il nome della **registrazione dell'app** creata nella sezione precedente.
 
-Selezionare *Autenticazione* nel menu della registrazione e quindi selezionare *+ Aggiungi una piattaforma*.
+Selezionare *Autenticazione* nel menu della registrazione e quindi selezionare *+ Aggiungi una piattaforma* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
-Nella pagina *Configura le piattaforme* selezionare *Web*.
+Nella pagina *Configura le piattaforme* selezionare *Web* .
 Compilare i dettagli di configurazione nel modo seguente:
-* **URI di reindirizzamento**: aggiungere l'URI di reindirizzamento *http://localhost:3000* .
-* **Concessione implicita**: selezionare la casella *Token di accesso*.
+* **URI di reindirizzamento** : aggiungere l'URI di reindirizzamento *http://localhost:3000* .
+* **Concessione implicita** : selezionare la casella *Token di accesso* .
 
 Selezionare *Configura* per terminare.
 
@@ -79,7 +78,7 @@ Selezionare *Configura* per terminare.
     :::column-end:::
 :::row-end:::
 
-A questo punto si dispone di una configurazione Web che verrà usata da ADT Explorer. Questa configurazione si riflette nella scheda Autenticazione del portale di Azure. Dopo aver verificato le sezioni riportate di seguito, fare clic su *Salva*.
+A questo punto si dispone di una configurazione Web che verrà usata da ADT Explorer. Questa configurazione si riflette nella scheda Autenticazione del portale di Azure. Dopo aver verificato le sezioni riportate di seguito, fare clic su *Salva* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi.":::
 
@@ -87,7 +86,7 @@ A questo punto si dispone di una configurazione Web che verrà usata da ADT Expl
 
 Eseguire ora l'applicazione ADT Explorer e configurarla per l'istanza di Gemelli digitali di Azure.
 
-Passare alla cartella scaricata e decompressa _**Azure_Digital_Twins__ADT__explorer**_. Aprire un prompt dei comandi in corrispondenza del percorso della cartella *Azure_Digital_Twins__ADT__explorer/client/src*.
+Passare alla cartella scaricata e decompressa _**Azure_Digital_Twins__ADT__explorer**_ . Aprire un prompt dei comandi in corrispondenza del percorso della cartella *Azure_Digital_Twins__ADT__explorer/client/src* .
 
 Eseguire `npm install` per scaricare tutte le dipendenze necessarie.
 
@@ -118,13 +117,13 @@ Se viene visualizzata una finestra popup *Autorizzazioni richieste* da Microsoft
 
 A questo punto occorre importare lo scenario e il grafo di esempio in ADT Explorer.
 
-Dato che lo scenario di esempio si trova nella cartella _**Azure_Digital_Twins_samples**_ scaricata e decompressa, passare a tale cartella.
+Passare alla cartella _**Azure_Digital_Twins_end_to_end_samples**_ scaricata e decompressa, in cui si trova lo scenario di esempio.
 
 ### <a name="models"></a>Modelli
 
 Il primo passaggio da eseguire in una soluzione di Gemelli digitali di Azure è la definizione del vocabolario per l'ambiente. A questo scopo occorre creare [**modelli**](concepts-models.md) personalizzati che descrivano i tipi di entità esistenti nell'ambiente. 
 
-Ogni modello è scritto in un linguaggio simile a JSON-LD detto **DTDL (Digital Twin Definition Language)** e descrive un singolo tipo di entità in termini di *proprietà*, *dati di telemetria*, *relazioni* e *componenti*. Successivamente si useranno questi modelli come base per i gemelli digitali che rappresentano istanze specifiche di questi tipi.
+Ogni modello è scritto in un linguaggio simile a JSON-LD detto **DTDL (Digital Twin Definition Language)** e descrive un singolo tipo di entità in termini di *proprietà* , *dati di telemetria* , *relazioni* e *componenti* . Successivamente si useranno questi modelli come base per i gemelli digitali che rappresentano istanze specifiche di questi tipi.
 
 In genere il processo di creazione di un modello è costituito da tre passaggi:
 1. Scrivere la definizione del modello (nella guida di avvio rapido questa operazione è già stata eseguita nell'ambito della soluzione di esempio)
@@ -141,7 +140,7 @@ Nella casella *MODEL VIEW* (Visualizzazione modello) selezionare l'icona *Upload
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. Nella casella di selezione file visualizzata passare alla cartella *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* nel repository scaricato.
+1. Nella casella di selezione file visualizzata passare alla cartella *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp/models* nel repository scaricato.
 2. Selezionare *Room.json* e *Floor.json* e scegliere OK. Se si vuole è possibile caricare anche gli altri modelli, ma non verranno usati in questa guida di avvio rapido.
 3. Seguire le istruzioni della finestra di dialogo popup in cui viene chiesto di accedere al proprio account Azure.
 
@@ -179,7 +178,7 @@ Nel riquadro *GRAPH VIEW* (Visualizzazione grafico) selezionare l'icona *Import 
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Nella casella di selezione file passare alla cartella *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* e scegliere il file del foglio di lavoro _**buildingScenario.xlsx**_. Questo file contiene una descrizione del grafo di esempio. Scegliere OK.
+Nella casella di selezione file passare alla cartella *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp* e scegliere il file del foglio di calcolo _**buildingScenario.xlsx**_ . Questo file contiene una descrizione del grafo di esempio. Scegliere OK.
 
 Dopo alcuni secondi ADT Explorer aprirà una visualizzazione *Import* che mostra un'anteprima del grafo che verrà caricato.
 
@@ -215,7 +214,7 @@ Verrà eseguita la query predefinita per selezionare e visualizzare tutti i geme
 
 A questo punto è possibile vedere il grafo caricato dello scenario di esempio:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." del grafo) rappresentano i gemelli digitali e le linee rappresentano le relazioni. Come si può vedere, il gemello *Floor0* contiene *Room0* e il gemello *Floor1* contiene *Room1*.
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." del grafo) rappresentano i gemelli digitali e le linee rappresentano le relazioni. Come si può vedere, il gemello *Floor0* contiene *Room0* e il gemello *Floor1* contiene *Room1* .
 
 Se si usa un mouse, è possibile fare clic e trascinare parti del grafo per spostarle in altre posizioni.
 
@@ -223,7 +222,7 @@ Se si usa un mouse, è possibile fare clic e trascinare parti del grafo per spos
 
 È possibile selezionare un gemello per visualizzare un elenco delle relative proprietà e i relativi valori nel riquadro *PROPERTY EXPLORER* (Esplora proprietà). 
 
-Queste sono le proprietà di *Room0*:
+Queste sono le proprietà di *Room0* :
 
 :::row:::
     :::column:::
@@ -233,9 +232,9 @@ Queste sono le proprietà di *Room0*:
     :::column-end:::
 :::row-end:::
 
-Si noti che *Room0* ha una temperatura impostata su **70**.
+Si noti che *Room0* ha una temperatura impostata su **70** .
 
-Queste sono le proprietà di *Room1*:
+Queste sono le proprietà di *Room1* :
 
 :::row:::
     :::column:::
@@ -245,13 +244,13 @@ Queste sono le proprietà di *Room1*:
     :::column-end:::
 :::row-end:::
 
-Si noti che *Room1* ha una temperatura impostata su **80**.
+Si noti che *Room1* ha una temperatura impostata su **80** .
 
 ### <a name="query-the-graph"></a>Eseguire una query sul grafo
 
 Una delle principali funzionalità di Gemelli digitali di Azure è la possibilità di eseguire [query](concepts-query-language.md) sul grafo dei gemelli in modo semplice ed efficiente per trovare le risposte alle domande sull'ambiente. 
 
-Un modo per eseguire query sui gemelli nel grafo è tramite le relative *proprietà*. Eseguire query sul grafo in base alle proprietà può essere utile per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione.
+Un modo per eseguire query sui gemelli nel grafo è tramite le relative *proprietà* . Eseguire query sul grafo in base alle proprietà può essere utile per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione.
 
 In questa sezione si eseguirà una query per rispondere alla domanda seguente: _**Quali sono i gemelli dell'ambiente con una temperatura superiore a 75?**_
 
@@ -261,7 +260,7 @@ Per vedere la risposta, eseguire la query seguente nel riquadro *QUERY EXPLORER*
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-In base alle proprietà dei gemelli visualizzate in precedenza, tenere presente che *Room0* ha una temperatura pari a **70** e *Room1* ha una temperatura pari a **80**. Di conseguenza, nei risultati viene visualizzato solo _**Room1**_.
+In base alle proprietà dei gemelli visualizzate in precedenza, tenere presente che *Room0* ha una temperatura pari a **70** e *Room1* ha una temperatura pari a **80** . Di conseguenza, nei risultati viene visualizzato solo _**Room1**_ .
     
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
@@ -270,11 +269,11 @@ In base alle proprietà dei gemelli visualizzate in precedenza, tenere presente 
 
 ## <a name="edit-data-in-the-graph"></a>Modificare i dati nel grafo
 
-È possibile usare ADT Explorer per modificare le proprietà dei gemelli rappresentati nel grafo. In questa sezione si **_aumenterà la temperatura di_ Room0 a 76**.
+È possibile usare ADT Explorer per modificare le proprietà dei gemelli rappresentati nel grafo. In questa sezione si **_aumenterà la temperatura di_ Room0 a 76** .
 
 A questo scopo selezionare *Room0* per visualizzare il relativo elenco delle proprietà nel riquadro *PROPERTY EXPLORER* (Esplora proprietà).
 
-Le proprietà in questo elenco sono modificabili. Selezionare il valore di temperatura **70** per immettere un nuovo valore. Immettere **76** e selezionare l'icona *Save* (Salva) per aggiornare la temperatura a **76**.
+Le proprietà in questo elenco sono modificabili. Selezionare il valore di temperatura **70** per immettere un nuovo valore. Immettere **76** e selezionare l'icona *Save* (Salva) per aggiornare la temperatura a **76** .
 
 :::row:::
     :::column:::
@@ -288,13 +287,13 @@ Dopo il salvataggio, verrà visualizzata la finestra *Patch Information* (Inform
 
 ### <a name="query-to-see-the-result"></a>Eseguire una query per visualizzare il risultato
 
-Per verificare che il grafo abbia registrato correttamente l'aggiornamento della temperatura di *Room0*, eseguire di nuovo la query precedente per **ottenere tutti i gemelli dell'ambiente con una temperatura superiore a 75**:
+Per verificare che il grafo abbia registrato correttamente l'aggiornamento della temperatura di *Room0* , eseguire di nuovo la query precedente per **ottenere tutti i gemelli dell'ambiente con una temperatura superiore a 75** :
 
 ```SQL
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-Ora che la temperatura di *Room0* è stata modificata da **70** a **76**, entrambi i gemelli dovrebbero essere visualizzati nel risultato.
+Ora che la temperatura di *Room0* è stata modificata da **70** a **76** , entrambi i gemelli dovrebbero essere visualizzati nel risultato.
 
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
@@ -319,7 +318,7 @@ Se si prevede di continuare con le esercitazioni su Gemelli digitali di Azure, �
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Infine, eliminare le cartelle di esempio del progetto scaricate nel computer locale (_**Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_samples**_). Potrebbe essere necessario eliminare le versioni compresse e decompresse.
+Infine, eliminare le cartelle di esempio del progetto scaricate nel computer locale ( _**Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_end_to_end_samples**_ ). Potrebbe essere necessario eliminare le versioni compresse e decompresse.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
