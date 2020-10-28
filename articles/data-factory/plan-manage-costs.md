@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83690237"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638007"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Pianificare e gestire i costi per Azure Data Factory
 
@@ -56,15 +56,15 @@ Ora è possibile inserire 30 esecuzioni attività e 380 ore DIU nel calcolatore 
 
 ## <a name="use-budgets-and-cost-alerts"></a>Usare budget e avvisi relativi ai costi
 
-È possibile creare [budget](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) per gestire i costi e creare avvisi per informare automaticamente le persone interessate in caso di anomalie di spesa e rischi di costi eccessivi.  Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi.  È possibile creare un budget a livello di sottoscrizione o a un livello di granularità inferiore aggiungendo altri filtri, come l'ID risorsa e il nome del contatore.  Non è però possibile creare budget per singole pipeline all'interno di una factory.
+È possibile creare [budget](../cost-management-billing/costs/tutorial-acm-create-budgets.md) per gestire i costi e creare avvisi per informare automaticamente le persone interessate in caso di anomalie di spesa e rischi di costi eccessivi.  Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi.  È possibile creare un budget a livello di sottoscrizione o a un livello di granularità inferiore aggiungendo altri filtri, come l'ID risorsa e il nome del contatore.  Non è però possibile creare budget per singole pipeline all'interno di una factory.
 
 ## <a name="monitor-costs-at-factory-level"></a>Monitorare i costi a livello di factory
 
-Quando si inizia a usare Azure Data Factory, è possibile visualizzare i costi sostenuti nel riquadro [Analisi dei costi](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) nel portale di Azure.
+Quando si inizia a usare Azure Data Factory, è possibile visualizzare i costi sostenuti nel riquadro [Analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md) nel portale di Azure.
 
-1. Per visualizzare il riquadro [Analisi dei costi](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), aprire la finestra **Gestione dei costi e fatturazione**, scegliere **Gestione costi** dal menu e quindi selezionare **Apri l'analisi dei costi**.
+1. Per visualizzare il riquadro [Analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md), aprire la finestra **Gestione dei costi e fatturazione** , scegliere **Gestione costi** dal menu e quindi selezionare **Apri l'analisi dei costi** .
 2. La visualizzazione predefinita mostra i costi accumulati per il mese corrente.  È possibile passare a un intervallo di tempo diverso e a un livello di granularità diverso, ad esempio giornaliero o mensile.
-3. Per restringere i costi a un solo servizio come Azure Data Factory, selezionare **Aggiungi filtro** e quindi **Nome servizio**.  Selezionare quindi **Azure Data Factory v2** dall'elenco.
+3. Per restringere i costi a un solo servizio come Azure Data Factory, selezionare **Aggiungi filtro** e quindi **Nome servizio** .  Selezionare quindi **Azure Data Factory v2** dall'elenco.
 4. È possibile aggiungere altri filtri per analizzare i costi per un'istanza di factory specifica e uno specifico livello di granularità del contatore di Azure Data Factory.
 
    ![Analisi dei costi](media/plan-manage-costs/cost-analysis.png)
@@ -81,7 +81,7 @@ Facendo clic sul pulsante **Consumo** accanto al nome della pipeline verrà visu
 
 ![Dettagli del consumo della pipeline](media/plan-manage-costs/pipeline-consumption-details.png)
 
-La visualizzazione del consumo dell'esecuzione della pipeline mostra la quantità utilizzata per ogni contatore di Azure Data Factory per l'esecuzione della pipeline specifica, ma non mostra il prezzo effettivo addebitato, perché l'importo addebitato dipende dal tipo di account di Azure e dal tipo di valuta usati.  Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+La visualizzazione del consumo dell'esecuzione della pipeline mostra la quantità utilizzata per ogni contatore di Azure Data Factory per l'esecuzione della pipeline specifica, ma non mostra il prezzo effettivo addebitato, perché l'importo addebitato dipende dal tipo di account di Azure e dal tipo di valuta usati.  Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Monitorare l'utilizzo a livello di esecuzione dell'attività
 Una volta compreso il consumo aggregato a livello di esecuzione della pipeline, esistono alcune situazioni in cui è necessario eseguire ulteriormente il drill-down per identificare l'attività più costosa all'interno della pipeline.
@@ -101,5 +101,5 @@ Ed ecco un esempio di esecuzione di un'attività di flusso di dati per mapping:
 Per altre informazioni sui prezzi in Azure Data Factory, vedere gli articoli seguenti:
 
 - [Pagina dei prezzi di Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Determinazione dei prezzi di Azure Data Factory ed esempi](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Determinazione dei prezzi di Azure Data Factory ed esempi](./pricing-concepts.md)
 - [Calcolatore prezzi di Azure Data Factory](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

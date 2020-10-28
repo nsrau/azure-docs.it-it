@@ -2,15 +2,15 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372392"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668691"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
+# <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
 Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare [criteri](../../governance/policy/overview.md) o il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) nel tenant Azure ad. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
 
@@ -49,13 +49,19 @@ Lo schema usato per le distribuzioni a livello di tenant è diverso rispetto all
 Per i modelli, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Accesso obbligatorio
@@ -78,21 +84,11 @@ L'amministratore globale di Azure Active Directory non dispone automaticamente d
 
 L'entità di sicurezza ha ora le autorizzazioni necessarie per distribuire il modello.
 
-## <a name="deployment-scopes"></a>Ambiti di distribuzione
-
-Quando si esegue la distribuzione in un tenant, è possibile usare come destinazione il tenant o i gruppi di gestione, le sottoscrizioni e i gruppi di risorse nel tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
-
-Le risorse definite all'interno della sezione Resources del modello vengono applicate al tenant.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
 I comandi per le distribuzioni a livello di tenant sono diversi rispetto ai comandi per le distribuzioni di gruppi di risorse.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per l'interfaccia della riga di comando di Azure usare [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Per Azure PowerShell usare [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Per l'API REST, usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione per la distribuzione di modelli ARM, vedere:
+
+* [Distribuire le risorse con i modelli ARM e portale di Azure](deploy-portal.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](deploy-cli.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](deploy-powershell.md)
+* [Distribuire le risorse con i modelli ARM e Azure Resource Manager API REST](deploy-rest.md)
+* [Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub](deploy-to-azure-button.md)
+* [Distribuire modelli ARM da Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in un gruppo di gestione, è possibile distribuire le risorse in:
+
+* tenant
+* gruppi di gestione all'interno del tenant
+* subscriptions
+* gruppi di risorse (tramite due distribuzioni nidificate)
+* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+In questa sezione viene illustrato come specificare ambiti diversi. È possibile combinare questi ambiti diversi in un singolo modello.
+
+### <a name="scope-to-tenant"></a>Ambito al tenant
+
+Le risorse definite all'interno della sezione Resources del modello vengono applicate al tenant.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Ambito al gruppo di gestione
+
+Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
+
+È anche possibile fare riferimento a sottoscrizioni all'interno del tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Per fare riferimento a una sottoscrizione all'interno del tenant, usare una distribuzione annidata e la `subscriptionId` Proprietà.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
 Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy** .
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
-
-## <a name="use-template-functions"></a>Usare le funzioni di modello
-
-Per le distribuzioni a livello di tenant, esistono alcune considerazioni importanti quando si usano funzioni di modello:
-
-* La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
-* La funzione [subscription()](template-functions-resource.md#subscription) **non** è supportata.
-* Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Non usare [ResourceID ()](template-functions-resource.md#resourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di tenant.
-
-  Usare invece la funzione [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
-
-  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri predefinita, usare:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  Il formato dell'ID risorsa restituito è il seguente:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Creare un gruppo di gestione
 

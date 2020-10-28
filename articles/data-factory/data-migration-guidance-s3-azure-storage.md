@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616925"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638041"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Usare Azure Data Factory per eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure 
 
@@ -41,9 +41,9 @@ I clienti hanno completato la migrazione di petabyte di dati costituiti da centi
 
 L'immagine precedente illustra come è possibile ottenere velocità di spostamento di dati eccezionali mediante diversi livelli di parallelismo:
  
-- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 unità di integrazione dati](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) per ogni attività di copia in modalità serverless; quando si usa il runtime di integrazione self-hosted è possibile aumentare manualmente le prestazioni del computer o aumentare le istanze in più computer ([fino a 4 nodi](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) e una singola attività di copia eseguirà la partizione del set di file in tutti i nodi. 
+- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 unità di integrazione dati](./copy-activity-performance.md#data-integration-units) per ogni attività di copia in modalità serverless; quando si usa il runtime di integrazione self-hosted è possibile aumentare manualmente le prestazioni del computer o aumentare le istanze in più computer ([fino a 4 nodi](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e una singola attività di copia eseguirà la partizione del set di file in tutti i nodi. 
 - Una singola attività di copia legge da e scrive nell'archivio dati usando più thread. 
-- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio usando il [ciclo For Each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio usando il [ciclo For Each](./control-flow-for-each-activity.md). 
 
 ## <a name="resilience"></a>Resilienza
 
@@ -81,10 +81,10 @@ Eseguire la migrazione di dati mediante un collegamento privato:
 
 ### <a name="authentication-and-credential-management"></a>Gestione dell'autenticazione e delle credenziali 
 
-- Per eseguire l'autenticazione per l'account Amazon S3, è necessario usare la [chiave di accesso per l'account IAM](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Per la connessione ad Archiviazione BLOB di Azure sono supportati più tipi di autenticazione.  L'uso di [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) è altamente consigliato: basate su un ADF gestito automaticamente in Azure AD, consentono di configurare le pipeline senza fornire le credenziali nella definizione del servizio collegato.  In alternativa, è possibile eseguire l'autenticazione in Archiviazione BLOB di Azure usando l'[entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), la [firma di accesso condiviso](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication) o la [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Anche per la connessione ad Azure Data Lake Storage Gen2 sono supportati più tipi di autenticazione.  È consigliabile usare [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity), anche se è possibile usare [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) o [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
-- Quando non si usano identità gestite per le risorse di Azure, è consigliabile [l'archiviazione delle credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per semplificare la gestione e la rotazione centralizzate delle chiavi senza modificare i servizi collegati di ADF.  Questa è anche una delle [procedure consigliate per CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Per eseguire l'autenticazione per l'account Amazon S3, è necessario usare la [chiave di accesso per l'account IAM](./connector-amazon-simple-storage-service.md#linked-service-properties). 
+- Per la connessione ad Archiviazione BLOB di Azure sono supportati più tipi di autenticazione.  L'uso di [identità gestite per le risorse di Azure](./connector-azure-blob-storage.md#managed-identity) è altamente consigliato: basate su un ADF gestito automaticamente in Azure AD, consentono di configurare le pipeline senza fornire le credenziali nella definizione del servizio collegato.  In alternativa, è possibile eseguire l'autenticazione in Archiviazione BLOB di Azure usando l'[entità servizio](./connector-azure-blob-storage.md#service-principal-authentication), la [firma di accesso condiviso](./connector-azure-blob-storage.md#shared-access-signature-authentication) o la [chiave dell'account di archiviazione](./connector-azure-blob-storage.md#account-key-authentication). 
+- Anche per la connessione ad Azure Data Lake Storage Gen2 sono supportati più tipi di autenticazione.  È consigliabile usare [identità gestite per le risorse di Azure](./connector-azure-data-lake-storage.md#managed-identity), anche se è possibile usare [entità servizio](./connector-azure-data-lake-storage.md#service-principal-authentication) o [chiave dell'account di archiviazione](./connector-azure-data-lake-storage.md#account-key-authentication). 
+- Quando non si usano identità gestite per le risorse di Azure, è consigliabile [l'archiviazione delle credenziali in Azure Key Vault](./store-credentials-in-key-vault.md) per semplificare la gestione e la rotazione centralizzate delle chiavi senza modificare i servizi collegati di ADF.  Questa è anche una delle [procedure consigliate per CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migrazione iniziale dei dati dello snapshot 
 
@@ -138,16 +138,16 @@ Ecco il prezzo stimato in base ai presupposti precedenti:
 ![Lo screenshot di una tabella mostra un prezzo stimato.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Riferimenti aggiuntivi 
-- [Copiare dati da Amazon Simple Storage Service usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Connettore di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Connettore di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guida alle prestazioni delle attività di copia e all'ottimizzazione](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerazioni relative alla sicurezza per lo spostamento dei dati](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiare file in modo incrementale in base al nome del file partizionato in base all'ora](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiare i file nuovi e modificati in base a LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Copiare dati da Amazon Simple Storage Service usando Azure Data Factory](./connector-amazon-simple-storage-service.md)
+- [Connettore di Archiviazione BLOB di Azure](./connector-azure-blob-storage.md)
+- [Connettore di Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md)
+- [Guida alle prestazioni delle attività di copia e all'ottimizzazione](./copy-activity-performance.md)
+- [Creare e configurare un runtime di integrazione self-hosted](./create-self-hosted-integration-runtime.md)
+- [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Considerazioni relative alla sicurezza per lo spostamento dei dati](./data-movement-security-considerations.md)
+- [Archiviare le credenziali in Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Copiare file in modo incrementale in base al nome del file partizionato in base all'ora](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copiare i file nuovi e modificati in base a LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Pagina dei prezzi di ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Modello

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619050"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638296"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
@@ -31,12 +31,12 @@ Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui s
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Indirizzi IP Azure Integration Runtime: aree specifiche
 
-Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse. È possibile ottenere un elenco di intervalli IP di tag del servizio dal [collegamento di download dell'intervallo IP dei tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Ad esempio, se l'area di Azure è **AustraliaEast**, è possibile ottenere un elenco di intervalli IP da **DataFactory. AustraliaEast**.
+Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse. È possibile ottenere un elenco di intervalli IP di tag del servizio dal [collegamento di download dell'intervallo IP dei tag del servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Ad esempio, se l'area di Azure è **AustraliaEast** , è possibile ottenere un elenco di intervalli IP da **DataFactory. AustraliaEast** .
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problemi noti con archiviazione di Azure
 
-* Quando ci si connette all'account di archiviazione di Azure, le regole di rete IP non hanno effetto sulle richieste provenienti dal runtime di integrazione di Azure nella stessa area dell'account di archiviazione. Per altri dettagli, [fare riferimento a questo articolo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Quando ci si connette all'account di archiviazione di Azure, le regole di rete IP non hanno effetto sulle richieste provenienti dal runtime di integrazione di Azure nella stessa area dell'account di archiviazione. Per altri dettagli, [fare riferimento a questo articolo](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range). 
 
   Si consiglia invece di usare [Servizi attendibili durante la connessione ad archiviazione di Azure](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 

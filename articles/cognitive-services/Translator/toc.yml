@@ -4,10 +4,10 @@
   items:
     - name: Che cos'è Traduttore?
       href: translator-info-overview.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       href: quickstart-translator.md
     - name: Supporto delle lingue
-      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+      href: language-support.md
     - name: Esercitazioni
       items:
         - name: 'Creare un''app WPF per Traduttore, C#'

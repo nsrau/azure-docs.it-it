@@ -4,13 +4,13 @@ description: Imparare a usare Azure Application Insights con Funzioni di Azure p
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2
-ms.openlocfilehash: 85851c896d32d2e15efa0a39260af4331f99f862
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js
+ms.openlocfilehash: 87c31df6ecb92acd5bedaee274f9886383e5c617
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217151"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668727"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -33,7 +33,7 @@ L'elenco completo delle funzionalità di Application Insights disponibili per le
 
 ## <a name="application-insights-integration"></a>Integrazione di Application Insights
 
-In genere, si crea un'istanza di Application Insights quando si crea l'app per le funzioni. In questo caso, la chiave di strumentazione necessaria per l'integrazione è già impostata come impostazione dell'applicazione denominata *APPINSIGHTS_INSTRUMENTATIONKEY*. Se per qualche motivo l'app per le funzioni non ha il set di chiavi di strumentazione, è necessario [abilitare l'integrazione Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+In genere, si crea un'istanza di Application Insights quando si crea l'app per le funzioni. In questo caso, la chiave di strumentazione necessaria per l'integrazione è già impostata come impostazione dell'applicazione denominata *APPINSIGHTS_INSTRUMENTATIONKEY* . Se per qualche motivo l'app per le funzioni non ha il set di chiavi di strumentazione, è necessario [abilitare l'integrazione Application Insights](configure-monitoring.md#enable-application-insights-integration).  
 
 ## <a name="collecting-telemetry-data"></a>Raccolta di dati di telemetria
 
@@ -95,9 +95,9 @@ Durante lo sviluppo di un'applicazione, è spesso necessario vedere cosa viene s
 
 Esistono due modi per visualizzare un flusso dei dati di log generati dalle esecuzioni di funzioni.
 
-* **Streaming dei log predefinito**: la piattaforma del servizio app consente di visualizzare un flusso dei file di log dell'applicazione. Questo flusso è equivalente all'output visualizzato quando si esegue il debug delle funzioni durante [lo sviluppo locale](functions-develop-local.md) e quando si usa la scheda **test** nel portale. Vengono visualizzate tutte le informazioni basate sui log. Per altre informazioni, vedere [Eseguire lo streaming dei log](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Questo metodo di streaming supporta solo una singola istanza e non può essere usato con un'app in esecuzione su Linux con un piano a consumo.
+* **Streaming dei log predefinito** : la piattaforma del servizio app consente di visualizzare un flusso dei file di log dell'applicazione. Questo flusso è equivalente all'output visualizzato quando si esegue il debug delle funzioni durante [lo sviluppo locale](functions-develop-local.md) e quando si usa la scheda **test** nel portale. Vengono visualizzate tutte le informazioni basate sui log. Per altre informazioni, vedere [Eseguire lo streaming dei log](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Questo metodo di streaming supporta solo una singola istanza e non può essere usato con un'app in esecuzione su Linux con un piano a consumo.
 
-* **Live Metrics Stream**: quando l'app per le funzioni è [connessa a Application Insights](configure-monitoring.md#enable-application-insights-integration), è possibile visualizzare i dati di log e altre metriche quasi in tempo reale nel portale di Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). È opportuno usare questo metodo quando si monitorano funzioni in esecuzione su più istanze o su Linux con un piano a consumo. Questo metodo usa [dati campionati](configure-monitoring.md#configure-sampling).
+* **Live Metrics Stream** : quando l'app per le funzioni è [connessa a Application Insights](configure-monitoring.md#enable-application-insights-integration), è possibile visualizzare i dati di log e altre metriche quasi in tempo reale nel portale di Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). È opportuno usare questo metodo quando si monitorano funzioni in esecuzione su più istanze o su Linux con un piano a consumo. Questo metodo usa [dati campionati](configure-monitoring.md#configure-sampling).
 
 I flussi di log possono essere visualizzati sia nel portale sia nella maggior parte degli ambienti di sviluppo locali. Per informazioni su come abilitare i flussi di log, vedere [abilitare i log di esecuzione del flusso in funzioni di Azure](streaming-logs.md).
 

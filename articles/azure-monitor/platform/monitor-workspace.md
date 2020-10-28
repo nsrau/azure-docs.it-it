@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372260"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638330"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorare l'integrità dell'area di lavoro Log Analytics in monitoraggio di Azure
-Per mantenere le prestazioni e la disponibilità dell'area di lavoro Log Analytics in monitoraggio di Azure, è necessario essere in grado di rilevare in modo proattivo tutti i problemi che si verificano. Questo articolo descrive come monitorare l'integrità dell'area di lavoro di Log Analytics usando i dati nella tabella delle [operazioni](/azure-monitor/reference/tables/operation) . Questa tabella è inclusa in ogni area di lavoro Log Analytics e contiene gli errori e gli avvisi che si verificano nell'area di lavoro. È consigliabile esaminare periodicamente questi dati e creare avvisi per ricevere notifiche proattive in caso di eventi imprevisti importanti nell'area di lavoro.
+Per mantenere le prestazioni e la disponibilità dell'area di lavoro Log Analytics in monitoraggio di Azure, è necessario essere in grado di rilevare in modo proattivo tutti i problemi che si verificano. Questo articolo descrive come monitorare l'integrità dell'area di lavoro di Log Analytics usando i dati nella tabella delle [operazioni](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Questa tabella è inclusa in ogni area di lavoro Log Analytics e contiene gli errori e gli avvisi che si verificano nell'area di lavoro. È consigliabile esaminare periodicamente questi dati e creare avvisi per ricevere notifiche proattive in caso di eventi imprevisti importanti nell'area di lavoro.
 
-## <a name="_logsoperation-function"></a>Funzione _LogsOperation
-I log di monitoraggio di Azure inviano informazioni dettagliate sui problemi alla tabella delle [operazioni](/azure-monitor/reference/tables/operation) nell'area di lavoro in cui si è verificato il problema. La funzione di sistema **_LogsOperation** è basata sulla tabella **Operation** e fornisce un set di informazioni semplificato per l'analisi e l'invio di avvisi.
+## <a name="_logoperation-function"></a>Funzione _LogOperation
+I log di monitoraggio di Azure inviano informazioni dettagliate sui problemi alla tabella delle [operazioni](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) nell'area di lavoro in cui si è verificato il problema. La funzione di sistema **_LogOperation** è basata sulla tabella **Operation** e fornisce un set di informazioni semplificato per l'analisi e l'invio di avvisi.
 
 ## <a name="columns"></a>Colonne
 
-La funzione **_LogsOperation** restituisce le colonne nella tabella seguente.
+La funzione **_LogOperation** restituisce le colonne nella tabella seguente.
 
 | Colonna | Descrizione |
 |:---|:---|
@@ -29,14 +29,14 @@ La funzione **_LogsOperation** restituisce le colonne nella tabella seguente.
 | Category  | Gruppo di categorie Operation. Può essere usato per filtrare i tipi di operazioni e consentire la creazione di avvisi e controllo del sistema più precisi. Per un elenco di categorie, vedere la sezione seguente. |
 | Operazione  | Descrizione del tipo di operazione. Questo può indicare uno dei limiti Log Analytics, il tipo di operazione o parte di un processo. |
 | Level | Livello di gravità del problema:<br>-Info: non è necessario prestare particolare attenzione.<br>-Warning: il processo non è stato completato come previsto e l'attenzione è necessaria.<br>-Errore: il processo non è riuscito ed è necessaria un'attenzione urgente. 
-| Dettaglio | Una descrizione dettagliata dell'operazione include un messaggio di errore specifico, se esistente. |
+| Dettagli | Una descrizione dettagliata dell'operazione include un messaggio di errore specifico, se esistente. |
 | _ResourceId | ID risorsa della risorsa di Azure correlata all'operazione.  |
 | Computer | Nome del computer se l'operazione è correlata a un agente di monitoraggio di Azure. |
 | CorrelationId | Utilizzato per raggruppare le operazioni correlate consecutive. |
 
 
 ## <a name="categories"></a>Categorie
-Nella tabella seguente vengono descritte le categorie della funzione _LogsOperations. 
+Nella tabella seguente vengono descritte le categorie della funzione _LogOperation. 
 
 | Category | Descrizione |
 |:---|:---|
@@ -51,7 +51,7 @@ Nella tabella seguente vengono descritte le categorie della funzione _LogsOperat
 Le operazioni di inserimento sono problemi che si sono verificati durante l'inserimento dei dati, incluse Log Analytics le notifiche relative al raggiungimento dei limiti di area Le condizioni di errore in questa categoria potrebbero indicare una perdita di dati, pertanto sono particolarmente importanti da monitorare. Nella tabella seguente vengono fornite informazioni dettagliate su queste operazioni. Vedere [limiti del servizio di monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) per i limiti del servizio per log Analytics aree di lavoro.
 
 
-| Operazione | Level | Dettaglio | Articolo correlato |
+| Operazione | Level | Dettagli | Articolo correlato |
 |:---|:---|:---|:---|
 | Log personalizzato | Errore   | È stato raggiunto il limite di colonne per i campi personalizzati. | [Limiti del servizio Monitoraggio di Azure](../service-limits.md#log-analytics-workspaces) |
 | Log personalizzato | Errore   | Inserimento dei log personalizzati non riuscito. | |
@@ -82,8 +82,8 @@ Usare il processo in [creare, visualizzare e gestire gli avvisi del log usando m
 
 | Query | Valore soglia | Periodo | Frequenza |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Queste regole di avviso rispondono allo stesso modo a tutte le operazioni con errore o avviso. Man mano che si acquisisce familiarità con le operazioni che generano avvisi, è possibile che si desideri rispondere in modo diverso per determinate operazioni. Ad esempio, è possibile inviare notifiche a utenti diversi per determinate operazioni. 
 

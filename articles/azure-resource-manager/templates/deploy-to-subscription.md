@@ -2,15 +2,15 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729118"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668876"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
+# <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
 Per semplificare la gestione delle risorse, è possibile usare un modello di Azure Resource Manager (modello ARM) per distribuire le risorse al livello della sottoscrizione di Azure. Ad esempio, è possibile distribuire i [criteri](../../governance/policy/overview.md) e il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) alla sottoscrizione, che li applica all'intera sottoscrizione. È anche possibile creare gruppi di risorse all'interno della sottoscrizione e distribuire le risorse ai gruppi di risorse nella sottoscrizione.
 
@@ -71,32 +71,26 @@ Lo schema usato per le distribuzioni a livello di sottoscrizione è diverso risp
 Per i modelli, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Ambiti di distribuzione
-
-Quando si esegue la distribuzione in una sottoscrizione, è possibile fare riferimento a una sottoscrizione e a tutti i gruppi di risorse all'interno della sottoscrizione. Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
-
-Le risorse definite nella sezione Resources del modello vengono applicate alla sottoscrizione.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Per fare riferimento a un gruppo di risorse all'interno della sottoscrizione, aggiungere una distribuzione annidata e includere la `resourceGroup` Proprietà. Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di risorse denominato `rg2` .
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-In questo articolo sono disponibili modelli che illustrano come distribuire le risorse in diversi ambiti. Per un modello che crea un gruppo di risorse e distribuisce un account di archiviazione, vedere [creare un gruppo di risorse e le risorse](#create-resource-group-and-resources). Per un modello che crea un gruppo di risorse, applica un blocco e assegna un ruolo per il gruppo di risorse, vedere controllo di [accesso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
-I comandi per le distribuzioni a livello di sottoscrizione sono diversi rispetto ai comandi per le distribuzioni di gruppi di risorse.
+Per eseguire la distribuzione in una sottoscrizione, usare i comandi di distribuzione a livello di sottoscrizione.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per l'interfaccia della riga di comando di Azure usare [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
 
@@ -108,7 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-Come comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Come comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment** . L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -119,35 +115,52 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-Per l'API REST, usare [Distribuzioni - Crea nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione per la distribuzione di modelli ARM, vedere:
+
+* [Distribuire le risorse con i modelli ARM e portale di Azure](deploy-portal.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](deploy-cli.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](deploy-powershell.md)
+* [Distribuire le risorse con i modelli ARM e Azure Resource Manager API REST](deploy-rest.md)
+* [Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub](deploy-to-azure-button.md)
+* [Distribuire modelli ARM da Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in una sottoscrizione, è possibile distribuire le risorse in:
+
+* sottoscrizione di destinazione dall'operazione
+* gruppi di risorse all'interno della sottoscrizione
+* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+In questa sezione viene illustrato come specificare ambiti diversi. È possibile combinare questi ambiti diversi in un singolo modello.
+
+### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
+
+Per distribuire le risorse nella sottoscrizione di destinazione, aggiungere tali risorse alla sezione Resources del modello.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Per esempi di distribuzione nella sottoscrizione, vedere [creare gruppi di risorse](#create-resource-groups) e [assegnare la definizione dei criteri](#assign-policy-definition).
+
+### <a name="scope-to-resource-group"></a>Ambito al gruppo di risorse
+
+Per distribuire le risorse in un gruppo di risorse all'interno della sottoscrizione, aggiungere una distribuzione annidata e includere la `resourceGroup` Proprietà. Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di risorse denominato `demoResourceGroup` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Per un esempio di distribuzione in un gruppo di risorse, vedere [creare risorse e gruppi di risorse](#create-resource-group-and-resources).
 
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
 Per le distribuzioni a livello di sottoscrizione, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy** .
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
-
-## <a name="use-template-functions"></a>Usare le funzioni di modello
-
-Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni importanti quando si usano funzioni di modello:
-
-* La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
-* Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Non usare [ResourceID ()](template-functions-resource.md#resourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione. Usare invece la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
-
-  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri distribuita in una sottoscrizione, usare:
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  Il formato dell'ID risorsa restituito è il seguente:
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>Gruppi di risorse
 

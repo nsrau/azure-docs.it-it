@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021892"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637888"
 ---
 # <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
@@ -29,10 +29,10 @@ L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o c
 In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I log di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
 
 ## <a name="deploy-solution"></a>Distribuire la soluzione
-Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../../storage/common/storage-account-create.md) e di una [database SQL di Azure](../../sql-database/sql-database-get-started.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
+Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../../storage/common/storage-account-create.md) e di una [database SQL di Azure](../../azure-sql/database/single-database-create-quickstart.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
 
 1. Creare una data factory o aprire una data factory esistente. Per la procedura di creazione di una data factory, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.
+2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio** .
 
     ![Riquadro Pipeline di esempio](./media/data-factory-samples/SamplePipelinesTile.png)
 3. Nel pannello **Pipeline di esempio** fare clic sulla **profilatura dei clienti** da distribuire.
@@ -45,7 +45,7 @@ Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporr
 6. Lo stato della distribuzione sarà visualizzato sul riquadro dell'esempio selezionato in precedenza nel pannello **Pipeline di esempio** .
 
     ![Stato della distribuzione](./media/data-factory-samples/DeploymentStatus.png)
-7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio**.  
+7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio** .  
 8. Nel pannello **DATA FACTORY** si potrà notare che i servizi collegati, i set di dati e le pipeline vengono aggiunti alla data factory.  
 
     ![Pannello Data factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
@@ -65,4 +65,3 @@ In questo esempio Data Factory viene usato per gestire le attività che copiano 
 
 ## <a name="benefits"></a>Vantaggi
 Per ottimizzare l'analisi del profilo dell'utente e allinearla agli obiettivi aziendali, le società di giochi online sono in grado di raccogliere rapidamente modelli di uso e analizzare l'efficacia delle campagne pubblicitarie.
-

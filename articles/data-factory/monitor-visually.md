@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570140"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638109"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorare visivamente Azure Data Factory
 
@@ -36,7 +36,7 @@ La visualizzazione di monitoraggio predefinita è l'elenco delle esecuzioni di p
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline (GG/MM/AAAA, HH:MM:SS) |
 | Durata | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Nome del trigger che ha avviato la pipeline |
-| Stato | **Operazione non riuscita**, **Operazione completata**, **In corso**, **Annullata** o **In coda** |
+| Stato | **Operazione non riuscita** , **Operazione completata** , **In corso** , **Annullata** o **In coda** |
 | Annotazioni | Tag filtrabili associati a una pipeline  |
 | Parametri | Parametri relativi all'esecuzione della pipeline (coppie nome-valore) |
 | Errore | Errore di esecuzione se la pipeline non è riuscita |
@@ -44,22 +44,22 @@ La visualizzazione di monitoraggio predefinita è l'elenco delle esecuzioni di p
 
 ![Visualizzazione elenco per il monitoraggio delle esecuzioni della pipeline](media/monitor-visually/pipeline-runs.png)
 
-Per aggiornare l'elenco delle esecuzioni di pipeline e attività, è necessario selezionare manualmente il pulsante **Aggiorna**. L'aggiornamento automatico non è attualmente supportato.
+Per aggiornare l'elenco delle esecuzioni di pipeline e attività, è necessario selezionare manualmente il pulsante **Aggiorna** . L'aggiornamento automatico non è attualmente supportato.
 
 ![Pulsante Aggiorna](media/monitor-visually/refresh.png)
 
 ## <a name="monitor-activity-runs"></a>Monitorare le esecuzioni delle attività
 
-Per visualizzare le esecuzioni attività per ogni esecuzione della pipeline, selezionare l'icona **View activity runs** (Visualizza esecuzioni attività) nella colonna **Azioni**. La visualizzazione elenco illustra le esecuzioni attività corrispondenti a ogni esecuzione della pipeline.
+Per visualizzare le esecuzioni attività per ogni esecuzione della pipeline, selezionare l'icona **View activity runs** (Visualizza esecuzioni attività) nella colonna **Azioni** . La visualizzazione elenco illustra le esecuzioni attività corrispondenti a ogni esecuzione della pipeline.
 
 | **Nome colonna** | **Descrizione** |
 | --- | --- |
 | Nome attività | Nome dell'attività all'interno della pipeline |
-| Tipo di attività | Tipo di attività, ad esempio **Copy**, **ExecuteDataFlow** o **AzureMLExecutePipeline** |
+| Tipo di attività | Tipo di attività, ad esempio **Copy** , **ExecuteDataFlow** o **AzureMLExecutePipeline** |
 | Azioni | Icone che consentono di visualizzare le informazioni di input JSON, le informazioni di output JSON o esperienze di monitoraggio dettagliate specifiche delle attività | 
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione attività (GG/MM/AAAA, HH:MM:SS) |
 | Durata | Durata dell'esecuzione (HH:MM:SS) |
-| Stato | **Operazione non riuscita**, **Operazione completata**, **In corso** o **Annullata** |
+| Stato | **Operazione non riuscita** , **Operazione completata** , **In corso** o **Annullata** |
 | Integration Runtime | Indica l'istanza di Integration Runtime in cui è stata eseguita l'attività |
 | Proprietà utente | Proprietà dell'attività definite dall'utente |
 | Errore | Errore di esecuzione se l'attività non è riuscita |
@@ -93,8 +93,8 @@ Dopo aver creato le proprietà utente, è possibile monitorarle successivamente 
 | **Nome colonna** | **Descrizione** |
 | --- | --- |
 | Nome pipeline | Filtra in base al nome della pipeline. |
-| Inizio esecuzione |  Determina l'intervallo di tempo delle esecuzioni della pipeline visualizzate. Le opzioni includono filtri rapidi basati su **Ultime 24 ore**, **Ultima settimana** e **Ultimi 30 giorni**. In alternativa è possibile selezionare una data e un'ora personalizzate. |
-| Stato dell'esecuzione | Filtra le esecuzioni in base allo stato: **Operazione completata**, **Operazione non riuscita**, **Accodata**, **Annullata** o **In corso**. |
+| Inizio esecuzione |  Determina l'intervallo di tempo delle esecuzioni della pipeline visualizzate. Le opzioni includono filtri rapidi basati su **Ultime 24 ore** , **Ultima settimana** e **Ultimi 30 giorni** . In alternativa è possibile selezionare una data e un'ora personalizzate. |
+| Stato dell'esecuzione | Filtra le esecuzioni in base allo stato: **Operazione completata** , **Operazione non riuscita** , **Accodata** , **Annullata** o **In corso** . |
 | Annotazioni | Filtra in base ai tag applicati a ogni pipeline |
 | Esecuzioni | Filtra se si vogliono visualizzare le pipeline eseguite di nuovo |
 
@@ -212,4 +212,4 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul monitoraggio e sulla gestione delle pipeline, vedere l'articolo su come [monitorare e gestire pipeline a livello di codice](https://docs.microsoft.com/azure/data-factory/monitor-programmatically).
+Per informazioni sul monitoraggio e sulla gestione delle pipeline, vedere l'articolo su come [monitorare e gestire pipeline a livello di codice](./monitor-programmatically.md).

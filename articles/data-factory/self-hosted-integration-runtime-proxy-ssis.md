@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
-ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867f12b026a56b7cab8530ef30c4a2f2c325f6b1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595021"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637786"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
 
@@ -25,11 +25,11 @@ ms.locfileid: "89595021"
 
 Questo articolo descrive come eseguire pacchetti SQL Server Integration Services (SSIS) in un Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory con un runtime di integrazione self-hosted (IR self-hosted) configurato come proxy. 
 
-Con questa funzionalità è possibile accedere ai dati in locale senza dover [aggiungere la Azure-SSIS IR a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Questa funzionalità è utile quando la rete aziendale presenta una configurazione troppo complessa o un criterio troppo restrittivo per poter inserire il Azure-SSIS IR.
+Con questa funzionalità è possibile accedere ai dati in locale senza dover [aggiungere la Azure-SSIS IR a una rete virtuale](./join-azure-ssis-integration-runtime-virtual-network.md). Questa funzionalità è utile quando la rete aziendale presenta una configurazione troppo complessa o un criterio troppo restrittivo per poter inserire il Azure-SSIS IR.
 
 Questa funzionalità suddivide l'attività flusso di dati SSIS in due attività di gestione temporanea quando applicabile: 
-* **Attività di gestione temporanea locale**: questa attività esegue il componente flusso di dati che si connette a un archivio dati locale nel runtime di integrazione self-hosted. Sposta i dati dall'archivio dati locale in un'area di gestione temporanea nell'archivio BLOB di Azure o viceversa.
-* **Attività di gestione temporanea cloud**: questa attività esegue il componente flusso di dati che non si connette a un archivio dati locale nella Azure-SSIS IR. Sposta i dati dall'area di gestione temporanea nell'archivio BLOB di Azure a un archivio dati cloud o viceversa.
+* **Attività di gestione temporanea locale** : questa attività esegue il componente flusso di dati che si connette a un archivio dati locale nel runtime di integrazione self-hosted. Sposta i dati dall'archivio dati locale in un'area di gestione temporanea nell'archivio BLOB di Azure o viceversa.
+* **Attività di gestione temporanea cloud** : questa attività esegue il componente flusso di dati che non si connette a un archivio dati locale nella Azure-SSIS IR. Sposta i dati dall'area di gestione temporanea nell'archivio BLOB di Azure a un archivio dati cloud o viceversa.
 
 Se l'attività flusso di dati sposta i dati da locale a cloud, la prima e la seconda attività di gestione temporanea saranno rispettivamente attività di staging locali e cloud. Se l'attività flusso di dati sposta i dati dal cloud in locale, la prima e la seconda attività di gestione temporanea saranno rispettivamente attività di gestione temporanea cloud e locali. Se l'attività flusso di dati sposta i dati da un ambiente locale a un ambiente locale, la prima e la seconda attività di gestione temporanea saranno entrambe attività di gestione temporanea locali. Se l'attività flusso di dati sposta i dati dal cloud al cloud, questa funzionalità non è applicabile.
 
@@ -37,9 +37,9 @@ Altri vantaggi e funzionalità di questa funzionalità consentono, ad esempio, d
 
 ## <a name="prepare-the-self-hosted-ir"></a>Preparare il runtime di integrazione self-hosted
 
-Per usare questa funzionalità, creare prima di tutto un data factory e configurarne uno Azure-SSIS IR. Se non è già stato fatto, seguire le istruzioni riportate in [configurare un Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure).
+Per usare questa funzionalità, creare prima di tutto un data factory e configurarne uno Azure-SSIS IR. Se non è già stato fatto, seguire le istruzioni riportate in [configurare un Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
-Si configura quindi il runtime di integrazione Self-Hosted nello stesso data factory in cui è configurata la Azure-SSIS IR. A tale scopo, vedere [creare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+Si configura quindi il runtime di integrazione Self-Hosted nello stesso data factory in cui è configurata la Azure-SSIS IR. A tale scopo, vedere [creare un runtime di integrazione self-hosted](./create-self-hosted-integration-runtime.md).
 
 Infine, scaricare e installare la versione più recente del runtime di integrazione self-hosted, nonché i driver e il runtime aggiuntivi, nel computer locale o nella macchina virtuale di Azure (VM), come indicato di seguito:
 - Scaricare e installare la versione più recente del runtime di integrazione [self-hosted](https://www.microsoft.com/download/details.aspx?id=39717).
@@ -54,13 +54,13 @@ Infine, scaricare e installare la versione più recente del runtime di integrazi
 
 ## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Preparare il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea
 
-Se non è già stato fatto, creare un servizio collegato di archiviazione BLOB di Azure nello stesso data factory in cui è configurata la Azure-SSIS IR. A tale scopo, vedere [creare un servizio collegato di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Assicurarsi di eseguire le operazioni seguenti:
-- Per **archivio dati**selezionare **archiviazione BLOB di Azure**.  
-- Per **Connetti tramite Integration Runtime**, selezionare **AutoResolveIntegrationRuntime** (non il Azure-SSIS IR né il runtime di integrazione self-hosted), perché si usa il Azure IR predefinito per recuperare le credenziali di accesso per l'archiviazione BLOB di Azure.
-- In **metodo di autenticazione**selezionare **chiave account**, **URI SAS**o **entità servizio**.  
+Se non è già stato fatto, creare un servizio collegato di archiviazione BLOB di Azure nello stesso data factory in cui è configurata la Azure-SSIS IR. A tale scopo, vedere [creare un servizio collegato di Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Assicurarsi di eseguire le operazioni seguenti:
+- Per **archivio dati** selezionare **archiviazione BLOB di Azure** .  
+- Per **Connetti tramite Integration Runtime** , selezionare **AutoResolveIntegrationRuntime** (non il Azure-SSIS IR né il runtime di integrazione self-hosted), perché si usa il Azure IR predefinito per recuperare le credenziali di accesso per l'archiviazione BLOB di Azure.
+- In **metodo di autenticazione** selezionare **chiave account** , **URI SAS** o **entità servizio** .  
 
     >[!TIP]
-    >Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di *collaboratore dati BLOB di archiviazione*   . Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties).
+    >Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di *collaboratore dati BLOB di archiviazione* . Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Preparare il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -68,7 +68,7 @@ Se non è già stato fatto, creare un servizio collegato di archiviazione BLOB d
 
 Dopo aver preparato il runtime di integrazione self-hosted e il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea, è ora possibile configurare la Azure-SSIS IR nuova o esistente con il runtime di integrazione self-hosted come proxy nel portale data factory o nell'app. Prima di procedere, tuttavia, se il Azure-SSIS IR esistente è già in esecuzione, arrestarlo e riavviarlo.
 
-1. Nel riquadro **installazione di Integration Runtime** , ignorare le sezioni **Impostazioni generali** e **Impostazioni SQL** selezionando **Avanti**. 
+1. Nel riquadro **installazione di Integration Runtime** , ignorare le sezioni **Impostazioni generali** e **Impostazioni SQL** selezionando **Avanti** . 
 
 1. Nella sezione **Impostazioni avanzate** eseguire le operazioni seguenti:
 
@@ -80,7 +80,7 @@ Dopo aver preparato il runtime di integrazione self-hosted e il servizio collega
 
    1. Nella casella **percorso di gestione temporanea** specificare un contenitore BLOB nell'account di archiviazione BLOB di Azure selezionato o lasciarlo vuoto per utilizzarne uno predefinito per la gestione temporanea.
 
-   1. Selezionare **Continua**.
+   1. Selezionare **Continua** .
 
    ![Impostazioni avanzate con un runtime di integrazione self-hosted](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -122,18 +122,18 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 Utilizzando la versione più recente di SSDT come estensione di progetti SSIS per Visual Studio o un programma di installazione autonomo, è possibile trovare una nuova `ConnectByProxy` proprietà aggiunta nelle gestioni connessioni per i componenti del flusso di dati supportati.
 * [Scaricare l'estensione di progetti SSIS per Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [Scaricare il programma di installazione autonomo](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [Scaricare il programma di installazione autonomo](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
 Quando si progettano nuovi pacchetti contenenti attività flusso di dati con componenti che accedono ai dati in locale, è possibile abilitare questa proprietà impostandola su *true* nel riquadro **Proprietà** delle gestioni connessioni pertinenti.
 
 ![Abilita proprietà ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 È anche possibile abilitare questa proprietà quando si eseguono i pacchetti esistenti senza doverli modificare manualmente uno alla volta.  Sono disponibili due opzioni:
-- **Opzione a**: aprire, ricompilare e ridistribuire il progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR. È quindi possibile abilitare la proprietà impostandola su *true* per le gestioni connessioni pertinenti. Quando si eseguono pacchetti da SSMS, queste gestioni connessioni vengono visualizzate nella scheda **gestioni connessioni** della finestra popup **Esegui pacchetto** .
+- **Opzione a** : aprire, ricompilare e ridistribuire il progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR. È quindi possibile abilitare la proprietà impostandola su *true* per le gestioni connessioni pertinenti. Quando si eseguono pacchetti da SSMS, queste gestioni connessioni vengono visualizzate nella scheda **gestioni connessioni** della finestra popup **Esegui pacchetto** .
 
   ![Abilita Property2 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
-  Per abilitare la proprietà, è inoltre possibile impostarla su *true* per le gestioni connessioni pertinenti visualizzate nella scheda **gestioni connessioni** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando si eseguono pacchetti in data factory pipeline.
+  Per abilitare la proprietà, è inoltre possibile impostarla su *true* per le gestioni connessioni pertinenti visualizzate nella scheda **gestioni connessioni** dell' [attività Esegui pacchetto SSIS](./how-to-invoke-ssis-package-ssis-activity.md) quando si eseguono pacchetti in data factory pipeline.
   
   ![Abilita property3 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
@@ -141,7 +141,7 @@ Quando si progettano nuovi pacchetti contenenti attività flusso di dati con com
 
   ![Abilita Property4 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  È anche possibile abilitare la proprietà specificando il percorso della proprietà `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e impostando il valore su *true* come override della proprietà nella scheda **override proprietà** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando si eseguono pacchetti in data factory pipeline.
+  È anche possibile abilitare la proprietà specificando il percorso della proprietà `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e impostando il valore su *true* come override della proprietà nella scheda **override proprietà** dell' [attività Esegui pacchetto SSIS](./how-to-invoke-ssis-package-ssis-activity.md) quando si eseguono pacchetti in data factory pipeline.
   
   ![Abilita property5 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,9 +153,9 @@ Nel runtime di integrazione self-hosted è possibile trovare i log di runtime ne
 
 ## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Usare l'autenticazione di Windows nelle attività di gestione temporanea locali
 
-Se per le attività di gestione temporanea locali nel runtime di integrazione self-hosted è richiesta l'autenticazione di Windows, [configurare i pacchetti SSIS in modo da usare la stessa autenticazione di Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+Se per le attività di gestione temporanea locali nel runtime di integrazione self-hosted è richiesta l'autenticazione di Windows, [configurare i pacchetti SSIS in modo da usare la stessa autenticazione di Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Le attività di gestione temporanea locali verranno richiamate con l'account del servizio IR self-hosted (*NT SERVICE\DIAHostService*, per impostazione predefinita) e l'accesso agli archivi dati verrà eseguito con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri di sicurezza**  >  **locali**  >  **assegnazione diritti utente**e quindi eseguire le operazioni seguenti:
+Le attività di gestione temporanea locali verranno richiamate con l'account del servizio IR self-hosted ( *NT SERVICE\DIAHostService* , per impostazione predefinita) e l'accesso agli archivi dati verrà eseguito con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri di sicurezza**  >  **locali**  >  **assegnazione diritti utente** e quindi eseguire le operazioni seguenti:
 
 1. Assegnare i criteri di *regolazione delle quote di memoria per un processo* e sostituire i criteri del *token a livello di processo* con l'account del servizio IR self-hosted. Questa operazione deve essere eseguita automaticamente quando si installa il runtime di integrazione self-hosted con l'account del servizio predefinito. In caso contrario, assegnare questi criteri manualmente. Se si utilizza un account del servizio diverso, assegnare gli stessi criteri.
 
@@ -176,9 +176,9 @@ Se è necessario usare il protocollo di rete Secure Cryptography/più sicuro (TL
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - Attualmente sono supportate solo le attività flusso di dati con OLE DB/ODBC/origini file flat o destinazione OLEDB.
-- Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la *chiave dell'account*, *l'URI della firma di accesso condiviso*o l'autenticazione dell' *entità servizio* .
+- Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la *chiave dell'account* , *l'URI della firma di accesso condiviso* o l'autenticazione dell' *entità servizio* .
 - *ParameterMapping* nell'origine OLEDB non è attualmente supportato. Come soluzione alternativa, usare il *comando SQL dalla variabile* come *AccessMode* e usare *Expression* per inserire le variabili o i parametri in un comando SQL. Per un'illustrazione, vedere il pacchetto *ParameterMappingSample. dtsx* disponibile nella cartella *SelfHostedIRProxy/limitazioni* del contenitore di anteprima pubblica. Con Azure Storage Explorer è possibile connettersi al contenitore di anteprima pubblica immettendo l'URI SAS precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati in locale come eseguire le attività del pacchetto SSIS in Data Factory pipeline. Per informazioni, vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS in pipeline Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati in locale come eseguire le attività del pacchetto SSIS in Data Factory pipeline. Per informazioni, vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS in pipeline Data Factory](./how-to-invoke-ssis-package-ssis-activity.md).
