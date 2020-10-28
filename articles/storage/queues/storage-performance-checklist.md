@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008404"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787381"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo di prestazioni e scalabilità di archiviazione code
 
@@ -52,7 +52,7 @@ Questo articolo organizza procedure consolidate per le prestazioni in un elenco 
 
 Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore "503 Server occupato" o "500 Timeout operazione". Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
 
-Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 
@@ -128,7 +128,7 @@ Impostare il limite di connessione prima di aprire le connessioni.
 
 Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.  
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -146,7 +146,7 @@ Sebbene il parallelismo possa essere ideale per le prestazioni, prestare attenzi
 
 ## <a name="client-libraries-and-tools"></a>Librerie e strumenti client dell'archiviazione
 
-Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni. Per altre informazioni, vedere la [documentazione di riferimento di Archiviazione di Azure](/azure/storage/#reference).
+Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni. Per altre informazioni, vedere la [documentazione di riferimento di Archiviazione di Azure](./reference.md).
 
 ## <a name="handle-service-errors"></a>Gestire gli errori del servizio
 

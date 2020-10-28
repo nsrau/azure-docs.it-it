@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8d8b01e8c5f4ea3054e639ecc9dd8b14bbf048b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148740"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778648"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quali sono le differenze tra le funzionalità dei prodotti della rete CDN di Azure?
 
@@ -29,22 +29,22 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 
 | **Ottimizzazioni e funzionalità per le prestazioni** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
-| [Accelerazione sito dinamico](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | Offerto dal [servizio Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Compressione di immagini adattiva](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Prelettura degli oggetti](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [Ottimizzazione distribuzione Web generale](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;** , selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono inferiori a 10 MB  | **&#x2713;** |  **&#x2713;** |
-| [Ottimizzazione dello streaming video](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | tramite Distribuzione Web generale | **&#x2713;**  | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
-| [Ottimizzazione di file di grandi dimensioni](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | tramite Distribuzione Web generale | **&#x2713;** , selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono superiori a 10 MB   | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
+| [Accelerazione sito dinamico](./cdn-dynamic-site-acceleration.md)  | Offerto dal [servizio Frontdoor di Azure](../frontdoor/front-door-overview.md) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Compressione di immagini adattiva](./cdn-dynamic-site-acceleration.md#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Prelettura degli oggetti](./cdn-dynamic-site-acceleration.md#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
+| [Ottimizzazione distribuzione Web generale](./cdn-optimization-overview.md#general-web-delivery)  | **&#x2713;** | **&#x2713;** , selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono inferiori a 10 MB  | **&#x2713;** |  **&#x2713;** |
+| [Ottimizzazione dello streaming video](./cdn-media-streaming-optimization.md)  | tramite Distribuzione Web generale | **&#x2713;**  | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
+| [Ottimizzazione di file di grandi dimensioni](./cdn-large-file-optimization.md)  | tramite Distribuzione Web generale | **&#x2713;** , selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono superiori a 10 MB   | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
 | Cambia tipo di ottimizzazione | |**&#x2713;** | | |
-| Porta dell'origine |Tutte le porte TCP |[Porte di origine consentite](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Tutte le porte TCP |Tutte le porte TCP |
-| [Bilanciamento del carico del server globale](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Porta dell'origine |Tutte le porte TCP |[Porte di origine consentite](/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Tutte le porte TCP |Tutte le porte TCP |
+| [Bilanciamento del carico del server globale](../traffic-manager/traffic-manager-load-balancing-azure.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Eliminazione veloce](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , le funzioni Elimina tutti e Wildcard purge (Eliminazione dei caratteri jolly) non sono attualmente supportate dalla rete CDN di Azure fornita da Akamai |**&#x2713;** |**&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Impostazioni cache/intestazioni (con [regole di memorizzazione nella cache](cdn-caching-rules.md))  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
-| Motore di distribuzione di contenuti personalizzabile, basato su regole |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole](cdn-rules-engine.md) |
-| Impostazioni per cache/intestazione  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
-| Reindirizzamento/riscrittura URL |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
-| Regole per dispositivi mobili  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
+| Motore di distribuzione di contenuti personalizzabile, basato su regole |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole](./cdn-verizon-premium-rules-engine.md) |
+| Impostazioni per cache/intestazione  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](./cdn-verizon-premium-rules-engine.md) |
+| Reindirizzamento/riscrittura URL |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole Premium](./cdn-verizon-premium-rules-engine.md) |
+| Regole per dispositivi mobili  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](./cdn-verizon-premium-rules-engine.md) |
 | [Memorizzazione nella cache della stringa di query](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Supporto HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -57,7 +57,7 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | [Autenticazione tramite token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Protezione DDoS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Usare un certificato personale](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
-| Versioni di TLS supportate | TLS 1.2, TLS 1.0/1.1 - [Configurabile](https://docs.microsoft.com/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
+| Versioni di TLS supportate | TLS 1.2, TLS 1.0/1.1 - [Configurabile](/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Analisi e report** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -69,9 +69,9 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | [Avvisi in tempo reale](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Semplicità d'uso** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
-| Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](cdn-add-to-web-app.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Integrazione semplice con i servizi di Azure, come [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [App Web](cdn-add-to-web-app.md) e [Servizi multimediali](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Tipi MIME con compressione](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Solo predefinito |Configurabile |Configurabile  |Configurabile  |
+| [Tipi MIME con compressione](./cdn-improve-performance.md)  |Solo predefinito |Configurabile |Configurabile  |Configurabile  |
 | Codifiche di compressione  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
 ## <a name="migration"></a>Migrazione
@@ -84,6 +84,3 @@ Per informazioni sulla migrazione di un profilo di **rete CDN di Azure Standard 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulla [rete CDN di Azure](cdn-overview.md).
-
-
-

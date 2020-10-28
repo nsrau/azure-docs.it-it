@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mimckitt, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: d040215968b0ebb433edba03e4839ffe7add0e5c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648633"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745863"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali Linux con un modello di Resource Manager
 
@@ -24,7 +24,7 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 
 I modelli di Azure Resource Manager consentono di distribuire gruppi di risorse correlate. In un singolo modello è possibile creare il set di scalabilità di macchine virtuali, installare le applicazioni e configurare le regole di scalabilità automatica. Con l'uso di variabili e parametri, questo modello può essere riutilizzato per creare altri set di scalabilità o aggiornare i set esistenti. È possibile distribuire i modelli tramite il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell oppure dalle pipeline di integrazione continua/distribuzione continua (CI/CD).
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -77,7 +77,7 @@ Per testare il set di scalabilità, installare un'applicazione Web di base. Quan
 
 Il modello usa l'estensione di script personalizzati per installare [Bottle](https://bottlepy.org/docs/dev/), un framework Web Python, e un semplice server HTTP.
 
-Sono definiti due script in **fileUris** - *installserver.sh* e *workserver.py*. Questi file vengono scaricati da GitHub, quindi *commandToExecute* esegue `bash installserver.sh` per installare e configurare l'app.
+Sono definiti due script in **fileUris** - *installserver.sh* e *workserver.py* . Questi file vengono scaricati da GitHub, quindi *commandToExecute* esegue `bash installserver.sh` per installare e configurare l'app.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -109,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Immettere l'indirizzo IP pubblico del servizio di bilanciamento del carico in un Web browser nel formato *http:\//publicIpAddress:9000/do_work*. Il servizio di bilanciamento del carico distribuisce il traffico a una delle istanze di macchina virtuale, come illustrato nell'esempio seguente:
+Immettere l'indirizzo IP pubblico del servizio di bilanciamento del carico in un Web browser nel formato *http:\//publicIpAddress:9000/do_work* . Il servizio di bilanciamento del carico distribuisce il traffico a una delle istanze di macchina virtuale, come illustrato nell'esempio seguente:
 
 ![Pagina Web predefinita in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

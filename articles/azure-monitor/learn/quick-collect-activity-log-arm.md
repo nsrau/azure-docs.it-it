@@ -3,16 +3,16 @@ title: Inviare il log attività di Azure all'area di lavoro Log Analytics con il
 description: Usare i modelli di Resource Manager per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631852"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747042"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Avvio rapido: Inviare il log attività di Azure all'area di lavoro Log Analytics con il modello di Resource Manager
 
@@ -29,7 +29,7 @@ Il log attività è un log della piattaforma presente in Azure che fornisce dati
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Con il modello seguente viene creata una nuova area di lavoro Log Analytics. Salvare questo modello come *CreateWorkspace.json*.
+Con il modello seguente viene creata una nuova area di lavoro Log Analytics. Salvare questo modello come *CreateWorkspace.json* .
 
 ```json
 {
@@ -134,7 +134,7 @@ Questo modello consente di definire un'unica risorsa:
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
-Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group**, **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
+Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group** , **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
 
 # <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
-Con il modello seguente viene creata un'impostazione di diagnostica che invia il log attività a un'area di lavoro Log Analytics. Salvare questo modello come *CreateDiagnosticSetting.json*.
+Con il modello seguente viene creata un'impostazione di diagnostica che invia il log attività a un'area di lavoro Log Analytics. Salvare questo modello come *CreateDiagnosticSetting.json* .
 
 ```json
 {
@@ -248,7 +248,7 @@ Questo modello consente di definire un'unica risorsa:
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
-Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group**, **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
+Distribuire il modello usando un metodo standard per la [distribuzione di un modello di Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), come gli esempi seguenti in cui si usano l'interfaccia della riga di comando e PowerShell. Sostituire i valori di esempio per **Resource Group** , **workspaceName** e **location** con quelli appropriati per l'ambiente corrente. Il nome dell'area di lavoro deve essere univoco tra tutte le sottoscrizioni di Azure.
 
 # <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
@@ -281,15 +281,15 @@ All'area di lavoro Log Analytics verranno inviate solo le nuove voci del log att
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperare dati con una query di log
 
-Nel portale di Azure è possibile usare Log Analytics per recuperare i dati dall'area di lavoro. Nel portale di Azure cercare e quindi selezionare **Monitoraggio**.
+Nel portale di Azure è possibile usare Log Analytics per recuperare i dati dall'area di lavoro. Nel portale di Azure cercare e quindi selezionare **Monitoraggio** .
 
 ![Portale di Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Selezionare **Log** nel menu **Monitoraggio di Azure**. Chiudere la pagina **Query di esempio**. Se l'ambito non è impostato sull'area di lavoro creata, fare clic su **Seleziona ambito** e individuarlo.
+Selezionare **Log** nel menu **Monitoraggio di Azure** . Chiudere la pagina **Query di esempio** . Se l'ambito non è impostato sull'area di lavoro creata, fare clic su **Seleziona ambito** e individuarlo.
 
 ![Ambito di Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Nella finestra della query digitare `AzureActivity` e fare clic su **Esegui**. Si tratta di una query semplice che restituisce tutti i record nella tabella *AzureActivity*, contenente tutti i record inviati dal log attività.
+Nella finestra della query digitare `AzureActivity` e fare clic su **Esegui** . Si tratta di una query semplice che restituisce tutti i record nella tabella *AzureActivity* , contenente tutti i record inviati dal log attività.
 
 ![Query semplice](media/quick-collect-activity-log/query-01.png)
 

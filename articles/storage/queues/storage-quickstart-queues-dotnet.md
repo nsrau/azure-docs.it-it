@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939203"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783471"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per .NET
 
@@ -34,12 +34,12 @@ Risorse aggiuntive:
 * [Documentazione di riferimento delle API](/dotnet/api/azure.storage.queues)
 * [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Esempi](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
 * Versione aggiornata di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) per il sistema operativo in uso. Assicurarsi di ottenere l'SDK e non il runtime.
 
 ## <a name="setting-up"></a>Configurazione
@@ -48,9 +48,9 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-Creare un'applicazione .NET Core con il nome *QueuesQuickstartV12*.
+Creare un'applicazione .NET Core con il nome *QueuesQuickstartV12* .
 
-1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare il comando `dotnet new` per creare una nuova app console con il nome *QueuesQuickstartV12*. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs*.
+1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare il comando `dotnet new` per creare una nuova app console con il nome *QueuesQuickstartV12* . Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs* .
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -77,7 +77,7 @@ Dalla directory del progetto:
 1. Aprire il file *Program.cs* in un editor di testo
 1. Rimuovere l'istruzione `Console.WriteLine("Hello World!");`
 1. Aggiungere le direttive `using`
-1. Aggiornare la dichiarazione del metodo `Main` per [supportare codice asincrono](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. Aggiornare la dichiarazione del metodo `Main` per [supportare codice asincrono](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -334,7 +334,7 @@ In questo argomento di avvio rapido si è appreso come creare una coda e aggiung
 Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 
 > [!div class="nextstepaction"]
-> [Azure per sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/)
+> [Azure per sviluppatori .NET e .NET Core](/dotnet/azure/)
 
 * Per altre informazioni, vedere le [librerie di Archiviazione di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client di Archiviazione code di Azure v12 per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 18f717ca05e93c9a8f06ac8868e9a6e5ff80eadb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355534"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790747"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Avvio rapido: Ripristinare un database in Istanza gestita di SQL di Azure con SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,14 +35,14 @@ In questa guida di avvio rapido si userà SQL Server Management Studio (SSMS) pe
 La guida introduttiva:
 
 - Usa le risorse della guida di avvio rapido [Creare un'istanza gestita](instance-create-quickstart.md).
-- Richiede che sia installata la versione più recente di [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
+- Richiede che sia installata la versione più recente di [SSMS](/sql/ssms/sql-server-management-studio-ssms).
 - Richiede l'uso di SSMS per connettersi a Istanza gestita di SQL. Per informazioni su come effettuare la connessione, vedere queste guide introduttive:
   - [Abilitare l'endpoint pubblico](public-endpoint-configure.md) in Istanza gestita di SQL. È l'approccio consigliato per questa esercitazione.
   - [Connettersi a Istanza gestita di SQL da una macchina virtuale di Azure](connect-vm-instance-configure.md).
   - [Configurare una connessione da punto a sito a Istanza gestita di SQL da un computer locale](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> Per altre informazioni sul backup e sul ripristino di un database di SQL Server con l'archivio BLOB di Azure e una [chiave di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), vedere l'articolo relativo al [backup di SQL Server in un URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Per altre informazioni sul backup e sul ripristino di un database di SQL Server con l'archivio BLOB di Azure e una [chiave di firma di accesso condiviso](../../storage/common/storage-sas-overview.md), vedere l'articolo relativo al [backup di SQL Server in un URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-from-a-backup-file"></a>Eseguire il ripristino da un file di backup
 
@@ -50,7 +50,7 @@ In SQL Server Management Studio (SSMS) seguire questa procedura per ripristinare
 
 1. Aprire SSMS e connettersi all'istanza gestita.
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sull'istanza gestita di SQL e scegliere **Nuova query** per aprire una nuova finestra di query.
-3. Eseguire lo script SQL seguente, che usa un account di archiviazione preconfigurato e una chiave di firma di accesso condiviso per [creare le credenziali](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) nell'istanza gestita.
+3. Eseguire lo script SQL seguente, che usa un account di archiviazione preconfigurato e una chiave di firma di accesso condiviso per [creare le credenziali](/sql/t-sql/statements/create-credential-transact-sql) nell'istanza gestita.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -88,15 +88,15 @@ In SQL Server Management Studio (SSMS) seguire questa procedura per ripristinare
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Al termine del ripristino, visualizzare il database in Esplora oggetti. È possibile verificare che il ripristino del database sia stato completato usando la visualizzazione [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+7. Al termine del ripristino, visualizzare il database in Esplora oggetti. È possibile verificare che il ripristino del database sia stato completato usando la visualizzazione [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
 
 > [!NOTE]
-> L'operazione di ripristino del database è asincrona e ripetibile. È possibile che si verifichi un errore in SQL Server Management Studio se la connessione si interrompe o raggiunge il timeout. Il database SQL di Azure continuerà a tentare di ripristinare il database in background. È possibile tenere traccia dello stato di avanzamento del ripristino usando le visualizzazioni [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
-> In alcune fasi del processo di ripristino verrà visualizzato l'identificatore univoco anziché il nome effettivo del database nelle visualizzazioni di sistema. Informazioni sulle differenze di comportamento dell'istruzione `RESTORE` sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> L'operazione di ripristino del database è asincrona e ripetibile. È possibile che si verifichi un errore in SQL Server Management Studio se la connessione si interrompe o raggiunge il timeout. Il database SQL di Azure continuerà a tentare di ripristinare il database in background. È possibile tenere traccia dello stato di avanzamento del ripristino usando le visualizzazioni [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+> In alcune fasi del processo di ripristino verrà visualizzato l'identificatore univoco anziché il nome effettivo del database nelle visualizzazioni di sistema. Informazioni sulle differenze di comportamento dell'istruzione `RESTORE` sono disponibili [qui](./transact-sql-tsql-differences-sql-server.md#restore-statement).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se, al passaggio 5, un ripristino del database viene terminato con l'ID messaggio 22003, creare un nuovo file di backup contenente i checksum di backup ed eseguire di nuovo il ripristino. Vedere [Abilitare o disabilitare il checksum di backup durante il backup o il ripristino](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
-- Per la risoluzione dei problemi di backup in un URL, vedere [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Se, al passaggio 5, un ripristino del database viene terminato con l'ID messaggio 22003, creare un nuovo file di backup contenente i checksum di backup ed eseguire di nuovo il ripristino. Vedere [Abilitare o disabilitare il checksum di backup durante il backup o il ripristino](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+- Per la risoluzione dei problemi di backup in un URL, vedere [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - Per una panoramica delle opzioni di connessione delle app, vedere [Connettere le applicazioni a un'istanza gestita di SQL](connect-application-instance.md).
 - Per eseguire query usando gli strumenti o i linguaggi preferiti, vedere [Guide introduttive: Connessione ed esecuzione di query sui database SQL di Azure](../database/connect-query-content-reference-guide.md).

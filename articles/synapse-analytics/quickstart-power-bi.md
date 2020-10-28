@@ -6,15 +6,15 @@ author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746305"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Avvio rapido: Collegamento di un'area di lavoro Power BI a un'area di lavoro di Synapse
 
@@ -29,19 +29,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Collegare un’area di lavoro Power BI all’area di lavoro Synapse
 
-1. A partire da Synapse Studio, fare clic su **Gestisci**.
+1. A partire da Synapse Studio, fare clic su **Gestisci** .
 
     ![Clic su Gestisci di Synapse Studio.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. In **Connessioni esterne**, fare clic su **Servizi collegati**.
+2. In **Connessioni esterne** , fare clic su **Servizi collegati** .
 
     ![Servizi collegati evidenziato.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Fare clic su **+ Nuovo**.
+3. Fare clic su **+ Nuovo** .
 
     ![+Nuovo per i servizi collegati evidenziato.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. Fare clic su **Power BI** e fare clic su **Continua**.
+4. Fare clic su **Power BI** e fare clic su **Continua** .
 
     ![Visualizzazione del servizio collegato Power BI.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
 
     ![Visualizzazione della configurazione del servizio collegato Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Fare clic su **Crea**.
+6. Fare clic su **Crea** .
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Visualizzare l’area di lavoro Power BI in Synapse Studio
 
 Una volta collegate le aree di lavoro, è possibile esplorare i set di dati Power BI, modificare/creare nuovi report Power BI da Synapse Studio.
 
-1. Fare clic su **Sviluppa**.
+1. Fare clic su **Sviluppa** .
 
     ![Clic su Sviluppa di Synapse Studio.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 
@@ -63,7 +63,7 @@ Una volta collegate le aree di lavoro, è possibile esplorare i set di dati Powe
 
     ![Espandere Power BI e l'area di lavoro.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
 
-È possibile creare nuovi report facendo clic su **+** nella parte superiore della scheda **Sviluppa**. È possibile modificare i report esistenti facendo clic sul nome del report. Eventuali modifiche salvate verranno riscritte nell'area di lavoro Power BI.
+È possibile creare nuovi report facendo clic su **+** nella parte superiore della scheda **Sviluppa** . È possibile modificare i report esistenti facendo clic sul nome del report. Eventuali modifiche salvate verranno riscritte nell'area di lavoro Power BI.
 
 ![Visualizzare e modificare report di Power BI.](media/quickstart-link-powerbi/powerbi-report.png)
 

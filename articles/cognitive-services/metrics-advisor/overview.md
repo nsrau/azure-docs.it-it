@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047574"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890244"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Che cos'è Advisor metriche (anteprima)? 
 
@@ -53,16 +53,14 @@ Ogni volta che vengono rilevate anomalie, Advisor metriche può [inviare avvisi 
 Il flusso di lavoro è semplice: dopo l'onboarding dei dati, è possibile ottimizzare il rilevamento anomalie e creare configurazioni in base alla situazione.
 
 1. [Creare una risorsa di Azure](../cognitive-services-apis-create-account.md) per Advisor metriche. 
-2. Provare il sito demo per visualizzare un esempio di istanza di Advisor metriche con dati di esempio preconfigurati. 
-3. Configurare il primo monitoraggio con il portale Web.
+2. Configurare il primo monitoraggio con il portale Web.
     1. Eseguire l'onboarding dei dati
     2. Ottimizzare il rilevamento anomalie
     3. Sottoscrivere gli avvisi
     4. Visualizzare le informazioni di diagnostica
-1. Usare l'API REST per personalizzare l'istanza.
+3. Usare l'API REST per personalizzare l'istanza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare il [sito demo](quickstarts/explore-demo.md).
 * Esplorare una guida di avvio rapido: [Monitorare la prima metrica nel Web](quickstarts/web-portal.md).
 * Esplorare una guida di avvio rapido: [Usare le API REST per personalizzare la soluzione](quickstarts/rest-api.md).

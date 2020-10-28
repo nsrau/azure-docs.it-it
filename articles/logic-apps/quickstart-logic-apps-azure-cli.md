@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499552"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747164"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Avvio rapido: Creare e gestire app per la logica usando l'interfaccia della riga di comando di Azure
 
 Questa guida di avvio rapido illustra come creare e gestire app per la logica usando l'[estensione app per la logica dell'interfaccia della riga di comando di Azure](/cli/azure/ext/logic/logic?view=azure-cli-latest) (`az logic`). Dalla riga di comando è possibile creare un'app per la logica usando il file JSON per la definizione flusso di lavoro di un'app per la logica. È quindi possibile gestire l'app per la logica eseguendo operazioni come `list`, `show` (`get`), `update` e `delete` dalla riga di comando.
 
 > [!WARNING]
-> L'estensione app per la logica dell'interfaccia della riga di comando di Azure è attualmente *sperimentale* e non è *coperta dall'assistenza clienti*. Usare questa estensione dell'interfaccia della riga di comando con cautela, soprattutto se si sceglie di usare l'estensione negli ambienti di produzione.
+> L'estensione app per la logica dell'interfaccia della riga di comando di Azure è attualmente *sperimentale* e non è *coperta dall'assistenza clienti* . Usare questa estensione dell'interfaccia della riga di comando con cautela, soprattutto se si sceglie di usare l'estensione negli ambienti di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,7 +61,7 @@ L'output mostra `provisioningState` come `Succeeded` quando il gruppo di risorse
 
 ## <a name="workflow-definition"></a>Definizione flusso di lavoro
 
-Prima di [creare una nuova app per la logica](#create-logic-apps-from-cli) o di [aggiornare un'app per la logica esistente](#update-logic-apps-from-cli) usando l'interfaccia della riga di comando di Azure, è necessaria una definizione flusso di lavoro per l'app per la logica. Nel portale di Azure è possibile visualizzare la definizione flusso di lavoro sottostante dell'app per la logica in formato JSON passando dalla visualizzazione **Finestra di progettazione** a **Visualizzazione codice**.
+Prima di [creare una nuova app per la logica](#create-logic-apps-from-cli) o di [aggiornare un'app per la logica esistente](#update-logic-apps-from-cli) usando l'interfaccia della riga di comando di Azure, è necessaria una definizione flusso di lavoro per l'app per la logica. Nel portale di Azure è possibile visualizzare la definizione flusso di lavoro sottostante dell'app per la logica in formato JSON passando dalla visualizzazione **Finestra di progettazione** a **Visualizzazione codice** .
 
 Quando si eseguono i comandi per creare o aggiornare l'app per la logica, la definizione flusso di lavoro viene caricata come parametro obbligatorio (`--definition`). È necessario creare la definizione flusso di lavoro come file JSON che segue lo [schema del linguaggio di definizione flusso di lavoro](./logic-apps-workflow-definition-language.md).
 

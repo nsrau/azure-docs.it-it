@@ -4,28 +4,28 @@ description: Informazioni su come usare Java e JDBC con un database di Database 
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: a54e950286a37c207d902090f015b3732e0ff10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88517583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745275"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Usare Java e JDBC con Database di Azure per MySQL
 
-Questo argomento illustra la creazione di un'applicazione di esempio che usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) per archiviare e recuperare informazioni in [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/).
+Questo argomento illustra la creazione di un'applicazione di esempio che usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) per archiviare e recuperare informazioni in [Database di Azure per MySQL](./index.yml).
 
 JDBC è l'API Java standard per la connessione ai database relazionali tradizionali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure. Se non è disponibile, [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) o [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È consigliabile usare Azure Cloud Shell in modo che l'accesso venga eseguito automaticamente e che sia possibile accedere a tutti gli strumenti necessari.
-- Un'istanza [supportata di Java Development Kit](https://aka.ms/azure-jdks), versione 8 (inclusa in Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) o [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È consigliabile usare Azure Cloud Shell in modo che l'accesso venga eseguito automaticamente e che sia possibile accedere a tutti gli strumenti necessari.
+- Un'istanza [supportata di Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versione 8 (inclusa in Azure Cloud Shell).
 - Strumento di compilazione di [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparare l'ambiente di lavoro
@@ -68,7 +68,7 @@ az group create \
 Il primo componente che verrà creato è un server MySQL gestito.
 
 > [!NOTE]
-> Per informazioni più dettagliate sulla creazione di server MySQL, vedere [Creare un server di Database di Azure per MySQL nel portale di Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> Per informazioni più dettagliate sulla creazione di server MySQL, vedere [Creare un server di Database di Azure per MySQL nel portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 In [Azure Cloud Shell](https://shell.azure.com/) eseguire lo script seguente:
 
@@ -180,7 +180,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Aggiungere quindi il codice Java che userà JDBC per archiviare e recuperare i dati dal server MySQL.
 
-Creare un file *src/main/java/DemoApplication.java*, che contiene:
+Creare un file *src/main/java/DemoApplication.java* , che contiene:
 
 ```java
 package com.example.demo;
@@ -237,7 +237,7 @@ Questo codice Java userà i file *application.properties* e *schema.sql* creati 
 In questo file è possibile notare che i metodi di inserimento, lettura, aggiornamento ed eliminazione dei dati sono stati commentati. Il codice di tali metodi verranno scritti nella parte restante di questo articolo e sarà possibile rimuovere i commenti uno dopo l'altro.
 
 > [!NOTE]
-> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties*. Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
+> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties* . Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
 
 > [!NOTE]
 > La riga `AbandonedConnectionCleanupThread.uncheckedShutdown();` alla fine è un comando specifico del driver di MySQL per eliminare definitivamente un thread interno quando l'applicazione viene arrestata.
@@ -326,7 +326,7 @@ public class Todo {
 }
 ```
 
-Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql*.
+Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql* .
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Inserimento di dati in Database di Azure per MySQL
 

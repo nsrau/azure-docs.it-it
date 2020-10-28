@@ -9,15 +9,15 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: aca3c9c52260d3ea2ab8def37566377fa67e712d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0612445d0a1bfa10182eb8ce827001d0856f4d9b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705929"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777907"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure - Modello di Resource Manager
 
@@ -25,7 +25,7 @@ Informazioni su come iniziare a usare Rete di distribuzione dei contenuti di Azu
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -46,7 +46,7 @@ Questo modello è configurato per la creazione di uno degli elementi seguenti:
 
 Nel modello è definita una risorsa di Azure:
 
-* **[Microsoft.Cdn/profiles](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
+* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -107,7 +107,7 @@ Quando il gruppo di risorse e tutte le risorse al suo interno non sono più nece
 
 ### <a name="powershell"></a>PowerShell
 
-Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) per rimuoverli.
+Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) per rimuoverli.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -115,7 +115,7 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### <a name="portal"></a>Portale
 
-Quando il gruppo di risorse, il profilo della rete CDN e tutte le risorse correlate non sono più necessari, è possibile eliminarli. Selezionare il gruppo di risorse **myResourceGroupCDN** che contiene il profilo e l'endpoint della rete CDN e quindi selezionare **Elimina**.
+Quando il gruppo di risorse, il profilo della rete CDN e tutte le risorse correlate non sono più necessari, è possibile eliminarli. Selezionare il gruppo di risorse **myResourceGroupCDN** che contiene il profilo e l'endpoint della rete CDN e quindi selezionare **Elimina** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

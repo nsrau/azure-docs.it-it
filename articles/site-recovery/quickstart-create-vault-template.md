@@ -2,14 +2,14 @@
 title: Avvio rapido per creare un insieme di credenziali di Servizi di ripristino di Azure con un modello di Azure Resource Manager.
 description: Questo argomento di avvio rapido illustra come creare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager (modello di Resource Manager).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684117"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745887"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Avvio rapido: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
 
@@ -17,7 +17,7 @@ Questo argomento di avvio rapido descrive come configurare un insieme di credenz
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -42,7 +42,7 @@ Per altri modelli di Servizi di ripristino di Azure, vedere i [Modelli di avvio 
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire il modello, è necessario specificare i valori per **Sottoscrizione**, **Gruppo di risorse** e **Nome dell'insieme di credenziali**.
+Per distribuire il modello, è necessario specificare i valori per **Sottoscrizione** , **Gruppo di risorse** e **Nome dell'insieme di credenziali** .
 
 1. Selezionare l'immagine **Distribuisci in Azure** per accedere ad Azure e aprire il modello.
 
@@ -52,16 +52,16 @@ Per distribuire il modello, è necessario specificare i valori per **Sottoscrizi
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Modello per creare un insieme di credenziali di Servizi di ripristino.":::
 
-   - **Sottoscrizione**: selezionare la sottoscrizione di Azure.
-   - **Gruppo di risorse**: selezionare un gruppo esistente o selezionare **Crea nuovo** per aggiungere un gruppo.
-   - **Località**: il valore predefinito è la località del gruppo di risorse e diventa non disponibile dopo aver selezionato un gruppo di risorse.
-   - **Vault Name**: Specificare un nome per l'insieme di credenziali.
-   - **Change Storage Type** (Cambia tipo di archiviazione): Il valore predefinito è **false**. Selezionare **true** solo se è necessario modificare il tipo di archiviazione dell'insieme di credenziali.
-   - **Vault Storage Type** (Tipo di archiviazione dell'insieme di credenziali): Il valore predefinito è **GloballyRedundant**. Se il tipo di archiviazione è stato impostato su **true**, selezionare **LocallyRedundant**.
-   - **Località**: la funzione `[resourceGroup().location]` assume per impostazione predefinita la località del gruppo di risorse. Per modificare la località, immettere un valore, ad esempio **westus**.
-   - Selezionare la casella di controllo **Accetto le condizioni riportate sopra**.
+   - **Sottoscrizione** : selezionare la sottoscrizione di Azure.
+   - **Gruppo di risorse** : selezionare un gruppo esistente o selezionare **Crea nuovo** per aggiungere un gruppo.
+   - **Località** : il valore predefinito è la località del gruppo di risorse e diventa non disponibile dopo aver selezionato un gruppo di risorse.
+   - **Vault Name** : Specificare un nome per l'insieme di credenziali.
+   - **Change Storage Type** (Cambia tipo di archiviazione): Il valore predefinito è **false** . Selezionare **true** solo se è necessario modificare il tipo di archiviazione dell'insieme di credenziali.
+   - **Vault Storage Type** (Tipo di archiviazione dell'insieme di credenziali): Il valore predefinito è **GloballyRedundant** . Se il tipo di archiviazione è stato impostato su **true** , selezionare **LocallyRedundant** .
+   - **Località** : la funzione `[resourceGroup().location]` assume per impostazione predefinita la località del gruppo di risorse. Per modificare la località, immettere un valore, ad esempio **westus** .
+   - Selezionare la casella di controllo **Accetto le condizioni riportate sopra** .
 
-1. Per avviare la distribuzione dell'insieme di credenziali, fare clic sul pulsante **Acquista**. Una volta completata la distribuzione, viene visualizzata una notifica.
+1. Per avviare la distribuzione dell'insieme di credenziali, fare clic sul pulsante **Acquista** . Una volta completata la distribuzione, viene visualizzata una notifica.
 
    :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Modello per creare un insieme di credenziali di Servizi di ripristino.":::
 

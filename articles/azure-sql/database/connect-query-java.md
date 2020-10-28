@@ -9,25 +9,25 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 829a106a643c10626a65855152375c349cd76f9a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833590"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746727"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Usare Java e JDBC con il database SQL di Azure
 
-Questo argomento illustra la creazione di un'applicazione di esempio che usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) per archiviare e recuperare le informazioni nel [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/).
+Questo argomento illustra la creazione di un'applicazione di esempio che usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) per archiviare e recuperare le informazioni nel [database SQL di Azure](/azure/sql-database/).
 
 JDBC è l'API Java standard per la connessione ai database relazionali tradizionali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure. Se non è disponibile, [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) o [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È consigliabile usare Azure Cloud Shell in modo che l'accesso venga eseguito automaticamente e che sia possibile accedere a tutti gli strumenti necessari.
-- Un'istanza [supportata di Java Development Kit](https://aka.ms/azure-jdks), versione 8 (inclusa in Azure Cloud Shell).
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) o [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È consigliabile usare Azure Cloud Shell in modo che l'accesso venga eseguito automaticamente e che sia possibile accedere a tutti gli strumenti necessari.
+- Un'istanza [supportata di Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versione 8 (inclusa in Azure Cloud Shell).
 - Strumento di compilazione di [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparare l'ambiente di lavoro
@@ -69,7 +69,7 @@ az group create \
 Il primo componente che verrà creato è un server di database SQL di Azure gestito.
 
 > [!NOTE]
-> Per informazioni più dettagliate sulla creazione di server di database SQL di Azure, vedere [Avvio rapido: Creare un database SQL di Azure singolo](/azure/sql-database/sql-database-single-database-get-started).
+> Per informazioni più dettagliate sulla creazione di server di database SQL di Azure, vedere [Avvio rapido: Creare un database SQL di Azure singolo](./single-database-create-quickstart.md).
 
 In [Azure Cloud Shell](https://shell.azure.com/) eseguire il comando seguente:
 
@@ -176,7 +176,7 @@ CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR
 
 Aggiungere quindi il codice Java che userà JDBC per archiviare e recuperare i dati dal database SQL di Azure.
 
-Creare un file *src/main/java/DemoApplication.java*, che contiene:
+Creare un file *src/main/java/DemoApplication.java* , che contiene:
 
 ```java
 package com.example.demo;
@@ -230,7 +230,7 @@ Questo codice Java verranno usati i file *application.properties* e *schema.sql*
 In questo file è possibile notare che i metodi di inserimento, lettura, aggiornamento ed eliminazione dei dati sono stati commentati. Il codice di tali metodi verranno scritti nella parte restante di questo articolo e sarà possibile rimuovere i commenti uno dopo l'altro.
 
 > [!NOTE]
-> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties*. Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
+> Le credenziali del database sono archiviate nelle proprietà *user* e *password* del file *application.properties* . Queste credenziali vengono usate durante l'esecuzione di `DriverManager.getConnection(properties.getProperty("url"), properties);`, perché il file delle proprietà viene passato come argomento.
 
 È ora possibile eseguire questa classe main con lo strumento preferito:
 
@@ -315,7 +315,7 @@ public class Todo {
 }
 ```
 
-Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql*.
+Questa classe è un modello di dominio mappato alla tabella `todo` creata durante l'esecuzione dello script *schema.sql* .
 
 ### <a name="insert-data-into-azure-sql-database"></a>Inserire i dati nel database SQL di Azure
 
@@ -498,4 +498,4 @@ az group delete \
 
 - [Progettare il primo database nel database SQL di Azure](design-first-database-tutorial.md)  
 - [Driver Microsoft JDBC per SQL Server](https://github.com/microsoft/mssql-jdbc)  
-- [Segnalare problemi e porre domande](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Segnalare problemi e porre domande](https://github.com/microsoft/mssql-jdbc/issues)

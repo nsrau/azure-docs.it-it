@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319470"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789523"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Collegamento privato di Azure per database SQL di Azure e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un **endpoint privato**. Per un elenco dei servizi PaaS che supportano la funzionalità Collegamento privato, visitare la pagina [Documentazione di Collegamento privato](../../private-link/index.yml). Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
+Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un **endpoint privato** . Per un elenco dei servizi PaaS che supportano la funzionalità Collegamento privato, visitare la pagina [Documentazione di Collegamento privato](../../private-link/index.yml). Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
 
 > [!IMPORTANT]
-> Questo articolo si applica sia al database SQL di Azure sia aD Azure Synapse Analytics (in precedenza SQL Data Warehouse). Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics. Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
+> Questo articolo si applica sia al database SQL di Azure sia aD Azure Synapse Analytics (in precedenza SQL Data Warehouse). Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics. Questo articolo *non* si applica a **Istanza gestita di SQL di Azure** .
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Come configurare Collegamento privato per il database SQL di Azure 
 
@@ -75,7 +75,7 @@ Per questo scenario si presuppone di aver creato una macchina virtuale (VM) di A
 
 ### <a name="check-connectivity-using-telnet"></a>Verificare la connettività con Telnet
 
-[Telnet Client](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) è una funzionalità di Windows che può essere usata per testare la connettività. A seconda della versione del sistema operativo Windows, potrebbe essere necessario abilitare questa funzionalità in modo esplicito. 
+[Telnet Client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) è una funzionalità di Windows che può essere usata per testare la connettività. A seconda della versione del sistema operativo Windows, potrebbe essere necessario abilitare questa funzionalità in modo esplicito. 
 
 Aprire una finestra del prompt dei comandi dopo aver installato Telnet. Eseguire il comando Telnet e specificare l'indirizzo IP e l'endpoint privato del database nel database SQL.
 
@@ -145,11 +145,11 @@ L'esfiltrazione di dati nel database SQL di Azure si verifica quando un utente a
 
 Si consideri uno scenario in cui un utente esegue SQL Server Management Studio (SSMS) all'interno di una macchina virtuale di Azure che si connette a un database nel database SQL. Questo database si trova nel data center dell'area Stati Uniti occidentali. L'esempio seguente illustra come limitare l'accesso con gli endpoint pubblici nel database SQL tramite i controlli di accesso alla rete.
 
-1. Disabilitare tutto il traffico dei servizi di Azure verso il database SQL tramite l'endpoint pubblico disattivando l'opzione **Consenti ai servizi di Azure di accedere al server**. Verificare che non siano consentiti indirizzi IP nelle regole del firewall a livello di server e database. Per altre informazioni, vedere [Controllo di accesso alla rete del database SQL di Azure e Azure Synapse Analytics](network-access-controls-overview.md).
+1. Disabilitare tutto il traffico dei servizi di Azure verso il database SQL tramite l'endpoint pubblico disattivando l'opzione **Consenti ai servizi di Azure di accedere al server** . Verificare che non siano consentiti indirizzi IP nelle regole del firewall a livello di server e database. Per altre informazioni, vedere [Controllo di accesso alla rete del database SQL di Azure e Azure Synapse Analytics](network-access-controls-overview.md).
 1. Consentire solo il traffico al database del database SQL tramite l'indirizzo IP privato della macchina virtuale. Per altre informazioni, vedere gli articoli sull'[endpoint servizio](vnet-service-endpoint-rule-overview.md) e le [regole del firewall della rete virtuale](firewall-configure.md).
 1. Nella macchina virtuale di Azure limitare l'ambito della connessione in uscita usando i [gruppi di sicurezza di rete (NSG)](../../virtual-network/manage-network-security-group.md) e i tag del servizio come indicato di seguito.
     - Specificare una regola NSG per consentire il traffico per il tag di servizio = SQL.WestUs, che accetta solo le connessioni al database SQL negli Stati Uniti occidentali
-    - Specificare una regola NSG (con una **priorità più alta**) per negare il traffico per il tag di servizio = SQL, che rifiuta le connessioni al database SQL in tutte le aree
+    - Specificare una regola NSG (con una **priorità più alta** ) per negare il traffico per il tag di servizio = SQL, che rifiuta le connessioni al database SQL in tutte le aree
 
 Al termine di questa configurazione, la macchina virtuale di Azure può connettersi solo a un database nel database SQL nell'area Stati Uniti occidentali. Tuttavia, la connettività non è limitata a un database singolo nel database SQL. La macchina virtuale può comunque connettersi a qualsiasi database nell'area Stati Uniti occidentali, inclusi i database che non fanno parte della sottoscrizione. Sebbene l'ambito di esfiltrazione dei dati nello scenario precedente sia stato ridotto a un'area specifica, non è stato eliminato completamente.
 

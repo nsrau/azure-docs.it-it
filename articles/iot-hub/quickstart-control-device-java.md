@@ -14,13 +14,14 @@ ms.custom:
 - seo-java-september2019
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 2865d0fc082244e1b135275ecda58edc5649d82b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 915199a619ff7596596b92362de38338bda03029
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150726"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747538"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT di Azure con Java
 
@@ -32,7 +33,7 @@ In questa guida di avvio rapido si usa un metodo diretto per controllare un disp
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](/java/azure/jdk/?view=azure-java-stable) selezionare **Java 8** nella sezione **Supporto a lungo termine**.
+* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](/java/azure/jdk/?view=azure-java-stable) selezionare **Java 8** nella sezione **Supporto a lungo termine** .
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
@@ -78,9 +79,9 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyJavaDevice**: nome del dispositivo da registrare. È consigliabile usare **MyJavaDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyJavaDevice** : nome del dispositivo da registrare. È consigliabile usare **MyJavaDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -89,7 +90,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -108,7 +109,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 È necessaria anche una _stringa di connessione del servizio_ per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
-**YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+**YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -124,11 +125,11 @@ Il valore verrà usato più avanti in questa guida introduttiva. Questa stringa 
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT, invia dati di telemetria simulati e ascolta le chiamate dei metodi diretti dall'hub. In questa guida introduttiva la chiamata dei metodi diretti dall'hub indica al dispositivo di modificare l'intervallo di invio dei dati di telemetria. Il dispositivo simulato invia un acknowledgement all'hub dopo l'esecuzione del metodo diretto.
 
-1. In una finestra del terminale locale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2** .
 
 2. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `connString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.java**.
+    Sostituire il valore della variabile `connString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.java** .
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione del dispositivo simulato:
 
@@ -150,11 +151,11 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
 
-1. In un'altra finestra del terminale locale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
+1. In un'altra finestra del terminale locale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application** .
 
 2. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `iotHubConnectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.java**.
+    Sostituire il valore della variabile `iotHubConnectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.java** .
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione back-end:
 

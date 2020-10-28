@@ -3,13 +3,13 @@ title: 'Avvio rapido: Creare un registro nel portale'
 description: Informazioni su come apprendere rapidamente a creare un'istanza di Registro Azure Container privata con il portale di Azure.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031804"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746670"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Avvio rapido: Creare un'istanza di Registro Azure Container usando il portale di Azure
 
@@ -25,23 +25,23 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro Container** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Passare al registro contenitori nel portale":::
 
-Nella scheda **Informazioni di base** immettere i valori per **Gruppo di risorse** e **Nome registro**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Per questa guida introduttiva creare un nuovo gruppo di risorse nella posizione `West US` denominata `myResourceGroup` e per **SKU** selezionare "Basic".
+Nella scheda **Informazioni di base** immettere i valori per **Gruppo di risorse** e **Nome registro** . Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Per questa guida introduttiva creare un nuovo gruppo di risorse nella posizione `West US` denominata `myResourceGroup` e per **SKU** selezionare "Basic".
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Passare al registro contenitori nel portale":::
 
-Accettare i valori predefiniti per le impostazioni rimanenti. Selezionare quindi **Rivedi e crea**. Dopo aver esaminato le impostazioni, selezionare **Crea**.
+Accettare i valori predefiniti per le impostazioni rimanenti. Selezionare quindi **Rivedi e crea** . Dopo aver esaminato le impostazioni, selezionare **Crea** .
 
-In questa guida di avvio rapido viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio (SKU) disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
+In questa guida di avvio rapido viene creato un registro *Basic* , ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio (SKU) disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
 
-Quando viene visualizzato il messaggio **La distribuzione è riuscita**, selezionare il registro contenitori nel portale. 
+Quando viene visualizzato il messaggio **La distribuzione è riuscita** , selezionare il registro contenitori nel portale. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Passare al registro contenitori nel portale":::
 
-Prendere nota del nome del registro e del valore del **Server di accesso**. Usare questi valori nella procedura seguente quando si esegue il push e il pull delle immagini con Docker.
+Prendere nota del nome del registro e del valore del **Server di accesso** . Usare questi valori nella procedura seguente quando si esegue il push e il pull delle immagini con Docker.
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
@@ -67,7 +67,7 @@ Per elencare le immagini presenti nel registro, passare al registro nel portale,
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Passare al registro contenitori nel portale":::
 
-Se si seleziona il repository **hello-world**, l'immagine con tag `v1` viene visualizzata in **Tag**.
+Se si seleziona il repository **hello-world** , l'immagine con tag `v1` viene visualizzata in **Tag** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 

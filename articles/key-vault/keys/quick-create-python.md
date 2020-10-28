@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042559"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784610"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Avvio rapido: Libreria client delle chiavi di Azure Key Vault per Python
 
@@ -24,14 +24,14 @@ Introduzione alla libreria client di Azure Key Vault per Python Seguire questi p
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 o 3.5.3 e versioni successive](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 o 3.5.3 e versioni successive](/azure/developer/python/configure-local-development-environment)
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 
 Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) in una finestra del terminale Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurare l'ambiente locale
 
-Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -134,13 +134,13 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_keys.py*. Eseguire quindi il codice con il comando seguente:
+Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_keys.py* . Eseguire quindi il codice con il comando seguente:
 
 ```terminal
 python kv_keys.py
 ```
 
-- Se si verificano errori relativi alle autorizzazioni, assicurarsi d i aver eseguito il [comando `az keyvault set-policy`](#grant-access-to-your-key-vault).
+- Se si verificano errori relativi alle autorizzazioni, assicurarsi d i aver eseguito il comando [`az keyvault set-policy`](#grant-access-to-your-key-vault).
 - Se il codice viene eseguito di nuovo con lo stesso nome della chiave si potrebbe verificare un errore con un messaggio analogo a "(Conflitto) La chiave <name> si trova attualmente in uno stato eliminato ma recuperabile". Usare un nome di chiave diverso.
 
 ## <a name="code-details"></a>Dettagli del codice

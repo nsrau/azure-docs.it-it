@@ -4,23 +4,23 @@ description: Creare un database singolo nel database SQL di Azure usando il port
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1
+ms.custom: contperfq1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 6a0d81cc9954f934395bc275785bda34c55c35bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91263403"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791512"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Avvio rapido: Crea un database SQL di Azure singolo
 
-In questo argomento di avvio rapido si userà il portale di Azure, uno script di Azure PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un [database singolo](single-database-overview.md) in Database SQL di Azure. È quindi possibile eseguire query sul database con l'**editor di query** nel portale di Azure.
+In questo argomento di avvio rapido si userà il portale di Azure, uno script di Azure PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un [database singolo](single-database-overview.md) in Database SQL di Azure. È quindi possibile eseguire query sul database con l' **editor di query** nel portale di Azure.
 
 
 
@@ -37,24 +37,24 @@ Questo argomento di avvio rapido crea un database singolo nel [livello di calcol
 Per creare un database singolo nel portale di Azure, questo argomento di avvio rapido inizia dalla pagina SQL di Azure.
 
 1. Passare alla pagina [Selezionare l'opzione di distribuzione SQL](https://portal.azure.com/#create/Microsoft.AzureSQL).
-1. In **Database SQL** lasciare l'opzione **Tipo di risorsa** impostata su **Database singolo** e selezionare **Crea**.
+1. In **Database SQL** lasciare l'opzione **Tipo di risorsa** impostata su **Database singolo** e selezionare **Crea** .
 
    ![Aggiungi ad Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
 
-1. Nella scheda **Informazioni di base** del modulo **Crea database SQL** selezionare la **Sottoscrizione** di Azure corretta in **Dettagli del progetto**.
-1. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere *myResourceGroup* e quindi fare clic su **OK**.
-1. In **Nome database** immettere *mySampleDatabase*.
+1. Nella scheda **Informazioni di base** del modulo **Crea database SQL** selezionare la **Sottoscrizione** di Azure corretta in **Dettagli del progetto** .
+1. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere *myResourceGroup* e quindi fare clic su **OK** .
+1. In **Nome database** immettere *mySampleDatabase* .
 1. In **server** selezionare **Crea nuovo** e compilare il modulo **Nuovo server** con i valori seguenti:
-   - **Nome server**: immettere *mysqlserver* e aggiungere alcuni caratteri per l'univocità. Non è possibile specificare un nome di server esatto da usare perché i nomi di tutti i server di Azure devono essere univoci a livello globale, non solo univoci all'interno di una sottoscrizione. Immettere quindi un valore come mysqlserver12345 e il portale segnala se è disponibile o meno.
-   - **Account di accesso amministratore server**: digitare *azureuser*.
-   - **Password**: immettere una password che soddisfi i requisiti e immetterla di nuovo nel campo **Conferma password**.
-   - **Località**: selezionare una località dall'elenco a discesa.
+   - **Nome server** : immettere *mysqlserver* e aggiungere alcuni caratteri per l'univocità. Non è possibile specificare un nome di server esatto da usare perché i nomi di tutti i server di Azure devono essere univoci a livello globale, non solo univoci all'interno di una sottoscrizione. Immettere quindi un valore come mysqlserver12345 e il portale segnala se è disponibile o meno.
+   - **Account di accesso amministratore server** : digitare *azureuser* .
+   - **Password** : immettere una password che soddisfi i requisiti e immetterla di nuovo nel campo **Conferma password** .
+   - **Località** : selezionare una località dall'elenco a discesa.
 
-   Selezionare **OK**.
+   Selezionare **OK** .
 
-1. Lasciare l'opzione **Usare il pool elastico SQL?** impostata su **No**.
-1. In **Calcolo e archiviazione** selezionare **Configura database**.
-1. Questo argomento di avvio rapido usa un database serverless, quindi selezionare **Serverless** e quindi **Applica**. 
+1. Lasciare l'opzione **Usare il pool elastico SQL?** impostata su **No** .
+1. In **Calcolo e archiviazione** selezionare **Configura database** .
+1. Questo argomento di avvio rapido usa un database serverless, quindi selezionare **Serverless** e quindi **Applica** . 
 
       ![Configurare il database serverless](./media/single-database-create-quickstart/configure-database.png)
 
@@ -62,19 +62,19 @@ Per creare un database singolo nel portale di Azure, questo argomento di avvio r
 
    ![Nuovo database SQL - scheda Informazioni di base](./media/single-database-create-quickstart/new-sql-database-basics.png)
 
-1. Nella scheda **Rete** selezionare **Endpoint pubblico** in **Metodo di connettività**.
-1. In **Regole del firewall** impostare **Aggiungi indirizzo IP client corrente** su **Sì**. Lasciare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** impostata su **No**.
+1. Nella scheda **Rete** selezionare **Endpoint pubblico** in **Metodo di connettività** .
+1. In **Regole del firewall** impostare **Aggiungi indirizzo IP client corrente** su **Sì** . Lasciare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** impostata su **No** .
 1. Selezionare **Avanti: Impostazioni aggiuntive** nella parte inferiore della pagina.
 
    ![Scheda Rete](./media/single-database-create-quickstart/networking.png)
   
 
-1. Nella scheda **Impostazioni aggiuntive**, nella sezione **Origine dati** selezionare **Esempio** per **Usa dati esistenti**. Viene creato un database di esempio AdventureWorksLT che contiene alcune tabelle a alcuni dati su cui eseguire query e con cui sperimentare, diversamente da un database vuoto.
+1. Nella scheda **Impostazioni aggiuntive** , nella sezione **Origine dati** selezionare **Esempio** per **Usa dati esistenti** . Viene creato un database di esempio AdventureWorksLT che contiene alcune tabelle a alcuni dati su cui eseguire query e con cui sperimentare, diversamente da un database vuoto.
 1. Selezionare **Rivedi e crea** nella parte inferiore della pagina:
 
    ![Scheda Impostazioni aggiuntive](./media/single-database-create-quickstart/additional-settings.png)
 
-1. Nella pagina **Rivedi e crea**, dopo aver rivisto le impostazioni, selezionare **Crea**.
+1. Nella pagina **Rivedi e crea** , dopo aver rivisto le impostazioni, selezionare **Crea** .
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -107,7 +107,7 @@ endip=0.0.0.0
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus* :
 
 ```azurecli-interactive
 az group create --name $resourceGroupName --location $location
@@ -254,15 +254,15 @@ Creare un database singolo con il cmdlet [New-AzSqlDatabase](/powershell/module/
 
 ## <a name="query-the-database"></a>Eseguire query sul database
 
-Dopo aver creato il database, è possibile usare l'**editor di query (anteprima)** nel portale di Azure per connettersi al database ed eseguire query sui dati.
+Dopo aver creato il database, è possibile usare l' **editor di query (anteprima)** nel portale di Azure per connettersi al database ed eseguire query sui dati.
 
-1. Nel portale cercare e selezionare **Database SQL**, quindi selezionare il database nell'elenco.
+1. Nel portale cercare e selezionare **Database SQL** , quindi selezionare il database nell'elenco.
 1. Nella pagina relativa al database scegliere **Editor di query (anteprima)** dal menu sinistro.
-1. Immettere le credenziali di accesso di amministratore server e selezionare **OK**.
+1. Immettere le credenziali di accesso di amministratore server e selezionare **OK** .
 
    ![Accedere all'editor di query](./media/single-database-create-quickstart/query-editor-login.png)
 
-1. Immettere la query seguente nel riquadro **Editor di query**.
+1. Immettere la query seguente nel riquadro **Editor di query** .
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -271,7 +271,7 @@ Dopo aver creato il database, è possibile usare l'**editor di query (anteprima)
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Selezionare **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati**.
+1. Selezionare **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati** .
 
    ![Risultati nell'editor di query](./media/single-database-create-quickstart/query-editor-results.png)
 
@@ -288,8 +288,8 @@ Dopo aver finito di usare queste risorse, è possibile eliminare il gruppo di ri
 Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di Azure:
 
 1. Nel portale cercare e selezionare **Gruppi di risorse** e quindi selezionare **myResourceGroup** nell'elenco.
-1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**.
-1. In **Digitare il nome del gruppo di risorse** immettere *myResourceGroup* e quindi selezionare **Elimina**.
+1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse** .
+1. In **Digitare il nome del gruppo di risorse** immettere *myResourceGroup* e quindi selezionare **Elimina** .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -320,4 +320,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
 > [!div class="nextstepaction"]
-> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Per iniziare, analizzare i costi con Gestione costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

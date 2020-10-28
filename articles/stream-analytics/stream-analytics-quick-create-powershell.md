@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 997d74b1afc59e72b2c3fe7a7d47166d5efb8715
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 69571afceddab61c2a6134516e237facfb7a5073
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89072979"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746875"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
 
@@ -78,7 +78,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
     az account set --subscription "<your subscription>"
     ```
 
-2. Creare un hub IoT con il comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). Questo esempio crea un hub IoT denominato **MyASAIoTHub**. Poiché i nomi degli hub IoT sono univoci, è necessario indicare un nome personalizzato per il proprio hub IoT. Impostare lo SKU su F1 per usare il livello gratuito se è disponibile con la sottoscrizione. In caso contrario, scegliere il successivo livello più basso.
+2. Creare un hub IoT con il comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). Questo esempio crea un hub IoT denominato **MyASAIoTHub** . Poiché i nomi degli hub IoT sono univoci, è necessario indicare un nome personalizzato per il proprio hub IoT. Impostare lo SKU su F1 per usare il livello gratuito se è disponibile con la sottoscrizione. In caso contrario, scegliere il successivo livello più basso.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
@@ -90,7 +90,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Aggiungere un dispositivo all'hub IoT usando il comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Questo esempio crea un dispositivo denominato **MyASAIoTDevice**.
+3. Aggiungere un dispositivo all'hub IoT usando il comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Questo esempio crea un dispositivo denominato **MyASAIoTDevice** .
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -304,7 +304,7 @@ New-AzStreamAnalyticsTransformation `
 
 2. Sostituire il segnaposto nella riga 15 con l'intera stringa di connessione del dispositivo hub IoT di Azure salvato in una sezione precedente.
 
-3. Fare clic su **Esegui**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
+3. Fare clic su **Esegui** . L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
 
     ![Simulatore online Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

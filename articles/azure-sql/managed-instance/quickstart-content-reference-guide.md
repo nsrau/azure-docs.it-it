@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84708570"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788163"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introduzione all'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,16 +44,16 @@ Come primo passaggio, è necessario creare la prima istanza gestita di SQL con l
   > - È anche possibile usare ExpressRoute o una connessione da sito a sito dalla rete locale, ma questi approcci esulano dall'ambito di queste guide introduttive.
   > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, tenere presente che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo l'abilitazione della conservazione).
 
-In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) per creare script e automatizzare questo processo.
+In alternativa alla creazione manuale dell'istanza gestita di SQL, è possibile usare [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con modello di Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o l'[interfaccia della riga di comando di Azure](/cli/azure/sql/mi#az-sql-mi-create) per creare script e automatizzare questo processo.
 
 ### <a name="migrate-your-databases"></a>Eseguire la migrazione dei database
 
-Dopo aver creato un'istanza gestita di SQL e configurato l'accesso, è possibile avviare la migrazione dei database di SQL Server. La migrazione potrebbe non riuscire se il database di origine da migrare contiene alcune funzionalità non supportate. Per evitare errori e controllare la compatibilità, è possibile installare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), che analizzerà i database in SQL Server per rilevare eventuali errori che potrebbero impedire la migrazione all'istanza gestita di SQL, ad esempio la presenza di [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) o di più file di log. Se questi problemi vengono risolti, i database sono pronti per la migrazione a un'istanza gestita di SQL. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) è un altro strumento utile che consente di registrare il carico di lavoro in SQL Server e di riprodurlo in un'istanza gestita di SQL per determinare se la migrazione a un'istanza gestita di SQL genererà eventuali problemi di prestazioni.
+Dopo aver creato un'istanza gestita di SQL e configurato l'accesso, è possibile avviare la migrazione dei database di SQL Server. La migrazione potrebbe non riuscire se il database di origine da migrare contiene alcune funzionalità non supportate. Per evitare errori e controllare la compatibilità, è possibile installare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), che analizzerà i database in SQL Server per rilevare eventuali errori che potrebbero impedire la migrazione all'istanza gestita di SQL, ad esempio la presenza di [FileStream](/sql/relational-databases/blob/filestream-sql-server) o di più file di log. Se questi problemi vengono risolti, i database sono pronti per la migrazione a un'istanza gestita di SQL. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) è un altro strumento utile che consente di registrare il carico di lavoro in SQL Server e di riprodurlo in un'istanza gestita di SQL per determinare se la migrazione a un'istanza gestita di SQL genererà eventuali problemi di prestazioni.
 
 Una volta sicuri di poter procedere alla migrazione del database a un'istanza gestita di SQL, è possibile usare le funzionalità di ripristino native di SQL Server per ripristinare un database in un'istanza gestita di SQL da un file `.bak`. È possibile usare questo metodo per eseguire la migrazione dei database dal motore di database di SQL Server installato in locale o da macchine virtuali di Azure. Per la guida di avvio rapido, vedere [Eseguire il ripristino da un backup in un'istanza gestita di SQL](restore-sample-database-quickstart.md). In questa guida introduttiva si esegue il ripristino da un file con estensione `.bak` archiviato nell'archivio BLOB di Azure usando il comando Transact-SQL `RESTORE`.
 
 > [!TIP]
-> Per usare il comando Transact-SQL `BACKUP` per creare un backup del database nell'archivio BLOB di Azure, vedere [Backup di SQL Server nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Per usare il comando Transact-SQL `BACKUP` per creare un backup del database nell'archivio BLOB di Azure, vedere [Backup di SQL Server nell'URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Queste guide di avvio rapido consentono di creare, configurare e ripristinare rapidamente un backup del database in un'istanza gestita di SQL. In alcuni scenari può essere necessario personalizzare o automatizzare la distribuzione dell'istanza gestita di SQL e dell'ambiente di rete necessario. Questi scenari vengono descritti di seguito.
 
@@ -72,7 +72,7 @@ Le guide di avvio rapido indicate in precedenza consentono di configurare rapida
 Tuttavia, per eseguire la migrazione del database di produzione o anche dei database di sviluppo/test che si vuole usare per alcuni test delle prestazioni, è necessario prendere in considerazione l'uso di alcune tecniche aggiuntive, ad esempio:
 
 - Test delle prestazioni: è consigliabile misurare le metriche delle prestazioni baseline nell'istanza di SQL Server di origine e confrontarle con le metriche delle prestazioni nell'istanza gestita di SQL di destinazione in cui è stata eseguita la migrazione del database. Vedere altre informazioni sulle [procedure consigliate per il confronto delle prestazioni](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migrazione online: con la funzionalità `RESTORE` nativa descritta in questo articolo è necessario attendere che i database vengano ripristinati e copiati nell'archivio BLOB di Azure, se non sono già presenti in tale archivio. Ciò comporta tempi di inattività dell'applicazione, in particolare per i database di grandi dimensioni. Per spostare il database di produzione, usare il [Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database dell'istanza gestita di SQL da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con un tempo di inattività minimo.
+- Migrazione online: con la funzionalità `RESTORE` nativa descritta in questo articolo è necessario attendere che i database vengano ripristinati e copiati nell'archivio BLOB di Azure, se non sono già presenti in tale archivio. Ciò comporta tempi di inattività dell'applicazione, in particolare per i database di grandi dimensioni. Per spostare il database di produzione, usare il [Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) per eseguire la migrazione del database con il tempo di inattività minimo. Servizio Migrazione del database ottiene questo risultato effettuando il push incrementale delle modifiche apportate al database di origine nel database dell'istanza gestita di SQL da ripristinare. In questo modo, è possibile spostare rapidamente l'applicazione dal database di origine a quello di destinazione con un tempo di inattività minimo.
 
 Vedere altre informazioni sul [processo di migrazione consigliato](migrate-to-instance-from-sql-server.md).
 

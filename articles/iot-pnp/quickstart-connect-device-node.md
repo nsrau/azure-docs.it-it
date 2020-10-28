@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: e9ab4f2639569537b7c5967235a926c567aca0d5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576133"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747241"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>Avvio rapido: Connettere un'applicazione dispositivo Plug and Play IoT di esempio all'hub IoT (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Usare l'SDK del dispositivo per compilare il codice di esempio incluso. L'applicazione compilata simula un dispositivo che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
 
-1. In una finestra del terminale locale passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-node/device/samples/pnp*. Eseguire quindi il comando seguente per installare le librerie necessarie:
+1. In una finestra del terminale locale passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-node/device/samples/pnp* . Eseguire quindi il comando seguente per installare le librerie necessarie:
 
     ```cmd/sh
     npm install
@@ -63,7 +63,7 @@ Usare l'SDK del dispositivo per compilare il codice di esempio incluso. L'applic
 
 Questo esempio implementa un semplice dispositivo termostato Plug and Play IoT. Il modello implementato da questo esempio non usa [componenti](concepts-components.md) di Plug and Play IoT. Il [file di modello DTDL per il dispositivo termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) definisce i dati di telemetria, le proprietà e i comandi implementati dal dispositivo.
 
-Aprire il file _simple_thermostat.js_. In questo file è possibile osservare come:
+Aprire il file _simple_thermostat.js_ . In questo file è possibile osservare come:
 
 1. Importare le interfacce necessarie.
 1. Scrivere un gestore di aggiornamento delle proprietà e un gestore di comandi.

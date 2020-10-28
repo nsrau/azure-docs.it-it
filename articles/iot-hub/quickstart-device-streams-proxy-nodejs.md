@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303081"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747448"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
 
@@ -82,7 +82,7 @@ Se è stata completato l'argomento [Avvio rapido: Inviare dati di telemetria da 
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Per consentire all'applicazione back-end di connettersi all'hub IoT e recuperare i messaggi, è necessaria anche una *stringa di connessione del servizio*. Il comando seguente recupera la stringa per l'hub IoT:
+1. Per consentire all'applicazione back-end di connettersi all'hub IoT e recuperare i messaggi, è necessaria anche una *stringa di connessione del servizio* . Il comando seguente recupera la stringa per l'hub IoT:
 
    > [!NOTE]
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.

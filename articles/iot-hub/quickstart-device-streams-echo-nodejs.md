@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 7401bc0661459e1322c9b2f2226d45794f814732
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ef362b34fe99212ee6648830ac442e507515719f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91302945"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747523"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -74,9 +74,9 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyDevice**: nome del dispositivo da registrare. È consigliabile usare **MyDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyDevice** : nome del dispositivo da registrare. È consigliabile usare **MyDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -84,7 +84,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. È necessaria anche una *stringa di connessione del servizio* per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
-    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+    **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table

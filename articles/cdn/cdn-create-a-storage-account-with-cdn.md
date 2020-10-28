@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4086a8f354e5e906325d9c324410f3546a32f658
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996134"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778898"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 
@@ -40,9 +40,9 @@ Un account di archiviazione consente di accedere ai servizi di archiviazione di 
 
 Per creare un account di archiviazione, è necessario essere amministratori del servizio o coamministratori della sottoscrizione.
 
-1. In alto a sinistra nel portale di Azure selezionare **Crea una risorsa**. Viene visualizzato il riquadro **Nuovo**.
+1. In alto a sinistra nel portale di Azure selezionare **Crea una risorsa** . Viene visualizzato il riquadro **Nuovo** .
 
-1. Cercare **Account di archiviazione** e selezionare **Account di archiviazione - BLOB, file, tabella, coda** nell'elenco a discesa. quindi selezionare **Crea**:
+1. Cercare **Account di archiviazione** e selezionare **Account di archiviazione - BLOB, file, tabella, coda** nell'elenco a discesa. quindi selezionare **Crea** :
     
     ![Selezionare la risorsa di archiviazione](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
@@ -50,17 +50,17 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
     | Impostazione | valore | 
     | --- | --- |
-    | Dettagli del progetto > Gruppo di risorse | Selezionare **Crea nuovo** e usare il nome *CDNQuickstart-rg*. È anche possibile usare un gruppo di risorse esistente, se si preferisce. |
+    | Dettagli del progetto > Gruppo di risorse | Selezionare **Crea nuovo** e usare il nome *CDNQuickstart-rg* . È anche possibile usare un gruppo di risorse esistente, se si preferisce. |
     | Dettagli istanza > Nome dell'account di archiviazione | Immettere un nome per l'account composto da 3-24 caratteri costituiti solo da lettere e numeri. Il nome deve essere univoco in Azure e diventa il nome host all'interno dell'URL usato per fare riferimento a risorse BLOB, coda o tabella per la sottoscrizione. Per fare riferimento a una risorsa contenitore nell'archiviazione BLOB, usare un URI nel formato seguente: http:// *&lt;storageaccountname&gt;* .blob.core.windows.net/ *&lt;container-name&gt;* .
     | Dettagli istanza > Località | Selezionare un'area di Azure vicina nell'elenco a discesa. |
     
-    Lasciare le impostazioni predefinite per tutte le altre informazioni, quindi selezionare **Rivedi e crea**.
+    Lasciare le impostazioni predefinite per tutte le altre informazioni, quindi selezionare **Rivedi e crea** .
 
 1. Per completare la creazione dell'account di archiviazione possono essere necessari diversi minuti. Al termine della creazione, selezionare **Vai alla risorsa** per aprire la pagina dell'account di archiviazione per il passaggio successivo.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Abilitare la rete CDN di Azure per l'account di archiviazione
 
-1. Nella pagina dell'account di archiviazione scegliere **Servizio BLOB** > **Rete CDN di Azure** dal menu a sinistra. Verrà visualizzata la pagina **Rete CDN di Azure**.
+1. Nella pagina dell'account di archiviazione scegliere **Servizio BLOB** > **Rete CDN di Azure** dal menu a sinistra. Verrà visualizzata la pagina **Rete CDN di Azure** .
 
     ![Creare un endpoint della rete CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
     
@@ -68,9 +68,9 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
     | Impostazione  | valore |
     | -------- | ----- |
-    | **Profilo CDN** | Selezionare **Crea nuovo** e immettere il nome del profilo, ad esempio *cdn-profile-123*. Un profilo è una raccolta di endpoint. |
-    | **Piano tariffario** | Selezionare una delle opzioni **Standard**, ad esempio **Microsoft Standard**. |
-    | **Nome endpoint rete CDN** | Immettere il nome host dell'endpoint, ad esempio *cdn-endpoint-123*. Questo nome deve essere univoco a livello globale in Azure perché consente di accedere alle risorse memorizzate nella cache all'URL _&lt;endpoint-name&gt;_ .azureedge.net. |
+    | **Profilo CDN** | Selezionare **Crea nuovo** e immettere il nome del profilo, ad esempio *cdn-profile-123* . Un profilo è una raccolta di endpoint. |
+    | **Piano tariffario** | Selezionare una delle opzioni **Standard** , ad esempio **Microsoft Standard** . |
+    | **Nome endpoint rete CDN** | Immettere il nome host dell'endpoint, ad esempio *cdn-endpoint-123* . Questo nome deve essere univoco a livello globale in Azure perché consente di accedere alle risorse memorizzate nella cache all'URL _&lt;endpoint-name&gt;_ .azureedge.net. |
     | **Nome host dell'origine** | Per impostazione predefinita, un nuovo endpoint della rete CDN usa il nome host dell'account di archiviazione come server di origine. |
 
 1. Selezionare **Create** (Crea). Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint.
@@ -95,7 +95,7 @@ Se si vuole concedere l'accesso limitato ai contenitori di archiviazione privati
 
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache ha il formato seguente:
 
-http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
+http://< *endpoint-name*\>.azureedge.net/< *myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
 > Dopo l'abilitazione dell'accesso della rete CDN di Azure a un account di archiviazione, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache POP della rete CDN. Se si modifica un oggetto attualmente memorizzato nella cache nella rete CDN, il nuovo contenuto sarà disponibile tramite la rete CDN di Azure solo dopo l'aggiornamento dei contenuti della rete CDN di Azure alla scadenza della durata specificata per i contenuti memorizzati nella cache.
@@ -104,7 +104,7 @@ http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 Se non si vuole più memorizzare un oggetto nella cache della rete CDN di Azure, è possibile eseguire una delle operazioni seguenti:
 
-- Rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/storage-manage-access-to-resources.md).
+- Rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/anonymous-read-access-configure.md).
 - Disabilitare o eliminare l'endpoint della rete CDN usando il portale di Azure.
 - Modificare il servizio ospitato, in modo che non risponda più a richieste per l'oggetto.
 
@@ -116,7 +116,7 @@ Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CD
 
 1. Dal menu a sinistra del portale di Azure scegliere **Gruppi di risorse** e quindi selezionare *CDNQuickstart-rg*\*.
 
-2. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**, immettere *CDNQuickstart-rg* nella casella di testo e quindi selezionare **Elimina**.
+2. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse** , immettere *CDNQuickstart-rg* nella casella di testo e quindi selezionare **Elimina** .
 
     Con questa azione si elimineranno il gruppo di risorse, il profilo e l'endpoint creati in questa guida introduttiva.
 

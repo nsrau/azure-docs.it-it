@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327507"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895202"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Avvio rapido: Creare un endpoint privato con il portale di Azure
 
@@ -50,7 +50,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     | Gruppo di risorse   | Selezionare **CreatePrivateEndpointQS-rg** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Selezionare **\<your-web-app-region>** . </br> Selezionare l'area in cui viene distribuita l'app Web.|
+    | Region           | Selezionare **Europa occidentale** .|
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -94,14 +94,14 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
 
-    | Impostazione | Valore                                          |
+    | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | Selezionare **CreatePrivateEndpointQS-rg** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM** |
-    | Area | Selezionare **\<your-web-app-region>** . </br> Selezionare l'area in cui viene distribuita l'app Web. |
+    | Area | Selezionare **Europa occidentale** . |
     | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter - Gen1** |
     | Istanza Spot di Azure | Selezionare **No** |
@@ -115,7 +115,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
@@ -149,7 +149,7 @@ In questa sezione verrà creato un endpoint privato per l'app Web creata nella s
     | Resource group | Selezionare **CreatePrivateEndpointQS-rg** . Questo gruppo di risorse è stato creato nella sezione precedente.|
     | **Dettagli istanza** |  |
     | Nome  | Immettere **myPrivateEndpoint** . |
-    | Area | Selezionare **\<your-web-app-region>** . </br> Selezionare l'area in cui viene distribuita l'app Web. |
+    | Area | Selezionare **Europa occidentale** . |
 
 6. Selezionare la scheda **Risorsa** o il pulsante **Avanti: Risorsa** nella parte inferiore della pagina.
     

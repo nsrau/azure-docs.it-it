@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660208"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789778"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Avvio rapido: Creare una VM di SQL Server con un modello di Resource Manager
 
@@ -20,7 +20,7 @@ Usare questo modello di Azure Resource Manager per distribuire una macchina virt
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -58,26 +58,26 @@ Altri modelli di VM di SQL Server in Azure sono disponibili nella [raccolta di m
 
 2. Selezionare o immettere i valori seguenti.
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: gruppo di risorse preparato per la VM di SQL Server. 
-    * **Area**: scegliere un'area,  ad esempio **Stati Uniti centrali**.
-    * **Nome macchina virtuale**: immettere un nome per la macchina virtuale di SQL Server. 
-    * **Dimensioni macchina virtuale**: scegliere le dimensioni appropriate della macchina virtuale dall'elenco a discesa.
-    * **Rete virtuale esistente**: immettere il nome della rete virtuale preparata per la VM di SQL Server. 
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse** : gruppo di risorse preparato per la VM di SQL Server. 
+    * **Area** : scegliere un'area,  ad esempio **Stati Uniti centrali** .
+    * **Nome macchina virtuale** : immettere un nome per la macchina virtuale di SQL Server. 
+    * **Dimensioni macchina virtuale** : scegliere le dimensioni appropriate della macchina virtuale dall'elenco a discesa.
+    * **Rete virtuale esistente** : immettere il nome della rete virtuale preparata per la VM di SQL Server. 
     * **Existing Vnet Resource Group** (Gruppo di risorse di rete virtuale esistente): immettere il gruppo di risorse in cui è stata preparata la rete virtuale. 
     * **Existing Subnet Name** (Nome della subnet esistente): nome della subnet preparata. 
-    * **Offerta immagine**: scegliere l'immagine di SQL Server e Windows Server più adatta alle esigenze aziendali. 
+    * **Offerta immagine** : scegliere l'immagine di SQL Server e Windows Server più adatta alle esigenze aziendali. 
     * **SQL Sku** (SKU SQL): scegliere l'edizione della SKU di SQL Server più adatta alle esigenze aziendali. 
-    * **Nome utente amministratore**: nome utente dell'amministratore della macchina virtuale. 
-    * **Password amministratore**: password usata dall'account amministratore della macchina virtuale. 
+    * **Nome utente amministratore** : nome utente dell'amministratore della macchina virtuale. 
+    * **Password amministratore** : password usata dall'account amministratore della macchina virtuale. 
     * **Storage Workload Type** (Tipo di carico di lavoro di archiviazione):  tipo di archiviazione per il carico di lavoro più adatto all'azienda. 
     * **Sql Data Disks Count** (Conteggio dischi dati SQL):  numero di dischi usati da SQL Server per i file di dati.  
-    * **Percorso dati**:  percorso dei file di dati di SQL Server. 
+    * **Percorso dati** :  percorso dei file di dati di SQL Server. 
     * **Sql Log Disks Count** (Conteggio dischi log SQL):  numero di dischi usati da SQL Server per i file di log. 
-    * **Percorso del log**:  percorso dei file di log di SQL Server. 
-    * **Località**:  località di tutte le risorse. Non modificare il valore predefinito `[resourceGroup().location]`. 
+    * **Percorso del log** :  percorso dei file di log di SQL Server. 
+    * **Località** :  località di tutte le risorse. Non modificare il valore predefinito `[resourceGroup().location]`. 
 
-3. Selezionare **Rivedi e crea**. Al termine della distribuzione della VM di SQL Server, si riceverà una notifica.
+3. Selezionare **Rivedi e crea** . Al termine della distribuzione della VM di SQL Server, si riceverà una notifica.
 
 Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
 
 > [!div class="nextstepaction"]
-> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Per altre modalità di distribuzione di una VM di SQL Server, vedere: 
 - [Portale di Azure](create-sql-vm-portal.md)

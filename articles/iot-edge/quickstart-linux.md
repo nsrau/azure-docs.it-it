@@ -8,13 +8,13 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3328fa7d71138ba75fac0c2aed11d7a85081d03a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978850"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748715"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
 
@@ -49,7 +49,7 @@ Aggiungere l'estensione Azure IoT all'istanza di Cloud Shell.
 
 Risorse cloud:
 
-* Un gruppo di risorse per la gestione di tutte le risorse usate in questa guida introduttiva. In questa guida di avvio rapido e nelle esercitazioni successive verrà usato il nome del gruppo di risorse di esempio **IoTEdgeResources**.
+* Un gruppo di risorse per la gestione di tutte le risorse usate in questa guida introduttiva. In questa guida di avvio rapido e nelle esercitazioni successive verrà usato il nome del gruppo di risorse di esempio **IoTEdgeResources** .
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -63,13 +63,13 @@ Per iniziare, creare un hub IoT con l'interfaccia della riga di comando di Azure
 
 Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se l'hub IoT è già stato usato in passato ed è disponibile un hub, è possibile usarlo qui.
 
-Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeResources**. Sostituire `{hub_name}` con un nome univoco per l'hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti.
+Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeResources** . Sostituire `{hub_name}` con un nome univoco per l'hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**. Ogni sottoscrizione può avere un solo hub IoT gratuito. Se si verifica un errore che indica che il nome dell'hub IoT non è disponibile, significa che qualcuno ha già un hub con lo stesso nome. Provare con un nuovo nome.
+   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1** . Ogni sottoscrizione può avere un solo hub IoT gratuito. Se si verifica un errore che indica che il nome dell'hub IoT non è disponibile, significa che qualcuno ha già un hub con lo stesso nome. Provare con un nuovo nome.
 
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
@@ -103,7 +103,7 @@ Creare una macchina virtuale con il runtime Azure IoT Edge.
 
 ![Diagramma - Avviare il runtime nel dispositivo](./media/quickstart-linux/start-runtime.png)
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il *daemon di sicurezza IoT Edge* si avvia a ogni avvio di un dispositivo IoT Edge ed esegue il bootstrap del dispositivo avviando l'agente IoT Edge. L'*agente IoT Edge* semplifica la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L'*hub IoT Edge* gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il *daemon di sicurezza IoT Edge* si avvia a ogni avvio di un dispositivo IoT Edge ed esegue il bootstrap del dispositivo avviando l'agente IoT Edge. L' *agente IoT Edge* semplifica la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L' *hub IoT Edge* gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
 
 Durante la configurazione del runtime, si immette una stringa di connessione del dispositivo. Si tratta della stringa recuperata tramite l'interfaccia della riga di comando di Azure. La stringa associa il dispositivo fisico all'identità del dispositivo IoT Edge in Azure.
 
@@ -141,10 +141,10 @@ Questo modello accetta i parametri seguenti:
 | **dnsLabelPrefix** | Stringa che verrà usata per creare il nome host della macchina virtuale. Usare la stringa **my-edge-vm** di esempio o specificare una nuova stringa. |
 | **adminUsername** | Nome utente per l'account amministratore della macchina virtuale. Usare il nome utente **azureUser** di esempio o specificare un nuovo nome utente. |
 | **deviceConnectionString** | Stringa di connessione dell'identità del dispositivo nell'hub IoT, che verrà usata per configurare il runtime IoT Edge nella macchina virtuale. Il comando dell'interfaccia della riga di comando all'interno di questo parametro acquisisce automaticamente la stringa di connessione. Sostituire il testo segnaposto con il nome dell'hub IoT. |
-| **authenticationType** | Metodo di autenticazione per l'account amministratore. In questa guida di avvio rapido viene usata l'autenticazione della **password**, ma è anche possibile impostare questo parametro su **sshPublicKey**. |
+| **authenticationType** | Metodo di autenticazione per l'account amministratore. In questa guida di avvio rapido viene usata l'autenticazione della **password** , ma è anche possibile impostare questo parametro su **sshPublicKey** . |
 | **adminPasswordOrKey** | Password o valore della chiave pubblica SSH per l'account amministratore. Sostituire il testo segnaposto con una password sicura. La password deve avere una lunghezza minima di 12 caratteri e contenere tre dei quattro elementi seguenti: caratteri minuscoli, caratteri maiuscoli, numeri e caratteri speciali. |
 
-Al termine della distribuzione, nell'interfaccia della riga di comando verrà restituito l'output in formato JSON che contiene le informazioni SSH per connettersi alla macchina virtuale. Copiare il valore della voce **public SSH** della sezione **outputs**:
+Al termine della distribuzione, nell'interfaccia della riga di comando verrà restituito l'output in formato JSON che contiene le informazioni SSH per connettersi alla macchina virtuale. Copiare il valore della voce **public SSH** della sezione **outputs** :
 
    ![Recuperare il valore della voce public SSH dall'output](./media/quickstart-linux/outputs-public-ssh.png)
 
@@ -229,7 +229,7 @@ Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di riso
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile.
 
-Rimuovere il gruppo **IoTEdgeResources**. L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
+Rimuovere il gruppo **IoTEdgeResources** . L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

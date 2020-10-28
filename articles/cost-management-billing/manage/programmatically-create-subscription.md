@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28397d36a611f26544fefb9f4fa7593a0fdf3f73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014529"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748181"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni di Azure a livello di codice con le API più recenti
 
@@ -183,7 +183,7 @@ Uno stato in corso viene restituito come stato `Accepted` in `provisioningState`
 
 Per installare la versione più recente del modulo che contiene il cmdlet `New-AzSubscriptionAlias`, eseguire `Install-Module Az.Subscription`. Per installare una versione recente di PowerShellGet, vedere [Ottenere il modulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) seguente, usando l'ambito di fatturazione `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
+Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) seguente, usando l'ambito di fatturazione `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
@@ -281,7 +281,7 @@ La risposta dell'API elenca gli account di fatturazione a cui si può accedere.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement*. Copiare il valore `name` dell'account.  Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement* . Copiare il valore `name` dell'account.  Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -463,7 +463,7 @@ Uno stato in corso viene restituito come stato `Accepted` in `provisioningState`
 
 Per installare la versione più recente del modulo che contiene il cmdlet `New-AzSubscriptionAlias`, eseguire `Install-Module Az.Subscription`. Per installare una versione recente di PowerShellGet, vedere [Ottenere il modulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) e l'ambito di fatturazione `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) e l'ambito di fatturazione `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
@@ -553,7 +553,7 @@ La risposta dell'API elenca gli account di fatturazione.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftPartnerAgreement*. Copiare il valore `name` per l'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftPartnerAgreement* . Copiare il valore `name` per l'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
@@ -742,7 +742,7 @@ Passare il valore *resellerId* facoltativo copiato dal secondo passaggio nel cor
 
 Per installare la versione più recente del modulo che contiene il cmdlet `New-AzSubscriptionAlias`, eseguire `Install-Module Az.Subscription`. Per installare una versione recente di PowerShellGet, vedere [Ottenere il modulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) seguente, usando l'ambito di fatturazione `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
+Eseguire il comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) seguente, usando l'ambito di fatturazione `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
@@ -838,7 +838,7 @@ La risposta dell'API elenca gli account di fatturazione a cui si può accedere.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement*. Copiare il valore `name` dell'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement* . Copiare il valore `name` dell'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)

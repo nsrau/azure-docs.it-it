@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926723"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897263"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -74,8 +74,8 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 
 È possibile personalizzare il caricamento di partner esterni in base alle esigenze dell'organizzazione.
 
-- Usare [Gestione entitlement di Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- È possibile usare le [API di invito di Collaborazione B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) per personalizzare le esperienze di onboarding.
+- Usare [Gestione entitlement di Azure AD](../governance/entitlement-management-overview.md) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- È possibile usare le [API di invito di Collaborazione B2B](/graph/api/resources/invitation) per personalizzare le esperienze di onboarding.
 
 ## <a name="integrate-with-identity-providers"></a>Integrazione con i provider di identità
 
@@ -95,6 +95,6 @@ Con un flusso utente di iscrizione self-service, è possibile creare un'esperien
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Linee guida sulla Collaborazione B2B di Azure AD](licensing-guidance.md)
+- [Prezzi delle identità esterne](external-identities-pricing.md)
 - [Aggiungere utenti guest di Collaborazione B2B nel portale](add-users-administrator.md)
 - [Panoramica sul processo di riscatto di un invito](redemption-experience.md)

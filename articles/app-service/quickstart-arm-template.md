@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152361"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746178"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Avvio rapido: Creare un'app del servizio app usando un modello di Resource Manager
 
@@ -133,19 +133,19 @@ Quando non è più necessario, [eliminare il gruppo di risorse](../azure-resourc
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
->  [](deploy-local-git.md)Distribuire dall'archivio Git locale
+> [](deploy-local-git.md)Distribuire dall'archivio Git locale
 
 > [!div class="nextstepaction"]
-> ASP.NET Core con database SQL
+> [ASP.NET Core con database SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > Python con Postgres
 
 > [!div class="nextstepaction"]
-> PHP con MySQL
+> [PHP con MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
->  [Connettersi al database SQL di Azure con Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Connettersi al database SQL di Azure con Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> Eseguire il mapping di un dominio personalizzato
+> [Eseguire il mapping di un dominio personalizzato](app-service-web-tutorial-custom-domain.md)

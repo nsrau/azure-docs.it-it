@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d06d7b328525f9d6329f17a10dea9c89a753d533
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: a5ba1699e082741db851ee2af3eb688ea8aa7843
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017268"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748058"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_certificates.py*. Eseguire quindi il codice con il comando seguente:
+Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_certificates.py* . Eseguire quindi il codice con il comando seguente:
 
 ```terminal
 python kv_certificates.py

@@ -12,13 +12,14 @@ ms.custom:
 - mvc
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 98b50649b5a788270fa2b4cd8b62ca5598daa25f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eec04d828e4e4498e972043048a0645b8b3b9544
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87320477"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748635"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggerli i dati con un'applicazione back-end (.NET)
 
@@ -69,9 +70,9 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyDotnetDevice**: nome del dispositivo da registrare. È consigliabile usare **MyDotnetDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyDotnetDevice** : nome del dispositivo da registrare. È consigliabile usare **MyDotnetDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
@@ -79,7 +80,7 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,9 +92,9 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
     Il valore verrà usato più avanti in questa guida di avvio rapido.
 
-3. È necessario anche l'_endpoint compatibile con gli Hub eventi di Azure_, il _percorso compatibile con gli Hub eventi di Azure_, e la _chiave primaria di servizio_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
+3. È necessario anche l' _endpoint compatibile con gli Hub eventi di Azure_ , il _percorso compatibile con gli Hub eventi di Azure_ , e la _chiave primaria di servizio_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -109,11 +110,11 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
 
-1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device** .
 
 2. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs** .
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
@@ -135,7 +136,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio dell'hub IoT. L'applicazione riceve i messaggi da dispositivo a cloud inviati dal dispositivo simulato. In genere, un'applicazione di back-end di hub IoT viene eseguita nel cloud per ricevere ed elaborare i messaggi da dispositivo a cloud.
 
-1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages**.
+1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages** .
 
 2. Aprire il file **ReadDeviceToCloudMessages.cs** in un editor di testo di propria scelta. Aggiornare le variabili seguenti e salvare le modifiche nel file.
 

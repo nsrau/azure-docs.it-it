@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687587"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745366"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Avvio rapido: Creare un budget con un modello di Resource Manager
 
@@ -22,7 +22,7 @@ I budget in Gestione costi consentono di pianificare e promuovere la responsabil
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
@@ -84,14 +84,14 @@ Nel modello è definita una risorsa di Azure:
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Modello di Resource Manager, creare un budget, portale per la distribuzione]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: se necessario, selezionare un gruppo di risorse esistente oppure scegliere **Crea nuovo**.
-    * **Area**: selezionare un'area di Azure. Ad esempio **Stati Uniti centrali**.
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse** : se necessario, selezionare un gruppo di risorse esistente oppure scegliere **Crea nuovo** .
+    * **Area** : selezionare un'area di Azure. Ad esempio **Stati Uniti centrali** .
     * **Budget Name** (Nome del budget): immettere un nome per il budget. Deve essere univoco all'interno di un gruppo di risorse. Sono consentiti solo caratteri alfanumerici, caratteri di sottolineatura e trattini.
-    * **Importo**: immettere l'importo totale dei costi da monitorare con il budget.
+    * **Importo** : immettere l'importo totale dei costi da monitorare con il budget.
     * **Time Grain** (Intervallo di tempo): immettere l'intervallo di tempo per un budget. I valori consentiti sono Mensile, Trimestrale o Annuale. Il budget viene reimpostato alla fine dell'intervallo di tempo.
-    * **Data di inizio**: immettere la data di inizio con il primo giorno del mese in formato AAAA-MM-GG. Una data di inizio futura non deve essere successiva a tre mesi dalla data odierna. È possibile specificare una data di inizio passata nel periodo dell'intervallo di tempo.
-    * **Data di fine**: immettere la data di fine del budget nel formato AAAA-MM-GG. 
+    * **Data di inizio** : immettere la data di inizio con il primo giorno del mese in formato AAAA-MM-GG. Una data di inizio futura non deve essere successiva a tre mesi dalla data odierna. È possibile specificare una data di inizio passata nel periodo dell'intervallo di tempo.
+    * **Data di fine** : immettere la data di fine del budget nel formato AAAA-MM-GG. 
     * **First Threshold** (Prima soglia): immettere un valore di soglia per la prima notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
     * **Second Threshold** (Seconda soglia): immettere un valore di soglia per la seconda notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
     * **Contact Roles** (Ruoli di contatto): immettere l'elenco dei ruoli di contatto a cui inviare la notifica del budget quando viene superata la soglia. I valori predefiniti sono Proprietario, Collaboratore e Lettore. Il formato previsto è `["Owner","Contributor","Reader"]`.
@@ -101,10 +101,10 @@ Nel modello è definita una risorsa di Azure:
     * **Meter Category Filter Values** (Valori filtro per le categorie dei contatori): immettere un elenco di categorie dei contatori dei servizi di Azure. Il formato previsto è `["Meter Category1","Meter Category2"]`. Se non si vuole applicare un filtro, immettere `[]`.
    
 3. In base al tipo di sottoscrizione di Azure, eseguire una di queste azioni:
-   - Selezionare **Rivedi e crea**.
-   - Esaminare le condizioni, selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista**.
+   - Selezionare **Rivedi e crea** .
+   - Esaminare le condizioni, selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista** .
 
-4. Se si seleziona **Rivedi e crea**, il modello verrà convalidato. Selezionare **Crea**.  
+4. Se si seleziona **Rivedi e crea** , il modello verrà convalidato. Selezionare **Crea** .  
 
    ![Modello di Resource Manager, budget, notifica nel portale per la distribuzione](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -112,7 +112,7 @@ Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azur
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
-Per verificare che il budget sia stato creato nel portale di Azure, passare a **Gestione costi e fatturazione** > selezionare un ambito > **Budget**. In alternativa, per visualizzare il budget è possibile usare l'interfaccia della riga di comando di Azure o gli script di Azure PowerShell seguenti.
+Per verificare che il budget sia stato creato nel portale di Azure, passare a **Gestione costi e fatturazione** > selezionare un ambito > **Budget** . In alternativa, per visualizzare il budget è possibile usare l'interfaccia della riga di comando di Azure o gli script di Azure PowerShell seguenti.
 
 # <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
@@ -134,7 +134,7 @@ Quando non è più necessario un budget, eliminarlo utilizzando uno dei metodi s
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Passare a **Gestione dei costi e fatturazione** > selezionare un ambito di fatturazione > **Budget** > selezionare un budget > quindi selezionare **Elimina budget**.
+Passare a **Gestione dei costi e fatturazione** > selezionare un ambito di fatturazione > **Budget** > selezionare un budget > quindi selezionare **Elimina budget** .
 
 ### <a name="command-line"></a>Riga di comando
 

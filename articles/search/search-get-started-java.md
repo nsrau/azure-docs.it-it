@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540354"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791223"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Java con le API REST
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portale](search-get-started-portal.md)
@@ -53,7 +53,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
    Creare anche una chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::
 
 Ogni richiesta inviata al servizio richiede una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -64,7 +64,7 @@ Per iniziare, aprire IntelliJ IDEA e configurare un nuovo progetto.
 ### <a name="create-the-project"></a>Creare il progetto
 
 1. Aprire IntelliJ IDEA e selezionare **Create New Project** (Crea nuovo progetto).
-1. Selezionare **Maven**.
+1. Selezionare **Maven** .
 1. Nell'elenco **Project SDK** (SDK progetto) selezionare Java 11 SDK.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::

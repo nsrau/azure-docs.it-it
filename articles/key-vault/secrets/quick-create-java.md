@@ -2,18 +2,18 @@
 title: 'Avvio rapido: Libreria client di Azure Key Vault per Java'
 description: Fornisce criteri di formato e contenuto per la scrittura di argomenti di avvio rapido per le librerie client di Azure SDK.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019631"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786208"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per Java
 
@@ -37,7 +37,7 @@ Questo argomento di avvio rapido presuppone l'esecuzione dell'[interfaccia della
 
 ## <a name="setting-up"></a>Configurazione
 
-Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 

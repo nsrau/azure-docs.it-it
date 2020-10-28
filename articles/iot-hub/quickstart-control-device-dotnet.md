@@ -12,13 +12,14 @@ ms.custom:
 - mvc
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: 1b3b8382c81015e3278954dd0443ba44520e2e3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2f6d858275ca5a51ea7d8ef6edc23b741cc2466
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87315140"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747569"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -74,9 +75,9 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyDotnetDevice**: nome del dispositivo da registrare. È consigliabile usare **MyDotnetDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyDotnetDevice** : nome del dispositivo da registrare. È consigliabile usare **MyDotnetDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -85,7 +86,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -118,11 +119,11 @@ Il valore verrà usato più avanti in questa guida introduttiva. Questa stringa 
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT, invia dati di telemetria simulati e ascolta le chiamate dei metodi diretti dall'hub. In questa guida introduttiva la chiamata dei metodi diretti dall'hub indica al dispositivo di modificare l'intervallo di invio dei dati di telemetria. Il dispositivo simulato invia un acknowledgement all'hub dopo l'esecuzione del metodo diretto.
 
-1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2** .
 
 2. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs** .
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
@@ -144,11 +145,11 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
 
-1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
+1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application** .
 
 2. Aprire il file **BackEndApplication.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.cs** .
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
 
