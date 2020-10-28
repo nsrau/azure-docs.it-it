@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921674"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364083"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Panoramica degli aspetti tecnici e delle funzionalità di Azure Active Directory B2C
 
@@ -27,16 +27,16 @@ In Azure Active Directory B2C (Azure AD B2C) un *tenant* rappresenta l'organizza
 
 Le risorse principali usate in un tenant di Azure AD B2C sono:
 
-* **Directory**: la *directory* è la posizione in cui Azure AD B2C archivia le credenziali e i dati di profilo degli utenti, oltre alle registrazioni delle applicazioni.
-* **Registrazioni delle applicazioni**: le applicazioni Web, per dispositivi mobili e native devono essere registrate con Azure AD B2C per abilitare la gestione delle identità. Occorre registrare anche tutte le API che si vuole proteggere con Azure AD B2C.
-* **Flussi utente** e **criteri personalizzati**: esperienze di identità predefinite (flussi utente) e completamente personalizzabili (criteri personalizzati) per le applicazioni.
+* **Directory** : la *directory* è la posizione in cui Azure AD B2C archivia le credenziali e i dati di profilo degli utenti, oltre alle registrazioni delle applicazioni.
+* **Registrazioni delle applicazioni** : le applicazioni Web, per dispositivi mobili e native devono essere registrate con Azure AD B2C per abilitare la gestione delle identità. Occorre registrare anche tutte le API che si vuole proteggere con Azure AD B2C.
+* **Flussi utente** e **criteri personalizzati** : esperienze di identità predefinite (flussi utente) e completamente personalizzabili (criteri personalizzati) per le applicazioni.
   * Usare i *flussi utente* per eseguire rapidamente la configurazione e abilitare attività comuni di gestione delle identità, ad esempio iscrizione, accesso e modifica del profilo.
   * Usare i *criteri personalizzati* per abilitare le esperienze utente non solo per le attività comuni di gestione delle identità, ma anche per la creazione di un supporto per flussi di lavoro di identità complessi specifici per l'organizzazione, i clienti, i dipendenti, i partner e i cittadini.
-* **Provider di identità**: impostazioni di federazione per:
-  * Provider di identità *basati su social network*, come Facebook, LinkedIn o Twitter, che si vuole supportare nelle applicazioni.
+* **Provider di identità** : impostazioni di federazione per:
+  * Provider di identità *basati su social network* , come Facebook, LinkedIn o Twitter, che si vuole supportare nelle applicazioni.
   * Provider di identità *esterni* che supportano protocolli di identità standard come OAuth 2.0, OpenID Connect e altri.
   * Account *locali* che consentono agli utenti di iscriversi e accedere con un nome utente (o un indirizzo di posta elettronica o un altro ID) e una password.
-* **Chiavi**: aggiungere e gestire chiavi di crittografia per la firma e la convalida di token, segreti, certificati e password.
+* **Chiavi** : aggiungere e gestire chiavi di crittografia per la firma e la convalida di token, segreti, certificati e password.
 
 Un tenant di Azure AD B2C è la prima risorsa che è necessario creare per iniziare a usare Azure AD B2C. Per le procedure, vedere [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -44,9 +44,9 @@ Un tenant di Azure AD B2C è la prima risorsa che è necessario creare per inizi
 
 Azure AD B2C definisce diversi tipi di account utente. Azure Active Directory, Azure Active Directory B2B e Azure Active Directory B2C condividono i tipi di account seguenti.
 
-* **Account aziendale**: gli utenti con account aziendali possono gestire le risorse di un tenant e, se hanno un ruolo di amministratore, possono anche gestire i tenant. Gli utenti con account aziendali possono creare nuovi account consumer, reimpostare le password, bloccare/sbloccare gli account e impostare le autorizzazioni o assegnare un account a un gruppo di sicurezza.
-* **Account guest**: utenti esterni che vengono invitati nel tenant come guest. Uno scenario tipico per questo tipo di invito al tenant di Azure AD B2C è quello in cui è necessario condividere le responsabilità di amministrazione.
-* **Account consumer**: gli account consumer sono gli account creati nella directory Azure AD B2C quando gli utenti completano il percorso di iscrizione in un'applicazione registrata nel tenant.
+* **Account aziendale** : gli utenti con account aziendali possono gestire le risorse di un tenant e, se hanno un ruolo di amministratore, possono anche gestire i tenant. Gli utenti con account aziendali possono creare nuovi account consumer, reimpostare le password, bloccare/sbloccare gli account e impostare le autorizzazioni o assegnare un account a un gruppo di sicurezza.
+* **Account guest** : utenti esterni che vengono invitati nel tenant come guest. Uno scenario tipico per questo tipo di invito al tenant di Azure AD B2C è quello in cui è necessario condividere le responsabilità di amministrazione.
+* **Account consumer** : gli account consumer sono gli account creati nella directory Azure AD B2C quando gli utenti completano il percorso di iscrizione in un'applicazione registrata nel tenant.
 
 ![Pagina di gestione degli utenti di Azure AD B2C nel portale di Azure](media/technical-overview/portal-01-users.png)<br/>*Figura: directory Utenti in un tenant di Azure AD B2C nel portale di Azure*
 
@@ -56,8 +56,8 @@ Con un *account consumer* gli utenti possono accedere alle applicazioni protette
 
 Un account consumer può essere associato a questi tipi di identità:
 
-* Identità **locale**, con nome utente e password archiviati localmente nella directory Azure AD B2C. Queste identità sono spesso dette "account locali".
-* Identità di **social network** o **aziendali**, in cui l'identità dell'utente è gestita da un provider di identità federato come Facebook, Microsoft, AD FS o Salesforce.
+* Identità **locale** , con nome utente e password archiviati localmente nella directory Azure AD B2C. Queste identità sono spesso dette "account locali".
+* Identità di **social network** o **aziendali** , in cui l'identità dell'utente è gestita da un provider di identità federato come Facebook, Microsoft, AD FS o Salesforce.
 
 Un utente con un account consumer può accedere con più identità, ad esempio nome utente, indirizzo di posta elettronica, ID dipendente, codice fiscale e altro. Un singolo account può avere più identità, sia locali che sociali.
 
@@ -91,11 +91,11 @@ Azure AD B2C offre due percorsi principali che è possibile seguire per fornire 
 
 * I **criteri personalizzati** consentono di creare percorsi utente personalizzati per scenari di esperienza di identità complessi.
 
-Sia i flussi utente che i criteri personalizzati sono basati sulla piattaforma *Identity Experience Framework*, il motore di orchestrazione dei criteri di Azure AD B2C.
+Sia i flussi utente che i criteri personalizzati sono basati sulla piattaforma *Identity Experience Framework* , il motore di orchestrazione dei criteri di Azure AD B2C.
 
 ### <a name="user-flow"></a>Flusso utente
 
-Per consentire di configurare rapidamente le attività più comuni di gestione delle identità, il portale di Azure include diversi criteri predefiniti e configurabili detti *flussi utente*.
+Per consentire di configurare rapidamente le attività più comuni di gestione delle identità, il portale di Azure include diversi criteri predefiniti e configurabili detti *flussi utente* .
 
 È possibile configurare impostazioni di flusso utente come queste per controllare i comportamenti dell'esperienza di identità nelle applicazioni:
 
@@ -148,13 +148,13 @@ Il diagramma seguente illustra come Azure AD B2C può comunicare usando diversi 
 
 ## <a name="application-integration"></a>Integrazione di applicazioni
 
-Quando un utente vuole accedere all'applicazione, sia che si tratti di un'applicazione Web, per dispositivi mobili, desktop o a pagina singola, l'applicazione avvia una richiesta di autorizzazione a un endpoint fornito da un flusso utente o da un criterio personalizzato. Il flusso utente o il criterio personalizzato definisce e controlla l'esperienza dell'utente. Al termine di un flusso utente, ad esempio il flusso di *iscrizione o accesso*, Azure AD B2C genera un token, quindi reindirizza l'utente all'applicazione.
+Quando un utente vuole accedere all'applicazione, sia che si tratti di un'applicazione Web, per dispositivi mobili, desktop o a pagina singola, l'applicazione avvia una richiesta di autorizzazione a un endpoint fornito da un flusso utente o da un criterio personalizzato. Il flusso utente o il criterio personalizzato definisce e controlla l'esperienza dell'utente. Al termine di un flusso utente, ad esempio il flusso di *iscrizione o accesso* , Azure AD B2C genera un token, quindi reindirizza l'utente all'applicazione.
 
 ![App per dispositivi mobili con frecce che mostrano il flusso tra Azure AD B2C e la pagina di accesso](media/technical-overview/app-integration.png)
 
 Più applicazioni possono usare lo stesso flusso utente o lo stesso criterio personalizzato. Una singola applicazione può usare più flussi utente o criteri personalizzati.
 
-Ad esempio, per accedere a un'applicazione, l'applicazione usa il flusso utente di *iscrizione o accesso*. Dopo aver eseguito l'accesso, l'utente potrebbe voler modificare il profilo, quindi l'applicazione avvia un'altra richiesta di autorizzazione, questa volta usando il flusso utente di *modifica del profilo*.
+Ad esempio, per accedere a un'applicazione, l'applicazione usa il flusso utente di *iscrizione o accesso* . Dopo aver eseguito l'accesso, l'utente potrebbe voler modificare il profilo, quindi l'applicazione avvia un'altra richiesta di autorizzazione, questa volta usando il flusso utente di *modifica del profilo* .
 
 ## <a name="seamless-user-experiences"></a>Esperienza utente semplice
 
@@ -215,7 +215,7 @@ I tenant di Azure AD B2C condividono molte caratteristiche con i tenant aziendal
 * Creare e gestire criteri di framework attendibilità in Identity Experience Framework (criteri personalizzati)
 * Gestire i segreti per la federazione e la crittografia in Identity Experience Framework (criteri personalizzati)
 
-Per altre informazioni sui ruoli di Azure AD, incluso il supporto dei ruoli di amministrazione di Azure AD B2C, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Per altre informazioni sui ruoli di Azure AD, incluso il supporto dei ruoli di amministrazione di Azure AD B2C, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
 

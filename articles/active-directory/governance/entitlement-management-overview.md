@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597387"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362468"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -66,7 +66,7 @@ Ecco alcune funzionalità della gestione entitlement:
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>Che cosa sono i pacchetti di accesso e quali risorse consentono di gestire?
 
-La gestione entitlement introduce in Azure AD il concetto di *pacchetto di accesso*. Un pacchetto di accesso è un'aggregazione di tutte le risorse a cui un utente deve poter accedere per lavorare su un progetto o svolgere le proprie attività. I pacchetti di accesso vengono usati per regolamentare l'accesso per i dipendenti interni e anche per gli utenti esterni all'organizzazione.
+La gestione entitlement introduce in Azure AD il concetto di *pacchetto di accesso* . Un pacchetto di accesso è un'aggregazione di tutte le risorse a cui un utente deve poter accedere per lavorare su un progetto o svolgere le proprie attività. I pacchetti di accesso vengono usati per regolamentare l'accesso per i dipendenti interni e anche per gli utenti esterni all'organizzazione.
 
  Ecco i tipi di risorse per cui è possibile gestire l'accesso degli utenti con la gestione entitlement:
 
@@ -77,15 +77,15 @@ La gestione entitlement introduce in Azure AD il concetto di *pacchetto di acces
 
 È anche possibile controllare l'accesso ad altre risorse che si basano sui gruppi di sicurezza di Azure AD o su Gruppi di Office 365.  Ad esempio:
 
-- È possibile concedere agli utenti licenze per Microsoft Office 365 usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per tale gruppo.
+- È possibile concedere agli utenti licenze per Microsoft Office 365 usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate sui gruppi](../enterprise-users/licensing-groups-assign.md) per tale gruppo.
 - È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso creando un'[assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per tale gruppo.
-- È possibile concedere agli utenti l'accesso per gestire i ruoli di Azure AD usando i gruppi assegnabili ai ruoli Azure AD in un pacchetto di accesso e [l'assegnazione di un ruolo Azure AD a tale gruppo](../users-groups-roles/roles-groups-assign-role.md).
+- È possibile concedere agli utenti l'accesso per gestire i ruoli di Azure AD usando i gruppi assegnabili ai ruoli Azure AD in un pacchetto di accesso e [l'assegnazione di un ruolo Azure AD a tale gruppo](../roles/groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>Come si controlla chi ottiene l'accesso?
 
 Un amministratore o un responsabile dei pacchetti di accesso con delega elenca le risorse (gruppi, app e siti) e i ruoli corrispondenti necessari per gli utenti.
 
-I pacchetti di accesso possono anche includere uno o più *criteri*. Un criterio definisce le regole o i vincoli per l'assegnazione a un pacchetto di accesso. Ogni criterio può essere usato per garantire che solo gli utenti appropriati siano in grado di richiedere l'accesso, che siano presenti responsabili approvazione per la richiesta e che l'accesso a tali risorse sia limitato nel tempo e scada se non rinnovato.
+I pacchetti di accesso possono anche includere uno o più *criteri* . Un criterio definisce le regole o i vincoli per l'assegnazione a un pacchetto di accesso. Ogni criterio può essere usato per garantire che solo gli utenti appropriati siano in grado di richiedere l'accesso, che siano presenti responsabili approvazione per la richiesta e che l'accesso a tali risorse sia limitato nel tempo e scada se non rinnovato.
 
 ![Pacchetti di accesso e criteri](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione del
 
 ## <a name="how-do-i-delegate-access"></a>Come si delega l'accesso?
 
- I pacchetti di accesso sono definiti in contenitori denominati *cataloghi*.  È possibile avere un singolo catalogo per tutti i pacchetti di accesso oppure designare persone per la creazione di specifici cataloghi di loro proprietà. Un amministratore può aggiungere risorse a qualsiasi catalogo, mentre un non amministratore può aggiungere a un catalogo solo le risorse di sua proprietà. Un proprietario di catalogo può aggiungere altri utenti come comproprietari oppure come responsabili del pacchetto di accesso.  Questi scenari sono descritti ulteriormente nell'articolo [Delega e ruoli nella gestione entitlement di Azure AD](entitlement-management-delegate.md).
+ I pacchetti di accesso sono definiti in contenitori denominati *cataloghi* .  È possibile avere un singolo catalogo per tutti i pacchetti di accesso oppure designare persone per la creazione di specifici cataloghi di loro proprietà. Un amministratore può aggiungere risorse a qualsiasi catalogo, mentre un non amministratore può aggiungere a un catalogo solo le risorse di sua proprietà. Un proprietario di catalogo può aggiungere altri utenti come comproprietari oppure come responsabili del pacchetto di accesso.  Questi scenari sono descritti ulteriormente nell'articolo [Delega e ruoli nella gestione entitlement di Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Riepilogo della terminologia
 

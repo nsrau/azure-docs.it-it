@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e4615db3dbabbc4b18dad7d6ec805ddff10e8fd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705110"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485223"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un comando dell'interfaccia della riga di comando di Azure, az postgres up (anteprima), per creare un'istanza di server singolo Database di Azure per PostgreSQL
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-È necessario accedere all'account con il comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Si noti la proprietà **ID** dell'output del comando per il nome della sottoscrizione corrispondente.
+È necessario accedere all'account con il comando [az login](/cli/azure/authenticate-azure-cli). Si noti la proprietà **ID** dell'output del comando per il nome della sottoscrizione corrispondente.
 
 ```azurecli
 az login

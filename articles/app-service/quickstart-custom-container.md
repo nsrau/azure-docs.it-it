@@ -3,16 +3,16 @@ title: 'Avvio rapido: Eseguire un contenitore personalizzato nel servizio app'
 description: Introduzione all'uso dei contenitori nel servizio app di Azure distribuendo il primo contenitore personalizzato.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152365"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425872"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Eseguire un contenitore personalizzato in Azure
 
@@ -32,30 +32,30 @@ Per completare questa esercitazione:
 - <a href="https://hub.docker.com/" target="_blank">Iscriversi per ottenere un account Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installare Docker per Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Impostare Docker per eseguire contenitori Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installare Visual Studio 2019</a> con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure**. Se Visual Studio 2019 è già installato:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installare Visual Studio 2019</a> con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure** . Se Visual Studio 2019 è già installato:
 
-    - Installare gli aggiornamenti più recenti in Visual Studio selezionando **?**  > **Controlla aggiornamenti**.
-    - Aggiungere i carichi di lavoro in Visual Studio selezionando **Strumenti** > **Ottieni strumenti e funzionalità**.
+    - Installare gli aggiornamenti più recenti in Visual Studio selezionando **?**  > **Controlla aggiornamenti** .
+    - Aggiungere i carichi di lavoro in Visual Studio selezionando **Strumenti** > **Ottieni strumenti e funzionalità** .
 
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
 Creare un'app Web ASP.NET seguendo questa procedura:
 
-1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**.
+1. Aprire Visual Studio e selezionare **Crea un nuovo progetto** .
 
-1. In **Crea un nuovo progetto** trovare e selezionare **Applicazione Web ASP.NET (.NET Framework)** per C#, quindi selezionare **Avanti**.
+1. In **Crea un nuovo progetto** trovare e selezionare **Applicazione Web ASP.NET (.NET Framework)** per C#, quindi selezionare **Avanti** .
 
-1. In **Configura il nuovo progetto** assegnare all'applicazione il nome _myfirstazurewebapp_ e quindi selezionare **Crea**.
+1. In **Configura il nuovo progetto** assegnare all'applicazione il nome _myfirstazurewebapp_ e quindi selezionare **Crea** .
 
    ![Configurare il progetto di app Web](./media/quickstart-custom-container/configure-web-app-project-container.png)
 
-1. È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida di avvio rapido scegliere il modello **MVC**.
+1. È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida di avvio rapido scegliere il modello **MVC** .
 
-1. Selezionare **Supporto Docker** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Crea**.
+1. Selezionare **Supporto Docker** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione** . Selezionare **Crea** .
 
    ![Creare un'applicazione Web ASP.NET](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
-1. Se il file _Dockerfile_ non viene aperto automaticamente, aprirlo da **Esplora soluzioni**.
+1. Se il file _Dockerfile_ non viene aperto automaticamente, aprirlo da **Esplora soluzioni** .
 
 1. È necessaria un'[immagine padre supportata](configure-custom-container.md#supported-parent-images). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente e salvare il file:
 
@@ -69,15 +69,15 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 ## <a name="publish-to-docker-hub"></a>Eseguire la pubblicazione in Hub Docker
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** e scegliere **Pubblica**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** e scegliere **Pubblica** .
 
-1. Scegliere **Servizio app** e quindi selezionare **Pubblica**.
+1. Scegliere **Servizio app** e quindi selezionare **Pubblica** .
 
-1. In **Selezionare una destinazione di pubblicazione**  selezionare **Registro Container** e **Docker Hub**, quindi fare clic su **Pubblica**.
+1. In **Selezionare una destinazione di pubblicazione**  selezionare **Registro Container** e **Docker Hub** , quindi fare clic su **Pubblica** .
 
    ![Pubblicare dalla pagina di panoramica progetto](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
 
-1. Fornire le credenziali dell'account Docker Hub e selezionare **Salva**.
+1. Fornire le credenziali dell'account Docker Hub e selezionare **Salva** .
 
    Attendere il completamento della distribuzione. La pagina **Pubblica** mostra ora il nome del repository da usare successivamente.
 
@@ -91,11 +91,11 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare **App Web per contenitori** e selezionare **Crea**.
+1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare **App Web per contenitori** e selezionare **Crea** .
 
-1. In **App Web - Crea** selezionare la propria sottoscrizione e un gruppo in **Gruppo di risorse**. Se necessario, è possibile creare un nuovo gruppo di risorse.
+1. In **App Web - Crea** selezionare la propria sottoscrizione e un gruppo in **Gruppo di risorse** . Se necessario, è possibile creare un nuovo gruppo di risorse.
 
-1. Specificare un nome per l'app, ad esempio *win-container-demo*, e selezionare **Windows** per **Sistema operativo**. Selezionare **Avanti: Docker** per continuare.
+1. Specificare un nome per l'app, ad esempio *win-container-demo* , e selezionare **Windows** per **Sistema operativo** . Selezionare **Avanti: Docker** per continuare.
 
    ![Creare un'app Web per contenitori](media/quickstart-custom-container/create-web-app-continer.png)
 
@@ -113,9 +113,9 @@ Al termine dell'operazione di Azure, verrà visualizzata una casella di notifica
 
 ![Distribuzione completata](media/quickstart-custom-container/portal-create-finished.png)
 
-1. Fare clic su **Vai alla risorsa**.
+1. Fare clic su **Vai alla risorsa** .
 
-1. Nella panoramica di questa risorsa seguire il collegamento accanto a **URL**.
+1. Nella panoramica di questa risorsa seguire il collegamento accanto a **URL** .
 
 Si aprirà la nuova pagina del browser illustrata di seguito:
 
@@ -146,7 +146,7 @@ I log trasmessi sono simili al seguente:
 
 ## <a name="update-locally-and-redeploy"></a>Eseguire l'aggiornamento e la ridistribuzione in locale
 
-1. In **Esplora soluzioni** di Visual Studio aprire **Visualizzazioni** > **Home** > **Index.cshtml**.
+1. In **Esplora soluzioni** di Visual Studio aprire **Visualizzazioni** > **Home** > **Index.cshtml** .
 
 1. Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero elemento con il codice seguente:
 
@@ -157,11 +157,11 @@ I log trasmessi sono simili al seguente:
    </div>
    ```
 
-1. Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** in **Esplora soluzioni** e scegliere **Pubblica**.
+1. Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myfirstazurewebapp** in **Esplora soluzioni** e scegliere **Pubblica** .
 
 1. Nella pagina di pubblicazione selezionare **Pubblica** e attendere il completamento della pubblicazione.
 
-1. Per indicare al servizio a di eseguire il pull della nuova immagine da Hub Docker, riavviare l'app. Di nuovo nella pagina dell'app nel portale fare clic su **Riavvia** > **Sì**.
+1. Per indicare al servizio a di eseguire il pull della nuova immagine da Hub Docker, riavviare l'app. Di nuovo nella pagina dell'app nel portale fare clic su **Riavvia** > **Sì** .
 
    ![Riavviare l'app Web in Azure](./media/quickstart-custom-container/portal-restart-app.png)
 
@@ -201,7 +201,7 @@ Per completare questa guida di avvio rapido, è necessaria un'immagine dell'app 
 
 ## <a name="sign-in"></a>Accedi
 
-Avviare quindi VS Code e accedere al proprio account Azure usando l'estensione Servizio app di Azure. A tale scopo, selezionare il logo di Azure sulla barra delle attività, passare allo strumento di esplorazione **SERVIZIO APP**, selezionare **Accedi ad Azure** e seguire le istruzioni.
+Avviare quindi VS Code e accedere al proprio account Azure usando l'estensione Servizio app di Azure. A tale scopo, selezionare il logo di Azure sulla barra delle attività, passare allo strumento di esplorazione **SERVIZIO APP** , selezionare **Accedi ad Azure** e seguire le istruzioni.
 
 ![Accedere ad Azure](./media/quickstart-docker/sign-in.png)
 
@@ -209,7 +209,7 @@ Avviare quindi VS Code e accedere al proprio account Azure usando l'estensione S
 
 È ora possibile verificare che tutti i prerequisiti siano installati e configurati correttamente.
 
-In VS Code dovrebbero essere visualizzati l'indirizzo di posta elettronica di Azure sulla barra di stato e la sottoscrizione nello strumento di esplorazione **SERVIZIO APP**.
+In VS Code dovrebbero essere visualizzati l'indirizzo di posta elettronica di Azure sulla barra di stato e la sottoscrizione nello strumento di esplorazione **SERVIZIO APP** .
 
 Verificare quindi che Docker sia installato e in esecuzione. Il comando seguente visualizzerà la versione di Docker, se è in esecuzione.
 
@@ -233,11 +233,11 @@ Dopo la distribuzione, l'app è disponibile all'indirizzo `http://<app name>.azu
 
 Un **gruppo di risorse** è una raccolta denominata di tutte le risorse dell'applicazione in Azure. Può contenere ad esempio un riferimento a un sito Web, a un database e a una funzione di Azure.
 
-Un **piano di servizio app** definisce le risorse fisiche che verranno usate per ospitare il sito Web. Questa guida di avvio rapido usa un piano di hosting **Basic** nell'infrastruttura **Linux**, il che significa che il sito verrà ospitato in un computer Linux insieme ad altri siti Web. Se si inizia con il piano **Basic**, è possibile usare il portale di Azure per aumentare le prestazioni in modo che il proprio sia l'unico sito in esecuzione su un computer.
+Un **piano di servizio app** definisce le risorse fisiche che verranno usate per ospitare il sito Web. Questa guida di avvio rapido usa un piano di hosting **Basic** nell'infrastruttura **Linux** , il che significa che il sito verrà ospitato in un computer Linux insieme ad altri siti Web. Se si inizia con il piano **Basic** , è possibile usare il portale di Azure per aumentare le prestazioni in modo che il proprio sia l'unico sito in esecuzione su un computer.
 
 ## <a name="browse-the-website"></a>Esplorare il sito Web
 
-Durante la distribuzione viene visualizzato il pannello **Output** che indica lo stato dell'operazione. Al termine dell'operazione, trovare l'app creata nello strumento di esplorazione **SERVIZIO APP**,fare clic su di essa con il pulsante destro del mouse e quindi scegliere **Browse Website** (Esplora sito Web) per aprire il sito nel browser.
+Durante la distribuzione viene visualizzato il pannello **Output** che indica lo stato dell'operazione. Al termine dell'operazione, trovare l'app creata nello strumento di esplorazione **SERVIZIO APP** ,fare clic su di essa con il pulsante destro del mouse e quindi scegliere **Browse Website** (Esplora sito Web) per aprire il sito nel browser.
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)

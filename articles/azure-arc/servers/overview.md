@@ -2,14 +2,14 @@
 title: Panoramica dei server con abilitazione di Azure Arc
 description: Informazioni su come usare i server con abilitazione di Azure Arc per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200968"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460853"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -29,7 +29,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Semplificare la distribuzione con altri servizi di Azure, ad esempio [State Configuration](../../automation/automation-dsc-overview.md) di Automazione di Azure e l'area di lavoro Log Analytics di Monitoraggio di Azure, usando le [estensioni macchina virtuale di Azure](manage-vm-extensions.md) supportate per le macchine virtuali Windows o Linux non di Azure. È inclusa l'esecuzione della configurazione post-distribuzione o l'installazione del software tramite l'estensione Script personalizzato.
 
-- È possibile usare [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux. Distribuire innanzitutto il [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) e quindi seguire la procedura per [abilitare Gestione aggiornamenti](../../automation/update-management/update-mgmt-enable-portal.md) nella macchina virtuale Windows o Linux non di Azure.
+- È possibile usare [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux.
 
 - Includere i server non di Azure per il rilevamento delle minacce e monitorare in modo proattivo le potenziali minacce per la sicurezza usando [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
@@ -45,7 +45,7 @@ Nella maggior parte dei casi, la posizione selezionata durante la creazione dell
 
 ### <a name="agent-status"></a>Stato dell'agente
 
-L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al servizio ogni 5 minuti. Se il servizio smette di ricevere questi messaggi di tipo heartbeat da un computer, quest'ultimo viene considerato offline e lo stato verrà automaticamente modificato in **Disconnesso** nel portale in un arco di tempo compreso tra 15 e 30 minuti. Alla ricezione di un messaggio successivo di tipo heartbeat dall'agente Connected Machine, il relativo stato verrà automaticamente modificato in **Connesso**.
+L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al servizio ogni 5 minuti. Se il servizio smette di ricevere questi messaggi di tipo heartbeat da un computer, quest'ultimo viene considerato offline e lo stato verrà automaticamente modificato in **Disconnesso** nel portale in un arco di tempo compreso tra 15 e 30 minuti. Alla ricezione di un messaggio successivo di tipo heartbeat dall'agente Connected Machine, il relativo stato verrà automaticamente modificato in **Connesso** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

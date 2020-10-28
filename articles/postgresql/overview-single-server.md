@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 469235957ebe26dd44cc6ce464a68167629099ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944648"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476145"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Server singolo di Database di Azure per PostgreSQL
 
@@ -81,8 +81,8 @@ Il servizio server singolo è dotato di funzionalità predefinite di monitoraggi
 
 Il servizio esegue la versione community di PostgreSQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore PostgreSQL a un servizio server singolo. Per eseguire la migrazione al server singolo, è possibile usare una delle opzioni seguenti:
 
-- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come Pg_dump e Pg_restore può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore).
-- **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate verso server singoli con tempi di inattività minimi, è possibile sfruttare Servizio Migrazione del database di Azure. Vedere [Servizio Migrazione del database tramite portale](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) e [Servizio Migrazione del database tramite interfaccia della riga di comando](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come Pg_dump e Pg_restore può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](./howto-migrate-using-dump-and-restore.md).
+- **Servizio Migrazione del database di Azure** : per migrazioni semplici e facilitate verso server singoli con tempi di inattività minimi, è possibile sfruttare Servizio Migrazione del database di Azure. Vedere [Servizio Migrazione del database tramite portale](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [Servizio Migrazione del database tramite interfaccia della riga di comando](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Contatti
 
@@ -98,4 +98,3 @@ Inoltre, prendere in considerazione i seguenti punti di contatto in base alle sp
 
 A questo punto, dopo aver letto un'introduzione alla modalità di distribuzione server singolo di Database di Azure per PostgreSQL, si è pronti per:
 - Creare il primo server.
-  

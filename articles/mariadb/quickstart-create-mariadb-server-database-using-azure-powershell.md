@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3715b3eb00a1ccb549bf77d14ce33969f9a7eda1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87502257"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424437"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Avvio rapido: Creare un server di Database di Azure per MariaDB usando PowerShell
 
@@ -23,13 +23,13 @@ Questa guida di avvio rapido descrive come usare PowerShell per creare un server
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Durante la fase di anteprima del modulo Az.MariaDb PowerShell, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Quando il modulo Az.MariaDb di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
-Se è la prima volta che si usa il servizio Database di Azure per MariaDB, è necessario registrare il provider di risorse **Microsoft.DBforMariaDB**.
+Se è la prima volta che si usa il servizio Database di Azure per MariaDB, è necessario registrare il provider di risorse **Microsoft.DBforMariaDB** .
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -37,7 +37,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se si possiedono più sottoscrizioni di Azure, scegliere quella appropriata in cui verranno fatturate le risorse. Selezionare un ID sottoscrizione specifico usando il cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Se si possiedono più sottoscrizioni di Azure, scegliere quella appropriata in cui verranno fatturate le risorse. Selezionare un ID sottoscrizione specifico usando il cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -45,9 +45,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con il cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) con il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
-L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell'area **Stati Uniti occidentali**.
+L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell'area **Stati Uniti occidentali** .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,7 +70,7 @@ La tabella seguente contiene un elenco di parametri e valori di esempio usati di
 | SslEnforcement             | Attivato          | Indica se abilitare SSL per questo server. Valori consentiti: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Capacità di archiviazione del server (l'unità è MB). Per essere valido, StorageInMb deve essere di almeno 5120 MB con aumenti in incrementi di 1024 MB. Per altre informazioni sui limiti delle dimensioni di archiviazione, vedere [Piani tariffari di Database di Azure per MariaDB](./concepts-pricing-tiers.md).                                                                               |
 | Versione                    | 5.7              | La versione principale di MariaDB.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**'.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** '.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Password dell'utente amministratore sotto forma di stringa sicura. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.                                       |
 
 Il valore del parametro **Sku** segue la convenzione **piano tariffario\_generazione calcolo\_vCore** come illustrato negli esempi seguenti.
@@ -81,7 +81,7 @@ Il valore del parametro **Sku** segue la convenzione **piano tariffario\_generaz
 
 Per informazioni sui valori di **Sku** validi per aree e livelli, vedere [Piani tariffari di Database di Azure per MariaDB](./concepts-pricing-tiers.md).
 
-Nell'esempio seguente nell'area **Stati Uniti occidentali** viene creato un server MariaDB denominato **mydemoserver** nel gruppo di risorse **myresourcegroup** con l'account di accesso di amministratore del server **myadmin**. Si tratta di un server di quinta generazione nel piano tariffario per utilizzo generico con 2 vCore e con i backup con ridondanza geografica abilitati. Prendere nota della password usata nella prima riga dell'esempio, perché si tratta della password per l'account amministratore del server MariaDB.
+Nell'esempio seguente nell'area **Stati Uniti occidentali** viene creato un server MariaDB denominato **mydemoserver** nel gruppo di risorse **myresourcegroup** con l'account di accesso di amministratore del server **myadmin** . Si tratta di un server di quinta generazione nel piano tariffario per utilizzo generico con 2 vCore e con i backup con ridondanza geografica abilitati. Prendere nota della password usata nella prima riga dell'esempio, perché si tratta della password per l'account amministratore del server MariaDB.
 
 > [!TIP]
 > Il nome del server è associato a un nome DNS e deve essere univoco a livello globale.
@@ -124,7 +124,7 @@ Update-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Ss
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
 
-Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso. Usare questo esempio per determinare le informazioni di connessione. Prendere nota dei valori per **FullyQualifiedDomainName** e **AdministratorLogin**.
+Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso. Usare questo esempio per determinare le informazioni di connessione. Prendere nota dei valori per **FullyQualifiedDomainName** e **AdministratorLogin** .
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |

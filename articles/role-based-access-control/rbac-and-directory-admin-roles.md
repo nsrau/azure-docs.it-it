@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: cc4f775c3cf4c016173c485d57f203b4665c6393
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397726"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370645"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD
 
@@ -87,7 +87,7 @@ Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi
 
 ![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-Quando si fa clic sulla scheda **Ruoli**, viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
+Quando si fa clic sulla scheda **Ruoli** , viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
 
 ![Ruoli predefiniti nel portale di Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
@@ -99,11 +99,11 @@ I ruoli di Azure AD consentono di gestire le risorse di Azure AD in una director
 
 | Ruolo di Azure AD | Autorizzazioni | Note |
 | --- | --- | --- |
-| [Amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gestire l'accesso a tutte le funzionalità di amministrazione in Azure Active Directory, nonché ai servizi che attuano la federazione in Azure Active Directory</li><li>Assegnare i ruoli di amministratore ad altri utenti</li><li>Reimpostare la password per qualsiasi utente e per tutti gli altri amministratori</li></ul> | La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. |
-| [Amministratore utenti](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
-| [Amministratore fatturazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
+| [Amministratore globale](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>Gestire l'accesso a tutte le funzionalità di amministrazione in Azure Active Directory, nonché ai servizi che attuano la federazione in Azure Active Directory</li><li>Assegnare i ruoli di amministratore ad altri utenti</li><li>Reimpostare la password per qualsiasi utente e per tutti gli altri amministratori</li></ul> | La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. |
+| [Amministratore utenti](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
+| [Amministratore fatturazione](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
 
-Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di Azure AD nel pannello **Ruoli e amministratori**. Per un elenco di tutti i ruoli di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di Azure AD nel pannello **Ruoli e amministratori** . Per un elenco di tutti i ruoli di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ![Ruoli di Azure AD nel portale di Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -129,5 +129,5 @@ Diversi ruoli di Azure si estendono ad Azure AD e a Microsoft 365, ad esempio i 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure?](overview.md)
-- [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md)
 - [Amministratori della sottoscrizione classica di Azure](classic-administrators.md)

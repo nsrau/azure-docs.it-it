@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7727dd2ae69fab75219c5d6d733db3f150061df3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477233"
 ---
 # <a name="azure-table-storage-overview"></a>Panoramica di Archiviazione tabelle di Azure
 
@@ -30,10 +30,10 @@ L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL struttur
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-* [Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle di Azure con .NET SDK](table-storage-how-to-use-dotnet.md)
+* [Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle di Azure con .NET SDK](./tutorial-develop-table-dotnet.md)
 
 * Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
 
-    * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](/dotnet/api/overview/azure/storage)
 
-    * [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/azure/dd179355)
+    * [Informazioni di riferimento sulle API REST](/rest/api/storageservices/)

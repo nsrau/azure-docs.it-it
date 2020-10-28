@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 42871d4219424e3e46d6b2dccc5899b02dccc57e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f53958f8d7b0c5c12d78940b30f88b49d667c1e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318994"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487535"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
 
@@ -22,7 +22,7 @@ ms.locfileid: "91318994"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 In questa guida di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Node.js clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
@@ -137,7 +137,7 @@ Questo passaggio è facoltativo. Per scoprire in che modo le risorse del databas
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione** . 
 
     :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Visualizzare e copiare le informazioni necessarie sulla stringa di connessione nel riquadro Stringa di connessione":::
 
@@ -149,7 +149,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     > Se l'endpoint usa documents.azure.com, ovvero si dispone di un account di anteprima, è necessario creare un [nuovo account dell'API di tabella](#create-a-database-account) per lavorare con l'SDK dell'API di tabella disponibile a livello generale.
     >
 
-3. Salvare il file *app.config*.
+3. Salvare il file *app.config* .
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
@@ -161,7 +161,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Eseguire questo comando per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file *package.json*:
+2. Eseguire questo comando per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file *package.json* :
 
    ```
    npm install azure-storage node-uuid async nconf --save

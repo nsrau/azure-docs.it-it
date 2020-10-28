@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87498923"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369353"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark in Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ I pool di Spark in Azure Synapse offrono un servizio Spark completamente gestito
 
 I pool di Spark in Azure Synapse includono i componenti seguenti che sono disponibili nei pool per impostazione predefinita.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Include Spark Core, Spark SQL, GraphX e MLlib.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Include Spark Core, Spark SQL, GraphX e MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Notebook di Nteract](https://nteract.io/)
@@ -81,7 +81,7 @@ Per altre informazioni su Apache Spark in Synapse Analytics, vedere gli articoli
 - [Avvio rapido: Creare un pool di Spark in Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Avvio rapido: Creare un notebook Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Esercitazione: Machine Learning con Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Documentazione ufficiale di Apache Spark](https://spark.apache.org/docs/latest/)
+- [Documentazione ufficiale di Apache Spark](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Parte della documentazione ufficiale di Apache Spark si basa sull'uso della console Spark, che non è disponibile in Spark di Azure Synapse. Usare al suo posto un notebook o IntelliJ.

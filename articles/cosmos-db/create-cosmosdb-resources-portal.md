@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607566"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486651"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "88607566"
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile usare Cosmos DB per creare ed eseguire rapidamente query su chiavi/valori, database di documenti e database a grafo che sfruttano i vantaggi delle funzionalità di distribuzione globale e scalabilità orizzontale alla base di Azure Cosmos DB. 
 
-Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un account [API SQL](sql-api-introduction.md) di Azure Cosmos DB, creare un database e un contenitore di documenti e aggiungere dati al contenitore. 
+Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un account [API SQL](./introduction.md) di Azure Cosmos DB, creare un database e un contenitore di documenti e aggiungere dati al contenitore. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,20 +40,20 @@ Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 
-Passare al [portale di Azure](https://portal.azure.com/) per creare un account Azure Cosmos DB. Cercare e selezionare **Azure Cosmos DB**.
+Passare al [portale di Azure](https://portal.azure.com/) per creare un account Azure Cosmos DB. Cercare e selezionare **Azure Cosmos DB** .
 
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Riquadro Database nel portale di Azure":::
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** .
 1. Nella pagina **Crea account Cosmos DB** immettere le impostazioni base per il nuovo account Azure Cosmos. 
 
     |Impostazione|valore|Descrizione |
     |---|---|---|
     |Subscription|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos. |
-    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo**, quindi immettere un nome univoco per il nuovo gruppo di risorse. |
+    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo** , quindi immettere un nome univoco per il nuovo gruppo di risorse. |
     |Nome account|Un nome univoco|Immettere un nome per identificare l'account Azure Cosmos. Dato che al nome specificato viene aggiunto *documents.azure.com* per creare l'URI, usare un nome univoco.<br><br>Il nome può contenere solo lettere minuscole, numeri e il segno meno (-). Deve avere una lunghezza compresa tra 3 e 31 caratteri.|
     |API|Il tipo di account da creare|Selezionare **Core (SQL)** per creare un database di documenti e una query con la sintassi SQL. <br><br>L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) e MongoDB per dati dei documenti, Gremlin per i dati dei grafici, Tabelle di Azure e Cassandra. Attualmente, è necessario creare un account separato per ogni API. <br><br>[Altre informazioni sull'API SQL](introduction.md).|
-    |Modalità di capacità|Provisioning velocità effettiva o Serverless|Selezionare **Provisioning velocità effettiva** per creare un account in modalità [Provisioning velocità effettiva](set-throughput.md). Selezionare **Serverless** per creare un account in modalità [Serverless](serverless.md).<br><br>**Nota**: l'opzione Serverless è attualmente disponibile solo per gli account API Core (SQL).|
+    |Modalità di capacità|Provisioning velocità effettiva o Serverless|Selezionare **Provisioning velocità effettiva** per creare un account in modalità [Provisioning velocità effettiva](set-throughput.md). Selezionare **Serverless** per creare un account in modalità [Serverless](serverless.md).<br><br>**Nota** : l'opzione Serverless è attualmente disponibile solo per gli account API Core (SQL).|
     |Applica sconto per il livello gratuito|Applica o Non applicare|Azure Cosmos DB livello gratuito offre i primi 400 UR/s e 5 GB di spazio di archiviazione gratuiti per account. Altre informazioni sul [livello gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|Area più vicina ai propri utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.|
     |Tipo di account|Produzione o Non di produzione|Selezionare **Produzione** se l'account verrà usato per un carico di lavoro di produzione. Selezionare **Non di produzione** se l'account non verrà usato per un carico di lavoro di produzione, ad esempio per lo sviluppo, il test, il controllo di qualità o lo staging. Si tratta di un'impostazione di tag delle risorse di Azure che consente di ottimizzare l'esperienza del portale, ma non influisce sull'account Azure Cosmos DB sottostante. È possibile modificare questo valore in qualsiasi momento.|
@@ -65,16 +65,16 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
 > È possibile avere fino a un account Azure Cosmos DB del livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente durante la creazione dell'account. Se l'opzione per l'applicazione dello sconto per il livello gratuito non è visualizzata, un altro account nella sottoscrizione è già stato abilitato per il livello gratuito.
 
 > [!NOTE]
-> Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità**:
+> Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità** :
 > - Applica sconto per il livello gratuito
 > - Ridondanza geografica
 > - Scritture in più aree
    
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Riquadro Database nel portale di Azure":::
 
-1. Selezionare **Rivedi e crea**. È possibile ignorare le sezioni **Rete** e **Tag**.
+1. Selezionare **Rivedi e crea** . È possibile ignorare le sezioni **Rete** e **Tag** .
 
-1. Esaminare le impostazioni dell'account e quindi selezionare **Crea**. La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata**. 
+1. Esaminare le impostazioni dell'account e quindi selezionare **Crea** . La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata** . 
 
     :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Riquadro Database nel portale di Azure":::
 
@@ -87,9 +87,9 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
 
 È possibile usare Esplora dati nel portale di Azure per creare un database e un contenitore. 
 
-1.  Scegliere **Esplora dati** dal menu di spostamento sinistro nella pagina dell'account Azure Cosmos DB, quindi selezionare **Nuovo contenitore**. 
+1.  Scegliere **Esplora dati** dal menu di spostamento sinistro nella pagina dell'account Azure Cosmos DB, quindi selezionare **Nuovo contenitore** . 
     
-    Può essere necessario scorrere verso destra per visualizzare la finestra **Aggiungi contenitore**.
+    Può essere necessario scorrere verso destra per visualizzare la finestra **Aggiungi contenitore** .
     
     :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Riquadro Database nel portale di Azure":::
     
@@ -98,24 +98,24 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     |Impostazione|Valore consigliato|Descrizione
     |---|---|---|
     |**ID database**|ToDoList|Immettere *ToDoList* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/, \\, #, ?` o spazi finali. Selezionare l'opzione **Provision database throughput** (Provisioning delle unità di elaborazione del database) che consente di condividere le unità di elaborazione del database con tra tutti i contenitori al suo interno. Questa opzione permette anche di risparmiare sui costi. |
-    |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.<br><br>**Nota**: questa impostazione non è disponibile quando si crea un nuovo contenitore in un account serverless.| 
+    |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.<br><br>**Nota** : questa impostazione non è disponibile quando si crea un nuovo contenitore in un account serverless.| 
     |**ID contenitore**|Items|Immettere *Items* come nome per il nuovo contenitore. Gli ID contenitore prevedono gli stessi requisiti relativi ai caratteri dei nomi di database.|
     |**Chiave di partizione**| /category| L'esempio descritto in questo articolo usa */category* come chiave di partizione.|
 
     
     Non aggiungere **chiavi univoche** per questo esempio. Le chiavi univoche consentono di aggiungere un livello di integrità dei dati al database garantendo l'univocità di uno o più valori per ogni chiave di partizione. Per altre informazioni, vedere [Chiavi univoche in Azure Cosmos DB](unique-keys.md).
     
-1.  Selezionare **OK**. In Esplora dati vengono visualizzati il nuovo database e il nuovo contenitore creati.
+1.  Selezionare **OK** . In Esplora dati vengono visualizzati il nuovo database e il nuovo contenitore creati.
 
 ## <a name="add-data-to-your-database"></a>Aggiungere dati al database
 
 Aggiungere dati al nuovo database usando Esplora dati.
 
-1. In **Esplora dati** espandere il database **ToDoList** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi **Nuovo elemento**. 
+1. In **Esplora dati** espandere il database **ToDoList** e quindi il contenitore **Elementi** . Selezionare **Elementi** e quindi **Nuovo elemento** . 
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Riquadro Database nel portale di Azure":::
    
-1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti**:
+1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti** :
 
      ```json
      {
@@ -127,7 +127,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
      }
      ```
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Riquadro Database nel portale di Azure":::
    
@@ -144,7 +144,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 Se si vuole eliminare solo il database e usare l'account Azure Cosmos in futuro, è possibile eliminare il database con i passaggi seguenti:
 
 * Accedere all'account Azure Cosmos.
-* Aprire **Esplora dati**, fare clic con il pulsante destro del mouse sul database che si vuole eliminare e selezionare **Elimina database**.
+* Aprire **Esplora dati** , fare clic con il pulsante destro del mouse sul database che si vuole eliminare e selezionare **Elimina database** .
 * Immettere l'ID o il nome del database per confermare l'operazione di eliminazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi

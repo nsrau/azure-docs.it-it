@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946016"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341330"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Avvio rapido: Configurazione del Centro sicurezza di Azure
 
@@ -37,7 +37,7 @@ Per abilitare Azure Defender in una sottoscrizione, è necessario avere il ruolo
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 
-1. Nel menu del portale selezionare **Centro sicurezza**. 
+1. Nel menu del portale selezionare **Centro sicurezza** . 
 
     Si aprirà la pagina di panoramica del Centro sicurezza.
 
@@ -45,7 +45,7 @@ Per abilitare Azure Defender in una sottoscrizione, è necessario avere il ruolo
 
 **Centro di sicurezza - Panoramica** offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro cloud ibridi, consentendo all'utente di individuarne e valutarne la sicurezza e di identificare e ridurre i rischi. Il Centro sicurezza abilita automaticamente, senza alcun costo, una sottoscrizione di Azure di cui non sia stato eseguito l'onboarding in precedenza da uno degli utenti della sottoscrizione.
 
-Per visualizzare e filtrare l'elenco delle sottoscrizioni, selezionare la voce di menu **Sottoscrizioni**. Il Centro sicurezza modificherà la visualizzazione in modo da riflettere il comportamento di sicurezza delle sottoscrizioni selezionate. 
+Per visualizzare e filtrare l'elenco delle sottoscrizioni, selezionare la voce di menu **Sottoscrizioni** . Il Centro sicurezza modificherà la visualizzazione in modo da riflettere il comportamento di sicurezza delle sottoscrizioni selezionate. 
 
 Dopo pochi minuti dal primo avvio del Centro di sicurezza, è possibile visualizzare gli elementi seguenti:
 
@@ -61,7 +61,7 @@ Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi
 
 Ai fini delle guide di avvio rapido e delle esercitazioni sul Centro sicurezza, è necessario abilitare Azure Defender. È disponibile una versione di valutazione gratuita valida 30 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Nella barra laterale del Centro sicurezza selezionare **Attività iniziali**.
+1. Nella barra laterale del Centro sicurezza selezionare **Attività iniziali** .
 
     :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Dashboard di panoramica del Centro sicurezza"::: 
 
@@ -81,8 +81,8 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione pertinente.
-1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì**.
-1. Selezionare **Salva**.
+1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì** .
+1. Selezionare **Salva** .
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Dashboard di panoramica del Centro sicurezza":::
 
@@ -92,7 +92,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 Una volta distribuito l'agente nei computer, il Centro sicurezza può offrire altri suggerimenti correlati allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
 
 >[!NOTE]
-> Se si imposta il provisioning automatico su **No**, l'agente di Log Analytics non viene rimosso dalle macchine virtuali di Azure in cui ne è già stato effettuato il provisioning. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
+> Se si imposta il provisioning automatico su **No** , l'agente di Log Analytics non viene rimosso dalle macchine virtuali di Azure in cui ne è già stato effettuato il provisioning. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
 
 
 
@@ -105,7 +105,7 @@ In questo argomento di avvio rapido è stato abilitato Azure Defender ed è stat
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
 > [!div class="nextstepaction"]
-> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Per iniziare, analizzare i costi con Gestione costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

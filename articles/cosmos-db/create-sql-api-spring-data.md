@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278377"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486549"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Avvio rapido: Creare un'app Spring Data Azure Cosmos DB v3 per gestire i dati dell'API SQL di Azure Cosmos DB
 
@@ -36,9 +36,9 @@ In questo argomento di avvio rapido verrà creato e gestito un account API SQL d
 > Spring Data Azure Cosmos DB supporta solo l'API SQL.
 >
 > Per informazioni su Spring Data in altre API di Azure Cosmos DB, vedere questi articoli:
-> * [Spring Data per Apache Cassandra con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring Data MongoDB con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Spring Data per Apache Cassandra con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -50,15 +50,15 @@ In questo argomento di avvio rapido verrà creato e gestito un account API SQL d
 
 ## <a name="introductory-notes"></a>Note introduttive
 
-*Struttura di un account Cosmos DB.* Indipendentemente dall'API o dal linguaggio di programmazione, un *account* Cosmos DB contiene zero o più *database*, un *database* (DB) contiene zero o più *contenitori* e un *contenitore* contiene zero o più elementi, come illustrato nel diagramma seguente:
+*Struttura di un account Cosmos DB.* Indipendentemente dall'API o dal linguaggio di programmazione, un *account* Cosmos DB contiene zero o più *database* , un *database* (DB) contiene zero o più *contenitori* e un *contenitore* contiene zero o più elementi, come illustrato nel diagramma seguente:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
-Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione*. 
+Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione* . 
 
-La velocità effettiva con provisioning viene misurata in unità richiesta (*UR*) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
+La velocità effettiva con provisioning viene misurata in unità richiesta ( *UR* ) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
 
-Man mano che gli elementi vengono inseriti in un contenitore Cosmos DB, il database aumenta orizzontalmente aggiungendo più risorse di archiviazione e calcolo per gestire le richieste. La capacità di archiviazione e di calcolo viene aggiunta in unità discrete note come *partizioni* ed è necessario scegliere un campo nei documenti come chiave di partizione che esegue il mapping di ogni documento a una partizione. Il modo in cui vengono gestite le partizioni è che a ogni partizione viene assegnata una sezione approssimativamente uguale non compresa nell'intervallo di valori delle chiavi di partizione. È pertanto consigliabile scegliere una chiave di partizione che sia relativamente casuale o distribuita in modo uniforme. In caso contrario, alcune partizioni conterranno sostanzialmente più richieste (*partizione con accesso frequente*) mentre altre partizioni conterranno sostanzialmente meno richieste (*partizione con accesso sporadico*) e questo deve essere evitato. Per altre informazioni sul partizionamento, vedere [qui](partitioning-overview.md).
+Man mano che gli elementi vengono inseriti in un contenitore Cosmos DB, il database aumenta orizzontalmente aggiungendo più risorse di archiviazione e calcolo per gestire le richieste. La capacità di archiviazione e di calcolo viene aggiunta in unità discrete note come *partizioni* ed è necessario scegliere un campo nei documenti come chiave di partizione che esegue il mapping di ogni documento a una partizione. Il modo in cui vengono gestite le partizioni è che a ogni partizione viene assegnata una sezione approssimativamente uguale non compresa nell'intervallo di valori delle chiavi di partizione. È pertanto consigliabile scegliere una chiave di partizione che sia relativamente casuale o distribuita in modo uniforme. In caso contrario, alcune partizioni conterranno sostanzialmente più richieste ( *partizione con accesso frequente* ) mentre altre partizioni conterranno sostanzialmente meno richieste ( *partizione con accesso sporadico* ) e questo deve essere evitato. Per altre informazioni sul partizionamento, vedere [qui](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -95,7 +95,7 @@ Questo passaggio è facoltativo. Per scoprire in che modo le risorse del databas
 
 ### <a name="application-configuration-file"></a>File di configurazione dell'applicazione
 
-Si vedrà ora come Spring Boot e Spring Data migliorano l'esperienza utente: il processo di creazione di un client Cosmos e la sua connessione alle risorse Cosmos avviene ora tramite configurazione anziché usando il codice. All'avvio dell'applicazione, Spring Boot gestisce il boilerplate usando le impostazioni in **application.properties**:
+Si vedrà ora come Spring Boot e Spring Data migliorano l'esperienza utente: il processo di creazione di un client Cosmos e la sua connessione alle risorse Cosmos avviene ora tramite configurazione anziché usando il codice. All'avvio dell'applicazione, Spring Boot gestisce il boilerplate usando le impostazioni in **application.properties** :
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}
@@ -107,7 +107,7 @@ dynamic.collection.name=spel-property-collection
 cosmos.queryMetricsEnabled=true
 ```
 
-Dopo aver creato un account, un database e un contenitore Azure Cosmos DB, è sufficiente inserire le informazioni nel file di configurazione e tramite Spring Boot/Spring Data verranno eseguite automaticamente le operazioni seguenti: (1) creazione di un'istanza di `CosmosClient` Java SDK sottostante con l'URI e la chiave e (2) connessione al database e al contenitore. Tutta la configurazione viene eseguita **senza codice di gestione delle risorse**.
+Dopo aver creato un account, un database e un contenitore Azure Cosmos DB, è sufficiente inserire le informazioni nel file di configurazione e tramite Spring Boot/Spring Data verranno eseguite automaticamente le operazioni seguenti: (1) creazione di un'istanza di `CosmosClient` Java SDK sottostante con l'URI e la chiave e (2) connessione al database e al contenitore. Tutta la configurazione viene eseguita **senza codice di gestione delle risorse** .
 
 ### <a name="java-source"></a>Origine Java
 

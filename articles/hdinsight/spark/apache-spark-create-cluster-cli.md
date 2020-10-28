@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9827c50d034b1c49700869c3274800c194c631a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 91c88d1084329ea3681ef39c1d8d755ed31d9ddd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499450"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490884"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando l'interfaccia della riga di comando di Azure
 
@@ -24,7 +24,7 @@ Se si usano più cluster, sarà necessario creare una rete virtuale e, se si usa
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se non si vuole usare Azure Cloud Shell.
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), se non si vuole usare Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

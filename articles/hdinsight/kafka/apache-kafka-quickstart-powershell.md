@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6a01e86f4afe397ed78cd279231a2429b17c60a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88651370"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533003"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight usando PowerShell
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* Il [modulo Az](https://docs.microsoft.com/powershell/azure/) di PowerShell installato.
+* Il [modulo Az](/powershell/azure/) di PowerShell installato.
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -147,7 +147,7 @@ Se si prevede di usare più di 32 nodi del ruolo di lavoro, al momento della cre
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. Alla prima connessione al cluster, è possibile che il client SSH mostri un avviso relativo all'impossibilità di confermare l'autenticità dell'host. Al prompt digitare __yes__e quindi premere __INVIO__ per aggiungere l'host all'elenco dei server attendibili del client SSH.
+2. Alla prima connessione al cluster, è possibile che il client SSH mostri un avviso relativo all'impossibilità di confermare l'autenticità dell'host. Al prompt digitare __yes__ e quindi premere __INVIO__ per aggiungere l'host all'elenco dei server attendibili del client SSH.
 
 3. Quando richiesto, immettere la password per l'utente SSH.
 
@@ -176,7 +176,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker* . Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
 
 In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Ambari nel cluster.
 
@@ -232,7 +232,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Am
 
 ## <a name="manage-apache-kafka-topics"></a>Gestire gli argomenti di Apache Kafka
 
-Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
+Kafka archivia i flussi di dati in *argomenti* . Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
 
 * **Per creare un argomento** usare il comando seguente nella connessione SSH:
 
@@ -240,7 +240,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test**. 
+    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test** . 
 
     * I dati archiviati in questo argomento vengono divisi in otto partizioni.
 
@@ -250,7 +250,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         
         Nelle aree con tre domini di errore, il fattore di replica 3 consente di distribuire le repliche tra i domini di errore. Nelle aree con due domini di errore, il fattore di replica 4 distribuisce le repliche uniformemente tra i domini.
         
-        Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
         Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 
@@ -289,7 +289,7 @@ Per altre informazioni sui comandi disponibili con l'utilità `kafka-topics.sh`,
 
 ## <a name="produce-and-consume-records"></a>Produrre e utilizzare record
 
-Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer*. I producer e i consumer comunicano con il servizio *broker Kafka*. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
+Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer* . I producer e i consumer comunicano con il servizio *broker Kafka* . Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
 
 Seguire questa procedura per archiviare i record nell'argomento test creato in precedenza e quindi leggerli usando un consumer:
 

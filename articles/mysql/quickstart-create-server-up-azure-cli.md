@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89296482"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534040"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-È necessario accedere all'account con il comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
+È necessario accedere all'account con il comando [az login](/cli/azure/authenticate-azure-cli). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
 
 ```azurecli
 az login

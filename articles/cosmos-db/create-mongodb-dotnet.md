@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bffaca9db9a6ecefc9870a2e39ba86640d70b945
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0cb5091b9b7d36c70454a65213113d34b29d76c2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281719"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478950"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Web .NET usando l'API Azure Cosmos DB per MongoDB 
 
@@ -168,4 +168,4 @@ L'app è stata ora aggiornata con tutte le informazioni necessarie per comunicar
 In questo argomento di avvio rapido si è appreso come creare un account Cosmos, creare una raccolta ed eseguire un'app console. È ora possibile importare dati aggiuntivi nel database Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
+> [Importare i dati di MongoDB in Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

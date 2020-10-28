@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282182"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482320"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore con un modello di Resource Manager
 
@@ -136,4 +136,4 @@ In questo argomento di avvio rapido sono stati creati un account, un database e 
 
 - Leggere una [panoramica di Azure Cosmos DB](introduction.md)
 - Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- Ottenere altri [modelli di Azure Resource Manager per Azure Cosmos DB](resource-manager-samples.md)
+- Ottenere altri [modelli di Azure Resource Manager per Azure Cosmos DB](./templates-samples-sql.md)

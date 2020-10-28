@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707898"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481194"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
 In questa guida di avvio rapido si usa un'istanza di Database di Azure per PostgreSQL con Python in macOS, Ubuntu Linux o Windows. La Guida introduttiva illustra come connettersi al database e usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati. L'articolo presuppone che l'utente abbia familiarità con Python, ma non con Database di Azure per PostgreSQL.
 
 > [!TIP]
-> Per indicazioni su come creare un'applicazione Django con PostgreSQL, vedere l'esercitazione [Distribuire un'app Web Django con PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md).
+> Per indicazioni su come creare un'applicazione Django con PostgreSQL, vedere l'esercitazione [Distribuire un'app Web Django con PostgreSQL](../app-service/tutorial-python-postgresql-app.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -42,7 +42,7 @@ Per installare `psycopg2`, aprire un terminale o un prompt dei comandi ed esegui
 Per la connessione a Database di Azure per PostgreSQL, sono necessari il nome completo del server e le credenziali di accesso. È possibile ottenere queste informazioni nel portale di Azure.
 
 1. Nel [portale di Azure](https://portal.azure.com/), cercare il nome del server di Database di Azure per PostgreSQL e selezionarlo. 
-1. Nella pagina **Panoramica** del server, copiare il valore dei campi **Nome server** (completo) e **Nome utente amministratore**. Il valore completo di **Nome server** è sempre nel formato *\<my-server-name>.postgres.database.azure.com* e il valore di **Nome utente amministratore** è sempre nel formato *\<my-admin-username>@\<my-server-name>* . 
+1. Nella pagina **Panoramica** del server, copiare il valore dei campi **Nome server** (completo) e **Nome utente amministratore** . Il valore completo di **Nome server** è sempre nel formato *\<my-server-name>.postgres.database.azure.com* e il valore di **Nome utente amministratore** è sempre nel formato *\<my-admin-username>@\<my-server-name>* . 
    
    È necessaria anche la password dell'amministratore. Se la password è stata dimenticata, è possibile reimpostarla in questa pagina. 
    
@@ -59,7 +59,7 @@ Per ogni esempio di codice in questo articolo, eseguire queste operazioni.
    - `<admin-password>` con la password del server.
    - `<database-name>` con il nome dell'istanza di Database di Azure per PostgreSQL. Un database predefinito denominato *postgres* è stato creato automaticamente al momento della creazione del server. È possibile rinominare il database o creare un nuovo database usando i comandi SQL. 
    
-1. Salvare il file nella cartella del progetto con un'estensione *. py*, ad esempio *postgres-insert.py*. Per Windows, verificare che la codifica UTF-8 sia selezionata quando si salva il file. 
+1. Salvare il file nella cartella del progetto con un'estensione *. py* , ad esempio *postgres-insert.py* . Per Windows, verificare che la codifica UTF-8 sia selezionata quando si salva il file. 
    
 1. Per eseguire il file, passare alla cartella del progetto in un'interfaccia della riga di comando e digitare `python` seguito dal nome file, ad esempio `python postgres-insert.py`.
 

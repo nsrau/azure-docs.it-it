@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90903748"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491326"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL?
 
@@ -43,7 +43,7 @@ Database di Azure per PostgreSQL basato su PostgreSQL Community Edition è dispo
 
 Il server singolo di Database di Azure per PostgreSQL è un servizio di database completamente gestito con requisiti minimi per le personalizzazioni di database. La piattaforma server singolo è progettata per gestire la maggior parte delle funzioni di gestione di database, ad esempio l'applicazione di patch, i backup, la disponibilità elevata e la sicurezza con configurazione e controllo minimi dell'utente. L'architettura è ottimizzata per la disponibilità elevata predefinita con disponibilità del 99,99% in una singola zona di disponibilità. Supporta attualmente la versione community di PostgreSQL 9.5, 9,6, 10 e 11. Il servizio è attualmente disponibile a livello generale in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-L'opzione di distribuzione Server singolo offre tre piani tariffari: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
+L'opzione di distribuzione Server singolo offre tre piani tariffari: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](./concepts-pricing-tiers.md).
 
 I server singoli sono ideali per applicazioni native per il cloud progettate per gestire l'applicazione automatizzata di patch senza la necessità di un controllo granulare sulla pianificazione dell'applicazione di patch e sulle impostazioni di configurazione di PostgreSQL personalizzate.
 
@@ -72,7 +72,7 @@ L'opzione di distribuzione Hyperscale (Citus) offre:
 - Parallelizzazione delle query tra questi server per risposte più rapide in set di dati di grandi dimensioni
 - Supporto ottimale per applicazioni multi-tenant, analisi operative in tempo reale e carichi di lavoro transazionali con velocità effettiva elevata
   
-Le applicazioni compilate per PostgreSQL possono eseguire query distribuite in Hyperscale (Citus) con [librerie di connessione](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) standard e modifiche minime.
+Le applicazioni compilate per PostgreSQL possono eseguire query distribuite in Hyperscale (Citus) con [librerie di connessione](./concepts-connection-libraries.md) standard e modifiche minime.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

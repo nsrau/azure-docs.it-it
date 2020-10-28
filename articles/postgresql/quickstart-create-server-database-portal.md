@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c340f9e7d2c44082adc67eeb816276449602035
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705161"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484492"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Avvio rapido: Creare un server di Database di Azure per PostgreSQL con il portale di Azure
 
@@ -31,12 +31,12 @@ Per creare un server di Database di Azure per PostgreSQL:
 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale.
 
-2. Selezionare **Database** > **Database di Azure per PostgreSQL**.
+2. Selezionare **Database** > **Database di Azure per PostgreSQL** .
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot che mostra l'opzione Database di Azure per PostgreSQL nel menu.":::
 
-3. Selezionare l'opzione di distribuzione **Server singolo**.
+3. Selezionare l'opzione di distribuzione **Server singolo** .
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Screenshot che mostra l'opzione Database di Azure per PostgreSQL nel menu.":::
@@ -52,11 +52,11 @@ Per creare un server di Database di Azure per PostgreSQL:
    Resource group|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
    Nome server |*mydemoserver*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Il nome di dominio *postgres.database.azure.com* viene aggiunto al nome del server specificato. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere da 3 a 63 caratteri.
    Origine dati | **Nessuno** | Selezionare **Nessuno** per creare un nuovo server da zero. Si selezionerebbe **Backup** se si creasse un server da un backup geografico di un server di Database di Azure per PostgreSQL esistente.
-   Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_** .
+   Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **azure_pg_admin** , **admin** , **administrator** , **root** , **guest** o **public** . Non può iniziare con **pg_** .
    Password |Password| Nuova password per l'account amministratore del server. Deve contenere da 8 a 128 caratteri di tre categorie seguenti: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici, ad esempio !, $, #, %.
    Location|Area più vicina ai propri utenti| Località più vicina agli utenti.
    Versione|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
-   Calcolo e archiviazione | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server**. Selezionare quindi il piano tariffario appropriato. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/postgresql/server/). Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Selezionare **OK**.
+   Calcolo e archiviazione | **Utilizzo generico** , **Generazione 5** , **2 vCore** , **5 GB** , **7 giorni** , **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server** . Selezionare quindi il piano tariffario appropriato. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/postgresql/server/). Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup** . Selezionare **OK** .
 
    > [!NOTE]
    > È consigliabile usare il piano tariffario Basic se le esigenze di calcolo e di prestazioni I/O sono adeguate per il carico di lavoro. Si noti che per i server creati nel piano tariffario Basic non è possibile passare in un secondo momento ai piani per utilizzo generico o ottimizzati per la memoria. 
@@ -65,22 +65,22 @@ Per creare un server di Database di Azure per PostgreSQL:
 
 6. Sulla barra degli strumenti selezionare l'icona **Notifiche** a forma di campana per monitorare il processo di distribuzione. Una volta completata la distribuzione, selezionare **Vai alla risorsa** per aprire la pagina **Panoramica** del server.
 
-Viene creato un database vuoto, **postgres**. Si troverà anche un database, **azure_maintenance**, usato per separare i processi del servizio gestito dalle azioni degli utenti. Non è possibile accedere al database **azure_maintenance**.
+Viene creato un database vuoto, **postgres** . Si troverà anche un database, **azure_maintenance** , usato per separare i processi del servizio gestito dalle azioni degli utenti. Non è possibile accedere al database **azure_maintenance** .
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
-Per impostazione predefinita, il server creato non è accessibile pubblicamente. È necessario concedere le autorizzazioni all'indirizzo IP. Passare alla risorsa server nel portale di Azure e scegliere **Sicurezza delle connessioni** dal menu a sinistra. In caso di dubbi su come trovare la risorsa, vedere [Aprire le risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Per impostazione predefinita, il server creato non è accessibile pubblicamente. È necessario concedere le autorizzazioni all'indirizzo IP. Passare alla risorsa server nel portale di Azure e scegliere **Sicurezza delle connessioni** dal menu a sinistra. In caso di dubbi su come trovare la risorsa, vedere [Aprire le risorse](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot che mostra l'opzione Database di Azure per PostgreSQL nel menu.":::
   
-Selezionare **Aggiungi indirizzo IP client corrente** e quindi **Salva**. È possibile aggiungere altri indirizzi IP o fornire un intervallo di indirizzi IP per la connessione al server. Per altre informazioni, vedere [Regole del firewall in Database di Azure per PostgreSQL](./concepts-firewall-rules.md).
+Selezionare **Aggiungi indirizzo IP client corrente** e quindi **Salva** . È possibile aggiungere altri indirizzi IP o fornire un intervallo di indirizzi IP per la connessione al server. Per altre informazioni, vedere [Regole del firewall in Database di Azure per PostgreSQL](./concepts-firewall-rules.md).
    
 > [!NOTE]
 > Per evitare problemi di connettività, verificare se la rete consente il traffico in uscita sulla porta 5432. Database di Azure per PostgreSQL usa tale porta.  
 
 ## <a name="connect-to-azure-database-for-postgresql-server-by-using-psql"></a>Connettersi al server di Database di Azure per PostgreSQL tramite psql
 
-È possibile usare [psql](http://postgresguide.com/utilities/psql.html) o [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), che sono i client PostgreSQL più diffusi. Per questo argomento di avvio rapido si effettuerà la connessione usando psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) all'interno del portale di Azure.
+È possibile usare [psql](http://postgresguide.com/utilities/psql.html) o [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), che sono i client PostgreSQL più diffusi. Per questo argomento di avvio rapido si effettuerà la connessione usando psql in [Azure Cloud Shell](../cloud-shell/overview.md) all'interno del portale di Azure.
 
 1. Annotare il nome del server, il nome dell'account di accesso dell'amministratore del server, la password e l'ID sottoscrizione per il server appena creato nella sezione **Panoramica** del server.
 
@@ -117,7 +117,7 @@ Selezionare **Aggiungi indirizzo IP client corrente** e quindi **Salva**. È pos
 
     postgres=>
     ```
-4. Nello stesso terminale di Azure Cloud Shell creare un database denominato **guest**.
+4. Nello stesso terminale di Azure Cloud Shell creare un database denominato **guest** .
 
    ```bash
    postgres=> CREATE DATABASE guest;
@@ -135,10 +135,10 @@ La creazione di un server di Database di Azure per PostgreSQL in un gruppo di ri
 
 Per eliminare il gruppo di risorse:
 
-1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 
+1. Accedere al portale di Azure e selezionare **Gruppi di risorse** . 
 2. Nell'elenco dei gruppi di risorse scegliere il nome del gruppo di risorse.
-3. Nella pagina **Panoramica** del gruppo di risorse selezionare **Elimina gruppo di risorse**.
-4. Nella finestra di dialogo di conferma immettere il nome del gruppo di risorse, quindi selezionare **Elimina**.
+3. Nella pagina **Panoramica** del gruppo di risorse selezionare **Elimina gruppo di risorse** .
+4. Nella finestra di dialogo di conferma immettere il nome del gruppo di risorse, quindi selezionare **Elimina** .
 
 Per eliminare il server, selezionare il pulsante **Elimina** nella pagina **Panoramica** del server:
 

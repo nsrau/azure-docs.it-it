@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578386"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479052"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione .NET Framework o Core usando l'account dell'API Gremlin di Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Questo avvio rapido illustra come creare un account, un database e un grafo (con
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare la **versione gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare la **versione gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure** .
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,7 +72,7 @@ Per clonare un'app API Gremlin da GitHub, impostare la stringa di connessione ed
 5. Ripristinare i pacchetti NuGet nel progetto. Sono inclusi il driver Gremlin.Net e il pacchetto Newtonsoft.Json.
 
 
-6. È anche possibile installare il driver Gremlin.Net manualmente tramite Gestione pacchetti NuGet o l'[utilità della riga di comando NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. È anche possibile installare il driver Gremlin.Net manualmente tramite Gestione pacchetti NuGet o l'[utilità della riga di comando NuGet](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -106,9 +106,9 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Dal [portale di Azure](https://portal.azure.com/) passare all'account di database del grafo. Nella scheda **Panoramica** sono visualizzati due endpoint: 
  
-   **URI .NET SDK**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Microsoft.Azure.Graphs. 
+   **URI .NET SDK** : questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Microsoft.Azure.Graphs. 
 
-   **Endpoint Gremlin**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Gremlin.Net.
+   **Endpoint Gremlin** : questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiare l'endpoint&quot;:::
 
@@ -141,7 +141,7 @@ Premere CTRL + F5 per eseguire l'applicazione. L'applicazione stamperà i comand
 
 È ora possibile tornare a Esplora dati nel portale di Azure per esplorare i nuovi dati del grafo ed eseguire query su di essi.
 
-1. In Esplora dati il nuovo database viene visualizzato nel riquadro Graph. Espandere il database e i nodi del contenitore e quindi fare clic su **Grafico**.
+1. In Esplora dati il nuovo database viene visualizzato nel riquadro Graph. Espandere il database e i nodi del contenitore e quindi fare clic su **Grafico** .
 
 2. Fare clic sul pulsante **Applica filtro** per usare la query predefinita per visualizzare tutti i vertici nel grafico. I dati generati dall'app di esempio vengono visualizzati nel riquadro Graphs (Grafi).
 
@@ -176,4 +176,3 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Eseguire query con Gremlin](tutorial-query-graph.md)
-

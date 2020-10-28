@@ -16,16 +16,16 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87506442"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367449"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Funzionalità di gestione per i gruppi di Azure AD con accesso con privilegi (anteprima)
 
-In PIM (Privileged Identity Management) è ora possibile assegnare l'idoneità per l'appartenenza o la proprietà dei gruppi con accesso con privilegi. A partire da questa versione di anteprima, è possibile assegnare i ruoli predefiniti di Azure Active Directory (Azure AD) ai gruppi cloud e usare PIM per gestire l'idoneità e l'attivazione come membri e proprietari di gruppi. Per altre informazioni sui gruppi assegnabili a ruoli in Azure AD, vedere [Usare i gruppi cloud per gestire le assegnazioni di ruoli in Azure Active Directory (anteprima)](../users-groups-roles/roles-groups-concept.md).
+In PIM (Privileged Identity Management) è ora possibile assegnare l'idoneità per l'appartenenza o la proprietà dei gruppi con accesso con privilegi. A partire da questa versione di anteprima, è possibile assegnare i ruoli predefiniti di Azure Active Directory (Azure AD) ai gruppi cloud e usare PIM per gestire l'idoneità e l'attivazione come membri e proprietari di gruppi. Per altre informazioni sui gruppi assegnabili a ruoli in Azure AD, vedere [Usare i gruppi cloud per gestire le assegnazioni di ruoli in Azure Active Directory (anteprima)](../roles/groups-concept.md).
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Richiedere criteri diversi per ogni gruppo assegnabile a ruoli
 

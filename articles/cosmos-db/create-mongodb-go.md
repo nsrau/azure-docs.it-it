@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85299195"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476026"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Avvio rapido: Connettere un'applicazione Go all'API Azure Cosmos DB per MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "85299195"
 
 Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale. Questa guida introduttiva illustra come creare e gestire un account Azure Cosmos DB tramite Azure Cloud Shell e come clonare un'applicazione di esempio esistente da GitHub e configurarla per l'uso con Azure Cosmos DB. 
 
-L'applicazione di esempio è uno strumento di gestione `todo` basato su riga di comando scritto in Go. L'API Azure Cosmos DB per MongoDB è [compatibile con il protocollo di collegamento MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), rendendo possibile la connessione di qualsiasi driver client di MongoDB. Questa applicazione usa il [driver Go per MongoDB](https://github.com/mongodb/mongo-go-driver) in modo trasparente per l'applicazione di archiviazione dei dati in un database Azure Cosmos DB.
+L'applicazione di esempio è uno strumento di gestione `todo` basato su riga di comando scritto in Go. L'API Azure Cosmos DB per MongoDB è [compatibile con il protocollo di collegamento MongoDB](./mongodb-introduction.md#wire-protocol-compatibility), rendendo possibile la connessione di qualsiasi driver client di MongoDB. Questa applicazione usa il [driver Go per MongoDB](https://github.com/mongodb/mongo-go-driver) in modo trasparente per l'applicazione di archiviazione dei dati in un database Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la stringa di connessione `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
@@ -258,7 +258,7 @@ Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md) 
 
 L'esempio seguente crea un gruppo di risorse nell'area Europa occidentale. Scegliere un nome univoco per il gruppo di risorse.
 
-Se si usa Azure Cloud Shell, selezionare **Prova**, seguire le istruzioni visualizzate per eseguire l'accesso e quindi copiare il comando nel prompt dei comandi.
+Se si usa Azure Cloud Shell, selezionare **Prova** , seguire le istruzioni visualizzate per eseguire l'accesso e quindi copiare il comando nel prompt dei comandi.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -279,7 +279,7 @@ Il parametro `--kind MongoDB` consente le connessioni al client MongoDB.
 Dopo la creazione dell'account Azure Cosmos DB, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente. 
 
 > [!NOTE]
-> Questo esempio usa JSON come formato di output dell'interfaccia della riga di comando di Azure, ovvero l'impostazione predefinita. Per usare un altro formato di output, vedere [Formati di output per i comandi dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> Questo esempio usa JSON come formato di output dell'interfaccia della riga di comando di Azure, ovvero l'impostazione predefinita. Per usare un altro formato di output, vedere [Formati di output per i comandi dell'interfaccia della riga di comando di Azure](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -420,7 +420,7 @@ I dati archiviati in Azure Cosmos DB sono disponibili per la visualizzazione e l
 
 Per visualizzare e usare i dati utente creati nel passaggio precedente, nonché eseguire query su di essi, accedere al [portale di Azure](https://portal.azure.com) nel Web browser.
 
-Nella casella di ricerca nella parte superiore immettere **Azure Cosmos DB**. Quando viene aperto il pannello dell'account Cosmos, selezionare l'account Cosmos. Nel riquadro di spostamento a sinistra selezionare **Esplora dati**. Espandere la raccolta nel riquadro Raccolte. Sarà quindi possibile visualizzare i documenti nella raccolta, eseguire query sui dati e anche creare ed eseguire stored procedure, trigger e funzioni definite dall'utente. 
+Nella casella di ricerca nella parte superiore immettere **Azure Cosmos DB** . Quando viene aperto il pannello dell'account Cosmos, selezionare l'account Cosmos. Nel riquadro di spostamento a sinistra selezionare **Esplora dati** . Espandere la raccolta nel riquadro Raccolte. Sarà quindi possibile visualizzare i documenti nella raccolta, eseguire query sui dati e anche creare ed eseguire stored procedure, trigger e funzioni definite dall'utente. 
 
 :::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Esplora dati con documento appena creato&quot;:::
 
@@ -457,4 +457,4 @@ L'elemento `todo` eliminato non deve essere presente
 In questa guida introduttiva si è appreso come creare un account dell'API MongoDB Azure Cosmos DB usando Azure Cloud Shell e come creare ed eseguire un'app Go da riga di comando per gestire gli elementi `todo`. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
+> [Importare i dati di MongoDB in Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
