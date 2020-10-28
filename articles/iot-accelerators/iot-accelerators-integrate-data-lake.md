@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069846"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670915"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -40,7 +40,7 @@ Creare un gruppo di consumer dedicato nell'hub IoT della soluzione di monitoragg
 
 1. Accedere al portale di Azure.
 
-1. Nel portale di Azure fare clic sul pulsante **Shell Cloud**.
+1. Nel portale di Azure fare clic sul pulsante **Shell Cloud** .
 
     ![Icona di avvio del portale](./media/iot-accelerators-integrate-data-lake/portal-launch-icon.png)
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei dati dall'hub IoT all'istanza di Azure Data Lake Store.
 
-1. Fare clic su **Crea una risorsa**, selezionare Internet delle cose da Marketplace e quindi fare clic su **Processo di Analisi di flusso**.
+1. Fare clic su **Crea una risorsa** , selezionare Internet delle cose da Marketplace e quindi fare clic su **Processo di Analisi di flusso** .
 
     ![Nuovo processo di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -67,7 +67,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
 1. Assicurarsi di lasciare l'impostazione predefinita **Cloud** per l'ambiente di hosting.
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Crea** .
 
     ![Creare un processo di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -75,7 +75,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
 1. Passare al **processo di Analisi di flusso** nel gruppo di risorse della soluzione di monitoraggio remoto.
 
-1. Nella pagina Panoramica fare clic su **Input**.
+1. Nella pagina Panoramica fare clic su **Input** .
 
     ![Pagina Panoramica](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview.png)
 
@@ -83,15 +83,15 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
     ![Aggiungere l'input](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
-1. Nella scheda Nuovo input immettere l'alias di input **IoTHub**.
+1. Nella scheda Nuovo input immettere l'alias di input **IoTHub** .
 
-1. Dall'elenco a discesa Gruppo di consumer selezionare il gruppo di consumer creato in precedenza. In questo esempio viene usato **streamanalyticsjob**.
+1. Dall'elenco a discesa Gruppo di consumer selezionare il gruppo di consumer creato in precedenza. In questo esempio viene usato **streamanalyticsjob** .
 
     ![Selezionare l'input](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Salva** .
 
-1. Nella pagina Panoramica fare clic su **Output**.
+1. Nella pagina Panoramica fare clic su **Output** .
 
     ![Aggiungere un'istanza di Data Lake Store](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview-2.png)
 
@@ -99,15 +99,15 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
     ![Aggiungere l'output](./media/iot-accelerators-integrate-data-lake/stream-analytics-output.png)
 
-1. Nella scheda Nuovo output immettere l'alias di output **DataLakeStore**.
+1. Nella scheda Nuovo output immettere l'alias di output **DataLakeStore** .
 
 1. Selezionare l'account di Data Lake Store creato nei passaggi precedenti e specificare la struttura di cartelle per lo streaming dei dati nell'archivio.
 
-1. Nel campo Formato data immettere **/streaming/{date}/{time}**. Lasciare i valori predefiniti per il formato della data (YYYY/MM/DD) e dell'ora (HH).
+1. Nel campo Formato data immettere **/streaming/{date}/{time}** . Lasciare i valori predefiniti per il formato della data (YYYY/MM/DD) e dell'ora (HH).
 
     ![Specificare la struttura di cartelle](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
-1. Fare clic su **Autorizza**.
+1. Fare clic su **Autorizza** .
 
     Sarà necessario autorizzare l'accesso a Data Lake Store per consentire al processo di Analisi di flusso di scrivere nel file system.
 
@@ -118,13 +118,13 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
     > [!NOTE]
     > Se nella finestra popup viene visualizzato un errore, aprire una nuova finestra del browser in incognito e riprovare.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Salva** .
 
 ## <a name="edit-the-stream-analytics-query"></a>Modificare la query di Analisi di flusso
 
 Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specificare un'origine di input che genera un flusso di dati, trasformare i dati nel modo desiderato e inviare l'output in diverse destinazioni di archiviazione o elaborazione.
 
-1. Nella scheda Panoramica fare clic su **Modifica query**.
+1. Nella scheda Panoramica fare clic su **Modifica query** .
 
     ![Modifica query](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
@@ -141,16 +141,16 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
     ![Query di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Salva** .
 1. Fare clic su **Sì** per accettare le modifiche.
 
 ## <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 
-1. Nella scheda Panoramica fare clic su **Avvia**.
+1. Nella scheda Panoramica fare clic su **Avvia** .
 
     ![Avvia un processo di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
-1. Nella scheda Avvia processo fare clic su **Personalizzato**.
+1. Nella scheda Avvia processo fare clic su **Personalizzato** .
 
 1. Impostare l'ora personalizzata per tornare indietro di alcune ore e selezionare i dati dal momento in cui il dispositivo ha iniziato a eseguire lo streaming.
 
@@ -168,11 +168,11 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
 1. Passare a Data Lake Store.
 
-1. Nella scheda Panoramica fare clic su **Esplora dati**.
+1. Nella scheda Panoramica fare clic su **Esplora dati** .
 
-1. In Esplora dati eseguire il drill-down fino alla cartella **/streaming**. Verranno visualizzate cartelle create con il formato AAAA/MM/GG/HH.
+1. In Esplora dati eseguire il drill-down fino alla cartella **/streaming** . Vengono visualizzate le cartelle create con il formato AAAA/MM/GG.
 
-    ![Esplorare i dati di streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
+    ![Screenshot che mostra il percorso della cartella/streaming/YYYY/MM/DD/HH.](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
 
     Verranno quindi visualizzati file con estensione json, uno per ogni ora.
 

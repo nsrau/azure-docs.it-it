@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460785"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Esercitazione: Esplorare Gemelli digitali di Azure con un'app client di esempio
 
@@ -24,7 +24,7 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Configurare un'istanza di Gemelli digitali di Azure
 > * Configurare l'app da riga di comando di esempio per interagire con l'istanza
-> * Usare l'app da riga di comando per esplorare Gemelli digitali di Azure, tra cui **modelli**, **gemelli digitali**, **relazioni** e **query**
+> * Usare l'app da riga di comando per esplorare Gemelli digitali di Azure, tra cui **modelli** , **gemelli digitali** , **relazioni** e **query**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -32,24 +32,24 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="explore-with-the-sample-solution"></a>Esplorare la soluzione di esempio
 
-Ora che sono state configurate l'istanza e l'app di esempio, si userà il progetto di esempio e un codice di esempio già scritto per creare ed esplorare una soluzione di base di Gemelli digitali di Azure. I componenti principali della soluzione sono **modelli**, **gemelli digitali** e **relazioni**, che generano un **grafo dei gemelli** di un ambiente su cui è possibile eseguire query.
+Ora che sono state configurate l'istanza e l'app di esempio, si userà il progetto di esempio e un codice di esempio già scritto per creare ed esplorare una soluzione di base di Gemelli digitali di Azure. I componenti principali della soluzione sono **modelli** , **gemelli digitali** e **relazioni** , che generano un **grafo dei gemelli** di un ambiente su cui è possibile eseguire query.
 
 ### <a name="model-a-physical-environment-with-dtdl"></a>Modellare un ambiente fisico con DTDL
 
 Il primo passaggio per la creazione di una soluzione di Gemelli digitali di Azure consiste nel definire i [**modelli**](concepts-models.md) gemelli per l'ambiente. 
 
-I modelli sono simili alle classi nei linguaggi di programmazione orientati a oggetti. Forniscono modelli definiti dall'utente per i [gemelli digitali](concepts-twins-graph.md) da seguire e di cui creare istanze in seguito. Sono scritti in un linguaggio simile a JSON, **DTDL (Digital Twin Definition Language)** , e consentono di definire le *proprietà*, i *dati di telemetria*, le *relazioni* e i *componenti* di un gemello.
+I modelli sono simili alle classi nei linguaggi di programmazione orientati a oggetti. Forniscono modelli definiti dall'utente per i [gemelli digitali](concepts-twins-graph.md) da seguire e di cui creare istanze in seguito. Sono scritti in un linguaggio simile a JSON, **DTDL (Digital Twin Definition Language)** , e consentono di definire le *proprietà* , i *dati di telemetria* , le *relazioni* e i *componenti* di un gemello.
 
 > [!NOTE]
 > DTDL consente anche di definire *comandi* nei gemelli digitali. Tuttavia, i comandi non sono attualmente supportati nel servizio Gemelli digitali di Azure.
 
-Nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ usare il riquadro *Esplora soluzioni* per passare alla cartella *AdtSampleApp\SampleClientApp\Models*. Questa cartella contiene modelli di esempio.
+Nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ usare il riquadro *Esplora soluzioni* per passare alla cartella *AdtSampleApp\SampleClientApp\Models* . Questa cartella contiene modelli di esempio.
 
 Selezionare *Room.json* per aprirlo nella finestra di modifica e cambiarlo nei modi seguenti:
 
-* **Aggiornare il numero di versione** per indicare che si specifica una versione più aggiornata di questo modello. A tale scopo, sostituire *1* alla fine del valore `@id` con *2*. È anche possibile inserire qualsiasi numero maggiore del numero di versione corrente.
-* **Modificare una proprietà**. Cambiare il nome della proprietà `Humidity` in *HumidityLevel* (o qualcosa di diverso se si preferisce). Se si usa un valore diverso da *HumidityLevel*, prendere nota del valore immesso e continuare a usarlo al posto di *HumidityLevel* nell'intera esercitazione.
-* **Aggiungere una proprietà**. Sotto la proprietà `HumidityLevel` che termina alla riga 15 incollare il codice seguente per aggiungere una proprietà `RoomName` alla stanza:
+* **Aggiornare il numero di versione** per indicare che si specifica una versione più aggiornata di questo modello. A tale scopo, sostituire *1* alla fine del valore `@id` con *2* . È anche possibile inserire qualsiasi numero maggiore del numero di versione corrente.
+* **Modificare una proprietà** . Cambiare il nome della proprietà `Humidity` in *HumidityLevel* (o qualcosa di diverso se si preferisce). Se si usa un valore diverso da *HumidityLevel* , prendere nota del valore immesso e continuare a usarlo al posto di *HumidityLevel* nell'intera esercitazione.
+* **Aggiungere una proprietà** . Sotto la proprietà `HumidityLevel` che termina alla riga 15 incollare il codice seguente per aggiungere una proprietà `RoomName` alla stanza:
 
     ```json
     ,
@@ -59,7 +59,7 @@ Selezionare *Room.json* per aprirlo nella finestra di modifica e cambiarlo nei m
       "schema": "string"
     }
     ```
-* **Aggiungere una relazione**. Sotto la proprietà `RoomName` appena aggiunta incollare il codice seguente per aggiungere la possibilità che questo tipo di dispositivo gemello formi relazioni *contains* con altri gemelli:
+* **Aggiungere una relazione** . Sotto la proprietà `RoomName` appena aggiunta incollare il codice seguente per aggiungere la possibilità che questo tipo di dispositivo gemello formi relazioni *contains* con altri gemelli:
 
     ```json
     ,
@@ -76,7 +76,7 @@ Al termine, il modello aggiornato sarà simile al seguente:
 Assicurarsi di salvare il file prima di procedere.
 
 > [!TIP]
-> Se si vuole provare a creare un modello personalizzato, è possibile incollare il codice del modello *Room* in un nuovo file salvato con un estensione *json* nella cartella *AdtSampleApp\SampleClientApp\Models*. Quindi, è possibile provare ad aggiungere proprietà e relazioni per rappresentare qualsiasi tipo di soluzione. È anche possibile esaminare gli altri modelli di esempio in questa cartella per trovare idee.
+> Se si vuole provare a creare un modello personalizzato, è possibile incollare il codice del modello *Room* in un nuovo file salvato con un estensione *json* nella cartella *AdtSampleApp\SampleClientApp\Models* . Quindi, è possibile provare ad aggiungere proprietà e relazioni per rappresentare qualsiasi tipo di soluzione. È anche possibile esaminare gli altri modelli di esempio in questa cartella per trovare idee.
 
 > [!TIP] 
 > È disponibile un [esempio di validator DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [*Procedura: Analizzare e convalidare modelli*](how-to-parse-models.md).
@@ -151,7 +151,7 @@ Ora che alcuni modelli sono stati caricati nell'istanza di Gemelli digitali di A
 
 Per creare un gemello digitale, usare il comando `CreateDigitalTwin`. È necessario fare riferimento al modello su cui si basa il gemello e facoltativamente definire i valori iniziali per tutte le proprietà nel modello. In questa fase non è necessario passare informazioni sulle relazioni.
 
-Eseguire questo codice nella console del progetto in esecuzione per creare diversi gemelli, in base al modello *Room* aggiornato in precedenza e a un altro modello, *Floor*. Tenere presente che *Room* include tre proprietà, quindi è possibile specificare argomenti con i valori iniziali per tali proprietà.
+Eseguire questo codice nella console del progetto in esecuzione per creare diversi gemelli, in base al modello *Room* aggiornato in precedenza e a un altro modello, *Floor* . Tenere presente che *Room* include tre proprietà, quindi è possibile specificare argomenti con i valori iniziali per tali proprietà.
 
 ```cmd/sh
 CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -167,11 +167,11 @@ L'output di questi comandi dovrebbe indicare che i gemelli sono stati creati cor
 
 :::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
-È anche possibile verificare se i gemelli sono stati creati eseguendo il comando `Query`. Questo comando esegue una query nell'istanza di Gemelli digitali di Azure per recuperare tutti i gemelli digitali che contiene. Cercare i gemelli *floor0*, *floor1*, *room0* e *Room1* nei risultati.
+È anche possibile verificare se i gemelli sono stati creati eseguendo il comando `Query`. Questo comando esegue una query nell'istanza di Gemelli digitali di Azure per recuperare tutti i gemelli digitali che contiene. Cercare i gemelli *floor0* , *floor1* , *room0* e *Room1* nei risultati.
 
 #### <a name="modify-a-digital-twin"></a>Modificare un gemello digitale
 
-È anche possibile modificare le proprietà di un gemello creato. Provare a eseguire questo comando per cambiare la proprietà RoomName di *room0* da *Room0* a *PresidentialSuite*:
+È anche possibile modificare le proprietà di un gemello creato. Provare a eseguire questo comando per cambiare la proprietà RoomName di *room0* da *Room0* a *PresidentialSuite* :
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
@@ -179,7 +179,7 @@ UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
 
 L'output dovrebbe indicare che il gemello è stato aggiornato correttamente.
 
-È anche possibile verificarlo eseguendo questo comando per visualizzare le informazioni di *room0*:
+È anche possibile verificarlo eseguendo questo comando per visualizzare le informazioni di *room0* :
 
 ```cmd/sh
 GetDigitalTwin room0
@@ -196,7 +196,7 @@ Successivamente, è possibile creare **relazioni** tra questi gemelli, per conne
 
 Per aggiungere una relazione, usare il comando `CreateRelationship`. Specificare il gemello da cui proviene la relazione, il tipo di relazione da aggiungere e il gemello a cui si connette la relazione. Infine, specificare un nome (ID) per la relazione.
 
-Eseguire il codice seguente per aggiungere una relazione "contains" da ogni gemello *Floor* creato in precedenza a un gemello *Room* corrispondente. Si noti che, per eseguire questa operazione, è necessario che sia stata definita una relazione *contains* nel modello *Floor*.
+Eseguire il codice seguente per aggiungere una relazione "contains" da ogni gemello *Floor* creato in precedenza a un gemello *Room* corrispondente. Si noti che, per eseguire questa operazione, è necessario che sia stata definita una relazione *contains* nel modello *Floor* .
 
 ```cmd/sh
 CreateRelationship floor0 contains room0 relationship0
@@ -234,7 +234,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
     >[!NOTE]
-    >Nel progetto di esempio il comando `Query` senza argomenti aggiuntivi è l'equivalente di `Query SELECT * FROM DIGITALTWINS`. Per eseguire query su tutti i gemelli nell'istanza con le [API Query](how-to-use-apis-sdks.md) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md), usare la query più lunga (completa).
+    >Nel progetto di esempio il comando `Query` senza argomenti aggiuntivi è l'equivalente di `Query SELECT * FROM DIGITALTWINS`. Per eseguire query su tutti i gemelli nell'istanza con le [API Query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md), usare la query più lunga (completa).
 
 * **Quali sono tutte le stanze dell'ambiente?** (query per modello)
 
@@ -242,17 +242,17 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    È possibile limitare la query ai gemelli di un determinato tipo, per ottenere informazioni più specifiche su quello che rappresentano. Il risultato di questa operazione mostra *room0* e *room1*, ma **non** mostra *floor0* o *floor1* (perché si tratta di piani, non di stanze).
+    È possibile limitare la query ai gemelli di un determinato tipo, per ottenere informazioni più specifiche su quello che rappresentano. Il risultato di questa operazione mostra *room0* e *room1* , ma **non** mostra *floor0* o *floor1* (perché si tratta di piani, non di stanze).
     
     :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
-* **Quali sono tutte le stanze in *floor0*?** (query per relazione)
+* **Quali sono tutte le stanze in *floor0* ?** (query per relazione)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
     ```
 
-    È possibile eseguire query in base alle relazioni nel grafo, per ottenere informazioni sul modo in cui i gemelli sono connessi o limitare la query a una determinata area. In *floor0* è presente solo *room0*, che quindi è l'unica stanza nel risultato.
+    È possibile eseguire query in base alle relazioni nel grafo, per ottenere informazioni sul modo in cui i gemelli sono connessi o limitare la query a una determinata area. In *floor0* è presente solo *room0* , che quindi è l'unica stanza nel risultato.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
@@ -262,7 +262,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
     ```
 
-    È possibile eseguire una query sul grafo in base alle proprietà per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione. Sono supportati anche altri operatori di confronto, ossia *<* , *>* , *=* o *!=* . I risultati mostrano *room1*, perché ha una temperatura pari a 80.
+    È possibile eseguire una query sul grafo in base alle proprietà per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione. Sono supportati anche altri operatori di confronto, ossia *<* , *>* , *=* o *!=* . I risultati mostrano *room1* , perché ha una temperatura pari a 80.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
@@ -272,7 +272,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
-    È anche possibile combinare le query precedenti come in SQL, usando operatori di combinazione come `AND`, `OR`, `NOT`. Questa query usa `AND` per rendere più specifica la query precedente sulle temperature dei gemelli. Il risultato include ora solo le stanze con temperature superiori a 75 che si trovano in *floor0*, ovvero in questo caso nessuna stanza. Il set di risultati è vuoto.
+    È anche possibile combinare le query precedenti come in SQL, usando operatori di combinazione come `AND`, `OR`, `NOT`. Questa query usa `AND` per rendere più specifica la query precedente sulle temperature dei gemelli. Il risultato include ora solo le stanze con temperature superiori a 75 che si trovano in *floor0* , ovvero in questo caso nessuna stanza. Il set di risultati è vuoto.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 

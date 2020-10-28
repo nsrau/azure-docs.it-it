@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126191"
 ---
 # <a name="pricing-scenarios"></a>Scenari relativi ai prezzi
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-I prezzi per Servizi di comunicazione di Azure sono basati su un modello con pagamento in base al consumo senza anticipi. Vengono fatturati solo il consumo e l'uso dei servizi.
+I prezzi per Servizi di comunicazione di Azure sono in genere basati su un modello con pagamento in base al consumo.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chiamate vocali/video e condivisione dello schermo
 
@@ -51,7 +46,7 @@ Alice ha effettuato una chiamata di gruppo con i colleghi Bob e Charlie. Alice e
 - 2 partecipanti x 60 minuti x 0,004 USD per partecipante al minuto = 0,48 USD [video e audio vengono addebitati alla stessa tariffa]
 - 1 partecipante x 43 minuti x 0,004 USD per partecipante al minuto = 0,172 USD [video e audio vengono addebitati alla stessa tariffa]
 
-**Costo totale della chiamata di gruppo**: 0,48 USD + 0,172 USD = 0,652 USD
+**Costo totale della chiamata di gruppo** : 0,48 USD + 0,172 USD = 0,652 USD
 
 ## <a name="chat"></a>Chat
 
@@ -84,6 +79,16 @@ Rose visualizza i messaggi e inizia a chattare. Nel frattempo, Casey riceve una 
 ## <a name="price"></a>Prezzo 
 
 Per i servizi di telefonia i prezzi vengono calcolati al minuto, mentre per gli SMS in base a singolo messaggio. I prezzi vengono determinati in base al tipo e alla località del numero in uso, oltre che alla destinazione delle chiamate e dei messaggi SMS.
+
+### <a name="telephone-number-leasing"></a>Leasing di numeri di telefono
+
+Le tariffe per il leasing di numeri di telefono vengono addebitate in anticipo e quindi ricorrono su base mensile:
+
+|Tipo di numero   |Tariffa mensile   |
+|--------------|-----------|
+|Locale (Stati Uniti)     |$ 1/mese        |
+|Numero verde (Stati Uniti) |$ 2/mese |
+
 
 ### <a name="telephone-calling"></a>Chiamate telefoniche
 

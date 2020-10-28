@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096216"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670129"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ In un profilo tecnico autocertificato, è possibile usare gli elementi **InputCl
 
 ## <a name="display-claims"></a>Visualizza attestazioni
 
-La funzionalità di visualizzazione delle attestazioni è attualmente in **Anteprima**.
+La funzionalità di visualizzazione delle attestazioni è attualmente in **Anteprima** .
 
 L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per la raccolta di dati da parte dell'utente. Per prepopolare i valori delle attestazioni di visualizzazione, usare le attestazioni di input descritte in precedenza. L'elemento può contenere anche un valore predefinito.
 
@@ -114,7 +114,7 @@ Se un criterio foglia che eredita tale base successivamente specifica `officeNum
 </TechnicalProfile>
 ```
 
-L' `age` attestazione nei criteri di base non viene più visualizzata sullo schermo per l'utente, perché è effettivamente "nascosta". Per visualizzare l' `age` attestazione e raccogliere il valore Age dall'utente, è necessario aggiungere un `age` **DisplayClaim**.
+L' `age` attestazione nei criteri di base non viene più visualizzata sullo schermo per l'utente, perché è effettivamente "nascosta". Per visualizzare l' `age` attestazione e raccogliere il valore Age dall'utente, è necessario aggiungere un `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>Attestazioni di output
 
@@ -133,10 +133,10 @@ In un profilo tecnico autocertificato, la raccolta di attestazioni di output res
 
 USA attestazioni di output nei casi seguenti:
 
-- Le **attestazioni vengono restituite dalla trasformazione delle attestazioni di output**.
+- Le **attestazioni vengono restituite dalla trasformazione delle attestazioni di output** .
 - **Impostazione di un valore predefinito in un'attestazione di output** senza raccogliere dati dall'utente o restituire i dati dal profilo tecnico di convalida. Il profilo tecnico autocertificato `LocalAccountSignUpWithLogonEmail` imposta l'attestazione **executed-SelfAsserted-Input** su `true`.
 - **Un profilo tecnico di convalida restituisce le attestazioni di output** - Il profilo tecnico può chiamare un profilo tecnico di convalida che restituisce alcune attestazioni. È possibile che si desideri sviluppare le attestazioni e restituirle ai successivi passaggi dell'orchestrazione nel percorso utente. Quando si accede con un account locale, ad esempio, il profilo tecnico autocertificato denominato `SelfAsserted-LocalAccountSignin-Email` chiama il profilo tecnico di convalida denominato `login-NonInteractive`. Questo profilo tecnico convalida le credenziali utente e restituisce il profilo utente, ad esempio 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
-- **Un controllo di visualizzazione restituisce le attestazioni di output** . il profilo tecnico può avere un riferimento a un [controllo di visualizzazione](display-controls.md). Il controllo di visualizzazione restituisce alcune attestazioni, ad esempio l'indirizzo di posta elettronica verificato. È possibile che si desideri sviluppare le attestazioni e restituirle ai successivi passaggi dell'orchestrazione nel percorso utente. La funzionalità di controllo di visualizzazione è attualmente in **Anteprima**.
+- **Un controllo di visualizzazione restituisce le attestazioni di output** . il profilo tecnico può avere un riferimento a un [controllo di visualizzazione](display-controls.md). Il controllo di visualizzazione restituisce alcune attestazioni, ad esempio l'indirizzo di posta elettronica verificato. È possibile che si desideri sviluppare le attestazioni e restituirle ai successivi passaggi dell'orchestrazione nel percorso utente. La funzionalità di controllo di visualizzazione è attualmente in **Anteprima** .
 
 Nell'esempio seguente viene illustrato l'utilizzo di un profilo tecnico autocertificato che utilizza sia le attestazioni di visualizzazione sia le attestazioni di output.
 
@@ -175,6 +175,14 @@ Nell'esempio seguente viene illustrato l'utilizzo di un profilo tecnico autocert
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Pagina di iscrizione o accesso alle attestazioni di output
+
+In una pagina di iscrizione e accesso combinata tenere presente quanto segue quando si usa un elemento [DataUri](contentdefinitions.md#datauri) della definizione del contenuto che specifica un `unifiedssp` `unifiedssd` tipo di pagina o:
+
+- Viene eseguito il rendering solo delle attestazioni nome utente e password.
+- Le prime due attestazioni di output devono essere il nome utente e la password (in questo ordine). 
+- Non viene eseguito il rendering di altre attestazioni. per queste attestazioni è necessario impostare `defaultValue` o richiamare un profilo tecnico di convalida dei moduli delle attestazioni. 
+
 ## <a name="persist-claims"></a>Rendere persistenti le attestazioni
 
 L'elemento PersistedClaims non viene utilizzato. Il profilo tecnico autocertificato non rende persistenti i dati Azure AD B2C. Viene invece eseguita una chiamata a un profilo tecnico di convalida che è responsabile della persistenza dei dati. I criteri di accesso ad esempio usano il profilo tecnico autocertificato `LocalAccountSignUpWithLogonEmail` per raccogliere il nuovo profilo utente. Il profilo tecnico `LocalAccountSignUpWithLogonEmail` chiama il profilo tecnico di convalida per creare l'account in Azure AD B2C.
@@ -189,7 +197,7 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | impostazione. operatingMode <sup>1</sup>| No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`.  |
 | AllowGenerationOfClaimsWithNullValues| No| Consente a di generare un'attestazione con valore null. Ad esempio, in un caso l'utente non seleziona una casella di controllo.|
@@ -203,7 +211,7 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 | impostazione. forgotPasswordLinkLocation <sup>2</sup>| No| Visualizza il collegamento password dimenticata. Valori possibili: `AfterInput` (impostazione predefinita) il collegamento viene visualizzato nella parte inferiore della pagina o `None` rimuove il collegamento password dimenticata.|
 | impostazione. enableRememberMe <sup>2</sup>| No| Visualizza la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) . Valori possibili: `true` , o `false` (impostazione predefinita). |
 | impostazione. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Consente di migliorare l'esperienza utente, attendendo che l'utente interrompa la digitazione, quindi convalidare il valore. Valore predefinito 2000 millisecondi. |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 Note:
 1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` o `unifiedssd` .

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570448"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670112"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Panoramica delle chiavi dei criteri in Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Azure Active Directory B2C (Azure AD B2C) archivia i segreti e i certificati sot
 
 ## <a name="policy-keyset-and-keys"></a>Chiavi e keyset dei criteri
 
-La risorsa di primo livello per le chiavi dei criteri in Azure AD B2C è il contenitore **Keyset** . Ogni keyset contiene almeno una **chiave**. Una chiave ha gli attributi seguenti:
+La risorsa di primo livello per le chiavi dei criteri in Azure AD B2C è il contenitore **Keyset** . Ogni keyset contiene almeno una **chiave** . Una chiave ha gli attributi seguenti:
 
 | Attributo |  Obbligatoria | Commenti |
 | --- | --- |--- |
@@ -58,7 +58,7 @@ Per motivi di sicurezza, Azure AD B2C possibile eseguire il rollover delle chiav
 
 Se un keyset Azure AD B2C dispone di più chiavi, solo una delle chiavi è attiva in qualsiasi momento, in base ai criteri seguenti:
 
-- L'attivazione della chiave è basata sulla **Data di attivazione**.
+- L'attivazione della chiave è basata sulla **Data di attivazione** .
   - Le chiavi vengono ordinate in base alla data di attivazione in ordine crescente. Le chiavi con le date di attivazione successive verranno visualizzate più in basso nell'elenco. Le chiavi senza una data di attivazione si trovano nella parte inferiore dell'elenco.
   - Quando la data e l'ora correnti sono maggiori della data di attivazione di una chiave, Azure AD B2C attiverà la chiave e smetterà di usare la chiave attiva precedente.
 - Quando è trascorso il tempo di scadenza della chiave corrente e il contenitore di chiavi contiene una nuova chiave con tempi *non precedenti* e di *scadenza* validi, la nuova chiave diventa attiva automaticamente.
@@ -73,11 +73,18 @@ Per aggiungere o eliminare chiavi di firma e crittografia:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
-1. Nella pagina Panoramica, nella sezione **Criteri**, selezionare **Framework dell'esperienza di gestione delle identità**.
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C** .
+1. Nella pagina Panoramica, nella sezione **Criteri** , selezionare **Framework dell'esperienza di gestione delle identità** .
 1. Selezionare le **chiavi dei criteri** 
-    1. Per aggiungere una nuova chiave, selezionare **Aggiungi**.
-    1. Per rimuovere una nuova chiave, selezionare la chiave e quindi selezionare **Elimina**. Per eliminare la chiave, digitare il nome del contenitore di chiavi da eliminare. Azure AD B2C eliminerà la chiave e creerà una copia della chiave con il suffisso. bak.
+    1. Per aggiungere una nuova chiave, selezionare **Aggiungi** .
+    1. Per rimuovere una nuova chiave, selezionare la chiave e quindi selezionare **Elimina** . Per eliminare la chiave, digitare il nome del contenitore di chiavi da eliminare. Azure AD B2C eliminerà la chiave e creerà una copia della chiave con il suffisso. bak.
+
+### <a name="replace-a-key"></a>Sostituire una chiave
+
+Le chiavi in un keyset non sono sostituibili o rimovibili. Se è necessario modificare una chiave esistente:
+
+- Si consiglia di aggiungere una nuova chiave con la **Data di attivazione** impostata sulla data e sull'ora correnti. Azure AD B2C attiverà la nuova chiave e smetterà di usare la chiave attiva precedente.
+- In alternativa, è possibile creare un nuovo keyset con le chiavi corrette. Aggiornare i criteri per l'uso del nuovo keyset, quindi rimuovere il keyset precedente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

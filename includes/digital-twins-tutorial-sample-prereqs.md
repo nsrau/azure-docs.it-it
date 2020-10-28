@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 062aa975deb71cdf7c76842d1e94152aff73b068
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2c20bce35a3b6effcdeea2b82d903db0895d42b2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92322432"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495929"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,3 +23,5 @@ L'esercitazione si basa su un progetto di esempio scritto in C#. L'esempio è di
 Verrà scaricata una cartella *ZIP* nel computer denominata **Azure_Digital_Twins_end_to_end_samples.zip** . Decomprimere la cartella ed estrarre i file.
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

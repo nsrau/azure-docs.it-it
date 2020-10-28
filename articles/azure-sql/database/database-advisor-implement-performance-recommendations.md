@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284364"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672106"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Suggerimenti sulle prestazioni Advisor per database per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Panoramica delle prestazioni fornisce un riepilogo delle prestazioni del databas
 - Il riquadro **Raccomandazioni** offre un elenco di raccomandazioni di ottimizzazione per il database (vengono visualizzate le tre raccomandazioni principali se ne sono presenti di più). Fare clic su questo riquadro per **[scegliere le opzioni di raccomandazione](database-advisor-find-recommendations-portal.md#viewing-recommendations)** per le prestazioni.
 - Il riquadro **Attività di ottimizzazione** fornisce un riepilogo delle operazioni di ottimizzazione in corso e completate per il database e offre una vista rapida della cronologia delle attività di ottimizzazione. Se si fa clic su questo riquadro viene visualizzata la cronologia di ottimizzazione completa per il database.
 - Il riquadro **ottimizzazione automatica** Mostra la **[configurazione dell'ottimizzazione automatica](automatic-tuning-enable.md)** per il database (opzioni di ottimizzazione applicate automaticamente al database). Se si fa clic su questo riquadro viene visualizzata la finestra di dialogo di configurazione dell'automazione.
-- Il riquadro **Query su database** visualizza un riepilogo delle prestazioni delle query per il database (uso complessivo di DTU e query con il maggior consumo di risorse). Se si fa clic su questo riquadro viene visualizzata la pagina **[Informazioni dettagliate prestazioni query](query-performance-insight-use.md)**.
+- Il riquadro **Query su database** visualizza un riepilogo delle prestazioni delle query per il database (uso complessivo di DTU e query con il maggior consumo di risorse). Se si fa clic su questo riquadro viene visualizzata la pagina **[Informazioni dettagliate prestazioni query](query-performance-insight-use.md)** .
 
 ## <a name="performance-recommendation-options"></a>Opzioni di raccomandazione per le prestazioni
 
@@ -53,17 +53,17 @@ Per applicare le raccomandazioni sulle prestazioni, vedere [applicazione delle r
 
 ## <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
 
-Il database SQL di Azure monitora continuamente le query in esecuzione e identifica gli indici che potrebbero migliorare le prestazioni. Se la mancanza di un determinato indice è individuata con sufficiente attendibilità, viene creata una nuova raccomandazione **Crea indice**.
+Il database SQL di Azure monitora continuamente le query in esecuzione e identifica gli indici che potrebbero migliorare le prestazioni. Se la mancanza di un determinato indice è individuata con sufficiente attendibilità, viene creata una nuova raccomandazione **Crea indice** .
 
 Il database SQL di Azure valuta l'attendibilità stimando il miglioramento delle prestazioni che l'indice potrebbe offrire nel tempo. In base al miglioramento delle prestazioni stimato, le raccomandazioni vengono classificate come alta, media o bassa.
 
-Gli indici creati tramite raccomandazioni sono sempre contrassegnati come indici creati automaticamente. È possibile visualizzare gli indici creati automaticamente esaminando la [vista sys. Indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Gli indici creati automaticamente non bloccano i comandi ALTER/RENAME.
+Gli indici creati tramite raccomandazioni sono sempre contrassegnati come indici creati automaticamente. È possibile visualizzare gli indici creati automaticamente esaminando la [vista sys. Indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Gli indici creati automaticamente non bloccano i comandi ALTER/RENAME.
 
 Se si tenta di eliminare la colonna associata a un indice creato automaticamente, il comando passa e l'indice creato automaticamente viene eliminato con il comando. Gli indici normali bloccano il comando ALTER/RENAME sulle colonne indicizzate.
 
 Dopo l'applicazione delle raccomandazioni per l'indice, il database SQL di Azure confronta le prestazioni delle query con quelle di base. Se il nuovo indice migliora le prestazioni, la raccomandazione è contrassegnata come positiva e il report di impatto diventa disponibile. Se l'indice non migliora le prestazioni, viene ripristinato automaticamente. Il database SQL di Azure usa questo processo per garantire che le raccomandazioni migliorino le prestazioni del database.
 
-Per ogni raccomandazione **crea indice**, esistono criteri di sicurezza che non consentono di applicare la raccomandazione se l'uso delle risorse di un database o di un pool è elevato. I criteri di sicurezza tengono conto di CPU, I/O dati, I/O log e spazio di archiviazione disponibile.
+Per ogni raccomandazione **crea indice** , esistono criteri di sicurezza che non consentono di applicare la raccomandazione se l'uso delle risorse di un database o di un pool è elevato. I criteri di sicurezza tengono conto di CPU, I/O dati, I/O log e spazio di archiviazione disponibile.
 
 Se CPU, i/o dati o i/o log sono superiori al 80% nei 30 minuti precedenti, la raccomandazione Crea indice viene posticipata. Se lo spazio di archiviazione disponibile sarà inferiore del 10% dopo la creazione dell'indice, la raccomandazione entra in uno stato di errore. Se, dopo un paio di giorni, si ritiene che l'indice sia ancora utile per l'ottimizzazione automatica, il processo inizia nuovamente.
 
@@ -88,7 +88,7 @@ Le query con valori senza parametri possono causare un sovraccarico delle presta
 
 Il processo di ricompilazione dei piani di esecuzione usa le risorse del database, aumenta il tempo di durata della query e si verifica un overflow della cache dei piani. Questi eventi, a loro volta, determinano la rimozione dei piani dalla cache. Questo comportamento può essere modificato impostando l'opzione di parametrizzazione forzata nel database.
 
-Per stimare l'impatto della raccomandazione, viene offerto un confronto tra l'uso effettivo e quello previsto della CPU (ovvero nel caso di applicazione della raccomandazione). Tale raccomandazione consente di ottenere risparmi in termini di CPU e di ridurre la durata delle query e l'overhead per la cache dei piani, in modo che più piani possano rimanere nella cache ed essere usati nuovamente. È possibile applicare questa raccomandazione rapidamente selezionando il comando **Applica**.
+Per stimare l'impatto della raccomandazione, viene offerto un confronto tra l'uso effettivo e quello previsto della CPU (ovvero nel caso di applicazione della raccomandazione). Tale raccomandazione consente di ottenere risparmi in termini di CPU e di ridurre la durata delle query e l'overhead per la cache dei piani, in modo che più piani possano rimanere nella cache ed essere usati nuovamente. È possibile applicare questa raccomandazione rapidamente selezionando il comando **Applica** .
 
 Dopo l'applicazione della raccomandazione, in pochi minuti nel database viene applicata la parametrizzazione forzata che avvia il processo di monitoraggio, che dura circa 24 ore. Dopo questo periodo, è possibile visualizzare il report di convalida. Il report mostra l'uso della CPU del database di 24 ore prima e dopo l'applicazione della raccomandazione. Advisor per database SQL di Azure dispone di un meccanismo di sicurezza che ripristina automaticamente la raccomandazione applicata se è stata rilevata una regressione delle prestazioni.
 
@@ -105,7 +105,7 @@ Quando il database SQL di Azure rileva un'anomalia nel numero di errori SQL corr
 
 | Codice di errore SQL | Message |
 | --- | --- |
-| 201 |La procedura o funzione '*' richiede il parametro '*', che non è stato specificato. |
+| 201 |La procedura o funzione ' *' richiede il parametro '* ', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |
 | 208 |Il nome di oggetto '*' non è valido. |
 | 213 |Il nome della colonna o il numero dei valori specificati non corrisponde alla definizione della tabella. |
@@ -114,7 +114,7 @@ Quando il database SQL di Azure rileva un'anomalia nel numero di errori SQL corr
 
 ## <a name="custom-applications"></a>Applicazioni personalizzate
 
-Gli sviluppatori potrebbero prendere in considerazione lo sviluppo di applicazioni personalizzate usando consigli sulle prestazioni per il database SQL di Azure. È possibile accedere a tutte le raccomandazioni elencate nel portale per un database tramite l'API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
+Gli sviluppatori potrebbero prendere in considerazione lo sviluppo di applicazioni personalizzate usando consigli sulle prestazioni per il database SQL di Azure. È possibile accedere a tutte le raccomandazioni elencate nel portale per un database tramite l'API [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

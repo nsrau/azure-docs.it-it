@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078171"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671599"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
@@ -49,9 +49,9 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Creare un'istanza di servizi app nel [portale di Azure](https://portal.azure.com) come di consueto. Passare all'app nel portale.
 
-1. Scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro a sinistra e selezionare **Identità**.
+1. Scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro a sinistra e selezionare **Identità** .
 
-1. Nella scheda **Assegnata dal sistema** impostare **Stato** su **Attivato** e selezionare **Salva**.
+1. Nella scheda **Assegnata dal sistema** impostare **Stato** su **Attivato** e selezionare **Salva** .
 
 1. Risposta **Sì** quando viene richiesto di abilitare l'identità gestita assegnata dal sistema.
 
@@ -63,13 +63,13 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Selezionare **Controllo di accesso (IAM)** .
 
-1. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo**.
+1. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo** .
 
-1. In **ruolo**selezionare **lettore dati di configurazione dell'app**. In **Assegna accesso a** selezionare **Servizio app** in **Identità gestita assegnata dal sistema**.
+1. In **ruolo** selezionare **lettore dati di configurazione dell'app** . In **Assegna accesso a** selezionare **Servizio app** in **Identità gestita assegnata dal sistema** .
 
 1. In **Sottoscrizione** selezionare la sottoscrizione di Azure. Selezionare la risorsa Servizio app per la propria app.
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
     ![Aggiungere un'identità gestita](./media/add-managed-identity.png)
 
@@ -93,7 +93,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     }
     ```
 
-1. Aprire *Program.cs*e aggiungere un riferimento agli `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` spazi dei nomi e:
+1. Aprire *Program.cs* e aggiungere un riferimento agli `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` spazi dei nomi e:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -107,30 +107,32 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
-                var settings = config.Build();
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -139,46 +141,48 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-                WebHost.CreateDefaultBuilder(args)
-                    .ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>();
+                   config.AddAzureAppConfiguration(options =>
+                   {
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                           .ConfigureKeyVault(kv =>
+                           {
+                              kv.SetCredential(credentials);
+                           });
+                   });
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+            {
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>());
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                    });
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -222,7 +226,7 @@ Questo comando offre un risultato simile all'output seguente:
 
 ### <a name="deploy-your-project"></a>Distribuire il progetto
 
-Nella _finestra del terminale locale_aggiungere un'area remota di Azure al repository git locale. Sostituire _\<url>_ con l'URL del GIT remoto ottenuto dall' [Abilitazione di git locale con Kudu](#enable-local-git-with-kudu).
+Nella _finestra del terminale locale_ aggiungere un'area remota di Azure al repository git locale. Sostituire _\<url>_ con l'URL del GIT remoto ottenuto dall' [Abilitazione di git locale con Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

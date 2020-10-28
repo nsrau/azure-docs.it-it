@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944565"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316978"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Che cosa sono i servizi dati con abilitazione di Azure Arc (anteprima)?
 
@@ -33,7 +33,7 @@ I servizi dati con abilitazione di Azure Arc, ad esempio l'istanza gestita di SQ
 
 ## <a name="elastic-scale"></a>Scalabilità elastica
 
-L'elasticità in locale di tipo cloud consente di ridimensionare dinamicamente i database in modo analogo a quanto avviene in Azure, in base alla capacità disponibile dell'infrastruttura. Questa funzionalità è in grado di soddisfare scenari di burst con esigenze volatili, inclusi scenari che richiedono l'inserimento di dati e l'esecuzione di query su di essi in tempo reale, su qualsiasi scala, con tempi di risposta di frazioni di secondo. È inoltre possibile aumentare le istanze di database usando l'opzione di distribuzione con iperscalabilità unica di Database di Azure per PostgreSQL Hyperscale. Questa funzionalità offre ai carichi di lavoro dei dati un ulteriore incremento dell'ottimizzazione della capacità, usando operazioni di lettura e scrittura univoche con scalabilità *orizzontale*.
+L'elasticità in locale di tipo cloud consente di ridimensionare dinamicamente i database in modo analogo a quanto avviene in Azure, in base alla capacità disponibile dell'infrastruttura. Questa funzionalità è in grado di soddisfare scenari di burst con esigenze volatili, inclusi scenari che richiedono l'inserimento di dati e l'esecuzione di query su di essi in tempo reale, su qualsiasi scala, con tempi di risposta di frazioni di secondo. È inoltre possibile aumentare le istanze di database usando l'opzione di distribuzione con iperscalabilità unica di Database di Azure per PostgreSQL Hyperscale. Questa funzionalità offre ai carichi di lavoro dei dati un ulteriore incremento dell'ottimizzazione della capacità, usando operazioni di lettura e scrittura univoche con scalabilità *orizzontale* .
 
 ## <a name="self-service-provisioning"></a>Provisioning self-service
 
@@ -41,7 +41,7 @@ Azure Arc offre anche altri vantaggi per il cloud, ad esempio la distribuzione r
 
 ## <a name="unified-management"></a>Gestione unificata
 
-Usando strumenti familiari come il portale di Azure, Azure Data Studio e l'interfaccia della riga di comando di Azure Data, è ora possibile ottenere una visualizzazione unificata di tutti gli asset di dati distribuiti con Azure Arc. È possibile non solo visualizzare e gestire un'ampia gamma di database relazionali nell'ambiente e in Azure, ma anche ottenere log e dati di telemetria dalle API Kubernetes per analizzare la capacità e l'integrità dell'infrastruttura sottostante. Oltre a disporre dell'analisi dei log e del monitoraggio delle prestazioni localizzati, è ora possibile usufruire di Monitoraggio di Azure per ottenere informazioni operative complete sull'intera struttura.
+Usando strumenti familiari come il portale di Azure, Azure Data Studio e l'[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], è ora possibile ottenere una visualizzazione unificata di tutti gli asset di dati distribuiti con Azure Arc. È possibile non solo visualizzare e gestire un'ampia gamma di database relazionali nell'ambiente e in Azure, ma anche ottenere log e dati di telemetria dalle API Kubernetes per analizzare la capacità e l'integrità dell'infrastruttura sottostante. Oltre a disporre dell'analisi dei log e del monitoraggio delle prestazioni localizzati, è ora possibile usufruire di Monitoraggio di Azure per ottenere informazioni operative complete sull'intera struttura.
 
 ## <a name="disconnected-scenario-support"></a>Supporto di scenari disconnessi
 

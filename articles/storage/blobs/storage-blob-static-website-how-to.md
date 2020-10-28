@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671115"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hosting di un sito Web statico in Archiviazione di Azure
 
@@ -38,15 +38,15 @@ L'hosting di siti Web statici è una funzionalità che deve essere abilitata nel
 
 4. Selezionare **Abilitato** per abilitare l'hosting di siti Web statici per l'account di archiviazione.
 
-5. Nel campo **Nome del documento di indice** specificare una pagina di indice predefinita, ad esempio *index.html*. 
+5. Nel campo **Nome del documento di indice** specificare una pagina di indice predefinita, ad esempio *index.html* . 
 
    La pagina di indice predefinita viene visualizzata quando un utente passa alla radice del sito Web statico.  
 
-6. Nel campo **Percorso del documento di errore** specificare una pagina di errore predefinita, ad esempio *404.html*. 
+6. Nel campo **Percorso del documento di errore** specificare una pagina di errore predefinita, ad esempio *404.html* . 
 
    La pagina di errore predefinita viene visualizzata quando un utente tenta di passare a una pagina inesistente nel sito Web statico.
 
-7. Fare clic su **Salva**. Il portale di Azure visualizza ora l'endpoint del sito Web statico. 
+7. Fare clic su **Salva** . Il portale di Azure visualizza ora l'endpoint del sito Web statico. 
 
     ![Abilitare l'hosting di siti Web statici per un account di archiviazione](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -140,7 +140,7 @@ Queste istruzioni illustrano come caricare i file usando la versione di Storage 
 
 1. Selezionare **Storage Explorer (anteprima)** .
 
-2. Espandere il nodo **CONTENITORI BLOB** e quindi selezionare il contenitore **$web**.
+2. Espandere il nodo **CONTENITORI BLOB** e quindi selezionare il contenitore **$web** .
 
 3. Scegliere il pulsante **Carica** per caricare i file.
 
@@ -151,7 +151,7 @@ Queste istruzioni illustrano come caricare i file usando la versione di Storage 
    ![Verificare i tipi di contenuto](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Storage Explorer imposta automaticamente questa proprietà su `text/html` per le estensioni comunemente riconosciute, ad esempio `.html`. In alcuni casi, tuttavia, è necessario impostare la proprietà manualmente. Se non si imposta questa proprietà su `text/html`, il browser richiederà agli utenti di scaricare il file anziché eseguire il rendering del contenuto. Per impostare questa proprietà, fare clic con il pulsante destro del mouse sul file e quindi fare clic su **Proprietà**.
+   > Storage Explorer imposta automaticamente questa proprietà su `text/html` per le estensioni comunemente riconosciute, ad esempio `.html`. In alcuni casi, tuttavia, è necessario impostare la proprietà manualmente. Se non si imposta questa proprietà su `text/html`, il browser richiederà agli utenti di scaricare il file anziché eseguire il rendering del contenuto. Per impostare questa proprietà, fare clic con il pulsante destro del mouse sul file e quindi fare clic su **Proprietà** .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -204,7 +204,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nel riquadro che appare accanto alla pagina della panoramica dell’account di archiviazione selezionare **Sito Web statico**. L'URL del sito viene visualizzato nel campo **Endpoint primario**.
+Nel riquadro che appare accanto alla pagina della panoramica dell’account di archiviazione selezionare **Sito Web statico** . L'URL del sito viene visualizzato nel campo **Endpoint primario** .
 
 ![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -249,23 +249,23 @@ Dopo che le metriche sono state abilitate, le statistiche sul traffico per i fil
    > [!NOTE]
    > I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per assicurarsi di poter selezionare il membro dell'API necessario, occorre per prima cosa espandere l'intervallo di tempo.
 
-2. Fare clic sul pulsante dell'intervallo di tempo, scegliere un intervallo di tempo e quindi fare clic su **Applica**.
+2. Fare clic sul pulsante dell'intervallo di tempo, scegliere un intervallo di tempo e quindi fare clic su **Applica** .
 
    ![Intervallo di tempo delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Selezionare **BLOB** dall'elenco a discesa *Spazio dei nomi*.
+3. Selezionare **BLOB** dall'elenco a discesa *Spazio dei nomi* .
 
    ![Spazio dei nomi delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
-4. Selezionare quindi la metrica **Dati in uscita**.
+4. Selezionare quindi la metrica **Dati in uscita** .
 
-   ![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Screenshot che mostra la metrica di uscita dei siti web statici di archiviazione di Azure.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Selezionare **Somma** dal selettore *Aggregazione*.
+5. Selezionare **Somma** dal selettore *Aggregazione* .
 
    ![Aggregazione delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Fare clic sul pulsante **Aggiungi filtro** e scegliere **Nome API** dal selettore *Proprietà*.
+6. Fare clic sul pulsante **Aggiungi filtro** e scegliere **Nome API** dal selettore *Proprietà* .
 
    ![Nome API delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 

@@ -3,14 +3,14 @@ title: Panoramica di Automazione di Azure - Rilevamento modifiche e inventario
 description: Questo articolo descrive la funzionalità di Rilevamento modifiche e inventario, che consente di identificare le modifiche al software e al servizio Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210276"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670740"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -48,7 +48,7 @@ Rilevamento modifiche e l'inventario non supportano o presenta le limitazioni se
 - Ricorsione per Rilevamento del Registro di sistema di Windows
 - File system di rete
 - Metodi di installazione diversi
-- *file con **estensione exe** archiviati in Windows
+- *file con *_estensione exe_* archiviati in Windows
 - La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
 - Se si tenta di raccogliere più di 2500 file in un ciclo di raccolta di 30 minuti, è possibile che le prestazioni Rilevamento modifiche e inventario risultino ridotte.
 - Se il traffico di rete è elevato, i record delle modifiche possono richiedere fino a sei ore per la visualizzazione.
@@ -73,17 +73,19 @@ Gli indirizzi seguenti sono necessari in modo specifico per Rilevamento modifich
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-Quando si creano regole di sicurezza del gruppo di rete o si configura il firewall di Azure per consentire il traffico verso il servizio di automazione e l'area di lavoro Log Analytics, usare il [tag di servizio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Ciò semplifica la gestione continuativa delle regole di sicurezza di rete. Per connettersi al servizio di automazione dalle macchine virtuali di Azure in modo sicuro e privato, vedere [usare il collegamento privato di Azure](../how-to/private-link-security.md). Per ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locali, vedere [file JSON scaricabili](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando si creano regole di sicurezza del gruppo di rete o si configura il firewall di Azure per consentire il traffico verso il servizio di automazione e l'area di lavoro Log Analytics, usare il [tag di servizio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Ciò semplifica la gestione continuativa delle regole di sicurezza di rete. Per connettersi al servizio di automazione dalle macchine virtuali di Azure in modo sicuro e privato, vedere [usare il collegamento privato di Azure](../how-to/private-link-security.md). Per ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locali, vedere [file JSON scaricabili](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
-Ecco i modi in cui è possibile abilitare Rilevamento modifiche e inventario e selezionare i computer da gestire:
+È possibile abilitare Rilevamento modifiche e l'inventario nei modi seguenti:
 
-* [Da una macchina virtuale di Azure](enable-from-vm.md).
-* [Dall'esplorazione di più macchine virtuali di Azure](enable-from-portal.md).
-* [Da un account di automazione di Azure](enable-from-automation-account.md).
-* Per i server abilitati per Arc o per i computer non Azure, installare l'agente Log Analytics dai server abilitati per Azure ARC usando l' [estensione della macchina virtuale](../../azure-arc/servers/manage-vm-extensions.md) e quindi [abilitare i computer nell'area di lavoro](enable-from-automation-account.md#enable-machines-in-the-workspace) per rilevamento modifiche e l'inventario.
-* [Uso di un Runbook di automazione](enable-from-runbook.md).
+- Dall' [account di automazione](enable-from-automation-account.md) per uno o più computer Azure e non Azure.
+
+- Manualmente per i computer non Azure, inclusi i computer o i server registrati con i [server abilitati per Azure Arc](../../azure-arc/servers/overview.md). Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer *Linux* o *Windows* Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . Se si prevede di monitorare anche i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+
+- Per una singola VM di Azure dalla [pagina della macchina virtuale](enable-from-vm.md) nella portale di Azure. Questo scenario è disponibile per macchine virtuali Linux e Windows.
+
+- Per [più VM di Azure](enable-from-portal.md) mediante la selezione delle VM dalla pagina Macchina virtuale nel portale di Azure.
 
 ## <a name="tracking-file-changes"></a>Rilevamento delle modifiche ai file
 
@@ -106,18 +108,18 @@ Rilevamento modifiche e Inventory consente il monitoraggio delle modifiche alle 
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora gli script eseguiti all'arresto del sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora le chiavi caricate prima dell'accesso degli utenti nel proprio account di Windows. La chiave viene usata per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora le modifiche apportate alle impostazioni dell'applicazione.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora i gestori dei menu di scelta rapida che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora i gestori di hook di copia che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora i gestori dei menu di scelta rapida che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora i gestori di hook di copia che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe** .
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore delle immagini sovrapposte alle icone per le applicazioni a 32 bit in esecuzione in computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzati per le applicazioni a 32 bit in esecuzione in computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file **system.ini**.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per le applicazioni a 32 bit in esecuzione in computer a 64 bit. È simile alla sezione [driver] nel file **system.ini**.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file **system.ini** .
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per le applicazioni a 32 bit in esecuzione in computer a 64 bit. È simile alla sezione [driver] nel file **system.ini** .
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Il monitoraggio impedisce agli utenti di sfruttare le autorizzazioni vulnerabili per le directory applicative eliminando le versioni Trojan Horse delle DLL di sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **winlogon.exe**, il modello di supporto per l'accesso interattivo per Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **winlogon.exe** , il modello di supporto per l'accesso interattivo per Windows.
 
 ## <a name="recursion-support"></a>Supporto della ricorsione
 
@@ -125,7 +127,7 @@ Rilevamento modifiche e inventario supporta la ricorsione, che consente di speci
 
 - I caratteri jolly sono necessari per il rilevamento di più file.
 
-- È possibile usare caratteri jolly solo nell'ultimo segmento di un percorso di file, ad esempio **c:\cartella * \\ **o **/etc/*. conf**.
+- È possibile usare i caratteri jolly solo nell'ultimo segmento di un percorso di file, ad esempio, **c:\cartella \\ file** _ o _ */etc/* . conf * *.
 
 - Se a una variabile di ambiente è associato ha un percorso non valido, la convalida ha esito positivo, ma il percorso non restituisce errore durante l'esecuzione.
 
@@ -160,7 +162,7 @@ L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifi
 
 ### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 
-La frequenza di raccolta predefinita per i servizi Microsoft è pari a 30 minuti. È possibile configurare la frequenza usando un dispositivo di scorrimento nella scheda **Servizi Microsoft** in **Modifica impostazioni**.
+La frequenza di raccolta predefinita per i servizi Microsoft è pari a 30 minuti. È possibile configurare la frequenza usando un dispositivo di scorrimento nella scheda **Servizi Microsoft** in **Modifica impostazioni** .
 
 ![Dispositivo di scorrimento per i servizi Microsoft](./media/overview/windowservices.png)
 

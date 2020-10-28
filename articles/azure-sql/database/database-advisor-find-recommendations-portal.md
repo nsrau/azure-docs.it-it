@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443881"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672263"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Per visualizzare e applicare le raccomandazioni sulle prestazioni, è necessario
 Usare la procedura seguente per trovare le raccomandazioni sulle prestazioni nel portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare a **tutti i servizi**  >  **database SQL**e selezionare il database.
+2. Passare a **tutti i servizi**  >  **database SQL** e selezionare il database.
 3. Fare clic su **Raccomandazione per le prestazioni** per visualizzare le raccomandazioni disponibili per il database selezionato.
 
 Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile a quella illustrata nella figura seguente:
@@ -82,13 +82,13 @@ Le raccomandazioni selezionate vengono applicate al database.
 Se l'elenco di raccomandazioni contiene voci che si vuole rimuovere dall'elenco, ignorare la raccomandazione:
 
 1. Selezionare una raccomandazione nell'elenco **Raccomandazioni** per aprire i dettagli.
-2. Fare clic su **Ignora** nella pagina **Dettagli**.
+2. Fare clic su **Ignora** nella pagina **Dettagli** .
 
 Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco **Raccomandazioni** :
 
-1. Nella pagina **Raccomandazioni** fare clic su **Visualizza rimosse**.
+1. Nella pagina **Raccomandazioni** fare clic su **Visualizza rimosse** .
 2. Selezionare un elemento ignorato nell'elenco per visualizzarne i dettagli.
-3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni**.
+3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni** .
 
 > [!NOTE]
 > Se è abilitata l'[ottimizzazione automatica](automatic-tuning-overview.md) del database SQL e se una raccomandazione è stata rimossa manualmente dall'elenco, tale raccomandazione non verrà mai applicata automaticamente. La rimozione di una raccomandazione è un modo pratico per gli utenti di abilitare l'ottimizzazione automatica nei casi che richiedono che non venga applicata una raccomandazione specifica.
@@ -98,7 +98,7 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 
 È possibile impostare il database in modo che implementi automaticamente le raccomandazioni. Man mano che le raccomandazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
 
-1. Nella pagina **Raccomandazioni** fare clic su **Automatizza**:
+1. Nella pagina **Raccomandazioni** fare clic su **Automatizza** :
 
    ![Impostazioni di Advisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Selezionare le azioni da automatizzare:
@@ -112,15 +112,15 @@ Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare manualmente le raccomandazioni tramite T-SQL
 
-Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
+Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script** . Eseguire questo script nel database per applicare manualmente l'indicazione.
 
-*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
+*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 
-Le raccomandazioni con stato **In sospeso**, **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
+Le raccomandazioni con stato **In sospeso** , **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
 
-1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione**.
+1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione** .
 2. Fare clic su **Annulla** per interrompere il processo di applicazione della raccomandazione.
 
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
@@ -129,7 +129,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 
 | Stato | Descrizione |
 |:--- |:--- |
-| Pending |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
+| In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
 | Operazione completata |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
@@ -146,7 +146,7 @@ Fare clic su una raccomandazione in-process nell'elenco per visualizzare altre i
 Se sono state usate le raccomandazioni per le prestazioni per applicare la raccomandazione, ovvero non è stato eseguito manualmente lo script T-SQL, la raccomandazione annulla automaticamente la modifica se viene rilevato un impatto negativo sulle prestazioni. Se per qualsiasi motivo si vuole semplicemente annullare una raccomandazione, procedere come segue:
 
 1. Selezionare una raccomandazione applicata nell'area **Cronologia ottimizzazione** .
-2. Fare clic su **Ripristina** nella pagina dei **dettagli della raccomandazione**.
+2. Fare clic su **Ripristina** nella pagina dei **dettagli della raccomandazione** .
 
 ![Indici consigliati](./media/database-advisor-find-recommendations-portal/details.png)
 
@@ -170,6 +170,6 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Archivio query](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)

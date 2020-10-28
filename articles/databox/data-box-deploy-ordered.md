@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575300"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206798"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -55,7 +55,7 @@ Prima di iniziare, verificare che:
 
 #### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
-* Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), versione 2.0.67 o successiva. In alternativa, è possibile eseguire l'[installazione tramite MSI](https://aka.ms/installazurecliwindows).
+* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), versione 2.0.67 o successiva. In alternativa, è possibile eseguire l'[installazione tramite MSI](https://aka.ms/installazurecliwindows).
 
 **Accedere ad Azure**
 
@@ -164,13 +164,13 @@ Viene visualizzato l'output seguente:
     WSManStackVersion              3.0
 ```
 
-Se la versione di Windows PowerShell è inferiore a 6.2.4, è necessario aggiornarla. Per installare la versione più recente di PowerShell, vedere [Installare Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
+Se la versione di Windows PowerShell è inferiore a 6.2.4, è necessario aggiornarla. Per installare la versione più recente di PowerShell, vedere [Installare Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
 
 **Installare i moduli di Azure PowerShell e Data Box**
 
 Per usare Azure PowerShell e ordinare un dispositivo Azure Data Box, è necessario installare i moduli di Azure PowerShell. Per installare i moduli di Azure PowerShell:
 
-1. Installare il [modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+1. Installare il [modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 2. Installare quindi Az.DataBox con il comando `Install-Module -Name Az.DataBox`.
 
 ```azurepowershell
@@ -184,7 +184,7 @@ Version              Name                                Repository           De
 
 #### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Aprire una finestra di comando di Windows PowerShell e accedere ad Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount):
+Aprire una finestra di comando di Windows PowerShell e accedere ad Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount):
 
 ```azurepowershell
 PS C:\Windows> Connect-AzAccount
@@ -202,7 +202,7 @@ gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaa
 PS C:\Windows\System32>
 ```
 
-Per informazioni dettagliate su come accedere ad Azure con Windows PowerShell, vedere [Accedere con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Per informazioni dettagliate su come accedere ad Azure con Windows PowerShell, vedere [Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -213,19 +213,19 @@ Per informazioni dettagliate su come accedere ad Azure con Windows PowerShell, v
 Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 1. Usare le credenziali di Microsoft Azure per accedere all'URL [https://portal.azure.com](https://portal.azure.com).
-2. Selezionare **+ Crea una risorsa** e cercare *Azure Data Box*. Selezionare **Azure Data Box**.
+2. Selezionare **+ Crea una risorsa** e cercare *Azure Data Box* . Selezionare **Azure Data Box** .
 
    ![Screenshot della sezione Nuovo con Azure Data Box nel campo di ricerca.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Selezionare **Crea**.
+3. Selezionare **Crea** .
 
    ![Screenshot della sezione Azure Data Box con l'opzione Crea evidenziata.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
-4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi selezionare **Applica**.
+4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi selezionare **Applica** .
 
     |Impostazione  |valore  |
     |---------|---------|
-    |Tipo di trasferimento     | Selezionare **Importa in Azure**.        |
+    |Tipo di trasferimento     | Selezionare **Importa in Azure** .        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
     |Gruppo di risorse | Selezionare un gruppo di risorse esistente. Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
     |Paese/area geografica di origine    |    Selezionare il paese/area in cui si trovano attualmente i dati.         |
@@ -233,11 +233,11 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     [![Ordine di importazione di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
-5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
+5. Selezionare **Data Box** . La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
 
     ![Screenshot delle diverse dimensioni dei dati disponibili per la selezione: Data Box Disk 40 terabyte, Data Box 100 terabyte, Data Box Heavy 1000 terabyte e Send your own disks 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. In **Ordine** passare alla scheda **Informazioni di base**. Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Destinazione dei dati>** .
+6. In **Ordine** passare alla scheda **Informazioni di base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Destinazione dei dati>** .
 
     |Impostazione  |valore  |
     |---------|---------|
@@ -247,15 +247,15 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo alle informazioni di base, con le informazioni corrette specificate.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    Per impostazione predefinita, la password di sblocco del dispositivo è crittografata con una chiave gestita da Microsoft. Al termine dell'ordine, è possibile aggiungere una chiave gestita dal cliente. Una chiave gestita dal cliente consente di usare la propria chiave di Azure Key Vault per proteggere la password di sblocco del dispositivo. Per altre informazioni, vedere [Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    Per impostazione predefinita, la password di sblocco del dispositivo è crittografata con una chiave gestita da Microsoft. Dopo aver completato l'ordine, è possibile aggiungere una chiave gestita dal cliente. Questo tipo di chiave consente di usare la propria chiave di Azure Key Vault per proteggere la password di sblocco del dispositivo. Per altre informazioni, vedere [Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-7. Nella scheda **Destinazione dei dati** selezionare **Destinazione dei dati**.
+7. Nella scheda **Destinazione dei dati** selezionare **Destinazione dei dati** .
 
     Se si usano uno o più **account di archiviazione** come destinazione di archiviazione, viene visualizzato lo screenshot seguente:
 
     ![Destinazione dei dati di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
+    In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1** , **Utilizzo generico v2** o un **account di archiviazione BLOB** .
 
     Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).
 
@@ -273,28 +273,58 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     Selezionare **Avanti: Sicurezza** per continuare.
 
-1. In **Sicurezza**, se si vuole abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
+    La schermata **Sicurezza** consente di usare il proprio dispositivo e condividere le password, oltre a usare la crittografia doppia. 
+
+    Tutte le impostazioni nella schermata **Sicurezza** sono facoltative. Se non si modifica alcuna impostazione, vengono applicate le impostazioni predefinite.
+
+    ![Schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. Se non si vogliono usare le password generate dal sistema usate da Azure Data Box per impostazione predefinita, espandere **Bring your own password** (Usa la password personalizzata).
+
+   Le password generate dal sistema sono sicure e sono consigliate, a meno che l'organizzazione non abbia altri requisiti.
+
+   ![Opzioni di Bring your own password (Usa la password personalizzata) per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Per usare la propria password per il nuovo dispositivo, per **Set preference for the device password** (Imposta preferenza per la password del dispositivo) selezionare **Use your own password** (Usa password personale) e digitare una password che soddisfi i requisiti di sicurezza.
+   
+     ![Schermata Sicurezza per l'importazione di Data Box, opzioni per l'uso della propria password del dispositivo](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - Per usare le proprie password per le condivisioni:
+
+     1. Per **Set preference for share passwords** (Imposta preferenze per le password delle condivisioni) selezionare **Use your own passwords** (Usa password personali) e quindi **Select passwords for the shares** (Seleziona password per le condivisioni).
+     
+        ![Schermata Sicurezza per l'importazione di Data Box, opzioni per l'uso delle proprie password per le condivisioni](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Digitare una password per ogni account di archiviazione incluso nell'ordine. La password verrà usata in tutte le condivisioni per l'account di archiviazione.
+     
+        Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte** . Al termine, selezionare **Salva** .
+     
+        ![Schermata per l'immissione delle password per le condivisioni per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       Nella schermata **Sicurezza** è possibile usare **View or change passwords** (Visualizza o cambia password) per cambiare le password.
+
+1. In **Sicurezza** , se si vuole abilitare la crittografia doppia basata su software, espandere **Double-encryption (for highly secure environments)** (Crittografia doppia per ambienti altamente sicuri) e selezionare **Abilita crittografia doppia per l'ordine** .
+
+   ![Schermata Sicurezza per l'importazione di Data Box con l'opzione per abilitare la crittografia basata su software per un ordine di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    La crittografia basata su software viene eseguita oltre alla crittografia AES a 256 bit dei dati nel Data Box.
 
    > [!NOTE]
    > Se si abilita questa opzione, l'elaborazione dll'ordine e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
 
-   ![Schermata di sicurezza per l'importazione di data box, crittografia doppia](media/data-box-deploy-ordered/select-data-box-import-07c.png)
-
    Selezionare **Avanti: Dettagli contatto** per continuare.
 
-8. In **Dettagli contatto**selezionare **+ Aggiungi indirizzo di spedizione**.
+8. In **Dettagli contatto** selezionare **+ Aggiungi indirizzo di spedizione** .
 
     ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo ai dettagli del contatto, con l'opzione per l'aggiunta dell'indirizzo di spedizione evidenziata.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Selezionare **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso.
+9. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Selezionare **Convalida indirizzo** . Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso.
 
    ![Screenshot della finestra di dialogo per l'aggiunta dell'indirizzo di spedizione, con le opzioni di spedizione e il pulsante per l'aggiunta dell'indirizzo evidenziati.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Se è stata selezionata l'opzione di spedizione autogestita, al completamento dell'ordine si riceverà una notifica tramite posta elettronica. Per altre informazioni sulla spedizione autogestita, vedere [Usare la spedizione autogestita](data-box-portal-customer-managed-shipping.md).
 
-10. Dopo la convalida riuscita dei dettagli della spedizione, selezionare **Aggiungi indirizzo di spedizione**. Si tornerà nella scheda **Dettagli contatto**.
+10. Dopo la convalida riuscita dei dettagli della spedizione, selezionare **Aggiungi indirizzo di spedizione** . Si tornerà nella scheda **Dettagli contatto** .
 
 11. Nella scheda **Dettagli contatto** aggiungere uno o più indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
 
@@ -304,7 +334,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 12. In **Rivedi e ordina** rivedere le informazioni relative a ordine, contatto, notifica e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
 
-13. Selezionare **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
+13. Selezionare **Ordina** . Per la creazione dell'ordine sono richiesti pochi minuti.
 
     ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo alla revisione e all'esecuzione dell'ordine, con il pulsante per l'esecuzione dell'ordine evidenziato.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
@@ -338,7 +368,7 @@ Seguire questa procedura nell'interfaccia della riga di comando di Azure per ord
    |query| Stringa di query JMESPath. Per altre informazioni, vedere [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include la registrazione dettagliata. | --verbose |
 
-2. Nel prompt dei comandi preferito o nel terminale usare il comando [az data box job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) per creare l'ordine di Azure Data Box.
+2. Nel prompt dei comandi preferito o nel terminale eseguire il comando [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) per creare l'ordine di Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -431,7 +461,7 @@ Seguire questa procedura usando Azure PowerShell per ordinare un dispositivo:
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
 
-2. Prendere nota delle impostazioni per l'ordine di Data Box. Queste impostazioni includono le informazioni personali/aziendali, il nome della sottoscrizione, le informazioni sul dispositivo e le informazioni sulla spedizione. Sarà necessario usare queste impostazioni come parametri quando si esegue il comando di PowerShell per creare l'ordine di Data Box. La tabella seguente mostra le impostazioni dei parametri usati per [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+2. Prendere nota delle impostazioni per l'ordine di Data Box. Queste impostazioni includono le informazioni personali/aziendali, il nome della sottoscrizione, le informazioni sul dispositivo e le informazioni sulla spedizione. Sarà necessario usare queste impostazioni come parametri quando si esegue il comando di PowerShell per creare l'ordine di Data Box. La tabella seguente mostra le impostazioni dei parametri usati per [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Impostazione (parametro) | Descrizione |  Valore di esempio |
     |---|---|---|
@@ -452,7 +482,7 @@ Seguire questa procedura usando Azure PowerShell per ordinare un dispositivo:
     |CompanyName| Nome dell'azienda per cui l'utente lavora.| "Contoso, LTD" |
     |StorageAccountResourceId [obbligatorio]| L'ID dell'account di archiviazione di Azure da cui verranno importati i dati.| <AzStorageAccount>.id |
 
-3. Nel prompt dei comandi preferito o nel terminale usare il comando [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) per creare l'ordine di Azure Data Box.
+3. Nel prompt dei comandi preferito o nel terminale usare il comando [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) per creare l'ordine di Azure Data Box.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
@@ -485,7 +515,7 @@ Seguire questa procedura usando Azure PowerShell per ordinare un dispositivo:
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine del Data Box e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra l'ordine con stato **Ordinato**.
+Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine del Data Box e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra l'ordine con stato **Ordinato** .
 
 Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositivo è disponibile, Microsoft identifica il dispositivo per la spedizione e lo prepara. Durante la preparazione del dispositivo vengono eseguite le azioni seguenti:
 
@@ -494,11 +524,11 @@ Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositi
 * Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo.
 * Il Data Box viene bloccato per impedire qualsiasi accesso non autorizzato al dispositivo.
 
-Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato**.
+Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato** .
 
 ![Ordine del Data Box elaborato](media/data-box-overview/data-box-order-status-processed.png)
 
-Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. Si riceverà un numero di tracciabilità dopo la spedizione del dispositivo. Il portale mostra l'ordine con lo stato **Spedito**.
+Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. Si riceverà un numero di tracciabilità dopo la spedizione del dispositivo. Il portale mostra l'ordine con lo stato **Spedito** .
 
 ![Ordine del Data Box spedito](media/data-box-overview/data-box-order-status-dispatched.png)
 
@@ -506,7 +536,7 @@ Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. S
 
 ### <a name="track-a-single-order"></a>Monitorare un singolo ordine
 
-Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Data Box esistente, eseguire [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
+Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Data Box esistente, eseguire [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Dat
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurecli
@@ -590,7 +620,7 @@ Nella tabella seguente vengono illustrate le informazioni sui parametri per `az 
 
 ### <a name="track-a-single-order"></a>Monitorare un singolo ordine
 
-Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Data Box esistente, eseguire [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
+Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Data Box esistente, eseguire [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob). Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
 
 > [!NOTE]
 > `Get-AzDataBoxJob` si usa per visualizzare sia ordini singoli che multipli. La differenza è che per gli ordini singoli si specifica il nome dell'ordine.
@@ -623,7 +653,7 @@ Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Dat
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurepowershell
@@ -666,7 +696,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine di Azure Data Box, eseguire [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine di Azure Data Box, eseguire [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). È necessario specificare il motivo per l'annullamento dell'ordine.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ Per annullare un ordine di Azure Data Box, eseguire [az databox job cancel](http
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) per eliminare l'ordine.
+Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) per eliminare l'ordine.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -742,7 +772,7 @@ Ecco un esempio del comando con l'output:
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine di Azure Data Box, eseguire [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine di Azure Data Box, eseguire [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob). È necessario specificare il motivo per l'annullamento dell'ordine.
 
 ```azurepowershell
 Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
@@ -776,7 +806,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) per eliminarlo.
+Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) per eliminarlo.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

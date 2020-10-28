@@ -10,12 +10,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69bba858ccf62f1b3a3b45b08771ddba71f11cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85982311"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671392"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Il database SQL di Azure e Istanza gestita il servizio di importazione/esportazione richiede molto tempo per l'importazione o l'esportazione di un database
 
@@ -25,7 +25,7 @@ Quando si utilizza il servizio importazione/esportazione, il processo potrebbe r
 
 ## <a name="azure-sql-database-importexport-service"></a>Servizio di importazione/esportazione del database SQL di Azure
 
-Il servizio di importazione/esportazione del database SQL di Azure è un servizio Web basato su REST eseguito in ogni data center di Azure. Questo servizio viene chiamato quando si utilizza l'opzione [Importa database](database-import.md#using-azure-portal) o [Esporta](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) per spostare il database nel portale di Azure. Il servizio fornisce servizi di accodamento delle richieste e di calcolo gratuiti per eseguire importazioni ed esportazioni tra il database SQL di Azure e l'archiviazione BLOB di Azure.
+Il servizio di importazione/esportazione del database SQL di Azure è un servizio Web basato su REST eseguito in ogni data center di Azure. Questo servizio viene chiamato quando si utilizza l'opzione [Importa database](database-import.md#using-azure-portal) o [Esporta](./database-import.md#using-azure-portal) per spostare il database nel portale di Azure. Il servizio fornisce servizi di accodamento delle richieste e di calcolo gratuiti per eseguire importazioni ed esportazioni tra il database SQL di Azure e l'archiviazione BLOB di Azure.
 
 Le operazioni di importazione ed esportazione non rappresentano un backup fisico tradizionale del database, bensì un backup logico del database che utilizza un formato BACPAC speciale. Il formato BACPAC consente di evitare di dover usare un formato fisico che può variare tra le versioni di Microsoft SQL Server, il database SQL di Azure e Istanza gestita di Azure SQL.
 
@@ -40,20 +40,20 @@ Il servizio di importazione/esportazione del database SQL di Azure fornisce un n
 
 Se le esportazioni di database vengono usate solo per il ripristino da eliminazioni accidentali dei dati, tutte le edizioni del database SQL di Azure forniscono funzionalità di ripristino self-service da backup generati dal sistema. Tuttavia, se sono necessarie le esportazioni per altri motivi e se sono necessarie prestazioni di importazione/esportazione costantemente più veloci o più prevedibili, prendere in considerazione le opzioni seguenti:
 
-* [Esportare in un file BACPAC tramite l'utilità SqlPackage](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
-* [Esportare in un file BACPAC usando SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
+* [Esportare in un file BACPAC tramite l'utilità SqlPackage](./database-export.md#sqlpackage-utility).
+* [Esportare in un file BACPAC usando SQL Server Management Studio (SSMS)](./database-export.md#sql-server-management-studio-ssms).
 * Eseguire l'importazione o l'esportazione di BACPAC direttamente nel codice usando l'API Microsoft SQL Server Data-Tier Application Framework (DacFx). Per altre informazioni, vedere:
-  * [Esportare un'applicazione livello dati](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
-  * [Spazio dei nomi Microsoft. SqlServer. Dac](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
+  * [Esportare un'applicazione livello dati](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+  * [Spazio dei nomi Microsoft. SqlServer. Dac](/dotnet/api/microsoft.sqlserver.dac)
   * [Scarica DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
 ## <a name="things-to-consider-when-you-export-or-import-a-database"></a>Aspetti da considerare quando si esporta o si importa un database
 
-* Tutti i metodi descritti in questo articolo usano la quota di unità di transazione di database (DTU), che causa la limitazione delle richieste da parte del servizio database SQL di Azure. È possibile [visualizzare le statistiche DTU per il database nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). Se il database ha raggiunto i limiti delle risorse, [aggiornare il livello di servizio](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) per aggiungere altre risorse.
+* Tutti i metodi descritti in questo articolo usano la quota di unità di transazione di database (DTU), che causa la limitazione delle richieste da parte del servizio database SQL di Azure. È possibile [visualizzare le statistiche DTU per il database nel portale di Azure](./monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring). Se il database ha raggiunto i limiti delle risorse, [aggiornare il livello di servizio](./scale-resources.md) per aggiungere altre risorse.
 * Idealmente, è consigliabile eseguire applicazioni client, ad esempio l'utilità SqlPackage o l'applicazione DAC personalizzata, da una macchina virtuale nella stessa area del database. In caso contrario, potrebbero verificarsi problemi di prestazioni correlati alla latenza di rete.
 * L'esportazione di tabelle di grandi dimensioni senza indici cluster può essere molto lenta o causare un errore. Questo comportamento si verifica perché la tabella non può essere suddivisa ed esportata in parallelo. Al contrario, deve essere esportato in un'unica transazione e questo causa rallentamento delle prestazioni e dei potenziali errori durante l'esportazione, soprattutto per le tabelle di grandi dimensioni.
 
 
 ## <a name="related-documents"></a>Documenti correlati
 
-[Considerazioni sull'esportazione di un database](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)
+[Considerazioni sull'esportazione di un database](./database-export.md#considerations)

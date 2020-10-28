@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eecd4220cdda471807e4b84261d7f76c31b9ba70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824143"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672337"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Impostazioni di connettività per SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,9 +22,9 @@ ms.locfileid: "91824143"
 Questo articolo presenta le impostazioni che controllano la connettività al server per il database SQL di Azure e l'analisi delle sinapsi di Azure. Queste impostazioni si applicano a **tutti i** database SQL e ai database di Azure sinapsi associati al server.
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
+> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure** .
 
-Le impostazioni di connettività sono accessibili dalla schermata **Firewall e reti virtuali**, come illustrato nello screenshot seguente:
+Le impostazioni di connettività sono accessibili dalla schermata **Firewall e reti virtuali** , come illustrato nello screenshot seguente:
 
  ![Screenshot delle impostazioni di connettività][1]
 
@@ -33,14 +33,14 @@ Le impostazioni di connettività sono accessibili dalla schermata **Firewall e r
 
 ## <a name="deny-public-network-access"></a>Nega l'accesso alla rete pubblica
 
-Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su **Sì**, sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su **No** (impostazione predefinita), i client possono connettersi usando gli endpoint pubblici (regole del firewall basate su IP, le regole del firewall basate su VNET) o gli endpoint privati (usando il collegamento privato), come descritto nella [Panoramica di accesso alla rete](network-access-controls-overview.md). 
+Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su **Sì** , sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su **No** (impostazione predefinita), i client possono connettersi usando gli endpoint pubblici (regole del firewall basate su IP, le regole del firewall basate su VNET) o gli endpoint privati (usando il collegamento privato), come descritto nella [Panoramica di accesso alla rete](network-access-controls-overview.md). 
 
  ![Screenshot della connettività con Nega accesso alla rete pubblica][2]
 
 Eventuali tentativi di impostare **l'opzione Nega accesso alla rete pubblica** su **Sì** senza endpoint privati esistenti nel server logico avranno esito negativo con un messaggio di errore simile al seguente:  
 
 > [!NOTE]
-> Per definire le regole del firewall della rete virtuale in un server logico già configurato con endpoint privati, impostare **Nega accesso alla rete pubblica** su **No**.
+> Per definire le regole del firewall della rete virtuale in un server logico già configurato con endpoint privati, impostare **Nega accesso alla rete pubblica** su **No** .
 
 ```output
 Error 42102
@@ -48,7 +48,7 @@ Unable to set Deny Public Network Access to Yes since there is no private endpoi
 Please set up private endpoints and retry the operation. 
 ```
 
-Se l'opzione **Nega l'accesso alla rete pubblica** è impostata su **Sì**, sono consentite solo le connessioni tramite endpoint privati, mentre tutte quelle tramite endpoint pubblici vengono negate con un messaggio di errore analogo al seguente:  
+Se l'opzione **Nega l'accesso alla rete pubblica** è impostata su **Sì** , sono consentite solo le connessioni tramite endpoint privati, mentre tutte quelle tramite endpoint pubblici vengono negate con un messaggio di errore analogo al seguente:  
 
 ```output
 Error 47073
@@ -57,7 +57,7 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su **Sì**, qualsiasi tentativo di aggiungere o aggiornare le regole del firewall verrà negato con un messaggio di errore simile al seguente:
+Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su **Sì** , qualsiasi tentativo di aggiungere o aggiornare le regole del firewall verrà negato con un messaggio di errore simile al seguente:
 
 ```output
 Error 42101
@@ -68,7 +68,7 @@ To manage server or database level firewall rules, please enable the public netw
 ## <a name="change-public-network-access-via-powershell"></a>Cambiare l'accesso alla rete pubblica tramite PowerShell
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
 
 Lo script di PowerShell seguente mostra come `Get` e `Set` la proprietà di **accesso alla rete pubblica** a livello di server:
 
@@ -85,7 +85,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="change-public-network-access-via-cli"></a>Cambiare l'accesso alla rete pubblica tramite interfaccia della riga di comando
 
 > [!IMPORTANT]
-> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Interfaccia della riga di comando di Azure in una shell Bash
 
@@ -124,7 +124,7 @@ Login failed with invalid TLS version
 ## <a name="set-minimal-tls-version-via-powershell"></a>Impostare la versione minima di TLS tramite PowerShell
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
 
 Lo script di PowerShell seguente illustra come usare `Get` e `Set` per ottenere e impostare la proprietà **Versione minima TLS** a livello di server logico:
 
@@ -141,7 +141,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Impostare la versione minima di TLS tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Interfaccia della riga di comando di Azure in una shell Bash
 
@@ -164,7 +164,7 @@ I [criteri di connessione](connectivity-architecture.md#connection-policy) deter
 ## <a name="change-connection-policy-via-powershell"></a>Cambiare i criteri di connessione tramite PowerShell
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
 
 Lo script di PowerShell seguente mostra come cambiare i criteri di connessione tramite PowerShell:
 
@@ -185,7 +185,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="change-connection-policy-via-azure-cli"></a>Cambiare i criteri di connessione tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Interfaccia della riga di comando di Azure in una shell Bash
 
@@ -223,7 +223,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica del funzionamento della connettività nel database SQL di Azure, vedere [architettura della connettività](connectivity-architecture.md)
-- Per informazioni su come modificare i criteri di connessione per un server, vedere [conn-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Per informazioni su come modificare i criteri di connessione per un server, vedere [conn-Policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

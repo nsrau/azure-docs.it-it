@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282304"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669632"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -165,9 +165,8 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Pashto|    `ps`    |
 |Persiano|   `fa`    |
 |Polacco|    `pl`    |
-|Portoghese (Brasile)|   `pt-br` |
-|Portoghese (Portogallo)| `pt-pt` |
-|Romeno|  `ro`    |
+|Portoghese|    `pt`    |
+|Rumeno|  `ro`    |
 |Russo|   `ru`    |
 |Serbo (alfabeto cirillico)|    `sr-Cyrl`|
 |Serbo (alfabeto latino)|   `sr-Latn`       |
@@ -329,7 +328,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Polacco      | `pl`          |
 | Portoghese (Brasile) | `pt-br` |
 | Punjabi|`pa`|
-| Romeno      | `ro`          |
+| Rumeno      | `ro`          |
 | Russo      | `ru`          |
 | Samoano|   `sm`    |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
@@ -418,7 +417,7 @@ Converte il testo in sintesi vocale. Il riconoscimento vocale viene usato per ag
 |Polacco|
 |Portoghese (Brasile)|
 |Portoghese (Portogallo)|
-|Romeno|
+|Rumeno|
 |Russo|
 |Slovacco|
 |Sloveno|

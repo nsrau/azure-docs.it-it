@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019862"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220619"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -64,7 +64,7 @@ Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multi
 Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (sono inclusi concetti importanti, ad esempio la creazione di pacchetti, la codifica e la protezione)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (sono incluse informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
+> Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (include concetti importanti come la creazione di pacchetti, la codifica e la protezione)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (sono incluse informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
 
 ### <a name="sdks"></a>SDK
 

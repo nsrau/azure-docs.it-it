@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 99eea73add47b6498833de7bfd7728feb4c5c4ab
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516206"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671566"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -43,7 +43,7 @@ Se si usano accessi a livello di server per l'accesso ai dati e si copia il data
 
 ## <a name="copy-using-the-azure-portal"></a>Copiare usando il portale di Azure
 
-Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia**.
+Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia** .
 
    ![Copia del database](./media/database-copy/database-copy.png)
 
@@ -82,7 +82,7 @@ La copia del database è un'operazione asincrona, ma il database di destinazione
 
 Accedere al database master con l'account di accesso dell'amministratore del server o l'account di accesso che ha creato il database che si desidera copiare. Per la riuscita della copia del database, gli account di accesso che non sono l'amministratore del server devono essere membri del `dbmanager` ruolo. Per ulteriori informazioni sugli account di accesso e la connessione al server, vedere [Gestire gli accessi](logins-create-manage.md).
 
-Avviare la copia del database di origine con l'oggetto [create database... COME copia dell'](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) istruzione. L'esecuzione dell'istruzione T-SQL continua fino al completamento dell'operazione di copia del database.
+Avviare la copia del database di origine con l'oggetto [create database... COME copia dell'](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) istruzione. L'esecuzione dell'istruzione T-SQL continua fino al completamento dell'operazione di copia del database.
 
 > [!NOTE]
 > Se si termina l'istruzione T-SQL, l'operazione di copia del database non viene terminata. Per terminare l'operazione, eliminare il database di destinazione.
@@ -143,13 +143,13 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
-Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying**.
+Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying** .
 
-* Se la copia ha esito negativo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **sospetta**. Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
-* Se la copia ha esito positivo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **online**. La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
+* Se la copia ha esito negativo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **sospetta** . Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
+* Se la copia ha esito positivo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **online** . La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
 
 > [!NOTE]
-> Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) nel nuovo database.
+> Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) nel nuovo database.
 
 > [!IMPORTANT]
 > Se è necessario creare una copia con un obiettivo di servizio sostanzialmente più piccolo rispetto all'origine, è possibile che il database di destinazione non disponga di risorse sufficienti per completare il processo di seeding, causando l'esito negativo dell'operazione di copia. In questo scenario usare una richiesta di ripristino geografico per creare una copia in un server diverso e/o in un'area diversa. Per altre informazioni, vedere [ripristinare un database SQL di Azure usando i backup del database](recovery-using-backups.md#geo-restore) .
@@ -182,7 +182,7 @@ Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse
 
 ## <a name="resolve-logins"></a>Risolvere gli account di accesso
 
-Quando il nuovo database è online nel server di destinazione, utilizzare l'istruzione [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) per modificare il mapping degli utenti dal nuovo database agli account di accesso nel server di destinazione. Per risolvere gli utenti isolati, vedere [Risolvere i problemi relativi agli utenti isolati (SQL Server)](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vedere anche [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).
+Quando il nuovo database è online nel server di destinazione, utilizzare l'istruzione [ALTER USER](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) per modificare il mapping degli utenti dal nuovo database agli account di accesso nel server di destinazione. Per risolvere gli utenti isolati, vedere [Risolvere i problemi relativi agli utenti isolati (SQL Server)](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Vedere anche [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).
 
 Tutti gli utenti nel nuovo database mantengono le autorizzazioni di cui disponevano nel database di origine. L'utente che ha avviato la copia del database diventa il proprietario del database del nuovo database. Una volta completata la copia e prima che venga eseguito nuovamente il mapping di altri utenti, solo il proprietario del database può accedere al nuovo database.
 
@@ -192,7 +192,7 @@ Per informazioni sulla gestione di utenti e account di accesso quando si copia u
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](database-copy.md).
 
-| Codice di errore | Gravità | Descrizione |
+| Codice errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |

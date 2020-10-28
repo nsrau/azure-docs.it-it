@@ -3,17 +3,17 @@ title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447667"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131123"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 
@@ -28,25 +28,25 @@ Attualmente l'app Power BI Gestione costi di Azure supporta solo i clienti con [
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una [licenza di Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) per installare e usare l'app
-- Per connettersi ai dati, è necessario usare un account di [amministratore dell'organizzazione](../manage/understand-ea-roles.md)
+- Per installare e usare l'app, è necessaria una [licenza di Power BI Pro](/power-bi/service-self-service-signup-for-power-bi).
+- Per connettersi ai dati, è necessario usare un account di [amministratore dell'organizzazione](../manage/understand-ea-roles.md). Il ruolo Amministratore dell'organizzazione (sola lettura) è supportato.
 
 ## <a name="installation-steps"></a>Procedura di installazione
 
 Per installare l'app:
 
 1. Aprire l'[app Power BI Gestione costi di Azure](https://aka.ms/costmgmt/ACMApp).
-2. Nella pagina di AppSource per Power BI selezionare **Scarica adesso**.
+2. Nella pagina di AppSource per Power BI selezionare **Scarica adesso** .
 3. Selezionare **Continua** per accettare le condizioni per l'utilizzo e l'informativa sulla privacy.
-4. Nella finestra **Install this Power BI app** (Installa questa app di Power BI) selezionare **Installa**.
-5. Se necessario, creare un'area di lavoro e selezionare **Continua**.
+4. Nella finestra **Install this Power BI app** (Installa questa app di Power BI) selezionare **Installa** .
+5. Se necessario, creare un'area di lavoro e selezionare **Continua** .
 6. Al termine dell'installazione, viene visualizzata una notifica che informa che la nuova app è pronta.
-7. Selezionare **Vai all'app**.
-8. Nella finestra **Operazioni iniziali con la nuova app** selezionare **Connetti** in **Connettere i dati**.  
+7. Selezionare **Vai all'app** .
+8. Nella finestra **Operazioni iniziali con la nuova app** selezionare **Connetti** in **Connettere i dati** .  
   ![Operazioni iniziali con la nuova app - Connetti](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Nella finestra di dialogo visualizzata immettere il numero del contratto Enterprise per **BillingProfileIdOrEnrollmentNumber**. Specificare il numero di mesi di dati da ottenere. In **Ambito** lasciare il valore predefinito **Numero di registrazione** e quindi selezionare **Avanti**.  
+9. Nella finestra di dialogo visualizzata immettere il numero del contratto Enterprise per **BillingProfileIdOrEnrollmentNumber** . Specificare il numero di mesi di dati da ottenere. In **Ambito** lasciare il valore predefinito **Numero di registrazione** e quindi selezionare **Avanti** .  
   ![Immettere le informazioni sulla registrazione del contratto Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. La finestra di dialogo successiva consente di connettersi ad Azure e ottenere i dati necessari per le raccomandazioni sulle istanze riservate. *Lasciare invariati i valori predefiniti configurati*, quindi selezionare **Accedi**.  
+10. La finestra di dialogo successiva consente di connettersi ad Azure e ottenere i dati necessari per le raccomandazioni sulle istanze riservate. *Lasciare invariati i valori predefiniti configurati* , quindi selezionare **Accedi** .  
   ![Screenshot che illustra la finestra di dialogo Connetti all'app Gestione costi di Azure con i valori predefiniti.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. Il passaggio finale dell'installazione consiste nella connessione alla registrazione del contratto Enterprise e richiede un account [amministratore dell'organizzazione](../manage/understand-ea-roles.md). Selezionare **Accedi** per eseguire l'autenticazione con la registrazione EA. Questo passaggio avvia anche un'azione di aggiornamento dei dati in Power BI.  
   ![Connessione alla registrazione EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -61,9 +61,9 @@ Al termine dell'aggiornamento dei dati, selezionare l'app Gestione costi di Azur
 
 Nell'app sono disponibili i report descritti di seguito.
 
-**Attività iniziali**: offre collegamenti utili alla documentazione e collegamenti per fornire feedback.
+**Attività iniziali** : offre collegamenti utili alla documentazione e collegamenti per fornire feedback.
 
-**Panoramica account**: mostra un riepilogo mensile di informazioni, tra cui:
+**Panoramica account** : mostra un riepilogo mensile di informazioni, tra cui:
 
 - Addebiti rispetto ai crediti
 - Nuovi acquisti
@@ -80,7 +80,7 @@ Nell'app sono disponibili i report descritti di seguito.
 
 ![Report completo su Vantaggio Azure Hybrid](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
 
-Il report identifica anche le VM Windows in cui Vantaggio Azure Hybrid è **abilitato** ma le vCPU sono _meno di_ 8. Mostra inoltre le VM in cui Vantaggio Azure Hybrid **non è abilitato** e le vCPU sono 8 _o più_. Queste informazioni consentono di sfruttare completamente Vantaggio Azure Hybrid. Applicare il vantaggio alle macchine virtuali più dispendiose per ottimizzare i potenziali risparmi.
+Il report identifica anche le VM Windows in cui Vantaggio Azure Hybrid è **abilitato** ma le vCPU sono _meno di_ 8. Mostra inoltre le VM in cui Vantaggio Azure Hybrid **non è abilitato** e le vCPU sono 8 _o più_ . Queste informazioni consentono di sfruttare completamente Vantaggio Azure Hybrid. Applicare il vantaggio alle macchine virtuali più dispendiose per ottimizzare i potenziali risparmi.
 
 ![Vantaggio Azure Hybrid - meno di 8 vCPU e vCPU non abilitate](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
 
@@ -88,7 +88,7 @@ Il report identifica anche le VM Windows in cui Vantaggio Azure Hybrid è **abil
 
 È possibile applicare un filtro a _chargetype_ per visualizzare i dati di sottoutilizzo delle istanze riservate.
 
-Per altre informazioni sui dati ammortizzati, vedere [Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Per altre informazioni sui dati ammortizzati, vedere [Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** (Risparmi istanze riservate): mostra i risparmi accumulati dalle prenotazioni per sottoscrizione, gruppo di risorse e livello di risorsa. Vengono visualizzati questi dati:
 
@@ -204,8 +204,8 @@ Le informazioni seguenti riepilogano i dati disponibili tramite l'app. Sono disp
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Dettagli del budget per visualizzare i costi o l'utilizzo effettivi rispetto a destinazioni di budget esistenti. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) (Elenchi prezzi) | Tariffe del contatore applicabili per il profilo di fatturazione o la registrazione EA specificati. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) (Addebiti istanze riservate) | Addebiti associati alle istanze riservate negli ultimi 24 mesi. |
-| [**RI recommendations (shared)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) (Raccomandazioni sulle istanze riservate - condivise) | Raccomandazioni per l'acquisto di istanze riservate in base a tutte le tendenze di utilizzo delle sottoscrizioni per gli ultimi 7, 30 o 60 giorni. |
-| [**RI recommendations (single)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) (Raccomandazioni sulle istanze riservate - singola) | Raccomandazioni per l'acquisto di istanze riservate in base a tutte le tendenze di utilizzo della singola sottoscrizione per gli ultimi 7, 30 o 60 giorni. |
+| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) (Raccomandazioni sulle istanze riservate - condivise) | Raccomandazioni per l'acquisto di istanze riservate in base a tutte le tendenze di utilizzo delle sottoscrizioni per gli ultimi 7, 30 o 60 giorni. |
+| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) (Raccomandazioni sulle istanze riservate - singola) | Raccomandazioni per l'acquisto di istanze riservate in base a tutte le tendenze di utilizzo della singola sottoscrizione per gli ultimi 7, 30 o 60 giorni. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) (Dettagli di utilizzo istanze riservate) | Dettagli relativi all'utilizzo delle istanze riservate esistenti nell'ultimo mese. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) (Riepilogo utilizzo istanze riservate) | Percentuale di utilizzo giornaliero della prenotazione di Azure. |
 | [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Dettagli di utilizzo) | Ripartizione delle quantità utilizzate e degli addebiti stimati per il profilo di fatturazione specificato nella registrazione EA. |

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799950"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670947"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usare il routing intelligente e le versioni canary con Istio nel servizio Azure Container (AKS)
 
@@ -39,7 +39,7 @@ Se occorre assistenza con uno di questi elementi, vedere le indicazioni nella [g
 
 ## <a name="about-this-application-scenario"></a>Informazioni su questo scenario di applicazione
 
-L'app di voto di esempio del servizio Azure Kubernetes offre due opzioni di voto (**gatti** o **cani**) agli utenti. È presente un componente di archiviazione che rende persistente il numero di voti per ogni opzione. Inoltre, è presente un componente di analitica che fornisce i dettagli per i voti per ogni opzione.
+L'app di voto di esempio del servizio Azure Kubernetes offre due opzioni di voto ( **gatti** o **cani** ) agli utenti. È presente un componente di archiviazione che rende persistente il numero di voti per ogni opzione. Inoltre, è presente un componente di analitica che fornisce i dettagli per i voti per ogni opzione.
 
 In questo scenario applicativo si inizia distribuendo la versione `1.0` dell'app di voto e la versione `1.0` del componente di analisi. Il componente di analitica fornisce semplici conteggi per il numero di voti. L'app di voto e il componente di analisi interagiscono con la versione `1.0` del componente di archiviazione supportato da Redis.
 
@@ -53,7 +53,7 @@ Quando si è certi che la versione `2.0` funzioni come previsto per il subset di
 
 Èpossibile distribuire l'applicazione nel cluster del servizio Azure Container (AKS). Il diagramma seguente illustra ciò che viene eseguito al termine di questa sezione: versione `1.0` di tutti i componenti con le richieste in ingresso elaborate tramite il gateway di traffico in ingresso di Istio:
 
-![Componenti dell’app di voto e routing del servizio Azure Container.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagramma che mostra la versione 1,0 di tutti i componenti con richieste in ingresso gestite tramite il gateway di ingresso Istio.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 Gli artefatti necessari per seguire le procedure in questo articolo sono disponibili nel repository GitHub [Azure-Samples/aks-voting-app][github-azure-sample]. È possibile scaricare gli artefatti o clonare il repository come indicato di seguito:
 
@@ -180,7 +180,7 @@ Si vedrà ora come distribuire una nuova versione del componente di analisi. Que
 
 Il diagramma seguente mostra cosa verrà eseguito alla fine di questa sezione. Solo per la versione `1.1` del componente `voting-analytics` il traffico viene instradato dal componente `voting-app`. Anche se la versione `1.0` del componente `voting-analytics` continua a essere in esecuzione e il servizio `voting-analytics` vi fa riferimento, i proxy di Istio non consentono il traffico verso e da questa versione.
 
-![Componenti dell’app di voto e routing del servizio Azure Container.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Il diagramma che mostra solo la versione 1,1 del componente analisi dei voti ha il traffico instradato dal componente di voto-app.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Si vedrà ora come distribuire la versione `1.1` del componente `voting-analytics`. Creare questo componente nello spazio dei nomi `voting`:
 
@@ -361,7 +361,7 @@ Il diagramma seguente mostra gli elementi che saranno in esecuzione alla fine di
 * La versione `2.0` del componente `voting-app`, la versione `2.0` del componente `voting-analytics` e la versione `2.0` del componente `voting-storage` sono in grado di comunicare tra loro.
 * La versione `2.0` del componente `voting-app` è accessibile solo agli utenti che hanno un set di flag di funzionalità specifico. Questa modifica viene gestita tramite un flag di funzionalità tramite un cookie.
 
-![Componenti dell’app di voto e routing del servizio Azure Container.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagramma che Mostra gli elementi che saranno in esecuzione alla fine di questa sezione.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Innanzitutto, aggiornare le regole di destinazione di Istio e i servizi virtuali in modo che tengano in considerazione questi nuovi componenti. Questi aggiornamenti assicurano che non si instradi il traffico in modo incorretto per i nuovi componenti e che gli utenti non ricevano accessi imprevisti:
 
@@ -415,7 +415,7 @@ I conteggi di voto sono diversi a seconda delle versioni dell'app. Questa differ
 
 Dopo aver testato correttamente la versione canary, aggiornare il servizio virtuale `voting-app` per indirizzare tutto il traffico alla versione `2.0` del componente `voting-app`. Tutti gli utenti visualizzeranno quindi la versione `2.0` dell'applicazione, indipendentemente dal fatto che il flag di funzionalità sia impostato o meno:
 
-![Componenti dell’app di voto e routing del servizio Azure Container.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagramma che mostra che gli utenti vedono la versione 2,0 dell'applicazione, indipendentemente dal fatto che il flag funzionalità sia impostato o meno.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Aggiornare tutte le regole di destinazione per rimuovere le versioni dei componenti che non si desidera più che siano attive. Quindi, aggiornare tutti i servizi virtuali per evitare che facciano riferimento a tali versioni.
 
