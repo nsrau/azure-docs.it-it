@@ -4,12 +4,12 @@ description: Installare il runtime e l'SDK e creare un cluster di sviluppo local
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675267"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168410"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Per distribuire ed eseguire (applicazioni Azure Service Fabric) [Service-Fabric-Application-model.md] nel computer di sviluppo Linux, installare il runtime e l'SDK comune. È anche possibile installare SDK facoltativi per lo sviluppo Java e .NET Core. 
+Per distribuire ed eseguire [applicazioni di Azure Service Fabric](service-fabric-application-model.md) in un computer di sviluppo Linux, installare il runtime e l'SDK comune. È anche possibile installare SDK facoltativi per lo sviluppo Java e .NET Core. 
 
-I passaggi descritti in questo articolo presuppongono l'installazione nativa in Linux o l'uso di (Service Fabric immagine del contenitore OneBox) [ https://hub.docker.com/_/microsoft-service-fabric-onebox ], ad esempio `mcr.microsoft.com/service-fabric/onebox:u18` .
+I passaggi descritti in questo articolo presuppongono l'installazione nativa in Linux o l'uso dell' [immagine del contenitore Service Fabric OneBox](https://hub.docker.com/_/microsoft-service-fabric-onebox), ad esempio `mcr.microsoft.com/service-fabric/onebox:u18` .
 
 È possibile gestire Service Fabric entità ospitate nel cloud o in locale con l'interfaccia della riga di comando di Azure Service Fabric. Per informazioni su come installare l'interfaccia della riga di comando, vedere [Configurare l'interfaccia della riga di comando di Service Fabric](./service-fabric-cli.md).
 
@@ -50,7 +50,7 @@ Per installare l'SDK e il pacchetto di runtime associato tramite lo strumento da
 
 ## <a name="script-installation"></a>Installazione con script
 
-Per praticità, viene fornito uno script per installare il runtime di Service Fabric e il Service Fabric SDK comune insieme all'interfaccia della riga di comando di [ **sfctl** ](service-fabric-cli.md). L'esecuzione dello script presuppone l'accettazione delle licenze di tutto il software installato. In alternativa, è possibile eseguire i passaggi di [installazione manuale](#manual-installation) nella sezione successiva che presenta le licenze associate e i componenti installati.
+Per praticità, viene fornito uno script per installare il runtime di Service Fabric e il Service Fabric SDK comune insieme all'interfaccia della riga di comando di [ **sfctl**](service-fabric-cli.md). L'esecuzione dello script presuppone l'accettazione delle licenze di tutto il software installato. In alternativa, è possibile eseguire i passaggi di [installazione manuale](#manual-installation) nella sezione successiva che presenta le licenze associate e i componenti installati.
 
 Al termine dell'esecuzione dello script, è possibile passare a [Configurare un cluster locale](#set-up-a-local-cluster).
 
@@ -298,13 +298,13 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando la **Guida**  >  **sui**  >  **Dettagli di installazione**di Eclipse. È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando la **Guida**  >  **sui**  >  **Dettagli di installazione** di Eclipse. È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
 
-2. Per installare il plug-in Service Fabric, selezionare **Guida**  >  **Installa nuovo software**.
+2. Per installare il plug-in Service Fabric, selezionare **Guida**  >  **Installa nuovo software** .
 
-3. Nella casella **work with** (USA) immettere **https: \/ /dl.Microsoft.com/Eclipse**.
+3. Nella casella **work with** (USA) immettere **https: \/ /dl.Microsoft.com/Eclipse** .
 
-4. Selezionare **Aggiungi**.
+4. Selezionare **Aggiungi** .
 
     ![Pagina relativa al software disponibile][sf-eclipse-plugin]
 
@@ -312,7 +312,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 6. Eseguire la procedura d'installazione. Accettare quindi il contratto di licenza con l'utente finale.
 
-Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare informazioni**  >  **sui**  >  **Dettagli di installazione**di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Se è disponibile una versione più recente, selezionare **Aggiorna** .
+Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare informazioni**  >  **sui**  >  **Dettagli di installazione** di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Se è disponibile una versione più recente, selezionare **Aggiorna** .
 
 Per altre informazioni, vedere [Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse](service-fabric-get-started-eclipse.md).
 

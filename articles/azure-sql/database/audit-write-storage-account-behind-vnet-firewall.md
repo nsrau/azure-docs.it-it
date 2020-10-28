@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444541"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677240"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Controllo per la scrittura in un account di archiviazione dietro rete virtuale e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -48,9 +48,9 @@ Perché il controllo possa scrivere in un account di archiviazione dietro una re
 
 Connettersi al [portale di Azure](https://portal.azure.com) con la propria sottoscrizione. Passare al gruppo di risorse e al server.
 
-1. Fare clic su **Controllo** sotto l'intestazione Sicurezza. Selezionare **Attivato**.
+1. Fare clic su **Controllo** sotto l'intestazione Sicurezza. Selezionare **Attivato** .
 
-2. Selezionare **Archiviazione**. Selezionare l'account di archiviazione in cui verranno salvati i log. L'account di archiviazione deve essere conforme ai requisiti elencati in [Prerequisiti](#prerequisites).
+2. Selezionare **Archiviazione** . Selezionare l'account di archiviazione in cui verranno salvati i log. L'account di archiviazione deve essere conforme ai requisiti elencati in [Prerequisiti](#prerequisites).
 
 3. Aprire **Dettagli archiviazione**
 
@@ -61,7 +61,7 @@ Connettersi al [portale di Azure](https://portal.azure.com) con la propria sotto
   >
   >Se questo messaggio non viene visualizzato, l'account di archiviazione non si trova dietro una rete virtuale.
 
-4. Selezionare il numero di giorni per il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
+4. Selezionare il numero di giorni per il periodo di conservazione. Fare quindi clic su **OK** . I log antecedenti al periodo di conservazione vengono eliminati.
 
 5. Selezionare **Salva** nelle impostazioni di controllo.
 
@@ -93,7 +93,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**API REST**](/rest/api/sql/servers/createorupdate):
 
    Richiesta di esempio
 
@@ -117,12 +117,12 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    }
    ```
 
-2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di Azure **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
+2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo** . Assegnare il ruolo di Azure **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configurare i [criteri di controllo BLOB del server](/rest/api/sql/server%20auditing%20settings/createorupdate)senza specificare un *storageAccountAccessKey*:
+3. Configurare i [criteri di controllo BLOB del server](/rest/api/sql/server%20auditing%20settings/createorupdate)senza specificare un *storageAccountAccessKey* :
 
    Richiesta di esempio
 

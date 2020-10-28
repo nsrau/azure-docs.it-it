@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269744"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675214"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Aggiungere risorse all'ambiente Integration Services (ISE) in app per la logica di Azure
 
@@ -34,7 +34,7 @@ Dopo aver creato un [ambiente Integration Services (ISE)](../logic-apps/connect-
 
 Per compilare app per la logica che vengono eseguite nell'ambiente Integration Services (ISE), seguire questa procedura:
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE in **Impostazioni**selezionare app per la **logica**  >  **Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE in **Impostazioni** selezionare app per la **logica**  >  **Aggiungi** .
 
    ![Aggiungere una nuova app per la logica ad ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -47,10 +47,10 @@ Per compilare app per la logica che vengono eseguite nell'ambiente Integration S
    | **Nome** | Sì | Nome dell'app per la logica da creare |
    | **Sottoscrizione** | Sì | Nome della sottoscrizione di Azure da usare. |
    | **Gruppo di risorse** | Sì | Nome del gruppo di risorse di Azure (nuovo o esistente) da usare |
-   | **Posizione** | Sì | In **ambienti del servizio di integrazione**selezionare ISE da usare, se non è già selezionato. <p><p> **Importante**: per usare le app per la logica con un account di integrazione, è necessario che entrambi usino lo stesso ISE. |
+   | **Posizione** | Sì | In **ambienti del servizio di integrazione** selezionare ISE da usare, se non è già selezionato. <p><p> **Importante** : per usare le app per la logica con un account di integrazione, è necessario che entrambi usino lo stesso ISE. |
    ||||
 
-1. Al termine, selezionare **Crea**.
+1. Al termine, selezionare **Crea** .
 
 1. Continuare [a creare l'app per la logica nel modo consueto](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -66,7 +66,7 @@ In base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-envir
 
 Per creare un account di integrazione che usa ISE, seguire questa procedura:
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **account di integrazione**  >  **Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni** , selezionare **account di integrazione**  >  **Aggiungi** .
 
    ![Aggiungi nuovo account di integrazione a ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -80,10 +80,10 @@ Per creare un account di integrazione che usa ISE, seguire questa procedura:
    | **Sottoscrizione** | Sì | Nome della sottoscrizione di Azure che si vuole usare |
    | **Gruppo di risorse** | Sì | Nome del gruppo di risorse di Azure (nuovo o esistente) da usare |
    | **Piano tariffario** | Sì | Piano tariffario da usare per l'account di integrazione |
-   | **Posizione** | Sì | In **ambienti del servizio di integrazione**selezionare lo stesso ISE usato dalle app per la logica, se non è già selezionato. <p><p> **Importante**: per usare l'account di integrazione con le app per la logica, è necessario che entrambi usino lo stesso ISE. |
+   | **Posizione** | Sì | In **ambienti del servizio di integrazione** selezionare lo stesso ISE usato dalle app per la logica, se non è già selezionato. <p><p> **Importante** : per usare l'account di integrazione con le app per la logica, è necessario che entrambi usino lo stesso ISE. |
    ||||
 
-1. Al termine, selezionare **Crea**.
+1. Al termine, selezionare **Crea** .
 
 1. [Collegare l'app per la logica all'account di integrazione nel modo consueto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -95,13 +95,27 @@ Per creare un account di integrazione che usa ISE, seguire questa procedura:
 
 ## <a name="add-ise-connectors"></a>Aggiungi connettori ISE
 
-I connettori gestiti da Microsoft che diventano disponibili dopo la creazione di ISE non vengono visualizzati automaticamente in selezione connettore nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario aggiungerli e distribuirli manualmente in ISE, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
+Dopo aver creato l'ISE, i connettori gestiti ISE non vengono visualizzati automaticamente in selezione connettore nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario aggiungerli e distribuirli manualmente in ISE, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
 
-1. Nel menu ISE, in **Impostazioni**, selezionare **connettori gestiti**. Sulla barra degli strumenti fare clic su **Aggiungi**.
+> [!IMPORTANT]
+> I connettori gestiti ISE attualmente non supportano i [tag](../azure-resource-manager/management/tag-support.md). Se si configura un criterio che impone l'assegnazione di tag, il tentativo di aggiungere connettori ISE potrebbe non riuscire con un errore simile a questo esempio:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> Quindi, per aggiungere i connettori ISE, è necessario disabilitare o rimuovere i criteri. 
+
+1. Nel menu ISE, in **Impostazioni** , selezionare **connettori gestiti** . Sulla barra degli strumenti fare clic su **Aggiungi** .
 
    ![Visualizzazione di connettori gestiti](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Nel riquadro **Aggiungi un nuovo connettore gestito** aprire l'elenco **trova connettore** . Selezionare il connettore ISE che si vuole usare ma non è ancora distribuito in ISE. Selezionare **Crea**.
+1. Nel riquadro **Aggiungi un nuovo connettore gestito** aprire l'elenco **trova connettore** . Selezionare il connettore ISE che si vuole usare ma non è ancora distribuito in ISE. Selezionare **Crea** .
 
    ![Selezionare il connettore ISE che si vuole distribuire in ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ I connettori gestiti da Microsoft che diventano disponibili dopo la creazione di
 
 Per usare i connettori personalizzati in ISE, creare i connettori personalizzati direttamente all'interno di ISE.
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **connettori personalizzati**  >  **Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni** , selezionare **connettori personalizzati**  >  **Aggiungi** .
 
    ![Crea connettore personalizzato](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Specificare il nome, la sottoscrizione di Azure e il gruppo di risorse di Azure (nuovo o esistente) da usare per il connettore personalizzato.
 
-1. Dall'elenco **percorso** , nella sezione **ambienti del servizio di integrazione** , selezionare lo stesso ISE usato dalle app per la logica e selezionare **Crea**, ad esempio:
+1. Dall'elenco **percorso** , nella sezione **ambienti del servizio di integrazione** , selezionare lo stesso ISE usato dalle app per la logica e selezionare **Crea** , ad esempio:
 
    ![Screenshot che mostra la finestra "Crea connettore personalizzato per app per la logica" con le informazioni di esempio selezionate.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. Selezionare il nuovo connettore personalizzato, quindi selezionare **modifica**, ad esempio:
+1. Selezionare il nuovo connettore personalizzato, quindi selezionare **modifica** , ad esempio:
 
    ![Selezionare e modificare il connettore personalizzato](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

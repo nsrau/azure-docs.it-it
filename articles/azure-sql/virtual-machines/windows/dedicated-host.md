@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669104"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677665"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Eseguire una VM di SQL Server in un host dedicato di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,7 @@ L'[host dedicato di Azure](/azure/virtual-machines/windows/dedicated-hosts) è u
 
 ## <a name="limitations"></a>Limitazioni
 
-- I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- Sono supportate le serie di VM seguenti: DSv3 e ESv3. 
+- Non tutte le serie di macchine virtuali sono supportate negli host dedicati e la disponibilità delle serie di VM varia in base all'area. Per altre informazioni, vedere [Panoramica degli host dedicati di Azure](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Gestione delle licenze
 

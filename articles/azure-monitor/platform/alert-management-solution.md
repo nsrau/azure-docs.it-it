@@ -6,26 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108406"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677566"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
 ![Icona di Alert Management](media/alert-management-solution/icon.png)
 
-> [!NOTE]
->  Monitoraggio di Azure supporta ora funzionalità avanzate per [la gestione degli avvisi su larga scala](./alerts-overview.md), inclusi quelli generati da [strumenti di monitoraggio come System Center Operations Manager, Zabbix o Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
->  
-
-
 La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](./alerts-overview.md) o [importate da Nagios o Zabbix](../learn/quick-collect-linux-computer.md). La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](./om-agents.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
+La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso** , pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
 - Per gli avvisi di Log Analytics, [creare regole di avviso](./alerts-overview.md) per creare i record degli avvisi direttamente nel repository.
 - Per gli avvisi di Nagios e Zabbix, [configurare tali server](../learn/quick-collect-linux-computer.md) per inviare avvisi a Log Analytics.
@@ -45,7 +40,7 @@ Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, 
 ### <a name="agents"></a>Agenti
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supporto | Description |
+| Origine connessa | Supporto | Descrizione |
 |:--- |:--- |:--- |
 | [Agenti di Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
@@ -68,7 +63,7 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 | Critical Alerts |Tutti gli avvisi con un livello di gravità Critico raggruppati per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
 | Warning Alerts |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
 | Avvisi attivi System Center Operations Manager |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
-| All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso*. |
+| All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso* . |
 
 Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](../log-query/log-query-overview.md) per dati di avviso:
 
@@ -76,9 +71,9 @@ Se si scorre verso destra, il dashboard elenca diverse query comuni che è possi
 
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
+La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso** .  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
 
-La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager**.  Questi record includono le proprietà elencate nella tabella seguente:  
+La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager** .  Questi record includono le proprietà elencate nella tabella seguente:  
 
 | Proprietà | Descrizione |
 |:--- |:--- |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547640"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676910"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -65,7 +65,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5. Fare clic su **Crea** .
+5. Fare clic su **OK** .
 
 Quando la risorsa soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -122,28 +122,29 @@ I gruppi di azioni forniscono un modo modulare e riutilizzabile per attivare le 
 
 Utilizzare la procedura seguente:
 
-1. Nel portale di Azure fare clic su **Monitoraggio** .
-2. Nel riquadro sinistro fare clic su **Gruppi di azioni** . Viene visualizzata la finestra **Aggiungi gruppo di azioni** .
+1. In portale di Azure fare clic su  **avvisi** .
+2. Nel riquadro superiore fare clic su  **Gestisci azioni** . Viene visualizzata la finestra **Aggiungi gruppo di azioni** .
 
     ![Gruppi di azioni](media/itsmc-overview/action-groups.png)
 
-3. Specificare il **nome** e il **nome breve** per il gruppo di azioni. Selezionare il **gruppo di risorse** e la **sottoscrizione** in cui si vuole creare il gruppo di azioni.
+3. Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole creare il gruppo di azioni. Specificare il **nome del gruppo di azioni** e il **nome visualizzato** per il gruppo di azioni. Fare clic su **Avanti: notifiche** .
 
     ![Dettagli dei gruppi di azioni](media/itsmc-overview/action-groups-details.png)
 
-4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione** . Specificare un **nome** per l'azione e fare clic su **Modifica dettagli** .
-5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione** , ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
+4. Nell'elenco delle notifiche fare clic su **annida: azioni** .
+5. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione** . Specificare un **nome** per l'azione e fare clic sulla penna che rappresenta i **Dettagli di modifica** .
+6. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione** , ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 
-6. Selezionare il tipo di **Elemento di lavoro** dal menu a discesa.
+7. Selezionare il tipo di **Elemento di lavoro** dal menu a discesa.
 
-7. Se si desidera compilare i campi box con valori fissi, è necessario selezionare la casella di controllo "utilizza modello personalizzato" in caso contrario, scegliere di utilizzare un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco a discesa e compilare i campi del modello con valori fissi.
+8. Se si desidera compilare i campi box con valori fissi, è necessario selezionare la casella di controllo "utilizza modello personalizzato" in caso contrario, scegliere di utilizzare un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco a discesa e compilare i campi del modello con valori fissi.
 
-8. Selezionando la casella di controllo **Crea elementi di lavoro singoli per ogni elemento** di configurazione, ogni elemento di configurazione avrà un proprio elemento di lavoro. Significa che sarà presente un elemento di lavoro per ogni elemento di configurazione che verrà aggiornato in base agli avvisi che verranno creati.
+9. Selezionando la casella di controllo **Crea elementi di lavoro singoli per ogni elemento** di configurazione, ogni elemento di configurazione avrà un proprio elemento di lavoro. Significa che sarà presente un elemento di lavoro per ogni elemento di configurazione che verrà aggiornato in base agli avvisi che verranno creati.
 Se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro, vale a dire che possono essere presenti più di 1 avviso per ogni elemento di configurazione.
 
-9. Fare clic su **OK** .
+10. Fare clic su **OK** .
 
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
 
@@ -162,7 +163,7 @@ In base alla configurazione quando si imposta una connessione, Connettore di Ges
 
 I dati degli eventi imprevisti e delle richieste di modifica possono essere visualizzati usando il dashboard di Connettore di Gestione dei servizi IT nella soluzione.
 
-![Schermata di Log Analytics](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Screenshot che mostra il dashboard del connettore ITSM.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Il dashboard fornisce anche informazioni sullo stato del connettore, che è possibile usare come punto di partenza per analizzare i problemi con le connessioni.
 

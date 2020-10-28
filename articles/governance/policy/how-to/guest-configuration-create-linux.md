@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d80ae44e5cc34ec3b3378f8ed4a68cc02464216
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542897"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676638"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -116,6 +116,9 @@ Salvare questo file con il nome `linux-path.rb` in una nuova cartella denominata
 Infine, creare una configurazione, importare il modulo della risorsa **PSDesiredStateConfiguration** e compilare la configurazione.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -131,7 +134,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -146,7 +148,7 @@ A questo punto dovrebbe essere disponibile una struttura di progetto come indica
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -237,7 +239,7 @@ Per eseguire il comando Publish, è necessario l'accesso per creare criteri in A
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file dei criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.

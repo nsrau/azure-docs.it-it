@@ -2,13 +2,13 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372171"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676188"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -18,21 +18,19 @@ I comandi di distribuzione modificati nell'interfaccia della riga di comando di 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare [Cloud Shell](#deploy-template-from-cloud-shell).
+Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare Cloud Shell. Per altre informazioni, vedere [distribuire modelli ARM da cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Ambito della distribuzione
 
-La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Nella maggior parte dei casi, la distribuzione verrà destinata a un gruppo di risorse. Per applicare criteri e assegnazioni di ruolo in un ambito più ampio, usare la sottoscrizione, il gruppo di gestione o le distribuzioni tenant. Quando si esegue la distribuzione in una sottoscrizione, è possibile creare un gruppo di risorse e distribuirvi risorse.
+La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
-
-* Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create):
+* Per eseguire la distribuzione in un **gruppo di risorse** , usare [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Per eseguire la distribuzione in una **sottoscrizione** , usare [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +38,7 @@ A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-* Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Per eseguire la distribuzione in un **gruppo di gestione** , usare [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +46,7 @@ A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-* Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Per eseguire la distribuzione in un **tenant** , usare [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -56,26 +54,25 @@ A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
   Per altre informazioni sulle distribuzioni a livello di tenant, vedere [Creare risorse a livello di tenant](deploy-to-tenant.md).
 
-Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse.
+Per ogni ambito, l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per creare risorse.
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
-Per distribuire le risorse in Azure, seguire questa procedura:
+È possibile distribuire un modello dal computer locale o da uno archiviato esternamente. In questa sezione viene descritta la distribuzione di un modello locale.
 
-1. Accedere con l'account Azure
-2. Creare un gruppo di risorse che funge da contenitore per le risorse distribuite. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Non può terminare con un punto.
-3. Distribuire nel gruppo di risorse il modello che definisce le risorse da creare.
-
-Un modello può includere parametri che consentono di personalizzare la distribuzione. Può includere ad esempio valori specifici per un determinato ambiente (di sviluppo, test e produzione). Il modello di esempio definisce un parametro per lo SKU dell'account di archiviazione.
-
-L'esempio seguente crea un gruppo di risorse e distribuisce un modello dal computer locale:
+Se si esegue la distribuzione in un gruppo di risorse che non esiste, creare il gruppo di risorse. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Il nome non può terminare con un punto.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+Per distribuire un modello locale, usare il `--template-file` parametro nel comando di distribuzione. Nell'esempio seguente viene anche illustrato come impostare un valore di parametro che deriva dal modello.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -85,9 +82,31 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 "provisioningState": "Succeeded",
 ```
 
+## <a name="deploy-remote-template"></a>Distribuisci modello remoto
+
+Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+
+Se si esegue la distribuzione in un gruppo di risorse che non esiste, creare il gruppo di risorse. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Il nome non può terminare con un punto.
+
+```azurecli-interactive
+az group create --name ExampleGroup --location "Central US"
+```
+
+Per distribuire un modello esterno, usare il parametro `template-uri`.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Tuttavia, se si desidera gestire l'accesso al modello, è consigliabile utilizzare le [specifiche del modello](#deploy-template-spec).
+
 ## <a name="deployment-name"></a>Nome distribuzione
 
-Nell'esempio precedente, la distribuzione è stata denominata `ExampleDeployment` . Se non si specifica un nome per la distribuzione, viene usato il nome del file modello. Se, ad esempio, si distribuisce un modello denominato `azuredeploy.json` e non si specifica un nome di distribuzione, la distribuzione verrà denominata `azuredeploy` .
+Quando si distribuisce un modello ARM, è possibile assegnare un nome alla distribuzione. Questo nome può essere utile per recuperare la distribuzione dalla cronologia di distribuzione. Se non si specifica un nome per la distribuzione, viene usato il nome del file modello. Se, ad esempio, si distribuisce un modello denominato `azuredeploy.json` e non si specifica un nome di distribuzione, la distribuzione verrà denominata `azuredeploy` .
 
 Ogni volta che si esegue una distribuzione, viene aggiunta una voce alla cronologia di distribuzione del gruppo di risorse con il nome della distribuzione. Se si esegue un'altra distribuzione e si assegna lo stesso nome, la voce precedente viene sostituita con la distribuzione corrente. Se si desidera mantenere voci univoche nella cronologia di distribuzione, assegnare a ogni distribuzione un nome univoco.
 
@@ -111,30 +130,13 @@ Quando si specifica un nome univoco per ogni distribuzione, è possibile eseguir
 
 Per evitare conflitti con le distribuzioni simultanee e per garantire voci univoche nella cronologia di distribuzione, assegnare a ogni distribuzione un nome univoco.
 
-## <a name="deploy-remote-template"></a>Distribuisci modello remoto
-
-Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
-
-Per distribuire un modello esterno, usare il parametro **template-uri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
-
 ## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
 Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
 
 Gli esempi seguenti illustrano come creare e distribuire una specifica del modello. Questi comandi sono disponibili solo se è stata effettuata [l'iscrizione per l'anteprima](https://aka.ms/templateSpecOnboarding).
 
-Per prima cosa, è necessario creare la specifica del modello fornendo il modello ARM.
+Per prima cosa, creare la specifica del modello fornendo il modello ARM.
 
 ```azurecli
 az ts create \
@@ -160,17 +162,6 @@ Per altre informazioni, vedere [Azure Resource Manager specifiche del modello (a
 ## <a name="preview-changes"></a>Anteprima modifiche
 
 Prima di distribuire il modello, è possibile visualizzare in anteprima le modifiche che il modello apporterà all'ambiente. Usare l' [operazione](template-deploy-what-if.md) di simulazione per verificare che il modello apporti le modifiche previste. Cosa-se anche il modello viene convalidato per gli errori.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Immettere i comandi seguenti in Cloud Shell:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## <a name="parameters"></a>Parametri
 
@@ -275,4 +266,3 @@ Per distribuire un modello con stringhe a più righe o commenti usando l'interfa
 - Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 - Per informazioni su come definire i parametri nel modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 - Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
-- Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).

@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776494"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678363"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 
@@ -22,15 +22,15 @@ L'apprendimento attivo modifica la Knowledge base o servizio di ricerca dopo l'a
 
 ## <a name="turn-on-active-learning"></a>Attivare l'apprendimento attivo
 
-Per visualizzare le domande suggerite, è necessario [attivare l'apprendimento attivo](use-active-learning.md) per la risorsa QnA Maker.
+Per visualizzare le domande suggerite, è necessario [attivare l'apprendimento attivo](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) per la risorsa QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Visualizza le domande suggerite
 
-1. Per visualizzare le domande suggerite, nella pagina **modifica** Knowledge Base selezionare Visualizza **Opzioni**, quindi selezionare Mostra suggerimenti di **apprendimento attivi**.
+1. Per visualizzare le domande suggerite, nella pagina **modifica** Knowledge Base selezionare Visualizza **Opzioni** , quindi selezionare Mostra suggerimenti di **apprendimento attivi** .
 
     [![Nella sezione Edit (modifica) del portale selezionare Show suggestions (Mostra suggerimenti) per visualizzare le nuove alternative per la domanda relativa ad Active Learning.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrare la Knowledge base con coppie di domande e risposte per visualizzare solo i suggerimenti selezionando **Filtra per suggerimenti**.
+1. Filtrare la Knowledge base con coppie di domande e risposte per visualizzare solo i suggerimenti selezionando **Filtra per suggerimenti** .
 
     [![Usare l'interruttore Filtra per suggerimenti per visualizzare solo le alternative alla domanda consigliata di apprendimento attivo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -143,7 +143,7 @@ Il corpo JSON ha diverse impostazioni:
 |Proprietà corpo JSON|Tipo|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti.|
-|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativa.|
+|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. facoltativo.|
 |`userQuestion`|string|Testo esatto della query dell'utente. Obbligatorio.|
 |`qnaID`|d'acquisto|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 

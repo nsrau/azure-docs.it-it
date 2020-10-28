@@ -2,17 +2,24 @@
 title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079464"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675387"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
-Questo articolo descrive come usare il pulsante **Distribuisci in Azure** per distribuire i modelli da un repository GitHub. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub o a una pagina Web che fa riferimento al repository. Questo metodo supporta solo la distribuzione a livello di gruppo di risorse.
+Questo articolo descrive come usare il pulsante **Distribuisci in Azure** per distribuire i modelli da un repository GitHub. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub. In alternativa, è possibile aggiungere il pulsante a una pagina Web che fa riferimento al repository.
+
+L'ambito di distribuzione è determinato dallo schema del modello. Per altre informazioni, vedere:
+
+* [gruppi di risorse](deploy-to-resource-group.md)
+* [sottoscrizioni](deploy-to-subscription.md)
+* [gruppi di gestione](deploy-to-management-group.md)
+* [tenant](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Usa immagine comune
 
@@ -28,7 +35,7 @@ L'immagine viene visualizzata come segue:
 
 ## <a name="create-url-for-deploying-template"></a>Crea URL per la distribuzione del modello
 
-Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository. Per visualizzare l'URL non elaborato, selezionare **RAW**.
+Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository. Per visualizzare l'URL non elaborato, selezionare **RAW** .
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Seleziona RAW":::
 
@@ -38,7 +45,7 @@ Il formato dell'URL è:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Quindi, l'URL lo codifica. È possibile usare un codificatore online o eseguire un comando. L'esempio di PowerShell seguente illustra come codificare un valore in URL.
+Convertire quindi l'URL in un valore con codifica URL. È possibile usare un codificatore online o eseguire un comando. L'esempio di PowerShell seguente illustra come codificare un valore in URL.
 
 ```powershell
 [uri]::EscapeDataString($url)
@@ -86,7 +93,7 @@ Per HTML, usare:
 
 Per testare la soluzione completa, selezionare il pulsante seguente:
 
-[![Distribuisci in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
 
 Nel portale viene visualizzato un riquadro che consente di specificare facilmente i valori dei parametri. I parametri vengono precompilati con i valori predefiniti del modello.
 

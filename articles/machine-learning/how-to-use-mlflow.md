@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250692"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676651"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Tenere traccia dell'esperimento e distribuire modelli ML con MLflow e Azure Machine Learning (anteprima)
 
@@ -353,13 +353,16 @@ Se non si prevede di usare le metriche registrate e gli artefatti nell'area di l
 
 1. Nell'elenco selezionare il gruppo di risorse creato.
 
-1. Selezionare **Elimina gruppo di risorse**.
+1. Selezionare **Elimina gruppo di risorse** .
 
-1. Immettere il nome del gruppo di risorse. Selezionare **Elimina**.
+1. Immettere il nome del gruppo di risorse. Selezionare **Elimina** .
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 
 I [notebook MLflow con Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) dimostrano e ampliano le nozioni presentate in questo articolo.
+
+> [!NOTE]
+> Un repository gestito dalla community di esempi che usano mlflow è disponibile all'indirizzo https://github.com/Azure/azureml-examples .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

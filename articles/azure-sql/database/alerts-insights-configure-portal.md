@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444912"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675140"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creare avvisi per il database SQL di Azure e l'analisi delle sinapsi di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
 * [Il portale di Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfaccia della riga di comando (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST di Monitoraggio di Azure](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creare una regola di avviso in base a una metrica con il portale di Azure
 
@@ -55,16 +55,16 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
    ![Monitoraggio](./media/alerts-insights-configure-portal/Alerts.png)
   
 3. Selezionare il pulsante **nuova regola di avviso** per aprire la pagina **Crea regola** .
-  ![Creare una regola](./media/alerts-insights-configure-portal/create-rule.png)
+  ![Crea regola](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Nella sezione **condizione** fare clic su **Aggiungi**.
+4. Nella sezione **condizione** fare clic su **Aggiungi** .
   ![Definire la condizione](./media/alerts-insights-configure-portal/create-rule.png)
 5. Nella pagina **Configura logica** per i segnali selezionare un segnale.
   ![Seleziona segnale](./media/alerts-insights-configure-portal/select-signal.png)
-6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU**, viene visualizzata la pagina **Configura logica segnale** .
+6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU** , viene visualizzata la pagina **Configura logica segnale** .
   ![Configurare la logica dei segnali](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done**.
-8. Nella **regola crea**selezionare un **gruppo di azioni** esistente o crearne uno nuovo. Un gruppo di azione consente di definire l'azione da intraprendere quando si verifica una condizione di avviso.
+7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done** .
+8. Nella **regola crea** selezionare un **gruppo di azioni** esistente o crearne uno nuovo. Un gruppo di azione consente di definire l'azione da intraprendere quando si verifica una condizione di avviso.
   ![Definire il gruppo di azioni](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Definire un nome per la regola, fornire una descrizione facoltativa, scegliere un livello di gravità per la regola, scegliere se abilitare la regola al momento della creazione della regola, quindi fare clic su **Crea avviso regola** per creare l'avviso della regola metrica.

@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: a5842c5f3130b39f75b5339274b84feb2e0f283f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547096"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677497"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 
@@ -30,15 +30,15 @@ Con le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 Il flusso di lavoro dell'app per la logica può usare azioni per ottenere risposte dal connettore di Microsoft Graph Security e rendere disponibile l'output per altre azioni nel flusso di lavoro. L'output delle azioni del connettore di Microsoft Graph Security può anche essere usato da altre azioni nel flusso di lavoro. Se ad esempio si ricevono avvisi con gravità alta tramite il connettore di Microsoft Graph Security, è possibile inviare tali avvisi in un messaggio di posta elettronica mediante il connettore di Outlook. 
 
-Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Security API overview](https://aka.ms/graphsecuritydocs) (Panoramica dell'API di Microsoft Graph Security). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Se si sta cercando Microsoft Flow o PowerApps, vedere [che cos'è Flow?](https://flow.microsoft.com/) o [che cos'è PowerApps?](https://powerapps.microsoft.com/)
+Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Security API overview](/graph/security-concept-overview) (Panoramica dell'API di Microsoft Graph Security). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Se si sta cercando Microsoft Flow o PowerApps, vedere [che cos'è Flow?](https://flow.microsoft.com/) o [che cos'è PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
-* Per usare il connettore di Microsoft Graph Security, è necessario *fornire in modo esplicito* il consenso dell'amministratore del tenant di Azure Active Directory (AD), come previsto dai [requisiti di autenticazione di Microsoft Graph Security](https://aka.ms/graphsecurityauth). Questo consenso richiede l'ID applicazione e il nome del connettore di Microsoft Graph Security, che è anche possibile trovare nel [portale di Azure](https://portal.azure.com):
+* Per usare il connettore di Microsoft Graph Security, è necessario *fornire in modo esplicito* il consenso dell'amministratore del tenant di Azure Active Directory (AD), come previsto dai [requisiti di autenticazione di Microsoft Graph Security](/graph/security-authorization). Questo consenso richiede l'ID applicazione e il nome del connettore di Microsoft Graph Security, che è anche possibile trovare nel [portale di Azure](https://portal.azure.com):
 
-  | Proprietà | Valore |
+  | Proprietà | valore |
   |----------|-------|
   | **Nome dell'applicazione** | `MicrosoftGraphSecurityConnector` |
   | **ID applicazione** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -159,9 +159,8 @@ Per altre informazioni sulle query che è possibile usare con questo connettore,
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](https://aka.ms/graphsecurityconnectorreference) del connettore.
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/microsoftgraphsecurity/) del connettore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
-

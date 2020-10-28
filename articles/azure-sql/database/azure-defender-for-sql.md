@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372154"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678084"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender per SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -31,7 +31,7 @@ Azure Defender offre un set di funzionalità avanzate per la sicurezza di SQL, t
 - La [valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio facile da configurare che consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Offre visibilità sullo stato di sicurezza e include passaggi di utilità pratica per risolvere i problemi di sicurezza e migliorare le fortificazioni del database.
 - [Advanced Threat Protection](threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Monitora costantemente il database per individuare le attività sospette e fornisce avvisi di sicurezza immediata su potenziali vulnerabilità, attacchi intrusivi in SQL di Azure e modelli di accesso al database anomali. Gli avvisi della funzionalità di Advanced Threat Protection includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
 
-Abilitare Azure Defender per SQL una volta per abilitare tutte le funzionalità incluse. Con un solo clic è possibile abilitare Azure Defender per tutti i database nel [Server](logical-servers.md) in Azure o in SQL istanza gestita. Per abilitare o gestire le impostazioni di Azure Defender è necessario appartenere al ruolo [Gestione sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) o a uno dei ruoli di amministratore del database o del server.
+Abilitare Azure Defender per SQL una volta per abilitare tutte le funzionalità incluse. Con un solo clic è possibile abilitare Azure Defender per tutti i database nel [Server](logical-servers.md) in Azure o in SQL istanza gestita. Per abilitare o gestire le impostazioni di Azure Defender è necessario appartenere al ruolo [Gestione sicurezza SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) o a uno dei ruoli di amministratore del database o del server.
 
 Per altre informazioni sui prezzi di Azure Defender per SQL, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,10 +62,10 @@ Per eseguire l'override delle impostazioni di Azure Defender per un determinato 
 
 Una volta selezionata la casella di controllo, è possibile configurare le impostazioni rilevanti per questo database.
 
-Azure Defender per le impostazioni SQL per il server o l'istanza gestita può essere raggiunto anche dal riquadro del database di Azure Defender. Fare clic su **Impostazioni** nel riquadro principale di Azure Defender, quindi fare clic su **Visualizza Azure Defender per le impostazioni di SQL Server**.
+Azure Defender per le impostazioni SQL per il server o l'istanza gestita può essere raggiunto anche dal riquadro del database di Azure Defender. Fare clic su **Impostazioni** nel riquadro principale di Azure Defender, quindi fare clic su **Visualizza Azure Defender per le impostazioni di SQL Server** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Valutazione della vulnerabilità](sql-vulnerability-assessment.md)
 - Altre informazioni su [Advanced Threat Protection](threat-detection-configure.md)
-- Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Altre informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-introduction.md)

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614524"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678338"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni C# di Service Fabric con Visual Studio Code
 
@@ -34,7 +34,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 ## <a name="open-the-application-in-vs-code"></a>Aprire l'applicazione in Visual Studio Code
 
 ### <a name="windows"></a>Windows
-Fare clic con il pulsante destro del mouse sull'icona di Visual Studio Code nel menu Start e scegliere **Esegui come amministratore**. Per associare il debugger ai servizi, è necessario eseguire Visual Studio Code come amministratore.
+Fare clic con il pulsante destro del mouse sull'icona di Visual Studio Code nel menu Start e scegliere **Esegui come amministratore** . Per associare il debugger ai servizi, è necessario eseguire Visual Studio Code come amministratore.
 
 ### <a name="linux"></a>Linux
 Usando il terminale spostarsi nel percorso /service-fabric-dotnet-core-getting-started/Services/CounterService dalla directory locale in cui è stata clonata l'applicazione.
@@ -49,7 +49,7 @@ L'applicazione dovrebbe ora essere visualizzata nell'area di lavoro di Visual St
 ![Applicazione CounterService nell'area di lavoro](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
 ## <a name="build-the-application"></a>Compilare l'applicazione
-1. In Visual Studio Code premere CTRL+MAIUSC+P per aprire il **riquadro comandi**.
+1. In Visual Studio Code premere CTRL+MAIUSC+P per aprire il **riquadro comandi** .
 2. Cercare e selezionare il comando **Service Fabric: Build Application** (Service Fabric: Compila applicazione). L'output della compilazione viene inviato al terminale integrato.
 
    ![Comando per la compilazione dell'applicazione in Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
@@ -74,7 +74,7 @@ Con la distribuzione dell'applicazione nel cluster locale è anche possibile pub
 
 1. Assicurarsi che l'applicazione sia stata compilata seguendo le istruzioni riportate sopra. Aggiornare il file di configurazione generato `Cloud.json` con i dettagli del cluster remoto in cui si vuole eseguire la pubblicazione.
 
-2. Dal **riquadro comandi**selezionare il **comando Service Fabric: Publish Application**. L'output del processo di installazione viene inviato al terminale integrato.
+2. Dal **riquadro comandi** selezionare il **comando Service Fabric: Publish Application** . L'output del processo di installazione viene inviato al terminale integrato.
 
    ![Comando pubblica applicazione in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
@@ -91,13 +91,13 @@ Per impostare un punto di interruzione ed eseguire il debug, seguire questa proc
 
 2. Selezionare **.NET Core Attach** dal menu delle configurazioni di debug.
 
-   ![Icona di debug nell'area di lavoro di Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Screenshot che mostra il fissaggio di .NET Core selezionato nel menu di configurazione debug.](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Aprire Service Fabric Explorer in un browser: http: \/ /localhost: 19080/Explorer. Fare clic su **Applicazioni** ed eseguire il drill down per determinare il nodo primario in cui è in esecuzione CounterService. Nell'immagine seguente il nodo primario per CounterService è il nodo 0.
 
    ![Nodo primario per CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
-4. In Visual Studio Code fare clic sull'icona di esecuzione (freccia verde) accanto alla configurazione di debug **.NET Core Attach**. Nella finestra di dialogo di selezione del processo, selezionare il processo di CounterService in esecuzione sul nodo primario identificato nel passaggio 4.
+4. In Visual Studio Code fare clic sull'icona di esecuzione (freccia verde) accanto alla configurazione di debug **.NET Core Attach** . Nella finestra di dialogo di selezione del processo, selezionare il processo di CounterService in esecuzione sul nodo primario identificato nel passaggio 4.
 
    ![Processo primario](./media/service-fabric-develop-csharp-applications-with-vs-code/select-process.png)
 

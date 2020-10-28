@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327562"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678047"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Il database SQL e SQL Istanza gestita offrono inoltre diverse funzionalità di c
 
 - [Le tabelle temporali](../temporal-tables.md) consentono di ripristinare le versioni delle righe da qualsiasi punto nel tempo.
 - I [backup automatici predefiniti](automated-backups-overview.md) e il [ripristino temporizzato](recovery-using-backups.md#point-in-time-restore) consentono di ripristinare il database completo fino a un determinato punto nel tempo entro il periodo di conservazione configurato fino a 35 giorni.
-- È possibile [ripristinare un database eliminato](recovery-using-backups.md#deleted-database-restore) fino al momento in cui è stato eliminato se il **Server non è stato eliminato**.
+- È possibile [ripristinare un database eliminato](recovery-using-backups.md#deleted-database-restore) fino al momento in cui è stato eliminato se il **Server non è stato eliminato** .
 - [La conservazione backup a lungo termine](long-term-retention-overview.md) consente di conservare i backup fino a 10 anni. Si tratta di una versione di anteprima pubblica limitata per SQL Istanza gestita
 - La [replica geografica attiva](active-geo-replication-overview.md) consente di creare repliche leggibili e di eseguire manualmente il failover a qualsiasi replica in caso di interruzione del Data Center o di aggiornamento dell'applicazione.
 - Il [gruppo di failover automatico](auto-failover-group-overview.md#terminology-and-capabilities) consente all'applicazione di eseguire automaticamente il ripristino in caso di interruzione del Data Center.
@@ -141,7 +141,7 @@ Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seg
 
 - Reindirizzare i client e le applicazioni client al nuovo server e al database ripristinato.
 - Verificare che siano disponibili regole del firewall IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) per abilitare regole appropriate.
-- Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database master appropriati (oppure usare [utenti indipendenti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database master appropriati (oppure usare [utenti indipendenti](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configurare il controllo, a seconda dei casi.
 - Configurare gli avvisi in base alle esigenze.
 

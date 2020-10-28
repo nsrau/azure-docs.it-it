@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4d0be745ef076ececbc5719a221f49b69d46c2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443927"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676089"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articoli su come connettersi al database SQL di Azure e all'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Il documento seguente include collegamenti ad esempi di Azure che mostrano come 
 | Guida introduttiva | Descrizione |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Questa guida di avvio rapido illustra come usare SSMS per connettersi a un database e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Questa guida di avvio rapido illustra come usare Azure Data Studio per connettersi a un database e quindi usare istruzioni Transact-SQL (T-SQL) per creare il database TutorialDB usato nelle esercitazioni di Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Questa guida di avvio rapido illustra come usare Azure Data Studio per connettersi a un database e quindi usare istruzioni Transact-SQL (T-SQL) per creare il database TutorialDB usato nelle esercitazioni di Azure Data Studio.|
 |[Azure portal](connect-query-portal.md)|Questa guida di avvio rapido illustra come usare l'editor di query per connettersi a un database (solo database SQL di Azure) e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[Visual Studio Code](connect-query-vscode.md)|Questa guida di avvio rapido illustra come usare Visual Studio Code per connettersi a un database e quindi come usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[.NET con Visual Studio](connect-query-dotnet-visual-studio.md)|Questa guida di avvio rapido illustra come usare .NET Framework per creare un programma C# con Visual Studio per connettersi a un database e usare istruzioni Transact-SQL per eseguire query sui dati.|
@@ -64,9 +64,9 @@ La tabella seguente elenca le librerie di connettività o *driver* che le applic
 
 | Linguaggio | Piattaforma | Risorse aggiuntive | Download | Introduzione |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Scaricare](https://www.microsoft.com/net/download/) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Scaricare](https://www.microsoft.com/net/download/) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC Driver per SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Scaricare](https://go.microsoft.com/fwlink/?linkid=852460) |  [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Scaricare](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Scaricare](/sql/connect/php/download-drivers-php-sql-server) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Driver Node.js per SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installazione](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Driver SQL Python](/sql/connect/python/python-driver-for-sql-server/) | Opzioni di installazione: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Driver Ruby per SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Installazione](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Operazioni preliminari](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
@@ -76,7 +76,7 @@ La tabella seguente elenca esempi di framework ORM (Object Relational Mapping) e
 
 | Linguaggio | Piattaforma | ORM |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](/ef)<br>[Entity Framework Core](/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](https://sequelize.org/) |
@@ -101,6 +101,6 @@ La tabella seguente elenca esempi di framework ORM (Object Relational Mapping) e
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

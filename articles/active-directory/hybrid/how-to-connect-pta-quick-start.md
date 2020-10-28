@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280180"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678171"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory dell'autenticazione pass-through: avvio rapido
 
@@ -72,9 +72,9 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
      | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
-   - Se il firewall o il proxy consente l'elenco elementi consentiti DNS, aggiungere connessioni a ** \* . msappproxy.NET** e ** \* . ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
+   - Se il firewall o il proxy consente l'elenco elementi consentiti DNS, aggiungere connessioni a **\* . msappproxy.NET** e **\* . ServiceBus.Windows.NET** . In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+    - Per la convalida del certificato, sbloccare gli URL seguenti: **crl3.DigiCert.com:80** , **CRL4.DigiCert.com:80** , **ocsp.digicert.com:80** , **www \. d-trust.net:80** , **root-C3-Ca2-2009.OCSP.d-trust.NET:80** , **CRL.Microsoft.com:80** , **oneocsp.Microsoft.com:80** e **OCSP.msocsp.com:80** . Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Prerequisito cloud di Azure per enti pubblici
 Prima di abilitare l'autenticazione pass-through tramite Azure AD Connect nel passaggio 2, scaricare la versione più recente dell'agente PTA dalla portale di Azure.  È necessario assicurarsi che le versioni dell'agente siano **1.5.1742.0.** o versioni successive.  Per verificare l'agente, vedere [aggiornare gli agenti di autenticazione](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -88,11 +88,11 @@ Abilitare l'autenticazione pass-through attraverso [Azure AD Connect](whatis-hyb
 >[!IMPORTANT]
 >L'autenticazione pass-through può essere abilitata nel server primario o di gestione temporanea di Azure AD Connect. Si consiglia di abilitarla dal server primario. Se si prevede di configurare un server di gestione temporanea di Azure AD Connect, **è necessario** continuare a scegliere l'autenticazione pass-through come opzione di accesso. Scegliendo un'altra opzione, l'autenticazione pass-through verrà **disabilitata** nel server e l'impostazione verrà sovrascritta nel server primario.
 
-Se si installa Azure AD Connect per la prima volta, scegliere il [percorso di installazione personalizzato](how-to-connect-install-custom.md). Nella pagina **Accesso utente** scegliere **Autenticazione pass-through** come **Metodo di accesso**. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione pass-through. Viene inoltre abilitata la funzionalità di autenticazione pass-through nel tenant.
+Se si installa Azure AD Connect per la prima volta, scegliere il [percorso di installazione personalizzato](how-to-connect-install-custom.md). Nella pagina **Accesso utente** scegliere **Autenticazione pass-through** come **Metodo di accesso** . Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione pass-through. Viene inoltre abilitata la funzionalità di autenticazione pass-through nel tenant.
 
 ![Azure AD Connect: Accesso utente](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Se Azure AD Connect è già installato (usando il percorso di [installazione rapida](how-to-connect-install-express.md) o di [installazione personalizzata](how-to-connect-install-custom.md)), scegliere l'attività **Cambia l'accesso utente** in Azure AD Connect e quindi fare clic su **Avanti**. Selezionare quindi **Autenticazione pass-through** come metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
+Se Azure AD Connect è già installato (usando il percorso di [installazione rapida](how-to-connect-install-express.md) o di [installazione personalizzata](how-to-connect-install-custom.md)), scegliere l'attività **Cambia l'accesso utente** in Azure AD Connect e quindi fare clic su **Avanti** . Selezionare quindi **Autenticazione pass-through** come metodo di accesso. Al completamento, nello stesso server di Azure AD Connect viene installato un agente di autenticazione e la funzionalità è abilitata per il tenant.
 
 ![Azure AD Connect: Cambia l'accesso utente](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
@@ -104,10 +104,10 @@ Se Azure AD Connect è già installato (usando il percorso di [installazione rap
 Seguire queste istruzioni per verificare che l'autenticazione pass-through sia stata attivata correttamente:
 
 1. Accedere al centro di [amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale per il tenant.
-2. Nel riquadro sinistro selezionare **Azure Active Directory**.
-3. Selezionare **Azure AD Connect**.
-4. Verificare che la funzionalità **Autenticazione pass-through** sia impostata su **Abilitato**.
-5. Selezionare **Autenticazione pass-through**. Il riquadro **Autenticazione pass-through** elenca i server in cui sono stati installati gli agenti di autenticazione.
+2. Nel riquadro sinistro selezionare **Azure Active Directory** .
+3. Selezionare **Azure AD Connect** .
+4. Verificare che la funzionalità **Autenticazione pass-through** sia impostata su **Abilitato** .
+5. Selezionare **Autenticazione pass-through** . Il riquadro **Autenticazione pass-through** elenca i server in cui sono stati installati gli agenti di autenticazione.
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -133,16 +133,16 @@ Per la maggior parte dei clienti, tre agenti di autenticazione in totale sono su
 Per iniziare, seguire queste istruzioni per scaricare il software dell'agente di autenticazione:
 
 1. Per scaricare la versione più recente dell'agente di autenticazione (versione 1.5.193.0 o successive), accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant.
-2. Nel riquadro sinistro selezionare **Azure Active Directory**.
-3. Selezionare **Azure AD Connect**, **Autenticazione pass-through** e quindi **Scarica agente**.
-4. Fare clic sul pulsante **Accetta le condizioni e scarica**.
+2. Nel riquadro sinistro selezionare **Azure Active Directory** .
+3. Selezionare **Azure AD Connect** , **Autenticazione pass-through** e quindi **Scarica agente** .
+4. Fare clic sul pulsante **Accetta le condizioni e scarica** .
 
 ![Interfaccia di amministrazione di Azure Active Directory: pulsante Scarica per l'agente di autenticazione](./media/how-to-connect-pta-quick-start/pta9.png)
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Scarica agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
->È anche possibile [scaricare il software dell'agente di autenticazione](https://aka.ms/getauthagent). Leggere e accettare le [Condizioni d'uso dell'agente di autenticazione ](https://aka.ms/authagenteula) _prima_ di installarlo.
+>È anche possibile [scaricare il software dell'agente di autenticazione](https://aka.ms/getauthagent). Leggere e accettare le [Condizioni d'uso dell'agente di autenticazione](https://aka.ms/authagenteula) _prima_ di installarlo.
 
 Esistono due modi per distribuire un agente di autenticazione autonomo:
 
@@ -166,7 +166,7 @@ In secondo luogo è possibile creare ed eseguire uno script di distribuzione aut
   ```
 
 >[!IMPORTANT]
->Se un agente di autenticazione è installato in una macchina virtuale, non è possibile clonare la macchina virtuale per configurare un altro agente di autenticazione. Questo metodo non è **supportato**.
+>Se un agente di autenticazione è installato in una macchina virtuale, non è possibile clonare la macchina virtuale per configurare un altro agente di autenticazione. Questo metodo non è **supportato** .
 
 ## <a name="step-5-configure-smart-lockout-capability"></a>Passaggio 5: configurare la funzionalità di blocco intelligente
 

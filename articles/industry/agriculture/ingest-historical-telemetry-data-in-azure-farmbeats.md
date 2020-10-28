@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510267"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675814"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -33,7 +33,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 - Segreto client
 - Stringa di connessione all’Hub eventi
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
@@ -46,13 +46,13 @@ Seguire questa procedura:
 
       b. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
 
-      c. Selezionare **esporre un'API** > selezionare **Aggiungi un'applicazione client** e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare **autorizzazione ambito**. In questo modo si concederà l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti:
+      c. Selezionare **esporre un'API** > selezionare **Aggiungi un'applicazione client** e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare **autorizzazione ambito** . In questo modo si concederà l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti:
 
 3. Aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro della portale di Azure.
 
     ![Barra degli strumenti portale di Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Verificare che l'ambiente sia impostato su **PowerShell**. Per impostazione predefinita, è impostato su bash.
+4. Verificare che l'ambiente sia impostato su **PowerShell** . Per impostazione predefinita, è impostato su bash.
 
     ![Impostazione della barra degli strumenti di PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -70,13 +70,13 @@ Seguire questa procedura:
 
 7. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
+8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina **Panoramica** .
 
     ```azurepowershell-interactive
 
@@ -84,7 +84,7 @@ Seguire questa procedura:
 
     ```
 
-9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
+9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API** , l' **ID tenant** , l' **ID client** , il **segreto client** e la **stringa di connessione EventHub** .
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Crea metadati del dispositivo o del sensore
@@ -96,10 +96,10 @@ Seguire questa procedura:
  > [!NOTE]
  > I partner possono accedere solo per leggere, creare e aggiornare i metadati. **l'opzione Delete è limitata al partner.**
 
-- /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
-- /**Device**: Device corrisponde a un dispositivo fisico presente nella farm.
-- /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misura del sensore, ad esempio la temperatura e la pressione dell'ambiente.
-- /**Sensor**: Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
+- /**DeviceModel** : DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
+- /**Device** : Device corrisponde a un dispositivo fisico presente nella farm.
+- /**SensorModel** : SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misura del sensore, ad esempio la temperatura e la pressione dell'ambiente.
+- /**Sensor** : Sensor corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 
 
 |        DeviceModel   |  Suggerimenti   |
@@ -192,9 +192,9 @@ access_token = token_response.get('access_token')
 
 Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats datahub:
 
-- **Content-Type**: Application/JSON
-- **Autorizzazione**: portar <Access-Token>
-- **Accept**: Application/JSON
+- **Content-Type** : Application/JSON
+- **Autorizzazione** : portar <Access-Token>
+- **Accept** : Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Payload di input per la creazione di metadati
 
@@ -336,7 +336,7 @@ Ora che sono stati creati i dispositivi e i sensori in FarmBeats, è possibile i
 
 ### <a name="create-a-telemetry-client"></a>Creare un client di telemetria
 
-È necessario inviare i dati di telemetria a hub eventi di Azure per l'elaborazione. Hub eventi di Azure è un servizio che consente l’inserimento di dati (di telemetria) in tempo reale da applicazioni e dispositivi connessi. Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sull'invio di dati di telemetria, vedere [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+È necessario inviare i dati di telemetria a hub eventi di Azure per l'elaborazione. Hub eventi di Azure è un servizio che consente l’inserimento di dati (di telemetria) in tempo reale da applicazioni e dispositivi connessi. Per inviare i dati di telemetria a FarmBeats, creare un client che invii messaggi a un hub eventi in FarmBeats. Per altre informazioni sull'invio di dati di telemetria, vedere [Hub eventi di Azure](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Inviare un messaggio di telemetria come client
 
@@ -431,9 +431,9 @@ Ecco un esempio di messaggio di telemetria:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Non è possibile visualizzare i dati di telemetria dopo l'inserimento dei dati cronologici/di streaming dai sensori
 
-**Sintomo**: i dispositivi o i sensori sono stati distribuiti e sono stati creati in FarmBeats e i dati di telemetria sono stati inseriti in EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
+**Sintomo** : i dispositivi o i sensori sono stati distribuiti e sono stati creati in FarmBeats e i dati di telemetria sono stati inseriti in EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
 
-**Azione correttiva**:
+**Azione correttiva** :
 
 1. Assicurarsi di aver eseguito la registrazione del partner appropriata. per verificarlo, passare a datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire questa [procedura](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
 

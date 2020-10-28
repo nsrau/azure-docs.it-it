@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457992"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676118"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Note sulla versione di Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Per i miglioramenti agli strumenti, verificare che sia installata la versione co
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>2020 ottobre
+
+| Miglioramenti al servizio | Dettagli |
+| --- | --- |
+|**Funzioni inline Table-Valued T-SQL (anteprima)**|Con questa versione è ora possibile creare funzioni inline con valori di tabella con Transact-SQL ed eseguire query sui risultati come si farebbe con una tabella. Questa funzionalità è attualmente disponibile in anteprima e sarà supportata negli strumenti di GA. Per altre informazioni, vedere [create function (Azure sinapsi Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**Comando MERGE (anteprima)**|È ora possibile eseguire operazioni di inserimento, aggiornamento o eliminazione in una tabella di destinazione dai risultati di un join con una tabella di origine. È possibile ad esempio sincronizzare due tabelle inserendo, aggiornando o eliminando righe in una tabella in base alle differenze trovate nell'altra tabella.  Per informazioni dettagliate, selezionare [Unisci](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) .|
 
 ## <a name="aug-2020"></a>2020 agosto
 

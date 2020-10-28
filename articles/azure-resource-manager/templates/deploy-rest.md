@@ -2,50 +2,50 @@
 title: Distribuire le risorse con i modelli e l'API REST
 description: Usare Azure Resource Manager e l'API REST di Resource Manager per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 17ea7da3e0b581ed60d2db97d350a70d5250ef28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: d1c8a365153007d3337d922bc163ba3767eeddc9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079494"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675409"
 ---
-# <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Distribuire risorse con i modelli di Resource Manager e l'API REST di Resource Manager
+# <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Distribuire le risorse con i modelli ARM e Azure Resource Manager API REST
 
-Questo articolo descrive come usare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.
+Questo articolo illustra come usare l'API REST di Azure Resource Manager con modelli di Azure Resource Manager (modelli ARM) per distribuire le risorse in Azure.
 
 È possibile includere il modello nel corpo della richiesta o come collegamento a un file. Quando si usa un file, può trattarsi di un file locale oppure di un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 ## <a name="deployment-scope"></a>Ambito della distribuzione
 
-La distribuzione può essere destinata a un gruppo di gestione, una sottoscrizione di Azure o un gruppo di risorse. Nella maggior parte dei casi, le distribuzioni verranno destinate a un gruppo di risorse. Usare le distribuzioni di gruppi di gestione o sottoscrizioni per applicare criteri e assegnazioni di ruoli nell'ambito specificato. È anche possibile usare le distribuzioni di sottoscrizioni per creare un gruppo di risorse e distribuirvi risorse. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
+La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione di Azure, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-* Per distribuire un **gruppo di risorse**, usare [Distribuzioni - Creare](/rest/api/resources/deployments/createorupdate). La richiesta viene inviata a:
+* Per distribuire un **gruppo di risorse** , usare [Distribuzioni - Creare](/rest/api/resources/deployments/createorupdate). La richiesta viene inviata a:
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
-* Per distribuire una **sottoscrizione**, usare [Distribuzioni - Creare nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La richiesta viene inviata a:
+* Per distribuire una **sottoscrizione** , usare [Distribuzioni - Creare nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La richiesta viene inviata a:
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-* Per eseguire la distribuzione in un **gruppo di gestione**, usare [Distribuzioni - Creare nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La richiesta viene inviata a:
+* Per eseguire la distribuzione in un **gruppo di gestione** , usare [Distribuzioni - Creare nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La richiesta viene inviata a:
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-* Per eseguire la distribuzione in un **tenant**, usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope). La richiesta viene inviata a:
+* Per eseguire la distribuzione in un **tenant** , usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope). La richiesta viene inviata a:
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Per altre informazioni sulle distribuzioni a livello di tenant, vedere [Creare risorse a livello di tenant](deploy-to-tenant.md).
@@ -56,10 +56,10 @@ Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse
 
 1. Impostare [parametri e intestazioni comuni](/rest/api/azure/), tra cui i token di autenticazione.
 
-1. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
+1. Se si esegue la distribuzione in un gruppo di risorse che non esiste, creare il gruppo di risorse. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-10-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2020-06-01
    ```
 
    Con un corpo della richiesta del tipo:
@@ -83,7 +83,7 @@ Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse
 
    Nel corpo della richiesta specificare un collegamento al modello e al file dei parametri. Per altre informazioni sul file dei parametri, vedere [Creare il file di parametri di Resource Manager](parameter-files.md).
 
-   Si noti che la **modalità** è impostata su **Incrementale**. Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
+   Si noti che la **modalità** è impostata su **Incrementale** . Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
 
    ```json
    {

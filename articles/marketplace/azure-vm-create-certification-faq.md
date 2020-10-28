@@ -7,14 +7,14 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331295"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677897"
 ---
-# <a name="vm-certification-troubleshooting"></a>Risoluzione dei problemi di certificazione della macchina virtuale
+# <a name="vm-certification-troubleshooting"></a>Risoluzione dei problemi di certificazione delle VM
 
 Quando si pubblica l'immagine della macchina virtuale (VM) in Azure Marketplace, il team di Azure la convalida per garantirne l'avvio, la sicurezza e la compatibilità con Azure. Se uno dei test di qualità elevata ha esito negativo, la pubblicazione avrà esito negativo e verrà visualizzato un messaggio di errore in cui viene descritto il problema.
 
@@ -37,6 +37,9 @@ Per risolvere questo problema, recuperare l'immagine da Azure Marketplace e appo
 > [!Note]
 > Se si usa un'immagine di base Linux non ricavata da Azure Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM in Azure Marketplace.  
 
+> [!Note]
+> Se si usa un'immagine di base Linux non ricavata da Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM nel Marketplace.  
+
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
 Verificare se l'immagine supporta le estensioni della macchina virtuale.
@@ -44,18 +47,18 @@ Verificare se l'immagine supporta le estensioni della macchina virtuale.
 Per abilitare le estensioni della macchina virtuale, eseguire le operazioni seguenti:
 
 1. Selezionare la VM Linux.
-1. Passare a **impostazioni di diagnostica**.
-1. Abilitare le matrici di base aggiornando l' **account di archiviazione**.
-1. Selezionare **Salva**.
+1. Passare a **impostazioni di diagnostica** .
+1. Abilitare le matrici di base aggiornando l' **account di archiviazione** .
+1. Selezionare **Salva** .
 
    ![Abilitazione del monitoraggio a livello di guest](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Per verificare che le estensioni della macchina virtuale siano attivate correttamente, eseguire le operazioni seguenti:
 
-1. Nella macchina virtuale selezionare la scheda **estensioni VM** e quindi verificare lo stato dell' **estensione di diagnostica per Linux**.
+1. Nella macchina virtuale selezionare la scheda **estensioni VM** e quindi verificare lo stato dell' **estensione di diagnostica per Linux** .
 1. 
-    * Se lo stato è *provisioning riuscito*, il test case estensioni è stato superato.  
-    * Se lo stato è *provisioning non riuscito*, le estensioni test case non sono riuscite ed è necessario impostare il flag finalizzato.
+    * Se lo stato è *provisioning riuscito* , il test case estensioni è stato superato.  
+    * Se lo stato è *provisioning non riuscito* , le estensioni test case non sono riuscite ed è necessario impostare il flag finalizzato.
 
       ![Screenshot che mostra l'esito positivo del provisioning](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -120,8 +123,8 @@ Nella tabella seguente sono elencati gli errori comuni rilevati durante l'esecuz
 |---|---|---|---|
 |1|Versione dell'agente Linux test case|La versione minima dell'agente Linux è 2.2.41 o successiva. Questo requisito è stato obbligatorio a partire dal 1 ° maggio 2020.|Aggiornare la versione dell'agente Linux e deve essere 2,241 o successiva. Per altre informazioni, vedere la [pagina relativa all'aggiornamento della versione dell'agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Cronologia bash test case|Verrà visualizzato un errore se la dimensione della cronologia bash nell'immagine inviata è superiore a 1 kilobyte (KB). La dimensione è limitata a 1 KB per garantire che tutte le informazioni potenzialmente riservate non vengano acquisite nel file di cronologia bash.|Per risolvere il problema, montare il disco rigido virtuale in qualsiasi altra VM funzionante e apportare le modifiche desiderate (ad esempio, eliminare i file di cronologia *. bash* ) per ridurre le dimensioni a un numero minore o uguale a 1 KB.|
-|3|Parametro kernel obbligatorio test case|Questo errore viene visualizzato quando il valore per la **console** non è impostato su **ttyS0**. Verificare eseguendo il comando seguente:<br>`cat /proc/cmdline`|Impostare il valore per **console** su **ttyS0**e inviare nuovamente la richiesta.|
-|4|test case intervallo ClientAlive|Se il risultato del Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per **ClientAliveInterval**.|Impostare il valore di **ClientAliveInterval** su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta.|
+|3|Parametro kernel obbligatorio test case|Questo errore viene visualizzato quando il valore per la **console** non è impostato su **ttyS0** . Verificare eseguendo il comando seguente:<br>`cat /proc/cmdline`|Impostare il valore per **console** su **ttyS0** e inviare nuovamente la richiesta.|
+|4|test case intervallo ClientAlive|Se il risultato del Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per **ClientAliveInterval** .|Impostare il valore di **ClientAliveInterval** su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta.|
 
 ### <a name="windows-test-cases"></a>Test case di Windows
 
@@ -148,7 +151,7 @@ Nella tabella seguente sono elencati i test case di Windows che verranno eseguit
 |17|Servizio LAN Wireless|Servizio LAN wireless. Questa funzionalità server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
 |
 
-Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Se sono necessarie altre informazioni, contattare il team di supporto.
+Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Se sono necessarie altre informazioni, contattare il team di supporto. 
 
 ## <a name="data-disk-size-verification"></a>Verifica delle dimensioni del disco dati
 
@@ -181,18 +184,18 @@ Poiché le macchine virtuali consentono l'accesso al sistema operativo sottostan
 
 Per evitare un potenziale attacco correlato al virus WannaCry, verificare che tutte le richieste di immagini Windows vengano aggiornate con la patch più recente.
 
-Per controllare la versione di Windows Server con patch per i dettagli del sistema operativo e la versione minima supportata, vedere la tabella seguente:
+Per controllare la versione di Windows Server con patch per i dettagli del sistema operativo e la versione minima supportata, vedere la tabella seguente: 
 
 È possibile verificare la versione del file di immagine da `C:\windows\system32\drivers\srv.sys` o `srv2.sys` .
 
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
 
-|Sistema operativo|Version|
+|Sistema operativo|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|R2 per Windows Server 2012|6.3.9600.18604|
+|Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|ND|
 |
@@ -205,13 +208,13 @@ Aggiornare il kernel con una versione approvata e inviare nuovamente la richiest
 
 Se l'immagine non è installata con una delle seguenti versioni del kernel, aggiornarla con le patch corrette. Richiedere l'approvazione necessaria al team di supporto dopo che l'immagine è stata aggiornata con le patch richieste seguenti:
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Version|Kernel|
+|Famiglia del sistema operativo|Versione|Kernel|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0-151|
+|Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-Azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
@@ -223,7 +226,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7.5|3.10.0-862.34.2|
+||7,5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -242,7 +245,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||SLES15|4.12.14-5.30.1 (kernel-Azure)|
 ||SLES15 per SAP|4.12.14-5.30.1 (kernel-Azure)|
 ||SLES15SP1|4.12.14-5.30.1 (kernel-Azure)|
-|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3
+|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK segue RHEL|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |2079.6.0 stabile CoreOS|4.19.43*|
@@ -267,13 +270,22 @@ Se si verificano problemi di accesso negato durante l'esecuzione dei test case n
 
 Verificare se è abilitato l'accesso corretto per l'account in cui sono in esecuzione i test case autonomi. Se l'accesso non è abilitato, abilitarlo per l'esecuzione dei test case. Se non si vuole abilitare l'accesso, è possibile condividere i risultati della test case automatica con il team di supporto.
 
-## <a name="download-failure"></a>Errore di download
+Se si vuole inviare la richiesta con l'immagine SSH disabilitata per il processo di certificazione, attenersi alla procedura seguente
 
+1. Eseguire il Toolkit di Azure nell'immagine. (Scaricare il [Toolkit più recente](https://aka.ms/AzureCertificationTestTool)
+
+2. Generare un [ticket di supporto](https://aka.ms/marketplacepublishersupport), alleghi il report del Toolkit e fornire i dettagli dell'offerta: nome dell'offerta, nome dell'editore, ID del piano/SKU e versione.
+
+3. Inviare di nuovo la richiesta di certificazione.
+
+
+## <a name="download-failure"></a>Errore di download
+    
 Vedere la tabella seguente per eventuali problemi che si verificano quando si scarica l'immagine di macchina virtuale usando un URL di firma di accesso condiviso (SAS).
 
 |Scenario|Errore|Motivo|Soluzione|
 |---|---|---|---|
-|1|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.||
+|1|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.|| 
 |2|BLOB in uso|Il disco rigido virtuale viene usato da un altro processo interno.|Il disco rigido virtuale deve trovarsi nello stato usato quando lo si Scarica usando un URL di firma di accesso condiviso.|
 |3|URL SAS non valido|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
 |4|Firma non valida|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
@@ -288,13 +300,98 @@ Quando si invia il disco rigido virtuale, assicurarsi che i primi 2048 KB del di
 >[!NOTE]
 >* Per alcune immagini speciali, ad esempio quelle basate sulle immagini di base di Windows di Azure tratte da Azure Marketplace, viene verificata la presenza di un tag di fatturazione e viene ignorata la partizione MB se il tag di fatturazione è presente e corrisponde ai valori interni disponibili.
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a>Passaggi per la creazione della prima partizione di MB (2048 KB) (solo per Linux) in un disco rigido virtuale vuoto
+
+Passaggio 1: creare qualsiasi tipo di macchina virtuale, ad esempio Ubuntu, Cent OS e così via. Compilare i campi obbligatori e fare clic su "Next: disks>" \
+![Next: comando Disks](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Passaggio 2: creare un disco non gestito per la macchina virtuale precedente.
+![Creare un disco non gestito](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Si noti che è possibile usare i valori predefiniti o specificare qualsiasi valore per campi come NIC, NSG e IP pubblico.
+
+Passaggio 3: dopo aver creato la macchina virtuale, fare clic su "dischi", che si trova sul lato sinistro, come illustrato di seguito, ![ fare clic su "dischi".](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Passaggio 4: alleghi il disco rigido virtuale come disco dati alla VM precedente per la creazione della tabella di partizione come indicato di seguito.
+![Alleghi il disco rigido virtuale](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Fare clic su Aggiungi DataDisk-> BLOB esistente-> sfogliare l'account di archiviazione VHD-> contenitore-> selezionare VHD-> fare clic su OK come sotto \
+![Selezione del VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Il disco rigido virtuale verrà aggiunto come LUN 0 del disco dati. riavviare la macchina virtuale dopo l'aggiunta del disco
+
+Passaggio 5: dopo il riavvio della macchina virtuale, accedere alla macchina virtuale usando putty (o qualsiasi altro client) ed eseguire il comando "sudo-i" per ottenere l'accesso alla radice.
+
+![Accedere alla macchina virtuale](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Passaggio 6: seguire questa procedura per creare una partizione nel disco rigido virtuale.
+
+a) digitare il comando fdisk/dev/sdb
+
+b) per visualizzare l'elenco di partizioni esistente dal disco rigido virtuale, digitare p
+
+c) digitare d per eliminare tutte le partizioni esistenti disponibili nel disco rigido virtuale (è possibile ignorare questo passaggio, se non è necessario) ![ eliminare tutte le partizioni esistenti](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) digitare n per creare una nuova partizione e selezionare p per (partizione primaria).
+
+e) immettere 2048 come valore "primo settore" ed è possibile lasciare "ultimo settore" poiché verrà impostato il valore predefinito. Si noti che tutti i dati verranno cancellati fino a 2048 KB.
+           
+>[!NOTE]
+>* Si noti che creando la partizione come sopra, i dati esistenti verranno cancellati fino a 2048 KB, quindi è consigliabile eseguire un backup del disco rigido virtuale prima di eseguire il comando precedente.
+
+Per informazioni di riferimento, vedere la schermata seguente.
+![Dati cancellati](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) digitare w per confermare la creazione della partizione. 
+
+![Creazione della partizione](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) è possibile verificare la tabella di partizione eseguendo il comando n fdisk/dev/sdb e digitando p, quindi è possibile vedere come riportato di seguito, la partizione viene creata con il valore di offset 2048. 
+
+ ![offset 2048](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+Passaggio 7: scollegare il disco rigido virtuale dalla macchina virtuale ed eliminare la macchina virtuale.
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>Passaggi per la creazione della prima partizione di MB (2048 KB) (solo per Linux) spostando i dati esistenti nel disco rigido virtuale
+
+Passaggio 1: creare qualsiasi tipo di macchina virtuale, ad esempio Ubuntu, Cent OS e così via. Compilare i campi obbligatori e fare clic su "Next: disks>" \
+![Fare clic su "Avanti: dischi>"](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Passaggio 2: creare un disco non gestito per la macchina virtuale precedente.
+![Creare un disco non gestito](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Si noti che è possibile usare i valori predefiniti o specificare qualsiasi valore per campi come NIC, NSG e IP pubblico.
+
+Passaggio 3: dopo aver creato la macchina virtuale, fare clic su "dischi", che si trova sul lato sinistro, come illustrato di seguito, ![ fare clic su "dischi".](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Passaggio 4: alleghi il disco rigido virtuale come disco dati alla VM precedente per la creazione della tabella di partizione come indicato di seguito.
+![Tabella di partizione](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Fare clic su Aggiungi DataDisk-> BLOB esistente-> sfogliare l'account di archiviazione VHD-> contenitore-> selezionare VHD-> fare clic su OK come sotto \
+![Selezione del VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Il disco rigido virtuale verrà aggiunto come LUN 0 del disco dati. riavviare la macchina virtuale dopo l'aggiunta del disco
+
+Passaggio 5: dopo il riavvio della macchina virtuale, accedere alla macchina virtuale usando putty ed eseguire il comando "sudo-i" per ottenere l'accesso alla radice. \
+![Accedi dopo il riavvio](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Passaggio 6: excute il comando echo ' + 1M,' | sfdisk--Move-Data/dev/sdc-N 1 ![ comando Execute](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>* Si noti che il completamento del comando precedente potrebbe richiedere più tempo, poiché dipende dalle dimensioni del disco
+
+Passaggio 7: scollegare il disco rigido virtuale dalla macchina virtuale ed eliminare la macchina virtuale.
+
+
 ## <a name="default-credentials"></a>Credenziali predefinite
 
 Assicurarsi sempre che le credenziali predefinite non vengano inviate con il VHD inviato. L'aggiunta di credenziali predefinite rende il disco rigido virtuale più vulnerabile alle minacce per la sicurezza. Al contrario, creare credenziali personalizzate quando si invia il disco rigido virtuale.
   
 ## <a name="datadisk-mapped-incorrectly"></a>Mapping di DataDisk non corretto
 
-Quando una richiesta viene inviata con più dischi dati, ma l'ordine non è in sequenza, questo viene considerato un problema di mapping. Se ad esempio sono presenti tre dischi dati, l'ordine di numerazione deve essere *0, 1, 2*. Qualsiasi altro ordine viene considerato un problema di mapping.
+Quando una richiesta viene inviata con più dischi dati, ma l'ordine non è in sequenza, questo viene considerato un problema di mapping. Se ad esempio sono presenti tre dischi dati, l'ordine di numerazione deve essere *0, 1, 2* . Qualsiasi altro ordine viene considerato un problema di mapping.
 
 Inviare nuovamente la richiesta con la sequenziazione corretta dei dischi dati.
 
@@ -306,11 +403,11 @@ Quando viene creata un'immagine, è possibile che venga eseguito il mapping a o 
 
 Se tutte le immagini tratte da Azure Marketplace devono essere riutilizzate, il disco rigido virtuale del sistema operativo deve essere generalizzato.
 
-* Per **Linux**, il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.
+* Per **Linux** , il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.
 
   Nella finestra SSH immettere il comando seguente: `sudo waagent -deprovision+user`
 
-* Per **Windows**, le immagini di Windows vengono generalizzate mediante `sysreptool` .
+* Per **Windows** , le immagini di Windows vengono generalizzate mediante `sysreptool` .
 
 Per ulteriori informazioni su questo strumento, vedere [Cenni preliminari sulla preparazione del sistema (Sysprep)]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
@@ -326,7 +423,7 @@ Per le soluzioni a errori correlati al disco dati, usare la tabella seguente:
 
 ## <a name="remote-access-issue"></a>Problema di accesso remoto
 
-Se l'opzione Remote Desktop Protocol (RDP) non è abilitata per l'immagine di Windows, verrà visualizzato questo errore.
+Se l'opzione Remote Desktop Protocol (RDP) non è abilitata per l'immagine di Windows, verrà visualizzato questo errore. 
 
 Abilitare l'accesso RDP per le immagini Windows prima di inviarli.
 
@@ -339,7 +436,7 @@ Di seguito sono riportati i passaggi per eliminare la "cronologia bash".
 Passaggio 1. Distribuire la macchina virtuale e fare clic sull'opzione "Esegui comando" su portale di Azure.
 ![Esegui comando su portale di Azure](./media/create-vm/vm-certification-issues-solutions-3.png)
 
-Passaggio 2. Selezionare la prima opzione "RunShellScript" ed eseguire il comando seguente.
+Passaggio 2: Selezionare la prima opzione "RunShellScript" ed eseguire il comando seguente.
 
 Comando: "cat/dev/null > ~/.bash_history && History-c" ![ bash History Command on portale di Azure](./media/create-vm/vm-certification-issues-solutions-4.png)
 
@@ -385,7 +482,7 @@ Questa sezione descrive come fornire una nuova immagine di macchina virtuale qua
 > [!NOTE]
 > Non è possibile rimuovere l'ultima immagine di macchina virtuale da un piano o arrestare la vendita dell'ultimo piano per un'offerta.
 
-Eseguire una delle operazioni seguenti:
+Eseguire una di queste operazioni:
 
 - Se si dispone di una nuova immagine di macchina virtuale per sostituire l'immagine di macchina virtuale vulnerabile, vedere [fornire un'immagine di macchina virtuale fissa](#provide-a-fixed-vm-image) di seguito.
 - Se non si ha una nuova immagine di macchina virtuale per sostituire l'unica immagine di macchina virtuale in un piano o se il piano è terminato, [interrompere la vendita del piano](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
@@ -404,36 +501,36 @@ Per fornire un'immagine di macchina virtuale fissa per sostituire un'immagine di
 Per completare questi passaggi, è necessario preparare le risorse tecniche per l'immagine di macchina virtuale che si vuole aggiungere. Per altre informazioni, vedere [creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando una propria immagine](azure-vm-create-using-own-image.md)e [generare un URI di firma di accesso condiviso per l'immagine di macchina](azure-vm-get-sas-uri.md)virtuale.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
 3. Nella colonna **alias offerta** selezionare l'offerta.
 4. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano a cui si vuole aggiungere la macchina virtuale.
-5. Nella scheda **configurazione tecnica** , in **Immagini VM** , selezionare **+ Aggiungi immagine macchina virtuale**.
+5. Nella scheda **configurazione tecnica** , in **Immagini VM** , selezionare **+ Aggiungi immagine macchina virtuale** .
 
 > [!NOTE]
 > È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo Live prima di aggiungere la successiva immagine di macchina virtuale.
 
 6. Nelle caselle visualizzate specificare una nuova versione del disco e l'immagine della macchina virtuale.
-7. Selezionare **Salva bozza**.
+7. Selezionare **Salva bozza** .
 
 Continuare con la sezione seguente per rimuovere l'immagine della macchina virtuale con la vulnerabilità di sicurezza.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Rimuovere l'immagine di macchina virtuale con vulnerabilità di sicurezza o exploit
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
 3. Nella colonna **alias offerta** selezionare l'offerta.
 4. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano con la macchina virtuale che si desidera rimuovere.
-5. Nella scheda **configurazione tecnica** , in **Immagini VM** , accanto all'immagine di macchina virtuale che si vuole rimuovere selezionare **Rimuovi immagine VM**.
-6. Nella finestra di dialogo visualizzata selezionare **continua**.
-7. Selezionare **Salva bozza**.
+5. Nella scheda **configurazione tecnica** , in **Immagini VM** , accanto all'immagine di macchina virtuale che si vuole rimuovere selezionare **Rimuovi immagine VM** .
+6. Nella finestra di dialogo visualizzata selezionare **continua** .
+7. Selezionare **Salva bozza** .
 
 Continuare con la sezione seguente per ripubblicare l'offerta.
 
 #### <a name="republish-the-offer"></a>Ripubblicare l'offerta
 
-1. Selezionare **revisione e pubblicazione**.
+1. Selezionare **revisione e pubblicazione** .
 2. Se è necessario fornire informazioni al team di certificazione, aggiungerlo alla casella **Note per la certificazione** .
-3. Selezionare **Pubblica**.
+3. Selezionare **Pubblica** .
 
 Per completare il processo di pubblicazione, vedere [rivedere e pubblicare le offerte](review-publish-offer.md).
 

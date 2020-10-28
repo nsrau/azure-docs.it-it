@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613286"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675944"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
 
@@ -43,9 +43,9 @@ Le API contengono la documentazione tecnica di Swagger. Per informazioni sulle A
 
 ## <a name="authentication"></a>Authentication
 
-FarmBeats USA Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure ad).  Il Servizio app di Azure offre supporto di autorizzazione e autenticazione integrato. 
+FarmBeats USA Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure ad).  Il Servizio app di Azure offre supporto di autorizzazione e autenticazione integrato. 
 
-Per altre informazioni su Azure AD, vedere [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Per altre informazioni su Azure AD, vedere [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub usa l'autenticazione con token di connessione, che richiede le credenziali seguenti:
 
@@ -138,10 +138,10 @@ Quando il partner dispone di credenziali per connettersi a FarmBeats datahub, il
 
 1.  Creare un nuovo tipo esteso per i campi seguenti, in base al tipo di immagine da caricare:
 
-    - **Origine della scena**: ad esempio, drone_partner_name
-    - **Tipo di scena**: ad esempio, drone
-    - **Tipo di file di scena**: ad esempio, indice clorofilla
-    - **Tipo di contenuto del file di scena**: ad esempio, image/TIFF
+    - **Origine della scena** : ad esempio, drone_partner_name
+    - **Tipo di scena** : ad esempio, drone
+    - **Tipo di file di scena** : ad esempio, indice clorofilla
+    - **Tipo di contenuto del file di scena** : ad esempio, image/TIFF
 
 2.  Chiamare l'API/Farms per ottenere l'elenco di farm dal sistema FarmBeats di Azure.
 3.  Fornire al cliente la possibilità di scegliere una singola farm dall'elenco di farm.

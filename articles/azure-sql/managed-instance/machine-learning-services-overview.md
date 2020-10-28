@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263268"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676814"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
 
@@ -54,21 +54,29 @@ Questa versione di anteprima pubblica limitata è soggetta alle condizioni per l
 
 Se si è interessati a partecipare al programma di anteprima e accettare le presenti condizioni, è possibile richiedere la registrazione creando un ticket di supporto di Azure all'indirizzo [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. Nella pagina **Crea un ticket di supporto** fare clic su **Crea un evento imprevisto** .
+
+1. Nella pagina **Guida e supporto** fare clic su **nuova richiesta di supporto** per creare un nuovo ticket.
+
 1. Selezionare le opzioni seguenti:
    - Tipo di problema- **tecnico**
    - Sottoscrizione: *selezionare la sottoscrizione*
-   - **Istanza gestita di database SQL** di servizio
+   - Servizio- **istanza gestita SQL**
+   - Risorsa: *selezionare l'istanza gestita*
    - Riepilogo: *immettere una breve descrizione della richiesta*
    - Tipo di problema- **Machine Learning Services per SQL istanza gestita (anteprima)**
    - Sottotipo di problema: **altro problema o domande "procedura"**
 
-1. Fare clic su **Avanti: soluzioni**.
+1. Fare clic su **Avanti: soluzioni** .
 
-1. Leggere le informazioni sull'anteprima, quindi fare clic su **Dettagli**.
+1. Leggere le informazioni sull'anteprima, quindi fare clic su **Avanti: dettagli** .
 
-1. In **Descrizione**immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
+1. In questa pagina:
+   - Per la domanda **che si sta tentando di iscriversi all'anteprima** , selezionare **Sì** . 
+   - Per **Descrizione** , immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
+   - Selezionare il metodo di contatto preferito. 
 
-1. Al termine, fare clic su **Avanti: rivedere + crea**, quindi fare clic su **Crea**.
+1. Al termine, fare clic su **Avanti: rivedere + crea** e quindi fare clic su **Crea** .
 
 Dopo la registrazione nel programma, Microsoft eseguirà l'onboarding all'anteprima pubblica e abiliterà Machine Learning Services per il database nuovo o esistente.
 

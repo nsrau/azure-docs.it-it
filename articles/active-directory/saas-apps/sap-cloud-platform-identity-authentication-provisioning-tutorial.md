@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273416"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677587"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Esercitazione: configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico
 
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>Assegnazione di utenti a SAP Cloud Platform Identity Authentication
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni* . Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a SAP Cloud Platform Identity Authentication. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a SAP Cloud Platform Identity Authentication seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,22 +50,22 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 ## <a name="setup-sap-cloud-platform-identity-authentication-for-provisioning"></a>Configurare SAP Cloud Platform Identity Authentication per il provisioning
 
-1. Accedere alla console di [amministrazione di SAP Cloud Platform Identity Authentication](https://sapmsftintegration.accounts.ondemand.com/admin). Passare a **utenti & autorizzazioni > Administrators**.
+1. Accedere alla console di [amministrazione di SAP Cloud Platform Identity Authentication](https://sapmsftintegration.accounts.ondemand.com/admin). Passare a **utenti & autorizzazioni > Administrators** .
 
     ![Console di amministrazione di SAP Cloud Platform Identity Authentication](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2.  Per aggiungere un nuovo amministratore all'elenco, fare clic sul pulsante **+ Aggiungi** nel pannello a sinistra. Scegliere **Aggiungi sistema** e immettere il nome del sistema.   
 
 > [!NOTE]
-> L'utente amministratore in SAP Cloud Platform Identity Authentication deve essere di tipo **System**. La creazione di un utente amministratore normale può causare errori *non autorizzati* durante il provisioning.   
+> L'utente amministratore in SAP Cloud Platform Identity Authentication deve essere di tipo **System** . La creazione di un utente amministratore normale può causare errori *non autorizzati* durante il provisioning.   
 
-3.  In Configura autorizzazioni, attivare l'interruttore su **Gestisci utenti** e **Gestisci gruppi**.
+3.  In Configura autorizzazioni, attivare l'interruttore su **Gestisci utenti** e **Gestisci gruppi** .
 
     ![SAP Cloud Platform Identity Authentication aggiungere SCIM](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-4. Si riceverà un messaggio di posta elettronica per l'attivazione dell'account e si imposterà una password per il **servizio SAP Cloud Platform Identity Authentication**.
+4. Si riceverà un messaggio di posta elettronica per l'attivazione dell'account e si imposterà una password per il **servizio SAP Cloud Platform Identity Authentication** .
 
-4.  Copiare l' **ID utente** e la **password**. Questi valori verranno immessi rispettivamente nei campi nome utente amministratore e password amministratore nella scheda provisioning dell'applicazione SAP Cloud Platform Identity Authentication nel portale di Azure.
+4.  Copiare l' **ID utente** e la **password** . Questi valori verranno immessi rispettivamente nei campi nome utente amministratore e password amministratore nella scheda provisioning dell'applicazione SAP Cloud Platform Identity Authentication nel portale di Azure.
 
 ## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Aggiungere SAP Cloud Platform Identity Authentication dalla raccolta
 
@@ -73,11 +73,11 @@ Prima di configurare SAP Cloud Platform Identity Authentication per il provision
 
 **Per aggiungere SAP Cloud Platform Identity Authentication dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** .
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -85,7 +85,7 @@ Prima di configurare SAP Cloud Platform Identity Authentication per il provision
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **SAP Cloud Platform Identity Authentication**, selezionare **SAP Cloud Platform Identity Authentication** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **SAP Cloud Platform Identity Authentication** , selezionare **SAP Cloud Platform Identity Authentication** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![SAP Cloud Platform Identity Authentication nell'elenco di risultati](common/search-new-app.png)
 
@@ -94,37 +94,37 @@ Prima di configurare SAP Cloud Platform Identity Authentication per il provision
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in SAP Cloud Platform Identity Authentication in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per SAP Cloud Platform Identity Authentication, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per SAP Cloud Platform Identity Authentication, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di SAP Cloud Platform Identity Authentication](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Per configurare il provisioning utenti automatico per SAP Cloud Platform Identity Authentication in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **SAP Cloud Platform Identity Authentication**.
+2. Nell'elenco delle applicazioni selezionare **SAP Cloud Platform Identity Authentication** .
 
     ![Collegamento di SAP HANA Cloud Platform Identity Authentication nell'elenco di applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning**.
+3. Selezionare la scheda **Provisioning** .
 
     ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico** .
 
     ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<tenantID>.accounts.ondemand.com/service/scim ` in **URL tenant**. Immettere rispettivamente i valori di **ID utente** e **password** recuperati in precedenza in **nome utente amministratore** e **password amministratore** . Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a SAP Cloud Platform Identity Authentication. Se la connessione non riesce, verificare che l'account di SAP Cloud Platform Identity Authentication disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://<tenantID>.accounts.ondemand.com/service/scim ` in **URL tenant** . Immettere rispettivamente i valori di **ID utente** e **password** recuperati in precedenza in **nome utente amministratore** e **password amministratore** . Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a SAP Cloud Platform Identity Authentication. Se la connessione non riesce, verificare che l'account di SAP Cloud Platform Identity Authentication disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore** .
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva** .
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a SAP Cloud Platform Identity Authentication**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a SAP Cloud Platform Identity Authentication** .
 
     ![Mapping utente di SAP Cloud Platform Identity Authentication](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -142,11 +142,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva** .
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning in SAP Cloud Platform Identity Authentication.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning in SAP Cloud Platform Identity Authentication.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -162,4 +162,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
-

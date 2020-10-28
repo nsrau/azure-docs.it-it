@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373573"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735114"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
 
@@ -70,23 +70,23 @@ Prendere nota della proprietà appId restituita dal comando per un passaggio suc
 
 Nel portale di Azure:
 
-1. Selezionare **Azure Active Directory**  >  **registrazione dell'app**.
+1. Selezionare **Azure Active Directory**  >  **registrazione dell'app** .
 2. Cercare la registrazione dell'app, ad esempio OCPAzureAD.
 3. Nei risultati fare clic sulla registrazione dell'app.
-4. Nel pannello **Impostazioni** selezionare **Autorizzazioni necessarie**.
-5. In **Autorizzazioni necessarie** selezionare **Aggiungi**.
+4. Nel pannello **Impostazioni** selezionare **Autorizzazioni necessarie** .
+5. In **Autorizzazioni necessarie** selezionare **Aggiungi** .
 
    ![Registrazione delle app](media/openshift-post-deployment/app-registration.png)
 
-6. Fare clic su Passaggio 1: Seleziona API, su **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Fare clic su **Seleziona** nella parte inferiore.
+6. Fare clic su Passaggio 1: Seleziona API, su **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Fare clic su **Seleziona** nella parte inferiore.
 
    ![Registrazione dell'app, Seleziona API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. In Passaggio 2: Selezionare le autorizzazioni selezionare **Accedi e leggi il profilo di un altro utente** in **Autorizzazioni delegate** e quindi fare clic su **Seleziona**.
+7. In Passaggio 2: Selezionare le autorizzazioni selezionare **Accedi e leggi il profilo di un altro utente** in **Autorizzazioni delegate** e quindi fare clic su **Seleziona** .
 
    ![Accesso alla registrazione dell'app](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selezionare **Operazione completata**.
+8. Selezionare **Operazione completata** .
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurare OpenShift per l'autenticazione di Azure AD
 

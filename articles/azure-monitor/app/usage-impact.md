@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323707"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678383"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
-L'impatto analizza in che modo i tempi di caricamento e altre proprietà influiscono sui tassi di conversione di varie parti dell'app. Più precisamente, l'impatto rileva come **una dimensione** di una **visualizzazione pagina**, un **evento personalizzato** o una **richiesta** influisce sull'utilizzo di una **visualizzazione pagina** o un **evento personalizzato** diverso. 
+L'impatto analizza in che modo i tempi di caricamento e altre proprietà influiscono sui tassi di conversione di varie parti dell'app. Più precisamente, l'impatto rileva come **una dimensione** di una **visualizzazione pagina** , un **evento personalizzato** o una **richiesta** influisce sull'utilizzo di una **visualizzazione pagina** o un **evento personalizzato** diverso. 
 
 ![Strumento Impatto](./media/usage-impact/0001-impact.png)
 
@@ -36,10 +36,10 @@ L'analisi delle prestazioni, tuttavia, è solo una parte delle funzionalità del
 
 Per iniziare a rispondere alle domande con lo strumento Impatto, scegliere una visualizzazione pagina, un evento personalizzato o una richiesta iniziale.
 
-![Strumento Impatto](./media/usage-impact/0002-dropdown.png)
+![Screenshot che mostra dove scegliere una visualizzazione pagina iniziale, un evento personalizzato o una richiesta.](./media/usage-impact/0002-dropdown.png)
 
 1. Selezionare una visualizzazione pagina dall'elenco a discesa **For the page view** (Per la visualizzazione pagina).
-2. Lasciare l'elenco a discesa **analyze how its** (analizza come l'elemento) impostato sul valore predefinito **Durata**. In questo contesto **Durata** è un alias di **Tempo di caricamento pagina**.
+2. Lasciare l'elenco a discesa **analyze how its** (analizza come l'elemento) impostato sul valore predefinito **Durata** . In questo contesto **Durata** è un alias di **Tempo di caricamento pagina** .
 3. Per l'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato. Questo evento deve corrispondere a un elemento dell'interfaccia utente nella visualizzazione pagina selezionata nel passaggio 1.
 
 ![Screenshot dei risultati](./media/usage-impact/0003-results.png)
@@ -69,14 +69,14 @@ _A_ = visualizzazione pagina/evento personalizzato/richiesta principale selezion
 
 _B_ = visualizzazione pagina/evento personalizzato secondario selezionato in **impacts the usage of** (influisce sull'utilizzo di).
 
-Lo strumento Impatto esamina un campione di tutte le sessioni di utenti nell'intervallo di tempo selezionato. Per ogni sessione esegue la ricerca di tutte le occorrenze di _A_.
+Lo strumento Impatto esamina un campione di tutte le sessioni di utenti nell'intervallo di tempo selezionato. Per ogni sessione esegue la ricerca di tutte le occorrenze di _A_ .
 
 Le sessioni vengono quindi suddivise in due diversi tipi di _sessioni secondarie_ in base a una delle due condizioni seguenti:
 
-- Una sessione secondaria convertita è costituita da una sessione che termina con un evento _B_ e comprende tutti gli eventi _A_ che si verificano prima di _B_.
-- Una sessione secondaria non convertita si verifica quando tutti gli eventi _A_ non terminano con un evento _B_.
+- Una sessione secondaria convertita è costituita da una sessione che termina con un evento _B_ e comprende tutti gli eventi _A_ che si verificano prima di _B_ .
+- Una sessione secondaria non convertita si verifica quando tutti gli eventi _A_ non terminano con un evento _B_ .
 
-Il calcolo finale dell'impatto varia a seconda che l'analisi venga eseguita in base alla metrica o alla dimensione. Per le metriche viene calcolata una media di tutti gli eventi _A_ in una sessione secondaria, mentre per le dimensioni il valore di ogni evento _A_ contribuisce _1/N_ al valore assegnato all'evento _B_. _N_ è il numero di eventi _A_ nella sessione secondaria.
+Il calcolo finale dell'impatto varia a seconda che l'analisi venga eseguita in base alla metrica o alla dimensione. Per le metriche viene calcolata una media di tutti gli eventi _A_ in una sessione secondaria, mentre per le dimensioni il valore di ogni evento _A_ contribuisce _1/N_ al valore assegnato all'evento _B_ . _N_ è il numero di eventi _A_ nella sessione secondaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

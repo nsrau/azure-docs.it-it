@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e9b27224058b41e34995fc0ea8104301c426ea9a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676077"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -79,6 +79,7 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Power bi n
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 10/26/2020: modifica di alcune tabelle per la configurazione di archiviazione Premium di Azure per chiarire il provisioning e la velocità effettiva in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/22/2020: modifica di [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES for SAP Applications](./high-availability-guide-suse.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure su SLES con e](./high-availability-guide-suse-netapp-files.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md) per modificare la raccomandazione per NET.IPv4.tcp_keepalive_time  
 - 10/16/2020: modifica [della disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure su SLES con pacemaker](./dbms-guide-ha-ibm.md), [ha per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md), [ha IBM DB2 LUW in macchine virtuali di Azure in](./high-availability-guide-rhel-ibm-db2-luw.md)RHEL, [ha per SAP NW in macchine](./high-availability-guide-rhel-multi-sid.md)virtuali di Azure nella Guida a più SID di RHEL, [ha per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md). [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES for SAP Applications](./high-availability-guide-suse.md), [ha per SAP NNW in macchine virtuali di Azure in SLES](./high-availability-guide-suse-multi-sid.md)a più SID, [ha per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](./high-availability-guide-suse-netapp-files.md), [ha per NFS in macchine virtuali di Azure su SLES](./high-availability-guide-suse-nfs.md), [ha SAP Hana in macchine virtuali di Azure](./sap-hana-high-availability.md)su SLES, ha [per SAP Hana scalabilità verticale con e](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA SAP Hana sulle macchine virtuali di Azure in RHEL](./sap-hana-high-availability-rhel.md), [SAP Hana la scalabilità orizzontale di HSR con pacemaker in macchine virtuali di Azure in RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [preparare l'infrastruttura di Azure per SAP ASC/SCS con WSFC e il disco condiviso](./sap-high-availability-infrastructure-wsfc-shared-disk.md), la [Guida a più SID a disponibilità elevata per SAP ASC/SCS con WSFC e il disco condiviso di Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) e la guida a più [SID a disponibilità elevata per SAP ASC/SCS con WSFC e il disco condiviso](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) per aggiungere un'istruzione che l'IP mobile non è supportato negli scenari di bilanciamento del carico negli indirizzi IP secondari 
 - 10/16/2020: aggiunta della documentazione per controllare gli snapshot di archiviazione delle istanze large di HANA nel [backup e nel ripristino di SAP Hana in istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)

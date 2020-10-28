@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979847"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676622"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti Active Directory 
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning degli utenti da SuccessFactors Employee Central a Active Directory (AD) e Azure AD, con Write-back facoltativo dell'indirizzo di posta elettronica in SuccessFactors. 
@@ -95,32 +95,32 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 ### <a name="create-an-api-permissions-role"></a>Creazione di un ruolo autorizzazioni API
 
 * Accedere a SAP SuccessFactors con un account utente che ha accesso al centro di amministrazione.
-* Cercare *Gestisci ruoli di autorizzazione*, quindi selezionare **Gestisci ruoli di autorizzazione** dai risultati della ricerca.
+* Cercare *Gestisci ruoli di autorizzazione* , quindi selezionare **Gestisci ruoli di autorizzazione** dai risultati della ricerca.
   ![Gestisci ruoli di autorizzazione](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Nell'elenco ruolo autorizzazione fare clic su **Crea nuovo**.
+* Nell'elenco ruolo autorizzazione fare clic su **Crea nuovo** .
   > [!div class="mx-imgBorder"]
   > ![Crea nuovo ruolo autorizzazione](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Aggiungere un **nome di ruolo** e una **Descrizione** per il nuovo ruolo di autorizzazione. Il nome e la descrizione devono indicare che il ruolo è per le autorizzazioni di utilizzo dell'API.
   > [!div class="mx-imgBorder"]
   > ![Dettagli ruolo autorizzazione](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* In impostazioni autorizzazioni fare clic su **autorizzazione...**, quindi scorrere verso il basso l'elenco di autorizzazioni e fare clic su **Gestisci strumenti di integrazione**. Selezionare la casella **Consenti all'amministratore di accedere all'API OData tramite l'autenticazione di base**.
+* In impostazioni autorizzazioni fare clic su **autorizzazione...** , quindi scorrere verso il basso l'elenco di autorizzazioni e fare clic su **Gestisci strumenti di integrazione** . Selezionare la casella **Consenti all'amministratore di accedere all'API OData tramite l'autenticazione di base** .
   > [!div class="mx-imgBorder"]
   > ![Gestione degli strumenti di integrazione](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Scorrere verso il basso nella stessa casella e selezionare **Employee Central API**. Aggiungere le autorizzazioni come illustrato di seguito per leggere usando l'API ODATA e modificare usando l'API ODATA. Selezionare l'opzione modifica se si prevede di usare lo stesso account per lo scenario writeback per SuccessFactors. 
+* Scorrere verso il basso nella stessa casella e selezionare **Employee Central API** . Aggiungere le autorizzazioni come illustrato di seguito per leggere usando l'API ODATA e modificare usando l'API ODATA. Selezionare l'opzione modifica se si prevede di usare lo stesso account per lo scenario writeback per SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Autorizzazioni di lettura scrittura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Per l'elenco completo degli attributi recuperati da questa app di provisioning, vedere informazioni di [riferimento sull'attributo SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Fare clic su **Done** (Fine). Fare clic su **Salva modifiche**.
+* Fare clic su **Done** (Fine). Fare clic su **Salva modifiche** .
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creare un gruppo di autorizzazioni per l'utente dell'API
 
-* Nell'interfaccia di amministrazione di SuccessFactors cercare *Gestisci gruppi di autorizzazioni*, quindi selezionare **Gestisci gruppi di autorizzazioni** nei risultati della ricerca.
+* Nell'interfaccia di amministrazione di SuccessFactors cercare *Gestisci gruppi di autorizzazioni* , quindi selezionare **Gestisci gruppi di autorizzazioni** nei risultati della ricerca.
   > [!div class="mx-imgBorder"]
   > ![Gestisci gruppi di autorizzazioni](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Nella finestra Gestisci gruppi di autorizzazioni, fare clic su **Crea nuovo**.
+* Nella finestra Gestisci gruppi di autorizzazioni, fare clic su **Crea nuovo** .
   > [!div class="mx-imgBorder"]
   > ![Aggiungere un nuovo gruppo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Aggiungere un nome di gruppo per il nuovo gruppo. Il nome del gruppo deve indicare che il gruppo è per gli utenti dell'API.
@@ -133,8 +133,8 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Concedere il ruolo autorizzazione al gruppo di autorizzazioni
 
-* Nell'interfaccia di amministrazione di SuccessFactors cercare *Gestisci ruoli di autorizzazione*, quindi selezionare **Gestisci ruoli di autorizzazione** dai risultati della ricerca.
-* Dall' **elenco ruolo autorizzazione**selezionare il ruolo creato per le autorizzazioni di utilizzo dell'API.
+* Nell'interfaccia di amministrazione di SuccessFactors cercare *Gestisci ruoli di autorizzazione* , quindi selezionare **Gestisci ruoli di autorizzazione** dai risultati della ricerca.
+* Dall' **elenco ruolo autorizzazione** selezionare il ruolo creato per le autorizzazioni di utilizzo dell'API.
 * In **concedi questo ruolo a...** fare clic sul pulsante **Aggiungi..** ..
 * Selezionare **gruppo di autorizzazioni...** dal menu a discesa, quindi fare clic su **Seleziona.** .. per aprire la finestra gruppi per cercare e selezionare il gruppo creato in precedenza. 
   > [!div class="mx-imgBorder"]
@@ -142,7 +142,7 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 * Esaminare la concessione del ruolo autorizzazione al gruppo di autorizzazioni. 
   > [!div class="mx-imgBorder"]
   > ![Dettagli gruppo e ruolo autorizzazione](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Fare clic su **Salva modifiche**.
+* Fare clic su **Salva modifiche** .
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configurazione del provisioning utenti da SuccessFactors a Active Directory
 
@@ -158,15 +158,15 @@ Questa sezione illustra i passaggi per il provisioning degli account utente da S
 
 **Per configurare SuccessFactors per Active Directory il provisioning:**
 
-1. Passare a <https://portal.azure.com>.
+1. Passare a <https://portal.azure.com>
 
 2. Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
 
-3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
-4. Selezionare **Aggiungere un'applicazione** e quindi selezionare la categoria **Tutto**.
+4. Selezionare **Aggiungere un'applicazione** e quindi selezionare la categoria **Tutto** .
 
-5. Cercare **SuccessFactors per Active Directory il provisioning utenti**e aggiungere tale app dalla raccolta.
+5. Cercare **SuccessFactors per Active Directory il provisioning utenti** e aggiungere tale app dalla raccolta.
 
 6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**
 
@@ -182,14 +182,14 @@ Questa sezione illustra i passaggi per il provisioning degli account utente da S
 Per effettuare il provisioning in Active Directory locale, è necessario installare un agente di provisioning in un server con .NET Framework 4.7.1 e versioni successive e con accesso alla rete ai domini di Active Directory richiesti.
 
 > [!TIP]
-> È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se il server non dispone di .NET 4.7.1 o versioni successive, è possibile scaricarlo da [qui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Trasferire il programma di installazione dell'agente scaricato nell'host del server e seguire i passaggi indicati di seguito per completare la configurazione dell'agente.
 
 1. Accedere all'istanza di Windows Server in cui si intende installare il nuovo agente.
 
-1. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Installa**.
+1. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Installa** .
 
    ![Schermata di installazione](./media/workday-inbound-tutorial/pa_install_screen_1.png "Schermata di installazione")
    
@@ -247,7 +247,7 @@ In questo passaggio viene stabilita la connettività con SuccessFactors e Active
 
    * **Password amministratore:** Immettere la password dell'account utente dell'API SuccessFactors. 
 
-   * **URL tenant:** Immettere il nome dell'endpoint di servizi API OData di SuccessFactors. Immettere solo il nome host del server senza http o HTTPS. Questo valore dovrebbe essere simile al seguente: **<API-server-name>. SuccessFactors.com**.
+   * **URL tenant:** Immettere il nome dell'endpoint di servizi API OData di SuccessFactors. Immettere solo il nome host del server senza http o HTTPS. Questo valore dovrebbe essere simile al seguente: **<API-server-name>. SuccessFactors.com** .
 
    * **Foresta di Active Directory:** il "nome" del dominio di Active Directory, così come registrato con l'agente. Usare l'elenco a discesa per selezionare il dominio di destinazione per il provisioning. In genere, il valore corrisponde a una stringa simile a: *contoso.com*
 
@@ -258,9 +258,9 @@ In questo passaggio viene stabilita la connettività con SuccessFactors e Active
 
    * **Messaggio di posta elettronica di notifica:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
     > [!NOTE]
-    > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+    > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](../app-provisioning/application-provisioning-quarantine-status.md).
 
-   * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso di errore, verificare che le credenziali di SuccessFactors e le credenziali di Active Directory configurate per l'installazione dell'agente siano valide.
+   * Fare clic sul pulsante **Test connessione** . Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso di errore, verificare che le credenziali di SuccessFactors e le credenziali di Active Directory configurate per l'installazione dell'agente siano valide.
     >[!div class="mx-imgBorder"]
     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
@@ -270,7 +270,7 @@ In questo passaggio viene stabilita la connettività con SuccessFactors e Active
 
 In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors a Active Directory.
 
-1. Nella scheda provisioning in **mapping**fare clic su **Sincronizza utenti SuccessFactors in locale Active Directory**.
+1. Nella scheda provisioning in **mapping** fare clic su **Sincronizza utenti SuccessFactors in locale Active Directory** .
 
 1. Nel campo **ambito dell'oggetto di origine** è possibile selezionare i set di utenti in SuccessFactors che devono essere nell'ambito per il provisioning in Active Directory, definendo un set di filtri basati su attributi. L'ambito predefinito è "tutti gli utenti in SuccessFactors". Filtri di esempio:
 
@@ -314,22 +314,22 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
       * **Attributo di origine** : attributo utente da SuccessFactors
 
-      * **Valore predefinito**: facoltativo. Se l'attributo di origine ha un valore vuoto, il mapping eseguirà la scrittura di questo valore.
+      * **Valore predefinito** : facoltativo. Se l'attributo di origine ha un valore vuoto, il mapping eseguirà la scrittura di questo valore.
             Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
 
-      * **Attributo di destinazione**: l'attributo utente in Active Directory.
+      * **Attributo di destinazione** : l'attributo utente in Active Directory.
 
       * **Corrisponde a oggetti che usano questo attributo** , indipendentemente dal fatto che questo mapping debba essere usato per identificare in modo univoco gli utenti tra SuccessFactors e Active Directory. Questo valore viene in genere impostato sul campo ID di lavoro per SuccessFactors, che in genere viene mappato a uno degli attributi ID dipendente in Active Directory.
 
-      * **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
+      * **Precedenza abbinamento** : è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
 
       * **Applica questo mapping**
 
-         * **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
+         * **Sempre** : applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
 
          * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
 
-1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
+1. Per salvare i mapping, fare clic su **Save** , Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
 
 Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
 
@@ -340,15 +340,15 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 > [!TIP]
 > Per impostazione predefinita quando si attiva il servizio di provisioning, verranno avviate le operazioni di provisioning per tutti gli utenti nell'ambito. Se si verificano errori nei problemi relativi ai dati di mapping o SuccessFactors, il processo di provisioning potrebbe non riuscire e passare allo stato di quarantena. Come procedura consigliata per evitare questo problema è consigliabile configurare il filtro **Source Object Scope** (Ambito dell'oggetto di origine) e il test di mapping degli attributi con alcuni utenti test prima di avviare la sincronizzazione completa per tutti gli utenti. Dopo avere verificato che i mapping funzionino e che restituiscano i risultati desiderati è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
 
-1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
+1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato** .
 
-2. Fare clic su **Salva**.
+2. Fare clic su **Salva** .
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 
 4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da SuccessFactors e successivamente aggiunti o aggiornati a Active Directory. 
 
-5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
+5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning** , come illustrato di seguito.
 
    > [!div class="mx-imgBorder"]
    > ![Indicatore di stato del provisioning](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

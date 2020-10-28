@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676147"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,7 +41,7 @@ Gli [endpoint di servizio della rete](../../virtual-network/virtual-network-serv
 Le [regole di rete virtuale](vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
 
 > [!NOTE]
-> Il controllo dell'accesso con le regole del firewall *non* si applica a **SQL istanza gestita**. Per ulteriori informazioni sulla configurazione di rete necessaria, vedere [connessione a un'istanza gestita](../managed-instance/connect-application-instance.md)
+> Il controllo dell'accesso con le regole del firewall *non* si applica a **SQL istanza gestita** . Per ulteriori informazioni sulla configurazione di rete necessaria, vedere [connessione a un'istanza gestita](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Gestione degli accessi
 
@@ -52,11 +52,11 @@ Le [regole di rete virtuale](vnet-service-endpoint-rule-overview.md) consentono 
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure e SQL Istanza gestita supportano due tipi di autenticazione:
 
-- **Autenticazione SQL**:
+- **Autenticazione SQL** :
 
     L'autenticazione SQL si riferisce all'autenticazione di un utente durante la connessione al database SQL di Azure o al Istanza gestita SQL di Azure tramite nome utente e password. Quando si crea il server, è necessario specificare un account di accesso **amministratore del server** con nome utente e password. Usando queste credenziali, un **amministratore del server** può eseguire l'autenticazione a qualsiasi database nel server o nell'istanza come proprietario del database. In seguito, l'amministratore del server può creare altri utenti e accessi SQL, che consentono agli utenti di connettersi tramite nome utente e password.
 
-- **Autenticazione Azure Active Directory**:
+- **Autenticazione Azure Active Directory** :
 
     Azure Active Directory autenticazione è un meccanismo di connessione al [database SQL di Azure](sql-database-paas-overview.md), ad [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e ad [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure Active Directory (Azure ad). Azure AD autenticazione consente agli amministratori di gestire in modo centralizzato le identità e le autorizzazioni degli utenti del database insieme ad altri servizi di Azure in un'unica posizione centrale. Ciò include la riduzione dell'archiviazione di password e abilita i criteri centralizzati di rotazione delle password.
 
@@ -65,7 +65,7 @@ L'autenticazione è il processo atto a dimostrare che l'utente sia effettivament
     Altre opzioni di autenticazione di Azure AD disponibili sono le connessioni [Autenticazione universale di Active Directory per SQL Server Management Studio](authentication-mfa-ssms-overview.md) che includono [Autenticazione a più fattori](../../active-directory/authentication/concept-mfa-howitworks.md) e [ Accesso condizionale](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md). Il controllo dell'accesso con le regole del firewall *non* si applica a **SQL istanza gestita**. Per ulteriori informazioni sulla configurazione di rete necessaria, vedere l'articolo seguente sulla [connessione a un'istanza gestita](../managed-instance/connect-application-instance.md) .
+> La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md). Il controllo dell'accesso con le regole del firewall *non* si applica a **SQL istanza gestita** . Per ulteriori informazioni sulla configurazione di rete necessaria, vedere l'articolo seguente sulla [connessione a un'istanza gestita](../managed-instance/connect-application-instance.md) .
 
 ## <a name="authorization"></a>Autorizzazione
 
@@ -97,13 +97,13 @@ Advanced Threat Protection sta analizzando i log per rilevare comportamenti inso
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>Transport Layer Security (crittografia in transito)
 
-Il database SQL e SQL Istanza gestita proteggere i dati dei clienti crittografando i dati in movimento con [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+Il database SQL, SQL Istanza gestita e Azure sinapsi Analytics proteggono i dati dei clienti crittografando i dati in movimento con [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-Il database SQL e SQL Istanza gestita applicano sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
+Il database SQL, il Istanza gestita SQL e la sinapsi di Azure applicano sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
 
 Come procedura consigliata, nella stringa di connessione usata dall'applicazione è consigliabile specificare una connessione crittografata e _**non**_ considerare attendibile il certificato del server. In questo modo, l'applicazione deve verificare il certificato del server e quindi impedire che l'applicazione venga vulnerabile agli attacchi di tipo intermedio.
 
-Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tramite  **Encrypt = True** e **TrustServerCertificate = false**. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
+Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tramite  **Encrypt = True** e **TrustServerCertificate = false** . Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
 
 > [!IMPORTANT]
 > Si noti che alcuni driver non Microsoft non possono usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (<1,2) per funzionare. In questo caso il server consente ancora di connettersi al database. Tuttavia, si consiglia di valutare i rischi per la sicurezza che consentono a tali driver e applicazioni di connettersi al database SQL, soprattutto se si archiviano dati sensibili.
@@ -112,7 +112,7 @@ Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tr
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (TDE - crittografia inattiva)
 
-Transparent Data Encryption (Transparent Data [Encryption) per il database SQL di Azure e sql istanza gestita](transparent-data-encryption-tde-overview.md) aggiunge un livello di sicurezza che consente di proteggere i dati inattivi da accessi non autorizzati o offline a file non elaborati o backup. Gli scenari comuni includono il furto di data center o l'eliminazione non protetta di hardware o supporti, ad esempio unità disco e nastri di backup.Transparent Data Encryption crittografa l'intero database usando un algoritmo di crittografia AES, che non richiede agli sviluppatori di applicazioni di apportare modifiche alle applicazioni esistenti.
+[Transparent Data Encryption (Transparent Data Encryption) per database SQL, sql istanza gestita e Azure sinapsi Analytics](transparent-data-encryption-tde-overview.md) offre un livello di sicurezza che consente di proteggere i dati inattivi da accessi non autorizzati o offline a file o backup non elaborati. Gli scenari comuni includono il furto di data center o l'eliminazione non protetta di hardware o supporti, ad esempio unità disco e nastri di backup.Transparent Data Encryption crittografa l'intero database usando un algoritmo di crittografia AES, che non richiede agli sviluppatori di applicazioni di apportare modifiche alle applicazioni esistenti.
 
 In Azure tutti i nuovi database creati sono crittografati per impostazione predefinita e la chiave di crittografia del database è protetta da un certificato server incorporato.  La manutenzione e la rotazione dei certificati sono gestite dal servizio e non richiedono alcun input da parte dell'utente. I clienti che preferiscono assumere il controllo delle chiavi di crittografia possono gestire le chiavi presenti in [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
@@ -124,7 +124,7 @@ Il supporto [Bring your own key](transparent-data-encryption-byok-overview.md) (
 
 ![Diagramma che illustra le nozioni di base della funzionalità Always Encrypted. È possibile accedere a un database SQL con blocco solo da un'app contenente una chiave.](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) è una funzionalità progettata per proteggere da accessi i dati sensibili archiviati in colonne specifiche del database (ad esempio, i numeri delle carte di credito o i numeri di identificazione nazionale o dati sulla base della _necessità di conoscere_). Sono inclusi gli amministratori del database o altri utenti con privilegi che sono autorizzati ad accedere al database per eseguire attività di gestione, ma che non hanno esigenza di accedere a dati particolari nelle colonne crittografate. I dati vengono sempre crittografati, ossia i dati crittografati vengono decrittografati solo per l'elaborazione da parte di applicazioni client con accesso alla chiave di crittografia. La chiave di crittografia non viene mai esposta al database SQL o a SQL Istanza gestita e può essere archiviata nell' [archivio certificati di Windows](always-encrypted-certificate-store-configure.md) o in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) è una funzionalità progettata per proteggere da accessi i dati sensibili archiviati in colonne specifiche del database (ad esempio, i numeri delle carte di credito o i numeri di identificazione nazionale o dati sulla base della _necessità di conoscere_ ). Sono inclusi gli amministratori del database o altri utenti con privilegi che sono autorizzati ad accedere al database per eseguire attività di gestione, ma che non hanno esigenza di accedere a dati particolari nelle colonne crittografate. I dati vengono sempre crittografati, ossia i dati crittografati vengono decrittografati solo per l'elaborazione da parte di applicazioni client con accesso alla chiave di crittografia. La chiave di crittografia non viene mai esposta al database SQL o a SQL Istanza gestita e può essere archiviata nell' [archivio certificati di Windows](always-encrypted-certificate-store-configure.md) o in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Maschera dati dinamica
 
@@ -140,7 +140,7 @@ La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli 
 
 ### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Possono costituire l'infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza.

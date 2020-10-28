@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253695"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676023"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
 
@@ -180,7 +180,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
    > A questo punto, l'API della funzione non deve essere chiamata da qualsiasi luogo oltre che tramite gestione API o l'indirizzo.
    
 ## <a name="import-the-function-app-definition"></a>Importare la definizione dell'app per le funzioni
-1. Aprire il pannello *gestione API*, quindi aprire l' *istanza*.
+1. Aprire il pannello *gestione API* , quindi aprire l' *istanza* .
 1. Selezionare il pannello API nella sezione gestione API dell'istanza.
 1. Dal riquadro ' Aggiungi nuova API ' scegliere ' app per le funzioni ', quindi selezionare ' completa ' nella parte superiore del popup.
 1. Fare clic su Sfoglia, scegliere l'app per le funzioni in cui è ospitata l'API e fare clic su Seleziona.

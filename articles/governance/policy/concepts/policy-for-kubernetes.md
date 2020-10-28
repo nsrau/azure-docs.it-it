@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366990"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676708"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -25,7 +25,7 @@ Il servizio Criteri di Azure per Kubernetes supporta gli ambienti cluster seguen
 - [Motore del servizio Azure Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> I componenti aggiuntivi per il motore AKS e l'arco abilitato Kubernetes sono disponibili in **Anteprima**. Criteri di Azure per Kubernetes supporta solo i pool di nodi Linux e le definizioni dei criteri predefiniti. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e **EnforceRegoPolicy** e la categoria del **servizio Kubernetes** correlata sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
+> I componenti aggiuntivi per il motore AKS e l'arco abilitato Kubernetes sono disponibili in **Anteprima** . Criteri di Azure per Kubernetes supporta solo i pool di nodi Linux e le definizioni dei criteri predefiniti. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes** . Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e **EnforceRegoPolicy** e la categoria del **servizio Kubernetes** correlata sono _deprecate_ . Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Panoramica
 
@@ -62,9 +62,9 @@ Le limitazioni generali seguenti si applicano al componente aggiuntivo di criter
 Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
 
 - Non è possibile abilitare entrambi i [criteri di sicurezza AKS Pod](../../../aks/use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. Per altre informazioni, vedere la pagina relativa al [limite di sicurezza di AKS Pod](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_, _Gatekeeper-System_e _AKS-periscopio_.
+- Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_ , _Gatekeeper-System_ e _AKS-periscopio_ .
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 Di seguito sono riportate indicazioni generali per l'uso del componente aggiuntivo criteri di Azure:
 
@@ -85,7 +85,7 @@ La raccomandazione seguente si applica solo ad AKS e al componente aggiuntivo cr
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes
 
-Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**.
+Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights** .
 
 1. È necessaria l'interfaccia della riga di comando di Azure versione 2.12.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -93,7 +93,7 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
 
    - Portale di Azure:
 
-     Registrare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registrare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights** . Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Interfaccia della riga di comando di Azure:
 
@@ -124,13 +124,13 @@ Una volta completati i passaggi dei prerequisiti, installare il componente aggiu
 
 - Portale di Azure
 
-  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi** , quindi cercando e selezionando **Servizi Kubernetes** .
 
   1. Selezionare uno dei cluster del servizio Azure Kubernetes.
 
   1. Selezionare **criteri** sul lato sinistro della pagina del servizio Kubernetes.
 
-  1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo**.
+  1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo** .
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Infine, verificare che sia installato il componente aggiuntivo più recente eseguendo questo comando dell'interfaccia della riga di comando di Azure, sostituendo `<rg>` con il nome del gruppo di risorse e `<cluster-name>` con il nome del cluster del servizio Azure Kubernetes: `az aks show -g <rg> -n <cluster-name>`. Il risultato dovrebbe essere simile all'output seguente e **config.version** dovrebbe essere `v2`:
+Infine, verificare che sia installato il componente aggiuntivo più recente eseguendo questo comando dell'interfaccia della riga di comando di Azure, sostituendo `<rg>` con il nome del gruppo di risorse e `<cluster-name>` con il nome del cluster del servizio Azure Kubernetes: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. Il risultato dovrebbe essere simile all'output seguente e **config.version** dovrebbe essere `v2`:
 
 ```output
 "addonProfiles": {
@@ -217,7 +217,7 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Assegnare "Ruolo con autorizzazioni di scrittura per i dati di Policy Insights (anteprima)" al cluster Kubernetes con abilitazione di Azure Arc. Sostituire `<subscriptionId>` con l'ID sottoscrizione, `<rg>` con il gruppo di risorse del cluster Kubernetes con abilitazione di Azure Arc e `<clusterName>` con il nome del cluster Kubernetes con abilitazione di Azure Arc. Tenere traccia dei valori restituiti per _appId_, _password_e _tenant_ per i passaggi di installazione.
+1. Assegnare "Ruolo con autorizzazioni di scrittura per i dati di Policy Insights (anteprima)" al cluster Kubernetes con abilitazione di Azure Arc. Sostituire `<subscriptionId>` con l'ID sottoscrizione, `<rg>` con il gruppo di risorse del cluster Kubernetes con abilitazione di Azure Arc e `<clusterName>` con il nome del cluster Kubernetes con abilitazione di Azure Arc. Tenere traccia dei valori restituiti per _appId_ , _password_ e _tenant_ per i passaggi di installazione.
 
    - Interfaccia della riga di comando di Azure
 
@@ -384,39 +384,39 @@ Per assegnare una definizione di criteri al cluster Kubernetes, è necessario di
 
 Trovare le definizioni dei criteri predefinite per la gestione del cluster eseguendo questa procedura nel portale di Azure:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure. Selezionare **Tutti i servizi** nel riquadro sinistro e quindi cercare e selezionare **Criteri**.
+1. Avviare il servizio Criteri di Azure nel portale di Azure. Selezionare **Tutti i servizi** nel riquadro sinistro e quindi cercare e selezionare **Criteri** .
 
-1. Nel riquadro a sinistra della pagina Criteri di Azure selezionare **Definizioni**.
+1. Nel riquadro a sinistra della pagina Criteri di Azure selezionare **Definizioni** .
 
-1. Nell'elenco a discesa Categoria usare **Seleziona tutto** per cancellare il filtro e quindi selezionare **Kubernetes**.
+1. Nell'elenco a discesa Categoria usare **Seleziona tutto** per cancellare il filtro e quindi selezionare **Kubernetes** .
 
-1. Selezionare la definizione di criteri e quindi il pulsante **Assegna**.
+1. Selezionare la definizione di criteri e quindi il pulsante **Assegna** .
 
 1. Impostare **Ambito** sul gruppo di gestione, sulla sottoscrizione o sul gruppo di risorse del cluster Kubernetes in cui si applicherà l'assegnazione dei criteri.
 
    > [!NOTE]
-   > Quando si assegna la definizione di Criteri di Azure per Kubernetes, l'**ambito** deve includere la risorsa cluster. Per un cluster del motore del servizio Azure Kubernetes, **Ambito** deve essere impostato sul gruppo di risorse del cluster.
+   > Quando si assegna la definizione di Criteri di Azure per Kubernetes, l' **ambito** deve includere la risorsa cluster. Per un cluster del motore del servizio Azure Kubernetes, **Ambito** deve essere impostato sul gruppo di risorse del cluster.
 
 1. Compilare i campi **Nome** e **Descrizione** dell'assegnazione dei criteri per identificarla più facilmente.
 
 1. Impostare l' [applicazione dei criteri](./assignment-structure.md#enforcement-mode) su uno dei valori riportati di seguito.
 
-   - **Abilitata**: applica i criteri nel cluster. Le richieste di ammissione Kubernetes con violazioni vengono rifiutate.
+   - **Abilitata** : applica i criteri nel cluster. Le richieste di ammissione Kubernetes con violazioni vengono rifiutate.
 
-   - **Disabilitata**: non applica i criteri nel cluster. Le richieste di ammissione Kubernetes con violazioni non vengono rifiutate. I risultati della valutazione della conformità sono ancora disponibili. Quando si implementano nuove definizioni di criteri nei cluster in esecuzione, l'opzione _Disabilitata_ è utile per il test della definizione dei criteri dato che le richieste di ammissione con violazioni non vengono rifiutate.
+   - **Disabilitata** : non applica i criteri nel cluster. Le richieste di ammissione Kubernetes con violazioni non vengono rifiutate. I risultati della valutazione della conformità sono ancora disponibili. Quando si implementano nuove definizioni di criteri nei cluster in esecuzione, l'opzione _Disabilitata_ è utile per il test della definizione dei criteri dato che le richieste di ammissione con violazioni non vengono rifiutate.
 
-1. Selezionare **Avanti**.
+1. Selezionare **Avanti** .
 
 1. Impostare i **valori di parametro**
 
-   - Per escludere gli spazi dei nomi Kubernetes dalla valutazione dei criteri, specificare l'elenco di spazi dei nomi nel parametro **Esclusioni per gli spazi dei nomi**. È consigliabile escludere _kube-system_, _gatekeeper-system_ e _azure-arc_.
+   - Per escludere gli spazi dei nomi Kubernetes dalla valutazione dei criteri, specificare l'elenco di spazi dei nomi nel parametro **Esclusioni per gli spazi dei nomi** . È consigliabile escludere _kube-system_ , _gatekeeper-system_ e _azure-arc_ .
 
-1. Selezionare **Rivedi e crea**.
+1. Selezionare **Rivedi e crea** .
 
 In alternativa, usare la guida di avvio rapido [Creare un'assegnazione di criteri per identificare le risorse non conformi](../assign-policy-portal.md) per trovare e assegnare un criterio Kubernetes. Cercare una definizione di criteri Kubernetes al posto del valore "audit vms" di esempio.
 
 > [!IMPORTANT]
-> Le definizioni di criteri predefinite sono disponibili per i cluster Kubernetes nella categoria **Kubernetes**. Per un elenco di definizioni di criteri predefinite, vedere gli [esempi di Kubernetes](../samples/built-in-policies.md#kubernetes).
+> Le definizioni di criteri predefinite sono disponibili per i cluster Kubernetes nella categoria **Kubernetes** . Per un elenco di definizioni di criteri predefinite, vedere gli [esempi di Kubernetes](../samples/built-in-policies.md#kubernetes).
 
 ## <a name="policy-evaluation"></a>Valutazione dei criteri
 
@@ -461,13 +461,13 @@ Per rimuovere il componente aggiuntivo Criteri di Azure dal cluster del servizio
 
 - Portale di Azure
 
-  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi** , quindi cercando e selezionando **Servizi Kubernetes** .
 
   1. Selezionare il cluster del servizio Azure Kubernetes in cui si vuole disabilitare il componente aggiuntivo Criteri di Azure.
 
   1. Selezionare **criteri** sul lato sinistro della pagina del servizio Kubernetes.
 
-  1. Nella pagina principale selezionare il pulsante **Disabilita componente aggiuntivo**.
+  1. Nella pagina principale selezionare il pulsante **Disabilita componente aggiuntivo** .
 
 - Interfaccia della riga di comando di Azure
 

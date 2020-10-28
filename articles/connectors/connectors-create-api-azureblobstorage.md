@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284082"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677727"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creare e gestire i BLOB nell'archiviazione BLOB di Azure usando app per la logica di Azure
 
@@ -29,11 +29,11 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="limits"></a>Limiti
 
-* Per impostazione predefinita, le azioni di archiviazione BLOB di Azure possono leggere o scrivere file di *dimensioni di 50 MB o inferiori*. Per gestire file di dimensioni superiori a 50 MB ma fino a 1024 MB, le azioni di archiviazione BLOB di Azure supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto BLOB** utilizza in modo implicito la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni di archiviazione BLOB di Azure possono leggere o scrivere file di *dimensioni di 50 MB o inferiori* . Per gestire file di dimensioni superiori a 50 MB ma fino a 1024 MB, le azioni di archiviazione BLOB di Azure supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto BLOB** utilizza in modo implicito la suddivisione in blocchi.
 
 * I trigger di archiviazione BLOB di Azure non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 50 MB o inferiori. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
 
-  * Usare un trigger di archiviazione BLOB di Azure che restituisce le proprietà del file, ad esempio **quando un BLOB viene aggiunto o modificato (solo proprietà)**.
+  * Usare un trigger di archiviazione BLOB di Azure che restituisce le proprietà del file, ad esempio **quando un BLOB viene aggiunto o modificato (solo proprietà)** .
 
   * Seguire il trigger con l'azione **Ottieni contenuto BLOB** di archiviazione BLOB di Azure, che legge il file completo e USA in modo implicito la suddivisione in blocchi.
 
@@ -73,7 +73,7 @@ Questo esempio illustra come avviare un flusso di lavoro di un'app per la logica
 
    3. Selezionare la frequenza e l'intervallo in base a cui si vuole che il trigger controlli le modifiche alla cartella.
 
-4. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+4. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva** .
 
 5. Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger.
 
@@ -85,11 +85,11 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). Questo esempio usa il portale di Azure.
 
-2. Nella finestra di progettazione dell'app per la logica, sotto il trigger o l'azione, scegliere **nuovo passaggio**.
+2. Nella finestra di progettazione dell'app per la logica, sotto il trigger o l'azione, scegliere **nuovo passaggio** .
 
    ![Aggiungi nuovo passaggio al flusso di lavoro dell'app per la logica](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione** .
 
 3. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
@@ -108,7 +108,7 @@ Se la connessione è già presente, fornire le informazioni necessarie per l'azi
 
    2. Trovare e selezionare il file desiderato in base al numero **ID** del BLOB. È possibile trovare questo numero **ID** nei metadati del BLOB restituiti dal trigger di archiviazione BLOB descritto in precedenza.
 
-5. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+5. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva** .
 Per testare l'app per la logica, verificare che la cartella selezionata contenga un BLOB.
 
 Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti, aggiungere un'altra azione che crea un file con il BLOB usando un altro connettore. Aggiungere, ad esempio, un'azione di OneDrive che crea un file in base ai contenuti del BLOB.
@@ -183,9 +183,9 @@ Per concedere ai servizi attendibili Microsoft l'accesso a un account di archivi
 
 Per configurare l'eccezione e il supporto dell'identità gestita, attenersi alla procedura generale seguente:
 
-1. Nell'account di archiviazione, in **Impostazioni**, selezionare **firewall e reti virtuali**. In **Consenti accesso da**selezionare l'opzione **reti selezionate** in modo che vengano visualizzate le impostazioni correlate.
+1. Nell'account di archiviazione, in **Impostazioni** , selezionare **firewall e reti virtuali** . In **Consenti accesso da** selezionare l'opzione **reti selezionate** in modo che vengano visualizzate le impostazioni correlate.
 
-1. In **eccezioni**selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**e quindi selezionare **Salva**.
+1. In **eccezioni** selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** e quindi selezionare **Salva** .
 
    ![Selezionare l'eccezione che consente servizi attendibili Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Per configurare l'eccezione e il supporto dell'identità gestita, attenersi alla
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Accedere agli account di archiviazione tramite gestione API di Azure
 
-Se si usa un livello dedicato per [gestione API](../api-management/api-management-key-concepts.md), è possibile passare all'API di archiviazione usando gestione API e consentire gli indirizzi IP di quest'ultimo attraverso il firewall. In sostanza, aggiungere la rete virtuale di Azure usata da gestione API all'impostazione del firewall dell'account di archiviazione. È quindi possibile usare l'azione gestione API o l'azione HTTP per chiamare le API di archiviazione di Azure. Tuttavia, se si sceglie questa opzione, è necessario gestire autonomamente il processo di autenticazione. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](https://aka.ms/aisarch).
+Se si usa un livello dedicato per [gestione API](../api-management/api-management-key-concepts.md), è possibile passare all'API di archiviazione usando gestione API e consentire gli indirizzi IP di quest'ultimo attraverso il firewall. In sostanza, aggiungere la rete virtuale di Azure usata da gestione API all'impostazione del firewall dell'account di archiviazione. È quindi possibile usare l'azione gestione API o l'azione HTTP per chiamare le API di archiviazione di Azure. Tuttavia, se si sceglie questa opzione, è necessario gestire autonomamente il processo di autenticazione. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
-

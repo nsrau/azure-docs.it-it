@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999684"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677453"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
@@ -45,12 +45,12 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 ## <a name="features-and-benefits"></a>Funzionalità e vantaggi
 
-- **Infrastruttura non modificabile**: abilitare i team DevOps per sfruttare un set coerente e affidabile di parametri di sistema noti, pur essendo in grado di adattarsi alle modifiche. I contenitori offrono la flessibilità necessaria per passare all'interno di un ecosistema prevedibile ed evitare deviazioni della configurazione.
-- **Controllo dei dati**: scegliere la posizione in cui i dati vengono elaborati dai servizi cognitivi. Questo può essere essenziale se non è possibile inviare dati al cloud, ma è necessario accedere a API Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
-- **Controllo sugli aggiornamenti del modello**: flessibilità nel controllo delle versioni e aggiornamento dei modelli distribuiti nelle soluzioni.
-- **Architettura**portabile: consente la creazione di un'architettura di applicazione portatile che può essere distribuita in Azure, in locale e perimetrale. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure-stack/operator). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
-- **Velocità effettiva elevata/bassa latenza**: offrire ai clienti la possibilità di scalare i requisiti di velocità effettiva elevata e bassa latenza, abilitando i servizi cognitivi a funzionare fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie.
-- **Scalabilità**: con la popolarità sempre crescente di contenitori e software di orchestrazione dei contenitori, ad esempio Kubernetes; la scalabilità è all'avanguardia dei progressi tecnologici. Basandosi su una base cluster scalabile, lo sviluppo di applicazioni soddisfa la disponibilità elevata.
+- **Infrastruttura non modificabile** : abilitare i team DevOps per sfruttare un set coerente e affidabile di parametri di sistema noti, pur essendo in grado di adattarsi alle modifiche. I contenitori offrono la flessibilità necessaria per passare all'interno di un ecosistema prevedibile ed evitare deviazioni della configurazione.
+- **Controllo dei dati** : scegliere la posizione in cui i dati vengono elaborati dai servizi cognitivi. Questo può essere essenziale se non è possibile inviare dati al cloud, ma è necessario accedere a API Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
+- **Controllo sugli aggiornamenti del modello** : flessibilità nel controllo delle versioni e aggiornamento dei modelli distribuiti nelle soluzioni.
+- **Architettura** portabile: consente la creazione di un'architettura di applicazione portatile che può essere distribuita in Azure, in locale e perimetrale. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure-stack/operator). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
+- **Velocità effettiva elevata/bassa latenza** : offrire ai clienti la possibilità di scalare i requisiti di velocità effettiva elevata e bassa latenza, abilitando i servizi cognitivi a funzionare fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie.
+- **Scalabilità** : con la popolarità sempre crescente di contenitori e software di orchestrazione dei contenitori, ad esempio Kubernetes; la scalabilità è all'avanguardia dei progressi tecnologici. Basandosi su una base cluster scalabile, lo sviluppo di applicazioni soddisfa la disponibilità elevata.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contenitori in Servizi cognitivi di Azure
 
@@ -58,19 +58,19 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 
 | Servizio | Piano tariffario supportato | Contenitore | Descrizione |
 |--|--|--|--|
-| [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** ([immagine](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
-| [Visione artificiale][cv-containers] | F0, S1 | **Leggi** OCR ([immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Il contenitore OCR Read consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](./computer-vision/concept-recognizing-text.md).<br>[Richiedere l'accesso][request-access] |
+| [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
+| [Visione artificiale][cv-containers] | F0, S1 | **Leggi** OCR ( [immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Il contenitore OCR Read consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](./computer-vision/concept-recognizing-text.md).<br>[Richiedere l'accesso][request-access] |
 | [Viso][fa-containers] | F0, S0 | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise. |
 | [Riconoscimento moduli][fr-containers] | F0, S0 | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli. |
-| [LUIS][lu-containers] | F0, S0 | **LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app. |
-| [API servizio Voce][sp-containers-stt] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
-| [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da riconoscimento vocale personalizzato a testo** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
-| [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Converte il testo scritto in un audio che suona naturale. |
-| [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
-| [API servizio Voce][sp-containers-ntts] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. |
-| [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
-| [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
-| [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo*, per ogni documento e frase al suo interno. |
+| [LUIS][lu-containers] | F0, S0 | **LUIS** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app. |
+| [API servizio Voce][sp-containers-stt] | F0, S0 | **Sintesi vocale** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
+| [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da riconoscimento vocale personalizzato a testo** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Converte il testo scritto in un audio che suona naturale. |
+| [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-ntts] | F0, S0 | **Sintesi vocale** ( [immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. |
+| [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
+| [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
+| [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo* , per ogni documento e frase al suo interno. |
 | [Analisi del testo][ta-containers-health] | F0, S | **Analisi del testo per l'integrità** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
 | [Analisi spaziale][spa-containers] | S0 | **Analisi spaziale** | Analizza i video di streaming in tempo reale per comprendere le relazioni spaziali tra persone, lo spostamento e le interazioni con gli oggetti in ambienti fisici. |
 
@@ -83,7 +83,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Analisi del testo
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
@@ -95,11 +95,11 @@ I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attra
 
 Per usare i contenitori di Servizi cognitivi di Azure, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato localmente. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml) o in [Istanze di Azure Container](../container-instances/index.yml).
+**Motore Docker** : il motore Docker deve essere installato localmente. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml) o in [Istanze di Azure Container](../container-instances/index.yml).
 
 Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
 
-**Familiarità con Registro contenitori di Microsoft e Docker**: è opportuno avere una conoscenza di base dei concetti relativi a Registro contenitori di Microsoft e Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.
+**Familiarità con Registro contenitori di Microsoft e Docker** : è opportuno avere una conoscenza di base dei concetti relativi a Registro contenitori di Microsoft e Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.
 
 Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 

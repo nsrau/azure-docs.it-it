@@ -4,15 +4,15 @@ description: Informazioni sulle impostazioni di proxy e firewall locali Sincroni
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903715"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675778"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -91,7 +91,7 @@ Come indicato in una sezione precedente, la porta 443 deve essere aperta in usci
 
 La tabella seguente illustra i domini necessari per la comunicazione:
 
-| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
+| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Usage |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Le chiamate di Azure Resource Manager devono essere effettuate da un utente autenticato. Per l'autenticazione utente viene usato questo URL. |
@@ -109,33 +109,35 @@ Se &ast; . AFS.Azure.NET o &ast; . One.Microsoft.com è troppo ampio, è possibi
 
 Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibile che siano state specificate condivisioni file di Azure in un account di archiviazione con ridondanza geografica (GRS). In tal caso, le condivisioni file di Azure eseguiranno il failover nell'area abbinata se si verifica un'interruzione duratura a livello di area. Sincronizzazione file di Azure usa le stesse associazioni a livello di area della risorsa di archiviazione. Quindi, se si usano gli account di archiviazione GRS, è necessario abilitare URL aggiuntivi per consentire al server di comunicare con l'area abbinata per Sincronizzazione file di Azure. La tabella seguente chiama questa "area abbinata". Inoltre, vi è anche un URL del profilo di gestione traffico che deve essere abilitato. In questo modo il traffico di rete può essere indirizzato di nuovo con facilità all'area abbinata in caso di failover ed è chiamato "URL di individuazione" nella tabella seguente.
 
-| Cloud  | Region | URL dell'endpoint primario | Area associata | URL di individuazione |
+| Cloud  | Area | URL dell'endpoint primario | Area associata | URL di individuazione |
 |--------|--------|----------------------|---------------|---------------|
-| Pubblico |Australia orientale | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia sud-orientale | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
-| Pubblico |Australia sud-orientale | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.One.Microsoft.com | Australia orientale | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
-| Pubblico | Brasile meridionale | https: \/ /brazilsouth01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
-| Pubblico | Canada centrale | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.One.Microsoft.com | Canada orientale | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
-| Pubblico | Canada orientale | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canada centrale | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
-| Pubblico | Central India | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-cin.One.Microsoft.com | India meridionale | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-cin.One.Microsoft.com |
-| Pubblico | Stati Uniti centrali | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.One.Microsoft.com |
-| Pubblico | Asia orientale | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.One.Microsoft.com | Asia sud-orientale | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.One.Microsoft.com |
-| Pubblico | Stati Uniti orientali | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.One.Microsoft.com | Stati Uniti Occidentali | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.One.Microsoft.com |
-| Pubblico | Stati Uniti orientali 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
-| Pubblico | Giappone orientale | https: \/ /japaneast01.AFS.Azure.NET | Giappone occidentale | https: \/ /TM-japaneast01.AFS.Azure.NET |
-| Pubblico | Giappone occidentale | https: \/ /japanwest01.AFS.Azure.NET | Giappone orientale | https: \/ /TM-japanwest01.AFS.Azure.NET |
-| Pubblico | Corea centrale | https: \/ /koreacentral01.AFS.Azure.NET/ | Corea meridionale | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
-| Pubblico | Corea meridionale | https: \/ /koreasouth01.AFS.Azure.NET/ | Corea centrale | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
-| Pubblico | Stati Uniti centro-settentrionali | https: \/ /northcentralus01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-northcentralus01.AFS.Azure.NET |
-| Pubblico | Europa settentrionale | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.One.Microsoft.com | Europa occidentale | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.One.Microsoft.com |
-| Pubblico | Stati Uniti centro-meridionali | https: \/ /southcentralus01.AFS.Azure.NET | Stati Uniti centro-settentrionali | https: \/ /TM-southcentralus01.AFS.Azure.NET |
-| Pubblico | India meridionale | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-sin.One.Microsoft.com | Central India | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-sin.One.Microsoft.com |
-| Pubblico | Asia sud-orientale | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.One.Microsoft.com | Asia orientale | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.One.Microsoft.com |
-| Pubblico | Regno Unito meridionale | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.One.Microsoft.com |
-| Pubblico | Regno Unito occidentale | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
-| Pubblico | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | West US 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
-| Pubblico | Europa occidentale | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.One.Microsoft.com | Europa settentrionale | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.One.Microsoft.com |
-| Pubblico | Stati Uniti Occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
-| Pubblico | West US 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
+| Pubblici |Australia orientale | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia sud-orientale | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
+| Pubblici |Australia sud-orientale | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.One.Microsoft.com | Australia orientale | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
+| Pubblici | Brasile meridionale | https: \/ /brazilsouth01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
+| Pubblici | Canada centrale | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.One.Microsoft.com | Canada orientale | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
+| Pubblici | Canada orientale | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canada centrale | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
+| Pubblici | India centrale | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-cin.One.Microsoft.com | India meridionale | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-cin.One.Microsoft.com |
+| Pubblici | Stati Uniti centrali | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.One.Microsoft.com |
+| Pubblici | Asia orientale | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.One.Microsoft.com | Asia sud-orientale | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.One.Microsoft.com |
+| Pubblici | Stati Uniti orientali | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.One.Microsoft.com | Stati Uniti occidentali | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.One.Microsoft.com |
+| Pubblici | Stati Uniti orientali 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
+| Pubblici | Germania settentrionale | https: \/ /germanynorth01.AFS.Azure.NET | Germania centro-occidentale | https: \/ /TM-germanywestcentral01.AFS.Azure.NET |
+| Pubblici | Germania centro-occidentale | https: \/ /germanywestcentral01.AFS.Azure.NET | Germania settentrionale | https: \/ /TM-germanynorth01.AFS.Azure.NET |
+| Pubblici | Giappone orientale | https: \/ /japaneast01.AFS.Azure.NET | Giappone occidentale | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Pubblici | Giappone occidentale | https: \/ /japanwest01.AFS.Azure.NET | Giappone orientale | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Pubblici | Corea centrale | https: \/ /koreacentral01.AFS.Azure.NET/ | Corea meridionale | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
+| Pubblici | Corea meridionale | https: \/ /koreasouth01.AFS.Azure.NET/ | Corea centrale | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
+| Pubblici | Stati Uniti centro-settentrionali | https: \/ /northcentralus01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-northcentralus01.AFS.Azure.NET |
+| Pubblici | Europa settentrionale | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.One.Microsoft.com | Europa occidentale | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.One.Microsoft.com |
+| Pubblici | Stati Uniti centro-meridionali | https: \/ /southcentralus01.AFS.Azure.NET | Stati Uniti centro-settentrionali | https: \/ /TM-southcentralus01.AFS.Azure.NET |
+| Pubblici | India meridionale | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-sin.One.Microsoft.com | India centrale | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-sin.One.Microsoft.com |
+| Pubblici | Asia sud-orientale | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.One.Microsoft.com | Asia orientale | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.One.Microsoft.com |
+| Pubblici | Regno Unito meridionale | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.One.Microsoft.com |
+| Pubblici | Regno Unito occidentale | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
+| Pubblici | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | West US 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
+| Pubblici | Europa occidentale | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.One.Microsoft.com | Europa settentrionale | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.One.Microsoft.com |
+| Pubblici | Stati Uniti occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
+| Pubblici | West US 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
 | Enti governativi | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.US | US Gov Texas | https: \/ /TM-usgovarizona01.AFS.Azure.US |
 | Enti governativi | US Gov Texas | https: \/ /usgovtexas01.AFS.Azure.US | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.US |
 

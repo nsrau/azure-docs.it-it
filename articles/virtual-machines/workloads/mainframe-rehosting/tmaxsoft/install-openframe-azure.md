@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987488"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677736"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
 
@@ -108,7 +108,7 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 - Ottenere una sottoscrizione di Azure, se non è già presente. È anche possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Facoltativa. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
+- facoltativo. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Configurare una macchina virtuale in Azure per OpenFrame e tibero
 
@@ -118,15 +118,15 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 1. Passare al portale di Azure <https://portal.azure.com> e accedere al proprio account.
 
-2. Fare clic su **Virtual machines**.
+2. Fare clic su **Virtual machines** .
 
     ![Elenco di risorse in portale di Azure](media/vm-01.png)
 
-3. Scegliere **Aggiungi**.
+3. Scegliere **Aggiungi** .
 
     ![Aggiungi opzione in portale di Azure](media/vm-02.png)
 
-4. A destra dei **sistemi operativi**, fare clic su **altro**.
+4. A destra dei **sistemi operativi** , fare clic su **altro** .
 
      ![Altre opzioni in portale di Azure](media/vm-03.png)
 
@@ -134,12 +134,12 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
      ![Opzioni del sistema operativo in portale di Azure](media/vm-04.png)
 
-6. Nelle impostazioni di **base** immettere **nome**, **nome utente**, tipo di **autenticazione**, **sottoscrizione** (con pagamento in base al consumo è lo stile di pagamento di AWS) e **gruppo di risorse** (usare uno esistente o creare un gruppo TmaxSoft).
+6. Nelle impostazioni di **base** immettere **nome** , **nome utente** , tipo di **autenticazione** , **sottoscrizione** (con pagamento in base al consumo è lo stile di pagamento di AWS) e **gruppo di risorse** (usare uno esistente o creare un gruppo TmaxSoft).
 
-7. Al termine, inclusa la coppia di chiavi pubblica/privata per il **tipo di autenticazione**, fare clic su **Invia**.
+7. Al termine, inclusa la coppia di chiavi pubblica/privata per il **tipo di autenticazione** , fare clic su **Invia** .
 
 > [!NOTE]
-> Se si usa una chiave pubblica SSH per il **tipo di autenticazione**, vedere i passaggi nella sezione successiva per generare la coppia di chiavi pubblica/privata, quindi riprendere i passaggi qui.
+> Se si usa una chiave pubblica SSH per il **tipo di autenticazione** , vedere i passaggi nella sezione successiva per generare la coppia di chiavi pubblica/privata, quindi riprendere i passaggi qui.
 
 ### <a name="generate-a-publicprivate-key-pair"></a>Genera una coppia di chiavi pubblica/privata
 
@@ -162,11 +162,11 @@ Quando si assegnano nuovi utenti ad accedere alla macchina virtuale:
 
     ![Interfaccia PuTTy](media/puttygen-01.png)
 
-3.  Fai clic su **Genera**.
+3.  Fai clic su **Genera** .
 
-    ![Finestra di dialogo Generatore di chiavi PuTTy](media/puttygen-02.png)
+    ![Screenshot che mostra la finestra di dialogo Generatore di chiavi PuTTy ed evidenzia il pulsante genera.](media/puttygen-02.png)
 
-4.  Dopo la generazione, salvare sia la chiave pubblica che la chiave privata. Incollare il contenuto della chiave pubblica nella sezione **chiave pubblica SSH** del riquadro crea le ** \> nozioni di base della macchina virtuale** (illustrata nei passaggi 6 e 7 della sezione precedente).
+4.  Dopo la generazione, salvare sia la chiave pubblica che la chiave privata. Incollare il contenuto della chiave pubblica nella sezione **chiave pubblica SSH** del riquadro crea le **\> nozioni di base della macchina virtuale** (illustrata nei passaggi 6 e 7 della sezione precedente).
 
     ![Finestra di dialogo Generatore di chiavi PuTTy](media/puttygen-03.png)
 
@@ -183,23 +183,23 @@ Quando si assegnano nuovi utenti ad accedere alla macchina virtuale:
 
 4. Inviare le selezioni. Azure inizia a distribuire la macchina virtuale. Questo processo in genere richiede qualche minuto.
 
-5. Quando la macchina virtuale viene distribuita, viene visualizzato il relativo dashboard, che Mostra tutte le impostazioni selezionate durante la configurazione. Prendere nota dell' **indirizzo IP pubblico**.
+5. Quando la macchina virtuale viene distribuita, viene visualizzato il relativo dashboard, che Mostra tutte le impostazioni selezionate durante la configurazione. Prendere nota dell' **indirizzo IP pubblico** .
 
     ![TMAX nel dashboard di Azure](media/create-vm-03.png)
 
 6. Aprire PuTTY.
 
-7. Per **nome host**Digitare il nome utente e l'indirizzo IP pubblico copiato. Ad esempio **nome utente \@ IP pubblico**.
+7. Per **nome host** Digitare il nome utente e l'indirizzo IP pubblico copiato. Ad esempio **nome utente \@ IP pubblico** .
 
-    ![Finestra di dialogo configurazione PuTTy](media/putty-01.png)
+    ![Screenshot che mostra la finestra di dialogo configurazione PuTTy ed evidenzia il campo nome host (o indirizzo IP).](media/putty-01.png)
 
-8. Nella casella **categoria** fare clic su **connessione \> ssh \> AUTH**. Consente di specificare il percorso del file di **chiave privata** .
+8. Nella casella **categoria** fare clic su **connessione \> ssh \> AUTH** . Consente di specificare il percorso del file di **chiave privata** .
 
     ![Finestra di dialogo configurazione PuTTy](media/putty-02.png)
 
 9. Fare clic su **Apri** per avviare la finestra Putty. Se l'operazione ha esito positivo, si è connessi alla nuova VM CentOS in esecuzione in Azure.
 
-10. Per accedere come utente root, digitare **sudo bash**.
+10. Per accedere come utente root, digitare **sudo bash** .
 
     ![Accesso utente root nella finestra di comando](media/putty-03.png)
 
@@ -1359,7 +1359,7 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *Facoltativo*. Creare un alias per l'arresto e l'avvio facili dei componenti JEUS:
+11. *Facoltativo* . Creare un alias per l'arresto e l'avvio facili dei componenti JEUS:
 
      ```     
      # JEUS alias
@@ -1389,11 +1389,11 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      > [!NOTE]
      > Se si verificano problemi con la sicurezza della porta, aprire la porta 9736 o disabilitare il firewall ( `systemctl stop firewall` ).
 
-14. Per modificare il nome host per Server1, fare clic su **blocca & modifica**, quindi fare clic su **Server1**. Nella finestra Server modificare il nome host nel modo seguente:
+14. Per modificare il nome host per Server1, fare clic su **blocca & modifica** , quindi fare clic su **Server1** . Nella finestra Server modificare il nome host nel modo seguente:
 
-    1.  Modificare **NodeName** in **ofdemo**.
+    1.  Modificare **NodeName** in **ofdemo** .
     2.  Fare clic su **OK** sul lato destro della finestra.
-    3.  Fare clic su **Applica modifiche** nella parte inferiore sinistra della finestra e, per descrizione, immettere *nome host*.
+    3.  Fare clic su **Applica modifiche** nella parte inferiore sinistra della finestra e, per descrizione, immettere *nome host* .
 
     ![Schermata di WebAdmin JEUS](media/jeus-02.png)
 

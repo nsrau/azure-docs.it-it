@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676257"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga
 
@@ -24,7 +24,7 @@ In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intr
 
 Al termine della procedura descritta in questo articolo, si potrà notare che i dati dell'evento sono stati inviati all'app Web.
 
-![Visualizzare l'evento della sottoscrizione](./media/storage-blob-event-quickstart/view-results.png)
+![Screenshot del Visualizzatore di griglia di eventi di Azure che mostra i dati dell'evento inviati all'app Web.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 
-L'esempio seguente crea un gruppo di risorse denominato `<resource_group_name>` nella località *westcentralus*.  Sostituire `<resource_group_name>` con un nome univoco per il gruppo di risorse.
+L'esempio seguente crea un gruppo di risorse denominato `<resource_group_name>` nella località *westcentralus* .  Sostituire `<resource_group_name>` con un nome univoco per il gruppo di risorse.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

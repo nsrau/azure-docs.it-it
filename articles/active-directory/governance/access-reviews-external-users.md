@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505838"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677323"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Usare la governance delle identità Azure Active Directory (Azure AD) per rivedere e rimuovere gli utenti esterni che non hanno più l'accesso alle risorse
 
@@ -67,11 +67,11 @@ Al termine della verifica, nella pagina **risultati** viene visualizzata una pan
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Disabilitare ed eliminare identità esterne con Azure AD le verifiche di accesso (anteprima)
 
-Oltre all'opzione che consente di rimuovere identità esterne indesiderate da risorse quali gruppi o applicazioni, le verifiche di accesso Azure AD possono impedire l'accesso delle identità esterne al tenant ed eliminare le identità esterne dal tenant dopo 30 giorni.
+Oltre all'opzione che consente di rimuovere identità esterne indesiderate da risorse quali gruppi o applicazioni, le verifiche di accesso Azure AD possono impedire l'accesso delle identità esterne al tenant ed eliminare le identità esterne dal tenant dopo 30 giorni. Dopo aver selezionato **Blocca utente per 30 giorni, quindi rimuovere l'utente dal tenant** , la verifica resterà nello stato "applicazione" per 30 giorni. Durante questo periodo, le impostazioni, i risultati, i revisori o i log di controllo sotto la revisione corrente non saranno visualizzabili o configurabili. 
 
 ![al termine delle impostazioni](media/access-reviews-external-users/upon-completion-settings.png)
 
-Quando si crea una nuova verifica di accesso, nella sezione "impostazioni di completamento", per l' **azione da applicare agli utenti** non autorizzati, è possibile definire impedisce agli utenti di eseguire l'accesso **per 30 giorni, quindi rimuovere l'utente dal tenant**.
+Quando si crea una nuova verifica di accesso, nella sezione "impostazioni di completamento", per l' **azione da applicare agli utenti** non autorizzati, è possibile definire impedisce agli utenti di eseguire l'accesso **per 30 giorni, quindi rimuovere l'utente dal tenant** .
 Questa impostazione, attualmente in anteprima, consente di identificare, bloccare ed eliminare identità esterne dal tenant di Azure AD. Le identità esterne che vengono rivedute e negate l'accesso continuo da parte del revisore verranno bloccate ed eliminate, indipendentemente dall'accesso alle risorse o dall'appartenenza al gruppo. Questa impostazione è ideale per l'ultimo passaggio dopo aver verificato che gli utenti esterni in-Review non contengano più l'accesso alle risorse e possano essere rimossi in modo sicuro dal tenant o se si desidera assicurarsi che vengano rimossi, indipendentemente dall'accesso permanente. La funzionalità "Disabilita ed Elimina" blocca prima l'utente esterno, togliendo la possibilità di accedere al tenant e accedere alle risorse. L'accesso alle risorse non viene revocato in questa fase e, nel caso in cui si desideri ricreare un'istanza dell'utente esterno, la possibilità di accedere può essere riconfigurata. In assenza di ulteriori azioni, un'identità esterna bloccata verrà eliminata dalla directory dopo 30 giorni, rimuovendo l'account e il relativo accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi

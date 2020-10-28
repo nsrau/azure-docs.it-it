@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 918ba128eca8ebf8b452c0f1126e4b7e611542d8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/22/2020
+ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514470"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675581"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure
 
-Tutte le richieste indirizzate a un servizio di ricerca necessitano di una chiave API di sola lettura generata specificamente per il proprio servizio. Questa chiave API è l'unico meccanismo di autenticazione dell'accesso all'endpoint di servizio di ricerca e deve essere inclusa in ogni richiesta. In [soluzioni REST](search-get-started-postman.md), la chiave api viene in genere specificata in un'intestazione della richiesta. In [soluzioni .NET](search-howto-dotnet-sdk.md#core-scenarios), una chiave è spesso specificata come un'impostazione di configurazione e quindi passata come [Credenziali](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (chiave di amministrazione) o [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (chiave di query) nel [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient).
+Per tutte le richieste a un servizio di ricerca è necessario un oggetto di sola lettura `api-key` che è stato generato in modo specifico per il servizio. `api-key`È l'unico meccanismo per autenticare l'accesso all'endpoint del servizio di ricerca e deve essere incluso in ogni richiesta. 
+
++ Nelle [soluzioni Rest](search-get-started-postman.md)la chiave API viene in genere specificata in un'intestazione di richiesta
+
++ Nelle [soluzioni .NET](search-howto-dotnet-sdk.md)una chiave viene spesso specificata come impostazione di configurazione e quindi passata come [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
 Le chiavi vengono create con il servizio di ricerca durante il provisioning del servizio. È possibile visualizzare e ottenere valori di chiave nel [portale di Azure](https://portal.azure.com).
 
@@ -57,8 +61,8 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi**.
-4. Fare clic su **Gestisci chiavi di query**.
+3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi** .
+4. Fare clic su **Gestisci chiavi di query** .
 5. Usare la chiave di query già generata per il servizio oppure creare fino a 50 nuove chiavi di query. La chiave di query predefinita non è denominata, ma le chiavi di query aggiuntive possono essere denominate per gestibilità.
 
    :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Pagina del portale, recuperare le impostazioni, sezione chiavi" border="false":::
@@ -93,7 +97,7 @@ I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: propriet
 > [!Note]
 > Per gli accessi in base al ruolo sui risultati della ricerca è possibile creare filtri di sicurezza per vagliare i risultati in base all'identità, rimuovendo eventuali documenti a cui il richiedente non dovrebbe avere accesso. Per altre informazioni, vedere [Filtri di sicurezza](search-security-trimming-for-azure-search.md) e [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md) (Protezione mediante Active Directory).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base al ruolo di Azure in Azure ricerca cognitiva](search-security-rbac.md)
 + [Gestire usando PowerShell](search-manage-powershell.md) 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 6deb7b535c3876ae8a8e83174b97a75582e82e58
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996439"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678102"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuire monitoraggio di Azure per le soluzioni SAP con portale di Azure
 
@@ -24,7 +24,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-monitoring-resource"></a>Crea risorsa di monitoraggio
 
-1. Selezionare **monitoraggio di Azure per le soluzioni SAP** da **Azure Marketplace**.
+1. Selezionare **monitoraggio di Azure per le soluzioni SAP** da **Azure Marketplace** .
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
@@ -47,15 +47,18 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 2. Selezionare **Aggiungi provider** e scegliere **SAP Hana** dall'elenco a discesa. 
 
+   > [!IMPORTANT]
+   > Verificare che SAP HANA provider sia configurato per SAP HANA nodo ' Master '.
+
 3. Immettere l'indirizzo IP privato per il server HANA.
 
 4. Immettere il nome del tenant del database che si desidera utilizzare. È possibile scegliere qualsiasi tenant, tuttavia è consigliabile usare **SYSTEMDB** perché consente una matrice più ampia di aree di monitoraggio. 
 
-5. Immettere il numero di porta SQL associato al database HANA. Il numero di porta deve essere nel formato **[3]**  +  **[istanza #]**  +  **[13]** o **[3]**  +  **[istanza #]**  +  **[15]**. Ad esempio, 30013 o 30015. 
+5. Immettere il numero di porta SQL associato al database HANA. Il numero di porta deve essere nel formato **[3]**  +  **[istanza #]**  +  **[13]** o **[3]**  +  **[istanza #]**  +  **[15]** . Ad esempio, 30013 o 30015. 
 
 6. Immettere il nome utente del database che si desidera utilizzare. Verificare che per l'utente del database siano assegnati i ruoli di **monitoraggio** e **lettura Catalogo** . 
 
-7. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
+7. Al termine, selezionare **Aggiungi provider** . Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -70,7 +73,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
  
 3. Immettere l'ID di sistema (SID), il nome host e il nome del cluster.
 
-4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
+4. Al termine, selezionare **Aggiungi provider** . Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
@@ -108,7 +111,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 3. Compilare i campi usando le informazioni associate all'Microsoft SQL Server. 
 
-4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
+4. Al termine, selezionare **Aggiungi provider** . Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678184"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -59,7 +59,7 @@ Le applicazioni eseguiranno l'autenticazione con il tenant di Azure AD usando un
 
 Quando l'applicazione riceve un token di accesso, l'SDK e/o l'applicazione invia una richiesta HTTPS con il seguente set di intestazioni HTTP obbligatorie oltre ad altre intestazioni HTTP dell'API REST:
 
-| Nome dell'intestazione    | Valore               |
+| Nome dell'intestazione    | valore               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
 | Autorizzazione  | Bearer eyJ0e….HNIVN |
@@ -90,7 +90,7 @@ Quando si configura il controllo degli accessi in base al ruolo di Azure, scegli
 
 Per supportare gli scenari di applicazione, sono disponibili i seguenti tipi di definizione di ruolo.
 
-| Definizione di ruolo di Azure       | Description                                                                                              |
+| Definizione di ruolo di Azure       | Descrizione                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Lettore di dati per Mappe di Azure      | Fornisce l'accesso alle API REST di Azure Maps non modificabili.                                                       |
 | Collaboratore dati di Azure Maps | Fornisce l'accesso alle API REST di Azure Maps modificabili. La mutabilità è definita dalle azioni: Write ed Delete. |
@@ -102,9 +102,9 @@ Alcuni servizi di Azure Maps potrebbero richiedere privilegi elevati per eseguir
 | :----------------- | :-------------------------- |
 | Data               | Collaboratore dati di Azure Maps |
 | Autore            | Collaboratore dati di Azure Maps |
-| Spatial            | Collaboratore dati di Azure Maps |
+| Spaziali            | Collaboratore dati di Azure Maps |
 
-Per informazioni sulla visualizzazione delle impostazioni del controllo degli accessi in base al ruolo di Azure, vedere [How to configure Azure RBAC for Azure Maps](https://aka.ms/amrbac).
+Per informazioni sulla visualizzazione delle impostazioni del controllo degli accessi in base al ruolo di Azure, vedere [How to configure Azure RBAC for Azure Maps](./how-to-manage-authentication.md).
 
 #### <a name="custom-role-definitions"></a>Definizioni di ruolo personalizzate
 
