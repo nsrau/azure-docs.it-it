@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84032022"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786905"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Domande frequenti sugli strumenti di database elastici
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Non usare credenziali in formato "User ID=username@servername", ma usare semplic
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>È necessario creare un Gestore mappe partizioni e popolare le partizioni ogni volta che si avviano le applicazioni?
 
-No. La creazione del Gestore mappe partizioni, ad esempio [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), è un'operazione che si esegue una volta sola.  L'applicazione deve usare la chiamata [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) all'avvio dell'applicazione.  Deve essere presente una sola chiamata per ogni dominio dell'applicazione.
+No. La creazione del Gestore mappe partizioni, ad esempio [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), è un'operazione che si esegue una volta sola.  L'applicazione deve usare la chiamata [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) all'avvio dell'applicazione.  Deve essere presente una sola chiamata per ogni dominio dell'applicazione.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>In che modo è possibile ottenere risposte alle domande sugli strumenti di database elastici?
 
-Per un database SQL, visitare la [pagina Microsoft Q&una domanda](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+Per un database SQL, visitare la [pagina Microsoft Q&una domanda](/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando si ottiene una connessione di database usando una chiave di partizionamento orizzontale, è possibile eseguire query sui dati per altre chiavi di partizionamento orizzontale sulla stessa partizione.  Si tratta di un comportamento previsto da progettazione?
 

@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612184"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786276"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -32,13 +32,13 @@ Quando si usa la funzionalità di chiave dell'account di archiviazione gestita, 
 
 È consigliabile usare l'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD), il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. L'integrazione con Azure AD è disponibile per [BLOB e code di Azure](../../storage/common/storage-auth-aad.md) e offre l'accesso basato su token OAuth2 ad Archiviazione di Azure, analogamente ad Azure Key Vault.
 
-Azure AD consente di autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. È possibile usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione dei client e di archiviare le credenziali nell'applicazione.
+Azure AD consente di autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. È possibile usare un'[identità gestita di Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione dei client e di archiviare le credenziali nell'applicazione.
 
 Azure AD usa il controllo degli accessi in base al ruolo per gestire l'autorizzazione e questo approccio è supportato anche da Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID applicazione dell'entità servizio
 
-Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo.
+Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](../../active-directory/develop/developer-glossary.md#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo.
 
 Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azure AD. Key Vault è registrato con lo stesso ID applicazione in ogni cloud di Azure.
 
@@ -163,6 +163,6 @@ L'output di questo comando mostrerà la stringa della definizione di firma di ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre informazioni su [chiavi, segreti e certificati](https://docs.microsoft.com/rest/api/keyvault/).
-- Vedere gli articoli nel [blog del team di Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Vedere la documentazione di riferimento di [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest).
+- Vedere altre informazioni su [chiavi, segreti e certificati](/rest/api/keyvault/).
+- Vedere gli articoli nel [blog del team di Azure Key Vault](/archive/blogs/kv/).
+- Vedere la documentazione di riferimento di [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest).

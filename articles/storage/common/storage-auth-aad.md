@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488725"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787585"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
@@ -37,7 +37,7 @@ Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di
 
 Il passaggio di autenticazione richiede che un'applicazione chieda un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione viene eseguita da un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app funzioni di Azure, può usare un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per accedere a BLOB o code. Per informazioni su come autorizzare le richieste effettuate da un'identità gestita al BLOB o Servizio di accodamento di Azure, vedere [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
 
-Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli di Azure che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli di Azure per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](storage-auth-aad-rbac.md).
+Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli di Azure che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli di Azure per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](./storage-auth-aad-rbac-portal.md).
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al BLOB di Azure o a Servizio di accodamento possono anche autorizzare l'accesso con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste di dati BLOB o di Accodamento, vedere [autorizzare l'accesso ad archiviazione di Azure con Azure ad da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
 
@@ -75,7 +75,7 @@ L'accesso ai dati di BLOB o di accodamento tramite l'portale di Azure, PowerShel
 
 Il portale di Azure può usare l'account Azure AD o le chiavi di accesso dell'account per accedere ai dati BLOB e di Accodamento in un account di archiviazione di Azure. Quale schema di autorizzazione Usa il portale di Azure dipende dai ruoli di Azure assegnati all'utente.
 
-Quando si tenta di accedere ai dati di BLOB o di Accodamento, il portale di Azure controlla prima di tutto se è stato assegnato un ruolo di Azure con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale di Azure usa la chiave dell'account per accedere ai dati BLOB e di accodamento tramite l'autorizzazione della chiave condivisa. Se a questa azione non è stato assegnato un ruolo, il portale di Azure tenta di accedere ai dati usando l'account Azure AD.
+Quando si tenta di accedere ai dati di BLOB o di Accodamento, il portale di Azure controlla prima di tutto se è stato assegnato un ruolo di Azure con **Microsoft. storage/storageAccounts/listkeys/Action** . Se è stato assegnato un ruolo con questa azione, il portale di Azure usa la chiave dell'account per accedere ai dati BLOB e di accodamento tramite l'autorizzazione della chiave condivisa. Se a questa azione non è stato assegnato un ruolo, il portale di Azure tenta di accedere ai dati usando l'account Azure AD.
 
 Per accedere ai dati BLOB o della coda dalla portale di Azure usando l'account Azure AD, è necessario disporre delle autorizzazioni per accedere ai dati BLOB e di Accodamento e sono necessarie anche le autorizzazioni per spostarsi tra le risorse dell'account di archiviazione nel portale di Azure. I ruoli predefiniti forniti dall'archiviazione di Azure concedono l'accesso alle risorse BLOB e di Accodamento, ma non concedono le autorizzazioni per le risorse dell'account di archiviazione. Per questo motivo, l'accesso al portale richiede anche l'assegnazione di un ruolo Azure Resource Manager, ad esempio il ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) , limitato al livello dell'account di archiviazione o superiore. Il ruolo **Reader** concede le autorizzazioni più limitate, ma è accettabile anche un altro Azure Resource Manager ruolo che concede l'accesso alle risorse di gestione degli account di archiviazione. Per altre informazioni su come assegnare le autorizzazioni agli utenti per l'accesso ai dati nel portale di Azure con un account di Azure AD, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di BLOB e di Accodamento](storage-auth-aad-rbac-portal.md).
 
@@ -83,7 +83,7 @@ Il portale di Azure indica quale schema di autorizzazione è in uso quando si pa
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accesso ai dati da PowerShell o dall'interfaccia della riga di comando
 
-L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](authorize-active-directory-powershell.md).
+L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](../blobs/authorize-active-directory-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

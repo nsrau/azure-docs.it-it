@@ -474,6 +474,10 @@
               href: flexible-server/concepts-audit-logs.md
             - name: Metriche
               href: flexible-server/concepts-monitoring.md
+        - name: Replica
+          items:
+            - name: Repliche in lettura
+              href: flexible-server/concepts-read-replicas.md
     - name: Guide pratiche
       items:
         - name: Gestire un server
@@ -536,6 +540,16 @@
               items:
                 - name: Portale di Azure
                   href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Riavviare il server
+          items:
+            - name: Portale di Azure
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Replica
+          items:
+            - name: Creare repliche in lettura nel portale di Azure
+              href: flexible-server/how-to-read-replicas-portal.md
+            - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure
+              href: flexible-server/how-to-read-replicas-cli.md
         - name: Risolvere problemi
           items:
             - name: Errori di connessione

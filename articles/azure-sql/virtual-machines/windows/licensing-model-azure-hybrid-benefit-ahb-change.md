@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786514"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambiare il modello di licenza per una macchina virtuale SQL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-Questo articolo descrive come cambiare il modello di licenza di una macchina virtuale di SQL Server in Azure usando il nuovo provider di risorse VM di SQL Server, **Microsoft.SqlVirtualMachine**.
+Questo articolo descrive come cambiare il modello di licenza di una macchina virtuale di SQL Server in Azure usando il nuovo provider di risorse VM di SQL Server, **Microsoft.SqlVirtualMachine** .
 
 Sono disponibili tre modelli di licenza per una VM che ospita SQL Server: con pagamento in base al consumo, Vantaggio Azure Hybrid e ripristino di emergenza. È possibile modificare il modello di licenza delle VM di SQL Server tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. 
 
@@ -42,14 +42,14 @@ Per indicare l'uso di Vantaggio Azure Hybrid per SQL Server in una macchina virt
 - Effettuare il provisioning di una macchina virtuale usando un'immagine di SQL Server con pagamento in base al consumo da Azure Marketplace e attivare Vantaggio Azure Hybrid.
 - Installare autonomamente SQL Server in una macchina virtuale di Azure, [eseguire manualmente la registrazione con il provider di risorse VM SQL](sql-vm-resource-provider-register.md) e attivare Vantaggio Azure Hybrid.
 
-Il tipo di licenza di SQL Server può essere configurato quando viene effettuato il provisioning della macchina virtuale o in un secondo momento. Il passaggio tra modelli di licenza non genera tempi di inattività, non provoca il riavvio della macchina virtuale o del servizio SQL Server, non comporta costi aggiuntivi e ha validità immediata. Di fatto, l'attivazione di Vantaggio Azure Hybrid offre una *riduzione dei costi*.
+Il tipo di licenza di SQL Server può essere configurato quando viene effettuato il provisioning della macchina virtuale o in un secondo momento. Il passaggio tra modelli di licenza non genera tempi di inattività, non provoca il riavvio della macchina virtuale o del servizio SQL Server, non comporta costi aggiuntivi e ha validità immediata. Di fatto, l'attivazione di Vantaggio Azure Hybrid offre una *riduzione dei costi* .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per cambiare il modello di licenza delle VM di SQL Server, sono previsti i requisiti seguenti: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- Una [VM di SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrata con il [provider di risorse VM di SQL](sql-vm-resource-provider-register.md).
+- Una [VM di SQL Server](./create-sql-vm-portal.md) registrata con il [provider di risorse VM di SQL](sql-vm-resource-provider-register.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) è un requisito per utilizzare [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -62,9 +62,9 @@ Per cambiare il modello di licenza delle VM di SQL Server, sono previsti i requi
 È possibile modificare il modello di licenza direttamente dal portale: 
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere alle risorse [macchine virtuali di SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) per la propria VM di SQL Server. 
-1. Selezionare **Configura** in **Impostazioni**. 
-1. Selezionare l'opzione **Vantaggio Azure Hybrid**, quindi selezionare la casella di controllo per confermare di avere una licenza di SQL Server con Software Assurance. 
-1. Selezionare **Applica** nella parte inferiore della pagina **Configura**. 
+1. Selezionare **Configura** in **Impostazioni** . 
+1. Selezionare l'opzione **Vantaggio Azure Hybrid** , quindi selezionare la casella di controllo per confermare di avere una licenza di SQL Server con Software Assurance. 
+1. Selezionare **Applica** nella parte inferiore della pagina **Configura** . 
 
 ![Vantaggio Azure Hybrid nel portale](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
@@ -83,7 +83,7 @@ Per cambiare il modello di licenza delle VM di SQL Server, sono previsti i requi
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**Pagamento in base al consumo**: 
+**Pagamento in base al consumo** : 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -180,5 +180,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
 * [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
 * [Note sulla versione di SQL Server in una VM di Windows](../../database/doc-changes-updates-release-notes.md)
-
-

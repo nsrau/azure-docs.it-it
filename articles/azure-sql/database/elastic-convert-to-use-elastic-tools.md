@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443470"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787143"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Per un modello a singolo tenant, creare una mappa partizioni con **mapping di ti
 
 ![Mapping di tipo elenco][1]
 
-Il modello multi-tenant assegna diversi tenant a un database singolo ed è possibile distribuire gruppi di tenant tra più database. Usare questo modello quando si prevedono esigenze di dati ridotte per ogni tenant. In questo modello viene assegnato un intervallo di tenant a un database usando il **mapping di tipo intervallo**.
+Il modello multi-tenant assegna diversi tenant a un database singolo ed è possibile distribuire gruppi di tenant tra più database. Usare questo modello quando si prevedono esigenze di dati ridotte per ogni tenant. In questo modello viene assegnato un intervallo di tenant a un database usando il **mapping di tipo intervallo** .
 
 ![Mapping di tipo intervallo][2]
 
@@ -168,7 +168,7 @@ Per informazioni sugli schemi di architettura dati comuni delle applicazioni di 
 
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
 
-Per domande, usare la pagina Domande e risposte [di Microsoft&per il database SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) e per le richieste di funzionalità, aggiungerle al [Forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Per domande, usare la pagina Domande e risposte [di Microsoft&per il database SQL](/answers/topics/azure-sql-database.html) e per le richieste di funzionalità, aggiungerle al [Forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

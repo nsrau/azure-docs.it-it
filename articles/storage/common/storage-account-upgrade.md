@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34b486dc4ccfb116b49cf57217c5b7e5aedbd992
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488844"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787806"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -29,9 +29,9 @@ L'aggiornamento a un account di archiviazione per utilizzo generico V2 dagli acc
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione.
-3. Nella sezione **Impostazioni** fare clic su **Configurazione**.
-4. In **tipo di account**fare clic su **Aggiorna**.
-5. In **Conferma aggiornamento**Digitare il nome dell'account.
+3. Nella sezione **Impostazioni** fare clic su **Configurazione** .
+4. In **tipo di account** fare clic su **Aggiorna** .
+5. In **Conferma aggiornamento** Digitare il nome dell'account.
 6. Fare clic su **Aggiorna** nella parte inferiore del pannello.
 
     ![Tipo di account di aggiornamento](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
@@ -40,7 +40,7 @@ L'aggiornamento a un account di archiviazione per utilizzo generico V2 dagli acc
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con PowerShell, aggiornare prima PowerShell in modo che usi l'ultima versione del modulo **Az.Storage**. Per informazioni su come installare PowerShell, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
+Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con PowerShell, aggiornare prima PowerShell in modo che usi l'ultima versione del modulo **Az.Storage** . Per informazioni su come installare PowerShell, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Chiamare quindi il comando seguente per aggiornare l'account, sostituendo il nome del gruppo di risorse, il nome dell'account di archiviazione e il livello di accesso dell'account desiderato.
 
@@ -78,17 +78,17 @@ L'aggiornamento di un account di archiviazione V1 a un account per utilizzo gene
 
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Quando si usa un account di archiviazione, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-* **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+* **Costi di archiviazione** : oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
 
-* **Costi di accesso ai dati**: i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
+* **Costi di accesso ai dati** : i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
 
-* **Costi delle transazioni**: sono previsti costi per transazione per tutti i livelli e tali costi aumentano passando a un livello ad accesso più sporadico.
+* **Costi delle transazioni** : sono previsti costi per transazione per tutti i livelli e tali costi aumentano passando a un livello ad accesso più sporadico.
 
-* **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
+* **Costi di trasferimento dati con la replica geografica** : si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
 
-* **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
+* **Costi di trasferimento dati in uscita** : i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 
-* **Modifica del livello di accesso alla**risorsa di archiviazione: la modifica del livello di accesso di archiviazione account da sporadico a frequente comporta un addebito uguale alla lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di accesso all'archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
+* **Modifica del livello di accesso alla** risorsa di archiviazione: la modifica del livello di accesso di archiviazione account da sporadico a frequente comporta un addebito uguale alla lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di accesso all'archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
 
 > [!NOTE]
 > Per altre informazioni sul modello di determinazione prezzi per gli account di archiviazione, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -111,7 +111,7 @@ Per scegliere il miglior livello di accesso per le proprie esigenze, può essere
 
 Per monitorare gli account di archiviazione esistenti e raccoglierne i dati, è possibile usare Analisi archiviazione di Azure, che esegue la registrazione e fornisce i dati delle metriche per un account di archiviazione. Analisi archiviazione può archiviare metriche che includono le statistiche delle transazioni aggregate e i dati sulla capacità relativi alle richieste a un servizio di archiviazione per i tipi di account di archiviazione BLOB, per utilizzo generico v1 e per utilizzo generico v2. I dati vengono archiviati in tabelle note nello stesso account di archiviazione.
 
-Per altre informazioni, vedere [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Informazioni sulle metriche di Analisi archiviazione) e [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Schema di tabella della metrica di Analisi archiviazione)
+Per altre informazioni, vedere [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md) (Informazioni sulle metriche di Analisi archiviazione) e [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) (Schema di tabella della metrica di Analisi archiviazione)
 
 > [!NOTE]
 > Gli account di archiviazione BLOB espongono l'endpoint di servizio tabelle solo per l'archiviazione e l'accesso ai dati delle metriche per l'account specifico.
@@ -141,12 +141,12 @@ Questa capacità totale utilizzata sia dai dati utente che dai log di analisi, s
 
 #### <a name="transaction-costs"></a>Costi di transazione
 
-La somma di *'TotalBillableRequests'* in tutte le voci relative a un'API nella tabella della metrica delle transazioni indica il numero totale di transazioni per quell'API specifica. *Ad esempio*, il numero totale di transazioni *'GetBlob'* in un dato periodo può essere calcolato dalla somma delle richieste fatturabili totali per tutte le voci con la chiave di riga *'user;GetBlob'*.
+La somma di *'TotalBillableRequests'* in tutte le voci relative a un'API nella tabella della metrica delle transazioni indica il numero totale di transazioni per quell'API specifica. *Ad esempio* , il numero totale di transazioni *'GetBlob'* in un dato periodo può essere calcolato dalla somma delle richieste fatturabili totali per tutte le voci con la chiave di riga *'user;GetBlob'* .
 
 Per stimare i costi delle transazioni per gli account di archiviazione BLOB, è necessario suddividere le transazioni in tre gruppi, perché i prezzi vengono determinati in modo diverso.
 
-* Transazioni di scrittura, ad esempio *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
-* Transazioni di eliminazione, ad esempio *'DeleteBlob'* e *'DeleteContainer'*.
+* Transazioni di scrittura, ad esempio *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* e *'CopyBlob'* .
+* Transazioni di eliminazione, ad esempio *'DeleteBlob'* e *'DeleteContainer'* .
 * Tutte le altre transazioni.
 
 Per stimare i costi delle transazioni per gli account di archiviazione per utilizzo generico v1, è necessario aggregare tutte le transazioni indipendentemente dall'operazione o dall'API.
@@ -157,9 +157,9 @@ Mentre l'analisi dell'archiviazione non fornisce la quantità di dati in lettura
 
 Per stimare i costi di accesso ai dati per gli account di archiviazione BLOB, è necessario suddividere le transazioni in due gruppi.
 
-* La quantità di dati recuperata dall'account di archiviazione può essere stimata esaminando la somma di *'TotalEgress'* principalmente per le operazioni *'GetBlob'* e *'CopyBlob'*.
+* La quantità di dati recuperata dall'account di archiviazione può essere stimata esaminando la somma di *'TotalEgress'* principalmente per le operazioni *'GetBlob'* e *'CopyBlob'* .
 
-* La quantità di dati scritta nell'account di archiviazione può essere stimata esaminando la somma di *'TotalIngress'* principalmente per le operazioni *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
+* La quantità di dati scritta nell'account di archiviazione può essere stimata esaminando la somma di *'TotalIngress'* principalmente per le operazioni *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* e *'AppendBlock'* .
 
 I costi di trasferimento dati con replica geografica per gli account di archiviazione BLOB possono anche essere calcolati usando la stima per la quantità di dati scritti quando si usa un account di archiviazione con ridondanza geografica o con ridondanza geografica e accesso in lettura.
 

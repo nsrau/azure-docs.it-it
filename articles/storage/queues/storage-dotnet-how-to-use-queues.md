@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855923"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787466"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -48,7 +48,7 @@ Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. La procedura è simile per le altre versioni di Visual Studio.
 
 1. Selezionare **file**  >  **nuovo**  >  **progetto**
-2. Selezionare **Platform**le  >  **finestre** della piattaforma
+2. Selezionare **Platform** le  >  **finestre** della piattaforma
 3. Selezionare l' **app console (.NET Framework)**
 4. Selezionare **Avanti**
 5. Nel campo **nome progetto** , immettere un nome per l'applicazione
@@ -69,9 +69,9 @@ Per completare l'esercitazione, è necessario fare riferimento ai quattro pacche
 - [Libreria della coda di archiviazione di Azure per .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): questo pacchetto consente di usare il servizio di Accodamento di archiviazione di Azure per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria di Configuration Manager per .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): questo pacchetto consente di accedere ai file di configurazione per le applicazioni client.
 
-È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**e scegliere **Gestisci pacchetti NuGet**.
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet** .
 1. Selezionare **Sfoglia**
 1. Cercare online "Azure. storage. Queues" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verranno installate anche le librerie Azure. storage. Common e Azure. Core, che sono dipendenze della libreria di Accodamento.
 1. Cercare online "System.Configuration.ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager.
@@ -84,9 +84,9 @@ Per completare questa esercitazione, è necessario fare riferimento ai tre pacch
 - [Archiviazione di Microsoft Azure Library Queue per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): questa libreria client consente di utilizzare il archiviazione di Microsoft Azure servizio di Accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**e scegliere **Gestisci pacchetti NuGet**.
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet** .
 1. Selezionare **Sfoglia**
 1. Cercare online "Microsoft. Azure. storage. Queue" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verrà installata anche la libreria Microsoft. Azure. storage. Common, che è una dipendenza della libreria di Accodamento.
 1. Cercare online "Microsoft.Azure.ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager di Azure.
@@ -113,7 +113,7 @@ Il codice di esempio deve autorizzare l'accesso all'account di archiviazione. Pe
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Individuare l'account di archiviazione.
-3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**. Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
+3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso** . Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
 4. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione. Il valore della stringa di connessione verrà aggiunto a una variabile di ambiente nel passaggio successivo.
 
     ![Screenshot che mostra come copiare una stringa di connessione dal portale di Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Utilizzare il modello Async-Await modello con API comuni di archiviazione coda
 
-In questo esempio viene illustrato come utilizzare il modello Async-Await con API comuni di archiviazione coda. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato, come indicato dal suffisso *Async* di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello di Async-Await in .NET, vedere [Async e await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API comuni di archiviazione coda. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato, come indicato dal suffisso *Async* di ciascun metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello di Async-Await in .NET, vedere [Async e await (C# e Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 - Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
-  - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](/dotnet/api/overview/azure/storage)
+  - [Informazioni di riferimento sulle API REST](/rest/api/storageservices/)
 - Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-  - [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) .
-  - [Introduzione all'archivio BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md) .
+  - [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) .
+  - [Introduzione all'archivio BLOB di Azure con .NET](../blobs/storage-quickstart-blobs-dotnet.md) .
   - Per archiviare i dati relazionali, vedere [Connettersi al database SQL tramite .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md).
 - Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

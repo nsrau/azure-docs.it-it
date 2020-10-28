@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616517"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788350"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Ripristinare un database in Azure SQL Istanza gestita a un momento precedente
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,7 +67,7 @@ Ripristinare un database esistente nello stesso Istanza gestita SQL usando il po
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se Azure PowerShell non è ancora installato, vedere [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se Azure PowerShell non è ancora installato, vedere [Install the Azure PowerShell Module](/powershell/azure/install-az-ps).
 
 Per ripristinare il database tramite PowerShell, specificare i valori per i parametri nel comando seguente. Eseguire quindi il comando:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Per informazioni dettagliate, vedere [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Per informazioni dettagliate, vedere [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Per una spiegazione dettagliata dei parametri disponibili, vedere la documentazione dell'interfaccia della riga di comando [per il ripristino di un database in un istanza gestita SQL](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Per una spiegazione dettagliata dei parametri disponibili, vedere la documentazione dell'interfaccia della riga di comando [per il ripristino di un database in un istanza gestita SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -139,7 +139,7 @@ Il ripristino di un database eliminato può essere eseguito tramite PowerShell o
 ### <a name="portal"></a>Portale 
 
 
-Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica di SQL Istanza gestita e selezionare **database eliminati**. Scegliere un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
+Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica di SQL Istanza gestita e selezionare **database eliminati** . Scegliere un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
 
   ![Schermata del ripristino del database dell'istanza SQL di Azure](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 Usare uno dei metodi seguenti per connettersi al database nel Istanza gestita SQL:
 
-- [SSMS/Azure Data Studio tramite una macchina virtuale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Da punto a sito](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio tramite una macchina virtuale di Azure](./connect-vm-instance-configure.md)
+- [Da punto a sito](./point-to-site-p2s-configure.md)
+- [Endpoint pubblico](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nella portale di Azure selezionare il database da SQL Istanza gestita, quindi selezionare **Elimina**.
+Nella portale di Azure selezionare il database da SQL Istanza gestita, quindi selezionare **Elimina** .
 
    ![Eliminare un database usando il portale di Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Usare uno dei metodi seguenti per connettersi al database in SQL Istanza gestita:
 
-- [Macchina virtuale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Da punto a sito](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Macchina virtuale di Azure](./connect-vm-instance-configure.md)
+- [Da punto a sito](./point-to-site-p2s-configure.md)
+- [Endpoint pubblico](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

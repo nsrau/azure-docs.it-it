@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044636"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787194"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -26,19 +26,19 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
 2. Trovare l'istanza di Azure Digital gemelli nella [portale di Azure](https://portal.azure.com) (è possibile aprire la relativa pagina digitando il relativo nome nella barra di ricerca del portale). 
 
-    Dal menu dell'istanza selezionare **metriche**.
+    Dal menu dell'istanza selezionare **metriche** .
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Questa pagina mostra le metriche per l'istanza di Azure Digital gemelli. È anche possibile creare visualizzazioni personalizzate delle metriche selezionando quelle che si desidera visualizzare nell'elenco.
     
-3. È possibile scegliere di inviare i dati di metrica a un endpoint di hub eventi o a un account di archiviazione di Azure selezionando **impostazioni di diagnostica** dal menu, quindi **Aggiungi impostazione di diagnostica**.
+3. È possibile scegliere di inviare i dati di metrica a un endpoint di hub eventi o a un account di archiviazione di Azure selezionando **impostazioni di diagnostica** dal menu, quindi **Aggiungi impostazione di diagnostica** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Per altre informazioni su questo processo, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).
 
-4. È possibile scegliere di configurare gli avvisi per i dati di metrica selezionando **avvisi** dal menu, quindi **+ nuova regola di avviso**.
+4. È possibile scegliere di configurare gli avvisi per i dati di metrica selezionando **avvisi** dal menu, quindi **+ nuova regola di avviso** .
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Per ulteriori informazioni su questo processo, vedere [*Troubleshooting: set up Alerts*](troubleshoot-alerts.md).
@@ -55,22 +55,22 @@ Metriche che è necessario eseguire con le richieste API:
 
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | Richieste API (anteprima) | Conteggio | Totale | Il numero di richieste API effettuate per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. |  Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato |
-| ApiRequestsFailureRate | Frequenza errori richieste API (anteprima) | Percentuale | Media | Percentuale di richieste API ricevute dal servizio per l'istanza che forniscono un codice di risposta errore interno (500) per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato
-| ApiRequestsLatency | Latenza richieste API (anteprima) | Millisecondi | Media | Tempo di risposta per le richieste API. Questo si riferisce al momento in cui la richiesta viene ricevuta dai dispositivi gemelli digitali di Azure finché il servizio non invia un risultato di esito positivo/negativo per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo |
+| ApiRequests | Richieste API | Conteggio | Totale | Il numero di richieste API effettuate per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. |  Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato |
+| ApiRequestsFailureRate | Frequenza errori richieste API | Percentuale | Media | Percentuale di richieste API ricevute dal servizio per l'istanza che forniscono un codice di risposta errore interno (500) per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato
+| ApiRequestsLatency | Latenza richieste API | Millisecondi | Media | Tempo di risposta per le richieste API. Questo si riferisce al momento in cui la richiesta viene ricevuta dai dispositivi gemelli digitali di Azure finché il servizio non invia un risultato di esito positivo/negativo per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo |
 
 #### <a name="billing-metrics"></a>Metriche di fatturazione
 
 Metriche che è necessario eseguire con la fatturazione:
 
 >[!NOTE]
-> Durante l'anteprima, **la fatturazione è a costo zero**. Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, non si applicano durante la fase di anteprima e rimarranno azzerate fino a quando il servizio non verrà spostato oltre l'anteprima.
+> Durante l'anteprima, **la fatturazione è a costo zero** . Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, non si applicano durante la fase di anteprima e rimarranno azzerate fino a quando il servizio non verrà spostato oltre l'anteprima.
 
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Operazioni dell'API di fatturazione (anteprima) | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
-| BillingMessagesProcessed | Messaggi di fatturazione elaborati (anteprima) | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | ID contatore |
-| BillingQueryUnits | Unità query di fatturazione (anteprima) | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID contatore |
+| BillingApiOperations | Operazioni dell'API di fatturazione | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
+| BillingMessagesProcessed | Messaggi di fatturazione elaborati | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | ID contatore |
+| BillingQueryUnits | Unità query di fatturazione | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID contatore |
 
 #### <a name="ingress-metrics"></a>Metriche in ingresso
 
@@ -78,9 +78,9 @@ Metriche che è necessario eseguire con l'ingresso dei dati:
 
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Eventi in ingresso (anteprima) | Conteggio | Totale | Il numero di eventi di telemetria in ingresso nei dispositivi gemelli digitali di Azure. | Risultato |
-| IngressEventsFailureRate | Frequenza degli errori degli eventi in ingresso (anteprima) | Percentuale | Media | Percentuale di eventi di telemetria in ingresso per i quali il servizio restituisce un codice di risposta errore interno (500). | Risultato |
-| IngressEventsLatency | Latenza eventi in ingresso (anteprima) | Millisecondi | Media | Data e ora di arrivo di un evento quando è pronto per essere uscita dai dispositivi gemelli digitali di Azure, a quel punto il servizio invia un risultato di esito positivo o negativo. | Risultato |
+| IngressEvents | Eventi in ingresso | Conteggio | Totale | Il numero di eventi di telemetria in ingresso nei dispositivi gemelli digitali di Azure. | Risultato |
+| IngressEventsFailureRate | Frequenza degli errori degli eventi in ingresso | Percentuale | Media | Percentuale di eventi di telemetria in ingresso per i quali il servizio restituisce un codice di risposta errore interno (500). | Risultato |
+| IngressEventsLatency | Latenza eventi in ingresso | Millisecondi | Media | Data e ora di arrivo di un evento quando è pronto per essere uscita dai dispositivi gemelli digitali di Azure, a quel punto il servizio invia un risultato di esito positivo o negativo. | Risultato |
 
 #### <a name="routing-metrics"></a>Metriche di routing
 
@@ -88,15 +88,15 @@ Metriche che è necessario eseguire con il routing:
 
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messaggi instradati (anteprima) | Conteggio | Totale | Il numero di messaggi indirizzati a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
-| RoutingFailureRate | Frequenza errori di routing (anteprima) | Percentuale | Media | Percentuale di eventi che generano un errore quando vengono instradati da dispositivi gemelli digitali di Azure a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
-| RoutingLatency | Latenza routing (anteprima) | Millisecondi | Media | Tempo trascorso tra un evento che viene indirizzato dai dispositivi gemelli digitali di Azure a quando viene inviato al servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
+| MessagesRouted | Messaggi indirizzati | Conteggio | Totale | Il numero di messaggi indirizzati a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
+| RoutingFailureRate | Frequenza errori di routing | Percentuale | Media | Percentuale di eventi che generano un errore quando vengono instradati da dispositivi gemelli digitali di Azure a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
+| RoutingLatency | Latenza routing | Millisecondi | Media | Tempo trascorso tra un evento che viene indirizzato dai dispositivi gemelli digitali di Azure a quando viene inviato al servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
 
 ## <a name="dimensions"></a>Dimensioni
 
 Le dimensioni consentono di identificare altri dettagli sulle metriche. Alcune metriche di routing forniscono informazioni per ogni endpoint. Nella tabella seguente sono elencati i valori possibili per queste dimensioni.
 
-| Dimensione | Valori |
+| Dimension | Valori |
 | --- | --- |
 | Authentication | OAuth |
 | Operazione (per le richieste API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/Models/Read, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/query/Action |

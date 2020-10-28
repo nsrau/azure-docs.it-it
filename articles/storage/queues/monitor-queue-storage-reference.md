@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425165"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787483"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
 
@@ -36,7 +36,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="queue-storage"></a>Archiviazione code
 
-Questa tabella mostra le [metriche di archiviazione delle code](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
+Questa tabella mostra le [metriche di archiviazione delle code](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |

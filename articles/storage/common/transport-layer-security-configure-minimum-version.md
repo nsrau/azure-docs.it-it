@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018578"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785800"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -33,7 +33,7 @@ Per informazioni su come specificare una determinata versione di TLS quando si i
 
 Quando si applica una versione minima di TLS per l'account di archiviazione, si rischia di rifiutare le richieste provenienti dai client che inviano dati a una versione precedente di TLS. Per comprendere in che modo la configurazione della versione minima di TLS potrebbe influire sulle applicazioni client, Microsoft consiglia di abilitare la registrazione per l'account di archiviazione di Azure e di analizzare i log dopo un intervallo di tempo per individuare le versioni di applicazioni client TLS utilizzate.
 
-Per registrare le richieste nell'account di archiviazione di Azure e determinare la versione di TLS usata dal client, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](monitor-storage.md).
+Per registrare le richieste nell'account di archiviazione di Azure e determinare la versione di TLS usata dal client, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../blobs/monitor-blob-storage.md).
 
 Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -42,18 +42,18 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. Registrare l' [Anteprima di registrazione di archiviazione di Azure in monitoraggio di Azure](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Passare all'account di archiviazione nel portale di Azure.
-1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
+1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)** .
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazioni di diagnostica** .
 1. Consente di specificare un nome per l'impostazione di diagnostica.
-1. In **Dettagli categoria**, nella sezione **log** , scegliere i tipi di richieste da registrare. È possibile registrare le richieste di lettura, scrittura ed eliminazione. La scelta di **StorageRead** e **StorageWrite** , ad esempio, registrerà le richieste di lettura e scrittura al servizio selezionato.
-1. In **Dettagli destinazione**selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
+1. In **Dettagli categoria** , nella sezione **log** , scegliere i tipi di richieste da registrare. È possibile registrare le richieste di lettura, scrittura ed eliminazione. La scelta di **StorageRead** e **StorageWrite** , ad esempio, registrerà le richieste di lettura e scrittura al servizio selezionato.
+1. In **Dettagli destinazione** selezionare **Invia a log Analytics** . Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](monitor-storage-reference.md#resource-logs-preview).
+Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 ### <a name="query-logged-requests-by-tls-version"></a>Eseguire query sulle richieste registrate in base alla versione di TLS
 
@@ -91,9 +91,6 @@ Quando si è certi che il traffico proveniente dai client che usano versioni pre
 
 Per configurare la versione minima di TLS per un account di archiviazione, impostare la versione di **MinimumTlsVersion** per l'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni sul modello di distribuzione Azure Resource Manager, vedere [Panoramica dell'account di archiviazione](storage-account-overview.md).
 
-> [!NOTE]
-> La proprietà **MinimumTlsVersion** è attualmente disponibile solo per gli account di archiviazione nel cloud pubblico di Azure.
-
 # <a name="portal"></a>[Portale](#tab/portal)
 
 Quando si crea un account di archiviazione con la portale di Azure, per impostazione predefinita la versione minima di TLS è impostata su 1,2.
@@ -102,7 +99,7 @@ Per configurare la versione minima di TLS per un account di archiviazione esiste
 
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Selezionare l'impostazione di **configurazione** .
-1. In **versione minima di TLS**usare l'elenco a discesa per selezionare la versione minima di TLS necessaria per accedere ai dati nell'account di archiviazione, come illustrato nella figura seguente.
+1. In **versione minima di TLS** usare l'elenco a discesa per selezionare la versione minima di TLS necessaria per accedere ai dati nell'account di archiviazione, come illustrato nella figura seguente.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
@@ -110,7 +107,7 @@ Per configurare la versione minima di TLS per un account di archiviazione esiste
 
 Per configurare la versione minima di TLS per un account di archiviazione con PowerShell, installare [Azure PowerShell versione 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) o successiva. Successivamente, configurare la proprietà **MinimumTLSVersion** per un account di archiviazione nuovo o esistente. I valori validi per **MinimumTlsVersion** sono `TLS1_0` , `TLS1_1` e `TLS1_2` .
 
-Per impostazione predefinita, la proprietà **MinimumTlsVersion** non è impostata quando si crea un account di archiviazione con PowerShell. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null**.
+Per impostazione predefinita, la proprietà **MinimumTlsVersion** non è impostata quando si crea un account di archiviazione con PowerShell. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null** .
 
 L'esempio seguente crea un account di archiviazione e imposta il valore di **MinimumTLSVersion** su TLS 1,1, quindi aggiorna l'account e imposta **MinimumTLSVersion** su TLS 1,2. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -142,7 +139,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 Per configurare la versione minima di TLS per un account di archiviazione con l'interfaccia della riga di comando di Azure, installare l'interfaccia della riga di comando di Azure 2.9.0 Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Successivamente, configurare la proprietà **minimumTlsVersion** per un account di archiviazione nuovo o esistente. I valori validi per **minimumTlsVersion** sono `TLS1_0` , `TLS1_1` e `TLS1_2` .
 
-Per impostazione predefinita, la proprietà **minimumTlsVersion** non è impostata quando si crea un account di archiviazione con l'interfaccia della riga di comando di Azure. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null**.
+Per impostazione predefinita, la proprietà **minimumTlsVersion** non è impostata quando si crea un account di archiviazione con l'interfaccia della riga di comando di Azure. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null** .
 
 L'esempio seguente crea un account di archiviazione e imposta il valore di **minimumTLSVersion** su TLS 1,1. Aggiorna quindi l'account e imposta la proprietà **minimumTLSVersion** su TLS 1,2. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -176,9 +173,9 @@ az storage account show \
 
 Per configurare la versione minima di TLS per un account di archiviazione con un modello, creare un modello con la proprietà **MinimumTLSVersion** impostata su `TLS1_0` , `TLS1_1` o `TLS1_2` . Nei passaggi seguenti viene descritto come creare un modello nel portale di Azure.
 
-1. Nella portale di Azure scegliere **Crea una risorsa**.
-1. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
-1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)**, scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
+1. Nella portale di Azure scegliere **Crea una risorsa** .
+1. In **Cerca nel Marketplace** Digitare **distribuzione modello** , quindi premere **invio** .
+1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)** , scegliere Crea, quindi **creare** **un modello personalizzato nell'editor** .
 1. Nell'editor dei modelli incollare il codice JSON seguente per creare un nuovo account e impostare la versione minima di TLS su TLS 1,2. Ricordarsi di sostituire i segnaposto tra parentesi angolari con valori personalizzati.
 
     ```json
@@ -221,7 +218,7 @@ Per configurare la versione minima di TLS è necessaria la versione 2019-04-01 o
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>Verificare la versione minima richiesta di TLS per più account
 
-Per controllare la versione minima richiesta di TLS in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](/azure/governance/resource-graph/first-query-portal).
+Per controllare la versione minima richiesta di TLS in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](../../governance/resource-graph/first-query-portal.md).
 
 Eseguendo la query seguente in Resource Graph Explorer viene restituito un elenco di account di archiviazione e viene visualizzata la versione minima di TLS per ogni account:
 
@@ -249,11 +246,11 @@ Criteri di Azure supporta gli effetti che determinano cosa accade quando una reg
 Per creare un criterio con un effetto di controllo per la versione minima di TLS con il portale di Azure, attenersi alla procedura seguente:
 
 1. Nel portale di Azure passare al servizio criteri di Azure.
-1. Nella sezione **creazione e modifica** selezionare **definizioni**.
+1. Nella sezione **creazione e modifica** selezionare **definizioni** .
 1. Selezionare **Aggiungi definizione criteri** per creare una nuova definizione dei criteri.
 1. Per il campo **percorso definizione** selezionare il pulsante **altro** per specificare dove si trova la risorsa dei criteri di controllo.
 1. Specificare un nome per il criterio. Facoltativamente, è possibile specificare una descrizione e una categoria.
-1. In **regola dei criteri**aggiungere la definizione di criteri seguente alla sezione **policyRule** .
+1. In **regola dei criteri** aggiungere la definizione di criteri seguente alla sezione **policyRule** .
 
     ```json
     {
@@ -286,12 +283,12 @@ Assegnare quindi il criterio a una risorsa. L'ambito dei criteri corrisponde all
 Per assegnare i criteri alla portale di Azure, attenersi alla procedura seguente:
 
 1. Nel portale di Azure passare al servizio criteri di Azure.
-1. Nella sezione **creazione e modifica** selezionare **assegnazioni**.
+1. Nella sezione **creazione e modifica** selezionare **assegnazioni** .
 1. Selezionare **assegna criterio** per creare una nuova assegnazione di criteri.
 1. Per il campo **ambito** selezionare l'ambito dell'assegnazione di criteri.
 1. Per il campo **definizione criteri** selezionare il pulsante **altro** , quindi selezionare i criteri definiti nella sezione precedente dall'elenco.
 1. Consente di specificare un nome per l'assegnazione dei criteri. La descrizione è facoltativa.
-1. Lasciare impostato su *abilitato*per l' **imposizione dei criteri** . Questa impostazione non ha alcun effetto sui criteri di controllo.
+1. Lasciare impostato su *abilitato* per l' **imposizione dei criteri** . Questa impostazione non ha alcun effetto sui criteri di controllo.
 1. Selezionare **Verifica + crea** per creare l'assegnazione.
 
 ### <a name="view-compliance-report"></a>Visualizza report conformità
@@ -303,7 +300,7 @@ Potrebbero essere necessari alcuni minuti per rendere disponibile il report di c
 Per visualizzare il report di conformità nel portale di Azure, attenersi alla seguente procedura:
 
 1. Nel portale di Azure passare al servizio criteri di Azure.
-1. Selezionare **conformità**.
+1. Selezionare **conformità** .
 1. Filtrare i risultati per il nome dell'assegnazione di criteri creata nel passaggio precedente. Il report Mostra il numero di risorse non conformi ai criteri.
 1. È possibile eseguire il drill-down del report per ulteriori dettagli, incluso un elenco di account di archiviazione non conformi.
 

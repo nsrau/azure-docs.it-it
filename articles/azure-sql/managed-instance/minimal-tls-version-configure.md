@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 2dbd4b9af3db122703a7f2b4e0140ec3305f1c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17d430946f3cba1aa4680d1eaf8979fa4338bc22
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620053"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788401"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Configurare la versione minima di TLS in Azure SQL Istanza gestita
 L'impostazione della versione [Transport Layer Security minima (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) consente ai clienti di controllare la versione di TLS usata dalle istanza gestita SQL di Azure.
@@ -37,7 +37,7 @@ Login failed with invalid TLS version
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per lo script seguente è necessario il [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
 
 Lo script di PowerShell seguente mostra come `Get` e `Set` la proprietà della **versione minima di TLS** a livello di istanza:
 
@@ -52,7 +52,7 @@ Set-AzSqlInstance -Name sql-instance-name -ResourceGroupName resource-group -Min
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Impostare la versione minima di TLS tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Tutti gli script di questa sezione richiedono l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Interfaccia della riga di comando di Azure in una shell Bash
 

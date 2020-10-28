@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488572"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785783"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -38,7 +38,7 @@ Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed
 
 Per impostazione predefinita, i dati in un nuovo account di archiviazione vengono crittografati con chiavi gestite da Microsoft. È possibile continuare a utilizzare le chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni. È possibile utilizzare entrambi i tipi di gestione delle chiavi o entrambi:
 
-- È possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare i dati nell'archivio BLOB e in file di Azure. <sup>1, 2</sup> le chiavi gestite dal cliente devono essere archiviate in Azure Key Vault o Azure Key Vault modello di protezione hardware (HSM) gestito (anteprima). Per altre informazioni sulle chiavi gestite dal cliente, vedere [usare chiavi gestite dal cliente per la crittografia di archiviazione di Azure](encryption-customer-managed-keys.md).
+- È possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare i dati nell'archivio BLOB e in file di Azure. <sup>1, 2</sup> le chiavi gestite dal cliente devono essere archiviate in Azure Key Vault o Azure Key Vault modello di protezione hardware (HSM) gestito (anteprima). Per altre informazioni sulle chiavi gestite dal cliente, vedere [usare chiavi gestite dal cliente per la crittografia di archiviazione di Azure](./customer-managed-keys-overview.md).
 - È possibile specificare una *chiave fornita dal cliente* per le operazioni di archiviazione BLOB. Un client che effettua una richiesta di lettura o scrittura sull'archiviazione BLOB può includere una chiave di crittografia sulla richiesta per un controllo granulare sulla modalità di crittografia e decrittografia dei dati BLOB. Per altre informazioni sulle chiavi fornite dal cliente, vedere [fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](../blobs/encryption-customer-provided-keys.md).
 
 La tabella seguente confronta le opzioni di gestione delle chiavi per la crittografia di archiviazione di Azure.
@@ -101,8 +101,8 @@ Quando un ambito di crittografia è disabilitato, non viene più fatturato. Disa
 
 Se l'ambito di crittografia è protetto con chiavi gestite dal cliente per Azure Key Vault, è anche possibile eliminare la chiave associata nell'insieme di credenziali delle chiavi per disabilitare l'ambito di crittografia. Tenere presente che le chiavi gestite dal cliente nel Azure Key Vault sono protette dalla protezione con eliminazione temporanea e ripulitura e una chiave eliminata è soggetta al comportamento definito da tali proprietà. Per ulteriori informazioni, vedere uno degli argomenti seguenti nella documentazione di Azure Key Vault:
 
-- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/soft-delete-cli.md)
+- [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Non è possibile eliminare un ambito di crittografia.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440555"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785919"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -46,7 +46,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 
    ![Avvisi di sicurezza nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Per filtrare gli avvisi visualizzati, fare clic su **filtro**e dal pannello **filtro** visualizzato selezionare le opzioni di filtro che si desidera applicare. L'elenco viene aggiornato in base al filtro selezionato. Il filtro può essere molto utile. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.
+1. Per filtrare gli avvisi visualizzati, fare clic su **filtro** e dal pannello **filtro** visualizzato selezionare le opzioni di filtro che si desidera applicare. L'elenco viene aggiornato in base al filtro selezionato. Il filtro può essere molto utile. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.
 
     ![Filtro degli avvisi nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
 
@@ -80,4 +80,4 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 In questo documento si è appreso come visualizzare gli avvisi di sicurezza. Vedere le pagine seguenti per il materiale correlato:
 
 - [Configurare le regole di eliminazione degli avvisi](alerts-suppression-rules.md)
-- [Automatizzare le risposte agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro](workflow-automation.md)
+- [Automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md)

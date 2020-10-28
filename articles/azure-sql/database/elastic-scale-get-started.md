@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786718"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,13 +42,13 @@ Per compilare i file JAR e iniziare a usare il progetto di esempio, eseguire i p
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
 
-3. Per compilare il progetto di esempio, eseguire il comando seguente nella directory _./sample_:
+3. Per compilare il progetto di esempio, eseguire il comando seguente nella directory _./sample_ :
 
     ```
     mvn install
     ```
 
-4. Per avviare il progetto di esempio, eseguire il comando seguente nella directory _./sample_:
+4. Per avviare il progetto di esempio, eseguire il comando seguente nella directory _./sample_ :
 
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
@@ -58,7 +58,7 @@ Per compilare i file JAR e iniziare a usare il progetto di esempio, eseguire i p
 
     ![Progress-java][5]
 
-A questo punto, È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database e prendere una rapida occhiata alle partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
+Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database e prendere una rapida occhiata alle partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
 
 Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza seguente al file POM:
 
@@ -85,9 +85,9 @@ Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura:
 
 1. Scaricare l' [esempio di strumenti di database elastici per SQL di Azure-Introduzione](https://github.com/Azure/elastic-db-tools). Decomprimere l'esempio nel percorso desiderato.
 
-2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#*.
+2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#* .
 
-3. Nella soluzione per l'esempio di progetto aprire il file *app.config*. Seguire quindi le istruzioni nel file per aggiungere il nome del server e le informazioni di accesso (nome utente e password).
+3. Nella soluzione per l'esempio di progetto aprire il file *app.config* . Seguire quindi le istruzioni nel file per aggiungere il nome del server e le informazioni di accesso (nome utente e password).
 
 4. Compilare ed eseguire l'applicazione. Quando viene richiesto, consentire a Visual Studio di ripristinare i pacchetti NuGet della soluzione. Viene scaricata la versione più recente della libreria client dei database elastici da NuGet.
 
@@ -95,28 +95,28 @@ Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura:
 
    ![Avanzamento][4]
 
-A questo punto, È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL. Usare Visual Studio o SQL Server Management Studio per connettersi al database e prendere una rapida occhiata alle partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
+Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL. Usare Visual Studio o SQL Server Management Studio per connettersi al database e prendere una rapida occhiata alle partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
 
 > [!IMPORTANT]
-> È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti per Azure e per il database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti per Azure e per il database SQL. [Aggiornare SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Elementi chiave dell'esempio di codice
 
-* **Gestione di partizioni e mappe delle partizioni**: il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).  
+* **Gestione di partizioni e mappe delle partizioni** : il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs* . Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene mostrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596).
+* **Routing dipendente dai dati** : il routing delle transazioni nella partizione appropriata viene mostrato nel file *DataDependentRoutingSample.cs* . Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596).
 
-* **Esecuzione di query su più partizioni**: l'esecuzione di query su più partizioni viene mostrata nel file *MultiShardQuerySample.cs*. Per altre informazioni, vedere [Esecuzione di query su più partizioni](https://go.microsoft.com/?linkid=9862597).
+* **Esecuzione di query su più partizioni** : l'esecuzione di query su più partizioni viene mostrata nel file *MultiShardQuerySample.cs* . Per altre informazioni, vedere [Esecuzione di query su più partizioni](https://go.microsoft.com/?linkid=9862597).
 
-* **Aggiunta di partizioni vuote**: l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).
+* **Aggiunta di partizioni vuote** : l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs* . Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Altre operazioni di scalabilità elastica
 
-* **Divisione di una partizione esistente**: la possibilità di dividere partizioni viene fornita tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](elastic-scale-overview-split-and-merge.md).
+* **Divisione di una partizione esistente** : la possibilità di dividere partizioni viene fornita tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](elastic-scale-overview-split-and-merge.md).
 
-* **Unione di partizioni esistenti**: le unioni di partizioni vengono eseguite anche tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](elastic-scale-overview-split-and-merge.md).
+* **Unione di partizioni esistenti** : le unioni di partizioni vengono eseguite anche tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](elastic-scale-overview-split-and-merge.md).
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costi
 
 La libreria di strumenti di database elastico è gratuita. L'uso di strumenti di database elastico non comporta costi aggiuntivi oltre a quelli applicati per l'uso di Azure.
 
@@ -134,7 +134,7 @@ Per altre informazioni sugli strumenti di database elastico, vedere gli articoli
   * [Elasticità di partizionamento in Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)
 * Channel 9: [video di panoramica della scalabilità elastica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Forum di discussione: [Microsoft Q&una pagina di domande per il database SQL di Azure](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Forum di discussione: [Microsoft Q&una pagina di domande per il database SQL di Azure](/answers/topics/azure-sql-database.html)
 * Per misurare le prestazioni: [Contatori delle prestazioni per Gestore mappe partizioni](elastic-database-client-library.md)
 
 <!--Anchors-->

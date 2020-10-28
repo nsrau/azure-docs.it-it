@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887654"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788551"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 
 Per prima cosa, determinare se SQL Istanza gestita è compatibile con i requisiti del database dell'applicazione. Il Istanza gestita SQL è progettato per offrire una migrazione semplificata e in modalità Lift-and-Shift per la maggior parte delle applicazioni esistenti che utilizzano SQL Server. Tuttavia, talvolta è possibile richiedere caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato.
 
-Usare [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) per rilevare i potenziali problemi di compatibilità che incidono sulla funzionalità del database nel database SQL di Azure. In caso di problemi di blocco segnalati, potrebbe essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in una VM di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
+Usare [Data Migration Assistant](/sql/dma/dma-overview) per rilevare i potenziali problemi di compatibilità che incidono sulla funzionalità del database nel database SQL di Azure. In caso di problemi di blocco segnalati, potrebbe essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in una VM di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o file system, ad esempio per installare agenti di terze parti o personalizzati nella stessa macchina virtuale con SQL Server.
 - Se si ha una dipendenza rigorosa da funzionalità che non sono ancora supportate, ad esempio FileStream/FileTable, polibase e transazioni tra istanze.
@@ -69,8 +69,8 @@ La linea di base delle prestazioni è un set di parametri, ad esempio utilizzo m
 Di seguito sono elencati alcuni parametri che è necessario misurare nell'istanza di SQL Server:
 
 - [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registrare l'utilizzo medio e massimo della CPU.
-- [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine.
-- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione o [contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine.
+- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione o [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorare il carico di lavoro e le prestazioni delle query o l'istanza di SQL Server esaminando viste a gestione dinamica o Query Store se si esegue la migrazione da una versione di SQL Server 2016 +. Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro per confrontarle con le query in esecuzione nell'istanza gestita.
 
 > [!Note]
@@ -116,7 +116,7 @@ SQL Istanza gestita supporta le seguenti opzioni di migrazione del database (att
 
 Il [servizio migrazione del database di Azure](../../dms/dms-overview.md) è un servizio completamente gestito progettato per consentire migrazioni senza interruzioni da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare i database esistenti di terze parti e di SQL Server in Azure. Le opzioni di distribuzione disponibili in anteprima pubblica includono i database nel database SQL di Azure e SQL Server database in una macchina virtuale di Azure. Il servizio migrazione del database è il metodo consigliato per la migrazione dei carichi di lavoro aziendali.
 
-Se si usa SQL Server Integration Services (SSIS) in SQL Server locale, il servizio migrazione del database non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile effettuare il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory, in modo da creare un nuovo SSISDB in un'istanza gestita in modo che sia possibile ridistribuirvi i pacchetti. Vedere [creare Azure-SSIS IR in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Se si usa SQL Server Integration Services (SSIS) in SQL Server locale, il servizio migrazione del database non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile effettuare il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory, in modo da creare un nuovo SSISDB in un'istanza gestita in modo che sia possibile ridistribuirvi i pacchetti. Vedere [creare Azure-SSIS IR in Azure Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 
 Per altre informazioni su questo scenario e sulla procedura di configurazione per il servizio migrazione del database, vedere [eseguire la migrazione del database locale all'istanza gestita usando il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -133,8 +133,8 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 |Passaggio|Versione e motore SQL|Metodo Backup/Restore|
 |---|---|---|
 |Inserire il backup in Archiviazione di Azure|Prima di 2012 SP1 CU2|Caricare il file con estensione bak direttamente in archiviazione di Azure|
-||2012 SP1 CU2 - 2016|Backup diretto con sintassi [con credenziali](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) deprecata|
-||2016 e versioni successive|Backup diretto [con credenziali di firma di accesso condiviso](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+||2012 SP1 CU2 - 2016|Backup diretto con sintassi [con credenziali](/sql/t-sql/statements/restore-statements-transact-sql) deprecata|
+||2016 e versioni successive|Backup diretto [con credenziali di firma di accesso condiviso](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Eseguire il ripristino da archiviazione di Azure a un'istanza gestita|[Ripristino da URL con credenziali di firma di accesso condiviso](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ Come prerequisito, verificare di aver completato le attività seguenti:
 - Allineare le impostazioni nell'istanza gestita con le impostazioni dell'istanza di SQL Server di origine esaminando varie istanze, database, impostazioni di tempdb e configurazioni. Assicurarsi di non aver modificato le impostazioni, ad esempio i livelli di compatibilità o la crittografia, prima di eseguire il primo confronto delle prestazioni o di accettare il rischio che alcune delle nuove funzionalità abilitate potrebbero influire su alcune query. Per ridurre i rischi della migrazione, modificare il livello di compatibilità del database solo dopo il monitoraggio delle prestazioni.
 - Implementare le [linee guida sulle procedure consigliate di archiviazione per per utilizzo generico](https://techcommunity.microsoft.com), ad esempio pre-allocare le dimensioni dei file per ottenere prestazioni migliori.
 - Informazioni sulle [differenze di ambiente principali che potrebbero causare le differenze di prestazioni tra un'istanza gestita e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)e identificare i rischi che potrebbero influire sulle prestazioni.
-- Assicurarsi di rimanere abilitati Query Store e l'ottimizzazione automatica nell'istanza gestita. Queste funzionalità consentono di misurare le prestazioni dei carichi di lavoro e di correggere automaticamente i potenziali problemi di prestazioni. Informazioni su come usare Query Store come strumento ottimale per ottenere informazioni sulle prestazioni del carico di lavoro prima e dopo la modifica del livello di compatibilità del database, come illustrato in [garantire la stabilità delle prestazioni durante l'aggiornamento a una versione più recente di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+- Assicurarsi di rimanere abilitati Query Store e l'ottimizzazione automatica nell'istanza gestita. Queste funzionalità consentono di misurare le prestazioni dei carichi di lavoro e di correggere automaticamente i potenziali problemi di prestazioni. Informazioni su come usare Query Store come strumento ottimale per ottenere informazioni sulle prestazioni del carico di lavoro prima e dopo la modifica del livello di compatibilità del database, come illustrato in [garantire la stabilità delle prestazioni durante l'aggiornamento a una versione più recente di SQL Server](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Una volta preparato l'ambiente che è paragonabile al più possibile con l'ambiente locale, è possibile avviare l'esecuzione del carico di lavoro e misurare le prestazioni. Il processo di misurazione deve includere gli stessi parametri misurati [durante la creazione delle prestazioni di base delle misure del carico di lavoro nell'istanza di SQL Server di origine](#create-a-performance-baseline).
 Di conseguenza, è consigliabile confrontare i parametri delle prestazioni con la linea di base e identificare le differenze critiche.
 
@@ -194,16 +194,16 @@ SQL Istanza gestita fornisce numerosi strumenti avanzati per il monitoraggio e l
 
 Quando si è in una piattaforma completamente gestita e si è verificato che le prestazioni del carico di lavoro corrispondono alle prestazioni del carico di lavoro SQL Server, utilizzare i vantaggi forniti automaticamente come parte del servizio.
 
-Anche se non si apportano modifiche all'istanza gestita durante la migrazione, è probabile che si accendano alcune delle nuove funzionalità mentre si sta effettuando l'istanza per sfruttare i miglioramenti più recenti del motore di database. Alcune modifiche sono abilitate solo dopo la [modifica del livello di compatibilità del database](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Anche se non si apportano modifiche all'istanza gestita durante la migrazione, è probabile che si accendano alcune delle nuove funzionalità mentre si sta effettuando l'istanza per sfruttare i miglioramenti più recenti del motore di database. Alcune modifiche sono abilitate solo dopo la [modifica del livello di compatibilità del database](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 Non è ad esempio necessario creare backup nell'istanza gestita. il servizio esegue automaticamente i backup. né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. SQL Istanza gestita offre la possibilità di eseguire il ripristino in qualsiasi momento entro il periodo di conservazione utilizzando il [ripristino temporizzato (ripristino temporizzato)](../database/recovery-using-backups.md#point-in-time-restore). Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, in quanto la [disponibilità elevata](../database/high-availability-sla.md) è incorporata in.
 
-Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../database/security-overview.md), il [controllo](auditing-configure.md), il [rilevamento delle minacce](../database/azure-defender-for-sql.md), la [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../database/security-overview.md), il [controllo](auditing-configure.md), il [rilevamento delle minacce](../database/azure-defender-for-sql.md), la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking).
 
-Oltre alle funzionalità avanzate di gestione e sicurezza, un'istanza gestita fornisce un set di strumenti avanzati che consentono di [monitorare e ottimizzare il carico di lavoro](../database/monitor-tune-overview.md). [Analisi SQL di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) consente di monitorare un ampio set di istanze gestite e centralizzare il monitoraggio di un numero elevato di istanze e database. L' [ottimizzazione automatica](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) nelle istanze gestite monitora continuamente le prestazioni delle statistiche di esecuzione del piano SQL e corregge automaticamente i problemi di prestazioni identificati.
+Oltre alle funzionalità avanzate di gestione e sicurezza, un'istanza gestita fornisce un set di strumenti avanzati che consentono di [monitorare e ottimizzare il carico di lavoro](../database/monitor-tune-overview.md). [Analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md) consente di monitorare un ampio set di istanze gestite e centralizzare il monitoraggio di un numero elevato di istanze e database. L' [ottimizzazione automatica](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) nelle istanze gestite monitora continuamente le prestazioni delle statistiche di esecuzione del piano SQL e corregge automaticamente i problemi di prestazioni identificati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sui Istanza gestita SQL di Azure, vedere [che cos'è istanza gestita SQL di Azure?](sql-managed-instance-paas-overview.md).
 - Per un'esercitazione con un ripristino da backup, vedere [Creare un'istanza gestita](instance-create-quickstart.md).
-- Per un'esercitazione sulla migrazione con il servizio migrazione del database, vedere [eseguire la migrazione del database locale in Azure SQL istanza gestita usando il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).  
+- Per un'esercitazione sulla migrazione con il servizio migrazione del database, vedere [eseguire la migrazione del database locale in Azure SQL istanza gestita usando il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).

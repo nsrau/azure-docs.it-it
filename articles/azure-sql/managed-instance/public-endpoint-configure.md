@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619985"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788282"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-L'endpoint pubblico per un' [istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) consente l'accesso ai dati all'istanza gestita dall'esterno della [rete virtuale](../../virtual-network/virtual-networks-overview.md). È possibile accedere all'istanza gestita da servizi di Azure multi-tenant, ad esempio Power BI, app Azure servizio o una rete locale. Usando l'endpoint pubblico in un'istanza gestita, non è necessario usare una VPN, che può aiutare a evitare problemi di velocità effettiva della VPN.
+L'endpoint pubblico per un' [istanza gestita](./sql-managed-instance-paas-overview.md) consente l'accesso ai dati all'istanza gestita dall'esterno della [rete virtuale](../../virtual-network/virtual-networks-overview.md). È possibile accedere all'istanza gestita da servizi di Azure multi-tenant, ad esempio Power BI, app Azure servizio o una rete locale. Usando l'endpoint pubblico in un'istanza gestita, non è necessario usare una VPN, che può aiutare a evitare problemi di velocità effettiva della VPN.
 
 In questo articolo si apprenderà come:
 
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Recupero della stringa di connessione dell'endpoint pubblico dell'istanza gestita
 
 1. Passare alla pagina di configurazione dell'istanza gestita abilitata per l'endpoint pubblico. Selezionare la scheda **stringhe di connessione** nella configurazione **Impostazioni** .
-1. Si noti che il nome host dell'endpoint pubblico è nel formato <mi_name>. **public**. <dns_zone>. database.Windows.NET e che la porta usata per la connessione è 3342.
+1. Si noti che il nome host dell'endpoint pubblico è nel formato <mi_name>. **public** . <dns_zone>. database.Windows.NET e che la porta usata per la connessione è 3342.
 
     ![Screenshot mostra le stringhe di connessione per gli endpoint pubblici e privati.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

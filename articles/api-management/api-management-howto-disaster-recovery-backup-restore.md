@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075332"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787228"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -61,28 +61,28 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
     > [!NOTE]
     > Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account.
 
-3. Fare clic su **Registrazione nuova applicazione**.
+3. Fare clic su **Registrazione nuova applicazione** .
 
-    Su lato destro verrà visualizzata la finestra **Crea**. Immettere le informazioni rilevanti per l'app AAD in questa finestra.
+    Su lato destro verrà visualizzata la finestra **Crea** . Immettere le informazioni rilevanti per l'app AAD in questa finestra.
 
 4. Immettere un nome per l'applicazione.
-5. Come tipo di applicazione selezionare **Nativo**.
-6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
-7. Fare clic su **Crea**.
+5. Come tipo di applicazione selezionare **Nativo** .
+6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento** , che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
+7. Fare clic su **Crea** .
 
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
-1. Una volta creata l'applicazione, fare clic su **autorizzazioni API**.
-2. Fare clic su **+ Aggiungi un'autorizzazione**.
-4. Premere **Seleziona API Microsoft**.
-5. Scegliere **Gestione servizi di Azure**.
-6. Fare clic su **Seleziona**.
+1. Una volta creata l'applicazione, fare clic su **autorizzazioni API** .
+2. Fare clic su **+ Aggiungi un'autorizzazione** .
+4. Premere **Seleziona API Microsoft** .
+5. Scegliere **Gestione servizi di Azure** .
+6. Fare clic su **Seleziona** .
 
     ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)**.
-8. Fare clic su **Seleziona**.
-9. Fare clic su **Concedere le autorizzazioni**.
+7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)** .
+8. Fare clic su **Seleziona** .
+9. Fare clic su **Concedere le autorizzazioni** .
 
 ### <a name="configuring-your-app"></a>Configurazione dell'app
 
@@ -115,11 +115,11 @@ namespace GetTokenResourceManagerRequests
 
 Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruzioni seguenti:
 
-1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **registrazioni app**  ->  **endpoint**.
+1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **registrazioni app**  ->  **endpoint** .
 
     ![Endpoint][api-management-endpoint]
 
-2. Sostituire `{application id}` con il valore visualizzato passando alla pagina **Impostazioni**.
+2. Sostituire `{application id}` con il valore visualizzato passando alla pagina **Impostazioni** .
 3. Sostituire `{redirect uri}` con il valore proveniente dalla scheda **URL di reindirizzamento** dell'applicazione Azure Active Directory.
 
     Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un token simile all'esempio seguente:
@@ -152,7 +152,7 @@ dove:
 -   `subscriptionId`: ID della sottoscrizione contenente il servizio Gestione API di cui si sta tentando di eseguire il backup
 -   `resourceGroupName`: nome del gruppo di risorse del servizio Gestione API di Azure
 -   `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato
--   `api-version` -Sostituisci con `2018-06-01-preview`
+-   `api-version` -Sostituisci con `2019-12-01`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
@@ -171,10 +171,10 @@ Il backup è un'operazione a lunga esecuzione che potrebbe richiedere più minut
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Vincoli durante l'esecuzione di una richiesta di backup o ripristino
 
--   Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
+-   Il **contenitore** specificato nel corpo della richiesta **deve esistere** .
 -   Mentre è in corso il backup, **evitare le modifiche di gestione nel servizio** , ad esempio l'aggiornamento o il downgrade dello SKU, la modifica del nome di dominio e altro ancora.
 -   Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
--   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
+-   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse** .
 -   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure, se è abilitato il [Firewall][azure-storage-ip-firewall] . Il cliente deve aprire il set di [indirizzi IP del piano di controllo di gestione API di Azure][control-plane-ip-address] nell'account di archiviazione per il backup o il ripristino da. Ciò è dovuto al fatto che le richieste ad archiviazione di Azure non sono inviato tramite SNAT a un indirizzo IP pubblico dal > di calcolo (piano di controllo di gestione API di Azure). La richiesta di archiviazione tra aree sarà inviato tramite SNAT.
 
 #### <a name="what-is-not-backed-up"></a>Elementi di cui non è stato eseguito il backup
@@ -202,7 +202,7 @@ dove:
 -   `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup
 -   `resourceGroupName`: nome del gruppo di risorse contenente il servizio di Gestione API in cui si sta ripristinando un backup
 -   `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato
--   `api-version` -Sostituisci con `2018-06-01-preview`
+-   `api-version` -Sostituisci con `api-version=2019-12-01`
 
 Nel corpo della richiesta, specificare il percorso del file di backup. Ovvero, aggiungere il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
@@ -222,7 +222,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 > [!IMPORTANT]
 > Lo **SKU** del servizio in cui si effettua il ripristino **deve corrispondere** allo SKU del servizio sottoposto a backup da ripristinare.
 >
-> Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
+> Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

@@ -9,12 +9,12 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eb7984097b4edf34ed2f0214e1453246e12916f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034682"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786752"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84034682"
 * [Strumento divisione-unione del database elastico](elastic-scale-overview-split-and-merge.md): consente di spostare dati tra database partizionati. Questo strumento è utile per lo spostamento di dati da un database multi-tenant in un database single-tenant (o viceversa). Vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](elastic-scale-configure-deploy-split-and-merge.md).
 * [Processi di database elastico](elastic-jobs-overview.md): usare i processi per gestire un numero elevato di database nel database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
 * [Query di database elastico](elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL che si estende in più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, Power BI, Tableau e così via.
-* [Transazioni elastiche](elastic-transactions-overview.md): questa funzionalità consente di eseguire transazioni che si estendono su più database. Le transazioni di database elastico sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con i tipi di programmazione più diffusi grazie alle classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Transazioni elastiche](elastic-transactions-overview.md): questa funzionalità consente di eseguire transazioni che si estendono su più database. Le transazioni di database elastico sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con i tipi di programmazione più diffusi grazie alle classi [System.Transaction](/dotnet/api/system.transactions).
 
 Nel grafico seguente è illustrata un'architettura che include le **funzionalità dei database elastici** in relazione a una raccolta di database.
 
@@ -33,7 +33,7 @@ In questo grafico, i colori del database rappresentano gli schemi. I database co
 
 1. Un set di **database SQL** è ospitato in Azure tramite l'architettura di partizionamento orizzontale.
 2. La **libreria client di database elastici** viene utilizzata per gestire un set di partizioni.
-3. Un subset dei database viene inserito in un **pool elastico**. Vedere l'articolo su [che cos'è un pool](elastic-pool-overview.md).
+3. Un subset dei database viene inserito in un **pool elastico** . Vedere l'articolo su [che cos'è un pool](elastic-pool-overview.md).
 4. Un **processo di database elastico** esegue gli script T-SQL pianificati o ad-hoc in tutti i database.
 5. Lo **strumento di suddivisione-unione** viene utilizzato per spostare i dati da una partizione a un’altra.
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
@@ -80,7 +80,7 @@ Il partizionamento orizzontale rappresenta la scelta ottimale quando tutte le tr
 
 ## <a name="multi-tenant-and-single-tenant"></a>Multi-tenant e single-tenant
 
-Alcune applicazioni usano l'approccio più semplice di creare un database separato per ogni tenant. Questo approccio è il **modello di partizionamento orizzontale per singolo tenant**, che offre isolamento, funzionalità di backup e ripristino e scalabilità delle risorse in base alla granularità del tenant. Con il partizionamento orizzontale per singolo tenant, ogni database è associato a uno specifico valore di ID tenant (o valore di chiave del cliente), ma tale chiave non deve essere necessariamente presente nei dati. È responsabilità dell'applicazione indirizzare ogni richiesta al database appropriato e la libreria client può semplificare questa operazione.
+Alcune applicazioni usano l'approccio più semplice di creare un database separato per ogni tenant. Questo approccio è il **modello di partizionamento orizzontale per singolo tenant** , che offre isolamento, funzionalità di backup e ripristino e scalabilità delle risorse in base alla granularità del tenant. Con il partizionamento orizzontale per singolo tenant, ogni database è associato a uno specifico valore di ID tenant (o valore di chiave del cliente), ma tale chiave non deve essere necessariamente presente nei dati. È responsabilità dell'applicazione indirizzare ogni richiesta al database appropriato e la libreria client può semplificare questa operazione.
 
 ![Single-tenant e multi-tenant][4]
 
@@ -104,4 +104,3 @@ Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prez
 [2]:./media/elastic-scale-introduction/h_versus_vert.png
 [3]:./media/elastic-scale-introduction/overview.png
 [4]:./media/elastic-scale-introduction/single_v_multi_tenant.png
-
