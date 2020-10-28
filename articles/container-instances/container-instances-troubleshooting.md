@@ -3,13 +3,13 @@ title: Risolvere i problemi comuni
 description: Informazioni su come risolvere i problemi comuni durante la distribuzione, l'esecuzione o la gestione di istanze di contenitore di Azure
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148606"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746924"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
@@ -24,11 +24,11 @@ Quando si definisce la specifica del contenitore, determinati parametri devono e
 
 | Scope | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
 | --- | --- | --- | --- | --- | --- |
-| Nome contenitore<sup>1</sup> | 1-63 |Lettere minuscole | Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-container<number>` |`web-batch-container1` |
+| Nome contenitore<sup>1</sup> | 1-63 |Minuscole | Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Porte del contenitore | Tra 1 e 65535 |Integer |Numero intero compreso tra 1 e 65535 |`<port-number>` |`443` |
 | Etichetta del nome DNS | 5-63 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>` |`frontend-site1` |
 | Variabile di ambiente | 1-63 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e carattere di sottolineatura '_' in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>` |`MY_VARIABLE` |
-| Nome del volume | 5-63 |Lettere minuscole |Alfanumerico e trattini ovunque tranne il primo o l'ultimo carattere. Non può contenere due trattini consecutivi. |`<name>` |`batch-output-volume` |
+| Nome del volume | 5-63 |Minuscole |Alfanumerico e trattini ovunque tranne il primo o l'ultimo carattere. Non può contenere due trattini consecutivi. |`<name>` |`batch-output-volume` |
 
 <sup>1</sup> Restrizione anche per i nomi dei gruppi di contenitori quando non vengono specificati indipendentemente dalle istanze di contenitore, ad esempio con le `az container create` distribuzioni di comandi.
 
@@ -99,7 +99,7 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 ## <a name="issues-during-container-group-runtime"></a>Problemi durante il runtime del gruppo di contenitori
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Il contenitore viene continuamente chiuso e riavviato (nessun processo a esecuzione prolungata)
 
-I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md)**Always**, in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
+I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md)**Always** , in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
 
 Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando di avvio simile al seguente con la distribuzione del gruppo di contenitori per impedire l'esecuzione del contenitore.
 
@@ -155,7 +155,7 @@ L'API Istanze di Container e il portale di Azure includono una proprietà `resta
 ```
 
 > [!NOTE]
-> La maggior parte delle immagini di contenitore per le distribuzioni di Linux imposta una shell, ad esempio bash, come comando predefinito. Poiché una shell non è di per sé un servizio a esecuzione prolungata, questi contenitori vengono chiusi immediatamente e sono soggetti a un riavvio ciclico quando sono configurati in base al criterio di riavvio predefinito **Always**.
+> La maggior parte delle immagini di contenitore per le distribuzioni di Linux imposta una shell, ad esempio bash, come comando predefinito. Poiché una shell non è di per sé un servizio a esecuzione prolungata, questi contenitori vengono chiusi immediatamente e sono soggetti a un riavvio ciclico quando sono configurati in base al criterio di riavvio predefinito **Always** .
 
 ### <a name="container-takes-a-long-time-to-start"></a>L'avvio di un contenitore richiede molto tempo
 
@@ -213,7 +213,7 @@ Se si vuole verificare che le istanze di contenitore di Azure possano restare in
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create` . Cercare il valore di **IP**. 
+1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create` . Cercare il valore di **IP** . 
 1. Dopo aver eseguito il provisioning del contenitore, passare all'indirizzo IP e alla porta dell'app contenitore nel browser, ad esempio: `192.0.2.0:9000` . 
 
     Dovrebbe essere visualizzato il benvenuto in istanze di contenitore di Azure. messaggio visualizzato dall'app Web.

@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469423"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748030"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurare l'autenticazione Azure Active Directory per un cluster Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,7 +21,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Recuperare gli URL specifici del cluster che verranno usati per configurare l'applicazione Azure Active Directory.
 
-Costruire l'URL di callback OAuth del cluster e archiviarlo in una variabile **oauthCallbackURL**. Assicurarsi di sostituire **Aro-RG** con il nome del gruppo di risorse e **Aro-cluster** con il nome del cluster.
+Costruire l'URL di callback OAuth del cluster e archiviarlo in una variabile **oauthCallbackURL** . Assicurarsi di sostituire **Aro-RG** con il nome del gruppo di risorse e **Aro-cluster** con il nome del cluster.
 
 > [!NOTE]
 > La `AAD` sezione nell'URL di callback OAuth deve corrispondere al nome del provider di identità OAuth che verrà configurato in un secondo momento.
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verificare l'accesso tramite Azure Active Directory
 
-Se ora si esegue la disconnessione della console Web di OpenShift e si tenta di eseguire nuovamente l'accesso, verrà visualizzata una nuova opzione per accedere con **AAD**. Potrebbe essere necessario attendere alcuni minuti.
+Se ora si esegue la disconnessione della console Web di OpenShift e si tenta di eseguire nuovamente l'accesso, verrà visualizzata una nuova opzione per accedere con **AAD** . Potrebbe essere necessario attendere alcuni minuti.
 
 ![Schermata di accesso con Azure Active Directory opzione](media/aro4-login-2.png)

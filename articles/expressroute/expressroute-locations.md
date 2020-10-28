@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 52f0b3a09b4c58bd9123308a508e08f8ca15e230
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8032833df3e0912bab93bd9ccc695c4ca6688e69
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633519"
+ms.locfileid: "92748099"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività e località di peering per ExpressRoute
 
@@ -105,7 +105,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **du datamena** |Supportato |Supportato | Dubai2 |
 | **eir** |Supportato |Supportato |Dublino|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supportato |Supportato |Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supportato |Supportato |Amsterdam, Atlanta, Berlino, Chicago, Dallas, Dublino, Francoforte, Ginevra, Hong Kong SAR, Londra, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milano, New York, Osaka, Parigi, San Paolo, Seattle, Silicon Valley, Singapore, Stoccolma, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supportato |Supportato |Amsterdam, Atlanta, Berlino, Chicago, Dallas, Dublino, Francoforte, Ginevra, Hong Kong SAR, Londra, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milano, New York, Osaka, Parigi, San Paolo, Seattle, Silicon Valley, Singapore, Stoccolma, Sydney, Tokyo, Toronto, Washington DC, Zurigo |
 | **Etisalat UAE** |Supportato |Supportato |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supportato |Supportato |Amsterdam, Amsterdam2, Dublino, Francoforte, Londra |
 | **FarEasTone** |Supportato |Supportato |Taipei|

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519440"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746819"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
 
@@ -33,18 +33,18 @@ Per configurare un account di archiviazione:
 
 2. Cercare l' **account di archiviazione** nella barra di ricerca.
 
-3. Selezionare **+Aggiungi**.
+3. Selezionare **+Aggiungi** .
 
 4. Immettere le informazioni seguenti nella pagina  **Crea account di archiviazione** :
 
     - Creare un nuovo gruppo di risorse.
     - Immettere un nome univoco per l'account di archiviazione.
-    - Per **località**, è consigliabile scegliere la stessa località del pool host del desktop virtuale di Windows.
-    - Per **Prestazioni** selezionare **Standard**. A seconda dei requisiti di IOPS. Per ulteriori informazioni, vedere [Opzioni di archiviazione per i contenitori del profilo FSLogix nel desktop virtuale di Windows](store-fslogix-profile.md).
-    - Per **tipo di account**selezionare **archiviazione V2** o **filestorage** (disponibile solo se il livello di prestazioni è Premium).
-    - Per la **replica**, selezionare **archiviazione con ridondanza locale (con ridondanza locale)**.
+    - Per **località** , è consigliabile scegliere la stessa località del pool host del desktop virtuale di Windows.
+    - Per **Prestazioni** selezionare **Standard** . A seconda dei requisiti di IOPS. Per ulteriori informazioni, vedere [Opzioni di archiviazione per i contenitori del profilo FSLogix nel desktop virtuale di Windows](store-fslogix-profile.md).
+    - Per **tipo di account** selezionare **archiviazione V2** o **filestorage** (disponibile solo se il livello di prestazioni è Premium).
+    - Per la **replica** , selezionare **archiviazione con ridondanza locale (con ridondanza locale)** .
 
-5. Al termine, selezionare **Verifica + crea**, quindi selezionare **Crea**.
+5. Al termine, selezionare **Verifica + crea** , quindi selezionare **Crea** .
 
 Se sono necessarie istruzioni di configurazione più dettagliate, vedere [disponibilità a livello](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability)di area.
 
@@ -54,13 +54,13 @@ Successivamente, sarà necessario creare una condivisione file di Azure.
 
 Per creare una condivisione file:
 
-1. Selezionare **Vai alla risorsa**.
+1. Selezionare **Vai alla risorsa** .
 
-2. Nella pagina Panoramica selezionare **Condivisioni file**.
+2. Nella pagina Panoramica selezionare **Condivisioni file** .
 
-3. Selezionare **+ condivisioni file**, creare una nuova condivisione file denominata **profili**, quindi immettere una quota appropriata o lasciare il campo vuoto per nessuna quota.
+3. Selezionare **+ condivisioni file** , creare una nuova condivisione file denominata **profili** , quindi immettere una quota appropriata o lasciare il campo vuoto per nessuna quota.
 
-4. Selezionare **Crea**.
+4. Selezionare **Crea** .
 
 ## <a name="enable-active-directory-authentication"></a>Abilitare l'autenticazione Active Directory
 
@@ -68,9 +68,9 @@ Successivamente, è necessario abilitare l'autenticazione di Active Directory (A
 
 1. Remote Desktop Protocol nella macchina virtuale aggiunta al dominio.
 
-2. Seguire le istruzioni in [abilitare l'autenticazione di Azure AD DS per le condivisioni file di Azure](../storage/files/storage-files-identity-ad-ds-enable.md) per installare il modulo AzFilesHybrid e abilitare l'autenticazione.
+2. Seguire le istruzioni in [abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure](../storage/files/storage-files-identity-ad-ds-enable.md) per installare il modulo AzFilesHybrid e abilitare l'autenticazione.
 
-3.  Aprire il portale di Azure, aprire l'account di archiviazione, selezionare **configurazione**, quindi verificare che **Active Directory (ad)** sia impostato su **abilitato**.
+3.  Aprire il portale di Azure, aprire l'account di archiviazione, selezionare **configurazione** , quindi verificare che **Active Directory (ad)** sia impostato su **abilitato** .
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot della pagina di configurazione con Azure Active Directory (AD) abilitato.](media/active-directory-enabled.png)
@@ -92,17 +92,17 @@ Per assegnare le autorizzazioni di controllo degli accessi in base al ruolo di A
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
-3. Selezionare **condivisioni file**, quindi selezionare il nome della condivisione file che si intende usare.
+3. Selezionare **condivisioni file** , quindi selezionare il nome della condivisione file che si intende usare.
 
 4. Selezionare **Controllo di accesso (IAM)** .
 
-5. Selezionare **Aggiungi un'assegnazione di ruolo**.
+5. Selezionare **Aggiungi un'assegnazione di ruolo** .
 
 6. Nella scheda **Aggiungi assegnazione ruolo** selezionare **archiviazione file di dati condivisione SMB con privilegi elevati** per l'account amministratore.
 
      Per assegnare autorizzazioni agli utenti per i profili FSLogix, seguire le stesse istruzioni. Tuttavia, quando si arriva al passaggio 5, selezionare **file di archiviazione dati condivisione SMB** .
 
-7. Selezionare **Salva**.
+7. Selezionare **Salva** .
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Assegnare autorizzazioni agli utenti per la condivisione file di Azure
 
@@ -121,7 +121,7 @@ Ecco come ottenere il percorso UNC:
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
-3. Selezionare **Impostazioni**, quindi selezionare **Proprietà**.
+3. Selezionare **Impostazioni** , quindi selezionare **Proprietà** .
 
 4. Copiare l'URI dell' **endpoint del servizio file primario** nell'editor di testo desiderato.
 
@@ -141,7 +141,7 @@ Per ottenere la chiave dell'account di archiviazione:
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
-3. Nella scheda **account di archiviazione** selezionare **chiavi di accesso**.
+3. Nella scheda **account di archiviazione** selezionare **chiavi di accesso** .
 
 4. Copiare **Key1** o **Key2** in un file nel computer locale.
 
@@ -200,13 +200,13 @@ Per configurare FSLogix nella macchina virtuale dell'host sessione:
 
 5. Seguire le istruzioni in [Configurare le impostazioni del registro contenitori del profilo](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    - Passare a **computer**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**.
+    - Passare a **computer**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix** .
 
     - Creare una chiave **profili** .
 
     - Create **Enabled, DWORD** con un valore 1.
 
-    - Creazione **di VHDLocations, MULTI_SZ**.
+    - Creazione **di VHDLocations, MULTI_SZ** .
 
     - Impostare il valore di **VHDLocations** sul percorso UNC generato in [ottenere il percorso UNC](#get-the-unc-path).
 

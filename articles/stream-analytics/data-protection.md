@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812863"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746403"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -67,16 +67,12 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
 1. Compilare la pagina del processo di analisi di flusso con i dettagli necessari, ad esempio il nome, l'area e la scala. 
 
-1. Selezionare la casella di controllo per *proteggere tutti gli asset di dati privati necessari per questo processo nell'account di archiviazione*.
+1. Selezionare la casella di controllo per *proteggere tutti gli asset di dati privati necessari per questo processo nell'account di archiviazione* .
 
 1. Selezionare un account di archiviazione dalla sottoscrizione. Si noti che questa impostazione non può essere modificata durante tutto il ciclo di vita del processo. 
 
    ![Impostazioni dell'account di archiviazione dati privato](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Problemi noti
-Attualmente, esiste una limitazione nota in cui un processo che usa la chiave gestita dal cliente si verifica in caso di errori quando si usa l'identità gestita per l'autenticazione a qualsiasi input o output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

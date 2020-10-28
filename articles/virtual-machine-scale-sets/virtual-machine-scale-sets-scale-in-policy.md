@@ -9,13 +9,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83125163"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747795"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 
@@ -57,7 +57,7 @@ Un criterio di scalabilità orizzontale può essere definito nel modello di set 
  
 I passaggi seguenti definiscono i criteri di scalabilità quando si crea un nuovo set di scalabilità. 
  
-1. Passare a **set di scalabilità di macchine virtuali**.
+1. Passare a **set di scalabilità di macchine virtuali** .
 1. Selezionare **+ Aggiungi** per creare un nuovo set di scalabilità.
 1. Passare alla scheda **scalabilità** . 
 1. Individuare la sezione dei **criteri di ridimensionamento** .
@@ -83,7 +83,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Creare un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità impostati come *OldestVM*.
+Creare un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità impostati come *OldestVM* .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -96,7 +96,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Nell'esempio seguente viene aggiunto un criterio di scalabilità in durante la creazione di un nuovo set di scalabilità. Creare prima di tutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità in *OldestVM*. 
+Nell'esempio seguente viene aggiunto un criterio di scalabilità in durante la creazione di un nuovo set di scalabilità. Creare prima di tutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità in *OldestVM* . 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -138,7 +138,7 @@ La modifica dei criteri di ridimensionamento segue lo stesso processo di applica
 1. In un set di scalabilità di macchine virtuali esistente selezionare **scalabilità** dal menu a sinistra.
 1. Selezionare la scheda **criteri di ridimensionamento** .
 1. Selezionare un criterio di ridimensionamento nell'elenco a discesa.
-1. Al termine, selezionare **Salva**. 
+1. Al termine, selezionare **Salva** . 
 
 ### <a name="using-api"></a>Uso dell'API
 
@@ -208,29 +208,29 @@ Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali 
 
 ### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Ridimensionamento              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
-| Ridimensionamento              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Scegliere Zona 1 anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM3 da Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                  |
-| Ridimensionamento              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Le zone sono bilanciate. Eliminare VM1 in Zona 3 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                               |
-| Ridimensionamento              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Scegliere tra Zona 1 e Zona 2. Eliminare VM4 in Zona 1 perché si tratta della macchina virtuale meno recente tra le due zone.                              |
-| Ridimensionamento              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Scegliere Zona 2 anche se Zona 1 dispone della macchina virtuale meno recente. Eliminare la VM6 È in Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                    |
-| Ridimensionamento              | ***5***, 10            | 9, 11                  | 7, 8                   | Le zone sono bilanciate. Eliminare VM5 in Zona 1 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5, 10            | **_2_* _, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
+| Ridimensionamento              | _*_3_*_ , 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Scegliere Zona 1 anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM3 da Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                  |
+| Ridimensionamento              | 4, 5, 10               | 6, 9, 11               | _*_1_*_ , 7, 8          | Le zone sono bilanciate. Eliminare VM1 in Zona 3 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                               |
+| Ridimensionamento              | _*_4_*_ , 5, 10         | 6, 9, 11               | 7, 8                   | Scegliere tra Zona 1 e Zona 2. Eliminare VM4 in Zona 1 perché si tratta della macchina virtuale meno recente tra le due zone.                              |
+| Ridimensionamento              | 5, 10                  | _*_6_*_ , 9, 11         | 7, 8                   | Scegliere Zona 2 anche se Zona 1 dispone della macchina virtuale meno recente. Eliminare la VM6 È in Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                    |
+| Ridimensionamento              | _*_5_*_ , 10            | 9, 11                  | 7, 8                   | Le zone sono bilanciate. Eliminare VM5 in Zona 1 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                                |
 
 Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale meno recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione.
 
 ### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |
-| Ridimensionamento              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Scegliere Zona 1 perché contiene più macchine virtuali rispetto alle altre due zone. Eliminare VM10 da Zona 1 perché è la macchina virtuale più recente in tale zona.          |
-| Ridimensionamento              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Le zone sono bilanciate. Eliminare VM9 in Zona 2 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
-| Ridimensionamento              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Scegliere tra Zona 1 e Zona 3. Eliminare VM8 in Zona 3 perché è la macchina virtuale più recente in tale zona.                                      |
-| Ridimensionamento              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Scegliere Zona 1 anche se Zona 3 dispone della VM più recente. Eliminare VM5 in Zona 1 perché è la macchina virtuale più recente in tale zona.                    |
-| Ridimensionamento              | 3, 4                   | 2, 6                   | 1, ***7***             | Le zone sono bilanciate. Eliminare VM7 in Zona 3 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, _*_11_*_      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |
+| Ridimensionamento              | 3, 4, 5, _*_10_*_      | 2, 6, 9                | 1, 7, 8                | Scegliere Zona 1 perché contiene più macchine virtuali rispetto alle altre due zone. Eliminare VM10 da Zona 1 perché è la macchina virtuale più recente in tale zona.          |
+| Ridimensionamento              | 3, 4, 5                | 2, 6, _*_9_*_          | 1, 7, 8                | Le zone sono bilanciate. Eliminare VM9 in Zona 2 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5                | 2, 6                   | 1, 7, _*_8_*_          | Scegliere tra Zona 1 e Zona 3. Eliminare VM8 in Zona 3 perché è la macchina virtuale più recente in tale zona.                                      |
+| Ridimensionamento              | 3, 4, _*_5_*_          | 2, 6                   | 1, 7                   | Scegliere Zona 1 anche se Zona 3 dispone della VM più recente. Eliminare VM5 in Zona 1 perché è la macchina virtuale più recente in tale zona.                    |
+| Ridimensionamento              | 3, 4                   | 2, 6                   | 1, _ *_7_**             | Le zone sono bilanciate. Eliminare VM7 in Zona 3 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
 
 Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione. 
 

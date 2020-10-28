@@ -1,5 +1,5 @@
 ---
-title: Creare un File di Azure StorageClass in Azure Red Hat OpenShift 4
+title: Creare un'istanza di StorageClass di File di Azure in Azure Red Hat OpenShift 4
 description: Informazioni su come creare un File di Azure StorageClass in Azure Red Hat OpenShift
 ms.service: container-service
 ms.topic: article
@@ -8,14 +8,14 @@ author: grantomation
 ms.author: b-grodel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI, file di Azure
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428877"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747887"
 ---
-# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Creare un File di Azure StorageClass in Azure Red Hat OpenShift 4
+# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Creare un'istanza di StorageClass di File di Azure in Azure Red Hat OpenShift 4
 
 In questo articolo si creerà un StorageClass per Azure Red Hat OpenShift 4 che esegue dinamicamente il provisioning di ReadWriteMany (RWX) storage usando File di Azure. Verrà descritto come:
 
@@ -32,7 +32,7 @@ Distribuire un cluster Azure Red Hat OpenShift 4 nella sottoscrizione, vedere [c
 
 ### <a name="set-up-azure-storage-account"></a>Configurare l'account di archiviazione di Azure
 
-Questo passaggio creerà un gruppo di risorse all'esterno del gruppo di risorse del cluster OpenShift di Azure Red Hat. Questo gruppo di risorse conterrà le condivisioni di File di Azure create dal provisioning dinamico di Azure Red Hat OpenShift.
+Questo passaggio creerà un gruppo di risorse all'esterno del gruppo di risorse del cluster Azure Red Hat OpenShift (ARO). Questo gruppo di risorse conterrà le condivisioni di File di Azure create dal provisioning dinamico di Azure Red Hat OpenShift.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

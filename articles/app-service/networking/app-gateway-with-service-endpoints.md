@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958934"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746210"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integrazione del gateway applicazione con gli endpoint di servizio
 Sono disponibili tre varianti di servizio app che richiedono una configurazione leggermente diversa dell'integrazione con applicazione Azure gateway. Le varianti includono il servizio app normale, noto anche come ambiente del servizio app (ASE) multi-tenant, Internal Load Balancer (ILB) e ambiente del servizio app esterno. Questo articolo illustra come configurarlo con il servizio app (multi-tenant) e come discutere le considerazioni su ILB e l'ambiente del servizio app esterno.

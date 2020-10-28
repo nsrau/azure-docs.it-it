@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso NGINX personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: 1ef462171199ce818b6146efbe705cca30b24564
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: e1918b5ce9c0fdba81174f0b36fd1ce51d0df70a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973088"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748816"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller di ingresso NGINX personalizzato e configurare HTTPS
 
@@ -100,8 +100,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Aprire [values. YAML][values-yaml] ed effettuare gli aggiornamenti seguenti:
-* Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *nginx. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN*. 
-* Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: nginx # in ingresso personalizzato*. 
+* Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *nginx. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN* . 
+* Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: nginx # in ingresso personalizzato* . 
 
 Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
 
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer*.
+> Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer* .
 
 Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 

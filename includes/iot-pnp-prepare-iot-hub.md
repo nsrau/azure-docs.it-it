@@ -4,13 +4,13 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: adc621f932462422202d9f16fd539f5ecc7c3d8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 3ac72360db5fb3d075b4caa3208f372f22441c7b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336898"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755704"
 ---
 ## <a name="prepare-an-iot-hub"></a>Preparare un hub IoT
 
@@ -38,7 +38,7 @@ az iot hub create --name <YourIoTHubName> \
 > [!NOTE]
 > Plug and Play IoT è attualmente disponibile negli hub IoT creati nelle aree Stati Uniti centrali, Europa settentrionale e Giappone orientale. Il supporto di Internet di Plug and Play IoT non è incluso negli hub IoT di livello base.
 
-Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto `<YourIoTHubName>` e `<YourDeviceID>` con il _nome dell'hub IoT_ e l'_ID dispositivo_ di propria scelta.
+Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto `<YourIoTHubName>` e `<YourDeviceID>` con il _nome dell'hub IoT_ e l' _ID dispositivo_ di propria scelta.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>

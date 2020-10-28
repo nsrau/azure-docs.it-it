@@ -3,13 +3,13 @@ title: Indirizzi IP in ingresso/in uscita
 description: Informazioni sul modo in cui gli indirizzi IP in ingresso e in uscita vengono usati nel servizio app Azure, quando cambiano e come trovare gli indirizzi per l'app.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050693"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746143"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -51,7 +51,7 @@ Il set di indirizzi IP in uscita per l'app viene modificato quando si esegue una
 
 - Eliminare un'app e ricrearla in un gruppo di risorse diverso. l'unità di distribuzione può cambiare.
 - Eliminare l'ultima app in una combinazione di gruppi di risorse _e_ aree e ricrearla (l'unità di distribuzione può cambiare).
-- Ridimensionare l'app tra i livelli inferiori (**Basic**, **standard**e **Premium**) e il livello **Premium v2** (gli indirizzi IP possono essere aggiunti o sottratti dal set).
+- Ridimensionare l'app tra i livelli inferiori ( **Basic** , **standard** e **Premium** ) e il livello **Premium v2** (gli indirizzi IP possono essere aggiunti o sottratti dal set).
 
 È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la `possibleOutboundIpAddresses` proprietà o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
 

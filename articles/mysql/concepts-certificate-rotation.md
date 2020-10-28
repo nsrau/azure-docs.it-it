@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: cc32a67ab681341fd8320b9445f4e00013f2aa51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 57d077e1631fa89058d67ba54d72e7713db17371
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747373"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per database di Azure per MySQL
 
@@ -52,11 +52,11 @@ Per evitare che la disponibilità dell'applicazione venga interrotta a causa di 
 *   Sono inclusi un archivio certificati CA combinato con certificati **BaltimoreCyberTrustRoot** e **DigiCertGlobalRootG2** .
     *   Per gli utenti Java (MySQL Connector/J), eseguire:
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -150,7 +150,7 @@ Se si usa la [replica dei dati](concepts-data-in-replication.md) per connettersi
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. esiste un'azione necessaria se si dispone già di DigiCertGlobalRootG2 nel file di certificato?
-No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2**.
+No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2** .
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. cosa accade se si hanno altre domande?
 In caso di domande, ottenere le risposte dagli esperti della community in [Microsoft Q&a](mailto:AzureDatabaseforMySQL@service.microsoft.com). Se si dispone di un piano di supporto ed è necessario assistenza tecnica, [contattare](mailto:AzureDatabaseforMySQL@service.microsoft.com)Microsoft.

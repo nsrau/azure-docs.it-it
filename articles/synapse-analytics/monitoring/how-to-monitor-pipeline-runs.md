@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387320"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746364"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usare sinapsi Studio per monitorare le esecuzioni della pipeline dell'area di lavoro
 
-Con l'analisi delle sinapsi di Azure è possibile creare pipeline complesse che consentono di automatizzare e orchestrare le attività di spostamento dei dati, trasformazione dei dati e calcolo all'interno della soluzione. È possibile creare e monitorare queste pipeline usando sinapsi Studio (anteprima).
+Con l'analisi delle sinapsi di Azure, è possibile creare pipeline complesse che consentono di automatizzare e integrare lo spostamento dei dati, la trasformazione dei dati e le attività di calcolo all'interno della soluzione. È possibile creare e monitorare queste pipeline usando sinapsi Studio (anteprima).
 
 Questo articolo illustra come monitorare le esecuzioni della pipeline, che consente di tenere sotto controllo lo stato, i problemi e lo stato di avanzamento delle pipeline più recenti.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630509"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747905"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando il formato di evento comune
 
@@ -44,7 +44,7 @@ In alternativa, questa configurazione sarà disponibile se si usa una VM in un a
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
-Assicurarsi di configurare la sicurezza del computer in base ai criteri di sicurezza dell'organizzazione. Ad esempio, è possibile configurare la rete in modo che venga allineata ai criteri di sicurezza della rete aziendale e modificare le porte e i protocolli nel daemon per allinearli ai propri requisiti. È possibile usare le istruzioni seguenti per migliorare la configurazione della sicurezza del computer:  [Secure VM in Azure](../virtual-machines/security-policy.md), procedure consigliate [per la sicurezza di rete](../security/fundamentals/network-best-practices.md).
+Assicurarsi di configurare la sicurezza del computer in base ai criteri di sicurezza dell'organizzazione. Ad esempio, è possibile configurare la rete in modo che venga allineata ai criteri di sicurezza della rete aziendale e modificare le porte e i protocolli nel daemon per allinearli ai propri requisiti. È possibile usare le istruzioni seguenti per migliorare la configurazione della sicurezza del computer:  [Secure VM in Azure](../virtual-machines/security-policy.md), procedure consigliate [per la sicurezza di rete](../security/fundamentals/network-best-practices.md).
 
 Per usare la comunicazione TLS tra l'origine syslog e il server d'avanzamento syslog, è necessario configurare il daemon syslog (rsyslog o syslog-ng) per la comunicazione in TLS: [crittografia del traffico syslog con TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [crittografia dei messaggi di log con TLS-syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
@@ -55,14 +55,14 @@ Verificare che il computer Linux usato come proxy esegua uno dei sistemi operati
 - 64 bit
   - CentOS 7 e versioni secondarie e versioni successive (non 6)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 e 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e versioni secondarie e versioni successive (non 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32 bit
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 e 9
    - Ubuntu Linux 14.04 LTS e 16.04 LTS
@@ -79,7 +79,7 @@ Verificare che il computer soddisfi anche i requisiti seguenti:
 - Autorizzazioni
     - È necessario disporre di autorizzazioni elevate (sudo) nel computer. 
 - Requisiti software
-    - Verificare che nel computer sia in esecuzione Python (2,7 o versione successiva)
+    - Verificare che Python 2,7 sia in esecuzione nel computer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

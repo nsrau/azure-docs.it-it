@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
-ms.custom: devx-track-js
-ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748134"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > È necessario che siano abilitate le azioni di GitHub per il repository. Per abilitare le azioni di GitHub per il repository, passare al repository in GitHub, fare clic sulla scheda azioni e scegliere di abilitare le azioni per questo repository.
 
-Passare al repository con fork e fare clic su *Settings (impostazioni*). Fare clic su *Secrets (segreti* ) nella barra laterale sinistra. Fare clic su *Aggiungi un nuovo segreto* per aggiungere ogni nuovo segreto:
+Passare al repository con fork e fare clic su *Settings (impostazioni* ). Fare clic su *Secrets (segreti* ) nella barra laterale sinistra. Fare clic su *Aggiungi un nuovo segreto* per aggiungere ogni nuovo segreto:
 
-1. *AZURE_CREDENTIALS*: l'intero output della creazione dell'entità servizio.
-1. *RESOURCE_GROUP*: il gruppo di risorse per il cluster AKS, che in questo esempio è *MyResourceGroup*.
-1. *CLUSTER_NAME*: il nome del cluster AKS, che in questo esempio è *MyAKS*.
-1. *CONTAINER_REGISTRY*: *LOGINSERVER* per l'ACR.
-1. *Host*: host per lo spazio di sviluppo, che assume il formato *<MASTER_SPACE>. <APP_NAME>. *<HOST_SUFFIX>, che in questo esempio è *dev.bikesharingweb.fedcab0987.EUS.azds.io*.
-1. *IMAGE_PULL_SECRET*: il nome del segreto che si vuole usare, ad esempio *demo-Secret*.
-1. *MASTER_SPACE*: il nome dello spazio di sviluppo padre, che in questo esempio è *dev*.
-1. *REGISTRY_USERNAME*: *ClientID* dall'output JSON della creazione dell'entità servizio.
-1. *REGISTRY_PASSWORD*: *CLIENTSECRET* dall'output JSON della creazione dell'entità servizio.
+1. *AZURE_CREDENTIALS* : l'intero output della creazione dell'entità servizio.
+1. *RESOURCE_GROUP* : il gruppo di risorse per il cluster AKS, che in questo esempio è *MyResourceGroup* .
+1. *CLUSTER_NAME* : il nome del cluster AKS, che in questo esempio è *MyAKS* .
+1. *CONTAINER_REGISTRY* : *LOGINSERVER* per l'ACR.
+1. *Host* : host per lo spazio di sviluppo, che assume il formato *<MASTER_SPACE>. <APP_NAME>.* <HOST_SUFFIX>, che in questo esempio è *dev.bikesharingweb.fedcab0987.EUS.azds.io* .
+1. *IMAGE_PULL_SECRET* : il nome del segreto che si vuole usare, ad esempio *demo-Secret* .
+1. *MASTER_SPACE* : il nome dello spazio di sviluppo padre, che in questo esempio è *dev* .
+1. *REGISTRY_USERNAME* : *ClientID* dall'output JSON della creazione dell'entità servizio.
+1. *REGISTRY_PASSWORD* : *CLIENTSECRET* dall'output JSON della creazione dell'entità servizio.
 
 > [!NOTE]
 > Tutti questi segreti vengono usati dall'azione GitHub e sono configurati in [. github/workflows/Bikes. yml][github-action-yaml].
 
-Facoltativamente, se si desidera aggiornare lo spazio master dopo l'Unione della richiesta pull, aggiungere il *GATEWAY_HOST* Secret, che assume il formato *<MASTER_SPACE>. gateway. <* HOST_SUFFIX>, che in questo esempio è *dev.gateway.fedcab0987.EUS.azds.io*. Una volta unite le modifiche nel ramo master nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Facoltativamente, se si desidera aggiornare lo spazio master dopo l'Unione della richiesta pull, aggiungere il *GATEWAY_HOST* Secret, che assume il formato *<MASTER_SPACE>. gateway. <* HOST_SUFFIX>, che in questo esempio è *dev.gateway.fedcab0987.EUS.azds.io* . Una volta unite le modifiche nel ramo master nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev* . Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
-Inoltre, se si desidera che le modifiche nella richiesta pull vengano eseguite in uno spazio nipoti, aggiornare i segreti di *MASTER_SPACE* e *host* . Ad esempio, se l'applicazione è in esecuzione in *dev* con uno spazio figlio *dev/azureuser1*, per fare in modo che la richiesta pull venga eseguita nello spazio figlio *dev/azureuser1*:
+Inoltre, se si desidera che le modifiche nella richiesta pull vengano eseguite in uno spazio nipoti, aggiornare i segreti di *MASTER_SPACE* e *host* . Ad esempio, se l'applicazione è in esecuzione in *dev* con uno spazio figlio *dev/azureuser1* , per fare in modo che la richiesta pull venga eseguita nello spazio figlio *dev/azureuser1* :
 
-* Aggiornare *MASTER_SPACE* allo spazio figlio desiderato come spazio padre, in questo esempio *azureuser1*.
-* Aggiornare *host* in *<GRANDPARENT_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, in questo esempio *dev.bikesharingweb.fedcab0987.EUS.azds.io*.
+* Aggiornare *MASTER_SPACE* allo spazio figlio desiderato come spazio padre, in questo esempio *azureuser1* .
+* Aggiornare *host* in *<GRANDPARENT_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, in questo esempio *dev.bikesharingweb.fedcab0987.EUS.azds.io* .
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Creare un nuovo ramo per le modifiche al codice
 
-Passare a `BikeSharingApp/` e creare un nuovo ramo denominato *bike-images*.
+Passare a `BikeSharingApp/` e creare un nuovo ramo denominato *bike-images* .
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -162,7 +162,7 @@ Al termine dell'azione, viene visualizzato un commento con un URL per il nuovo s
 
 Passare al servizio *bikesharingweb* aprendo l'URL dal commento. Selezionare *Aurelia Briggs (Customer)* come utente, quindi selezionare una bicicletta da affittare. Verificare che l'immagine segnaposto per la bicicletta non sia più visualizzata.
 
-Se si uniscono le modifiche nel ramo *Master* nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Se si uniscono le modifiche nel ramo *Master* nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev* . Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Pulire le risorse di Azure
 

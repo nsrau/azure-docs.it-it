@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
+ms.custom: seoapr2020, devx-track-azurecli
 ms.date: 09/02/2020
-ms.openlocfilehash: b3ff84f3f648ad08769a36a791f1679a0a57bc73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35c3901e9a48523a10c1a6aacbc52e6c165e278f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546246"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748704"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster Azure HDInsight con azioni script
 
@@ -274,7 +274,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    I ruoli validi sono `headnode` ,, `workernode` `zookeepernode` , `edgenode` . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio: `--roles headnode workernode`.
+    I ruoli validi sono `headnode` ,, `workernode` `zookeepernode` , `edgenode` . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio, `--roles headnode workernode`
 
     Per salvare lo script in modo permanente, aggiungere `--persist-on-success`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `az hdinsight script-action promote`.
 

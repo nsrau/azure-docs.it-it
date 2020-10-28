@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563693"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746828"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -22,7 +22,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 1. Sezione dei commenti di questo articolo.
 2. [Forum di archiviazione di Azure](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida** , selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto** .
 
 ## <a name="general"></a>Generale
 * <a id="why-files-useful"></a>
@@ -76,7 +76,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     File di Azure supporta due livelli di archiviazione, Premium e Standard. Le condivisioni Standard vengono create in account di archiviazione per utilizzo generico (GPv1 o GPv2) e le condivisioni Premium vengono create negli account di archiviazione FileStorage. Altre informazioni su come creare [condivisioni standard di file](storage-how-to-create-file-share.md) e [condivisioni Premium di file](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico (GPv1 o GPv2) *Premium*. Le condivisioni file di Azure standard devono essere create solo in account *Standard* per utilizzo generico e le condivisioni file di Azure premium devono essere create solo negli account di archiviazione FileStorage. Gli account di archiviazione *Premium* per utilizzo generico (GPv1 e GPv2) sono solo per i blob di pagine Premium. 
+    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico (GPv1 o GPv2) *Premium* . Le condivisioni file di Azure standard devono essere create solo in account *Standard* per utilizzo generico e le condivisioni file di Azure premium devono essere create solo negli account di archiviazione FileStorage. Gli account di archiviazione *Premium* per utilizzo generico (GPv1 e GPv2) sono solo per i blob di pagine Premium. 
 
 * <a id="file-locking"></a>
   **File di Azure supporta il blocco di file?**  
@@ -107,7 +107,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Le prestazioni variano in base alle impostazioni ambientali, alla configurazione e al fatto che si tratti di una sincronizzazione iniziale o di una sincronizzazione continua. Per altre informazioni, vedere [metriche delle prestazioni sincronizzazione file di Azure](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Cosa accade quando lo stesso file viene modificato in due server approssimativamente nello stesso momento?**  
-    Sincronizzazione file di Azure usa una semplice strategia di risoluzione dei conflitti: si conservano entrambe le modifiche ai file che vengono modificati contemporaneamente in due endpoint. Per la modifica più di recente viene mantenuto il nome del file originale. Il file precedente, determinato da LastWriteTime, ha il nome dell'endpoint e il numero di conflitto aggiunto al nome del file. Per gli endpoint server, il nome dell'endpoint è il nome del server. Per gli endpoint cloud, il nome dell'endpoint è **cloud**. Il nome segue questa tassonomia: 
+    Sincronizzazione file di Azure usa una semplice strategia di risoluzione dei conflitti: si conservano entrambe le modifiche ai file che vengono modificati contemporaneamente in due endpoint. Per la modifica più di recente viene mantenuto il nome del file originale. Il file precedente, determinato da LastWriteTime, ha il nome dell'endpoint e il numero di conflitto aggiunto al nome del file. Per gli endpoint server, il nome dell'endpoint è il nome del server. Per gli endpoint cloud, il nome dell'endpoint è **cloud** . Il nome segue questa tassonomia: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -257,7 +257,25 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="ad-multiple-forest"></a>
 **L'autenticazione AD DS locale per le condivisioni file di Azure supporta l'integrazione con un ambiente AD DS usando più foreste?**    
 
-    L'autenticazione AD DS locale di File di Azure si integra solo con la foresta del servizio del dominio in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta, è necessario che nell'ambiente sia configurato correttamente un trust della foreste. Il modo in cui File di Azure registra in AD DS è quasi uguale a un normale file server, in cui crea un'identità (computer o account di accesso del computer o del servizio) in AD DS per l'autenticazione. L'unica differenza è che l'SPN dell'account di archiviazione registrato termina con "file.core.windows.net" che non corrisponde al suffisso del dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario aggiornare i criteri di routing DNS per abilitare l'autenticazione a più foreste a causa del suffisso di dominio diverso.
+    L'autenticazione AD DS locale di File di Azure si integra solo con la foresta del servizio del dominio in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta, è necessario che nell'ambiente sia configurato correttamente un trust della foreste. Il modo in cui File di Azure registra in AD DS è quasi uguale a un normale file server, in cui crea un'identità (computer o account di accesso del computer o del servizio) in AD DS per l'autenticazione. L'unica differenza è che l'SPN dell'account di archiviazione registrato termina con "file.core.windows.net" che non corrisponde al suffisso del dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario aggiornare i criteri di routing dei suffissi per abilitare l'autenticazione a più foreste a causa del suffisso di dominio diverso. Di seguito viene fornito un esempio per configurare i criteri di routing dei suffissi.
+    
+    Esempio: quando gli utenti nella foresta di un dominio desiderano raggiungere una condivisione file con l'account di archiviazione registrato in un dominio nella foresta B, questa operazione non funzionerà automaticamente perché l'entità servizio dell'account di archiviazione non ha un suffisso corrispondente al suffisso di un dominio nella foresta A. È possibile risolvere questo problema configurando manualmente una regola di routing del suffisso dalla foresta A alla foresta B per un suffisso personalizzato "file.core.windows.net".
+    In primo luogo, è necessario aggiungere un nuovo suffisso personalizzato nella foresta B. Assicurarsi di disporre delle autorizzazioni amministrative appropriate per modificare la configurazione, quindi attenersi alla procedura seguente:   
+    1. Accesso a un dominio computer aggiunto alla foresta B
+    2.  Aprire la console "Active Directory domini e trust"
+    3.  Fare clic con il pulsante destro del mouse su "domini e trust Active Directory"
+    4.  Fare clic su "proprietà"
+    5.  Fare clic su "Aggiungi"
+    6.  Aggiungere "file.core.windows.net" come suffissi UPN
+    7.  Fare clic su "Apply" (Applica) e quindi su "OK" per chiudere la procedura guidata
+    
+    Successivamente, aggiungere la regola di routing suffisso nella foresta A, in modo che venga reindirizzata alla foresta B.
+    1.  Accedere a un dominio computer aggiunto alla foresta A
+    2.  Aprire la console "Active Directory domini e trust"
+    3.  Fare clic con il pulsante destro del mouse sul dominio a cui si desidera accedere alla condivisione file, quindi fare clic sulla scheda "Trust" e selezionare il dominio della foresta B dai trust in uscita. Se non è stata configurata la relazione di trust tra le due foreste, è necessario configurare prima il trust
+    4.  Fare clic su "Properties..." quindi "nome suffisso routing"
+    5.  Controllare se viene visualizzato il surffix "*. file.core.windows.net". In caso contrario, fare clic su' Aggiorna '
+    6.  Selezionare "*. file.core.windows.net", quindi fare clic su "Abilita" e "applica"
 
 * <a id=""></a>
 **Quali aree sono disponibili per l'autenticazione File di Azure servizi di dominio Active Directory?**

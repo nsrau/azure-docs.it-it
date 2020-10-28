@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042967"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748488"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Come certificare i dispositivi Plug and Play IoT
 
@@ -182,7 +182,7 @@ Le informazioni sul profilo aziendale vengono usate nella descrizione del dispos
 
 Per certificare un dispositivo, è prima necessario creare un nuovo progetto.
 
-Passare al [portale di certificazione](https://aka.ms/acdp). Nella pagina **progetti** selezionare *+ Crea nuovo progetto*. Immettere quindi un nome per il progetto, il nome del dispositivo e selezionare una classe del dispositivo.
+Passare al [portale di certificazione](https://aka.ms/acdp). Nella pagina **progetti** selezionare *+ Crea nuovo progetto* . Immettere quindi un nome per il progetto, il nome del dispositivo e selezionare una classe del dispositivo.
 
 Le informazioni sul prodotto fornite durante il processo di certificazione rientrano in quattro categorie:
 

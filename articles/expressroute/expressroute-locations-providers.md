@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: b2890c8f37106ef124fe1a11206d13127d93eed1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 73cf0d18c68baf7e0e19d15d621a7a3d87a486a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633570"
+ms.locfileid: "92748129"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -146,7 +146,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/d | 10 G | Cologix, Telus |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Stati Uniti orientali, Stati Uniti orientali 2 | 10 G, 100 G | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, InterCloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-center-locations/northern-virginia-washington-dc) | 1 | Stati Uniti orientali, Stati Uniti orientali 2 | 10 G, 100 G | CenturyLink Cloud Connect, Coresite, Intelsat, Megaport, Viasat, Zayo | 
-| **Zurigo** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Svizzera settentrionale | 10 G, 100 G | Intercloud, Interxion, Megaport, Swisscom |
+| **Zurigo** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Svizzera settentrionale | 10 G, 100 G | Eqinix, intercloud, Interxion, Megaport, Swisscom |
 
  **+** indica disponibile a breve
 

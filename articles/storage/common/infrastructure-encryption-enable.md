@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984181"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746573"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Creare un account di archiviazione con la crittografia dell'infrastruttura abilitata per la doppia crittografia dei dati
 
@@ -95,7 +96,7 @@ Per usare PowerShell per creare un account di archiviazione con la crittografia 
 
 1. Nella portale di Azure passare alla pagina account di **archiviazione** .
 1. Scegliere il pulsante **Aggiungi** per aggiungere un nuovo account di archiviazione per utilizzo generico V2.
-1. Nella scheda **Avanzate** individuare crittografia **infrastruttura** e selezionare **abilitato**.
+1. Nella scheda **Avanzate** individuare crittografia **infrastruttura** e selezionare **abilitato** .
 1. Selezionare **Verifica + crea** per completare la creazione dell'account di archiviazione.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot che illustra come abilitare la crittografia dell'infrastruttura durante la creazione dell'account":::
@@ -178,7 +179,7 @@ Nell'esempio JSON seguente viene creato un account di archiviazione per utilizzo
 Per verificare che la crittografia dell'infrastruttura sia abilitata per un account di archiviazione con la portale di Azure, attenersi alla seguente procedura:
 
 1. Passare all'account di archiviazione nel portale di Azure.
-1. In **Impostazioni**scegliere **crittografia**.
+1. In **Impostazioni** scegliere **crittografia** .
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot che illustra come abilitare la crittografia dell'infrastruttura durante la creazione dell'account":::
 

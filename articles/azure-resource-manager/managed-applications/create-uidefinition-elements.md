@@ -3,14 +3,14 @@ title: Crea elementi di definizione dell'interfaccia utente
 description: Descrive gli elementi da usare quando si creano definizioni dell'interfaccia utente per il portale di Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3ba36fc3aaa98aec54b6c70cd416c589be27cfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747362"
 ---
 # <a name="createuidefinition-elements"></a>Elementi di CreateUiDefinition
 
@@ -36,7 +36,7 @@ Lo schema per la maggior parte degli elementi è il seguente:
 | Proprietà | Obbligatoria | Descrizione |
 | -------- | -------- | ----------- |
 | name | Sì | Identificatore interno per fare riferimento a un'istanza specifica di un elemento. Il nome dell'elemento viene usato con maggiore frequenza in `outputs`, dove i valori di output degli elementi specificati vengono mappati ai parametri del modello. È anche possibile usarlo per associare il valore di output di un elemento al valore `defaultValue` di un altro elemento. |
-| type | Sì | Controllo dell'interfaccia utente da sottoporre a rendering per l'elemento. Per un elenco di tipi supportati, vedere [Elementi](#elements). |
+| tipo | Sì | Controllo dell'interfaccia utente da sottoporre a rendering per l'elemento. Per un elenco di tipi supportati, vedere [Elementi](#elements). |
 | label | Sì | Testo visualizzato dell'elemento. Alcuni tipi di elemento includono più etichette, quindi il valore può essere un oggetto contenente più stringhe. |
 | defaultValue | No | Valore predefinito dell'elemento. Alcuni tipi di elementi supportano valori predefiniti complessi, quindi il valore può essere un oggetto. |
 | toolTip | No | Testo da visualizzare nella descrizione comando dell'elemento. Analogamente a `label`, alcuni elementi supportano più stringhe di descrizione comando. I collegamenti inline possono essere incorporati tramite la sintassi di markdown.
@@ -63,6 +63,7 @@ La documentazione per ogni elemento include un esempio di interfaccia utente, un
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft. Vault. KeyVaultCertificateSelector](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft. ManagedIdentity. IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
@@ -70,6 +71,7 @@ La documentazione per ogni elemento include un esempio di interfaccia utente, un
 - [Microsoft. Solutions. ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft. storage. StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

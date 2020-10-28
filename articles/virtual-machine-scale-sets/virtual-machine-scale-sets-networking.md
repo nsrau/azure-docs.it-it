@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363964"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747840"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -23,7 +23,7 @@ Quando si distribuisce un set di scalabilità di macchine virtuali di Azure tram
 È possibile configurare tutte le funzionalità illustrate in questo articolo usando i modelli di Azure Resource Manager. Sono inclusi anche esempi dell'interfaccia della riga di comando di Azure e di PowerShell per le funzionalità selezionate.
 
 ## <a name="accelerated-networking"></a>Rete accelerata
-La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Root I/O Virtualization (SR-IOV) per le macchine virtuali. Per altre informazioni sull'uso della rete accelerata, vedere Rete accelerata per macchine virtuali [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Per usare la rete accelerata con i set di scalabilità, impostare enableAcceleratedNetworking su **true** nelle impostazioni networkInterfaceConfigurations del set di scalabilità, Esempio:
+La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Root I/O Virtualization (SR-IOV) per le macchine virtuali. Per altre informazioni sull'uso della rete accelerata, vedere Rete accelerata per macchine virtuali [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Per usare la rete accelerata con i set di scalabilità, impostare enableAcceleratedNetworking su **true** nelle impostazioni networkInterfaceConfigurations del set di scalabilità, Ad esempio:
 
 ```json
 "networkProfile": {
@@ -69,13 +69,13 @@ Per creare un set di scalabilità che usa un gateway applicazione, fare riferime
 Per impostazione predefinita, ai set di scalabilità vengono applicate le impostazioni DNS specifiche della rete virtuale e della subnet in cui sono state create. È tuttavia possibile configurare direttamente le impostazioni DNS per un set di scalabilità.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creazione di un set di scalabilità con server DNS configurabili
-Per creare un set di scalabilità con una configurazione DNS personalizzata usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--dns-servers** al comando **vmss create**, facendo seguire l'argomento dagli indirizzi IP dei server separati da spazi. Esempio:
+Per creare un set di scalabilità con una configurazione DNS personalizzata usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--dns-servers** al comando **vmss create** , facendo seguire l'argomento dagli indirizzi IP dei server separati da spazi. Ad esempio:
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
 
-Per configurare server DNS personalizzati in un modello di Azure, aggiungere una proprietà dnsSettings alla sezione networkInterfaceConfigurations del set di scalabilità, Esempio:
+Per configurare server DNS personalizzati in un modello di Azure, aggiungere una proprietà dnsSettings alla sezione networkInterfaceConfigurations del set di scalabilità, Ad esempio:
 
 ```json
 "dnsSettings":{
@@ -84,9 +84,9 @@ Per configurare server DNS personalizzati in un modello di Azure, aggiungere una
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Creazione di un set di scalabilità con nomi di dominio di macchine virtuali configurabili
-Per creare un set di scalabilità con un nome DNS personalizzato per le macchine virtuali usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--vm-domain-name** al comando di **creazione di set di scalabilità di macchine virtuali **, facendo seguire l'argomento da una stringa che rappresenta il nome di dominio.
+Per creare un set di scalabilità con un nome DNS personalizzato per le macchine virtuali usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--vm-domain-name** al comando di **creazione di set di scalabilità di macchine virtuali** , facendo seguire l'argomento da una stringa che rappresenta il nome di dominio.
 
-Per impostare il nome di dominio in un modello di Azure, aggiungere una proprietà **dnsSettings** alla sezione **networkInterfaceConfigurations** del set di scalabilità, Esempio:
+Per impostare il nome di dominio in un modello di Azure, aggiungere una proprietà **dnsSettings** alla sezione **networkInterfaceConfigurations** del set di scalabilità, Ad esempio:
 
 ```json
 "networkProfile": {
@@ -130,9 +130,9 @@ Per le macchine virtuali di un set di scalabilità di Azure in genere non sono n
 Alcuni scenari tuttavia richiedono che le macchine virtuali del set di scalabilità abbiano i propri indirizzi IP pubblici, ad esempio i giochi, in cui una console deve stabilire una connessione diretta a una macchina virtuale cloud, che esegue l'elaborazione fisica del gioco. Un altro esempio è quello in cui le macchine virtuali devono stabilire connessioni esterne reciproche tra aree in un database distribuito.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Creazione di un set di scalabilità con un IP pubblico per ogni macchina virtuale
-Per creare un set di scalabilità che assegni un indirizzo IP pubblico a ogni macchina virtuale con l'interfaccia della riga di comando di Azure, aggiungere il parametro **--public-ip-per-vm** al comando **vmss create**. 
+Per creare un set di scalabilità che assegni un indirizzo IP pubblico a ogni macchina virtuale con l'interfaccia della riga di comando di Azure, aggiungere il parametro **--public-ip-per-vm** al comando **vmss create** . 
 
-Per creare un set di scalabilità usando un modello di Azure, verificare che la versione API della risorsa Microsoft.Compute/virtualMachineScaleSets sia almeno **2017-03-30** e aggiungere una proprietà JSON **publicIpAddressConfiguration** alla sezione ipConfigurations del set di scalabilità, Esempio:
+Per creare un set di scalabilità usando un modello di Azure, verificare che la versione API della risorsa Microsoft.Compute/virtualMachineScaleSets sia almeno **2017-03-30** e aggiungere una proprietà JSON **publicIpAddressConfiguration** alla sezione ipConfigurations del set di scalabilità, Ad esempio:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -146,15 +146,15 @@ Per creare un set di scalabilità usando un modello di Azure, verificare che la 
 Modello di esempio: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Query degli indirizzi IP pubblici delle macchine virtuali in un set di scalabilità
-Per elencare gli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità usando l'interfaccia della riga di comando di Azure, eseguire il comando **az vmss list-instance-public-ips**.
+Per elencare gli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità usando l'interfaccia della riga di comando di Azure, eseguire il comando **az vmss list-instance-public-ips** .
 
-Per ottenere un elenco degli indirizzi IP pubblici del set di scalabilità con PowerShell, usare il comando _Get-AzPublicIpAddress_. Esempio:
+Per ottenere un elenco degli indirizzi IP pubblici del set di scalabilità con PowerShell, usare il comando _Get-AzPublicIpAddress_ . Ad esempio:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, Esempio:
+È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, Ad esempio:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
@@ -165,14 +165,14 @@ Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 Per eseguire una query di [Azure Resource Explorer](https://resources.azure.com):
 
 1. Aprire [Azure Resource Explorer](https://resources.azure.com) in un Web browser.
-1. Per espandere *Sottoscrizioni* sul lato sinistro, fare clic su *+*. Se in *Sottoscrizioni* è elencato un solo elemento, potrebbe essere già espanso.
+1. Per espandere *Sottoscrizioni* sul lato sinistro, fare clic su *+* . Se in *Sottoscrizioni* è elencato un solo elemento, potrebbe essere già espanso.
 1. Espandere la sottoscrizione.
 1. Espandere il gruppo di risorse.
-1. Espandere i *provider*.
-1. Espandere *Microsoft.Compute*.
-1. Espandere *virtualMachineScaleSets*.
+1. Espandere i *provider* .
+1. Espandere *Microsoft. Compute* .
+1. Espandere *virtualMachineScaleSets* .
 1. Espandere il set di scalabilità.
-1. Fare clic su *publicipaddresses*.
+1. Fare clic su *publicipaddresses* .
 
 Per eseguire una query nell'API REST di Azure:
 
@@ -305,7 +305,7 @@ I gruppi di sicurezza di rete possono essere applicati direttamente a un set di 
 
 I gruppi di sicurezza delle applicazioni possono essere specificati anche direttamente in un set di scalabilità, aggiungendo un riferimento alla sezione delle configurazioni IP dell'interfaccia di rete delle proprietà delle macchine virtuali del set di scalabilità.
 
-Esempio:
+Ad esempio:
 
 ```json
 "networkProfile": {

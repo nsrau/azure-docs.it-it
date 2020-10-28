@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214144"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748186"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -305,7 +305,7 @@ L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-l
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* . Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
 |Proprietà di function.json |Descrizione|
 |---------|---------|
@@ -401,7 +401,7 @@ Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario crear
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e selezionare **Crea sottoscrizione di Griglia di eventi**.
+Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Integrazione** , quindi scegliere **Trigger griglia di eventi** e selezionare **Crea sottoscrizione di Griglia di eventi** .
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connettere una nuova sottoscrizione di eventi da attivare nel portale.":::
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
-ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460799"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746601"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -57,7 +57,7 @@ L'eliminazione temporanea del contenitore è disponibile per i tipi di account d
 - Bloccare gli account di archiviazione BLOB
 - Account di archiviazione BLOB
 
-Se l'account di archiviazione è un account per utilizzo generico V1, usare il portale di Azure per eseguire l'aggiornamento a un account per utilizzo generico V2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
+Se l'account di archiviazione è un account per utilizzo generico V1, usare il portale di Azure per eseguire l'aggiornamento a un account per utilizzo generico V2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 Sono supportati anche gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2.
 

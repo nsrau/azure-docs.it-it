@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file
-ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989566"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755972"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 È possibile creare un insieme di credenziali delle chiavi anche usando il [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
-2. Selezionare la sottoscrizione, il gruppo di risorse, la località del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi, l'ID oggetto, le condizioni legali e il contratto, quindi fare clic su **Acquista**. 
+1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure** .
+2. Selezionare la sottoscrizione, il gruppo di risorse, la località del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi, l'ID oggetto, le condizioni legali e il contratto, quindi fare clic su **Acquista** . 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi
@@ -117,10 +117,10 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e selezionare **Fare clic per visualizzare i criteri di accesso avanzati**.
-2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
-3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
-4. Fare clic su **Save**.
+1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e selezionare **Fare clic per visualizzare i criteri di accesso avanzati** .
+2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi** .
+3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli** , se necessario. 
+4. Fare clic su **Save** .
 
     ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 

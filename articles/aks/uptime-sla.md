@@ -4,13 +4,13 @@ description: Informazioni sull'offerta opzionale del contratto di servizio relat
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748879"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -48,7 +48,7 @@ Il contratto di servizio relativo al tempo di attività è una funzionalità a p
 
 Per creare un nuovo cluster con il contratto di servizio relativo al tempo di attività, usare l'interfaccia della riga di comando di Azure.
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus* :
 
 ```azurecli-interactive
 # Create a resource group

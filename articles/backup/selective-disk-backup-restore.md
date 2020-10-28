@@ -3,13 +3,13 @@ title: Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 description: Questo articolo illustra come eseguire il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 1052e7e531f6762de660ba89e22c7fbb0d01f808
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628763"
+ms.locfileid: "92746978"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 

@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977936"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746224"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -123,7 +123,7 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
 È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Windows esistenti o in esecuzione in Azure usando il [modello di Resource Manager per crittografare una macchina virtuale Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
+1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure** .
 
 2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione, le impostazioni, i termini legali e il contratto. Fare clic su **Acquista** per abilitare la crittografia in una macchina IaaS esistente o in esecuzione.
 
@@ -135,7 +135,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi.|
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave, nel formato https:// &lt; chiave Vault-Name &gt; . Vault.Azure.NET/Key/ &lt; chiave-nome &gt; . Se non si vuole usare un KEK, lasciare vuoto questo campo. |
-| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
+| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_ , _Data_ e _All_ . 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
 | posizione | Posizione per tutte le risorse. |

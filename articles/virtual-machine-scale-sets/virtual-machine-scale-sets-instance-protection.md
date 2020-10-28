@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124058"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746805"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protezione delle istanze per il set di scalabilità di macchine virtuali di Azure
 
@@ -50,11 +50,11 @@ Esistono diversi modi per applicare la protezione dalla riduzione alle istanze d
 È possibile applicare la protezione dalla riduzione a un'istanza del set di scalabilità tramite il portale di Azure. Non è possibile modificare più di un'istanza alla volta. Ripetere questi passaggi per ogni istanza da proteggere.
  
 1. Passare a un set di scalabilità di macchine virtuali esistente.
-1. Selezionare **Istanze** dal menu a sinistra nelle **Impostazioni**.
+1. Selezionare **Istanze** dal menu a sinistra nelle **Impostazioni** .
 1. Selezionare il nome dell’istanza da proteggere.
-1. Selezionare la scheda **Criteri di protezione**.
-1. Nel pannello **Criteri di protezione** selezionare l'opzione **Proteggi da riduzione**.
-1. Selezionare **Salva**. 
+1. Selezionare la scheda **Criteri di protezione** .
+1. Nel pannello **Criteri di protezione** selezionare l'opzione **Proteggi da riduzione** .
+1. Selezionare **Salva** . 
 
 ### <a name="rest-api"></a>API REST
 
@@ -118,11 +118,11 @@ Esistono diversi modi per applicare la protezione dalle azioni del set di scalab
 È possibile applicare la protezione dalle azioni del set di scalabilità tramite il portale di Azure. Non è possibile modificare più di un'istanza alla volta. Ripetere questi passaggi per ogni istanza da proteggere.
  
 1. Passare a un set di scalabilità di macchine virtuali esistente.
-1. Selezionare **Istanze** dal menu a sinistra nelle **Impostazioni**.
+1. Selezionare **Istanze** dal menu a sinistra nelle **Impostazioni** .
 1. Selezionare il nome dell’istanza da proteggere.
-1. Selezionare la scheda **Criteri di protezione**.
-1. Nel pannello **Criteri di protezione** selezionare l'opzione **Proteggi dalle azioni del set di scalabilità**.
-1. Selezionare **Salva**. 
+1. Selezionare la scheda **Criteri di protezione** .
+1. Nel pannello **Criteri di protezione** selezionare l'opzione **Proteggi dalle azioni del set di scalabilità** .
+1. Selezionare **Salva** . 
 
 ### <a name="rest-api"></a>API REST
 

@@ -11,12 +11,13 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+- devx-track-azurecli
+ms.openlocfilehash: 3a75b3622ebc2085dac898e2a06e09f16466cbf5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547793"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746606"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 
@@ -286,7 +287,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), il te
 
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà segnalate sono un sottoparagrafo del dispositivo gemello usato con le [proprietà desiderate](#desired-properties) per sincronizzare la condizione o la configurazione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'[app per dispositivo](#device-app) e possono essere lette e sottoposte a query da un'[app back-end](#back-end-app).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 [Azure Resource Manager](#azure-resource-manager) usa i gruppi di risorse per raggruppare le risorse correlate. È possibile usare un gruppo di risorse per eseguire operazioni su tutte le risorse del gruppo contemporaneamente.
 

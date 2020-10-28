@@ -7,19 +7,19 @@ ms.service: iot-accelerators
 ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
-ms.custom: include file
-ms.openlocfilehash: a58e408feadd10e6dbc9d6878b82a4d045918ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 817c41a969f03ad04d372c516a16ef6b770f3e18
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68781464"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755486"
 ---
 ## <a name="access-the-virtual-machine"></a>Accesso alla macchina virtuale
 
 I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure Cloud Shell. Se si preferisce, è possibile [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure nel computer di sviluppo ed eseguire i comandi localmente.
 
-I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per consentire l'accesso **SSH**. I passaggi illustrati presuppongono che il nome scelto per l'acceleratore di soluzioni sia **contoso-simulation**. Sostituire questo valore con il nome della distribuzione:
+I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per consentire l'accesso **SSH** . I passaggi illustrati presuppongono che il nome scelto per l'acceleratore di soluzioni sia **contoso-simulation** . Sostituire questo valore con il nome della distribuzione:
 
 1. Elenca il contenuto del gruppo di risorse che contiene le risorse dell'acceleratore di soluzioni:
 
@@ -29,7 +29,7 @@ I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per 
 
     Prendere nota del nome della macchina virtuale, dell'indirizzo IP pubblico e del gruppo di sicurezza di rete. Questi valori saranno necessari in un momento successivo.
 
-1. Aggiornare il gruppo di sicurezza di rete per consentire l'accesso SSH. Il comando seguente presuppone che il nome del gruppo di sicurezza di rete sia **contoso-simulation-nsg**. Sostituire questo valore con il nome del gruppo di sicurezza di rete in uso:
+1. Aggiornare il gruppo di sicurezza di rete per consentire l'accesso SSH. Il comando seguente presuppone che il nome del gruppo di sicurezza di rete sia **contoso-simulation-nsg** . Sostituire questo valore con il nome del gruppo di sicurezza di rete in uso:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
@@ -43,7 +43,7 @@ I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per 
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
-1. Trovare l'indirizzo IP pubblico della macchina virtuale. Il comando seguente presuppone che il nome della macchina virtuale sia **vm-vikxv**. Sostituire questo valore con il nome della macchina virtuale annotato in precedenza:
+1. Trovare l'indirizzo IP pubblico della macchina virtuale. Il comando seguente presuppone che il nome della macchina virtuale sia **vm-vikxv** . Sostituire questo valore con il nome della macchina virtuale annotato in precedenza:
 
     ```azurecli-interactive
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
